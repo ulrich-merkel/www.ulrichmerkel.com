@@ -1,0 +1,104 @@
+////
+/// Layout print
+///
+/// @group layouts
+/// @author Ulrich Merkel
+////
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    @media print {
+
+        // ----------------------------
+        // basic print setup
+        // ----------------------------
+        @page {
+            margin: 0.5cm;
+        }
+
+        * {
+            // Black prints faster: sanbeiji.com/archives/953
+            border-color: $config-color-black !important;
+            color: $config-color-black !important;
+            text-shadow: none !important;
+            background: transparent !important;
+            -ms-filter: none !important;
+            filter: none !important;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        p {
+            a {
+                &,
+                &:visited {
+                    color: $config-color-grey !important;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        // print title attributes
+        abbr {
+            &[title] {
+                &::after {
+                    /* stylelint-disable function-whitespace-after */
+                    content: ' ('attr(title)') ';
+                    /* stylelint-enable function-whitespace-after */
+                }
+            }
+        }
+
+        // don't show links for images, or javascript/internal links
+        .ir a,
+        [href^='javascript:'],
+        [href^='#'] {
+            &::after {
+                content: '';
+            }
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid $config-color-grey;
+            page-break-inside: avoid;
+        }
+
+        // css-discuss.incutio.com/wiki/Printing_Tables
+        thead {
+            display: table-header-group;
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+
+        .hide-on-print {
+            display: none;
+            visibility: hidden;
+        }
+
+        // ----------------------------
+        // page setup
+        // ----------------------------
+        body {
+            width: 900px;
+        }
+
+    }
+
+}

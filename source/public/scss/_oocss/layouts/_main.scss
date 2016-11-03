@@ -1,0 +1,60 @@
+////
+/// Layout main
+///
+/// @group layouts
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}l-main';
+$animation-offset: 25px;
+$animation-time: 0.75s;
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    // .#{$block} {
+    //     @include breakpoint($config-grid--breakpoint-xsmall) {
+    //         padding-top: $config-layout-header-height;
+    //     }
+    // }
+
+    .js {
+        .#{$block}__transition {
+            position: relative;
+            z-index: 1;
+
+            .animate-enter {
+                opacity: 0;
+                transform: translateY($animation-offset * -1);
+
+                &.animate-enter-active {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: $animation-time;
+                }
+            }
+
+            .animate-leave {
+                opacity: 1;
+                transform: translateY(0);
+
+                &.animate-leave-active {
+                    opacity: 0;
+                    transform: translateY($animation-offset);
+                    transition: $animation-time;
+                }
+            }
+
+            .animate-appear {
+                opacity: 0;
+                transform: translateY(-50px);
+
+                &.animate-appear-active {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: $animation-time;
+                }
+            }
+        }
+    }
+}

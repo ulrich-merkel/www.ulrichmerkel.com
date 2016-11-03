@@ -1,0 +1,19 @@
+exports[`component/element/button-group Snapshot should render correctly 1`] = `
+<div
+  className="m-form__group">
+  <button
+    className="c-btn m-form__btn foo c-btn--primary is-disabled"
+    disabled="disabled"
+    id="foo"
+    name="bar"
+    role="button"
+    title=""
+    to={undefined}
+    type="submit">
+    <span
+      className="c-btn__label">
+      test
+    </span>
+  </button>
+</div>
+`;

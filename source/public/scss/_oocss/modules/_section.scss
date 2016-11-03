@@ -1,0 +1,20 @@
+////
+/// Module section
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-section';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        display: block;
+    }
+
+}

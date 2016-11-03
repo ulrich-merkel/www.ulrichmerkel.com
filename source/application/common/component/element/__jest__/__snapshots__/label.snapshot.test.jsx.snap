@@ -1,0 +1,7 @@
+exports[`component/element/label Snapshot should render correctly 1`] = `
+<label
+  className="m-form__label foo"
+  htmlFor="bar">
+  Hello
+</label>
+`;

@@ -1,0 +1,7 @@
+exports[`component/module/menu Snapshot should render correctly 1`] = `
+<span
+  className="m-menu m-menu--bar foo"
+  itemScope={true}
+  itemType="https://schema.org/ItemList"
+  role="menu" />
+`;

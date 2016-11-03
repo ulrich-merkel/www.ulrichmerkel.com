@@ -1,0 +1,58 @@
+////
+/// Layout header
+///
+/// @group layouts
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}l-header';
+
+// above the fold css, visible without scrolling
+@if ($config-critical-css) {
+
+    .#{$block} {
+        position: relative;
+        z-index: 2;
+        background: $config-color-blue--2;
+
+        &.is-fixed {
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                position: fixed;
+                z-index: 10;
+                top: -$config-layout-header-height;
+                right: 0;
+                left: 0;
+
+                will-change: top;
+                transition: top $config-transition-arguments-slow;
+            }
+
+            + .l-main {
+                @include breakpoint($config-grid--breakpoint-xsmall) {
+                    padding-top: $config-layout-header-height;
+                }
+            }
+        }
+
+        &.is-visible {
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                top: 0;
+            }
+        }
+
+        .m-progress {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 2;
+        }
+    }
+
+    @media print {
+        .#{$block} {
+            display: none;
+        }
+    }
+
+}

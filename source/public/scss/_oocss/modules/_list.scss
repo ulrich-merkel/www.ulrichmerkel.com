@@ -1,0 +1,72 @@
+////
+/// Module list
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-list';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        @include clearfix;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .#{$block}--broadcast {
+        margin-bottom: rem-calc($config-grid--gutter * 3);
+
+        .#{$block}__alt-headline {
+            margin-bottom: 1rem;
+        }
+
+        .#{$block} {
+            margin-bottom: rem-calc($config-grid--gutter * 2);
+            list-style: disc;
+            list-style-position: inside;
+        }
+
+        .#{$block}__item {
+
+            // just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &,
+                .no-touchevents &,
+                .no-js & {
+                    a {
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    .#{$block}--reading {
+        width: 100%;
+        margin: 0 0 rem-calc($config-grid--gutter * 3);
+        padding: 0;
+        list-style: none;
+        text-align: left;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: center;
+        }
+    }
+
+    @media print {
+        .#{$block}--reading {
+            text-align: left;
+        }
+    }
+}

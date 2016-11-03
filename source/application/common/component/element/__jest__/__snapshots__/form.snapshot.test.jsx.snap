@@ -1,0 +1,18 @@
+exports[`component/element/form Snapshot should render correctly 1`] = `
+<form
+  acceptCharset="utf-8"
+  action="test"
+  className="m-form--contact foo"
+  data-test="bar"
+  id="bar"
+  itemProp="potentialAction"
+  itemScope={true}
+  itemType="http://schema.org/CommunicateAction"
+  method="post"
+  noValidate={true}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  role="form">
+  Hello
+</form>
+`;

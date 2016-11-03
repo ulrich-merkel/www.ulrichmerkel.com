@@ -1,0 +1,282 @@
+////
+/// Module menu
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-menu';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'],
+    [role='menu'],
+    [role='menu'],
+    [role='group'],
+    [role='group'] {
+        @include clearfix;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .#{$block}__list-item {
+        margin: 0;
+        padding: 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            float: left;
+        }
+    }
+
+    .#{$block}__item {
+        display: block;
+        text-align: left;
+    }
+
+    .#{$block}__label {
+        &.is-visually-hidden {
+            @include is-visually-hidden;
+        }
+    }
+
+    // menu main
+    .#{$block}--main {
+        @include clearfix;
+        margin-bottom: 0;
+
+        .#{$block}__list-item {
+            position: relative;
+        }
+
+        .#{$block}__item {
+            display: block;
+            padding: rem-calc($config-type-scale-11) rem-calc($config-type-scale-12) rem-calc($config-type-scale-10);
+            color: $config-color-white;
+            background: $config-color-blue--2;
+
+            will-change: background, color;
+            transition: background $config-transition-arguments, color $config-transition-arguments;
+
+            &.is-active {
+                color: $config-color-white;
+                background: $config-color-blue--1;
+            }
+
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    color: $config-color-white;
+                    background: $config-color-blue--1;
+                }
+            }
+
+        }
+
+    }
+
+    .#{$block}--language {
+        @include clearfix;
+        position: absolute;
+        top: rem-calc($config-type-scale-5);
+        right: rem-calc($config-type-scale-5);
+        margin-bottom: 0;
+
+        .no-js &,
+        &.is-hidden {
+            display: none;
+        }
+
+        .#{$block}__list-item {
+            position: relative;
+        }
+
+        .#{$block}__item {
+            display: block;
+            padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
+            color: $config-color-white;
+
+            will-change: color;
+            transition: color $config-transition-arguments;
+
+            &::after {
+                @include breakpoint($config-grid--breakpoint-xsmall) {
+                    position: relative;
+                    top: 7px;
+                    content: ' ';
+                    display: block;
+                    margin: 0 auto;
+                    width: 0;
+                    height: 0;
+                    border-top: 1px solid $config-color-white;
+
+                    will-change: width;
+                    transition: width $config-transition-arguments;
+                }
+            }
+
+            &.is-active {
+                color: $config-color-white;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    color: $config-color-white;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    // menu main
+    .#{$block}--search {
+        @include clearfix;
+
+        .#{$block}__list-item {
+            position: relative;
+            float: none;
+            clear: both;
+        }
+
+        .#{$block}__item {
+            display: block;
+            padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
+            color: $config-color-white;
+
+        }
+    }
+
+    // menu footer
+    .#{$block}--imprint,
+    .#{$block}--social {
+        text-align: left;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: center;
+        }
+
+        .#{$block}__list-item {
+            float: none;
+            clear: both;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                display: inline-block;
+            }
+
+        }
+
+        .#{$block}__item {
+            padding: rem-calc($config-type-scale-4) rem-calc($config-type-scale-10) rem-calc($config-type-scale-4) 0;
+            color: $config-color-grey--4;
+            text-align: left;
+            font-size: 90%;
+
+            &.is-active {
+                color: $config-color-blue--1;
+            }
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                padding: rem-calc($config-type-scale-1) rem-calc($config-type-scale-10);
+                text-align: center;
+            }
+
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    color: $config-color-blue--1;
+                }
+            }
+        }
+    }
+
+    .#{$block}--imprint {
+        margin: 0 0 rem-calc($config-grid--gutter);
+
+        .#{$block}__item {
+            &::after {
+                @include breakpoint($config-grid--breakpoint-xsmall) {
+                    position: relative;
+                    top: 7px;
+                    content: ' ';
+                    display: block;
+                    margin: 0 auto;
+                    width: 0;
+                    height: 0;
+                    border-top: 1px solid $config-color-blue--1;
+
+                    will-change: width;
+                    transition: width $config-transition-arguments;
+                }
+            }
+
+            &.is-active {
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$block}--social {
+        margin: 0 0 rem-calc($config-grid--gutter);
+
+        .#{$block}__item {
+            position: relative;
+            padding: rem-calc($config-type-scale-8) 0 0;
+            font-size: 150%;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                padding: rem-calc($config-type-scale-1) rem-calc($config-grid--gutter);
+            }
+
+        }
+
+        i {
+            &[class^='c-font-icon--'],
+            &[class*=' c-font-icon--'] {
+                display: block;
+
+                &::before {
+                    margin-right: 0;
+                }
+            }
+        }
+
+    }
+
+}

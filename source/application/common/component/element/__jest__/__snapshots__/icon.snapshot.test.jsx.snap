@@ -1,0 +1,5 @@
+exports[`component/element/icon Snapshot should render correctly 1`] = `
+<span
+  aria-hidden="true"
+  className="c-font-icon--foo foo" />
+`;

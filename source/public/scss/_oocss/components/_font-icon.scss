@@ -1,0 +1,178 @@
+////
+/// Component font icons
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+// @see https://icomoon.io/app/
+
+$fonticons: '#{$config-base-url-fonts}icomoon/icomoon';
+$block: '#{$config-ns}c-font-icon';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    /* stylelint-disable declaration-colon-newline-after */
+    @font-face {
+        font-family: 'fonticons';
+        src: url('#{$fonticons}.eot?41546266');
+        src: url('#{$fonticons}.eot?41546266#iefix') format('embedded-opentype'),
+            url('#{$fonticons}.woff?41546266') format('woff'),
+            url('#{$fonticons}.ttf?41546266') format('truetype'),
+            url('#{$fonticons}.svg?41546266#fonticons') format('svg');
+        font-weight: $config-font-weight-normal;
+        font-style: normal;
+    }
+    /* stylelint-enable declaration-colon-newline-after */
+
+    [class^='#{$block}--']::before,
+    [class*=' #{$block}--']::before {
+        display: inline-block;
+        width: 1em;
+        vertical-align: baseline;
+        font-family: 'fonticons';
+        font-weight: $config-font-weight-normal;
+        font-style: normal;
+
+        // for safety - reset parent styles, that can break glyph codes
+        font-variant: normal;
+
+        // fix buttons height, for twitter bootstrap
+        line-height: 1em;
+
+        text-align: center;
+        text-decoration: inherit;
+        text-transform: none;
+        speak: none;
+
+        // Better Font Rendering
+        @if ($config-support-prefix-webkit) {
+            -webkit-font-smoothing: antialiased;
+        }
+        @if ($config-support-prefix-moz) {
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+
+    i {
+        &[class^='#{$block}--']::before,
+        &[class*=' #{$block}--']::before {
+            margin-right: 0.3rem;
+        }
+    }
+
+    // @TODO: remove unused and rename (e.g. facebook2 to facebook)!
+    .#{$block}--skill-html::before {
+        content: '\e900';
+    }
+    .#{$block}--skill-php::before {
+        content: '\e904';
+    }
+    .#{$block}--skill-javascript::before {
+        content: '\e905';
+    }
+    .#{$block}--skill-css::before {
+        content: '\e908';
+    }
+    .#{$block}--chevron-down::before {
+        content: '\e609';
+    }
+    .#{$block}--chevron-left::before {
+        content: '\e60a';
+    }
+    .#{$block}--chevron-right::before {
+        content: '\e60b';
+    }
+    .#{$block}--chevron-thin-down::before {
+        content: '\e605';
+    }
+    .#{$block}--chevron-thin-left::before {
+        content: '\e606';
+    }
+    .#{$block}--chevron-thin-right::before {
+        content: '\e607';
+    }
+    .#{$block}--chevron-thin-up::before {
+        content: '\e608';
+    }
+    .#{$block}--chevron-up::before {
+        content: '\e60c';
+    }
+    .#{$block}--phone::before {
+        content: '\e942';
+    }
+    .#{$block}--earth::before {
+        content: '\e9ca';
+    }
+    .#{$block}--heart::before {
+        content: '\e9da';
+    }
+    .#{$block}--happy::before {
+        content: '\e9df';
+    }
+    .#{$block}--warning::before {
+        content: '\ea07';
+    }
+    .#{$block}--google-plus::before {
+        content: '\ea89';
+    }
+    .#{$block}--facebook::before {
+        content: '\ea8d';
+    }
+    .#{$block}--twitter::before {
+        content: '\ea92';
+    }
+    .#{$block}--feed::before {
+        content: '\ea95';
+    }
+    .#{$block}--facebook2::before {
+        content: '\e600';
+    }
+    .#{$block}--github::before {
+        content: '\e601';
+    }
+    .#{$block}--delicious::before {
+        content: '\e602';
+    }
+    .#{$block}--stackoverflow::before {
+        content: '\e603';
+    }
+    .#{$block}--xing::before {
+        content: '\e604';
+    }
+    .#{$block}--book::before {
+        content: '\e901';
+    }
+    .#{$block}--magic-wand::before {
+        content: '\e902';
+    }
+    .#{$block}--stats-dots2::before {
+        content: '\e903';
+    }
+    .#{$block}--lab::before {
+        content: '\e906';
+    }
+    .#{$block}--menu::before {
+        content: '\e909';
+    }
+    .#{$block}--smile::before {
+        content: '\e9e1';
+    }
+    .#{$block}--sad::before {
+        content: '\e9e5';
+    }
+    .#{$block}--check::before {
+        content: '\f00c';
+    }
+    .#{$block}--close::before {
+        content: '\f00d';
+    }
+    .#{$block}--plus::before {
+        content: '\f067';
+    }
+    .#{$block}--minus::before {
+        content: '\f068';
+    }
+
+}

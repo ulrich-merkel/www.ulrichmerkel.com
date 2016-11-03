@@ -1,0 +1,13 @@
+////
+/// Mixin strip unit
+///
+/// @group mixin
+/// @author Ulrich Merkel
+////
+
+/// It strips the unit of measure and returns it
+/// @see http://foundation.zurb.com/sites/docs/v/5.5.3/components/sass.html
+/// @param {string|number} $num
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}

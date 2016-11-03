@@ -1,0 +1,36 @@
+////
+/// Module person
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-person';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        margin: 0 auto rem-calc($config-grid--gutter);
+    }
+
+    .#{$block}__street-address,
+    .#{$block}__email,
+    .#{$block}__phone,
+    .#{$block}__website {
+        display: block;
+    }
+
+    .#{$block}__postal-code,
+    .#{$block}__locality {
+        display: inline-block;
+    }
+
+    .#{$block}__postal-code {
+        margin-right: 4px;
+    }
+
+}

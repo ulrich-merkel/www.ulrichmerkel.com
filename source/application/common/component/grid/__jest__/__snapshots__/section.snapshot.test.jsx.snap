@@ -1,0 +1,6 @@
+exports[`component/grid/section Snapshot should render correctly 1`] = `
+<section
+  className="l-grid m-section">
+  Hello
+</section>
+`;

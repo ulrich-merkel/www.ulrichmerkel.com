@@ -1,0 +1,44 @@
+////
+/// Module article
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-article';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        margin: 0 auto rem-calc($config-grid--gutter * 4);
+
+        &.is-main {
+            margin-top: rem-calc($config-grid--gutter * 3);
+        }
+
+        &.has-no-margin {
+            margin: 0 auto;
+
+            .#{$block}__text {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .#{$block}__lead {
+        margin-bottom: rem-calc(24);
+    }
+
+    .#{$block}__text {
+        margin-bottom: rem-calc(48);
+    }
+
+    .#{$block}__button {
+        margin-bottom: rem-calc(24);
+    }
+
+}

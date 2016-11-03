@@ -1,0 +1,72 @@
+exports[`component/module/reading Snapshot should render correctly 1`] = `
+<menu
+  className="m-list--reading m-reading foo"
+  isCentered={true}
+  itemScope={true}
+  itemType="https://schema.org/ItemList"
+  role="list">
+  <li
+    className="m-list__item"
+    itemProp="itemListElement"
+    itemScope={true}
+    itemType="https://schema.org/Book">
+    <div
+      className="c-reading">
+      <h3
+        className="is-centered c-type--h3 c-reading__name"
+        itemProp="name">
+        headline
+      </h3>
+      <p
+        className="c-type--p c-reading__description"
+        itemProp="alternateName">
+        lead
+      </p>
+      <small
+        className="c-type--small c-reading__source"
+        itemProp="creator">
+        <span
+          className="c-reading__source-creator">
+          creator
+        </span>
+        <em
+          className="c-reading__source-publisher">
+          publisher
+        </em>
+      </small>
+    </div>
+  </li>
+  <li
+    className="m-list__item"
+    itemProp="itemListElement"
+    itemScope={true}
+    itemType="https://schema.org/Book">
+    <div
+      className="c-reading">
+      <h3
+        className="is-centered c-type--h3 c-reading__name"
+        itemProp="name">
+        headline
+      </h3>
+      <p
+        className="c-type--p c-reading__description"
+        itemProp="alternateName">
+        lead
+      </p>
+      <small
+        className="c-type--small c-reading__source"
+        itemProp="creator">
+        <span
+          className="c-reading__source-creator">
+          creator
+        </span>
+        <em
+          className="c-reading__source-publisher">
+          publisher
+        </em>
+      </small>
+    </div>
+  </li>
+  Hello
+</menu>
+`;

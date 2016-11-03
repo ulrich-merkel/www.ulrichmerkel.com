@@ -1,0 +1,14 @@
+exports[`component/element/input Snapshot should render correctly 1`] = `
+<input
+  aria-required={true}
+  className="m-form__control--text foo"
+  classNameLabel="test"
+  id="foo"
+  name="bar"
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholder="Test placeholder"
+  required={true}
+  type="text"
+  value="4" />
+`;

@@ -1,0 +1,19 @@
+////
+/// Component time
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-time';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        font-weight: $config-font-weight-light;
+    }
+
+}

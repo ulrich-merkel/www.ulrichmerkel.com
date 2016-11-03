@@ -1,0 +1,64 @@
+////
+/// Config scss includes.
+///
+/// @group configs
+/// @author Ulrich Merkel
+////
+
+// mixins
+@import '../mixins/clearfix';
+@import '../mixins/typo';
+@import '../mixins/breakpoint';
+@import '../mixins/is-visually-hidden';
+@import '../mixins/strip-unit';
+@import '../mixins/rem-calc';
+@import '../mixins/vertical-center';
+
+// base styles
+@import '../base/viewport';
+@import '../base/reset';
+@import '../base/type';
+@import '../base/link';
+@import '../base/button';
+@import '../base/img';
+
+// components
+@import '../components/type';
+@import '../components/btn';
+@import '../components/picture';
+@import '../components/font-icon';
+@import '../components/flip';
+@import '../components/reading';
+@import '../components/box';
+@import '../components/pie';
+@import '../components/time';
+
+// libs
+
+// modules
+@import '../modules/menu';
+@import '../modules/progress';
+@import '../modules/nav';
+@import '../modules/section';
+@import '../modules/article';
+@import '../modules/featured';
+@import '../modules/key-visual';
+@import '../modules/cornerstone';
+@import '../modules/service';
+@import '../modules/form';
+@import '../modules/list';
+@import '../modules/work';
+@import '../modules/text';
+@import '../modules/broadcast';
+@import '../modules/person';
+@import '../modules/language';
+
+// layouts
+@import '../layouts/react';
+@import '../layouts/dialog';
+@import '../layouts/grid';
+@import '../layouts/header';
+@import '../layouts/main';
+@import '../layouts/footer';
+@import '../layouts/search';
+@import '../layouts/print';

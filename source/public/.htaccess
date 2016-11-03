@@ -1,0 +1,11 @@
+#AuthType Basic
+#AuthName "Geheimer Bereich"
+#AuthUserFile /var/www/virtual/merkel/.htuser
+#Require valid-user
+
+RewriteEngine On
+#RewriteRule (.*) http://localhost:62608/$1 [P]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+RewriteRule (.*) http://localhost:62608/$1 [P]

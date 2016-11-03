@@ -1,0 +1,35 @@
+////
+/// Component picture
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-picture';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        display: block;
+    }
+
+    .#{$block}__source {
+        display: none;
+    }
+
+    .#{$block}__img {
+        display: block;
+    }
+
+    .#{$block}--full-width {
+        .#{$block}__img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}

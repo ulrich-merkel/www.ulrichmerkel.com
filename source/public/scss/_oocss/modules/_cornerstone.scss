@@ -1,0 +1,258 @@
+////
+/// Module cornerstone
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: 'm-cornerstone';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    .#{$block} {
+        position: relative;
+        z-index: 2;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            z-index: 1;
+            content: ' ';
+            width: 0;
+            height: 100%;
+            border-right: 1px solid $config-color-black;
+        }
+    }
+
+    .#{$block}__item,
+    [class^='#{$block}__item--'],
+    [class*=' #{$block}__item--'] {
+        position: relative;
+        z-index: 2;
+        display: list-item;
+        width: 100%;
+        margin-bottom: rem-calc($config-type-scale-11);
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            width: 50%;
+
+            &.has-offset--50 {
+                margin-top: rem-calc(50);
+            }
+
+            &.has-offset--100 {
+                margin-top: rem-calc(100);
+            }
+
+            &.has-offset--150 {
+                margin-top: rem-calc(150);
+            }
+
+            &.has-offset--200 {
+                margin-top: rem-calc(200);
+            }
+        }
+    }
+
+    .#{$block}__item--right,
+    .#{$block}__item--left {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            &:hover {
+                .#{$block}__description-content {
+                    background: $config-color-grey;
+                }
+
+                .#{$block}__bubble {
+                    background: $config-color-red;
+                }
+            }
+        }
+    }
+
+    .#{$block}__item--right {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            clear: right;
+            float: right;
+
+            .#{$block}__description {
+                padding-left: rem-calc($config-type-scale-11);
+            }
+
+            .#{$block}__headline,
+            .#{$block}__company,
+            .#{$block}__text {
+                text-align: left;
+            }
+
+            .#{$block}__bubble {
+                left: -7px;
+            }
+        }
+
+    }
+
+    .#{$block}__item--left {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            clear: left;
+            float: left;
+
+            .#{$block}__description {
+                padding-right: rem-calc($config-type-scale-11);
+            }
+
+            .#{$block}__headline,
+            .#{$block}__company,
+            .#{$block}__time,
+            .#{$block}__text {
+                text-align: right;
+            }
+
+            .#{$block}__bubble {
+                right: -8px;
+            }
+        }
+    }
+
+    .#{$block}__item--start {
+        float: none;
+        clear: both;
+        width: 100%;
+        margin: 0;
+        padding-top: rem-calc($config-type-scale-11);
+        text-align: center;
+
+        .#{$block}__bubble {
+            display: inline-block;
+            top: -23px;
+            width: rem-calc($config-type-scale-11);
+            height: rem-calc($config-type-scale-11);
+            margin-left: rem-calc($config-type-scale-11 * -1);
+            padding: rem-calc($config-type-scale-5);
+            background: $config-color-black;
+            border: 2px solid $config-color-white;
+            border-radius: 50%;
+            color: $config-color-white;
+        }
+
+    }
+
+    .#{$block}__item--center {
+        float: none;
+        clear: both;
+        width: 100%;
+        text-align: center;
+
+        .#{$block}__headline {
+            display: inline-block;
+            padding: rem-calc($config-type-scale-3);
+            background: $config-color-grey;
+        }
+    }
+
+    .#{$block}__description {
+        position: relative;
+        display: block;
+    }
+
+    .#{$block}__description-content {
+        position: relative;
+        display: block;
+        padding: rem-calc($config-type-scale-5);
+        background: $config-color-grey;
+
+        will-change: background, color;
+        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            background: transparent;
+        }
+    }
+
+    .#{$block}__headline,
+    .#{$block}__company,
+    .#{$block}__time,
+    .#{$block}__text {
+        display: block;
+        text-align: left;
+    }
+
+    .#{$block}__headline {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-transform: capitalize;
+    }
+
+    .#{$block}__company {
+        margin-bottom: rem-calc($config-type-scale-2);
+    }
+
+    .#{$block}__time {
+        margin-bottom: rem-calc($config-type-scale-5);
+        font-size: 80%;
+    }
+
+    .#{$block}__text {
+        font-size: 90%;
+    }
+
+    .#{$block}__bubble {
+        position: absolute;
+        z-index: 3;
+        display: none;
+        top: rem-calc($config-type-scale-8);
+        width: rem-calc($config-type-scale-6);
+        height: rem-calc($config-type-scale-6);
+        background: $config-color-black;
+        border: 2px solid $config-color-white;
+        border-radius: 50%;
+
+        will-change: background, color;
+        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            display: block;
+        }
+    }
+
+    @media print {
+        .#{$block} {
+            &::after {
+                display: none;
+            }
+        }
+
+        .#{$block}__item,
+        [class^='#{$block}__item--'],
+        [class*=' #{$block}__item--'] {
+            float: none;
+            clear: both;
+            text-align: left;
+        }
+
+        .#{$block}__item--start {
+            display: none;
+        }
+
+        .#{$block}__item--center {
+            .#{$block}__headline {
+                padding-left: 0;
+            }
+        }
+
+        .#{$block}__description-content {
+            padding-left: 0;
+        }
+
+    }
+}

@@ -1,0 +1,212 @@
+////
+/// Layout dialog
+///
+/// @group layouts
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}l-dialog';
+
+// below the fold css, could be lazy loaded
+@if ($config-critical-css) {
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        background: transparent;
+        contain: layout;
+
+        will-change: opacity;
+        transition: opacity $config-transition-arguments-slow;
+    }
+
+    .#{$block}__content {
+        position: relative;
+        z-index: 11;
+        padding-top: rem-calc(100);
+
+        .m-article__headline,
+        .m-article__alt-headline,
+        .m-article__lead,
+        .m-article__text {
+            color: $config-color-white;
+        }
+
+    }
+
+    .#{$block}__background {
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: $config-color-blue--2;
+        opacity: 0.95;
+    }
+
+    .#{$block}__button--close {
+        position: absolute !important;
+        z-index: 12;
+        top: 0;
+        right: 0;
+        width: rem-calc($config-grid--gutter * 2);
+        height: rem-calc($config-grid--gutter * 2);
+        padding: 9px 0 0 6px !important;
+        background: $config-color-blue--1;
+        color: $config-color-white;
+        font-size: 130%;
+        line-height: 2.5;
+        text-align: center;
+        letter-spacing: normal;
+
+        &:focus {
+            color: $config-color-white;
+        }
+
+        &:visited {
+            color: $config-color-white;
+        }
+
+        &::before {
+            position: relative;
+            top: -4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            display: block;
+        }
+    }
+
+    .#{$block}--loading {
+        z-index: 1000;
+        perspective: 800px;
+
+        .#{$block}__content {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .#{$block}__background {
+            opacity: 1;
+        }
+
+    }
+
+}
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    @keyframes anim-open {
+        0% {
+            opacity: 0;
+            transform: scale3d(1.1, 1.1, 1);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    @keyframes anim-close {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale3d(0.9, 0.9, 1);
+        }
+    }
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+
+        &.animate-enter {
+            visibility: visible;
+
+            &.animate-enter-active {
+                animation-name: anim-open;
+            }
+        }
+
+        &.animate-leave {
+            &.animate-leave-active {
+                animation-name: anim-close;
+            }
+        }
+
+        &.animate-appear {
+            visibility: visible;
+
+            &.animate-appear-active {
+                animation-name: anim-open;
+            }
+        }
+    }
+
+    .#{$block}--loading {
+        display: none !important;
+    }
+
+    .#{$block} {
+        .m-article--broadcast {
+            margin-top: 0;
+
+            a.c-btn {
+                display: none;
+            }
+        }
+
+        .m-list--broadcast {
+            .m-list__item {
+
+                // just show hover for non-touch devices
+                @if ($config-support-hovers) {
+                    .no-touch &,
+                    .no-touchevents &,
+                    .no-js & {
+                        a {
+                            &:hover {
+                                color: $config-color-white;
+                            }
+                        }
+                    }
+                }
+
+            }
+            .m-list__alt-headline {
+                color: $config-color-white;
+            }
+        }
+    }
+}

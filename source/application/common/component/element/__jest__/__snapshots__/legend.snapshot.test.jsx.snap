@@ -1,0 +1,6 @@
+exports[`component/element/legend Snapshot should render correctly 1`] = `
+<legend
+  className="m-form__legend foo">
+  Hello
+</legend>
+`;

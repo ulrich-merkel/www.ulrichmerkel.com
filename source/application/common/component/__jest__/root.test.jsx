@@ -1,0 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies, func-names*/
+/* global describe, it, expect */
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Root from './../root';
+import configureStore from './../../state/configure-store';
+
+describe('components', function () {
+    describe('<Root />', function () {
+        it('renders correctly', function () {
+            var tree = renderer.create(<Root store={configureStore()}><div /></Root>).toJSON();
+            expect(tree).toMatchSnapshot();
+        });
+    });
+});

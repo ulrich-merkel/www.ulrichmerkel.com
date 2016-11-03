@@ -1,0 +1,267 @@
+////
+/// Module form
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-form';
+
+// error animation
+@mixin shake {
+    @keyframes shake {
+        0%,
+        100% {
+            transform: translate(0, 0);
+        }
+
+        20%,
+        60% {
+            transform: translate(-5px, 0);
+        }
+
+        40%,
+        80% {
+            transform: translate(5px, 0);
+        }
+    }
+}
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    @include shake;
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            .l-grid__row {
+                width: auto;
+                margin-right: rem-calc($config-type-scale-11 * -1);
+                margin-left: rem-calc($config-type-scale-11 * -1);
+
+            }
+
+            .l-grid__col--6,
+            .l-grid__col--12 {
+                padding-right: rem-calc($config-type-scale-11);
+                padding-left: rem-calc($config-type-scale-11);
+                box-sizing: border-box;
+            }
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            font-family: inherit;
+            font-style: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        textarea,
+        select {
+            border-radius: 0;
+            appearance: none;
+        }
+
+        textarea {
+            overflow: auto;
+            height: auto;
+            vertical-align: top;
+            resize: vertical;
+            min-height: 200px;
+        }
+    }
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'],
+    .#{$block}__fieldset,
+    .#{$block}__legend,
+    .#{$block}__label {
+        margin: 0;
+        padding: 0;
+    }
+
+    .#{$block}__group,
+    [class^='#{$block}__group--'],
+    [class*=' #{$block}__group--'] {
+        position: relative;
+        display: block;
+        margin-bottom: rem-calc($config-type-scale-13);
+    }
+
+    // honeypot field
+    .#{$block}__group--website {
+        display: none;
+    }
+
+    .#{$block}__group--reset {
+        text-align: left;
+    }
+
+    .#{$block}__group--submit {
+        text-align: left;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: right;
+        }
+    }
+
+    .#{$block}__label {
+        position: absolute;
+        top: rem-calc($config-type-scale-7);
+        left: 0;
+        width: 100%;
+        color: $config-color-blue--1;
+        cursor: pointer;
+
+        will-change: top, color;
+        transition: top $config-transition-arguments, color $config-transition-arguments;
+
+        &:focus {
+            top: rem-calc($config-type-scale-7 * -1);
+            color: $config-color-grey--4;
+        }
+
+    }
+
+    .#{$block}__label__icon,
+    [class^='#{$block}__label__icon--'],
+    [class*=' #{$block}__label__icon--'] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+    }
+
+    .#{$block}__control,
+    [class^='#{$block}__control--'],
+    [class*=' #{$block}__control--'] {
+        width: 100%;
+        padding: 12px 10px 12px 0;
+        color: $config-font-color;
+        box-sizing: border-box;
+        border: 0;
+        border-bottom: 1px solid $config-color-grey;
+        font-size: inherit;
+
+        will-change: border, color;
+        transition: border $config-transition-arguments, color $config-transition-arguments;
+
+        &.is-pristine,
+        &:focus,
+        &:valid {
+            + .#{$block}__label {
+                top: rem-calc($config-type-scale-7 * -1);
+                color: $config-color-grey--4;
+            }
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $config-color-blue--1;
+        }
+
+        &.#{$config-ns}is-invalid {
+            border-color: $config-color-red;
+            animation: shake 0.3s;
+        }
+    }
+
+    .#{$block}__control--text {
+        border-radius: 0;
+        appearance: none;
+
+        // remove extra padding around input text in ff (since ff13)
+        @if ($config-support-prefix-moz) {
+            &::-moz-focus-inner {
+                padding: 0;
+                border: 0;
+            }
+        }
+    }
+
+    .#{$block}__control--select,
+    .#{$block}__control--textarea {
+        border-radius: 0;
+        appearance: none;
+    }
+
+    .#{$block}__control--textarea {
+        overflow: auto;
+        height: auto;
+        vertical-align: top;
+        resize: vertical;
+        min-height: 200px;
+    }
+
+    .#{$block}__btn {
+        cursor: pointer;
+        appearance: button;
+    }
+
+    // ----------------------------
+    // success feedback
+    // ----------------------------
+
+    .#{$config-ns}is-valid {
+
+        .#{$block}__label__icon--error {
+            display: none;
+        }
+
+        .#{$block}__label__icon--success {
+            display: block;
+        }
+
+        .#{$block}__label,
+        .#{$block}__control--text,
+        .#{$block}__control--select,
+        .#{$block}__control--textarea {
+            border-color: $config-color-green;
+        }
+
+        .#{$block}__label {
+            color: $config-color-green;
+        }
+
+    }
+
+    // ----------------------------
+    // error feedback
+    // ----------------------------
+
+    .#{$config-ns}has-error {
+
+        .#{$block}__label__icon--error {
+            display: block;
+        }
+
+        .#{$block}__label__icon--success {
+            display: none;
+        }
+
+        .#{$block}__label,
+        .#{$block}__control--text,
+        .#{$block}__control--select,
+        .#{$block}__control--textarea {
+            border-color: $config-color-red;
+            animation: shake 0.3s;
+        }
+
+        .#{$block}__label__icon--error,
+        .#{$block}__label {
+            // important due to css pristine floating labels
+            color: $config-color-red;
+        }
+
+    }
+
+}

@@ -1,0 +1,144 @@
+////
+/// Module service
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-service';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    .#{$block} {
+        position: relative;
+        z-index: 2;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .#{$block}__item--right,
+    .#{$block}__item--left {
+        width: 100%;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            width: 50%;
+        }
+    }
+
+    .#{$block}__item--clear {
+        @include clearfix;
+    }
+
+    .#{$block}__content {
+        max-width: 400px;
+    }
+
+    .#{$block}__description,
+    .#{$block}__icon {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .#{$block}__description {
+        width: 100%;
+        max-width: calc(100% - 75px);
+    }
+
+    .#{$block}__icon {
+        width: 50px;
+        height: 50px;
+        margin-right: rem-calc($config-grid--gutter);
+        background: $config-color-red;
+        color: $config-color-white;
+        text-align: center;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            margin-right: 0;
+        }
+    }
+
+    .#{$block}__icon-font {
+        @include font-size($config-type-scale-12);
+        position: relative;
+        top: 13px;
+        display: block;
+
+        &::before {
+            margin-right: 0 !important;
+        }
+
+        &.c-font-icon--skill-html,
+        &.c-font-icon--skill-css,
+        &.c-font-icon--skill-javascript,
+        &.c-font-icon--skill-php {
+            @include font-size(30);
+            top: 10px;
+        }
+    }
+
+    .#{$block}__headline {
+        margin-top: 0;
+    }
+
+    .#{$block}__text {
+        font-size: 90%;
+    }
+
+    .#{$block}__item--right {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            clear: right;
+            float: right;
+            direction: ltr;
+
+            .#{$block}__content {
+                margin-left: rem-calc($config-type-scale-5);
+            }
+
+            .#{$block}__description {
+                margin-left: rem-calc($config-type-scale-11);
+            }
+
+            .#{$block}__headline,
+            .#{$block}__text {
+                text-align: left;
+            }
+        }
+
+    }
+
+    .#{$block}__item--left {
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            clear: left;
+            float: left;
+            direction: rtl;
+
+            .#{$block}__content {
+                margin-right: rem-calc($config-type-scale-5);
+            }
+
+            .#{$block}__description {
+                margin-right: rem-calc($config-type-scale-11);
+            }
+
+            .#{$block}__headline,
+            .#{$block}__text {
+                text-align: right;
+            }
+        }
+
+    }
+
+    @media print {
+        .#{$block}__content {
+            max-width: 100%;
+        }
+    }
+
+}

@@ -1,0 +1,57 @@
+////
+/// Module text
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-text';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        margin: 0 auto rem-calc($config-grid--gutter * 3);
+    }
+
+    .#{$block}__headline {
+        margin-bottom: rem-calc($config-grid--gutter);
+    }
+
+    .#{$block}__lead {
+        margin-bottom: rem-calc($config-grid--gutter);
+    }
+
+    .#{$block}__text {
+        margin-bottom: rem-calc($config-grid--gutter * 2);
+    }
+
+    .#{$block}__block {
+        margin-bottom: rem-calc($config-grid--gutter);
+    }
+
+    .#{$block}__link {
+        margin-bottom: rem-calc($config-grid--gutter * 2);
+
+        // underline text links for better ux
+        a {
+            .no-touch &:hover,
+            .no-touchevents &:hover,
+            .no-js &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .#{$block}__time {
+        margin-bottom: rem-calc($config-grid--gutter * 2);
+    }
+
+    .#{$block}__button {
+        margin-bottom: rem-calc($config-grid--gutter);
+    }
+
+}

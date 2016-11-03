@@ -1,0 +1,7 @@
+exports[`component/element/fieldset Snapshot should render correctly 1`] = `
+<fieldset
+  className="m-form__fieldset foo"
+  htmlElement="span">
+  Hello
+</fieldset>
+`;

@@ -1,0 +1,40 @@
+exports[`component/module/article Snapshot should render correctly 1`] = `
+<span
+  className="is-main has-no-margin m-article foo"
+  itemScope={true}
+  itemType="https://schema.org/Article">
+  <h1
+    className="is-centered c-type--h1 is-spaced m-article__headline"
+    itemProp="headline">
+    Headline
+  </h1>
+  <p
+    className="is-centered c-type--p m-article__lead"
+    itemProp="alternativeHeadline">
+    <strong>
+      Lead
+    </strong>
+  </p>
+  <div
+    className="m-article__text"
+    itemProp="text">
+    Hello
+  </div>
+  <meta
+    content="Headline"
+    itemProp="name"
+    name={undefined}
+    property={undefined} />
+  <meta
+    content="Author"
+    defaultContent="Ulrich Merkel"
+    itemProp="author"
+    name={undefined}
+    property={undefined} />
+  <meta
+    content="20161212"
+    itemProp="datePublished"
+    name={undefined}
+    property={undefined} />
+</span>
+`;

@@ -1,0 +1,24 @@
+////
+/// Mixin visually hidden
+///
+/// @group mixin
+/// @author Ulrich Merkel
+////
+
+/// This helper will hide items but keep them accessable for screen readers
+/// @see https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/
+@mixin is-visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+// global helper
+.is-visually-hidden {
+    @include is-visually-hidden;
+}

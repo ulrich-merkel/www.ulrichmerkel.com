@@ -1,0 +1,26 @@
+////
+/// Mixin clearfix
+///
+/// @group mixin
+/// @author Ulrich Merkel
+////
+
+/// The famouos micro clearfix hack
+/// @see http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+
+    // for IE 6/7 only
+    @if $config-support-legacy-browsers {
+        *zoom: 1;
+    }
+
+    &::before,
+    &::after {
+        display: table;
+        content: ' ';
+    }
+
+    &::after {
+        clear: both;
+    }
+}

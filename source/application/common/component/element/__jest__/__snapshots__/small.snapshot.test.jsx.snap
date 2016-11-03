@@ -1,0 +1,6 @@
+exports[`component/element/small Snapshot should render correctly 1`] = `
+<span
+  className="c-type--small foo">
+  Hello
+</span>
+`;

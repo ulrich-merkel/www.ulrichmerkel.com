@@ -1,0 +1,40 @@
+////
+/// Module broadcast
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-broadcast';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    .#{$block}--persona {
+
+        .m-article__alt-headline {
+            margin-bottom: rem-calc($config-grid--gutter);
+        }
+
+        .m-list--persona {
+            margin-bottom: rem-calc($config-grid--gutter * 2);
+        }
+
+        .m-list__item {
+
+            // just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &,
+                .no-touchevents &,
+                .no-js & {
+                    a {
+                        &:hover {
+                            color: $config-color-white;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,12 @@
+exports[`component/element/a Snapshot should render correctly 1`] = `
+<a
+  className="c-link foo"
+  href="testpage"
+  lang="foobar"
+  rel="noopener noreferrer"
+  tabIndex="0"
+  target="_blank"
+  title="bar">
+  Hello
+</a>
+`;

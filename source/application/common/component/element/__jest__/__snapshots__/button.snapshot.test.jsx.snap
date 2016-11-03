@@ -1,0 +1,15 @@
+exports[`component/element/button Snapshot should render correctly 1`] = `
+<button
+  className="c-btn foo c-btn--primary c-btn--large is-disabled"
+  disabled="disabled"
+  id="foo"
+  label="Test label"
+  name="bar"
+  role="button"
+  title="Test title"
+  to={undefined}
+  type="submit">
+  <span
+    className="c-btn__label test" />
+</button>
+`;

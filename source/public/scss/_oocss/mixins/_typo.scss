@@ -1,0 +1,96 @@
+////
+/// Mixin typographic
+///
+/// @group mixin
+/// @author Ulrich Merkel
+////
+
+/// Font size mixin to include px and rem
+/// @param {string|number} $size
+@mixin font-size($size) {
+    $size: if(unitless($size), $size, $size / 1px);
+
+    font-size: $size + px;
+    font-size: rem-calc($size);
+}
+
+/// Hide text mixin
+/// @see https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+@mixin hide-text {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+/// Enable text overflow with dots
+/// Requires inline-block or block for proper styling
+@mixin text-overflow {
+    overflow: hidden;
+    @if ($support-prefix-ms) {
+        -ms-text-overflow: ellipsis;
+    }
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/// Enable word wrapping for long words
+@mixin word-wrap {
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -epub-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/// Disable word wrapping, useful if words can't be breaked
+@mixin no-wrap {
+    white-space: nowrap;
+
+    // prevent css3 hyphens
+    -webkit-hyphens: none;
+    -epub-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/// User select for selecting text on the page
+/// @param {string} $select
+@mixin user-select($select) {
+    @if $support-prefix-webkit {
+        -webkit-user-select: $select;
+    }
+    @if $support-prefix-khtml {
+        -khtml-user-select: $select;
+    }
+    @if $support-prefix-moz {
+        -moz-user-select: $select;
+    }
+    @if $support-prefix-ms {
+        -ms-user-select: $select;
+    }
+    @if $support-prefix-o {
+        -o-user-select: $select;
+    }
+    user-select: $select;
+}
+
+/// Disable user select
+@mixin no-user-select {
+    @include user-select(none);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/// Include css3 hyphens
+/// @param {string} $value
+@mixin hyphens($value) {
+    -webkit-hyphens: $value;
+    -epub-hyphens: $value;
+    -moz-hyphens: $value;
+    -ms-hyphens: $value;
+    hyphens: $value;
+}

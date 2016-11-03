@@ -1,0 +1,197 @@
+////
+/// Module key visual
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-key-visual';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        position: relative;
+        height: auto;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            max-height: calc(100vh - 61px);
+            overflow: hidden;
+        }
+    }
+
+    .#{$block}__text {
+        position: relative;
+        z-index: 2;
+        padding: rem-calc($config-grid--gutter);
+        background: $config-color-grey;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: transparent;
+        }
+    }
+
+    .#{$block}__headline {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+
+        &::after {
+            // \A is the line feed character... it's an escape
+            content: ' \A';
+            white-space: pre;
+        }
+
+    }
+
+    .#{$block}__lead {
+        display: inline;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .#{$block}__headline,
+    .#{$block}__lead {
+
+        .#{$block}__boxed {
+            display: inline-block;
+            padding: 1px 3px;
+            color: $config-font-color;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                background: $config-color-grey;
+            }
+        }
+    }
+
+    .#{$block}__image,
+    .#{$block}__image--digital,
+    .#{$block}__image--print {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+        transform-style: preserve-3d;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            max-height: calc(100vh - 61px);
+            overflow: hidden;
+        }
+
+        .c-picture__img {
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+
+            will-change: margin-top;
+            transition: margin-top $config-transition-arguments;
+
+        }
+    }
+
+    .#{$block}__button--down {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        z-index: 2;
+        display: none;
+        width: rem-calc($config-grid--gutter * 2);
+        height: rem-calc($config-grid--gutter * 2);
+        margin-left: rem-calc($config-grid--gutter * -1);
+        padding: 0;
+        background: $config-color-blue--1;
+        color: $config-color-white;
+        font-size: 130%;
+        line-height: 2.5;
+        text-align: center;
+        letter-spacing: normal;
+        opacity: 0;
+
+        &:focus {
+            color: $config-color-white;
+        }
+
+        &:visited {
+            color: $config-color-white;
+        }
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            .js & {
+                display: block;
+                opacity: 1;
+            }
+
+        }
+
+    }
+
+    .#{$block}--work {
+
+        // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eeeeee+79,fefefe+91,f2f2f2+100 */
+        background: $config-color-grey;
+        background: linear-gradient(to bottom, $config-color-key-visual-gradient);
+
+        .#{$block}__image--digital,
+        .#{$block}__image--print {
+            .c-picture__img {
+                display: block;
+                margin: 0 auto;
+                object-fit: contain;
+            }
+        }
+
+        .#{$block}__image--digital {
+
+            .c-picture__img {
+                @include breakpoint(1100px) {
+                    height: 90vh;
+                    width: auto;
+                }
+            }
+        }
+
+        .#{$block}__image--print {
+
+            .c-picture__img {
+                @include breakpoint(320px) {
+                    width: auto;
+                    height: 60vh;
+                }
+
+                @include breakpoint(460px) {
+                    height: 70vh;
+                }
+
+                @include breakpoint($config-grid--breakpoint-xsmall) {
+                    height: 90vh;
+                }
+            }
+        }
+
+    }
+
+    @media print {
+
+        .#{$block}__image,
+        [class^='#{$block}__image--'],
+        [class*=' #{$block}__image--'] {
+
+            .c-picture__source {
+                object-fit: contain;
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,27 @@
+exports[`component/element/input-group Snapshot should render correctly 1`] = `
+<div
+  className="foobar">
+  <input
+    aria-required={true}
+    className="m-form__control--text is-pristine"
+    id="foo"
+    name="bar"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    required={true}
+    type="submit"
+    value="2" />
+  <label
+    className="m-form__label"
+    htmlFor="foo">
+    test
+    <i
+      aria-hidden="true"
+      className="c-font-icon--sad m-form__label__icon--error" />
+    <i
+      aria-hidden="true"
+      className="c-font-icon--smile m-form__label__icon--success" />
+  </label>
+</div>
+`;

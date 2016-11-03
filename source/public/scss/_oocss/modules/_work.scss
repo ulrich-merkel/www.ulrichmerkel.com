@@ -1,0 +1,78 @@
+////
+/// Module work
+///
+/// @group modules
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}m-work';
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        position: relative;
+        height: auto;
+    }
+
+    .#{$block}__text {
+        position: relative;
+        z-index: 2;
+        padding: rem-calc($config-grid--gutter);
+        background: $config-color-grey;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: transparent;
+        }
+    }
+
+    .#{$block}__headline {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+
+        &::after {
+            // \A is the line feed character... it's an escape
+            content: ' \A';
+            white-space: pre;
+        }
+
+    }
+
+    .#{$block}__description {
+        display: inline;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .#{$block}__headline,
+    .#{$block}__description {
+
+        span {
+            display: inline-block;
+            padding: 1px 3px;
+            color: $config-font-color;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                background: $config-color-grey;
+            }
+        }
+    }
+
+    .#{$block}__image,
+    [class^='#{$block}__image--'],
+    [class*=' #{$block}__image--'] {
+        position: relative;
+        z-index: 1;
+        display: block;
+    }
+
+}

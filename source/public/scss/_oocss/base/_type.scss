@@ -1,0 +1,104 @@
+////
+/// Base typo styles
+///
+/// @group base
+/// @author Ulrich Merkel
+////
+
+// above the fold css, visible without scrolling
+@if ($config-critical-css) {
+    html {
+        font-size: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        color: $config-font-color;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    html,
+    body {
+        font-family: $config-type-font-family;
+        font-weight: $config-font-weight-normal;
+        font-style: normal;
+        font-size: rem-calc($config-type-scale-9);
+        line-height: 1.375;
+    }
+
+    p {
+        font-size: inherit;
+        line-height: 1.6;
+        margin-bottom: rem-calc($config-type-scale-9);
+        text-rendering: optimizeLegibility;
+    }
+
+    em,
+    i {
+        font-style: italic;
+        line-height: inherit;
+    }
+
+    strong,
+    b {
+        font-weight: $config-font-weight-bold;
+        line-height: inherit;
+    }
+
+    small {
+        font-size: $config-font-small-size;
+        line-height: inherit;
+    }
+
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    sub {
+        bottom: -0.25em;
+    }
+
+    abbr[title] {
+        color: $config-font-color;
+
+        .no-touch &,
+        .no-touchevents &,
+        .no-js & {
+            cursor: help;
+            border-bottom: 1px dotted $config-color-grey--5;
+        }
+    }
+
+    blockquote {
+        margin: 0 0 rem-calc($config-type-scale-9);
+        padding: rem-calc($config-type-scale-1) rem-calc($config-type-scale-10) 0 rem-calc($config-type-scale-12);
+        border-left: 1px solid $config-color-grey--2;
+    }
+
+    blockquote,
+    blockquote p {
+        line-height: 1.6;
+        color: $config-color-grey--7;
+    }
+
+    cite {
+        display: block;
+        font-size: rem-calc($config-type-scale-7);
+        color: $config-color-grey--2;
+    }
+
+    cite::before {
+        content: '\2014 \0020';
+    }
+
+}

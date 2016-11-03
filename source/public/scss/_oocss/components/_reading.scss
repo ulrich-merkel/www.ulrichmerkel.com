@@ -1,0 +1,50 @@
+////
+/// Component reading
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-reading';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        font-weight: $config-font-weight-light;
+    }
+
+    .#{$block}__name,
+    .#{$block}__description,
+    .#{$block}__source {
+        display: block;
+    }
+
+    .#{$block}__name,
+    .#{$block}__description {
+        margin-bottom: rem-calc(8);
+    }
+
+    .#{$block}__source {
+        margin-bottom: rem-calc($config-grid--gutter);
+        font-size: 90%;
+    }
+
+    .#{$block}__description,
+    .#{$block}__source,
+    .#{$block}__source-creator,
+    .#{$block}__source-publisher {
+        &:empty {
+            display: none;
+        }
+    }
+
+    .#{$block}__source-creator,
+    .#{$block}__source-publisher {
+        display: block;
+    }
+
+}

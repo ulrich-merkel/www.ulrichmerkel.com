@@ -1,0 +1,77 @@
+////
+/// Base link styles
+///
+/// @group base
+/// @author Ulrich Merkel
+////
+
+// above the fold css, visible without scrolling
+@if ($config-critical-css) {
+
+    // ----------------------------
+    // default basic styling
+    // ----------------------------
+    a {
+        color: $config-color-link;
+        line-height: inherit;
+        text-decoration: none;
+
+        will-change: background, color;
+        transition: background $config-transition-arguments, color $config-transition-arguments;
+    }
+
+}
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    // put link pseudo-classes in right order (:link :visited :hover :active) for
+    // old internet explorers
+    // @see http://css-tricks.com/snippets/css/link-pseudo-classes-in-order/
+
+    a:visited {
+        color: $config-color-link-visited;
+    }
+
+    .no-touch,
+    .no-touchevents,
+    .no-js {
+
+        // just show hover for non-touch devices
+        @if ($config-support-hovers) {
+            a:hover {
+                color: $config-color-link-hover;
+            }
+        }
+
+        // telephone/fax links
+        a[href^='tel'],
+        a[href^='fax'] {
+            color: $config-font-color;
+            text-decoration: none;
+            cursor: default;
+
+            // make all links non-reactive to any events such as dragging, hovering, clicking
+            // @see
+            // - https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
+            // - http://www.w3.org/Submission/pointer-events/#the-touch-action-css-property
+            touch-action: none;
+            pointer-events: none;
+
+            &:hover {
+                color: $config-font-color;
+            }
+        }
+
+    }
+
+    a:active {
+        color: $config-color-link-active;
+    }
+
+    a:focus {
+        color: $config-color-link-focus;
+        outline: $config-color-link-focus;
+    }
+
+}

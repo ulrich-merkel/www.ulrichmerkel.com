@@ -1,0 +1,50 @@
+////
+/// Component box
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-box';
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        width: 100%;
+        margin-bottom: rem-calc($config-grid--gutter * 2);
+    }
+
+    .#{$block}__header {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: rem-calc($config-grid--gutter) 0;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: center;
+        }
+    }
+
+    .#{$block}__content {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: rem-calc($config-type-scale-9);
+        padding: rem-calc($config-grid--gutter / 2);
+        box-sizing: border-box;
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: center;
+        }
+
+        object {
+            max-width: 120px;
+        }
+    }
+
+}

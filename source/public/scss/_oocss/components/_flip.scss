@@ -1,0 +1,80 @@
+////
+/// Component flip
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+// @see {@link http://codepen.io/hindo/pen/LFvcw}
+
+$block: '#{$config-ns}c-flip';
+
+@mixin move-one {
+    @keyframes move-one {
+        0% { transform: rotateX(0deg); }
+        25% { transform: rotateX(180deg); }
+        50% { transform: rotateX(180deg); }
+        75% { transform: rotateX(360deg); }
+        100% { transform: rotateX(360deg); }
+    }
+}
+
+@mixin move-two {
+    @keyframes moveTwo {
+        0% { transform: rotateX(180deg); }
+        25% { transform: rotateX(0deg); }
+        50% { transform: rotateX(0deg); }
+        75% { transform: rotateX(-180deg); }
+        100% { transform: rotateX(-180deg); }
+    }
+}
+
+// above the fold css, visible without scrolling
+@if ($config-critical-css) {
+
+    @include move-one;
+    @include move-two;
+
+    .#{$block},
+    [class^='#{$block}'],
+    [class*=' #{$block}'] {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: rem-calc(150);
+        height: rem-calc(150);
+
+        margin-top: -50px;
+        margin-left: -40px;
+        text-align: center;
+        color: $config-color-white;
+        font-size: rem-calc($config-type-scale-12);
+        line-height: rem-calc(150);
+        transform-style: preserve-3d;
+    }
+
+    .#{$block}__front,
+    .#{$block}__back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .#{$block}__front {
+        z-index: 3;
+        background-color: $config-color-red;
+        animation: move-one 1s infinite ease 0.1s;
+    }
+
+    .#{$block}__back {
+        z-index: 1;
+        background-color: $config-color-blue--1;
+        transform: rotateX(180deg);
+        animation: moveTwo 1s infinite ease 0.1s;
+    }
+}

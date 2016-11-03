@@ -1,0 +1,27 @@
+exports[`component/element/textarea-group Snapshot should render correctly 1`] = `
+<div
+  className="foobar">
+  <textarea
+    aria-required={true}
+    className="m-form__control--textarea is-pristine"
+    cols="50"
+    id="foo"
+    name="bar"
+    onBlur={[Function]}
+    onChange={[Function]}
+    required={true}
+    rows="4"
+    value="2" />
+  <label
+    className="m-form__label"
+    htmlFor="foo">
+    test
+    <i
+      aria-hidden="true"
+      className="c-font-icon--sad m-form__label__icon--error" />
+    <i
+      aria-hidden="true"
+      className="c-font-icon--smile m-form__label__icon--success" />
+  </label>
+</div>
+`;

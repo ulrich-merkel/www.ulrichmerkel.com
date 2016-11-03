@@ -1,0 +1,5 @@
+exports[`component/element/nav Snapshot should render correctly 1`] = `
+<div
+  className="m-nav foo"
+  role="navigation" />
+`;

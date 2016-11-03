@@ -1,0 +1,29 @@
+/* https://www.ulrichmerkel.com/ */
+/* humanstxt.org */
+
+
+/* TEAM */
+	Name: Ulrich Merkel
+	URL: ulrichmerkel.com
+	Location: Leipzig, Germany
+
+/* THANKS */
+	Zurb Foundation | foundation.zurb.com/
+	HTML5 Boilerplate | html5boilerplate.com/
+	Eric Meyer | meyerweb.com/eric/tools/css/reset
+	Remy Sharp & Team | github.com/aFarkas/html5shiv
+	Scott Jehl | j.mp/respondjs
+	FT Labs | github.com/ftlabs/fastclick
+	Paul Irish | www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+
+/* SITE */
+	URL: http:/www.ulrichmerkel.com/
+	Language: en, de
+	Charset: utf-8
+	Standards: HTML5, CSS3, JavaScript, Node
+	Components: React
+	Software: Atom, Fetch, Terminal, Charles, Virtual Box, Photoshop, Chrome Dev Tools, Google Page Speed
+	Style: responsive
+	Machines: MacBook, iPad, iPhone
+	Hosting: www.uberspace.de/
+	Last update: 2016/10/19

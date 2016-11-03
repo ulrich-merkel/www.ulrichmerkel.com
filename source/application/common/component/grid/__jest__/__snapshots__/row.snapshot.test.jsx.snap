@@ -1,0 +1,6 @@
+exports[`component/grid/row Snapshot should render correctly 1`] = `
+<span
+  className="l-grid__row foo">
+  Hello
+</span>
+`;

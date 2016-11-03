@@ -1,0 +1,168 @@
+////
+/// Component button
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-btn';
+
+@mixin rotation {
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    @include rotation;
+
+    // defaults
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: rem-calc($config-type-scale-7) rem-calc($config-type-scale-13) rem-calc($config-type-scale-5);
+
+        border: 0;
+        background: $config-color-blue--1;
+        cursor: pointer;
+        outline: none;
+
+        color: $config-color-white;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: $config-font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+
+        will-change: background, color, opacity;
+        transition: background $config-transition-arguments, color $config-transition-arguments, opacity $config-transition-arguments;
+
+        // put link pseudo-classes in right order (:link :visited :hover :active) for
+        // old internet explorers
+        // @see http://css-tricks.com/snippets/css/link-pseudo-classes-in-order/
+
+        &:visited {
+            color: $config-color-white;
+        }
+
+        // just show hover for non-touch devices
+        @if ($config-support-hovers) {
+            .no-touch &:hover,
+            .no-touchevents &:hover,
+            .no-js &:hover,
+            &:focus {
+                color: $config-color-white;
+                background: $config-color-blue--2;
+                // important due to toooo much nesting within the base link
+                text-decoration: none !important;
+
+                .#{$block}__label {
+                    transform: translateY(-2px);
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        &:active {
+            color: $config-color-white;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        // @see {@link https://github.com/twbs/bootstrap/issues/16088}
+        &.is-disabled {
+            cursor: not-allowed;
+            opacity: 0.4;
+            pointer-events: none;
+            touch-action: none;
+        }
+
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            padding: rem-calc($config-type-scale-12) rem-calc($config-type-scale-13 * 2) rem-calc($config-type-scale-11);
+        }
+    }
+
+    .#{$block}__label {
+        display: block;
+        transform: translateY(0);
+
+        will-change: transform;
+        transition: transform $config-transition-arguments;
+
+        &::after {
+            position: relative;
+            top: 3px;
+            content: ' ';
+            display: block;
+            margin: 0 auto;
+            width: 0;
+            height: 0;
+            border-top: 1px solid $config-color-white;
+
+            will-change: width;
+            transition: width $config-transition-arguments;
+        }
+
+    }
+
+    .#{$block}--secondary {
+        background: $config-color-grey--2;
+        color: $config-font-color;
+        font-size: 90%;
+    }
+
+    .#{$block}--small {
+        padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-13) rem-calc($config-type-scale-7);
+    }
+
+    // @see {@link http://codepen.io/Maathieu24/pen/YPjLYe}
+    .#{$block}--submit {
+        display: inline-block;
+        border: 1px solid transparent;
+        transition: 0.3s;
+        outline-style: none;
+
+        &.is-pending {
+            height: 60px;
+            width: 60px;
+            padding: 0;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 4px solid $config-color-grey--2;
+            border-top: 4px solid $config-color-blue--1;
+            transform: rotate(360deg);
+            transition: 0.6s;
+            animation: rotation 1.8s infinite linear;
+
+            .c-btn__label {
+                display: none;
+            }
+        }
+    }
+
+    @media print {
+        .#{$block},
+        [class^='#{$block}--'],
+        [class*=' #{$block}--'] {
+            padding-left: 0;
+        }
+
+    }
+}

@@ -1,0 +1,16 @@
+/* eslint-disable func-names*/
+/* global describe, it, expect */
+import { SEARCH_CHANGE_TERM } from './../constants';
+import { changeSearchTerm } from './../actions';
+
+describe('actions', function () {
+    describe('changeSearchTerm', function () {
+        it(`should have a type of ${SEARCH_CHANGE_TERM}`, function () {
+            expect(changeSearchTerm().type).toEqual(SEARCH_CHANGE_TERM);
+        });
+        it('should pass on the term value we pass in', function () {
+            var term = false;
+            expect(changeSearchTerm(term).term).toEqual(term);
+        });
+    });
+});

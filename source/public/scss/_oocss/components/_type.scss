@@ -1,0 +1,188 @@
+////
+/// Component typo
+///
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-type';
+
+// @see {@link http://t3n.de/magazin/responsive-webdesign-reaktionsfahige-typografie-230315/2/}
+// @see {@link http://www.gridlover.net/try}
+@mixin c-type--h {
+    @include hyphens(auto);
+    margin-top: 0;
+    font-family: $config-type-font-family;
+    font-weight: $config-font-weight-normal;
+    font-style: normal;
+    line-height: 1.4; //1.375;
+    color: $config-color-blue--2;
+    text-rendering: optimizeLegibility;
+
+    small {
+        display: block;
+        font-size: $config-font-small-size;
+        color: inherit;
+        line-height: 0;
+    }
+}
+
+@mixin c-type--h1 {
+    @include c-type--h;
+    @include font-size($config-type-scale-14);
+    margin-bottom: rem-calc($config-type-scale-3);
+}
+
+@mixin c-type--h2 {
+    @include c-type--h;
+    @include font-size($config-type-scale-13);
+    margin-bottom: rem-calc($config-type-scale-3);
+}
+@mixin c-type--h3 {
+    @include c-type--h;
+    @include font-size($config-type-scale-12);
+    margin-bottom: rem-calc($config-type-scale-3);
+}
+@mixin c-type--h4 {
+    @include c-type--h;
+    @include font-size($config-type-scale-11);
+    margin-bottom: rem-calc($config-type-scale-1);
+}
+@mixin c-type--h5 {
+    @include c-type--h;
+    @include font-size($config-type-scale-10);
+    margin-bottom: rem-calc($config-type-scale-1);
+}
+
+// above the fold css, visible without scrolling
+@if ($config-non-critical-css) {
+
+    h1,
+    .#{$block}--h1,
+    [class^='#{$block}--h1--'],
+    [class*=' #{$block}--h1--'] {
+        @include c-type--h1;
+    }
+
+    h2,
+    .#{$block}--h2,
+    [class^='#{$block}--h2--'],
+    [class*=' #{$block}--h2--'] {
+        @include c-type--h2;
+    }
+
+    h3,
+    .#{$block}--h3,
+    [class^='#{$block}--h3--'],
+    [class*=' #{$block}--h3--'] {
+        @include c-type--h3;
+    }
+
+    h4,
+    .#{$block}--h4,
+    [class^='#{$block}--h4--'],
+    [class*=' #{$block}--h4--'] {
+        @include c-type--h4;
+    }
+
+    h5,
+    .#{$block}--h5,
+    [class^='#{$block}--h5--'],
+    [class*=' #{$block}--h5--'] {
+        @include c-type--h5;
+    }
+
+    .#{$block},
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+
+        &.has-border {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                right: 0;
+                bottom: -20px;
+                left: 0;
+                display: block;
+                margin: 0;
+                content: ' ';
+                width: rem-calc($config-type-scale-14 * 4);
+                height: 0;
+                border-top: 1px solid $config-color-black;
+            }
+
+            &.is-centered {
+                &::after {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+    }
+
+    .is-centered {
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            text-align: center;
+        }
+
+    }
+
+    .has-columns--2 {
+        @include breakpoint($config-grid--breakpoint-xsmall) {
+            column-count: 2;
+            column-width: rem-calc($config-grid--gutter);
+            column-gap: rem-calc($config-grid--gutter);
+            column-span: all;
+        }
+    }
+
+    .is-spaced {
+        padding-left: rem-calc($config-grid--gutter / 2);
+        padding-right: rem-calc($config-grid--gutter / 2);
+    }
+
+    p,
+    .#{$block}--p,
+    [class^='#{$block}--p--'],
+    [class*=' #{$block}--p--'],
+    .#{$block}--address {
+        // clearfix for floating images within paragraphs
+        @include clearfix;
+        display: block;
+        float: none;
+        clear: both;
+
+        margin: 0 auto rem-calc($config-grid--gutter);
+        font-weight: $config-font-weight-light;
+
+        // floating images within paragraphs (via rte)
+        img {
+            float: left;
+            margin: 0 rem-calc($config-grid--gutter) 0 0;
+        }
+
+        // underline text links for better ux
+        a {
+            .no-touch &:hover,
+            .no-touchevents &:hover,
+            .no-js &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .#{$block}--description,
+    [class^='#{$block}--description--'],
+    [class*=' #{$block}--description--'] {
+        margin: 0 auto rem-calc($config-grid--gutter) * 2;
+    }
+
+    [class^='#{$block}--'],
+    [class*=' #{$block}--'] {
+        &:empty {
+            display: none;
+        }
+    }
+
+}
