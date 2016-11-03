@@ -53,7 +53,7 @@ const configApplication = Object.assign({}, {
     email: 'hello@ulrichmerkel.com',
     xor: {
         use: true,
-        key: process.env.XOR_KEY || 'd41d8cd98f00b204e9800998ecf8427e'
+        key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
         use: true
