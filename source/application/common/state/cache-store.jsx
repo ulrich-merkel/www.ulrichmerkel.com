@@ -1,3 +1,22 @@
+/**
+ * Es6 module for Redux Architecture.
+ * This file takes care for loading and storing the redux store state in a
+ * web-storage (local storage) to improve initial loading time.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @requires common/config/application
+ * @requires common/utils/xor
+ * @requires common/utils/logger
+ * @requires common/utils/web-storage
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
 import configApplication from './../config/application';
 import xor from './../utils/xor';
 import logger from './../utils/logger';
@@ -6,6 +25,7 @@ import WebStorage from './../utils/web-storage';
 const webStorage = new WebStorage();
 const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;
+const webStorageKey = 'state';
 
 /**
  * Return undefined to let reducers init application default state
@@ -14,7 +34,7 @@ const xorKey = configApplication.xor.key;
  * @returns {Object|undefined}
  */
 function loadState() {
-    const serializedState = webStorage.read('state');
+    const serializedState = webStorage.read(webStorageKey);
 
     if (serializedState === null) {
         return undefined;
@@ -44,7 +64,7 @@ function loadState() {
  */
 function saveState(state) {
     webStorage.save(
-        'state',
+        webStorageKey,
         xorUse
             ? xor.encrypt(JSON.stringify(state), xorKey)
             : JSON.stringify(state)
