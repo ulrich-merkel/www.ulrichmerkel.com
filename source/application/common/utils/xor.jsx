@@ -88,11 +88,10 @@ function xorEncode(data, key) {
     const xorData = String(data);
     const dataLength = xorData.length;
     const keyLength = key.length;
-    let result = '',
-        i = 0;
+    let result = '';
 
     // encrypt data string
-    for (i = 0; i < dataLength; i = i + 1) {
+    for (let i = 0; i < dataLength; i = i + 1) {
         result = result + String.fromCharCode(
             xorData.charCodeAt(i) ^ key.charCodeAt(i % keyLength) // eslint-disable-line no-bitwise
         );
