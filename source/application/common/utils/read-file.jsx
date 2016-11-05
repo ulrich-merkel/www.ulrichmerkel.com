@@ -26,7 +26,7 @@ import path from 'path';
  */
 function readFile(fileName) {
 
-    const filePath = path.join(__dirname, fileName);
+    const filePath = path.resolve(__dirname, fileName);
 
     return new Promise(function handlePromise(resolve, reject) {
         if (!fs.existsSync(filePath)) {
@@ -48,12 +48,13 @@ function readFile(fileName) {
  * Helper function to read file sync from disc.
  *
  * @function
+ * @deprecated Please use the async version
  * @param {string} fileName The file name
  * @returns {string} The utf-8 encoded file contents
  */
 function readFileSync(fileName) {
 
-    const filePath = path.join(__dirname, fileName);
+    const filePath = path.resolve(__dirname, fileName);
 
     if (!fs.existsSync(filePath)) {
         return '';

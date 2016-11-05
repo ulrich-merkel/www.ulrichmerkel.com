@@ -110,7 +110,7 @@ function startServer() {
     // create a write stream (in append mode)
     app.use(morgan('combined', {
         stream: fs.createWriteStream(
-            path.join(__dirname, '../../reports/access.log'),
+            path.resolve(__dirname, '../../reports/access.log'),
             { flags: 'a' }
         )
     }));
@@ -159,7 +159,7 @@ function startServer() {
     app.use(compression());
 
     // Serve static files
-    app.use(express.static(path.join(__dirname, '../../public'), {
+    app.use(express.static(path.resolve(__dirname, '../../public'), {
         index: false
     }));
 
