@@ -24,18 +24,21 @@
     "bin": "./bin",
     "config": "./config"
   },
-  "description": "",
+  "description": "Playground for React and all the corresponding technologies",
   "homepage": "https://www.ulrichmerkel.com",
   "contributors": [
     "Ulrich Merkel"
   ],
   "keywords": [
     "javascript",
-    "react",
     "babel",
     "offline",
     "npm scripts",
-    "responsive"
+    "responsive",
+    "react",
+    "react-router",
+    "universal",
+    "redux"
   ],
   "scripts": {
     "default": "npm run build && npm run server",

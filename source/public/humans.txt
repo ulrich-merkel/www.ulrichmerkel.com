@@ -1,6 +1,8 @@
 /* https://www.ulrichmerkel.com/ */
 /* humanstxt.org */
 
+Hello, my name is Ulrich Merkel. I am a Frontend Developer. I love creating code
+and design that push the boundries of what the web can do.
 
 /* TEAM */
 	Name: Ulrich Merkel
