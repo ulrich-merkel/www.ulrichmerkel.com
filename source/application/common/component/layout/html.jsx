@@ -56,7 +56,7 @@ function LayoutHtml(props) {
      * Note: Helmet will update your page's `<head`> on the client
      * side, but you must construct `<head>` manually on the server.
      */
-    const head = Helmet.rewind();
+    const helmet = Helmet.rewind();
 
     return (
         <html className='no-js' dir='ltr' lang={locale} {...manifest}>
@@ -67,13 +67,14 @@ function LayoutHtml(props) {
                 {csp.use && <meta httpEquiv='Content-Security-Policy' content={getCspRules(nonceConfig)} />}
                 <link rel='preload' href='/css/app.css' as='style' />
                 <link rel='preload' href='/js/client.js' as='script' />
-                {head.meta.toComponent()}
-                {head.title.toComponent()}
-                {head.link.toComponent()}
+                {helmet.meta.toComponent()}
+                {helmet.title.toComponent()}
+                {helmet.link.toComponent()}
                 <style
                     nonce={get(nonceConfig, 'style.base')}
                     dangerouslySetInnerHTML={{ __html: cssBase }}
                 />
+                {helmet.style.toComponent()}
                 <noscript>
                     <link rel='stylesheet' href='/css/app.css' type='text/css' media='all' />
                 </noscript>
@@ -94,6 +95,7 @@ function LayoutHtml(props) {
                         __html: `__PRELOADED_STATE__=${JSON.stringify(store.getState())};`
                     }}
                 />}
+                {helmet.script.toComponent()}
             </body>
         </html>
     );

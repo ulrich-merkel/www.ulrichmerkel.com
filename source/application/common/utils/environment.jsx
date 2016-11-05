@@ -9,6 +9,7 @@
  *
  * @see {@link http://josdejong.com/blog/2015/03/28/a-broader-view-on-isomorphic-javascript/}
  * @see {@link https://github.com/sospedra/logatim/blob/master/lib/utils.js}
+ *
  * @changelog
  * - 0.0.1 basic function and structure
  */

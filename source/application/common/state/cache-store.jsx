@@ -28,7 +28,8 @@ const xorKey = configApplication.xor.key;
 const webStorageKey = 'state';
 
 /**
- * Return undefined to let reducers init application default state
+ * Load saved state and return undefined to let reducers init
+ * application default state.
  *
  * @function
  * @returns {Object|undefined}
@@ -56,7 +57,7 @@ function loadState() {
 }
 
 /**
- * Return undefined to let reducers init application default state
+ * Save the given application state.
  *
  * @function
  * @param {Object} state

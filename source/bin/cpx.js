@@ -31,7 +31,6 @@ const files = [
     { source: './public/*.{txt,json,xml,manifest}', dest: `${dest}/public/` },
     { source: './public/img/share/favicon.ico', dest: `${dest}/public/` }
 ];
-const options = {};
 
 /**
  * Ready callback when copy is successful.
@@ -51,7 +50,7 @@ if (files.length) {
         cpx.copy(
             files[i].source,
             files[i].dest,
-            options,
+            {},
             fileCopied.bind(null, files[i])
         );
     }

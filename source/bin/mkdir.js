@@ -54,10 +54,9 @@ const config = [
 function checkDirectory(directory, callback) {
     fs.stat(directory, function statFn(error) {
         if (error && error.code === 'ENOENT') {
-            fs.mkdir(directory, callback);
-            return;
+            return void fs.mkdir(directory, callback);
         }
-        callback();
+        return callback();
     });
 }
 
