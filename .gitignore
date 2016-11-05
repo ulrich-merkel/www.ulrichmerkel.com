@@ -9,5 +9,6 @@ doc
 npm-debug.log
 .idea
 .env
+.htaccess
 google*.html
 TODO.md
