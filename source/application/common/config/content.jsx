@@ -25,7 +25,7 @@ const { sizes: {
 
 
 const AUTHOR = 'Ulrich Merkel';
-const HOMEPAGE_URL = process.env.LIVE ? '//www.ulrichmerkel.com' : `//${host}:${port}`;
+const HOMEPAGE_URL = '//www.ulrichmerkel.com';
 const IMG = '/img/';
 const IMG_SHARE = `${IMG}share/`;
 
