@@ -11,8 +11,4 @@
  * @changelog
  * - 0.0.1 basic function and structure
  */
-const constants = {
-    CONTACT_CHANGE: 'CONTACT_CHANGE'
-};
-
-export default constants;
+export const CONTACT_CHANGE = 'CONTACT_CHANGE'; // eslint-disable-line import/prefer-default-export

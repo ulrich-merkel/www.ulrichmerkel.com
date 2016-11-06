@@ -1,4 +1,4 @@
-import constants from './constants';
+import { CONTACT_CHANGE } from './constants';
 
 export const defaultState = {
 };
@@ -20,7 +20,7 @@ const reducer = (state = defaultState, action) => {
     * To ensure that the lexical declaration only applies to the current case clause wrap your clauses in blocks.
     */
     switch (action.type) {
-    case constants.CONTACT_CHANGE: {
+    case CONTACT_CHANGE: {
         const contact = action.contact;
         if (!contact) {
             return state;
