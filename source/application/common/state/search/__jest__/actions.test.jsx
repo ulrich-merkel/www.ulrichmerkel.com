@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(changeSearchTerm().type).toEqual(SEARCH_CHANGE_TERM);
         });
         it('should pass on the term value we pass in', function () {
-            var term = false;
+            const term = false;
             expect(changeSearchTerm(term).term).toEqual(term);
         });
     });

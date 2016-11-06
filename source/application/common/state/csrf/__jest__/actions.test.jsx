@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(addToken().type).toEqual(ADD_CSRF_TOKEN);
         });
         it('should pass on the term value we pass in', function () {
-            var token = 'AsD12kjasdkJä?h';
+            const token = 'AsD12kjasdkJä?h';
             expect(addToken(token).token).toEqual(token);
         });
     });

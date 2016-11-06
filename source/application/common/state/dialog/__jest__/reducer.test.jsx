@@ -16,7 +16,7 @@ describe('reducer', function () {
         });
     });
     it('should return the current state if payload is empty', function () {
-        var state = {
+        const state = {
             visible: false
         };
         expect(reducer(state, {

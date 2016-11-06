@@ -8,7 +8,7 @@ describe('reducer', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });
     it(`should react to an action with the type ${SEARCH_CHANGE_TERM}`, function () {
-        var term = 'lorem';
+        const term = 'lorem';
         expect(reducer(undefined, {
             type: SEARCH_CHANGE_TERM,
             term: term

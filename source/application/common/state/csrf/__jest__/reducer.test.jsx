@@ -8,7 +8,7 @@ describe('reducer', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });
     it(`should react to an action with the type ${ADD_CSRF_TOKEN}`, function () {
-        var token = 'lorem';
+        const token = 'lorem';
         expect(reducer(undefined, {
             type: ADD_CSRF_TOKEN,
             token: token

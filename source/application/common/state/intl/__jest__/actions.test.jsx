@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(changeLocale().type).toEqual(INTL_CHANGE_LOCALE);
         });
         it('should pass on the locale value we pass in', function () {
-            var locale = INTL_LOCALE_DE_DE;
+            const locale = INTL_LOCALE_DE_DE;
             expect(changeLocale(locale).locale).toEqual(locale);
         });
     });

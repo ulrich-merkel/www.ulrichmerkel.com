@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(addPageView().type).toEqual(PAGE_INCREASE_VIEWS);
         });
         it('should pass on the increase value we pass in', function () {
-            var increase = 'increase';
+            const increase = 'increase';
             expect(addPageView(increase).increase).toEqual(increase);
         });
     });

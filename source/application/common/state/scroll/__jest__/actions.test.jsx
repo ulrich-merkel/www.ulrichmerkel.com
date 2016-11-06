@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(changeHeaderFixed().type).toEqual(SCROLL_HEADER_FIXED);
         });
         it('should pass on the headerFixed value we pass in', function () {
-            var headerFixed = false;
+            const headerFixed = false;
             expect(changeHeaderFixed(headerFixed).headerFixed).toEqual(headerFixed);
         });
     });
@@ -18,7 +18,7 @@ describe('actions', function () {
             expect(changeHeaderVisible().type).toEqual(SCROLL_HEADER_VISIBLE);
         });
         it('should pass on the headerVisible value we pass in', function () {
-            var headerVisible = false;
+            const headerVisible = false;
             expect(changeHeaderVisible(headerVisible).headerVisible).toEqual(headerVisible);
         });
     });

@@ -9,7 +9,7 @@ describe('actions', function () {
             expect(changeDialogVisible().type).toEqual(DIALOG_CHANGE_VISIBLE);
         });
         it('should pass on the visible value we pass in', function () {
-            var visible = true;
+            const visible = true;
             expect(changeDialogVisible(visible).visible).toEqual(visible);
         });
     });
