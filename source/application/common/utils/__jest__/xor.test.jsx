@@ -1,4 +1,4 @@
-/* eslint-disable func-names*/
+/* eslint-disable func-names */
 /* global describe, it, expect */
 import mockedBase64 from './../__mocks__/base64';
 import xor from './../xor';
@@ -40,24 +40,24 @@ describe('xor', function () {
         });
     });
 
-    describe('client', function () {
+    describe('client', function handleDescribeClient() {
         global.atob = mockedBase64.atob;
         global.btoa = mockedBase64.btoa;
 
-        it('should encrypt data', function () {
+        it('should encrypt data', function handleIt() {
             expect(dataEncrypted).not.toEqual(data);
         });
 
-        it('should decrypt data correctly', function () {
+        it('should decrypt data correctly', function handleIt() {
             expect(xor.decrypt(dataEncrypted, key)).toEqual(data);
         });
 
-        it('should encrypt nothing if data is empty', function () {
+        it('should encrypt nothing if data is empty', function handleIt() {
             expect(xor.encrypt('', key)).toEqual('');
             expect(xor.decrypt('', key)).toEqual('');
         });
 
-        it('should encrypt nothing if key is empty', function () {
+        it('should encrypt nothing if key is empty', function handleIt() {
             expect(xor.encrypt(data, '')).toEqual(data);
             expect(xor.decrypt(data, '')).toEqual(data);
         });

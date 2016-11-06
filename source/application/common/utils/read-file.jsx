@@ -17,6 +17,10 @@
 import fs from 'fs';
 import path from 'path';
 
+const readFileOptions = {
+    encoding: 'utf-8'
+};
+
 /**
  * Helper function to read file async from disc.
  *
@@ -25,7 +29,6 @@ import path from 'path';
  * @returns {Function} The promise for this request
  */
 function readFile(fileName) {
-
     const filePath = path.resolve(__dirname, fileName);
 
     return new Promise(function handlePromise(resolve, reject) {
@@ -33,9 +36,7 @@ function readFile(fileName) {
             return reject(Error(`No such file found ${filePath}`));
         }
 
-        return fs.readFile(filePath, {
-            encoding: 'utf-8'
-        }, function handleReadFile(error, data) {
+        return fs.readFile(filePath, readFileOptions, function handleReadFile(error, data) {
             if (error) {
                 return reject(Error(error));
             }
@@ -53,17 +54,13 @@ function readFile(fileName) {
  * @returns {string} The utf-8 encoded file contents
  */
 function readFileSync(fileName) {
-
     const filePath = path.resolve(__dirname, fileName);
 
     if (!fs.existsSync(filePath)) {
         return '';
     }
 
-    return fs.readFileSync(filePath, {
-        encoding: 'utf-8'
-    });
-
+    return fs.readFileSync(filePath, readFileOptions);
 }
 
 export {

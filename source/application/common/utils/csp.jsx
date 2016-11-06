@@ -39,6 +39,7 @@ import { isEmpty } from 'lodash';
  * (means number only used once)
  *
  * @function
+ * @private
  * @param {number} length
  * @returns {string}
  */
