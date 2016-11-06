@@ -242,8 +242,12 @@ function fetchConfigContentIfNeeded() {
  * @returns {Function}
  */
 function fetchConfigTranslationIfNeeded(loc) {
-    const locale = loc.toLowerCase();
     return function asyncDispatch(dispatch, getState) {
+        if (!loc) {
+            return dispatch(failedConfigTranslation(loc));
+        }
+
+        const locale = loc.toLowerCase();
         if (shouldFetch(getState(), `config.${locale}`)) {
             return dispatch(fetchConfigTranslation(locale));
         }

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names*/
-// /* global describe, it, expect */
+/* global describe, it, expect, jasmine */
 import http from 'http';
 
 import './../server';
@@ -7,9 +7,19 @@ import configApplication, { host, port, url } from './../../common/config/applic
 
 const rootUrl = `http://${host}:${port}`;
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000; // 20 second timeout
+
 describe.only('server', function () {
     const servedUrlsToBeTested = [
         `${rootUrl}`,
+        `${rootUrl}${url.work}${url.workOptikLudewig}`,
+        `${rootUrl}${url.work}${url.workSummerInspiration}`,
+        `${rootUrl}${url.work}${url.workMomentariness}`,
+        `${rootUrl}${url.work}${url.workLebensweltSchule}`,
+        `${rootUrl}${url.work}${url.workOptikLudewig}`,
+        `${rootUrl}${url.work}${url.workRevolution}`,
+        `${rootUrl}${url.work}${url.workVerlegeserviceBunge}`,
+        `${rootUrl}${url.work}${url.workGedankenKollektiv}`,
         `${rootUrl}${url.persona}`,
         `${rootUrl}${url.contact}`,
         `${rootUrl}${url.broadcast}`,
@@ -37,4 +47,32 @@ describe.only('server', function () {
             });
         });
     }
+
+    // @see {@link https://de.godaddy.com/help/how-to-make-an-http-post-request-in-nodejs-12366}
+    // const contactPostOptions = {
+    //     hostname: host,
+    //     port: port,
+    //     path: `${url.contact}`,
+    //     method: 'POST',
+    //     headers: {
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'X-Requested-With': 'XMLHttpRequest'
+    //     }
+    // };
+    //
+    // it(`should return 200 for post request to ${rootUrl}${url.contact}`, function (done) {
+    //     const request = http.request(contactPostOptions, function (res) {
+    //         expect(res.statusCode).toBe(200);
+    //         done();
+    //     });
+    //     request.on('error', function(e) {
+    //         console.error('problem with request: ' + e.message);
+    //         done();
+    //     });
+    //     request.write('{"data": {"name": "test", "email": "test@test.de", "subject": "test", "message": "test"}}');
+    //     request.end();
+    //     return request;
+    // });
+
 });

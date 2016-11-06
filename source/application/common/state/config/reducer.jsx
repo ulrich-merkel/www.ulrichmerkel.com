@@ -101,3 +101,6 @@ function reducer(state = defaultState, action) {
 }
 
 export default reducer;
+export {
+    defaultState
+};
