@@ -28,8 +28,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { get } from 'lodash';
 
-import addPageTracking from './../decorator/add-page-tracking';
+import { url } from './../../config/application';
 import configWork from './../../config/work';
+import addPageTracking from './../decorator/add-page-tracking';
 import { getContentSection, getTranslatedContent } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionKeyVisual from './../section/key-visual';
@@ -46,18 +47,17 @@ import SectionText from './../section/text';
  */
 function getWorkContentKey(routerPath, config) {
     return config.filter((entry) => {
-        return entry.routerPath === routerPath;
+        return entry.routerPath.substr(1) === routerPath;
     }).map((entry) => {
         return entry.i18nKey;
     }).shift();
 }
 
 /**
- * Function representing a component to return a single react child element.
+ * Class representing a component.
  *
- * @constructor
- * @param {Object} [props] The current component props
- * @returns {ReactElement} React component markup
+ * @class
+ * @extends React.Component
  */
 class PageWork extends Component {
 
@@ -93,7 +93,7 @@ class PageWork extends Component {
 
         // redirect if route couldn't be found
         if (!work) {
-            router.push('/');
+            router.push(url.index);
             return;
         }
 

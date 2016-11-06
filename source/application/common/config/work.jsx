@@ -11,34 +11,36 @@
 * - 0.0.2 rewritten for es2015
 * - 0.0.1 basic functions and structure
 */
+import { url } from './application';
+
 const work = [
     {
         i18nKey: 'PageWorkOptikLudewig',
-        routerPath: 'optik-ludewig'
+        routerPath: url.workOptikLudewig
     },
     {
         i18nKey: 'PageWorkSummerInspiration',
-        routerPath: 'summer-inspiration'
+        routerPath: url.workSummerInspiration
     },
     {
         i18nKey: 'PageWorkMomentariness',
-        routerPath: 'momentariness'
+        routerPath: url.workMomentariness
     },
     {
         i18nKey: 'PageWorkLebensweltSchule',
-        routerPath: 'lebenswelt-schule'
+        routerPath: url.workLebensweltSchule
     },
     {
         i18nKey: 'PageWorkRevolution',
-        routerPath: 'revolution'
+        routerPath: url.workRevolution
     },
     {
         i18nKey: 'PageWorkVerlegeserviceBunge',
-        routerPath: 'verlegeservice-bunge'
+        routerPath: url.workVerlegeserviceBunge
     },
     {
         i18nKey: 'PageWorkGedankenKollektiv',
-        routerPath: 'gedanken-kollektiv'
+        routerPath: url.workGedankenKollektiv
     }
 ];
 

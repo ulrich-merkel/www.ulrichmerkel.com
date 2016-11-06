@@ -13,7 +13,6 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import { host, port } from './application';
 import pictureSizes from './pictures';
 
 const { sizes: {
