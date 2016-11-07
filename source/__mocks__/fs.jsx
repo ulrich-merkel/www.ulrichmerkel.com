@@ -19,6 +19,8 @@ let mockFiles = Object.create(null);
  *   'file2.txt': 'file2 contents'
  * }};
  *
+ * @see {@link https://facebook.github.io/jest/docs/manual-mocks.html}
+ *
  * @function
  * @param {Object} newMockFiles The file config
  * @returns {void}
