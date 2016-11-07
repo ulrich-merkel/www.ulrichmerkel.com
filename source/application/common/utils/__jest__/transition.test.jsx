@@ -16,13 +16,13 @@ describe('transition', function () {
             {
                 transitionAppear: false
             }
-        ))
+        ));
     });
 
     it('should apply default transition if viewsAfterReload is greater than 1', function () {
         expect(getSectionTransition({
             viewsAfterReload: 2
-        })).toEqual(transition)
+        })).toEqual(transition);
     });
 
 });
