@@ -63,5 +63,4 @@ describe('xor', function () {
         });
     });
 
-
 });

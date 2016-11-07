@@ -42,10 +42,6 @@ function getLogOptions() {
     };
 }
 
-/**
- *
- *
- */
 function Logger(name) {
     this.name = name;
     this._log = noop;

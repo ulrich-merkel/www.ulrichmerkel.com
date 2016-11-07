@@ -146,45 +146,45 @@ function animate(opts) {
  * Animate window scroll position.
  *
  * @function
- * @param {Object} [opts] The scrolling options
- * @param {number} [opts.top] The window scroll top position
- * @param {number} [opts.duration] The scrolling animation time
- * @param {Function} [opts.easing] The animation easing function
- * @param {Function} [opts.callback] The animation done callback
+ * @param {Object} [opts={}] The scrolling options
+ * @param {number} [opts.top=0] The window scroll top position
+ * @param {number} [opts.duration=300] The scrolling animation time
+ * @param {Function} [opts.easing=easeInOutQuad] The animation easing function
+ * @param {Function} [opts.callback=Function.prototype] The animation done callback
  * @returns {void}
  */
 function scrollTo(opts = {}) {
 
-    const defaults = {
+    const options = Object.assign({}, {
         top: 0,
         duration: 300,
         easing: easeInOutQuad,
         callback: Function.prototype
-    };
-
-    const options = Object.assign({}, defaults, opts);
+    }, opts);
 
     if (!isBrowser()) {
-        return options.callback.call();
+        return void options.callback.call(null, options);
     }
 
     if (!options.duration) {
         window.scrollTo(0, options.top);
-        return options.callback.call();
+        return void options.callback.call(null, options);
     }
 
     const scrollTopCurrent = getPageOffset();
-    const render = function stepFunction(t) {
-        window.scrollTo(0, Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * t)));
-    };
-
-    return animate({
-        render: render,
+    return void animate({
+        render: function stepFunction(time) {
+            window.scrollTo(0, Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time)));
+        },
         duration: options.duration,
         easing: options.easing,
-        callback: options.callback
+        callback: options.callback.bind(null, options)
     });
 
 }
 
 export default scrollTo;
+export {
+    getPageOffset,
+    easeInOutQuad
+};
