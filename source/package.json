@@ -24,7 +24,7 @@
     "bin": "./bin",
     "config": "./config"
   },
-  "description": "Playground for React and all the corresponding technologies",
+  "description": "Playground for React and all the corresponding technologies.",
   "homepage": "https://www.ulrichmerkel.com",
   "contributors": [
     "Ulrich Merkel"

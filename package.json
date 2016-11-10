@@ -1,0 +1,39 @@
+{
+    "name": "ulrichmerkel.com",
+    "version": "4.0.0-beta.5",
+    "description": "Playground for React and all the corresponding technologies.",
+    "scripts": {
+        "preinstall": "npm run install:source",
+        "install:source": "cd source && npm prune && npm install",
+        "test": "npm run --silent test:source",
+        "test:source": "cd source; npm test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ulrich-merkel/www.ulrichmerkel.com"
+    },
+    "bugs": {
+        "url": "https://github.com/ulrich-merkel/www.ulrichmerkel.com/issues"
+    },
+    "engines": {
+        "node": "6.5.0",
+        "npm": "3.10.3"
+    },
+    "keywords": [
+        "javascript",
+        "babel",
+        "offline",
+        "npm scripts",
+        "responsive",
+        "react",
+        "react-router",
+        "universal",
+        "redux"
+    ],
+    "author": {
+        "name": "Ulrich Merkel",
+        "url": "https://www.ulrichmerkel.com"
+    },
+    "license": "MIT",
+    "homepage": "https://www.ulrichmerkel.com"
+}
