@@ -7,6 +7,10 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
+ * @requires os
+ * @requires common/config/application
+ * @requires common/config/pictures
+ *
  * @changelog
  * - 0.0.2 moved code to es6
  * - 0.0.1 basic functions and structure

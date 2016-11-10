@@ -18,6 +18,7 @@
  * @requires common/component/layout/html
  * @requires common/state/configure-store
  * @requires common/state/config/actions
+ * @requires common/state/intl/actions
  * @requires common/state/csrf/actions
  *
  * @see {@link https://github.com/reactjs/react-router/blob/1.0.x/docs/guides/advanced/ServerRendering.md}

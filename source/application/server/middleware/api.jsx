@@ -7,6 +7,13 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
+ * @requires express
+ * @requires lodash
+ * @requires common/config/application
+ * @requires common/config/content
+ * @requires common/config/i18n/en-EN
+ * @requires common/config/i18n/de-DE
+ *
  * @changelog
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
