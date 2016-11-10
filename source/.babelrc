@@ -1,7 +1,7 @@
-/*
-    "transform-react-inline-elements" is not possible due to ie11
-    "transform-react-constant-elements" produces errors while NODE_ENV=production in npm script
-*/
+/**
+ * "transform-react-inline-elements" is not possible due to ie11
+ * "transform-react-constant-elements" produces errors while NODE_ENV=production in npm script
+ */
 {
     "presets": [
         "stage-0",

@@ -1,7 +1,7 @@
-# /node_modules/* and /bower_components/* ignored by default
+# /node_modules/* and /bower_components/* are ignored by default
 
-# Ignore built files
-application/common/vendor/*
-reports/*
-doc/*
-config/flowtype/*
+# Ignore custom files and folders
+application/common/vendor/**
+reports/**
+doc/**
+config/**

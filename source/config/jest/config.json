@@ -1,0 +1,26 @@
+{
+    "transform": {
+      "^.+\\.jsx$": "<rootDir>/config/jest/transform.js"
+    },
+    "setupFiles": [
+        "<rootDir>/config/setup.js"
+    ],
+    "moduleFileExtensions": [
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "moduleNameMapper": {
+        "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm)$": "<rootDir>/config/jest/FileStub.js",
+        "^[./a-zA-Z0-9$_-]+\\.css$": "<rootDir>/config/jest/CSSStub.js"
+    },
+    "testRegex": "(/__jest__/.*|\\.(test|spec))\\.(js|jsx)$",
+    "testPathIgnorePatterns": [
+        "<rootDir>/(build|docs|node_modules)/"
+    ],
+    "testEnvironment": "node",
+    "mocksPattern": "__mocks__",
+    "coverageDirectory": "<rootDir>/reports/",
+    "collectCoverage": true
+}
