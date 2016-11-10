@@ -64,7 +64,7 @@ if (imagesSources.length) {
             [`${dest}${imagesSources[i]}*.{jpg,png}`],
             `${dest}${imagesSources[i]}`,
             {
-                plugins: plugins
+                plugins
             }
         ).then(imagesMinified);
     }

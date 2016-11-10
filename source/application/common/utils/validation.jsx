@@ -1,4 +1,4 @@
-/* eslint-disable no-useless-escape */
+/* eslint-disable no-useless-escape, no-control-regex */
 /**
  * Es6 module for helper component.
  *

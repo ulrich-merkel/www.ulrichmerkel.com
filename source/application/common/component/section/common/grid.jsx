@@ -44,7 +44,7 @@ import GridCol from './../../grid/col';
  */
 function SectionCommonGrid(props) {
 
-    var {
+    const {
         children,
         page
     } = props;

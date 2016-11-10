@@ -36,7 +36,7 @@ import ModuleLanguage from './../module/language';
  */
 function SectionLanguage(props) {
 
-    var {
+    const {
         children,
         content,
         ...moduleProps

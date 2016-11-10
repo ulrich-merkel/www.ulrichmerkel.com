@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names*/
-/* global describe, it, expect, jasmine */
 import http from 'http';
 
 import './../server';
@@ -35,7 +34,7 @@ describe.only('server', function () {
         `${rootUrl}/robots.txt`,
         `${rootUrl}/sitemap.xml`,
         `${rootUrl}/js/client.js`,
-        `${rootUrl}/js/app.css`,
+        `${rootUrl}/css/app.css`,
         configApplication.applicationCache.use ? `${rootUrl}/cache.manifest` : `${rootUrl}`
     ];
 

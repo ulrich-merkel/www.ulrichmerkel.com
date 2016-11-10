@@ -1,8 +1,8 @@
 // http://stackoverflow.com/questions/32911630/how-do-i-deal-with-localstorage-in-jest-tests
 // http://dev.paperlesspost.com/jest-unit-testing-react-js/325
-const mock = (function mockFn() {
+const localStorage = (function mockFn() {
 
-    var store = {};
+    let store = {};
 
     return {
         getItem: function getItem(key) {
@@ -20,4 +20,4 @@ const mock = (function mockFn() {
     };
 }());
 
-export default mock;
+export default localStorage;

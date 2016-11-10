@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* global describe, it, expect */
 import scrollTo, { easeInOutQuad } from './../scroll-to';
 
 const defaults = {
@@ -14,24 +13,24 @@ describe('scroll-to', function () {
     it('should call scrollTo with default options', function () {
         const callback = jest.fn();
         scrollTo({
-            callback: callback
+            callback
         });
         expect(callback).toBeCalled();
         expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
-            callback: callback
+            callback
         }));
     });
 
-    it('should call window.scrollTo', function () {
+    it('should call callback', function () {
         const callback = jest.fn();
         scrollTo({
             top: 100,
-            callback: callback
+            callback
         });
         expect(callback).toBeCalled();
         expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
             top: 100,
-            callback: callback
+            callback
         }));
     });
 

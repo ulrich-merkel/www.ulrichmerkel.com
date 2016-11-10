@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { ADD_CSRF_TOKEN } from './../constants';
 import { addToken } from './../actions';
 

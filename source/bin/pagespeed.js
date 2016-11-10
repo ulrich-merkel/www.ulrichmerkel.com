@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Run google page speed tests to improve performance and set up a performance
  * budget while development.
@@ -19,8 +20,8 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-const ngrok = require('ngrok'); // eslint-disable-line import/no-extraneous-dependencies
-const psi = require('psi'); // eslint-disable-line import/no-extraneous-dependencies
+const ngrok = require('ngrok');
+const psi = require('psi');
 const minimist = require('minimist');
 
 const argv = minimist(process.argv.slice(2));
@@ -39,10 +40,10 @@ process.stdin.setEncoding('utf8');
  * @returns {void}
  */
 function runPageSpeedInsights(url) {
-    console.log('Starting PageSpeed Insights'); // eslint-disable-line no-console
+    console.log('Starting PageSpeed Insights');
     psi.output(url).then(function handleOutput(error) {
         if (error) {
-            console.error(error); // eslint-disable-line no-console
+            console.error(error);
         }
         process.exit(0);
     });
@@ -60,14 +61,14 @@ function runPageSpeedInsights(url) {
 function startTunnel(callback) {
     ngrok.connect(port, function handleConnect(error, url) {
         if (error) {
-            console.error(error); // eslint-disable-line no-console
+            console.error(error);
             return void process.exit(0);
         }
 
-        console.log(`Serving tunnel from: ${url}`); // eslint-disable-line no-console
+        console.log(`Serving tunnel from: ${url}`);
         return void callback(url);
     });
 }
 
-console.log('Starting ngrok tunnel'); // eslint-disable-line no-console
+console.log('Starting ngrok tunnel');
 startTunnel(runPageSpeedInsights);

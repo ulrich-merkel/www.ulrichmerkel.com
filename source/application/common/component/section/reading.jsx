@@ -36,7 +36,7 @@ import ModuleReading from './../module/reading';
  */
 function SectionReading(props) {
 
-    var {
+    const {
         children,
         content,
         ...moduleProps

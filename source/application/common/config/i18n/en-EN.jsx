@@ -109,7 +109,7 @@ export default {
         Leipzig</a> and <a href='http://www.swisstiming.com/' target='_blank' title='ST Sportservice' rel='noopener noreferrer'>ST Sportservice</a>).`,
     'intl-page-persona-section2-academic-education-list-2-place-name': 'Germany (Leipzig)',
     'intl-page-persona-section2-academic-education-list-3-headline': 'Music school',
-    'intl-page-persona-section2-academic-education-list-3-description': `Schooling in clarinet, piano and musical composition.`,
+    'intl-page-persona-section2-academic-education-list-3-description': 'Schooling in clarinet, piano and musical composition.',
     'intl-page-persona-section2-academic-education-list-3-place-name': 'Germany (Zeitz)',
     'intl-page-persona-section2-academic-education-list-4-headline': 'Grammar school',
     'intl-page-persona-section2-academic-education-list-4-place-name': 'Germany (Zeitz)',
@@ -308,7 +308,7 @@ export default {
     'intl-page-imprint-section1-headline': 'Imprint',
     'intl-page-imprint-section1-lead': 'Legal details and information in accordance with section 5 TMG.',
     'intl-page-imprint-section1-text-1-headline': 'Publisher information',
-    'intl-page-imprint-section1-text-1-content-1': `Person responsible for content in accordance with 55 Abs. 2 RStV:`,
+    'intl-page-imprint-section1-text-1-content-1': 'Person responsible for content in accordance with 55 Abs. 2 RStV:',
     'intl-page-imprint-section1-text-1-content-2': `Ust. (VAT) - Idnr. DE  235 248 02155<br />
         Amtsgericht Borna`,
     'intl-page-imprint-section1-address-name': 'Ulrich Merkel',

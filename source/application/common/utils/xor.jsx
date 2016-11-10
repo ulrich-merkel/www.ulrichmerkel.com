@@ -35,7 +35,7 @@ const IS_BROWSER = isBrowser();
  */
 function utf8ToBase64(data) {
 
-    var buffer;
+    let buffer;
 
     if (IS_BROWSER && isFunction(window.btoa)) {
         // preventing "Character Out Of Range" exceptions

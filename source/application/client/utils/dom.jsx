@@ -107,11 +107,9 @@ function createDomNode(name, attributes) {
 
     // Check for attributes to set
     if (attributes) {
-        for (const attribute in attributes) {
-            if ({}.hasOwnProperty.call(attributes, attribute)) {
-                domNode.setAttribute(attribute, attributes[attribute]);
-            }
-        }
+        Object.keys(attributes).forEach(function handleKey(key) {
+            domNode.setAttribute(key, attributes[key]);
+        });
     }
 
     // Return created node

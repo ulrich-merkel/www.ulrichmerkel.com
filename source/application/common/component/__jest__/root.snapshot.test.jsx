@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names*/
-/* global describe, it, expect */
+/* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Root from './../root';

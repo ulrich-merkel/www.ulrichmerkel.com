@@ -34,7 +34,7 @@ import ModuleArticle from './../module/article';
  */
 function SectionForm(props) {
 
-    var {
+    const {
         children,
         content,
         isMain,

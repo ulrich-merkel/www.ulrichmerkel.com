@@ -21,8 +21,8 @@ import { INTL_CHANGE_LOCALE } from './constants';
 function changeLocale(locale, fallback) {
     return {
         type: INTL_CHANGE_LOCALE,
-        locale: locale,
-        fallback: fallback
+        locale,
+        fallback
     };
 }
 

@@ -64,7 +64,7 @@ Logger.prototype = {
     enable: function enableFn(shouldBeEnabled) {
 
         if (!shouldBeEnabled) {
-            return void this;
+            return undefined;
         }
 
         const logFunctions = [
@@ -90,7 +90,7 @@ Logger.prototype = {
 
     write: function writeFn(output, args) {
         if (!this.isEnabled) {
-            return void this;
+            return undefined;
         }
 
         const parameters = Array.prototype.slice.call(args);

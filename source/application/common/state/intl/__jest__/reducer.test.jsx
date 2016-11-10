@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { INTL_CHANGE_LOCALE, AVAILABLE_LOCALES } from './../constants';
 import reducer, { defaultState } from './../reducer';
 

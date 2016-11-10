@@ -98,7 +98,7 @@ class PageWork extends Component {
         }
 
         this.setState({
-            work: work
+            work
         });
     }
 

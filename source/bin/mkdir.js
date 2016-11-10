@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Helper to create build directory structure.
  *
@@ -21,7 +22,7 @@
  * - 0.0.1 basic functions and structure
  */
 const fs = require('fs');
-const rimraf = require('rimraf'); // eslint-disable-line import/no-extraneous-dependencies
+const rimraf = require('rimraf');
 const minimist = require('minimist');
 
 const argv = minimist(process.argv.slice(2));
@@ -86,7 +87,7 @@ function emptyFolders(folders, callback) {
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
         rimraf(`${dest}${folder.name}`, function rimrafFn(error) {
             if (error) {
-                return void console.warn(error); // eslint-disable-line no-console
+                return void console.warn(error);
             }
             return void callback();
         });
@@ -103,13 +104,16 @@ function createFolders(folders) {
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
         fs.mkdir(`${dest}${folder.name}`, function mkdirFn(error) {
             if (error) {
-                console.warn(error); // eslint-disable-line no-console
+                if (error.code === 'EEXIST') {
+                    console.log(`${error.path} already exists`);
+                    return;
+                }
+                console.warn(error);
                 return;
             }
             if (folder.folders && folder.folders.length) {
                 createFolders(folder.folders);
             }
-            return;
         });
     });
 }

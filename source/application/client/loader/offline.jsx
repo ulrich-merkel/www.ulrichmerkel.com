@@ -69,7 +69,7 @@ function displayAllLoaded() {
  * @returns {void}
  */
 function onProgressEvent(e) {
-    var value = 0;
+    let value = 0;
 
     if (e && e.lengthComputable) {
         value = Math.round(100 * e.loaded / e.total);

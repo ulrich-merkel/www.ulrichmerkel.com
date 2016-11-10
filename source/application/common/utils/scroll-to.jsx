@@ -119,7 +119,7 @@ function animate(opts) {
 
     (function loop() {
 
-        var p = (getTime() - start) / duration;
+        const p = (getTime() - start) / duration;
 
         if (p >= 1) {
 
@@ -163,16 +163,18 @@ function scrollTo(opts = {}) {
     }, opts);
 
     if (!isBrowser()) {
-        return void options.callback.call(null, options);
+        options.callback.call(null, options);
+        return;
     }
 
     if (!options.duration) {
         window.scrollTo(0, options.top);
-        return void options.callback.call(null, options);
+        options.callback.call(null, options);
+        return;
     }
 
     const scrollTopCurrent = getPageOffset();
-    return void animate({
+    animate({
         render: function stepFunction(time) {
             window.scrollTo(0, Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time)));
         },

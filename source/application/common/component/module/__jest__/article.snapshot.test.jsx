@@ -1,5 +1,4 @@
-/* global jest, describe, expect */
-/* eslint-disable react/prefer-es6-class, react/prefer-stateless-function, func-names, react/prop-types, import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ComponentToBeTested from './../article';
@@ -7,7 +6,7 @@ import ComponentToBeTested from './../article';
 describe('component/module/article', function () {
     describe('Snapshot', function () {
         it('should render correctly', function () {
-            var tree = renderer.create(
+            const tree = renderer.create(
                 <ComponentToBeTested
                     componentType='span'
                     className='foo'

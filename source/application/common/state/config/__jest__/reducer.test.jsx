@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import {
     CONFIG_CONTENT_ADD,
     FETCH_CONFIG_CONTENT_REQUEST,
@@ -22,17 +21,17 @@ describe('reducer', function () {
                 foo: 'bar'
             };
             const content = {
-                data: data,
+                data,
                 didInvalidate: false,
                 isFetching: false,
                 lastUpdated: dateNow
             };
             expect(reducer(undefined, {
                 type: CONFIG_CONTENT_ADD,
-                data: data,
+                data,
                 receivedAt: dateNow
             })).toEqual({
-                content: content
+                content
             });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_CONTENT_REQUEST}`, function () {
@@ -43,7 +42,7 @@ describe('reducer', function () {
             expect(reducer(undefined, {
                 type: FETCH_CONFIG_CONTENT_REQUEST
             })).toEqual({
-                content: content
+                content
             });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_CONTENT_SUCCESS}`, function () {
@@ -51,17 +50,17 @@ describe('reducer', function () {
                 foo: 'bar'
             };
             const content = {
-                data: data,
+                data,
                 didInvalidate: false,
                 isFetching: false,
                 lastUpdated: dateNow
             };
             expect(reducer(undefined, {
                 type: FETCH_CONFIG_CONTENT_SUCCESS,
-                data: data,
+                data,
                 receivedAt: dateNow
             })).toEqual({
-                content: content
+                content
             });
         });
     });
@@ -73,16 +72,16 @@ describe('reducer', function () {
                 foo: 'bar'
             };
             const actionData = {
-                data: data,
+                data,
                 didInvalidate: false,
                 isFetching: false,
                 lastUpdated: dateNow
             };
             expect(reducer(undefined, {
                 type: CONFIG_TRANSLATION_ADD,
-                data: data,
+                data,
                 receivedAt: dateNow,
-                locale: locale
+                locale
             })).toEqual(Object.assign({}, defaultState, {
                 [locale]: actionData
             }));
@@ -94,7 +93,7 @@ describe('reducer', function () {
             };
             expect(reducer(undefined, {
                 type: FETCH_CONFIG_TRANSLATION_REQUEST,
-                locale: locale
+                locale
             })).toEqual(Object.assign({}, defaultState, {
                 [locale]: actionData
             }));
@@ -104,16 +103,16 @@ describe('reducer', function () {
                 foo: 'bar'
             };
             const actionData = {
-                data: data,
+                data,
                 didInvalidate: false,
                 isFetching: false,
                 lastUpdated: dateNow
             };
             expect(reducer(undefined, {
                 type: FETCH_CONFIG_TRANSLATION_SUCCESS,
-                data: data,
+                data,
                 receivedAt: dateNow,
-                locale: locale
+                locale
             })).toEqual(Object.assign({}, defaultState, {
                 [locale]: actionData
             }));

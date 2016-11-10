@@ -36,7 +36,7 @@ import ModuleText from './../module/text';
  */
 function SectionText(props) {
 
-    var {
+    const {
         children,
         content,
         isMain,

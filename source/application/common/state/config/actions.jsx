@@ -82,7 +82,7 @@ function requestConfigContent() {
 function requestConfigTranslation(locale) {
     return {
         type: FETCH_CONFIG_TRANSLATION_REQUEST,
-        locale: locale
+        locale
     };
 }
 
@@ -97,8 +97,8 @@ function requestConfigTranslation(locale) {
 function receiveConfigContent(data) {
     return {
         type: FETCH_CONFIG_CONTENT_SUCCESS,
-        data: data,
-        receivedAt: Date.now()
+        receivedAt: Date.now(),
+        data
     };
 }
 
@@ -113,9 +113,9 @@ function receiveConfigContent(data) {
 function receiveConfigTranslation(data, locale) {
     return {
         type: FETCH_CONFIG_TRANSLATION_SUCCESS,
-        data: data,
         receivedAt: Date.now(),
-        locale: locale
+        data,
+        locale
     };
 }
 
@@ -142,7 +142,7 @@ function failedConfigContent() {
 function failedConfigTranslation(locale) {
     return {
         type: FETCH_CONFIG_TRANSLATION_FAILURE,
-        locale: locale
+        locale
     };
 }
 
@@ -156,8 +156,8 @@ function failedConfigTranslation(locale) {
 function addConfigContent(data) {
     return {
         type: CONFIG_CONTENT_ADD,
-        data: data,
-        receivedAt: Date.now()
+        receivedAt: Date.now(),
+        data
     };
 }
 
@@ -171,9 +171,9 @@ function addConfigContent(data) {
 function addConfigTranslation(data, locale) {
     return {
         type: CONFIG_TRANSLATION_ADD,
-        data: data,
         receivedAt: Date.now(),
-        locale: locale
+        data,
+        locale
     };
 }
 

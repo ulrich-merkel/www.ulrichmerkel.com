@@ -144,7 +144,7 @@ const ComponentModuleMenu = (props) => {
     if (itemType) {
         componentSchema = {
             itemScope: true,
-            itemType: itemType
+            itemType
         };
     }
 

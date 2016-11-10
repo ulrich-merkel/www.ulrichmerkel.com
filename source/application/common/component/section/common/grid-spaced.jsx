@@ -46,7 +46,7 @@ import GridCol from './../../grid/col';
  */
 function SectionCommonGridSpaced(props) {
 
-    var {
+    const {
         children,
         page
     } = props;

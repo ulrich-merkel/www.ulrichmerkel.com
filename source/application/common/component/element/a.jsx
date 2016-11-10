@@ -63,8 +63,8 @@ function ElementA(props) {
     };
 
     const componentAttributes = {
-        to: to,
-        activeClassName: activeClassName
+        to,
+        activeClassName
     };
 
     const componentClassName = classnames(

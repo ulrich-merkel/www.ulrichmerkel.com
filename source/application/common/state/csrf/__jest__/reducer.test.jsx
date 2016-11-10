@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { ADD_CSRF_TOKEN } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
@@ -11,9 +10,9 @@ describe('reducer', function () {
         const token = 'lorem';
         expect(reducer(undefined, {
             type: ADD_CSRF_TOKEN,
-            token: token
+            token
         })).toEqual({
-            token: token
+            token
         });
     });
     it('should return the current state if payload is empty', function () {

@@ -35,7 +35,7 @@ function css(src, callback = Function.prototype) {
     const headDomNode = getHeadDomNode();
 
     if (!src || !headDomNode) {
-        return void callback.call(false);
+        return callback.call(false);
     }
 
     /**
@@ -50,7 +50,7 @@ function css(src, callback = Function.prototype) {
         media: 'only x'
     });
     if (!styleDomNode) {
-        return void null;
+        return null;
     }
 
     // Http loading starts here
@@ -62,7 +62,7 @@ function css(src, callback = Function.prototype) {
         callback.call(true);
     });
 
-    return void null;
+    return null;
 
 }
 
@@ -83,7 +83,8 @@ function js(src, callback = Function.prototype) {
     const refDomNode = getFirstDomNodeByTagName('script');
 
     if (!src) {
-        return void callback.call(false);
+        callback.call(false);
+        return;
     }
 
     /**
@@ -92,12 +93,13 @@ function js(src, callback = Function.prototype) {
      * We set this value here just to be sure it's async, but it's normally not neccesary.
      */
     const scriptDomNode = createDomNode('script', {
+        async: 'true',
         className: classNameLoaded,
-        src: src,
-        async: 'true'
+        src
     });
     if (!scriptDomNode) {
-        return void null;
+        callback.call(false);
+        return;
     }
 
     // Add script event listeners when loaded
@@ -125,9 +127,10 @@ function js(src, callback = Function.prototype) {
 
     // Append script to according dom node
     if (refDomNode) {
-        return void refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
+        refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
+        return;
     }
-    return void headDomNode.appendChild(scriptDomNode);
+    headDomNode.appendChild(scriptDomNode);
 
 }
 

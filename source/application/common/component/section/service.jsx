@@ -36,7 +36,7 @@ import ModuleService from './../module/service';
  */
 function SectionService(props) {
 
-    var {
+    const {
         children,
         content,
         ...moduleProps

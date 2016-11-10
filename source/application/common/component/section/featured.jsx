@@ -36,7 +36,7 @@ import ModuleFeatured from './../module/featured';
  */
 function SectionFeatured(props) {
 
-    var {
+    const {
         children,
         content,
         ...moduleProps

@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 // @see https://github.com/reactjs/redux/blob/master/docs/recipes/WritingTests.md
 import configureMockStore from 'redux-mock-store'; // eslint-disable-line import/no-extraneous-dependencies
 import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies

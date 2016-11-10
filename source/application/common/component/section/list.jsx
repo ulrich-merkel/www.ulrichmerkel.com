@@ -33,7 +33,7 @@ import ModuleList from './../module/list';
  */
 function SectionList(props) {
 
-    var {
+    const {
         children,
         content,
         isMain,

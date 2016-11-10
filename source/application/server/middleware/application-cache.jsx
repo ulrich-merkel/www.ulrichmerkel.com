@@ -48,18 +48,16 @@ function getTimeStamp() {
  */
 function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
 
-    var length = sizes.length,
-        i = 0,
-        response = [];
+    const response = [];
 
-    if (!length) {
+    if (!sizes.length) {
         return response;
     }
 
-    for (i = 0; i < length; i = i + 1) {
-        const size = `${sizes[i].width}x${sizes[i].height}`;
-        response.push(`${path}@${size}.${extension} ${path}@${fallbackSize}.${extension}`);
-    }
+    sizes.forEach(function handleSize(size) {
+        const imageSize = `${size.width}x${size.height}`;
+        response.push(`${path}@${imageSize}.${extension} ${path}@${fallbackSize}.${extension}`);
+    });
 
     return response.join(EOL);
 }
@@ -79,7 +77,7 @@ function getApplicationCacheResponse() {
         featured: pictureSizesFeatured
     } } = configPictures;
 
-    var response = [];
+    const response = [];
 
     response.push('CACHE MANIFEST');
     response.push(EOL);

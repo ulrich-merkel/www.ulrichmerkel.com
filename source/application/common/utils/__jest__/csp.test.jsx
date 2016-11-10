@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* global describe, it, expect */
 import { getNonceConfig, getCspRules } from './../csp';
 
 describe('csp', function () {
@@ -16,12 +15,14 @@ describe('csp', function () {
         const cspRules = getCspRules(nonceConfig);
 
         const rulesToEqual = [];
+        /* eslint-disable quotes */
         rulesToEqual.push(`default-src 'self' www.ulrichmerkel.com;`);
         rulesToEqual.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.loader}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
         rulesToEqual.push(`style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`);
         rulesToEqual.push(`img-src 'self' www.ulrichmerkel.com data:;`);
         rulesToEqual.push(`child-src 'none';`);
         rulesToEqual.push(`object-src 'none';`);
+        /* eslint-enable quotes */
         expect(cspRules).toEqual(rulesToEqual.join(''));
 
         const emptyCspRules = getCspRules();

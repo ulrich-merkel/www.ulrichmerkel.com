@@ -97,7 +97,7 @@ function ComponentModuleService(props) {
     if (itemType) {
         componentSchema = {
             itemScope: true,
-            itemType: itemType
+            itemType
         };
     }
 

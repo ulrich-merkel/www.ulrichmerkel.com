@@ -36,7 +36,7 @@ import ModuleCornerstone from './../module/cornerstone';
  */
 function SectionCornerstone(props) {
 
-    var {
+    const {
         children,
         content,
         ...moduleProps

@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './../constants';
 import reducer, { defaultState } from './../reducer';
 

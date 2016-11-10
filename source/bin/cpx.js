@@ -23,8 +23,8 @@ const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 const dest = argv.d || './../build/';
 const files = [
-    { source: './package.json', dest: dest },
-    { source: './.env', dest: dest },
+    { source: './package.json', dest },
+    { source: './.env', dest },
     { source: './public/js/**/*', dest: `${dest}/public/js` },
     { source: './public/img/**/*', dest: `${dest}/public/img` },
     { source: './public/font/**/*', dest: `${dest}/public/font` },

@@ -2,7 +2,6 @@
 import path from 'path';
 
 const fs = jest.genMockFromModule('fs');
-let mockFiles = Object.create(null);
 
 /**
  * This is a custom function that our tests can use during setup to specify
@@ -25,19 +24,18 @@ let mockFiles = Object.create(null);
  * @param {Object} newMockFiles The file config
  * @returns {void}
  */
+let mockFiles = Object.create(null);
 function __setMockFiles(newMockFiles) {
     mockFiles = Object.create(null);
-    for (const file in newMockFiles) {
-        if ({}.hasOwnProperty.call(newMockFiles, file)) {
-            const dirname = path.dirname(file);
-            const basename = path.basename(file);
+    Object.keys(newMockFiles).forEach(function handleValue(file) {
+        const dirname = path.dirname(file);
+        const basename = path.basename(file);
 
-            if (!mockFiles[dirname]) {
-                mockFiles[dirname] = {};
-            }
-            mockFiles[dirname][basename] = newMockFiles[file];
+        if (!mockFiles[dirname]) {
+            mockFiles[dirname] = {};
         }
-    }
+        mockFiles[dirname][basename] = newMockFiles[file];
+    });
 }
 
 /**
@@ -48,18 +46,6 @@ function __setMockFiles(newMockFiles) {
  */
 function __getMockFiles() {
     return mockFiles;
-}
-
-/**
- * A custom version of `readdirSync` that reads from the special mocked out
- * file list set via __setMockFiles.
- *
- * @function
- * @param {string} directoryPath
- * @returns {Array}
- */
-function readdirSync(directoryPath) {
-    return mockFiles[directoryPath] || [];
 }
 
 /**
@@ -107,11 +93,10 @@ function existsSync(filePath) {
     return !!(mockFiles && mockFiles[dirname] && mockFiles[dirname][basename]);
 }
 
-fs.__setMockFiles = __setMockFiles;
-fs.__getMockFiles = __getMockFiles;
-fs.readdirSync = readdirSync;
-fs.readFile = readFile;
-fs.readFileSync = readFileSync;
-fs.existsSync = existsSync;
-
-export default fs;
+export default Object.assign(fs, {
+    __setMockFiles,
+    __getMockFiles,
+    readFile,
+    readFileSync,
+    existsSync
+});

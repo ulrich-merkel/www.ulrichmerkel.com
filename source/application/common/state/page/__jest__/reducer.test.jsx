@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { PAGE_INCREASE_VIEWS } from './../constants';
 import reducer, { defaultState } from './../reducer';
 

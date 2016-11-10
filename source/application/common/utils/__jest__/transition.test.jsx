@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* global describe, it, expect */
 import getSectionTransition from './../transition';
 import configApplication from './../../config/application';
 

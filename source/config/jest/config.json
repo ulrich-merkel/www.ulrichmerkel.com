@@ -3,7 +3,7 @@
       "^.+\\.jsx$": "<rootDir>/config/jest/transform.js"
     },
     "setupFiles": [
-        "<rootDir>/config/setup.js"
+        "<rootDir>/config/jest/setup.js"
     ],
     "moduleFileExtensions": [
         "js",

@@ -1,5 +1,4 @@
-/* eslint-disable func-names */
-/* global describe, it, expect */
+/* eslint-disable func-names, import/first, no-underscore-dangle */
 jest.mock('fs');
 
 import fs from 'fs';
@@ -11,7 +10,6 @@ describe('read-file', function () {
         '/path/to/file2.txt': 'file2 contents'
     };
 
-    // Set up some mocked out file info before each test
     beforeEach(function () {
         fs.__setMockFiles(MOCK_FILE_INFO);
     });

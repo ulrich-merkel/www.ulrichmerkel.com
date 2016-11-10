@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* global describe, it, expect */
 import { isBrowser, isNode, isWebWorker } from './../environment';
 
 describe('environment', function () {

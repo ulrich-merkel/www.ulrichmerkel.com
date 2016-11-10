@@ -34,7 +34,7 @@ import ModuleKeyVisual from './../module/key-visual';
  */
 function SectionKeyVisual(props) {
 
-    var { content, children, ...moduleProps } = props;
+    const { content, children, ...moduleProps } = props;
 
     return (
         <SectionCommonGrid>

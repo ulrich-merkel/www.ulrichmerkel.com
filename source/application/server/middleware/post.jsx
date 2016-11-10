@@ -44,7 +44,7 @@ function sendSuccess(req, res, message = '') {
     if (req.xhr) {
         return res.status(200).send({
             status: 200,
-            message: message
+            message
         }).end();
     }
     return res.redirect(301, url.contactSuccess);
@@ -65,7 +65,7 @@ function sendError(req, res, message = '') {
     if (req.xhr) {
         return res.status(400).send({
             status: 400,
-            message: message
+            message
         }).end();
     }
     return res.redirect(301, url.contactError);

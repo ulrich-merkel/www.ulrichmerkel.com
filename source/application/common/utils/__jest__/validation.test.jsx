@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* global describe, it, expect */
 import { email, required } from './../validation';
 
 describe('validation', function () {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Resize images based on config json to build all responsive image sizes.
  *
@@ -19,8 +20,8 @@
  * - 0.0.2 switched to node6
  * - 0.0.1 basic functions and structure
  */
-const lwip = require('lwip'); // eslint-disable-line import/no-extraneous-dependencies
-// hack due to node/es6/running is dev mode without babel
+const lwip = require('lwip');
+
 const picture = require('./../application/common/config/pictures');
 
 const pictureSizesKeyvisual = picture.sizes.keyvisual;
@@ -164,7 +165,7 @@ const configImages = config.images;
 function resize(src, dest, width, height) {
     lwip.open(src, function handleOpenImage(openError, image) {
         if (openError) {
-            return void console.error(openError); // eslint-disable-line no-console
+            return void console.error(openError);
         }
 
         return void image
@@ -172,9 +173,9 @@ function resize(src, dest, width, height) {
             .cover(width, height)
             .writeFile(dest, function handleWriteFile(writeError) {
                 if (writeError) {
-                    return void console.error(writeError); // eslint-disable-line no-console
+                    return void console.error(writeError);
                 }
-                return void console.log(`File written: ${dest}`); // eslint-disable-line no-console
+                return void console.log(`File written: ${dest}`);
             });
     });
 }

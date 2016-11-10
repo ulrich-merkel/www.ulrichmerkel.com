@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { CONTACT_CHANGE } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
@@ -16,7 +15,7 @@ describe('reducer', function () {
         };
         expect(reducer(undefined, {
             type: CONTACT_CHANGE,
-            contact: contact
+            contact
         })).toEqual(contact);
     });
 

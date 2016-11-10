@@ -68,7 +68,7 @@ class ModulePerson extends Component {
         if (itemType) {
             componentSchema = {
                 itemScope: true,
-                itemType: itemType
+                itemType
             };
         }
         return (

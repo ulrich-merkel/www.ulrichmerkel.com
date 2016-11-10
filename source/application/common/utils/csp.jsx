@@ -92,12 +92,14 @@ function getCspRules(nonceConfig) {
     }
 
     const rules = [];
+    /* eslint-disable quotes */
     rules.push(`default-src 'self' www.ulrichmerkel.com;`);
     rules.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.loader}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
     rules.push(`style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`);
     rules.push(`img-src 'self' www.ulrichmerkel.com data:;`);
     rules.push(`child-src 'none';`);
     rules.push(`object-src 'none';`);
+    /* eslint-enable quotes */
 
     return rules.join('');
 }

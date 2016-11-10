@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { SEARCH_CHANGE_TERM } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
@@ -11,9 +10,9 @@ describe('reducer', function () {
         const term = 'lorem';
         expect(reducer(undefined, {
             type: SEARCH_CHANGE_TERM,
-            term: term
+            term
         })).toEqual({
-            term: term
+            term
         });
     });
 });

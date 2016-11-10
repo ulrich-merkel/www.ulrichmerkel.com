@@ -1,5 +1,4 @@
-/* eslint-disable func-names*/
-/* global describe, it, expect */
+/* eslint-disable func-names */
 import { INTL_CHANGE_LOCALE, INTL_LOCALE_DE_DE } from './../constants';
 import { changeLocale } from './../actions';
 

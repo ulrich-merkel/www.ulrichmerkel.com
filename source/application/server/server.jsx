@@ -23,20 +23,24 @@
  * @requires babel-polyfill
  * @requires fs
  * @requires express
+ * @requires express-request-language
  * @requires hpp
  * @requires helmet
  * @requires compression
  * @requires path
  * @requires body-parser
+ * @requires cookie-parser
  * @requires morgan
  * @requires ip
  *
- * @requires middleware/post
- * @requires middleware/error
- * @requires middleware/react
- * @requires middleware/application-cache
- * @requires utils/logger
- * @requires config/application
+ * @requires common/config/application
+ * @requires common/utils/logger
+ * @requires common/state/intl/constants
+ * @requires server/middleware/post
+ * @requires server/middleware/error
+ * @requires server/middleware/react
+ * @requires server/middleware/api
+ * @requires server/middleware/application-cache
  *
  * @changelog
  * - 0.0.5 refactoring, removed minimist due to dotenv
@@ -49,7 +53,7 @@ import 'babel-polyfill';
 
 import fs from 'fs';
 import express from 'express';
-import session from 'express-session';
+import requestLanguage from 'express-request-language';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -58,16 +62,15 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import ip from 'ip';
-import requestLanguage from 'express-request-language';
 
 import { url, port, sessionSecret } from './../common/config/application';
 import logger from './../common/utils/logger';
+import { AVAILABLE_LOCALES } from './../common/state/intl/constants';
 import middlewarePost from './middleware/post';
 import middlewareError from './middleware/error';
 import middlewareReact from './middleware/react';
 import middlewareApi from './middleware/api';
 import middlewareApplicationCache from './middleware/application-cache';
-import { AVAILABLE_LOCALES } from './../common/state/intl/constants';
 
 /**
  * Called when express.js app starts on given port w/o errors
@@ -80,7 +83,7 @@ import { AVAILABLE_LOCALES } from './../common/state/intl/constants';
 function logServerStarted(portNumber) {
     // @TODO: try catch added for test failures, needs investigation (undefined logger?)
     try {
-        logger.log(`✅  Server is running and listening`);
+        logger.log('✅  Server is running and listening');
         logger.log(`
             Localhost: http://localhost:${portNumber}
             LAN: http://${ip.address()}:${portNumber}
@@ -129,18 +132,6 @@ function startServer() {
     // @see {@link https://github.com/nodejitsu/node-http-proxy/issues/180#issuecomment-12244852}
     app.use(url.api, middlewareApi);
 
-    // Store session data to allow user-specific controlling
-    app.use(session({
-        key: 'app.session',
-        secret: sessionSecret,
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            maxAge: 60000,
-            httpOnly: true
-        }
-    }));
-
     // Parse incoming req bodies as application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({
         extended: true
@@ -183,9 +174,10 @@ function startServer() {
      */
     return app.listen(port, function serverStarted(error) {
         if (error) {
-            return void logger.error(error.message);
+            logger.error(error.message);
+            return;
         }
-        return void logServerStarted(port);
+        logServerStarted(port);
     });
 
 }

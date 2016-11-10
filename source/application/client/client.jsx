@@ -136,7 +136,7 @@ browserHistory.listen(function handleListen(currentLocation) {
  * calling `match` is simply for side effects of
  * loading route/component code for the initial location
  */
-match({ routes: configRoutes, location: location }, function handleMatch(error, redirectLocation, renderProps) {
+match({ routes: configRoutes, location }, function handleMatch(error, redirectLocation, renderProps) {
     if (error) {
         logger.warn(error);
         return;
@@ -171,8 +171,6 @@ match({ routes: configRoutes, location: location }, function handleMatch(error, 
             mountNode
 
         );
-        return;
     }
 
-    return;
 });

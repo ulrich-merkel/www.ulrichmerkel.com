@@ -1,5 +1,4 @@
 /* eslint-disable func-names*/
-/* global describe, it, expect */
 import { SEARCH_CHANGE_TERM } from './../constants';
 import { changeSearchTerm } from './../actions';
 
