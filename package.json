@@ -3,7 +3,7 @@
     "version": "4.0.0-beta.5",
     "description": "Playground for React and all the corresponding technologies.",
     "scripts": {
-        "preinstall": "node-gyp rebuild && npm run install:source",
+        "preinstall": "npm run install:source",
         "install:source": "cd source && npm prune && npm install",
         "test": "npm run --silent test:source",
         "test:source": "cd source; npm test"
