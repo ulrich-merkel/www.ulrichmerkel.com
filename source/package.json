@@ -60,6 +60,7 @@
     "minify:loader": "cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/loader.js -c warnings=false -o $npm_package_directories_build_public/js/loader.js",
     "minify:images": "node $npm_package_directories_bin/imagemin -d $npm_package_directories_build_root/public/img/content/",
     "test": "npm-run-all --parallel test:*",
+    "test:dependencies": "npm list",
     "test:eslint": "eslint --config $npm_package_directories_config/.eslintrc.js --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx",
     "test:jest": "cross-env NODE_ENV=test jest --config $npm_package_directories_config/jest/config.json",
     "test:flow": "flow check",
