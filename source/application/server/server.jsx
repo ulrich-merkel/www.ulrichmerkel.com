@@ -111,12 +111,12 @@ function startServer() {
 
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
-    app.use(morgan('combined', {
-        stream: fs.createWriteStream(
-            path.resolve(__dirname, '../../reports/access.log'),
-            { flags: 'a' }
-        )
-    }));
+    const morgenOptions = process.env.NODE_ENV !== 'test'
+        ? { stream: fs.createWriteStream(
+                path.resolve(__dirname, '../../reports/access.log'), { flags: 'a' }
+          ) }
+        : {};
+    app.use(morgan('combined', morgenOptions));
 
     // We need this because "cookie" is true in csrfProtection
     // and session handling
