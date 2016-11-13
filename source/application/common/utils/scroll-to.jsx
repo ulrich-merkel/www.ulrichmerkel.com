@@ -100,16 +100,16 @@ function getPageOffset() {
  *
  * @function
  * @private
- * @param {Object} [opts] The scrolling options
- * @param {number} [opts.top] The window scroll top position
- * @param {number} [opts.duration] The scrolling animation time
- * @param {Function} [opts.easing] The animation easing function
- * @param {Function} [opts.callback] The animation done callback
+ * @param {Object} [options] The scrolling options
+ * @param {number} [options.top] The window scroll top position
+ * @param {number} [options.duration] The scrolling animation time
+ * @param {Function} [options.easing] The animation easing function
+ * @param {Function} [options.callback] The animation done callback
  * @returns {void}
  */
-function animate(opts) {
+function animate(options) {
 
-    const { render, duration, easing, callback } = opts;
+    const { render, duration, easing, callback } = options;
     const requestAnimationFrame = window.requestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame;
     const hasRequestAnimationFrame = !!(requestAnimationFrame && cancelAnimationFrame);
@@ -124,7 +124,7 @@ function animate(opts) {
         if (p >= 1) {
 
             render(1);
-            callback.call();
+            callback();
 
         } else {
 
