@@ -70,7 +70,7 @@ const configApplication = Object.assign({}, {
     },
     applicationCache: {
         use: true,
-        timeStamp: '2016-11-03'
+        timeStamp: '2016-11-13'
     },
     transition: {
         transitionName: 'animate',
