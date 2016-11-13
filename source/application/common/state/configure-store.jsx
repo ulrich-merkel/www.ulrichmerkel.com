@@ -95,7 +95,11 @@ function configureStore(preloadedState = {}) {
     // create store with cached data
     const store = createStore(
         reducers,
-        Object.assign({}, preloadedState, loadState()),
+        Object.assign(
+            {},
+            preloadedState,
+            loadState()
+        ),
         applyMiddleware(...middlewares)
     );
 
