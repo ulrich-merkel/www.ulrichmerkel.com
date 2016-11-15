@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+
 import configureStore from './../configure-store';
 
 describe('configureStore', function () {

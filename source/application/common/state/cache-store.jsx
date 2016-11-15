@@ -25,7 +25,7 @@ import WebStorage from './../utils/web-storage';
 const webStorage = new WebStorage();
 const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;
-const webStorageKey = 'state';
+const stateKey = 'state';
 
 /**
  * Load saved state and return undefined to let reducers init
@@ -35,7 +35,7 @@ const webStorageKey = 'state';
  * @returns {Object|undefined}
  */
 function loadState() {
-    const serializedState = webStorage.read(webStorageKey);
+    const serializedState = webStorage.read(stateKey);
 
     if (serializedState === null) {
         return undefined;
@@ -65,7 +65,7 @@ function loadState() {
  */
 function saveState(state) {
     webStorage.save(
-        webStorageKey,
+        stateKey,
         xorUse
             ? xor.encrypt(JSON.stringify(state), xorKey)
             : JSON.stringify(state)
@@ -74,5 +74,6 @@ function saveState(state) {
 
 export {
     loadState,
-    saveState
+    saveState,
+    stateKey
 };
