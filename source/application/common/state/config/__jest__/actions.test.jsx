@@ -49,7 +49,7 @@ describe('actions', function () {
             nock.cleanAll();
         });
 
-        it(`creates ${FETCH_CONFIG_CONTENT_SUCCESS} when fetching content has been done`, function () {
+        it(`should create ${FETCH_CONFIG_CONTENT_SUCCESS} when fetching content has been done`, function () {
             const data = {
                 body: {
                     foo: 'bar',
@@ -76,7 +76,7 @@ describe('actions', function () {
             nock.cleanAll();
         });
 
-        it(`creates ${FETCH_CONFIG_TRANSLATION_SUCCESS} when fetching translation has been done`, function () {
+        it(`should create ${FETCH_CONFIG_TRANSLATION_SUCCESS} when fetching translation has been done`, function () {
             const data = {
                 body: {
                     foo: 'bar',
