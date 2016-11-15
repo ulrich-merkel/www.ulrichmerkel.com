@@ -39,10 +39,10 @@ const configApplication = Object.assign({}, {
         workOptikLudewig: '/optik-ludewig',
         workSummerInspiration: '/summer-inspiration',
         workMomentariness: '/momentariness',
-        workLebensweltSchule: 'lebenswelt-schule',
-        workRevolution: 'revolution',
-        workVerlegeserviceBunge: 'verlegeservice-bunge',
-        workGedankenKollektiv: 'gedanken-kollektiv',
+        workLebensweltSchule: '/lebenswelt-schule',
+        workRevolution: '/revolution',
+        workVerlegeserviceBunge: '/verlegeservice-bunge',
+        workGedankenKollektiv: '/gedanken-kollektiv',
         broadcast: '/broadcast',
         contact: '/contact',
         contactSuccess: '/contact/success',
@@ -70,7 +70,7 @@ const configApplication = Object.assign({}, {
     },
     applicationCache: {
         use: true,
-        timeStamp: '2016-11-13'
+        timeStamp: '2016-11-14'
     },
     transition: {
         transitionName: 'animate',
