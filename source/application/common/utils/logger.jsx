@@ -45,6 +45,7 @@ function getLogOptions() {
 function Logger(name) {
     this.name = name;
     this._log = noop;
+    this._info = noop;
     this._warn = noop;
     this._error = noop;
     this._enabled = false;
@@ -118,4 +119,7 @@ Logger.prototype = {
     }
 };
 
-export default new Logger('Application').enable(debug);
+const logger = new Logger('Application');
+logger.enable(debug);
+
+export default logger;

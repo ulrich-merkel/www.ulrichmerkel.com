@@ -23,6 +23,7 @@ const configEnvironment = {
         debug: false
     },
     test: {
+        isProduction: false,
         debug: true,
         port: 3001
     }
@@ -70,7 +71,7 @@ const configApplication = Object.assign({}, {
     },
     applicationCache: {
         use: true,
-        timeStamp: '2016-11-14'
+        timeStamp: '2016-11-15'
     },
     transition: {
         transitionName: 'animate',
