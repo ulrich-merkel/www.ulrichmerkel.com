@@ -8,15 +8,14 @@
  * @version 0.0.1
  *
  * @requires lodash
- * @requires config/content
- * @requires config/i18n/en-EN
- * @requires config/i18n/de-DE
- * @requires state/intl/constants
+ * @requires common/state/intl/constants
 
  * @changelog
  * - 0.0.1 basic function and structure
  */
 import { get, isArray, isObject, isString } from 'lodash';
+
+import { AVAILABLE_LOCALES } from './../state/intl/constants';
 
 /**
  * Walk through array
@@ -114,12 +113,12 @@ function getContentSection(config) {
  * @TODO: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
  *
  * @function
- * @param {string} locale
+ * @param {string} [locale=defaultLocale]
  * @param {Object} config
  * @param {string} contentKey
  * @returns {Object}
  */
-function getTranslatedContent(locale, config, configKey) {
+function getTranslatedContent(locale = AVAILABLE_LOCALES[0], config, configKey) {
     const configContent = get(config, 'content.data');
     const configContentByKey = get(configContent, configKey, configContent);
     const configTranslation = get(config, `${locale.toLowerCase()}.data`);

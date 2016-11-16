@@ -5,7 +5,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../__mocks__/store';
+import mockedStore from './../../__mocks__/store';
 import ComponentToBeTested from './../language';
 
 describe('component/section/language', function () {

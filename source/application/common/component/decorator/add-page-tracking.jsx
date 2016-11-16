@@ -83,6 +83,8 @@ function addPageTracking(SourceComponent) {
      * may be invoked directly, will be merged into the component’s props.
      * If a function is passed, it will be given dispatch.
      *
+     * @TODO: Add shorthand notation for mapDispatchToProps
+     *
      * @function
      * @param {Function} dispatch The redux store dispatch function
      * @returns {Object} The state actions to be passed as component props

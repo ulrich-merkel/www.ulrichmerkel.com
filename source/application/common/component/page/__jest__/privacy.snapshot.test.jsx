@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../text';
+import ComponentToBeTested from './../privacy';
 
-describe('component/section/text', function () {
+describe('component/page/privacy', function () {
     describe('Snapshot', function () {
         it('should render correctly', function () {
             const tree = renderer.create(

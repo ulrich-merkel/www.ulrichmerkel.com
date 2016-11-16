@@ -1,0 +1,208 @@
+exports[`component/page/contact Snapshot should render correctly 1`] = `
+<main
+  className="l-main"
+  itemProp="mainContentOfPage"
+  role="main">
+  <div
+    className="l-main__transition">
+    <section
+      className="l-grid m-section">
+      <div
+        className="l-grid__spaced--small">
+        <div
+          className="l-grid__row">
+          <div
+            className="l-grid__col--12">
+            <article
+              className="is-main m-article"
+              itemScope={true}
+              itemType="https://schema.org/Article">
+              <div
+                className="m-article__text"
+                itemProp="text">
+                <form
+                  acceptCharset="utf-8"
+                  action="/contact/"
+                  className="m-form--contact"
+                  id="m-form--contact"
+                  itemProp="potentialAction"
+                  itemScope={true}
+                  itemType="http://schema.org/CommunicateAction"
+                  method="post"
+                  noValidate={true}
+                  onReset={[Function]}
+                  onSubmit={[Function]}
+                  role="form">
+                  <fieldset
+                    className="m-form__fieldset">
+                    <legend
+                      className="m-form__legend is-visually-hidden" />
+                    <div
+                      className="l-grid__row">
+                      <div
+                        className="l-grid__col--6">
+                        <div
+                          className="m-form__group">
+                          <input
+                            aria-required={true}
+                            className="m-form__control--text"
+                            id="name"
+                            name="name"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder=""
+                            required={true}
+                            type="text"
+                            value="" />
+                          <label
+                            className="m-form__label"
+                            htmlFor="name">
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--sad m-form__label__icon--error" />
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--smile m-form__label__icon--success" />
+                          </label>
+                        </div>
+                      </div>
+                      <div
+                        className="l-grid__col--6">
+                        <div
+                          className="m-form__group">
+                          <input
+                            aria-required={true}
+                            className="m-form__control--text"
+                            id="email"
+                            name="email"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder=""
+                            required={true}
+                            type="email"
+                            value="" />
+                          <label
+                            className="m-form__label"
+                            htmlFor="email">
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--sad m-form__label__icon--error" />
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--smile m-form__label__icon--success" />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="l-grid__row">
+                      <div
+                        className="l-grid__col--12">
+                        <div
+                          className="m-form__group">
+                          <input
+                            aria-required={true}
+                            className="m-form__control--text"
+                            id="subject"
+                            name="subject"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder=""
+                            required={true}
+                            type="text"
+                            value="" />
+                          <label
+                            className="m-form__label"
+                            htmlFor="subject">
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--sad m-form__label__icon--error" />
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--smile m-form__label__icon--success" />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="l-grid__row">
+                      <div
+                        className="l-grid__col--12">
+                        <div
+                          className="m-form__group">
+                          <textarea
+                            aria-required={true}
+                            className="m-form__control--textarea"
+                            cols="50"
+                            id="message"
+                            name="message"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            required={true}
+                            rows="4"
+                            value="" />
+                          <label
+                            className="m-form__label"
+                            htmlFor="message">
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--sad m-form__label__icon--error" />
+                            <i
+                              aria-hidden="true"
+                              className="c-font-icon--smile m-form__label__icon--success" />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="l-grid__row">
+                      <div
+                        className="l-grid__col--6">
+                        <div
+                          className="m-form__group m-form__group--reset hide-on-print">
+                          <button
+                            className="c-btn m-form__btn c-btn--secondary"
+                            id="reset"
+                            name="reset"
+                            role="button"
+                            title=""
+                            to={undefined}
+                            type="reset">
+                            <span
+                              className="c-btn__label" />
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        className="l-grid__col--6">
+                        <div
+                          className="m-form__group m-form__group--submit hide-on-print">
+                          <button
+                            className="c-btn m-form__btn c-btn--submit c-btn--primary"
+                            id="submit"
+                            name="submit"
+                            role="button"
+                            title=""
+                            to={undefined}
+                            type="submit">
+                            <span
+                              className="c-btn__label" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      name="_csrf"
+                      type="hidden"
+                      value={undefined} />
+                  </fieldset>
+                </form>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+`;
