@@ -25,6 +25,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 
 import { changeDialogVisible } from './../../state/dialog/actions';
+import { isBrowser } from './../../utils/environment';
 import Headline from './../element/headline';
 import P from './../element/paragraph';
 import A from './../element/a';
@@ -217,6 +218,10 @@ class ModuleText extends Component {
     }
 
     bindDialogOpen() {
+        if (!isBrowser()) {
+            return;
+        }
+
         const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {
@@ -226,6 +231,10 @@ class ModuleText extends Component {
     }
 
     unbindDialogOpen() {
+        if (!isBrowser()) {
+            return;
+        }
+
         const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {

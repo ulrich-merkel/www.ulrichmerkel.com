@@ -1,0 +1,22 @@
+exports[`component/section/featured Snapshot should render correctly 1`] = `
+<div
+  className="l-main__transition">
+  <section
+    className="l-grid m-section">
+    <div
+      className="l-grid__row">
+      <div
+        className="l-grid__col--12">
+        <article
+          className="has-no-margin m-article"
+          itemScope={true}
+          itemType="https://schema.org/Article">
+          <div
+            className="m-article__text"
+            itemProp="text" />
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;

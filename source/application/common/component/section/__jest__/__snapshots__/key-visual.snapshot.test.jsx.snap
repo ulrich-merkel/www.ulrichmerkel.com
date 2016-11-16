@@ -1,0 +1,13 @@
+exports[`component/section/key-visual Snapshot should render correctly 1`] = `
+<div
+  className="l-main__transition">
+  <section
+    className="l-grid m-section">
+    <div
+      className="l-grid__row">
+      <div
+        className="l-grid__col--12" />
+    </div>
+  </section>
+</div>
+`;
