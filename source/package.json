@@ -89,7 +89,10 @@
     "prerelease": "npm run lint && npm run doc",
     "release": "npm run build",
     "mkdir": "node $npm_package_directories_bin/mkdir",
-    "env": "env"
+    "env": "env",
+    "snyk": "snyk test && snyk wizard",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "main": "application/server/server.js",
   "browser": "application/client/client.js",
@@ -139,7 +142,8 @@
     "redux-logger": "2.7.4",
     "redux-thunk": "2.1.0",
     "url": "0.11.0",
-    "winston": "2.3.0"
+    "winston": "2.3.0",
+    "snyk": "1.19.1"
   },
   "devDependencies": {
     "autoprefixer": "6.5.2",
@@ -173,6 +177,7 @@
     "lwip": "0.0.9",
     "ngrok": "2.2.3",
     "nock": "9.0.2",
+    "node-mocks-http": "1.5.4",
     "node-sass": "3.11.2",
     "npm-package-json-lint": "1.4.0",
     "npm-run-all": "3.1.1",
@@ -186,5 +191,6 @@
     "sassdoc": "2.1.20",
     "stylelint": "7.5.0",
     "uglify-js": "2.7.4"
-  }
+  },
+  "snyk": true
 }
