@@ -65,6 +65,7 @@ Logger.prototype = {
     enable: function enableFn(shouldBeEnabled) {
 
         if (!shouldBeEnabled) {
+            // @TODO: return noop implementations if logger is not enabled
             return undefined;
         }
 

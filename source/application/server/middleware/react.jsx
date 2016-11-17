@@ -148,14 +148,12 @@ function middlewareReact(req, res, next) {
             ]).then((result) => {
                 return res
                     .status(200)
-                    .send(`<!doctype html>${getHtml(store, renderProps, result[0], result[1])}`)
-                    .end();
+                    .send(`<!doctype html>${getHtml(store, renderProps, result[0], result[1])}`);
             }).catch((reason) => {
                 logger.warn(reason);
                 return res
                     .status(200)
-                    .send(`<!doctype html>${getHtml(store, renderProps)}`)
-                    .end();
+                    .send(`<!doctype html>${getHtml(store, renderProps)}`);
             });
 
         }

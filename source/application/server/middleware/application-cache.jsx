@@ -31,11 +31,7 @@ function getTimeStamp() {
     if (configApplicationCache.timeStamp) {
         return configApplicationCache.timeStamp;
     }
-
-    // no timestamp configured, so use one day
-    const date = new Date();
-    date.setDate(date.getDate());
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getUTCDate()}`;
+    return Date.now();
 }
 
 
@@ -145,15 +141,13 @@ function middlewareApplicationCache(req, res) {
     if (!configApplicationCache.use) {
         return res
             .status(404)
-            .send('Not found.')
-            .end();
+            .send('Not found.');
     }
 
     return res
         .status(200)
         .set('Content-Type', 'text/cache-manifest')
-        .send(getApplicationCacheResponse())
-        .end();
+        .send(getApplicationCacheResponse());
 
 }
 

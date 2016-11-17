@@ -37,6 +37,7 @@ import configI18nDeDe from './../../common/config/i18n/de-DE';
  * @returns {void}
  */
 function serveFile(file, req, res) {
+    // @TODO: Is the check for function really necessary
     res.json(isFunction(file) ? file(req) : file);
 }
 

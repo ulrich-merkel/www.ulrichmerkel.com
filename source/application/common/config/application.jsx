@@ -24,7 +24,7 @@ const configEnvironment = {
     },
     test: {
         isProduction: false,
-        debug: true,
+        debug: false,
         port: 3001
     }
 }[process.env.NODE_ENV || 'development'];

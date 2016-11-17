@@ -44,8 +44,7 @@ function middlewareError(err, req, res, next) {
 
     return res
         .status(error.status || 404)
-        .send('Sorry - not found!')
-        .end();
+        .send('Sorry - not found!');
 
 }
 

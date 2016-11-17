@@ -8,7 +8,7 @@ const rootUrl = `http://${host}:${port}`;
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000; // 20 second timeout
 
-describe.only('server', function () {
+describe('server', function () {
     const servedUrlsToBeTested = [
         `${rootUrl}`,
         `${rootUrl}${url.work}${url.workOptikLudewig}`,

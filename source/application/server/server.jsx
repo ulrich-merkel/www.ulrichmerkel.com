@@ -63,7 +63,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import ip from 'ip';
 
-import { url, port, sessionSecret } from './../common/config/application';
+import { url, port, sessionSecret, debug } from './../common/config/application';
 import logger from './../common/utils/logger';
 import { AVAILABLE_LOCALES } from './../common/state/intl/constants';
 import middlewarePost from './middleware/post';
@@ -111,18 +111,22 @@ function startServer() {
 
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
-    const morgenOptions = process.env.NODE_ENV !== 'test'
-        ? { stream: fs.createWriteStream(
+    // @TODO: move morgan to own middleware
+    if (debug) {
+        app.use(morgan('combined', {
+            stream: fs.createWriteStream(
                 path.resolve(__dirname, '../../reports/access.log'), { flags: 'a' }
-          ) }
-        : {};
-    app.use(morgan('combined', morgenOptions));
+            ) }
+        ));
+    }
 
     // We need this because "cookie" is true in csrfProtection
     // and session handling
+    // @TODO: move cookie to own middleware
     app.use(cookieParser(sessionSecret));
 
     // Get available languages by parsing Accept-Language header
+    // @TODO: move language to own middleware
     app.use(requestLanguage({
         languages: AVAILABLE_LOCALES
     }));
@@ -133,20 +137,25 @@ function startServer() {
     app.use(url.api, middlewareApi);
 
     // Parse incoming req bodies as application/x-www-form-urlencoded
+    // @TODO: move parser to own middleware
     app.use(bodyParser.urlencoded({
         extended: true
     }));
 
     // Parse incoming req bodies as application/json
+    // @TODO: move parser to own middleware
     app.use(bodyParser.json());
 
     // Secure server by setting various HTTP headers
+    // @TODO: move security to own middleware
     app.use(helmet());
 
     // Prevent HTTP query parameter pollution
+    // @TODO: move security to own middleware
     app.use(hpp());
 
     // Enable compression
+    // @TODO: move performance to own middleware
     app.use(compression());
 
     // Serve static files
