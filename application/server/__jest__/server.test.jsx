@@ -47,31 +47,4 @@ describe('server', function () {
         });
     }
 
-    // @see {@link https://de.godaddy.com/help/how-to-make-an-http-post-request-in-nodejs-12366}
-    // const contactPostOptions = {
-    //     hostname: host,
-    //     port: port,
-    //     path: `${url.contact}`,
-    //     method: 'POST',
-    //     headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //         'X-Requested-With': 'XMLHttpRequest'
-    //     }
-    // };
-    //
-    // it(`should return 200 for post request to ${rootUrl}${url.contact}`, function (done) {
-    //     const request = http.request(contactPostOptions, function (res) {
-    //         expect(res.statusCode).toBe(200);
-    //         done();
-    //     });
-    //     request.on('error', function(e) {
-    //         console.error('problem with request: ' + e.message);
-    //         done();
-    //     });
-    //     request.write('{"data": {"name": "test", "email": "test@test.de", "subject": "test", "message": "test"}}');
-    //     request.end();
-    //     return request;
-    // });
-
 });
