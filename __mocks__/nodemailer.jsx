@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand, func-names */
 const nodemailer = jest.genMockFromModule('nodemailer');
 
 function createTransport() {
@@ -7,7 +8,7 @@ function createTransport() {
                 callback(null, 'mock');
             }
         }
-    }
+    };
 }
 
 export default Object.assign(nodemailer, {

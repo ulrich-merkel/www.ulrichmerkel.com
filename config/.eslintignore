@@ -1,6 +1,7 @@
 # /node_modules/* and /bower_components/* are ignored by default
 
 # Ignore custom files and folders
+build/**
 application/common/vendor/**
 reports/**
 doc/**
