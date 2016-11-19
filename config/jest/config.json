@@ -1,6 +1,6 @@
 {
     "transform": {
-      "^.+\\.jsx$": "<rootDir>/config/jest/transform.js"
+        "^.+\\.jsx$": "<rootDir>/config/jest/transform.js"
     },
     "setupFiles": [
         "<rootDir>/config/jest/setup.js"
@@ -21,6 +21,14 @@
     ],
     "testEnvironment": "node",
     "mocksPattern": "__mocks__",
-    "coverageDirectory": "<rootDir>/reports/",
+    "coverageDirectory": "<rootDir>/report/",
+    "coverageThreshold": {
+        "global": {
+            "branches": 50,
+            "functions": 65,
+            "lines": 65,
+            "statements": 65
+        }
+    },
     "collectCoverage": true
 }

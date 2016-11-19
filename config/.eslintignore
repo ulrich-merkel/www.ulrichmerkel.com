@@ -3,6 +3,6 @@
 # Ignore custom files and folders
 build/**
 application/common/vendor/**
-reports/**
+report/**
 doc/**
 config/**

@@ -115,7 +115,7 @@ function startServer() {
     if (debug) {
         app.use(morgan('combined', {
             stream: fs.createWriteStream(
-                path.resolve(__dirname, '../../reports/access.log'), { flags: 'a' }
+                path.resolve(__dirname, '../../report/access.log'), { flags: 'a' }
             ) }
         ));
     }

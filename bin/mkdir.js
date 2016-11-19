@@ -41,7 +41,7 @@ const config = [
         ]
     },
     {
-        name: 'reports'
+        name: 'report'
     }
 ];
 
