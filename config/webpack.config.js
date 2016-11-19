@@ -1,12 +1,44 @@
-'use strict';
-
 const webpack = require('webpack');
 const path = require('path');
 
+const nodeEnv = process.env.NODE_ENV || 'development';
+const isProduction = nodeEnv === 'production';
+const sourcePath = path.join(__dirname, '/../application');
+
+const plugins = [
+    new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(nodeEnv)
+        }
+    })
+];
+
+if (isProduction) {
+    plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                screw_ie8: true,
+                conditionals: true,
+                unused: true,
+                comparisons: true,
+                sequences: true,
+                dead_code: true,
+                evaluate: true,
+                if_return: true,
+                join_vars: true
+            },
+            output: {
+                comments: false
+            }
+        })
+    )
+}
+
 module.exports = {
-    devtool: 'inline-source-map',
+    devtool: isProduction ? 'source-map' : 'inline-source-map',
     stats: true,
-    context: __dirname + '/../application',
+    context: sourcePath,
     entry: {
         client: './client/client.jsx',
         loader: './client/loader.jsx'
@@ -33,16 +65,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
-    ]
+    plugins
 };
