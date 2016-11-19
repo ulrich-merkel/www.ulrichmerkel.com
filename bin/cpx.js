@@ -21,7 +21,7 @@ const cpx = require('cpx'); // eslint-disable-line import/no-extraneous-dependen
 const minimist = require('minimist');
 
 const argv = minimist(process.argv.slice(2));
-const dest = argv.d || './../build/';
+const dest = argv.d || './build/';
 const files = [
     { source: './package.json', dest },
     { source: './.env', dest },

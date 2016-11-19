@@ -12,16 +12,21 @@
  * @see {@link https://github.com/EyalAr/lwip}
  *
  * @requires lwip
+ * @requires minimist
  * @requires application/config/picture
  *
  * @TODO: Add winston logging for performance
+ * @TODO: Adjust and implement config rotate if needed
  *
  * @changelog
  * - 0.0.2 switched to node6
  * - 0.0.1 basic functions and structure
  */
 const lwip = require('lwip');
+const minimist = require('minimist'); // eslint-disable-line import/no-extraneous-dependencies
 
+const argv = minimist(process.argv.slice(2));
+const folder = argv.d || './build/';
 const picture = require('./../application/common/config/pictures');
 
 const pictureSizesKeyvisual = picture.sizes.keyvisual;
@@ -33,7 +38,7 @@ const pictureSizesAppleTouchStartupImage = picture.sizes.appleTouchStartupImage;
 const pictureSizesIcon = picture.sizes.icon;
 const config = {
     srcFolder: 'public/img/',
-    destFolder: '../build/public/img/',
+    destFolder: `${folder}/public/img/`,
     images: [
         {
             name: 'keyvisual',

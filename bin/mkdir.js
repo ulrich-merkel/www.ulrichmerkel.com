@@ -26,7 +26,7 @@ const rimraf = require('rimraf');
 const minimist = require('minimist');
 
 const argv = minimist(process.argv.slice(2));
-const dest = argv.d || './../build/';
+const dest = argv.d || './build/';
 
 const config = [
     {
