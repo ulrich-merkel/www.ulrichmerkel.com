@@ -78,7 +78,7 @@
     "static": "npm run static:cpx && npm run static:lwip",
     "static:cpx": "node $npm_package_directories_bin/cpx -d $npm_package_directories_build_root",
     "static:lwip": "node $npm_package_directories_bin/lwip -d $npm_package_directories_build_root",
-    "serve:build": "cd $npm_package_directories_build_root && NODE_ENV=production node -r dotenv/config application/server/server.js",
+    "serve:build": "cd $npm_package_directories_build_root && npm run serve:live",
     "serve:watch": "cd $npm_package_directories_build_root && nodemon -r dotenv/config application/server/server.js",
     "serve:debug": "cd $npm_package_directories_build_root && NODE_DEBUG='net http' nodemon -r dotenv/config application/server/server.js",
     "serve:live": "cross-env NODE_ENV=production node -r dotenv/config application/server/server.js",
