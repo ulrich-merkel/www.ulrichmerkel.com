@@ -18,4 +18,4 @@ import './loader/offline';
 import loaderAsync from './loader/async';
 
 loaderAsync.css('/css/app.css');
-loaderAsync.js('/js/client.js');
+loaderAsync.js('/js/client.bundle.js');

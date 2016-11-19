@@ -66,7 +66,7 @@ function LayoutHtml(props) {
                 <meta name='viewport' content='width=device-width' />
                 {csp.use && <meta httpEquiv='Content-Security-Policy' content={getCspRules(nonceConfig)} />}
                 <link rel='preload' href='/css/app.css' as='style' />
-                <link rel='preload' href='/js/client.js' as='script' />
+                <link rel='preload' href='/js/client.bundle.js' as='script' />
                 {helmet.meta.toComponent()}
                 {helmet.title.toComponent()}
                 {helmet.link.toComponent()}

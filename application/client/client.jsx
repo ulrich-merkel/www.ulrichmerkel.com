@@ -51,9 +51,6 @@ import logger from './../common/utils/logger';
 import Root from './../common/component/root';
 import configureStore from './../common/state/configure-store';
 
-
-detectFeatures();
-
 /* eslint-disable no-unused-vars */
 const { pathname, search, hash } = window.location;
 const location = `${pathname}${search}${hash}`;
@@ -65,12 +62,16 @@ if (debug) {
     window.React = React;
 }
 
+detectFeatures();
+
 /**
  * Add fastclick mobile helper. The implementation is a bit
  * off standard, but this seems to work here...
  *
  * Because we're using Browserify module system, the FastClick.attach
  * function will be returned when we call require('fastclick').
+ *
+ * @TODO: Remove addEventListener and use something better suited for react
  *
  * @see {@link http://stackoverflow.com/questions/24335821/can-i-fastclick-reactjs-running-in-cordova}
  * @see {@link https://github.com/reactjs/react-router/issues/714}

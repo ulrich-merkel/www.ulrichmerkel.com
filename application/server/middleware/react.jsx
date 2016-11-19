@@ -141,7 +141,7 @@ function middlewareReact(req, res, next) {
              */
             return Promise.all([
                 readFile('../../../public/css/base.css'),
-                readFile('../../../public/js/loader.js'),
+                readFile('../../../public/js/loader.bundle.js'),
                 store.dispatch(fetchConfigContentIfNeeded()),
                 store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
                 store.dispatch(addToken(req.csrfToken && req.csrfToken()))
