@@ -46,7 +46,7 @@ import './../common/vendor/polyfill/base64';
 import detectFeatures from './feature-detect/detect-features';
 import configRoutes from './../common/config/routes';
 import { debug } from './../common/config/application';
-import scrollTo from './../common/utils/scroll-to';
+import scrollTo, { getPageOffset } from './../common/utils/scroll-to';
 import logger from './../common/utils/logger';
 import Root from './../common/component/root';
 import configureStore from './../common/state/configure-store';
@@ -122,7 +122,7 @@ browserHistory.listen(function handleListen(currentLocation) {
          * In all other cases, scroll to top, make sure the page is already scrolled
          * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
          */
-        if (window.pageYOffset || window.scrollY || document.documentElement.scrollTop) {
+        if (getPageOffset()) {
             scrollTo({
                 top: 0
             });

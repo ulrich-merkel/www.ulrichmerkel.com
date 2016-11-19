@@ -16,6 +16,7 @@
  * @requires react-redux
  * @requires lodash
  * @requires common/state/scroll/actions
+ * @requires common/utils/scroll-to
  *
  * @changelog
  * - 0.0.2 improved scroll handling
@@ -25,34 +26,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
-
-/**
- * Helper function to get scrolling offset.
- *
- * document.body.scrollTop was working in Chrome but didn't work on Firefox, so had to resort to window.pageYOffset.
- * But can't fallback to document.body.scrollTop as that doesn't work in IE with a doctype (?) so have to use
- * document.documentElement.scrollTop
- *
- * @see {@link https://github.com/yuanyan/react-image/blob/master/src/Image.js}
- *
- * @function
- * @private
- * @returns {number} The current scrolling y offset value
- */
-function getPageOffset() {
-    if (typeof window === 'undefined') {
-        return 0;
-    }
-    let currentScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
-
-    // could be negative while bouncing
-    if (currentScrollY < 0) {
-        currentScrollY = 0;
-    }
-
-    return currentScrollY;
-}
+import { changeHeaderFixed, changeHeaderVisible } from './../../state/scroll/actions';
+import { getPageOffset } from './../../utils/scroll-to';
 
 /**
  * The scroller higher order function handling window scrolling.

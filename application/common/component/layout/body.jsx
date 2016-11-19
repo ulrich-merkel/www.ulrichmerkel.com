@@ -33,7 +33,7 @@ import classnames from 'classnames';
 import picturefill from './../decorator/picturefill';
 import scroller from './../decorator/scroller';
 import addContent from './../decorator/add-content';
-import scrollTo from './../../utils/scroll-to';
+import scrollTo, { getPageOffset } from './../../utils/scroll-to';
 
 import LayoutHeader from './header';
 import LayoutFooter from './footer';
@@ -104,7 +104,7 @@ class LayoutBody extends Component {
      */
     handleScrollTop(e) { // eslint-disable-line class-methods-use-this
         e.preventDefault();
-        if (window.pageYOffset || window.scrollY || document.documentElement.scrollTop) {
+        if (getPageOffset()) {
             scrollTo({
                 top: 0
             });
