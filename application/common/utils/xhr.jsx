@@ -37,8 +37,8 @@ const XHR_DEFAULT_HEADERS = {
  *
  * @function
  * @private
- * @param {Object} response The http request response
- * @returns {Object} The response or a new error
+ * @param {Object} response The http request response from a network request
+ * @returns {Object} The response or throws an error
  */
 function checkStatus(response) {
     if (response && response.status >= 200 && response.status < 300) {
