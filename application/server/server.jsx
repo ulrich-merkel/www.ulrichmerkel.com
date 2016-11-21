@@ -81,17 +81,12 @@ import middlewareApplicationCache from './middleware/application-cache';
  * @returns {void}
  */
 function logServerStarted(portNumber) {
-    // @TODO: try catch added for test failures, needs investigation (undefined logger?)
-    try {
-        logger.log('✅  Server is running and listening');
-        logger.log(`
-            Localhost: http://localhost:${portNumber}
-            LAN: http://${ip.address()}:${portNumber}
-            Press CTRL-C to stop
-        `);
-    } catch (ignore) {
-        // eslint-disable-line no-empty
-    }
+    logger.log('✅  Server is running and listening');
+    logger.log(`
+        Localhost: http://localhost:${portNumber}
+        LAN: http://${ip.address()}:${portNumber}
+        Press CTRL-C to stop
+    `);
 }
 
 /**
