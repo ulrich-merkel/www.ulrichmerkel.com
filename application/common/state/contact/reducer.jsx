@@ -1,7 +1,24 @@
+/**
+ * Es6 module for Redux Architecture.
+ * Reducers specify how the application's state changes in response to the
+ * corresponding actions.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
+ *
+ * @requires common/state/contact/constants
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
 import { CONTACT_CHANGE } from './constants';
 
-export const defaultState = {
-};
+export const defaultState = {};
 
 /**
  * Used to reduce a stream of actions coming from the dispatcher into a

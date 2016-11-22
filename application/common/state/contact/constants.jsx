@@ -1,14 +1,14 @@
+/* eslint-disable import/prefer-default-export */
 /**
- * Es6 module for Flux Architecture.
+ * Es6 module for Redux Architecture.
  *
  * @file
- * @name Flux constants
- * @module flux.constants
+ * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.1
  *
  * @changelog
- * - 0.0.1 basic function and structure
+ * - 0.0.1 basic functions and structure
  */
-export const CONTACT_CHANGE = 'CONTACT_CHANGE'; // eslint-disable-line import/prefer-default-export
+export const CONTACT_CHANGE = 'CONTACT_CHANGE';

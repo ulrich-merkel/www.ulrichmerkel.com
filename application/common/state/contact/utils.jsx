@@ -1,39 +1,48 @@
 /**
-* Es6 module for helper component.
-*
-* @file
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.1
-*
-* @changelog
-* - 0.0.1 basic function and structure
-*/
+ * Es6 module for Redux Architecture.
+ * Simple helper component to add utility functions.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
+ *
+ * @TODO: Should be refactored and moved to actions
+ *
+ * @requires common/utils/validation
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
 import { required, email } from './../../utils/validation';
 
 /**
  * Validation helper to check all inputs.
  *
  * @function
+ * @param {Object} [state={}] The current redux contact state if given
  * @returns {object} The validation status for all inputs as object
  */
-export const validate = (state = {}) => {
+function validate(state = {}) {
     return {
         name: required(state.name),
         email: required(state.email) && email(state.email),
         subject: required(state.subject),
         message: required(state.message)
     };
-};
+}
 
 /**
  * Validation single or all input element(s), depending on parameter input.
  *
  * @function
- * @param {string} [name] The optional input name to be validated
+ * @param {Object} state The current redux contact state
  * @returns {boolean} The validation status
  */
-export const isValid = (state) => {
+function isValid(state) {
 
     const validated = validate(state);
     let result = true;
@@ -47,4 +56,9 @@ export const isValid = (state) => {
 
     return result;
 
+}
+
+export {
+    validate,
+    isValid
 };
