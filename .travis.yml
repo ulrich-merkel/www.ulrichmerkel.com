@@ -15,7 +15,7 @@ cache:
     - $HOME/.yarn-cache
 install:
   - "npm install -g yarn"
-  - "yarn install --prefer-offline"
+  - "yarn install && yarn install"
 script: npm run travis
 after_success: npm run coverage
 branches:
