@@ -9,6 +9,16 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+cache:
+  directories:
+    - $HOME/.npm
+    - $HOME/.yarn-cache
+install:
+  - "npm install -g yarn"
+  - "yarn install --prefer-offline"
 script: npm run travis
 after_success: npm run coverage
+branches:
+  only:
+    - master
 sudo: false
