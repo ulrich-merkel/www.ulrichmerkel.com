@@ -61,6 +61,8 @@ import {
  * The resulting reducer calls every child reducer, and gathers their
  * results into a single state object. The shape of the state object matches
  * the keys of the passed reducers.
+ *
+ * @private
  */
 const reducers = combineReducers({
     config,
