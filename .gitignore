@@ -9,6 +9,7 @@ doc
 npm-debug.log
 .idea
 .env
+.coveralls.yml
 .htaccess
 google*.html
 TODO.md
