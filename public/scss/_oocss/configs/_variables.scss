@@ -100,10 +100,10 @@ $config-font-h5-size: rem-calc($config-type-scale-10) !default;
 $config-font-h6-size: 1rem !default;
 
 // We use these to control header size reduction on small screens
-$config-font-h1-reduction: rem-calc(10) !default;
-$config-font-h2-reduction: rem-calc(10) !default;
-$config-font-h3-reduction: rem-calc(5) !default;
-$config-font-h4-reduction: rem-calc(5) !default;
+$config-font-h1-reduction: rem-calc($config-type-scale-5) !default;
+$config-font-h2-reduction: rem-calc($config-type-scale-4) !default;
+$config-font-h3-reduction: rem-calc($config-type-scale-3) !default;
+$config-font-h4-reduction: rem-calc($config-type-scale-2) !default;
 $config-font-h5-reduction: 0 !default;
 $config-font-h6-reduction: 0 !default;
 
