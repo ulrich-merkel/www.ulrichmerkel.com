@@ -67,8 +67,7 @@ function createElement(Component, props) {
 }
 
 /**
- * Using createElement function here to be able to
- * pass props to the page Component
+ * Create the final html result to be send to the client.
  *
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
