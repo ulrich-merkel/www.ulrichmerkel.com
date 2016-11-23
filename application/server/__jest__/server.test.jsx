@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names*/
 import http from 'http';
 
-import './../server';
+import server from './../server';
 import configApplication, { host, port, url } from './../../common/config/application';
 
 const rootUrl = `http://${host}:${port}`;
@@ -9,6 +9,16 @@ const rootUrl = `http://${host}:${port}`;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000; // 20 second timeout
 
 describe('server', function () {
+    let app;
+
+    beforeAll(function () {
+        app = server();
+    });
+
+    afterAll(function (done) {
+        app.close(done);
+    });
+
     const servedUrlsToBeTested = [
         `${rootUrl}`,
         `${rootUrl}${url.work}${url.workOptikLudewig}`,

@@ -27,7 +27,7 @@ const configEnvironment = {
     test: {
         isProduction: false,
         debug: false,
-        port: 3001,
+        port: process.env.PORT || 3001,
         aboveTheFold: {
             baseCss: path.join(__dirname, '../../../build/public/css/base.css'),
             loaderBundle: path.join(__dirname, '../../../build/public/js/loader.bundle.js')

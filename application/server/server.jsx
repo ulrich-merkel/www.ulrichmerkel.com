@@ -73,7 +73,7 @@ import middlewareApi from './middleware/api';
 import middlewareApplicationCache from './middleware/application-cache';
 
 /**
- * Called when express.js app starts on given port w/o errors
+ * Called when express.js app starts on given port w/o errors.
  *
  * @function
  * @private
@@ -90,13 +90,28 @@ function logServerStarted(portNumber) {
 }
 
 /**
- * Start new express server
+ * Start new express server.
  *
  * @function
  * @private
- * @returns {Promise}
+ * @param {Object} [config={}] Optional server and express options
+ * @param {Function} [callback=noop] Called when server started listening
+ * @returns {Object} The newly created and running server object
  */
-function startServer() {
+function create(config = {}, callback = Function.prototype) {
+
+    // Merge defaults with config
+    const options = Object.assign(
+        {},
+        {
+            url,
+            port,
+            sessionSecret,
+            morganLogPath: '../../report/access.log',
+            staticPath: '../../public'
+        },
+        config
+    );
 
     // Create new express service
     const app = express();
@@ -106,22 +121,19 @@ function startServer() {
 
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
-    // @TODO: move morgan to own middleware
     if (debug) {
         app.use(morgan('combined', {
             stream: fs.createWriteStream(
-                path.resolve(__dirname, '../../report/access.log'), { flags: 'a' }
+                path.resolve(__dirname, options.morganLogPath), { flags: 'a' }
             ) }
         ));
     }
 
     // We need this because "cookie" is true in csrfProtection
     // and session handling
-    // @TODO: move cookie to own middleware
-    app.use(cookieParser(sessionSecret));
+    app.use(cookieParser(options.sessionSecret));
 
     // Get available languages by parsing Accept-Language header
-    // @TODO: move language to own middleware
     app.use(requestLanguage({
         languages: AVAILABLE_LOCALES
     }));
@@ -154,7 +166,7 @@ function startServer() {
     app.use(compression());
 
     // Serve static files
-    app.use(express.static(path.resolve(__dirname, '../../public'), {
+    app.use(express.static(path.resolve(__dirname, options.staticPath), {
         index: false
     }));
 
@@ -176,14 +188,28 @@ function startServer() {
      * @function
      * @listens app~event:listen
      */
-    return app.listen(port, function serverStarted(error) {
+    return app.listen(options.port, function serverStarted(error) {
         if (error) {
             logger.error(error.message);
+            callback(error);
             return;
         }
-        logServerStarted(port);
+        logServerStarted(options.port);
+        callback();
     });
 
 }
 
-export default startServer();
+/**
+ * Handle express server initialisation.
+ *
+ * @function
+ * @param {Object} [config={}] Optional server and express options
+ * @param {Function} [callback=noop] Called when server started listening
+ * @returns {Object} The newly created and running server object
+ */
+function server(config, callback) {
+    return create(config, callback);
+}
+
+export default server;
