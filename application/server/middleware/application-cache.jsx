@@ -88,7 +88,7 @@ function getApplicationCacheResponse() {
 
     response.push('CACHE:');
 
-    response.push('./js/client.js');
+    response.push('./js/client.bundle.js');
     response.push('./css/app.css');
     response.push('./font/icomoon/icomoon.eot?41546266');
     response.push('./font/icomoon/icomoon.eot?41546266#iefix');
