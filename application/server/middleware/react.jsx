@@ -5,7 +5,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires react-dom
@@ -29,6 +29,7 @@
  * @see {@link https://github.com/reactjs/redux/issues/723}
  *
  * @changelog
+ * - 0.0.4 Improve error handling and above the fold files
  * - 0.0.3 Adjusted async rendering
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
@@ -53,7 +54,7 @@ import { addToken } from './../../common/state/csrf/actions';
 const { aboveTheFold } = configApplication;
 
 /**
- * Helper function to pass props to children components.
+ * Helper function to pass props to child components if needed.
  *
  * @function
  * @private
@@ -79,7 +80,7 @@ function createElement(Component, props) {
  * @param {Object} renderProps The component properties to be rendered
  * @param {string} [cssBase=''] The file contents from base.css
  * @param {string} [scriptLoader=''] The file contents from loader.js
- * @returns {void}
+ * @returns {string} The rendered html string
  */
 function getHtml(store, renderProps, cssBase = '', scriptLoader = '') {
     return renderToStaticMarkup(
