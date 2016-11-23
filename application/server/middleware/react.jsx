@@ -69,10 +69,6 @@ function createElement(Component, props) {
  * Using createElement function here to be able to
  * pass props to the page Component
  *
- * You can also check renderProps.components or renderProps.routes for
- * the "not found" component or route respectively, and send a 404 as
- * below, if you're using a catch-all route.
- *
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
  * @see {@link https://github.com/ReactTraining/react-router/issues/902}
@@ -135,14 +131,22 @@ function middlewareReact(req, res, next) {
             // Initialize redux store, combining single stores into a global one
             const store = configureStore();
 
-            // Read language by parsing the url, parsing Accept-Language header or
-            // by looking at a language cookie's value and store the selection
+            /**
+             * Read language which is given in the url locale parameter or via
+             * express middleware and store the selection in redux
+             */
             const urlLocale = get(renderProps, 'router.params.locale', '');
             store.dispatch(changeLocale([urlLocale, urlLocale.toUpperCase()].join('-'), req.language));
             const acceptedLocale = get(store.getState(), 'intl.locale');
 
-            // Check if given url is handled by react-router's catch all error path
-            // @see {@link https://github.com/ReactTraining/react-router/issues/2834}
+            /**
+             * We check renderProps.components (or renderProps.routes) for
+             * the "not found" component or route respectively, and send a 404 as
+             * below, because we're using a catch-all error route in the router
+             * config.
+             *
+             * @see {@link https://github.com/ReactTraining/react-router/issues/2834}
+             */
             const statusCode = get(renderProps, 'components', []).indexOf(PageNotFound) !== -1 ? 404 : 200;
 
             /**
