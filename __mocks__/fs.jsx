@@ -42,10 +42,27 @@ function __setMockFiles(newMockFiles) {
  * Read mocked files.
  *
  * @function
+ * @private
  * @returns {Object} The mockFiles object
  */
 function __getMockFiles() {
     return mockFiles;
+}
+
+/**
+ * Read single mocked file.
+ *
+ * @function
+ * @private
+ * @param {string} filePath
+ * @returns {string}
+ */
+function __getMockFile(filePath) {
+    const dirname = path.dirname(filePath);
+    const basename = path.basename(filePath);
+    const mockedFiles = __getMockFiles();
+
+    return mockedFiles && mockedFiles[dirname] && mockedFiles[dirname][basename];
 }
 
 /**
@@ -58,9 +75,7 @@ function __getMockFiles() {
  * @returns {void}
  */
 function readFile(filePath, options = {}, callback) {
-    const dirname = path.dirname(filePath);
-    const basename = path.basename(filePath);
-    const file = mockFiles && mockFiles[dirname] && mockFiles[dirname][basename];
+    const file = __getMockFile(filePath);
 
     return callback(!file, file);
 }
@@ -74,9 +89,8 @@ function readFile(filePath, options = {}, callback) {
  * @returns {string}
  */
 function readFileSync(filePath, options = {}) {
-    const dirname = path.dirname(filePath);
-    const basename = path.basename(filePath);
-    const file = mockFiles && mockFiles[dirname] && mockFiles[dirname][basename];
+    const file = __getMockFile(filePath);
+
     return file;
 }
 
@@ -88,14 +102,12 @@ function readFileSync(filePath, options = {}) {
  * @returns {boolean}
  */
 function existsSync(filePath) {
-    const dirname = path.dirname(filePath);
-    const basename = path.basename(filePath);
-    return !!(mockFiles && mockFiles[dirname] && mockFiles[dirname][basename]);
+    const file = __getMockFile(filePath);
+    return !!file;
 }
 
 export default Object.assign(fs, {
     __setMockFiles,
-    __getMockFiles,
     readFile,
     readFileSync,
     existsSync

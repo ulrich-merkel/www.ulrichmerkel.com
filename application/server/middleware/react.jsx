@@ -11,11 +11,13 @@
  * @requires react-dom
  * @requires react-router
  * @requires lodash
+ * @requires common/config/application
  * @requires common/config/routes
  * @requires common/utils/logger
  * @requires common/utils/read-file
  * @requires common/component/root
  * @requires common/component/layout/html
+ * @requires common/component/page/not-found
  * @requires common/state/configure-store
  * @requires common/state/config/actions
  * @requires common/state/intl/actions
@@ -36,15 +38,19 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { RouterContext, match } from 'react-router';
 import { get } from 'lodash';
 
+import configApplication from './../../common/config/application';
 import configRoutes from './../../common/config/routes';
 import logger from './../../common/utils/logger';
 import { readFile } from './../../common/utils/read-file';
 import Root from './../../common/component/root';
 import LayoutHtml from './../../common/component/layout/html';
+import PageNotFound from './../../common/component/page/not-found';
 import configureStore from './../../common/state/configure-store';
 import { changeLocale } from './../../common/state/intl/actions';
 import { fetchConfigContentIfNeeded, fetchConfigTranslationIfNeeded } from './../../common/state/config/actions';
 import { addToken } from './../../common/state/csrf/actions';
+
+const { aboveTheFold } = configApplication;
 
 /**
  * Helper function to pass props to children components.
@@ -135,24 +141,28 @@ function middlewareReact(req, res, next) {
             store.dispatch(changeLocale([urlLocale, urlLocale.toUpperCase()].join('-'), req.language));
             const acceptedLocale = get(store.getState(), 'intl.locale');
 
+            // Check if given url is handled by react-router's catch all error path
+            // @see {@link https://github.com/ReactTraining/react-router/issues/2834}
+            const statusCode = get(renderProps, 'components', []).indexOf(PageNotFound) !== -1 ? 404 : 200;
+
             /**
              * Load all required data async via promises to
              * improve the overall node performance.
              */
             return Promise.all([
-                readFile('../../../public/css/base.css'),
-                readFile('../../../public/js/loader.bundle.js'),
+                readFile(aboveTheFold.baseCss),
+                readFile(aboveTheFold.loaderBundle),
                 store.dispatch(fetchConfigContentIfNeeded()),
                 store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
                 store.dispatch(addToken(req.csrfToken && req.csrfToken()))
             ]).then((result) => {
                 return res
-                    .status(200)
+                    .status(statusCode)
                     .send(`<!doctype html>${getHtml(store, renderProps, result[0], result[1])}`);
             }).catch((reason) => {
                 logger.warn(reason);
                 return res
-                    .status(200)
+                    .status(statusCode)
                     .send(`<!doctype html>${getHtml(store, renderProps)}`);
             });
 

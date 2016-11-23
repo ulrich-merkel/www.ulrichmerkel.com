@@ -80,15 +80,6 @@ const configRoutes = {
     childRoutes: [
         ...childRoutes,
         {
-            path: ':locale',
-            indexRoute: {
-                component: PageIndex
-            },
-            childRoutes: [
-                ...childRoutes
-            ]
-        },
-        {
             path: '*',
             component: PageNotFound,
             status: 404

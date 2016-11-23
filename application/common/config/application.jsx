@@ -13,6 +13,8 @@
  * - 0.0.2 rewritten for es2015
  * - 0.0.1 basic functions and structure
  */
+import path from 'path';
+
 const configEnvironment = {
     development: {
         isProduction: false,
@@ -25,7 +27,11 @@ const configEnvironment = {
     test: {
         isProduction: false,
         debug: false,
-        port: 3001
+        port: 3001,
+        aboveTheFold: {
+            baseCss: path.join(__dirname, '../../../build/public/css/base.css'),
+            loaderBundle: path.join(__dirname, '../../../build/public/js/loader.bundle.js')
+        }
     }
 }[process.env.NODE_ENV || 'development'];
 
@@ -57,6 +63,10 @@ const configApplication = Object.assign({}, {
         apiConfigEnEn: '/config/en-en',
         apiConfigDeDe: '/config/de-de',
         cacheManifest: '/cache.manifest'
+    },
+    aboveTheFold: {
+        baseCss: path.join(__dirname, '../../../public/css/base.css'),
+        loaderBundle: path.join(__dirname, '../../../public/js/loader.bundle.js')
     },
     email: 'hello@ulrichmerkel.com',
     xor: {

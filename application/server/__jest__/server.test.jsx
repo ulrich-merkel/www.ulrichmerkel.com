@@ -33,8 +33,6 @@ describe('server', function () {
         `${rootUrl}/manifest.json`,
         `${rootUrl}/robots.txt`,
         `${rootUrl}/sitemap.xml`,
-        `${rootUrl}/js/client.js`,
-        `${rootUrl}/css/app.css`,
         configApplication.applicationCache.use ? `${rootUrl}/cache.manifest` : `${rootUrl}`
     ];
 
@@ -46,5 +44,12 @@ describe('server', function () {
             });
         });
     }
+
+    it(`should return 404 for ${rootUrl}/foo/bar/error`, function (done) {
+        return http.get(`${rootUrl}/foo/bar/error`, function (res) {
+            expect(res.statusCode).toBe(404);
+            done();
+        });
+    });
 
 });
