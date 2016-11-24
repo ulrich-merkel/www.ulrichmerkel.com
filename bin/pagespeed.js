@@ -8,7 +8,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @see {@link https://github.com/mxstbr/react-boilerplate/}
  * @see {@link http://stackoverflow.com/questions/23569171/nodes-process-stdin-readable-stream-logs-null-when-read-inside-a-readable-event}
@@ -19,6 +19,7 @@
  * @requires build/application/server/server
  *
  * @changelog
+ * - 0.0.2 improve local server handling
  * - 0.0.1 basic functions and structure
  */
 const ngrok = require('ngrok');
