@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console, no-void */
 /**
  * Run google page speed tests to improve performance and set up a performance
  * budget while development.
@@ -16,6 +16,7 @@
  * @requires ngrok
  * @requires psi
  * @requires minimist
+ * @requires build/application/server/server
  *
  * @changelog
  * - 0.0.1 basic functions and structure
@@ -23,9 +24,11 @@
 const ngrok = require('ngrok');
 const psi = require('psi');
 const minimist = require('minimist');
+const server = require('./../build/application/server/server');
 
 const argv = minimist(process.argv.slice(2));
 const port = argv.port || process.env.PORT || 9000;
+let runningServer;
 
 // Begin reading from stdin so the process does not exit.
 process.stdin.resume();
@@ -45,6 +48,7 @@ function runPageSpeedInsights(url) {
         if (error) {
             console.error(error);
         }
+        runningServer.close();
         process.exit(0);
     });
 }
@@ -59,15 +63,27 @@ function runPageSpeedInsights(url) {
  * @returns {void}
  */
 function startTunnel(callback) {
-    ngrok.connect(port, function handleConnect(error, url) {
-        if (error) {
-            console.error(error);
-            return void process.exit(0);
+    if (!server) {
+        console.error('Please build this project first');
+        process.exit(0);
+    }
+    runningServer = server.default({}, function serverStarted(serverError) {
+        if (serverError) {
+            console.error(serverError);
+            process.exit(0);
+            return;
         }
+        ngrok.connect(port, function ngrokConnected(error, url) {
+            if (error) {
+                console.error(error);
+                return void process.exit(0);
+            }
 
-        console.log(`Serving tunnel from: ${url}`);
-        return void callback(url);
+            console.log(`Serving tunnel from: ${url}`);
+            return void callback(url);
+        });
     });
+
 }
 
 console.log('Starting ngrok tunnel');

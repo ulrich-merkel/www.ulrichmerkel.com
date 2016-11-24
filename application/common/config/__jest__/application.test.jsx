@@ -5,7 +5,7 @@ describe('config', function () {
     describe('application', function () {
         it('should have valid port and host', function () {
             expect(port).toBeDefined();
-            expect(typeof port).toEqual('number');
+            expect(typeof port === 'number' || typeof port === 'string').toBeTruthy();
             expect(host).toBeDefined();
             expect(typeof host).toEqual('string');
         });
