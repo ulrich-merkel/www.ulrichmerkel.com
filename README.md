@@ -28,6 +28,11 @@ This is just a playground for React and all the corresponding technologies.
 * [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 * [Using Promises with Express.js](http://first-time-ceo.tumblr.com/post/104273001643/using-promises-with-expressjs)
 * [Unit testing express middleware](http://de.slideshare.net/morrissinger/unit-testing-express-middleware)
+* [Introduction to Using NPM as a Build Tool](https://medium.com/@dabit3/introduction-to-using-npm-as-a-build-tool-b41076f488b0#.1gtcn19os)
+* [Testing and deploying with ordered npm run scripts](http://blog.npmjs.org/post/127671403050/testing-and-deploying-with-ordered-npm-run-scripts)
+* [npm scripting: configs and arguments... and some more tricks](http://www.marcusoft.net/2015/08/npm-scripting-configs-and-arguments.html)
+* [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
+* [The Ultimate Guide to Configuring NPM](http://stackabuse.com/the-ultimate-guide-to-configuring-npm/)
 
 ### Babel
 
@@ -38,8 +43,14 @@ This is just a playground for React and all the corresponding technologies.
 
 * [Ghost](https://github.com/TryGhost/Ghost)
 * [Create React App](https://github.com/facebookincubator/create-react-app)
+* [Retro Board](https://github.com/antoinejaussoin/retro-board)
 * [Express application generator](http://expressjs.com/en/starter/generator.html)
 * [Flux React Router Example](https://github.com/gaearon/flux-react-router-example/)
 * [Yahoo flux-examples](https://github.com/yahoo/fluxible/tree/master/examples)
 * [Phenomic website generator](https://github.com/MoOx/phenomic)
+* [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example)
 * [React Boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/README.md)
+* [React Transform Boilerplate](https://github.com/gaearon/react-transform-boilerplate)
+* [React, Universally](https://github.com/ctrlplusb/react-universally)
+* [Advanced Boilerplate](https://github.com/sebastian-software/advanced-boilerplate)
+* [Universal React Router](https://github.com/voronianski/universal-react-router-flux-2016)
