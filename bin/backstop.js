@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-unresolved */
 /**
  * Copy files from source to build folder.
  *
