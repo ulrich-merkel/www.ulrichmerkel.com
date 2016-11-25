@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-extraneous-dependencies, no-console */
 /**
  * Copy files from source to build folder.
  *
@@ -12,13 +13,15 @@
  *
  * @requires cpx
  * @requires minimist
+ * @requires chalk
  *
  * @changelog
  * - 0.0.2 switched to node6
  * - 0.0.1 basic functions and structure
  */
-const cpx = require('cpx'); // eslint-disable-line import/no-extraneous-dependencies
+const cpx = require('cpx');
 const minimist = require('minimist');
+const chalk = require('chalk');
 
 const argv = minimist(process.argv.slice(2));
 const dest = argv.d || './build/';
@@ -41,7 +44,7 @@ const files = [
  * @returns {void}
  */
 function fileCopied(file) {
-    console.log(`Copied ${file.source} > ${file.dest}`); // eslint-disable-line no-console
+    console.log(chalk.gray(`Copied ${file.source} > ${file.dest}`));
 }
 
 // Toggle through config and copy each file
@@ -54,4 +57,5 @@ if (files.length) {
             fileCopied.bind(null, files[i])
         );
     }
+    console.log(chalk.green(`Copying ${files.length} files`));
 }
