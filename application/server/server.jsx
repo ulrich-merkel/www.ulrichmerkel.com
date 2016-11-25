@@ -144,25 +144,20 @@ function create(config = {}, callback = Function.prototype) {
     app.use(url.api, middlewareApi);
 
     // Parse incoming req bodies as application/x-www-form-urlencoded
-    // @TODO: move parser to own middleware
     app.use(bodyParser.urlencoded({
         extended: true
     }));
 
     // Parse incoming req bodies as application/json
-    // @TODO: move parser to own middleware
     app.use(bodyParser.json());
 
     // Secure server by setting various HTTP headers
-    // @TODO: move security to own middleware
     app.use(helmet());
 
     // Prevent HTTP query parameter pollution
-    // @TODO: move security to own middleware
     app.use(hpp());
 
     // Enable compression
-    // @TODO: move performance to own middleware
     app.use(compression());
 
     // Serve static files

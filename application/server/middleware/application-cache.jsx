@@ -144,6 +144,7 @@ function middlewareApplicationCache(req, res) {
             .send('Not found.');
     }
 
+    // @TODO: Adjust caching
     return res
         .status(200)
         .set('Content-Type', 'text/cache-manifest')

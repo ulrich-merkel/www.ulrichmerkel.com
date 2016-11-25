@@ -21,13 +21,10 @@ const configEnvironment = {
         debug: true
     },
     production: {
-        isProduction: true,
         debug: false
     },
     test: {
-        isProduction: false,
         debug: false,
-        port: process.env.PORT || 3001,
         aboveTheFold: {
             baseCss: path.join(__dirname, '../../../build/public/css/base.css'),
             loaderBundle: path.join(__dirname, '../../../build/public/js/loader.bundle.js')
@@ -64,6 +61,7 @@ const configApplication = Object.assign({}, {
         apiConfigDeDe: '/config/de-de',
         cacheManifest: '/cache.manifest'
     },
+    isProduction: true,
     aboveTheFold: {
         baseCss: path.join(__dirname, '../../../public/css/base.css'),
         loaderBundle: path.join(__dirname, '../../../public/js/loader.bundle.js')
