@@ -143,6 +143,7 @@ class Backstop {
         console.error(chalk.red(
             reason
         ));
+        this.backstop(methods.open);
         this.stopServer().then(() => {
             process.exit(1);
         });
