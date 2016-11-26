@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, import/no-unresolved */
+/* eslint-disable no-console, import/no-unresolved, import/no-dynamic-require, class-methods-use-this */
 /**
  * Copy files from source to build folder.
  *
@@ -16,6 +16,7 @@
  * @requires chalk
  * @requires fs
  * @requires build/application/server/server
+ * @requires config/backstop/config.js
  *
  * @changelog
  * - 0.0.1 basic functions and structure
@@ -27,157 +28,136 @@ const path = require('path');
 const fs = require('fs');
 
 const argv = minimist(process.argv.slice(2));
+
+const server = argv.server || '../build/application/server/server.js';
 const config = argv.config || './../config/backstop/config.js';
 const run = argv.run || 'test';
 
-/**
- * Check if file exists.
- *
- * @private
- * @param {} filePath
- * @returns {}
- */
-function fileExists(filePath) {
-    return fs.existsSync(filePath);
-}
-
-if (!fileExists(path.resolve(process.cwd(), 'build/application/server/server.js'))) {
+if (!fs.existsSync(path.resolve(__dirname, server))) {
     console.error(chalk.red(
         'Build this project before running this script!'
     ));
     process.exit(1);
 }
-const server = require('./../build/application/server/server');
+const serverEntry = require(server);
 
-/**
-* Helper function to read file async from disc.
-*
-* @function
-* @param {string} fileName The file name
-* @returns {Function} The promise for this request
-*/
-function readFile(fileName) {
-    const filePath = path.resolve(process.cwd(), fileName);
+const methods = {
+    test: 'test',
+    reference: 'reference',
+    open: 'openReport'
+};
 
-    return new Promise(function handlePromise(resolve, reject) {
-        if (!fileExists(filePath)) {
-            return reject(Error(`No such file found ${filePath}`));
+const defaults = {
+};
+
+class Backstop {
+    constructor(options, method) {
+        if (methods[method]) {
+            this.method = methods[method];
         }
+        this.init(options);
+    }
 
-        return fs.readFile(filePath, {
-            encoding: 'utf-8'
-        }, function handleReadFile(error, data) {
-            if (error) {
-                return reject(Error(error));
-            }
-            return resolve(data);
-        });
-    });
-}
-
-/**
- * Check for config file.
- *
- * @TODO: Could be removed?
- * @private
- * @param {string} filePath
- * @returns {Promise}
- */
-function checkConfig(filePath) {
-    return readFile(filePath)
-        .then((data) => {
-            return data;
-        })
-        .catch((reason) => {
-            console.error(chalk.red(reason));
-        });
-}
-
-let runningServer;
-
-/**
- * Start server.
- *
- * @private
- * @returns {}
- */
-function startServer() {
-    return new Promise((resolve, reject) => {
-        runningServer = server.default({}, function serverStarted(error) {
-            if (error) {
-                reject(error);
+    startServer() {
+        // @TODO: just start when needed (ref, test)
+        return new Promise((resolve, reject) => {
+            if (this.runningServer) {
+                reject('Backstop server already running!');
                 return;
             }
-            resolve(runningServer);
+            this.runningServer = serverEntry.default({}, (error) => {
+                if (error) {
+                    reject(error);
+                    return;
+                }
+                resolve();
+            });
         });
-    });
-}
+    }
 
-/**
- * Stop server.
- *
- * @private
- * @returns {Promise}
- */
-function stopServer() {
-    return new Promise((resolve) => {
-        runningServer.close(resolve);
-    });
-}
+    stopServer() {
+        // @TODO: just stop when needed (ref, test)
+        return new Promise((resolve, reject) => {
+            if (!this.runningServer) {
+                reject('No backstop server running');
+                return;
+            }
+            this.runningServer.close(() => {
+                console.log(chalk.green(
+                    'Backstop server successful stopped'
+                ));
+                resolve();
+                this.runningServer = null;
+            });
+        });
+    }
 
-/**
- * Start backstop.
- *
- * @private
- * @param {string} method
- * @returns {Promise}
- */
-function startBackstop(method) {
-    return new Promise((resolve, reject) => {
-        backstopjs(method, { config })
+    configure(options = {}) {
+        this.options = Object.assign(
+            {},
+            defaults,
+            options
+        );
+        return this.startServer();
+    }
+
+    backstop(method) {
+        return new Promise((resolve, reject) => {
+            backstopjs(method, { config })
             .then(resolve)
             .catch(reject);
-    });
-}
+        });
+    }
 
-/**
- * Start routine.
- *
- * @returns {void}
- */
-function bootstrap(method) {
-    checkConfig(config)
-        .then(startServer)
-        .then(startBackstop.bind(null, method))
-        .then(stopServer)
-        .then(() => {
-            console.log(chalk.green(
-                `Backstop ${method} successful`
-            ));
+    reference() {
+        if (this.method === methods.reference) {
+            return this.backstop(this.method);
+        }
+        return this;
+    }
+
+    test() {
+        if (this.method === methods.test) {
+            return this.backstop(this.method);
+        }
+        return this;
+    }
+
+    open() {
+        if (this.method === methods.open) {
+            return this.backstop(this.method);
+        }
+        return this;
+    }
+
+    done() {
+        console.log(chalk.green(
+            `Backstop ${this.method} successful`
+        ));
+        this.stopServer().then(() => {
             process.exit(0);
-        })
-        .catch((reason) => {
-            console.error(chalk.red(
-                reason
-            ));
+        });
+    }
+
+    fail(reason) {
+        console.error(chalk.red(
+            reason
+        ));
+        this.stopServer().then(() => {
             process.exit(1);
         });
+    }
+
+    init(options) {
+        return this.configure(options)
+        .then(this.reference.bind(this))
+        .then(this.test.bind(this))
+        .then(this.open.bind(this))
+        .then(this.done.bind(this))
+        .catch(this.fail.bind(this));
+    }
+
 }
 
-// map cli options to bootstrap params
-// @TODO: Improve cli option mapping, have a look at grunt-backstop?
-if (run) {
-    switch (run) {
-    case 'test':
-        bootstrap('test');
-        break;
-    case 'reference':
-        bootstrap('reference');
-        break;
-    case 'open':
-        bootstrap('openReport');
-        break;
-    default:
-        break;
-    }
-}
+const backstop = new Backstop(config, run);
+module.exports = backstop;

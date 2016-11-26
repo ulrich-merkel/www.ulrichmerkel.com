@@ -91,7 +91,7 @@ Logger.prototype = {
     },
 
     write: function writeFn(output, args) {
-        if (!this.isEnabled) {
+        if (!this._enabled) {
             return undefined;
         }
 

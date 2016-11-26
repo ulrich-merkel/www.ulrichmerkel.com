@@ -15,16 +15,25 @@
  */
 import path from 'path';
 
+function stringToBool(value = '') {
+    switch (value.toLowerCase()) {
+    case 'true':
+        return true;
+    case 'false':
+        return false;
+    default:
+        return undefined;
+    }
+}
+
 const configEnvironment = {
     development: {
         isProduction: false,
-        debug: true
+        debug: stringToBool(process.env.DEBUG) || true
     },
     production: {
-        debug: false
     },
     test: {
-        debug: false,
         aboveTheFold: {
             baseCss: path.join(__dirname, '../../../build/public/css/base.css'),
             loaderBundle: path.join(__dirname, '../../../build/public/js/loader.bundle.js')
@@ -36,6 +45,7 @@ const configApplication = Object.assign({}, {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
+    debug: stringToBool(process.env.DEBUG) || false,
     url: {
         index: '/',
         persona: '/persona',
@@ -78,7 +88,7 @@ const configApplication = Object.assign({}, {
         use: false
     },
     applicationCache: {
-        use: true,
+        use: stringToBool(process.env.APPCACHE) || true,
         timeStamp: '2016-11-23'
     },
     transition: {

@@ -165,11 +165,11 @@ function create(config = {}, callback = Function.prototype) {
         index: false
     }));
 
-    // Post routing for contact form data, has to be after cookie and session
-    app.post(url.contact, middlewarePost);
-
     // Handle request for application cache config
     app.get(url.cacheManifest, middlewareApplicationCache);
+
+    // Post routing for contact form data, has to be after cookie and session
+    app.post(url.contact, middlewarePost);
 
     // Init react routing
     app.use(middlewareReact);

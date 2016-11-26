@@ -59,7 +59,8 @@ module.exports = {
         }),
         Object.assign({}, scenarioDefaults, {
             label: 'Ulrich Merkel - Work',
-            url: `${rootUrl}/work/optik-ludewig`
+            url: `${rootUrl}/work/optik-ludewig`,
+            misMatchThreshold: 0.2
         })
     ],
     paths: {
