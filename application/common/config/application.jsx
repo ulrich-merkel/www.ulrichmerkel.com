@@ -15,6 +15,13 @@
  */
 import path from 'path';
 
+/**
+ * Parse boolean values from string.
+ *
+ * @private
+ * @param {string} [value=''] The value to be checked
+ * @returns {boolean|undefined} The parsed value or undefined
+ */
 function stringToBool(value = '') {
     switch (value.toLowerCase()) {
     case 'true':
@@ -35,8 +42,8 @@ const configEnvironment = {
     },
     test: {
         aboveTheFold: {
-            baseCss: path.join(__dirname, '../../../build/public/css/base.css'),
-            loaderBundle: path.join(__dirname, '../../../build/public/js/loader.bundle.js')
+            cssBase: path.join(__dirname, '../../../build/public/css/base.css'),
+            scriptBootstrap: path.join(__dirname, '../../../build/public/js/bootstrap.bundle.js')
         }
     }
 }[process.env.NODE_ENV || 'development'];
@@ -73,8 +80,8 @@ const configApplication = Object.assign({}, {
     },
     isProduction: true,
     aboveTheFold: {
-        baseCss: path.join(__dirname, '../../../public/css/base.css'),
-        loaderBundle: path.join(__dirname, '../../../public/js/loader.bundle.js')
+        cssBase: path.join(__dirname, '../../../public/css/base.css'),
+        scriptBootstrap: path.join(__dirname, '../../../public/js/bootstrap.bundle.js')
     },
     email: 'hello@ulrichmerkel.com',
     xor: {

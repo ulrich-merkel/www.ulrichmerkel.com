@@ -7,7 +7,7 @@ describe('csp', function () {
         expect(nonceConfig.style).toBeDefined();
         expect(nonceConfig.style.base).toBeDefined();
         expect(nonceConfig.script).toBeDefined();
-        expect(nonceConfig.script.loader).toBeDefined();
+        expect(nonceConfig.script.bootstrap).toBeDefined();
         expect(nonceConfig.script.config).toBeDefined();
     });
     it('should create meta rules via getCspRules', function () {
@@ -17,7 +17,7 @@ describe('csp', function () {
         const rulesToEqual = [];
         /* eslint-disable quotes */
         rulesToEqual.push(`default-src 'self' www.ulrichmerkel.com;`);
-        rulesToEqual.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.loader}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
+        rulesToEqual.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.bootstrap}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
         rulesToEqual.push(`style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`);
         rulesToEqual.push(`img-src 'self' www.ulrichmerkel.com data:;`);
         rulesToEqual.push(`child-src 'none';`);

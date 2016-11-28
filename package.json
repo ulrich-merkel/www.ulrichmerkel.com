@@ -63,7 +63,7 @@
     "build:static": "npm run static",
     "minify": "npm-run-all --parallel minify:*",
     "minify:client": "cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/client.bundle.js -c warnings=false -o $npm_package_directories_build_public/js/client.bundle.js",
-    "minify:loader": "cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/loader.bundle.js -c warnings=false -o $npm_package_directories_build_public/js/loader.bundle.js",
+    "minify:loader": "cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/bootstrap.bundle.js -c warnings=false -o $npm_package_directories_build_public/js/bootstrap.bundle.js",
     "minify:images": "node $npm_package_directories_bin/imagemin -d $npm_package_directories_build_root/public/img/content/",
     "test": "npm-run-all --parallel test:*",
     "test:dependencies": "npm list",

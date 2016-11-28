@@ -42,7 +42,7 @@ import { getNonceConfig, getCspRules } from './../../utils/csp';
  */
 function LayoutHtml(props) {
 
-    const { locale, store, cssBase, scriptLoader } = props;
+    const { locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
         ? { manifest: url.cacheManifest }
         : {};
@@ -84,9 +84,9 @@ function LayoutHtml(props) {
                     {props.children}
                 </div>
                 <script
-                    nonce={get(nonceConfig, 'script.loader')}
+                    nonce={get(nonceConfig, 'script.bootstrap')}
                     dangerouslySetInnerHTML={{
-                        __html: scriptLoader
+                        __html: scriptBootstrap
                     }}
                 />
                 {store && <script
@@ -111,14 +111,14 @@ function LayoutHtml(props) {
  * @property {string} [locale] The current locale string
  * @property {Object} [store] Critical redux initial config
  * @property {Object} [cssBase] File contents of base css file
- * @property {Object} [scriptLoader] File contents of loader javascript file
+ * @property {Object} [scriptBootstrap] File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
     children: PropTypes.node,
     locale: PropTypes.string,
     store: PropTypes.object,
     cssBase: PropTypes.string,
-    scriptLoader: PropTypes.string
+    scriptBootstrap: PropTypes.string
 };
 
 /**

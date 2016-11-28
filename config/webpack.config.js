@@ -41,7 +41,7 @@ module.exports = {
     context: sourcePath,
     entry: {
         client: './client/client.jsx',
-        loader: './client/loader.jsx'
+        bootstrap: './client/bootstrap.jsx'
     },
     output: {
         path: __dirname + '/../build/public/js',

@@ -78,13 +78,13 @@ function createElement(Component, props) {
  * @param {Object} store The created redux store
  * @param {Object} renderProps The component properties to be rendered
  * @param {string} [cssBase=''] The file contents from base.css
- * @param {string} [scriptLoader=''] The file contents from loader.js
+ * @param {string} [scriptBootstrap=''] The file contents from loader.js
  * @returns {string} The rendered html string
  */
-function getHtml(store, renderProps, cssBase = '', scriptLoader = '') {
+function getHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
     return renderToStaticMarkup(
         <Root store={store}>
-            <LayoutHtml {... { store, cssBase, scriptLoader }}>
+            <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
                 <RouterContext
                     {...renderProps}
                     createElement={createElement}
@@ -154,8 +154,8 @@ function middlewareReact(req, res, next) {
              * improve the overall node performance.
              */
             return Promise.all([
-                readFile(aboveTheFold.baseCss),
-                readFile(aboveTheFold.loaderBundle),
+                readFile(aboveTheFold.cssBase),
+                readFile(aboveTheFold.scriptBootstrap),
                 store.dispatch(fetchConfigContentIfNeeded()),
                 store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
                 store.dispatch(addToken(req.csrfToken && req.csrfToken()))
