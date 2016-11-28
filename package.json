@@ -77,7 +77,6 @@
     "test:package": "pjl-cli",
     "staged": "npm-run-all --parallel staged:*",
     "staged:pagespeed": "PORT=3002 node $npm_package_directories_bin/pagespeed",
-    "staged:backstop": "npm run backstop:test",
     "doc": "npm-run-all --parallel doc:*",
     "doc:jsdoc": "jsdoc $npm_package_directories_source_application --recurse --destination $npm_package_directories_doc/jsdoc; exit 0;",
     "doc:sassdoc": "sassdoc $npm_package_directories_source_public/scss/**/*.scss --dest $npm_package_directories_doc/scss/",
