@@ -25,6 +25,7 @@ This is just a playground for React and all the corresponding technologies.
 
 ### Node & NPM
 
+* [Nodejitsu](https://docs.nodejitsu.com/)
 * [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
 * [Using Promises with Express.js](http://first-time-ceo.tumblr.com/post/104273001643/using-promises-with-expressjs)
 * [Unit testing express middleware](http://de.slideshare.net/morrissinger/unit-testing-express-middleware)
@@ -33,6 +34,7 @@ This is just a playground for React and all the corresponding technologies.
 * [npm scripting: configs and arguments... and some more tricks](http://www.marcusoft.net/2015/08/npm-scripting-configs-and-arguments.html)
 * [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
 * [The Ultimate Guide to Configuring NPM](http://stackabuse.com/the-ultimate-guide-to-configuring-npm/)
+* [5 steps to making a Node.js frontend app 10x faster](https://engineering.gosquared.com/making-dashboard-faster)
 
 ### Babel
 
