@@ -3,6 +3,11 @@
 import configureStore from 'redux-mock-store';
 
 const mockStore = configureStore([]);
-const mockedStore = mockStore({});
+const mockedStore = mockStore({
+    intl: {
+        locale: 'en-EN',
+        availableLocales: ['en-EN']
+    }
+});
 
 export default mockedStore;

@@ -1,0 +1,22 @@
+exports[`component/layout/loader Snapshot should render correctly 1`] = `
+<dialog
+  className="l-dialog--loading"
+  role="presentation">
+  <div
+    className="l-dialog__content">
+    <div
+      className="c-flip">
+      <div
+        className="c-flip__front">
+        Headline
+      </div>
+      <div
+        className="c-flip__back">
+        Lorem ipsum
+      </div>
+    </div>
+  </div>
+  <div
+    className="l-dialog__background" />
+</dialog>
+`;

@@ -80,7 +80,7 @@ function LayoutHeader(props) {
         'is-active': intlLocale === INTL_LOCALE_DE_DE
     });
     const menuLanguageClassName = classnames('m-menu--language', 'm-nav__toggle-target', {
-        'is-hidden': intlAvailableLocales.length <= 1
+        'is-hidden': intlAvailableLocales && intlAvailableLocales.length <= 1
     });
 
     return (

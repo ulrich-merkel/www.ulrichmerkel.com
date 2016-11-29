@@ -10,17 +10,17 @@
  * @version 0.0.3
  *
  * @requires react
- * @requires react-addons-css-transition-group
  * @requires react-redux
  * @requires lodash
- * @requires state/dialog/actions
- * @requires component/decorator/add-content
- * @requires utils/content
- * @requires component/grid/spaced
- * @requires component/grid/row
- * @requires component/grid/col
- * @requires component/element/button
- * @requires component/element/headline
+ * @requires common/state/dialog/actions
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
+ * @requires common/utils/environment
+ * @requires common/component/grid/spaced
+ * @requires common/component/grid/row
+ * @requires common/component/grid/col
+ * @requires common/component/element/button
+ * @requires common/component/element/headline
  *
  * @changelog
  * - 0.0.3 moved to stateless function
@@ -34,6 +34,7 @@ import { get, throttle, isEqual } from 'lodash';
 import { changeDialogVisible } from './../../state/dialog/actions';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
+import { isBrowser } from './../../utils/environment';
 
 import ModuleArticle from './../module/article';
 import ModuleList from './../module/list';
@@ -90,7 +91,9 @@ class LayoutDialog extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        window.addEventListener('keydown', this.onKeyDown, false);
+        if (isBrowser()) {
+            window.addEventListener('keydown', this.onKeyDown, false);
+        }
     }
 
     /**
@@ -112,7 +115,9 @@ class LayoutDialog extends Component {
      * @returns {void}
      */
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.onKeyDown, false);
+        if (isBrowser()) {
+            window.removeEventListener('keydown', this.onKeyDown, false);
+        }
     }
 
     /**
@@ -158,6 +163,7 @@ class LayoutDialog extends Component {
         }
 
         const contentSection = getContentSection(content);
+        const contentSectionNav = contentSection('nav') || {};
 
         return (
             <dialog className='l-dialog' role='presentation'>
@@ -172,10 +178,10 @@ class LayoutDialog extends Component {
                                     <ModuleList content={contentSection('section1')} />
 
                                     <Button
-                                        title={contentSection('nav').btnCloseTitle}
+                                        title={contentSectionNav.btnCloseTitle}
                                         onClick={this.onClose}
                                     >
-                                        {contentSection('nav').btnCloseLabel}
+                                        {contentSectionNav.btnCloseLabel}
                                     </Button>
 
                                 </ModuleArticle>
@@ -187,11 +193,11 @@ class LayoutDialog extends Component {
                     <Button
                         className='l-dialog__button--close c-font-icon--close'
                         classNameLabel='is-visually-hidden'
-                        title={contentSection('nav').btnCloseTitle}
+                        title={contentSectionNav.btnCloseTitle}
                         onClick={this.onClose}
                         isSmall
                     >
-                        {contentSection('nav').btnCloseLabel}
+                        {contentSectionNav.btnCloseLabel}
                     </Button>
 
                 </div>
