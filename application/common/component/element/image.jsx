@@ -6,6 +6,7 @@
  *
  * @file
  * @module
+ * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1

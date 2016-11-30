@@ -17,7 +17,7 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
 /**
@@ -29,7 +29,7 @@ import classnames from 'classnames';
  * @class
  * @extends React.Component
  */
-class ElementInput extends React.Component {
+class ElementInput extends Component {
 
     /**
      * The required render function to return a single react child element.

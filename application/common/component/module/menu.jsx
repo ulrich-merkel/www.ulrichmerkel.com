@@ -5,6 +5,7 @@
  *
  * @file
  * @module
+ * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
@@ -37,7 +38,7 @@ import Icon from './../element/icon';
  * @param {Object} [props] The current component props
  * @returns {React.Element} React component markup
  */
-const ComponentModuleMenuItem = (props) => {
+function ComponentModuleMenuItem(props) {
 
     const {
         path,
@@ -75,7 +76,7 @@ const ComponentModuleMenuItem = (props) => {
         </li>
     );
 
-};
+}
 
 /**
  * Valiate props via React.PropTypes helpers.
@@ -118,7 +119,7 @@ ComponentModuleMenuItem.defaultProps = {
  * @param {object} props The current component props
  * @returns {React.Element} React component markup
  */
-const ComponentModuleMenu = (props) => {
+function ComponentModuleMenu(props) {
 
     const {
         componentType,
@@ -178,7 +179,7 @@ const ComponentModuleMenu = (props) => {
         </ComponentType>
     );
 
-};
+}
 
 /**
  * Validate props via React.PropTypes helpers.

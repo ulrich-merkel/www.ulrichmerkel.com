@@ -1,24 +1,25 @@
 /* eslint-disable react/no-danger */
 /**
-* Es6 module for React Component.
-* Component module React classes combine elements to
-* bigger parts of the page.
-*
-* @file
-* @module
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.3
-*
-* @requires React
-* @requires classnames
-* @requires component/element/headline
-*
-* @changelog
-* - 0.0.1 basic functions and structure
-*
-* @example <caption>Example usage (jsx)</caption>
-*/
+ * Es6 module for React Component.
+ * Component module React classes combine elements to
+ * bigger parts of the page.
+ *
+ * @file
+ * @module
+ * @flow weak
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.3
+ *
+ * @requires React
+ * @requires classnames
+ * @requires component/element/headline
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ *
+ * @example <caption>Example usage (jsx)</caption>
+ */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
@@ -84,16 +85,16 @@ function ModuleList(props) {
 }
 
 /**
-* Validate props via React.PropTypes helpers.
-*
-* @static
-* @type {React.Component.PropTypes}
-* @property {string} [componentType] The component element type used for React.createElement
-* @property {string} [className] The component css class names - will be merged into component default classNames
-* @property {string} [itemType] The schema.org itemtype url attribute
-* @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {Object} [content] The component translation config
-*/
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {React.Component.PropTypes}
+ * @property {string} [componentType] The component element type used for React.createElement
+ * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {string} [itemType] The schema.org itemtype url attribute
+ * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] The component translation config
+ */
 ModuleList.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string,
@@ -103,11 +104,11 @@ ModuleList.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {React.Component.DefaultProps}
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {React.Component.DefaultProps}
+ */
 ModuleList.defaultProps = {
     componentType: 'ul',
     itemType: 'http://schema.org/ItemList',

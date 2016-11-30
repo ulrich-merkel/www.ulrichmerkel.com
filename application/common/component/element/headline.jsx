@@ -6,6 +6,7 @@
  *
  * @file
  * @module
+ * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
@@ -37,7 +38,7 @@ import classnames from 'classnames';
  * @param {Object} [props] The current component props
  * @returns {ReactElement} React component markup
  */
-const ElementHeadline = (props) => {
+function ElementHeadline(props) {
 
     const {
         htmlElement: HtmlElement,
@@ -58,7 +59,7 @@ const ElementHeadline = (props) => {
         <HtmlElement className={componentClassName} {...otherProps} />
     );
 
-};
+}
 
 /**
  * Validate props via React.PropTypes helpers.
