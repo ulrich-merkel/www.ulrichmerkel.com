@@ -94,7 +94,7 @@ function ModuleFeatured(props) {
  * @property {string} [className] The component css class names - will be merged into component default classNames
  * @property {string} [itemType='https://schema.org/ItemList'] The schema.org itemtype url attribute
  * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] The component translation config
+ * @property {Object} [content='{}'] The component translation config
  */
 ModuleFeatured.propTypes = {
     componentType: PropTypes.string,

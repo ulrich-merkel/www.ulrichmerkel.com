@@ -105,7 +105,7 @@ function ModuleCornerstoneItemEducation(props) {
  * @property {string} [timeStart] The item start time
  * @property {string} [timeEnd] The item end time
  * @property {Array} [description=[]] The items description
- * @property {Object={}} [place] The items place description
+ * @property {Object='{}'} [place] The items place description
  * @property {string} [cssModifier] The bem css modifier
  * @property {string} [offset] The css top offset to display items nice
  */
