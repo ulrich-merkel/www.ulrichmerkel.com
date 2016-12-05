@@ -43,7 +43,7 @@ import './../common/vendor/polyfill/CustomEvent';
 import './../common/vendor/polyfill/classList';
 import './../common/vendor/polyfill/base64';
 
-import detectFeatures from './feature-detect/detect-features';
+import featureDetect from './feature-detect/feature-detect';
 import configRoutes from './../common/config/routes';
 import { debug } from './../common/config/application';
 import scrollTo, { getPageOffset } from './../common/utils/scroll-to';
@@ -62,7 +62,7 @@ if (debug) {
     window.React = React;
 }
 
-detectFeatures();
+featureDetect();
 
 /**
  * Add fastclick mobile helper. The implementation is a bit

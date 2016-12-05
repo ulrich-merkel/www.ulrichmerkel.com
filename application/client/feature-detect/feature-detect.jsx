@@ -1,6 +1,20 @@
+/**
+ * Detect client side features and add css classes to html element.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @requires client/feature-detect/touch-events
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
 import hasTouchEvents from './touch-events';
 
-function detectFeatures() {
+function featureDetect() {
 
     if (typeof window === 'undefined') {
         return;
@@ -19,4 +33,4 @@ function detectFeatures() {
 
 }
 
-export default detectFeatures;
+export default featureDetect;

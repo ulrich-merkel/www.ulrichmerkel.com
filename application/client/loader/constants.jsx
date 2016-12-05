@@ -1,5 +1,5 @@
 /**
- *
+ * Es6 module for handling constants for initial file loading.
  *
  * @file
  * @module

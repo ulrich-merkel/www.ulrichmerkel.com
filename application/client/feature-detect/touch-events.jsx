@@ -1,10 +1,22 @@
 /**
+ * Test client for touch capabilities.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
+
+/**
  * Test if browser is touch device.
  *
  * @see {@link http://flexslider.woothemes.com/}
  *
  * @function
- * @private
  * @returns {Boolean} Whether this device has touch display or not
  */
 function hasTouchEvents() {

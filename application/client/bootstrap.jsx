@@ -1,6 +1,6 @@
 /**
- * Handle react client side file loading and take
- * care for performance.
+ * Handle client side file loading and take
+ * care for performance due to async loading.
  *
  * @file
  * @module
