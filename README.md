@@ -1,11 +1,14 @@
 # www.ulrichmerkel.com
 
 [![Build Status](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com)
-[![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat-square)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
-[![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat-square)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
+[![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
+[![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/ulrich-merkel/www.ulrichmerkel.com/badge.svg?branch=master)](https://coveralls.io/github/ulrich-merkel/www.ulrichmerkel.com?branch=master)
-[![Inline docs](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](www.ulrichmerkel.com)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
+[![node](https://img.shields.io/node/v/gh-badges.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
+[![Inline docs](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com)
 
 
 ## About
