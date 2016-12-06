@@ -4,6 +4,7 @@
 [![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat-square)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
 [![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat-square)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/ulrich-merkel/www.ulrichmerkel.com/badge.svg?branch=master)](https://coveralls.io/github/ulrich-merkel/www.ulrichmerkel.com?branch=master)
+[![Inline docs](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com)
 
 
 ## About
