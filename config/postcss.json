@@ -1,0 +1,14 @@
+{
+    "use": [
+        "postcss-epub",
+        "postcss-cssnext"
+    ],
+    "autoprefixer": {
+        "browsers": "> 1%, last 2 versions, Firefox ESR, Opera 12.1"
+    },
+    "postcss-cssnext": {
+        "features": {
+            "rem": false
+        }
+    }
+}
