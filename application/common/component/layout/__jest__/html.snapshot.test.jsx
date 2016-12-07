@@ -13,7 +13,7 @@ describe('component/layout/html', function () {
         it('should render correctly', function () {
             const tree = renderer.create(
                 <Provider store={mockedStore}>
-                    <ComponentToBeTested cssBase={''} scriptBootstrap={''}>
+                    <ComponentToBeTested cssBase={''} scriptBootstrap={''} store={mockedStore}>
                         Hello
                     </ComponentToBeTested>
                 </Provider>

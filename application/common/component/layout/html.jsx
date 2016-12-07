@@ -17,8 +17,8 @@
  * @requires react-redux
  * @requires react-helmet
  * @requires lodash
+ * @requires serialize-javascript
  * @requires config/application
- * @requires utils/read-file-sync
  * @requires utils/csp
  *
  * @changelog
@@ -29,7 +29,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { get } from 'lodash';
+import { get, omit } from 'lodash';
+import serialize from 'serialize-javascript';
 
 import configApplication, { url, csp } from './../../config/application';
 import { getNonceConfig, getCspRules } from './../../utils/csp';
@@ -48,6 +49,13 @@ function LayoutHtml(props) {
         ? { manifest: url.cacheManifest }
         : {};
     const nonceConfig = getNonceConfig();
+    const preloadedState = omit(store.getState(), [
+        'contact',
+        'dialog',
+        'page',
+        'scroll',
+        'search'
+    ]);
 
     /**
      * Rewind Helmet for access to its data.
@@ -93,7 +101,7 @@ function LayoutHtml(props) {
                 {store && <script
                     nonce={get(nonceConfig, 'script.config')}
                     dangerouslySetInnerHTML={{
-                        __html: `__PRELOADED_STATE__=${JSON.stringify(store.getState())};`
+                        __html: `__PRELOADED_STATE__=${serialize(preloadedState)};`
                     }}
                 />}
                 {helmet.script.toComponent()}
@@ -108,16 +116,16 @@ function LayoutHtml(props) {
  *
  * @static
  * @type {Object}
+ * @property {Object} store Critical redux initial config
  * @property {Array|string} [children] The component react children
  * @property {string} [locale] The current locale string
- * @property {Object} [store] Critical redux initial config
  * @property {Object} [cssBase] File contents of base css file
  * @property {Object} [scriptBootstrap] File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
+    store: PropTypes.object.isRequired,
     children: PropTypes.node,
     locale: PropTypes.string,
-    store: PropTypes.object,
     cssBase: PropTypes.string,
     scriptBootstrap: PropTypes.string
 };

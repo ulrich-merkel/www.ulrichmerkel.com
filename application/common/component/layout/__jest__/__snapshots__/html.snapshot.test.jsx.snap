@@ -57,6 +57,13 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
         }
       }
       nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "__PRELOADED_STATE__={\"intl\":{\"locale\":\"en-EN\",\"availableLocales\":[\"en-EN\"]}};",
+        }
+      }
+      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />
   </body>
 </html>
 `;
