@@ -40,6 +40,7 @@ This is just a playground for React and all the corresponding technologies.
 * [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
 * [The Ultimate Guide to Configuring NPM](http://stackabuse.com/the-ultimate-guide-to-configuring-npm/)
 * [5 steps to making a Node.js frontend app 10x faster](https://engineering.gosquared.com/making-dashboard-faster)
+* [NPM vs Yarn Cheat Sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.ay5ro7jpv)
 
 ### Babel
 
