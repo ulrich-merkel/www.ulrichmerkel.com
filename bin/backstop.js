@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, import/no-unresolved, import/no-dynamic-require, class-methods-use-this */
+/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this */
 /**
  * Copy files from source to build folder.
  *
