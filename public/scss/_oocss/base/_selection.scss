@@ -1,0 +1,25 @@
+////
+/// Base text selection adjustments
+///
+/// @group base
+/// @author Ulrich Merkel
+////
+
+// below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+
+    @if ($config-support-prefix-moz) {
+        ::-moz-selection {
+            background: $config-color-red;
+            color: $config-color-white;
+            text-shadow: none;
+        }
+    }
+
+    ::selection {
+        background: $config-color-red;
+        color: $config-color-white;
+        text-shadow: none;
+    }
+
+}

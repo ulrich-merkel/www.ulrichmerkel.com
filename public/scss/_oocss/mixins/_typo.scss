@@ -28,7 +28,7 @@
 /// Requires inline-block or block for proper styling
 @mixin text-overflow {
     overflow: hidden;
-    @if ($support-prefix-ms) {
+    @if ($config-support-prefix-ms) {
         -ms-text-overflow: ellipsis;
     }
     text-overflow: ellipsis;
@@ -38,10 +38,18 @@
 /// Enable word wrapping for long words
 @mixin word-wrap {
     word-break: break-word;
-    -webkit-hyphens: auto;
-    -epub-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
+    @if ($config-support-prefix-webkit) {
+        -webkit-hyphens: auto;
+    }
+    @if ($config-support-prefix-epub) {
+        -epub-hyphens: auto;
+    }
+    @if ($config-support-prefix-moz) {
+        -moz-hyphens: auto;
+    }
+    @if ($config-support-prefix-ms) {
+        -ms-hyphens: auto;
+    }
     hyphens: auto;
 }
 
@@ -50,29 +58,37 @@
     white-space: nowrap;
 
     // prevent css3 hyphens
-    -webkit-hyphens: none;
-    -epub-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
+    @if ($config-support-prefix-webkit) {
+        -webkit-hyphens: none;
+    }
+    @if ($config-support-prefix-epub) {
+        -epub-hyphens: none;
+    }
+    @if ($config-support-prefix-moz) {
+        -moz-hyphens: none;
+    }
+    @if ($config-support-prefix-ms) {
+        -ms-hyphens: none;
+    }
     hyphens: none;
 }
 
 /// User select for selecting text on the page
 /// @param {string} $select
 @mixin user-select($select) {
-    @if $support-prefix-webkit {
+    @if ($config-support-prefix-webkit) {
         -webkit-user-select: $select;
     }
-    @if $support-prefix-khtml {
+    @if ($config-support-prefix-khtml) {
         -khtml-user-select: $select;
     }
-    @if $support-prefix-moz {
+    @if ($config-support-prefix-moz) {
         -moz-user-select: $select;
     }
-    @if $support-prefix-ms {
+    @if ($config-support-prefix-ms) {
         -ms-user-select: $select;
     }
-    @if $support-prefix-o {
+    @if ($config-support-prefix-o) {
         -o-user-select: $select;
     }
     user-select: $select;
@@ -81,16 +97,26 @@
 /// Disable user select
 @mixin no-user-select {
     @include user-select(none);
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
+    @if ($config-support-prefix-webkit) {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
 }
 
 /// Include css3 hyphens
 /// @param {string} $value
 @mixin hyphens($value) {
-    -webkit-hyphens: $value;
-    -epub-hyphens: $value;
-    -moz-hyphens: $value;
-    -ms-hyphens: $value;
+    @if ($config-support-prefix-webkit) {
+        -webkit-hyphens: $value;
+    }
+    @if ($config-support-prefix-epub) {
+        -epub-hyphens: $value;
+    }
+    @if ($config-support-prefix-moz) {
+        -moz-hyphens: $value;
+    }
+    @if ($config-support-prefix-ms) {
+        -ms-hyphens: $value;
+    }
     hyphens: $value;
 }
