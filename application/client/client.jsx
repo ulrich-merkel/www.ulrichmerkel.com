@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 /**
  * Handle react client side rendering.
  *
