@@ -8,7 +8,6 @@
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
 [![node](https://img.shields.io/node/v/gh-badges.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
-[![Inline docs](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](http://inch-ci.org/github/ulrich-merkel/www.ulrichmerkel.com)
 
 
 ## About

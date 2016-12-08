@@ -1,9 +1,0 @@
-{
-  "files": {
-    "included": [
-      "application/**/*.jsx"
-    ],
-    "excluded": [
-    ]
-  }
-}
