@@ -116,9 +116,9 @@ ModuleFeatured.propTypes = {
 /**
 * Set defaults if props aren't available.
 *
-* @static ModuleFeatured.propTypes
+* @static
 * @type {Object}
-* @see
+* @see ModuleFeatured.propTypes
 */
 ModuleFeatured.defaultProps = {
     componentType: 'ul',

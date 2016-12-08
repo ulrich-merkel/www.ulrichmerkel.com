@@ -18,10 +18,12 @@
  * @requires react-router
  * @requires fastclick
  * @requires picturefill
- * @requires common/vendor/polyfill/CustomEvent
- * @requires common/vendor/polyfill/classList
  * @requires common/vendor/polyfill/base64
- * @requires common/vendor/modernizr
+ * @requires common/vendor/polyfill/classList
+ * @requires common/vendor/polyfill/console
+ * @requires common/vendor/polyfill/CustomEvent
+ * @requires common/vendor/polyfill/requestAnimationFrame
+ * @requires common/vendor/standalone
  * @requires common/config/routes
  * @requires common/config/application
  * @requires common/utils/scroll-to
@@ -32,16 +34,18 @@
  * - 0.0.1 basic functions and structure
  */
 import 'babel-polyfill';
+import './../common/vendor/polyfill/console';
+import './../common/vendor/polyfill/requestAnimationFrame';
+import './../common/vendor/polyfill/CustomEvent';
+import './../common/vendor/polyfill/classList';
+import './../common/vendor/polyfill/base64';
+import './../common/vendor/standalone';
 
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, browserHistory, match } from 'react-router';
 import attachFastClick from 'fastclick';
 import 'picturefill';
-
-import './../common/vendor/polyfill/CustomEvent';
-import './../common/vendor/polyfill/classList';
-import './../common/vendor/polyfill/base64';
 
 import featureDetect from './feature-detect/feature-detect';
 import configRoutes from './../common/config/routes';
