@@ -2,4 +2,5 @@
 @sassdoc
 @uglify-js
 @jquery
+@angularjs
 doc/
