@@ -49,6 +49,14 @@ function LayoutHtml(props) {
         ? { manifest: url.cacheManifest }
         : {};
     const nonceConfig = getNonceConfig();
+
+    /**
+     * To fix XSS vulnerability we will use serialize-javascript
+     * instead of the simple JSON.stringify when rendering the
+     * store object into the html markup
+     *
+     * @see {@link https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0#.wxwoxhj7c}
+     */
     const preloadedState = omit(store.getState(), [
         'contact',
         'dialog',
@@ -101,7 +109,7 @@ function LayoutHtml(props) {
                 {store && <script
                     nonce={get(nonceConfig, 'script.config')}
                     dangerouslySetInnerHTML={{
-                        __html: `__PRELOADED_STATE__=${serialize(preloadedState)};`
+                        __html: `__PRELOADED_STATE__=${serialize(preloadedState, { isJSON: true })};`
                     }}
                 />}
                 {helmet.script.toComponent()}
