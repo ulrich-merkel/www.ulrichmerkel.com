@@ -22,10 +22,10 @@ and design that push the boundries of what the web can do.
 	URL: http:/www.ulrichmerkel.com/
 	Language: en, de
 	Charset: utf-8
-	Standards: HTML5, CSS3, JavaScript, Node
+	Standards: HTML5, CSS3, JavaScript (ES6 and beyond), Node
 	Components: React
 	Software: Atom, Fetch, Terminal, Charles, Virtual Box, Photoshop, Chrome Dev Tools, Google Page Speed
 	Style: responsive
 	Machines: MacBook, iPad, iPhone
 	Hosting: www.uberspace.de/
-	Last update: 2016/10/19
+	Last update: 2016/12/09
