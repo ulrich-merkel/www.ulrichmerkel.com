@@ -9,34 +9,20 @@
  *
  * @see {@link https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/config.js}
  *
+ * @requires path
+ * @requires common/utils/parse
+ *
  * @changelog
  * - 0.0.2 rewritten for es2015
  * - 0.0.1 basic functions and structure
  */
 import path from 'path';
-
-/**
- * Parse boolean values from string.
- *
- * @private
- * @param {string} [value=''] The value to be checked
- * @returns {boolean|undefined} The parsed value or undefined
- */
-function stringToBool(value = '') {
-    switch (value.toLowerCase()) {
-    case 'true':
-        return true;
-    case 'false':
-        return false;
-    default:
-        return undefined;
-    }
-}
+import { toBoolean } from './../utils/parse';
 
 const configEnvironment = {
     development: {
         isProduction: false,
-        debug: stringToBool(process.env.DEBUG) || true
+        debug: toBoolean(process.env.DEBUG) || true
     },
     production: {
     },
@@ -52,7 +38,7 @@ const configApplication = Object.assign({}, {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
-    debug: stringToBool(process.env.DEBUG) || false,
+    debug: toBoolean(process.env.DEBUG) || false,
     url: {
         index: '/',
         persona: '/persona',
@@ -85,17 +71,17 @@ const configApplication = Object.assign({}, {
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
-        use: true,
+        use: toBoolean(process.env.XOR) || true,
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        use: true
+        use: toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: false
+        use: toBoolean(process.env.SERVICEWORKER) || false
     },
     applicationCache: {
-        use: stringToBool(process.env.APPCACHE) || true,
+        use: toBoolean(process.env.APPCACHE) || true,
         timeStamp: '2016-11-23'
     },
     transition: {
@@ -107,7 +93,6 @@ const configApplication = Object.assign({}, {
         component: 'div',
         className: 'l-main__transition'
     }
-
 }, configEnvironment);
 
 export default configApplication;
