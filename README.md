@@ -4,6 +4,7 @@
 [![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
 [![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/ulrich-merkel/www.ulrichmerkel.com/badge.svg?branch=master)](https://coveralls.io/github/ulrich-merkel/www.ulrichmerkel.com?branch=master)
+[![Code Climate](https://codeclimate.com/github/ulrich-merkel/www.ulrichmerkel.com/badges/gpa.svg)](https://codeclimate.com/github/ulrich-merkel/www.ulrichmerkel.com)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](www.ulrichmerkel.com)
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
 [![node](https://img.shields.io/node/v/gh-badges.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
