@@ -69,7 +69,7 @@
     "test:dependencies": "npm list",
     "test:npm-version": "node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:node-version": "node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
-    "test:eslint": "eslint --config $npm_package_directories_config/.eslintrc.js --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx",
+    "test:eslint": "eslint --config $npm_package_directories_config/.eslintrc.json --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx",
     "test:jest": "cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/config.json",
     "test:flow": "flow check",
     "test:css": "stylelint --config $npm_package_directories_config/.stylelintrc '**/*.scss'",

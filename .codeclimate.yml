@@ -11,7 +11,7 @@ engines:
   eslint:
     enabled: true
     config:
-      config: config/.eslintrc.js
+      config: config/.eslintrc.json
   fixme:
     enabled: true
 ratings:
@@ -24,4 +24,6 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
+- bin/
 - config/
+- application/common/vendor/
