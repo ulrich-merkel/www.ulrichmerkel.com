@@ -1,71 +1,113 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this */
 /**
- * Copy files from source to build folder.
+ * Handle css regression tests via backstopJS.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @see {@link https://github.com/garris/BackstopJS}
  *
  * @requires backstopjs
  * @requires minimist
  * @requires chalk
+ * @requires path
  * @requires fs
+ * @requires assert-plus
  * @requires build/application/server/server
  * @requires config/backstop/config.js
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Add assert-plus as function parameter checker
+ * - 0.0.1 Basic functions and structure
  */
 const backstopjs = require('backstopjs');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
+const assert = require('assert-plus');
 
+// Read/parse configuration files
 const argv = minimist(process.argv.slice(2));
-
-const server = argv.server || '../build/application/server/server.js';
-const config = argv.config || './../config/backstop/config.js';
+const serverFile = argv.server || '../build/application/server/server.js';
+const backstopConfigFile = argv.config || './../config/backstop/config.js';
 const run = argv.run || 'test';
 
-if (!fs.existsSync(path.resolve(__dirname, server))) {
-    console.error(chalk.red(
-        'Build this project before running this script!'
-    ));
-    process.exit(1);
+/**
+ * Check if transpiled server file is avialable.
+ *
+ * @function
+ * @private
+ * @returns {Object} The ready-to-use server
+ */
+function getTranspiledServer() {
+    if (!fs.existsSync(path.resolve(__dirname, serverFile))) {
+        console.error(chalk.red(
+            'Build this project before running this script!'
+        ));
+        process.exit(1);
+    }
+    return require(serverFile).default; // eslint-disable-line global-require
 }
-const serverEntry = require(server);
 
-const methods = {
+// BackstopJS Api method mapping
+const METHODS = {
     test: 'test',
     reference: 'reference',
     open: 'openReport'
 };
 
-const defaults = {
-};
-
+/**
+ * Handle backstop helper cli.
+ *
+ * @class
+ */
 class Backstop {
-    constructor(options, method) {
-        if (methods[method]) {
-            this.method = methods[method];
-        }
-        this.init(options);
+
+    /**
+     * @constructs
+     * @param {string} configFile
+     * @param {Object} options
+     * @param {string} method
+     * @returns {void}
+     */
+    constructor(configFile, options, method) {
+        this.init(configFile, options, method);
     }
 
+    /**
+     * Check if server needs to be handled (started or stopped).
+     *
+     * @function
+     * @private
+     * @returns {boolean}
+     */
+    shouldHandleServer() {
+        return this.method && (this.method === METHODS.reference || this.method === METHODS.test);
+    }
+
+    /**
+     * Start express server if necessary to run application.
+     *
+     * @function
+     * @private
+     * @returns {Promise}
+     */
     startServer() {
-        // @TODO: just start when needed (ref, test)
         return new Promise((resolve, reject) => {
+            if (!this.shouldHandleServer()) {
+                resolve();
+                return;
+            }
             if (this.runningServer) {
                 reject('Backstop server already running!');
                 return;
             }
-            this.runningServer = serverEntry.default({}, (error) => {
+            this.runningServer = getTranspiledServer()({}, (error) => {
                 if (error) {
                     reject(error);
                     return;
@@ -75,9 +117,19 @@ class Backstop {
         });
     }
 
+    /**
+     * Stop express server if necessary to clear all running instances.
+     *
+     * @function
+     * @private
+     * @returns {Promise}
+     */
     stopServer() {
-        // @TODO: just stop when needed (ref, test)
         return new Promise((resolve, reject) => {
+            if (!this.shouldHandleServer()) {
+                resolve();
+                return;
+            }
             if (!this.runningServer) {
                 reject('No backstop server running');
                 return;
@@ -92,44 +144,101 @@ class Backstop {
         });
     }
 
-    configure(options = {}) {
+    /**
+     * Configure backstop helper and start server.
+     *
+     * @function
+     * @private
+     * @param {string} configFile
+     * @param {Object} options
+     * @param {string} method
+     * @returns {Promise}
+     */
+    configure(configFile, options = {}, method) {
+        assert.string(configFile, 'configFile');
+        assert.object(options, 'options');
+        assert.string(method, 'method');
+
+        if (METHODS[method]) {
+            this.method = METHODS[method];
+        }
         this.options = Object.assign(
             {},
-            defaults,
             options
         );
+        this.configFile = configFile;
+
         return this.startServer();
     }
 
+    /**
+     * Helper function to call backstopJS cli.
+     *
+     * @function
+     * @private
+     * @param {string} method
+     * @returns {Promise}
+     */
     backstop(method) {
+        assert.string(method, 'method');
+
+        const configFile = this.configFile;
         return new Promise((resolve, reject) => {
-            backstopjs(method, { config })
-            .then(resolve)
-            .catch(reject);
+            backstopjs(method, { config: configFile })
+                .then(resolve)
+                .catch(reject);
         });
     }
 
+    /**
+     * Run backstopJS reference task.
+     *
+     * @function
+     * @private
+     * @returns {Promise|this}
+     */
     reference() {
-        if (this.method === methods.reference) {
+        if (this.method === METHODS.reference) {
             return this.backstop(this.method);
         }
         return this;
     }
 
+    /**
+     * Run backstopJS testing task.
+     *
+     * @function
+     * @private
+     * @returns {Promise|this}
+     */
     test() {
-        if (this.method === methods.test) {
+        if (this.method === METHODS.test) {
             return this.backstop(this.method);
         }
         return this;
     }
 
+    /**
+     * Run backstopJS open task to view comparison in default browser.
+     *
+     * @function
+     * @private
+     * @returns {Promise|this}
+     */
     open() {
-        if (this.method === methods.open) {
+        if (this.method === METHODS.open) {
             return this.backstop(this.method);
         }
         return this;
     }
 
+    /**
+     * Handle backstopJS success and close running server.
+     *
+     * @function
+     * @private
+     * @returns {void}
+     */
     done() {
         console.log(chalk.green(
             `Backstop ${this.method} successful`
@@ -139,26 +248,47 @@ class Backstop {
         });
     }
 
+    /**
+     * Handle backstopJS failure and close running server. Try to open
+     * the current comparison in default browser.
+     *
+     * @function
+     * @private
+     * @param {Object} reason
+     * @returns {void}
+     */
     fail(reason) {
+        assert.object(reason, 'reason');
+
         console.error(chalk.red(
             reason
         ));
-        this.backstop(methods.open);
+        this.backstop(METHODS.open);
         this.stopServer().then(() => {
             process.exit(1);
         });
     }
 
-    init(options) {
-        return this.configure(options)
-        .then(this.reference.bind(this))
-        .then(this.test.bind(this))
-        .then(this.open.bind(this))
-        .then(this.done.bind(this))
-        .catch(this.fail.bind(this));
+    /**
+     * Init backstopJS service.
+     *
+     * @function
+     * @private
+     * @param {string} configFile
+     * @param {Object} options
+     * @param {string} method
+     * @returns {void}
+     */
+    init(configFile, options, method) {
+        return this.configure(configFile, options, method)
+            .then(this.reference.bind(this))
+            .then(this.test.bind(this))
+            .then(this.open.bind(this))
+            .then(this.done.bind(this))
+            .catch(this.fail.bind(this));
     }
 
 }
 
-const backstop = new Backstop(config, run);
+const backstop = new Backstop(backstopConfigFile, {}, run);
 module.exports = backstop;
