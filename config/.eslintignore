@@ -6,3 +6,4 @@ application/common/vendor/**
 report/**
 doc/**
 config/**
+**/*{.,-}min.js
