@@ -35,7 +35,7 @@ const assert = require('assert-plus');
 const argv = minimist(process.argv.slice(2));
 const serverFile = argv.server || '../build/application/server/server.js';
 const backstopConfigFile = argv.config || './../config/backstop/config.js';
-const run = argv.run || 'test';
+const runMethod = argv.run || 'test';
 
 /**
  * Check if transpiled server file is avialable.
@@ -76,7 +76,7 @@ class Backstop {
      * @returns {void}
      */
     constructor(configFile, options, method) {
-        this.init(configFile, options, method);
+        return this.init(configFile, options, method);
     }
 
     /**
@@ -243,7 +243,7 @@ class Backstop {
         console.log(chalk.green(
             `Backstop ${this.method} successful`
         ));
-        this.stopServer().then(() => {
+        return this.stopServer().then(() => {
             process.exit(0);
         });
     }
@@ -264,7 +264,7 @@ class Backstop {
             reason
         ));
         this.backstop(METHODS.open);
-        this.stopServer().then(() => {
+        return this.stopServer().then(() => {
             process.exit(1);
         });
     }
@@ -280,15 +280,22 @@ class Backstop {
      * @returns {void}
      */
     init(configFile, options, method) {
-        return this.configure(configFile, options, method)
-            .then(this.reference.bind(this))
-            .then(this.test.bind(this))
-            .then(this.open.bind(this))
-            .then(this.done.bind(this))
-            .catch(this.fail.bind(this));
+        return new Promise((resolve) => {
+            return this.configure(configFile, options, method)
+                .then(this.reference.bind(this))
+                .then(this.test.bind(this))
+                .then(this.open.bind(this))
+                .then(this.done.bind(this))
+                .catch(this.fail.bind(this))
+                .finally(resolve);
+        });
+
+
     }
 
 }
 
-const backstop = new Backstop(backstopConfigFile, {}, run);
-module.exports = backstop;
+// listen to cli
+new Backstop(backstopConfigFile, {}, runMethod);
+
+module.exports = Backstop;
