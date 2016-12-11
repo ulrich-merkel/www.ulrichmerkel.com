@@ -28,7 +28,7 @@ const assert = require('assert-plus');
 
 const argv = minimist(process.argv.slice(2));
 const argvDest = argv.d || './build/';
-const argvFiles = [
+const argvFiles = argv.f || [
     { source: './package.json', dest: argvDest },
     { source: './.env', dest: argvDest },
     { source: './public/js/**/*', dest: `${argvDest}/public/js` },
@@ -48,7 +48,7 @@ const argvFiles = [
  */
 function fileCopied(file) {
     assert.object(file, 'file');
-    console.log(chalk.gray(`Copied file pattern ${file.source} > ${file.dest}`));
+    console.log(chalk.green(`Copied file pattern ${file.source} > ${file.dest}`));
 }
 
 /**
@@ -68,7 +68,7 @@ function copy(files) {
         return;
     }
 
-    console.log(chalk.green(`Copying ${filesLength} file patterns`));
+    console.log(chalk.gray(`Start copying ${filesLength} file patterns`));
     for (let i = 0; i < filesLength; i = i + 1) {
         cpx.copy(
             files[i].source,
