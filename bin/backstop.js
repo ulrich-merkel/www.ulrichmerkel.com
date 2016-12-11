@@ -10,6 +10,7 @@
  * @version 0.0.2
  *
  * @see {@link https://github.com/garris/BackstopJS}
+ * @see {@link https://github.com/ddluc/grunt-backstop}
  *
  * @requires backstopjs
  * @requires minimist
@@ -296,6 +297,6 @@ class Backstop {
 }
 
 // listen to cli
-new Backstop(backstopConfigFile, {}, runMethod);
+const backstop = new Backstop(backstopConfigFile, {}, runMethod);
 
-module.exports = Backstop;
+module.exports = backstop;
