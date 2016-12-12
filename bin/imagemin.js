@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable import/no-extraneous-dependencies, no-console */
+/* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Minify images to improve page load times.
  *
@@ -74,20 +74,18 @@ function imagesMinified(files) {
  * @param {Array} [plugins=[]] The optional imagemin plugins
  * @returns {void}
  */
-function minify(folders, dest, plugins = []) {
+function run(folders, dest, plugins = []) {
     assert.optionalArrayOfString(folders, 'folders');
     assert.optionalString(dest, 'dest');
     assert.optionalArray(plugins, 'plugins');
 
     const foldersLength = folders.length;
     if (!foldersLength) {
-        console.log(chalk.gray('Nothing to minify - no image folders found.'));
-        return;
+        return void console.log(chalk.gray('Nothing to minify - no image folders found.'));
     }
 
     if (!dest) {
-        console.log(chalk.gray('No image destination configured.'));
-        return;
+        return void console.log(chalk.gray('No image destination configured.'));
     }
 
     console.log(chalk.gray(`Start minifying ${foldersLength} image folders`));
@@ -102,4 +100,4 @@ function minify(folders, dest, plugins = []) {
     }
 }
 
-minify(argvFolders, argvDest, argvPlugins);
+run(argvFolders, argvDest, argvPlugins);

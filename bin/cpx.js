@@ -59,7 +59,7 @@ function fileCopied(file) {
  * @param {Array<Object>} files The files config to be copied
  * @returns {void}
  */
-function copy(files) {
+function run(files) {
     assert.optionalArrayOfObject(files, 'files');
 
     const filesLength = files.length;
@@ -79,4 +79,4 @@ function copy(files) {
     }
 }
 
-copy(argvFiles);
+run(argvFiles);
