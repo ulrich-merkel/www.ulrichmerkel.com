@@ -13,15 +13,17 @@
  *
  * @requires lwip
  * @requires minimist
+ * @requires chalk
+ * @requires assert-plus
  * @requires application/config/pictures
  *
  * @TODO: Add winston logging for performance
- * @TODO: Adjust and implement config rotate if needed
  * @TODO: Add verbose option to reduce logging
  *
  * @changelog
- * - 0.0.2 switched to node6
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Add assert-plus as function parameter checker
+ * - 0.0.2 Switched to node6
+ * - 0.0.1 Basic functions and structure
  */
 const lwip = require('lwip');
 const minimist = require('minimist');
@@ -186,15 +188,17 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
  * @private
  * @param {string} src The image source file
  * @param {string} dest The resized image destination
- * @param {string} width The resized image width
- * @param {string} height The resized image width
+ * @param {number} width The resized image width
+ * @param {number} height The resized image width
+ * @param {number} [degrees=0] The resized image rotation
  * @returns {void}
  */
-function resize(src, dest, width, height) {
+function resize(src, dest, width, height, degrees = 0) {
     assert.string(src, 'src');
     assert.string(dest, 'dest');
     assert.number(width, 'width');
     assert.number(height, 'height');
+    assert.optionalNumber(height, 'height');
 
     lwip.open(src, function handleOpenImage(openError, image) {
         if (openError) {
@@ -204,6 +208,7 @@ function resize(src, dest, width, height) {
         return void image
             .batch()
             .cover(width, height)
+            .rotate(degrees, 'white')
             .writeFile(dest, function handleWriteFile(writeError) {
                 if (writeError) {
                     return void console.error(chalk.red(writeError));
@@ -255,10 +260,11 @@ function run(config) {
 
             const width = size.width;
             const height = size.height;
+            const degrees = size.degrees;
             const source = `${srcFolder}${path}${name}.${ext}`;
             const destination = `${destFolder}${path}${name}${separator}${width}x${height}.${ext}`;
 
-            resize(source, destination, width, height);
+            resize(source, destination, width, height, degrees);
 
         });
 

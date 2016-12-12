@@ -81,11 +81,13 @@ function run(folders, dest, plugins = []) {
 
     const foldersLength = folders.length;
     if (!foldersLength) {
-        return void console.log(chalk.gray('Nothing to minify - no image folders found.'));
+        console.log(chalk.gray('Nothing to minify - no image folders found.'));
+        return;
     }
 
     if (!dest) {
-        return void console.log(chalk.gray('No image destination configured.'));
+        console.log(chalk.gray('No image destination configured.'));
+        return;
     }
 
     console.log(chalk.gray(`Start minifying ${foldersLength} image folders`));
