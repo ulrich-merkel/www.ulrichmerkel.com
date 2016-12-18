@@ -82,7 +82,7 @@ function checkBuildDirectory(directory, callback) {
  * @returns {void}
  */
 function runThroughFolders(folders, callback) {
-    assert.array(folders, 'folders');
+    assert.optionalArray(folders, 'folders');
     assert.func(callback, 'callback');
 
     if (folders && folders.length) {
@@ -124,7 +124,7 @@ function emptyFolders(folders, callback) {
  * @returns {void}
  */
 function createFolders(folders) {
-    assert.array(folders, 'folders');
+    assert.optionalArray(folders, 'folders');
 
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
         fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) {
