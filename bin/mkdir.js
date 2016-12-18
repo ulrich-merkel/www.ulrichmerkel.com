@@ -7,7 +7,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @see {@link https://gist.github.com/bpedro/742162}
  * @see {@link http://stackoverflow.com/questions/12627586/is-node-js-rmdir-recursive-will-it-work-on-non-empty-directories}
@@ -17,16 +17,21 @@
  * @requires fs
  * @requires rimraf
  * @requires minimist
+ * @requires chalk
+ * @requires assert-plus
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Add assert-plus as function parameter checker
+ * - 0.0.1 Basic functions and structure
  */
 const fs = require('fs');
 const rimraf = require('rimraf');
 const minimist = require('minimist');
+const chalk = require('chalk');
+const assert = require('assert-plus');
 
 const argv = minimist(process.argv.slice(2));
-const dest = argv.d || './build/';
+const argvDestFolder = argv.d || './build/';
 
 const config = [
     {
@@ -46,13 +51,19 @@ const config = [
 ];
 
 /**
- * Function will check if a directory exists, and create it if it doesn't.
+ * Function will check if a target directory exists, and create
+ * it if it doesn't.
  *
+ * @function
+ * @private
  * @param {string} directory
  * @param {Function} callback
  * @returns {void}
  */
-function checkDirectory(directory, callback) {
+function checkBuildDirectory(directory, callback) {
+    assert.string(directory, 'directory');
+    assert.func(callback, 'callback');
+
     fs.stat(directory, function statFn(error) {
         if (error && error.code === 'ENOENT') {
             return void fs.mkdir(directory, callback);
@@ -62,13 +73,18 @@ function checkDirectory(directory, callback) {
 }
 
 /**
- * Walk through folder config.
+ * Convinient function to walk through folder config.
  *
- * @param {Object} folders
+ * @function
+ * @private
+ * @param {Array} folders
  * @param {Function} callback
  * @returns {void}
  */
 function runThroughFolders(folders, callback) {
+    assert.array(folders, 'folders');
+    assert.func(callback, 'callback');
+
     if (folders && folders.length) {
         folders.forEach(function forEachFn(folder) {
             callback(folder);
@@ -79,15 +95,20 @@ function runThroughFolders(folders, callback) {
 /**
  * Delete files from folders.
  *
- * @param {Object} folders
+ * @function
+ * @private
+ * @param {Array} folders
  * @param {Function} callback
  * @returns {void}
  */
 function emptyFolders(folders, callback) {
+    assert.array(folders, 'folders');
+    assert.func(callback, 'callback');
+
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
-        rimraf(`${dest}${folder.name}`, function rimrafFn(error) {
+        rimraf(`${argvDestFolder}${folder.name}`, function rimrafFn(error) {
             if (error) {
-                return void console.warn(error);
+                return void console.warn(chalk.red(error));
             }
             return void callback();
         });
@@ -97,29 +118,29 @@ function emptyFolders(folders, callback) {
 /**
  * Create folders based on config.
  *
- * @param {Object} folders
+ * @function
+ * @private
+ * @param {Array} folders
  * @returns {void}
  */
 function createFolders(folders) {
+    assert.array(folders, 'folders');
+
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
-        fs.mkdir(`${dest}${folder.name}`, function mkdirFn(error) {
+        fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) {
             if (error) {
                 if (error.code === 'EEXIST') {
-                    console.log(`${error.path} already exists`);
-                    return;
+                    return void console.log(chalk.grey(`${error.path} already exists`));
                 }
-                console.warn(error);
-                return;
+                return void console.warn(chalk.red(error));
             }
-            if (folder.folders && folder.folders.length) {
-                createFolders(folder.folders);
-            }
+            return void createFolders(folder.folders);
         });
     });
 }
 
 // Start routine
-checkDirectory(dest, function checkDirectoryFn() {
+checkBuildDirectory(argvDestFolder, function checkDirectoryFn() {
     emptyFolders(config, function emptyFoldersFn() {
         createFolders(config);
     });
