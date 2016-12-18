@@ -130,6 +130,7 @@ Using next generation JavaScript today
 * [5 steps to making a Node.js frontend app 10x faster](https://engineering.gosquared.com/making-dashboard-faster)
 * [NPM vs Yarn Cheat Sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.ay5ro7jpv)
 * [Unit testing CLI programs](https://glebbahmutov.com/blog/unit-testing-cli-programs/)
+* [Awesome Node.js](https://github.com/sindresorhus/awesome-nodejs)
 
 ### Babel
 
