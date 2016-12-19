@@ -72,6 +72,7 @@ function runPageSpeedInsights(url) {
             console.error(chalk.red(error));
         }
         runningServer.close();
+        console.log(chalk.grey('Finished PageSpeed Insights'));
         return process.exit(0);
     });
 }
