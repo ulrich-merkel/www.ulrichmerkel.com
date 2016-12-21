@@ -25,6 +25,7 @@
 * - 0.0.1 basic functions and structure
 */
 import { debug } from './../config/application';
+import { getDateNow } from './date';
 
 const noop = Function.prototype;
 
@@ -37,7 +38,7 @@ const noop = Function.prototype;
  */
 function getLogOptions() {
     return {
-        timestamp: Date.now(),
+        timestamp: getDateNow(),
         pid: process.pid
     };
 }

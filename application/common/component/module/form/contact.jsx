@@ -19,7 +19,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { get } from 'lodash';
+import { get, isFunction, has } from 'lodash';
 
 import configApplication, { url } from './../../../config/application';
 import { isBrowser } from './../../../utils/environment';
@@ -133,7 +133,7 @@ class ModuleFormContact extends Component {
      * because a default constructor will call super(...props) for us.
      *
      * @constructs
-     * @param {React.Props} [props] The initial class properties
+     * @param {Object} [props] The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -161,17 +161,17 @@ class ModuleFormContact extends Component {
         };
 
         /**
-        * A bind call or arrow function in a JSX prop will create a brand new
-        * function on every single render. This is bad for performance, as it
-        * will result in the garbage collector being invoked way more than is necessary.
-        *
-        * Unfortunately React ES6 classes do not autobind their methods like components created
-        * with the older React.createClass syntax. There are several approaches to binding methods
-        * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
-        *
-        * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-        */
-        // this.onChange = throttle(this.onChange.bind(this), 100);
+         * A bind call or arrow function in a JSX prop will create a brand new
+         * function on every single render. This is bad for performance, as it
+         * will result in the garbage collector being invoked way more than is necessary.
+         *
+         * Unfortunately React ES6 classes do not autobind their methods like components created
+         * with the older React.createClass syntax. There are several approaches to binding methods
+         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
+         *
+         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
+         */
+        // @TODO: Use throttle for onChange, this.onChange = throttle(this.onChange.bind(this), 100);
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -187,6 +187,10 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     onChange(e) {
+
+        if (!has(e, 'target')) {
+            return;
+        }
 
         const target = e.target;
         const stateValue = target.value;
@@ -224,7 +228,9 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     onSubmit(e) {
-        e.preventDefault();
+        if (e && isFunction(e.preventDefault)) {
+            e.preventDefault();
+        }
         this.send();
     }
 
@@ -255,7 +261,7 @@ class ModuleFormContact extends Component {
      * @param {string} text
      * @param {string} btnTitle
      * @param {string} btnLabel
-     * @returns {React.Element}
+     * @returns {ReactElement}
      */
     getTextMessage(headline, text, btnTitle, btnLabel) {
         return (
@@ -368,7 +374,7 @@ class ModuleFormContact extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 
@@ -492,21 +498,28 @@ class ModuleFormContact extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {Object.<string>} propTypes
- * @property {string} propTypes.legend
- * @property {string} propTypes.inputName
- * @property {string} propTypes.inputEmail
- * @property {string} propTypes.inputWebsite
- * @property {string} propTypes.inputSubject
- * @property {string} propTypes.inputMessage
- * @property {string} propTypes.btnResetTitle
- * @property {string} propTypes.btnResetLabel
- * @property {string} propTypes.btnSubmitTitle
- * @property {string} propTypes.btnSubmitLabel
- * @property {string} propTypes.btnRenewTitle
- * @property {string} propTypes.btnRenewLabel
- * @property {string} propTypes.thankYou
+ * @type {Object}
+ * @property {string} content.legend - Translated string for element legend
+ * @property {string} content.inputName - Translated string for name input
+ * @property {string} content.inputEmail - Translated string for email input
+ * @property {string} content.inputWebsite - Translated string for website input
+ * @property {string} content.inputSubject - Translated string for subject input
+ * @property {string} content.inputMessage - Translated string for message textarea
+ * @property {string} content.btnResetTitle - Translated string for reset button title
+ * @property {string} content.btnResetLabel - Translated string for reset button label
+ * @property {string} content.btnSubmitTitle - Translated string for submit button title
+ * @property {string} content.btnSubmitLabel - Translated string for submit button label
+ * @property {string} content.btnRenewTitle - Translated string for renew button title
+ * @property {string} content.btnRenewLabel - Translated string for renew button label
+ * @property {string} content.thankYou - Translated string for thank you message
+ * @property {string} content.errorHeadline - Translated string for error headline
+ * @property {string} content.errorText - Translated string for error message
+ * @property {string} content.btnTryAgainTitle - Translated string for retry button title
+ * @property {string} content.btnTryAgainLabel - Translated string for retry button label
+ * @property {Object} storeState - The redux contact state
+ * @property {Function} handleContactChange - Action handler for redux contact state
+ * @property {string} routerState - The current router params
+ * @property {string} csrfToken - The csrf token for validation
  */
 ModuleFormContact.propTypes = {
     /* eslint-disable react/no-unused-prop-types */
@@ -523,7 +536,11 @@ ModuleFormContact.propTypes = {
         btnSubmitLabel: PropTypes.string,
         btnRenewTitle: PropTypes.string,
         btnRenewLabel: PropTypes.string,
-        thankYou: PropTypes.string
+        thankYou: PropTypes.string,
+        errorHeadline: PropTypes.string,
+        errorText: PropTypes.string,
+        btnTryAgainTitle: PropTypes.string,
+        btnTryAgainLabel: PropTypes.string
     }),
     /* eslint-enable react/no-unused-prop-types */
     storeState: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -536,8 +553,8 @@ ModuleFormContact.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {React.Component.DefaultProps}
- * @property {Object} defaultProps
+ * @type {Object}
+ * @see ModuleFormContact.propTypes
  */
 ModuleFormContact.defaultProps = {
     content: {}
@@ -554,12 +571,12 @@ ModuleFormContact.defaultProps = {
  * @param {Object.<*>} [ownProps] The current component props
  * @returns {Object}
  */
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
     return {
         storeState: get(state, 'contact'),
         csrfToken: get(state, 'csrf.token')
     };
-};
+}
 
 /**
  * If an object is passed, each function inside it will be assumed to
@@ -573,13 +590,13 @@ const mapStateToProps = (state) => {
  * @param {Object.<*>} [ownProps] The current component props
  * @returns {Object}
  */
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
     return {
         handleContactChange: (contact) => {
             dispatch(changeContact(contact));
         }
     };
-};
+}
 
 /**
 * Connects a React component to a Redux store. It does not modify the

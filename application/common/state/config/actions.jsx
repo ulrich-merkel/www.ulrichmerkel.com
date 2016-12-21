@@ -26,6 +26,7 @@ import { get } from 'lodash';
 
 import { url } from './../../config/application';
 import xhr from './../../utils/xhr';
+import { getDateNow } from './../../utils/date';
 import logger from './../../utils/logger';
 import {
     FETCH_CONFIG_CONTENT_REQUEST,
@@ -97,7 +98,7 @@ function requestConfigTranslation(locale) {
 function receiveConfigContent(data) {
     return {
         type: FETCH_CONFIG_CONTENT_SUCCESS,
-        receivedAt: Date.now(),
+        receivedAt: getDateNow(),
         data
     };
 }
@@ -113,7 +114,7 @@ function receiveConfigContent(data) {
 function receiveConfigTranslation(data, locale) {
     return {
         type: FETCH_CONFIG_TRANSLATION_SUCCESS,
-        receivedAt: Date.now(),
+        receivedAt: getDateNow(),
         data,
         locale
     };
@@ -156,7 +157,7 @@ function failedConfigTranslation(locale) {
 function addConfigContent(data) {
     return {
         type: CONFIG_CONTENT_ADD,
-        receivedAt: Date.now(),
+        receivedAt: getDateNow(),
         data
     };
 }
@@ -171,7 +172,7 @@ function addConfigContent(data) {
 function addConfigTranslation(data, locale) {
     return {
         type: CONFIG_TRANSLATION_ADD,
-        receivedAt: Date.now(),
+        receivedAt: getDateNow(),
         data,
         locale
     };

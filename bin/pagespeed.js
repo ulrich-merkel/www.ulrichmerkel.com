@@ -8,7 +8,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @see {@link https://github.com/mxstbr/react-boilerplate/}
  * @see {@link http://stackoverflow.com/questions/23569171/nodes-process-stdin-readable-stream-logs-null-when-read-inside-a-readable-event}
@@ -19,8 +19,9 @@
  * @requires build/application/server/server
  *
  * @changelog
- * - 0.0.2 improve local server handling
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Removed psi.output for psi due to non resolving promise
+ * - 0.0.2 Improve local server handling
+ * - 0.0.1 Basic functions and structure
  */
 const ngrok = require('ngrok');
 const psi = require('psi');
@@ -45,12 +46,15 @@ process.stdin.setEncoding('utf8');
  */
 function runPageSpeedInsights(url) {
     console.log('Starting PageSpeed Insights');
-    psi.output(url).then(function handleOutput(error) {
-        if (error) {
-            console.error(error);
-        }
+
+    // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
+    return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
+        console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
+        console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);
+        console.log('Stats: ');
+        console.log(data.pageStats);
         runningServer.close();
-        process.exit(0);
+        return process.exit(0);
     });
 }
 
@@ -66,18 +70,18 @@ function runPageSpeedInsights(url) {
 function startTunnel(callback) {
     if (!server) {
         console.error('Please build this project first');
-        process.exit(0);
+        process.exit(1);
     }
     runningServer = server.default({}, function serverStarted(serverError) {
         if (serverError) {
             console.error(serverError);
-            process.exit(0);
+            process.exit(1);
             return;
         }
         ngrok.connect(port, function ngrokConnected(error, url) {
             if (error) {
                 console.error(error);
-                return void process.exit(0);
+                return void process.exit(1);
             }
 
             console.log(`Serving tunnel from: ${url}`);
