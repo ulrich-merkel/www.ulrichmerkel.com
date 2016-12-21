@@ -87,6 +87,7 @@ const configContent = {
             { name: 'HandheldFriendly', content: 'true' },
             { name: 'application-name', content: 'intl-default-title' },
             { name: 'format-detection', content: 'telephone=no' },
+            { name: 'theme-color', content: '#14b9d6' },
             // ms pinned sites
             { name: 'msapplication-config', content: `${HOMEPAGE_URL}/browserconfig.xml` },
             { name: 'msapplication-TileColor', content: '#14b9d6' },
