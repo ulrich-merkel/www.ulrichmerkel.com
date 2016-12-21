@@ -19,6 +19,7 @@ import { EOL } from 'os';
 
 import configApplication from './../../common/config/application';
 import configPictures from './../../common/config/pictures';
+import { getDateNow } from './../../common/utils/date';
 
 const configApplicationCache = configApplication.applicationCache;
 
@@ -31,7 +32,7 @@ function getTimeStamp() {
     if (configApplicationCache.timeStamp) {
         return configApplicationCache.timeStamp;
     }
-    return Date.now();
+    return getDateNow();
 }
 
 

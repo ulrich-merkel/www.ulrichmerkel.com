@@ -37,9 +37,9 @@ function easeInOutQuad(t) {
 }
 
 /**
- * get current time helper
+ * Get current time helper.
  *
- * following the lazy loading design pattern, the current function will be
+ * Following the lazy loading design pattern, the current function will be
  * overridden with the correct implementation the first time it will be
  * called. After that all consequent calls deliver the correct one without
  * conditions for different browser capabilities.
@@ -69,7 +69,7 @@ let getTime = function getTimeLazyLoaded() {
 /**
  * Helper function to get scrolling offset.
  *
- * document.body.scrollTop was working in Chrome but didn't work on Firefox, so had to resort to window.pageYOffset.
+ * 'document.body.scrollTop' was working in Chrome but didn't work on Firefox, so had to resort to window.pageYOffset.
  * But can't fallback to document.body.scrollTop as that doesn't work in IE with a doctype (?) so have to use
  * document.documentElement.scrollTop
  *
