@@ -1,0 +1,28 @@
+exports[`component/module/key-visual/picture Snapshot should render correctly 1`] = `
+<picture
+  className="c-picture m-key-visual__image m-key-visual__image--type"
+  itemScope={true}
+  itemType="http://schema.org/ImageObject"
+  style={Object {}}>
+  <source
+    className="c-picture__source"
+    media="(min-width: 2560px)"
+    srcSet="/img/content/home/keyvisual@2560x1600.jpg" />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1680px)"
+    srcSet="/img/content/home/keyvisual@1680x1050.jpg" />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1440px)"
+    srcSet="/img/content/home/keyvisual@1440x960.jpg" />
+  <img
+    alt="foo"
+    className="c-picture__img"
+    itemProp="contentUrl"
+    src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    srcSet="/img/content/home/keyvisual.jpg" />
+</picture>
+`;
+
+exports[`component/module/key-visual/picture Snapshot should render null if no content is provided 1`] = `null`;

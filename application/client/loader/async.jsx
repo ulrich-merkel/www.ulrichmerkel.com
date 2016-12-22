@@ -47,7 +47,8 @@ function css(src, callback = Function.prototype) {
         type: 'text/css',
         className: classNameLoaded,
         href: src,
-        media: 'only x'
+        media: 'only x',
+        disabled: 'disabled'
     });
     if (!styleDomNode) {
         return null;
@@ -59,6 +60,7 @@ function css(src, callback = Function.prototype) {
     // Set media back to `all` so that the stylesheet applies once it loads
     setTimeout(function handleSetTimeout() {
         styleDomNode.media = 'all';
+        styleDomNode.removeAttribute('disabled');
         callback.call(true);
     });
 

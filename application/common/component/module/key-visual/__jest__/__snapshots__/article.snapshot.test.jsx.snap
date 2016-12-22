@@ -1,0 +1,23 @@
+exports[`component/module/key-visual/article Snapshot should render correctly 1`] = `
+<article
+  className="m-key-visual__text">
+  <h3
+    className="is-centered c-type--h3 m-key-visual__headline"
+    itemProp="headline">
+    <span
+      className="m-key-visual__boxed">
+      headline
+    </span>
+  </h3>
+  <p
+    className="c-type--p m-key-visual__lead"
+    itemProp="description">
+    <span
+      className="m-key-visual__boxed">
+      lead
+    </span>
+  </p>
+</article>
+`;
+
+exports[`component/module/key-visual/article Snapshot should render null if no content is provided 1`] = `null`;
