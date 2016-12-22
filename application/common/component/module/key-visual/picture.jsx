@@ -9,16 +9,17 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
- * @requires React
+ * @requires react
+ * @requires react-dom
  * @requires classnames
- * @requires component/element/image
- * @requires component/element/h3
- * @requires component/element/paragraph
+ * @requires lodash
+ * @requires common/component/element/picture
+ * @requires common/utils/environment
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  */
 import React, { Component, PropTypes } from 'react';
@@ -27,20 +28,13 @@ import classnames from 'classnames';
 import { throttle } from 'lodash';
 
 import Picture from './../../element/picture';
+import { isBrowser } from './../../../utils/environment';
 
 /**
- * Function representing a component to return a single react child element.
+ * Class representing a component.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @private
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @class
+ * @extends React.Component
  */
 class ModuleKeyVisualPicture extends Component {
 
@@ -52,29 +46,29 @@ class ModuleKeyVisualPicture extends Component {
      * We do this just because of completeness.
      *
      * @constructs
-     * @param {React.Props} [props] The initial class properties
+     * @param {Object} [props] The initial class properties
      * @returns {void}
      */
     constructor(props) {
         super(props);
 
         /**
-        * Bind manually because React class components don't auto-bind.
-        *
-        * A bind call or arrow function in a JSX prop will create a brand new
-        * function on every single render. This is bad for performance, as it
-        * will result in the garbage collector being invoked way more than is necessary.
-        *
-        * Unfortunately React ES6 classes do not autobind their methods like components created
-        * with the older React.createClass syntax. There are several approaches to binding methods
-        * for ES6 classes. A basic approach is to just manually bind the methods in the constructor.
-        *
-        * We also throttle the scroll function here to avoid unnecessary function calls while scrolling.
-        *
-        * @see {@link http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding}
-        * @see {@link http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479}
-        * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-        */
+         * Bind manually because React class components don't auto-bind.
+         *
+         * A bind call or arrow function in a JSX prop will create a brand new
+         * function on every single render. This is bad for performance, as it
+         * will result in the garbage collector being invoked way more than is necessary.
+         *
+         * Unfortunately React ES6 classes do not autobind their methods like components created
+         * with the older React.createClass syntax. There are several approaches to binding methods
+         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor.
+         *
+         * We also throttle the scroll function here to avoid unnecessary function calls while scrolling.
+         *
+         * @see {@link http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding}
+         * @see {@link http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479}
+         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
+         */
         this.onResize = throttle(this.onResize.bind(this), 100);
 
         this.state = {
@@ -91,8 +85,10 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        window.addEventListener('resize', this.onResize);
-        window.dispatchEvent(new CustomEvent('resize'));
+        if (isBrowser()) {
+            window.addEventListener('resize', this.onResize);
+            window.dispatchEvent(new CustomEvent('resize'));
+        }
     }
 
     /**
@@ -102,7 +98,9 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {void}
      */
     componentWillUnmount() {
-        window.removeEventListener('resize', this.onResize);
+        if (isBrowser()) {
+            window.removeEventListener('resize', this.onResize);
+        }
     }
 
     /**
@@ -114,7 +112,7 @@ class ModuleKeyVisualPicture extends Component {
     onResize() {
         const { isCovered } = this.props;
 
-        if (isCovered) {
+        if (isCovered && this.picture) {
 
             const pictureDomNode = findDOMNode(this.picture);
             const imgDomNode = pictureDomNode.querySelector('img');
@@ -135,7 +133,7 @@ class ModuleKeyVisualPicture extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
@@ -176,10 +174,9 @@ class ModuleKeyVisualPicture extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} [imageAlt] The image alt description
- * @property {string} [imageSrc] The image src url
- * @property {string} [type] The picture type
+ * @type {Object}
+ * @property {string} [img={}] The image alt description
+ * @property {string} [type='digital'] The image src url
  * @property {boolean} [isCovered] Whether the image should be background size covered or not
  */
 ModuleKeyVisualPicture.propTypes = {
@@ -189,12 +186,12 @@ ModuleKeyVisualPicture.propTypes = {
 };
 
 /**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {React.Component.DefaultProps}
- * @property {string} type='digital' The picture type
- */
+* Set defaults if props aren't available.
+*
+* @static
+* @type {Object}
+* @see ModuleKeyVisualPicture.propTypes
+*/
 ModuleKeyVisualPicture.defaultProps = {
     img: {},
     type: 'digital'

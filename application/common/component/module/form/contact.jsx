@@ -9,6 +9,8 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  *
+ * @TODO: Add classname and htmlElement to props
+ *
  * @requires *
  *
  * @changelog
