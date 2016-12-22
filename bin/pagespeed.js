@@ -8,7 +8,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @see {@link https://github.com/mxstbr/react-boilerplate/}
  * @see {@link http://stackoverflow.com/questions/23569171/nodes-process-stdin-readable-stream-logs-null-when-read-inside-a-readable-event}
@@ -21,7 +21,8 @@
  * @requires build/application/server/server
  *
  * @changelog
- * - 0.0.3 Add assert-plus as function parameter checker
+ * - 0.0.4 Add assert-plus as function parameter checker
+ * - 0.0.3 Removed psi.output for psi due to non resolving promise
  * - 0.0.2 Improve local server handling
  * - 0.0.1 Basic functions and structure
  */
@@ -65,12 +66,14 @@ function getServer(serverPath) {
  */
 function runPageSpeedInsights(url) {
     assert.string(url, 'url');
-
     console.log(chalk.grey('Starting PageSpeed Insights'));
-    return psi.output(url).then(function handleOutput(error) {
-        if (error) {
-            console.error(chalk.red(error));
-        }
+
+    // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
+    return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
+        console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
+        console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);
+        console.log('Stats: ');
+        console.log(data.pageStats);
         runningServer.close();
         console.log(chalk.grey('Finished PageSpeed Insights'));
         return process.exit(0);
@@ -97,20 +100,21 @@ function startTunnel(serverPath, serverPort, callback) {
 
     if (!server) {
         console.error(chalk.red('Please build this project first'));
-        process.exit(0);
+        process.exit(1);
+        return;
     }
 
     console.log(chalk.grey('Starting ngrok tunnel'));
     runningServer = server.default({}, function serverStarted(serverError) {
         if (serverError) {
             console.error(chalk.red(serverError));
-            process.exit(0);
+            process.exit(1);
             return;
         }
         ngrok.connect(argvPort, function ngrokConnected(error, url) {
             if (error) {
                 console.error(chalk.red(error));
-                return void process.exit(0);
+                return void process.exit(1);
             }
 
             console.log(chalk.grey(`Serving tunnel from: ${url}`));

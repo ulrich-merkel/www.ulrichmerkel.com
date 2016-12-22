@@ -9,12 +9,17 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
- * @requires *
+ * @requires react
+ * @requires classnames
+ * @requires common/utils/scroll-to
+ * @requires common/component/key-visual/picture
+ * @requires common/component/key-visual/article
+ * @requires common/component/key-visual/button
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  */
 import React, { Component, PropTypes } from 'react';
@@ -40,25 +45,24 @@ class ModuleKeyVisual extends Component {
      * because a default constructor will call super(...props) for us.
      * We do this just because of completeness.
      *
-     * @constructor
-     * @function
-     * @param {React.Props} [props] The initial class properties
+     * @constructs
+     * @param {Object} [props] The initial class properties
      * @returns {void}
      */
     constructor(...props) {
         super(...props);
 
         /**
-        * A bind call or arrow function in a JSX prop will create a brand new
-        * function on every single render. This is bad for performance, as it
-        * will result in the garbage collector being invoked way more than is necessary.
-        *
-        * Unfortunately React ES6 classes do not autobind their methods like components created
-        * with the older React.createClass syntax. There are several approaches to binding methods
-        * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
-        *
-        * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-        */
+         * A bind call or arrow function in a JSX prop will create a brand new
+         * function on every single render. This is bad for performance, as it
+         * will result in the garbage collector being invoked way more than is necessary.
+         *
+         * Unfortunately React ES6 classes do not autobind their methods like components created
+         * with the older React.createClass syntax. There are several approaches to binding methods
+         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
+         *
+         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
+         */
         this.onClickBtn = this.onClickBtn.bind(this);
 
     }
@@ -144,16 +148,16 @@ class ModuleKeyVisual extends Component {
 
 
 /**
-* Validate props via React.PropTypes helpers.
-*
-* @static
-* @type {Object}
-* @property {string} [componentType='div'] The component element type used for React.createElement
-* @property {string} [className] The component css class names - will be merged into component default classNames
-* @property {boolean} [isWork=false] Whether the component has work modifiers or not
-* @property {boolean} [isCovered=false] Whether the component should be background size covered or not
-* @property {Object} [content={}] The component translation config
-*/
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {Object}
+ * @property {string} [componentType='div'] The component element type used for React.createElement
+ * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {boolean} [isWork=false] Whether the component has work modifiers or not
+ * @property {boolean} [isCovered=false] Whether the component should be background size covered or not
+ * @property {Object} [content={}] The component translation config
+ */
 ModuleKeyVisual.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string,
@@ -171,12 +175,12 @@ ModuleKeyVisual.propTypes = {
 
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {Object}
-* @see ModuleKeyVisual.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleKeyVisual.propTypes
+ */
 ModuleKeyVisual.defaultProps = {
     componentType: 'div',
     isWork: false,
