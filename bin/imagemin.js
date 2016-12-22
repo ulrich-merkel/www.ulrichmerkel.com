@@ -54,7 +54,7 @@ const argvPlugins = argv.p || [
  *
  * @function
  * @private
- * @param {Array} files The minified images
+ * @param {Array} files - The minified images
  * @returns {void}
  */
 function imagesMinified(files) {
@@ -69,9 +69,9 @@ function imagesMinified(files) {
  *
  * @function
  * @private
- * @param {Array<string>} folders The folders for locating images
- * @param {string} dest The destination path
- * @param {Array} [plugins=[]] The optional imagemin plugins
+ * @param {Array<string>} folders - The folders for locating images
+ * @param {string} dest - The destination path
+ * @param {Array} [plugins=[]] - The optional imagemin plugins
  * @returns {void}
  */
 function run(folders, dest, plugins = []) {

@@ -48,7 +48,7 @@ process.stdin.setEncoding('utf8');
  *
  * @function
  * @private
- * @param {string} serverPath
+ * @param {string} serverPath - The ready-to-use server file path
  * @returns {void}
  */
 function getServer(serverPath) {
@@ -61,7 +61,7 @@ function getServer(serverPath) {
  *
  * @function
  * @private
- * @param {string} url The tunneled url to be tested
+ * @param {string} url - The tunneled url to be tested
  * @returns {void}
  */
 function runPageSpeedInsights(url) {
@@ -86,9 +86,9 @@ function runPageSpeedInsights(url) {
  *
  * @function
  * @private
- * @param {string} serverPath The file path for the ready-to-use server
- * @param {string} serverPort The server port to be started
- * @param {Function} callback The handler after ngrok connects
+ * @param {string} serverPath - The file path for the ready-to-use server
+ * @param {string} serverPort - The server port to be started
+ * @param {Function} callback - The handler after ngrok connects
  * @returns {void}
  */
 function startTunnel(serverPath, serverPort, callback) {

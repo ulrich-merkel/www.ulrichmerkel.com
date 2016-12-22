@@ -34,8 +34,8 @@ const silent = !!argv.silent || false;
  *
  * @function
  * @private
- * @param {boolean} isNpm If the npm cli option is passed or not
- * @param {boolean} isNode If the node cli option is passed or not
+ * @param {boolean} isNpm - If the npm cli option is passed or not
+ * @param {boolean} isNode - If the node cli option is passed or not
  * @returns {string} The version number based on process env
  */
 function getPackageVersion(isNpm, isNode) {
@@ -57,8 +57,8 @@ function getPackageVersion(isNpm, isNode) {
  *
  * @function
  * @private
- * @param {string} version The passed cli version option
- * @returns {string} The parsed installed version number
+ * @param {string} version - The passed cli version option
+ * @returns {string} - The parsed installed version number
  */
 function getInstalledVersion(version) {
     assert.optionalString(version, 'version');

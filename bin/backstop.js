@@ -43,7 +43,7 @@ const runMethod = argv.run || 'test';
  *
  * @function
  * @private
- * @returns {Object} The ready-to-use server
+ * @returns {Object} - The ready-to-use server
  */
 function getTranspiledServer() {
     if (!fs.existsSync(path.resolve(__dirname, serverFile))) {

@@ -41,10 +41,10 @@ const argvImageFolder = argv.i || '/public/img/';
  *
  * @function
  * @private
- * @param {Object} sizesConfig The image size config for different image types and responsive resolutions
- * @param {string} srcFolder The main source folder
- * @param {string} destFolder The main build bolder
- * @param {string} imageFolder The image folder path (relative to main source/build folder)
+ * @param {Object} sizesConfig - The image size config for different image types and responsive resolutions
+ * @param {string} srcFolder - The main source folder
+ * @param {string} destFolder - The main build bolder
+ * @param {string} imageFolder - The image folder path (relative to main source/build folder)
  * @returns {Object} The parsed config object
  */
 function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
@@ -223,7 +223,7 @@ function resize(src, dest, width, height, degrees = 0) {
  *
  * @function
  * @private
- * @param {Object} config The resize config
+ * @param {Object} config - The resize config
  * @returns {void}
  */
 function run(config) {

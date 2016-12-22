@@ -43,7 +43,7 @@ const argvFiles = argv.f || [
  *
  * @function
  * @private
- * @param {Object} file The copied file config
+ * @param {Object} file - The copied file config
  * @returns {void}
  */
 function fileCopied(file) {
@@ -56,7 +56,7 @@ function fileCopied(file) {
  *
  * @function
  * @private
- * @param {Array<Object>} files The files config to be copied
+ * @param {Array<Object>} files - The files config to be copied
  * @returns {void}
  */
 function run(files) {
