@@ -82,7 +82,7 @@ const configApplication = Object.assign({}, {
     },
     applicationCache: {
         use: toBoolean(process.env.APPCACHE) || true,
-        timeStamp: '2016-12-06'
+        timeStamp: '2016-12-24'
     },
     transition: {
         transitionName: 'animate',
