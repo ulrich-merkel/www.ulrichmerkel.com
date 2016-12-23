@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this */
+/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this, no-process-exit */
 /**
  * Handle css regression tests via backstopJS.
  *
@@ -192,6 +192,20 @@ class Backstop {
     }
 
     /**
+     * Helper function to check for current method.
+     *
+     * @function
+     * @private
+     * @param {string} method
+     * @returns {boolean}
+     */
+    isMethod(method) {
+        assert.string(method, 'method');
+
+        return this.method === method;
+    }
+
+    /**
      * Run backstopJS reference task.
      *
      * @function
@@ -199,7 +213,7 @@ class Backstop {
      * @returns {Promise|this}
      */
     reference() {
-        if (this.method === METHODS.reference) {
+        if (this.isMethod(METHODS.reference)) {
             return this.backstop(this.method);
         }
         return this;
@@ -213,7 +227,7 @@ class Backstop {
      * @returns {Promise|this}
      */
     test() {
-        if (this.method === METHODS.test) {
+        if (this.isMethod(METHODS.test)) {
             return this.backstop(this.method);
         }
         return this;
@@ -227,7 +241,7 @@ class Backstop {
      * @returns {Promise|this}
      */
     open() {
-        if (this.method === METHODS.open) {
+        if (this.isMethod(METHODS.open)) {
             return this.backstop(this.method);
         }
         return this;
