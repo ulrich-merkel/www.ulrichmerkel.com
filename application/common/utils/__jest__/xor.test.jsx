@@ -16,20 +16,20 @@ describe('xor', function () {
     });
 
     describe('client', function handleDescribeClient() {
-        it('should encrypt data', function handleIt() {
+        it('should encrypt data', function () {
             expect(dataEncrypted).not.toEqual(data);
         });
 
-        it('should decrypt data correctly', function handleIt() {
+        it('should decrypt data correctly', function () {
             expect(xor.decrypt(dataEncrypted, key)).toEqual(data);
         });
 
-        it('should encrypt nothing if data is empty', function handleIt() {
+        it('should encrypt nothing if data is empty', function () {
             expect(xor.encrypt('', key)).toEqual('');
             expect(xor.decrypt('', key)).toEqual('');
         });
 
-        it('should encrypt nothing if key is empty', function handleIt() {
+        it('should encrypt nothing if key is empty', function () {
             expect(xor.encrypt(data, '')).toEqual(data);
             expect(xor.decrypt(data, '')).toEqual(data);
         });
