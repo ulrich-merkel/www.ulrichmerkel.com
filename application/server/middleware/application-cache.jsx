@@ -1,21 +1,24 @@
 /**
- * Es6 module for server middleware.
+ * Es6 module for application cache server middleware.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @requires os
+ * @requires assert-plus
  * @requires common/config/application
  * @requires common/config/pictures
  *
  * @changelog
+ * - 0.0.3 Add assert-plus as function parameter checker
  * - 0.0.2 moved code to es6
  * - 0.0.1 basic functions and structure
  */
 import { EOL } from 'os';
+import assert from 'assert-plus';
 
 import configApplication from './../../common/config/application';
 import configPictures from './../../common/config/pictures';
@@ -26,7 +29,7 @@ const configApplicationCache = configApplication.applicationCache;
 /**
  * Get cache timestamp to ease updates.
  *
- * @returns {string}
+ * @returns {string} The timestamp to be used
  */
 function getTimeStamp() {
     if (configApplicationCache.timeStamp) {
@@ -41,18 +44,22 @@ function getTimeStamp() {
  *
  * @function
  * @private
- * @param {string} path
- * @param {Array.<string>} sizes
- * @param {string} fallbackSize
- * @param {string} extension
- * @returns {string}
+ * @param {string} path - The image path
+ * @param {Array.<string>} sizes - The responsive image sizes
+ * @param {string} fallbackSize - The fallback size if no picture is supported
+ * @param {string} extension - The image file extension
+ * @returns {string} The manifest entry
  */
 function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
+    assert.string(path, 'path');
+    assert.array(sizes, 'sizes');
+    assert.string(fallbackSize, 'fallbackSize');
+    assert.string(extension, 'extension');
 
     const response = [];
 
     if (!sizes.length) {
-        return response;
+        return EOL;
     }
 
     sizes.forEach(function handleSize(size) {
@@ -68,7 +75,7 @@ function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
  *
  * @function
  * @private
- * @returns {string}
+ * @returns {string} The manifest content
  */
 function getApplicationCacheResponse() {
     const { sizes: {
@@ -132,11 +139,13 @@ function getApplicationCacheResponse() {
  * Middleware to serve offline application cache manifest file.
  *
  * @function
- * @param {Object} req The current request object
- * @param {Object} res The result object
+ * @param {Object} req - The current request object
+ * @param {Object} res - The result object
  * @returns {Future}
  */
 function middlewareApplicationCache(req, res) {
+    assert.object(req, 'req');
+    assert.object(res, 'res');
 
     // delete previously store caches by sending 404
     if (!configApplicationCache.use) {
