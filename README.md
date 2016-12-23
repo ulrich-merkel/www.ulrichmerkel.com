@@ -26,7 +26,6 @@ Using next generation JavaScript today
 * [Express](http://expressjs.com/de/) - Fast, unopinionated, minimalist web framework for Node.js
 * [CSSNext](http://cssnext.io/) - Use tomorrow’s CSS syntax today
 * [SASS](http://sass-lang.com/) - Stable and powerful professional CSS extension language
-* [Travis CI](https://travis-ci.org/) - Test and Deploy with Confidence
 * [Yarn](https://yarnpkg.com/) - Fast, reliable and secure dependency management
 
 ### Testing and linting
@@ -40,6 +39,7 @@ Using next generation JavaScript today
 * [RetireJS](https://github.com/RetireJS/retire.js) - Detecting the use of JavaScript libraries with known vulnerabilities
 * [BackstopJS](https://garris.github.io/BackstopJS/) - An easy way for CSS regression tests
 * [PageSpeed Insights](https://github.com/addyosmani/psi) - Google pagespeed insights with reporting
+* [Travis CI](https://travis-ci.org/) - Test and Deploy with Confidence
 
 ### Documentation
 
