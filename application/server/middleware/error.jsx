@@ -1,21 +1,25 @@
 /* eslint-disable no-unused-vars */
 /**
- * Es6 module for server middleware.
+ * Es6 module for error server middleware.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
+ * @requires assert-plus
  * @requires common/utils/logger
  *
  * @see {@link http://expressjs.com/de/guide/error-handling.html}
  *
  * @changelog
- * - 0.0.2 moved code to es6
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Add assert-plus as function parameter checker
+ * - 0.0.2 Moved code to es6
+ * - 0.0.1 Basic functions and structure
  */
+import assert from 'assert-plus';
+
 import logger from './../../common/utils/logger';
 
 /**
@@ -24,13 +28,17 @@ import logger from './../../common/utils/logger';
  * as error handler by express.
  *
  * @function
- * @param {Object} err The current error object
- * @param {Object} req The current request object
- * @param {Object} res The result object
- * @param {Function} next The next iteration middleware function
+ * @param {Object} err - The current error object
+ * @param {Object} req - The current request object
+ * @param {Object} res - The result object
+ * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */
 function middlewareError(err, req, res, next) {
+    assert.object(err, 'err');
+    assert.object(req, 'req');
+    assert.object(res, 'res');
+    assert.func(next, 'next');
 
     // eslint-disable-next-line prefer-const
     let error = err;

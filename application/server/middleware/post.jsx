@@ -1,25 +1,28 @@
 /**
- * Es6 module for server middleware.
+ * Es6 module for post requests server middleware.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @version 0.0.5
  *
  * @requires nodemailer
+ * @requires assert-plus
  * @requires common/config/application
  * @requires common/utils/logger
  * @requires common/utils/xor
  * @requires common/state/contact/utils
  *
  * @changelog
- * - 0.0.4 added xor handling
- * - 0.0.3 adjusted routing for non-js requests
- * - 0.0.2 moved code to es6
- * - 0.0.1 basic functions and structure
+ * - 0.0.5 Add assert-plus as function parameter checker
+ * - 0.0.4 Added xor handling
+ * - 0.0.3 Adjusted routing for non-js requests
+ * - 0.0.2 Moved code to es6
+ * - 0.0.1 Basic functions and structure
  */
 import nodemailer from 'nodemailer';
+import assert from 'assert-plus';
 
 import configApplication, { url } from './../../common/config/application';
 import logger from './../../common/utils/logger';
@@ -35,12 +38,16 @@ const xorKey = configApplication.xor.key;
  *
  * @function
  * @private
- * @param {Object} req The current request object
- * @param {Object} res The express/http result to be send
- * @param {string} [message=''] Additional message to be send
+ * @param {Object} req - The current request object
+ * @param {Object} res - The express/http result to be send
+ * @param {string} [message=''] - Additional message to be send
  * @returns {Function} The new routing result
  */
 function sendSuccess(req, res, message = '') {
+    assert.object(req, 'req');
+    assert.object(res, 'res');
+    assert.optionalString(message, 'message');
+
     if (req.xhr) {
         return res.status(200).send({
             status: 200,
@@ -56,12 +63,16 @@ function sendSuccess(req, res, message = '') {
  *
  * @function
  * @private
- * @param {Object} req The current request object
- * @param {Object} res The express/http result to be send
- * @param {string} [message=''] Additional message to be send
+ * @param {Object} req - The current request object
+ * @param {Object} res - The express/http result to be send
+ * @param {string} [message=''] - Additional message to be send
  * @returns {Function} The new routing result
  */
 function sendError(req, res, message = '') {
+    assert.object(req, 'req');
+    assert.object(res, 'res');
+    assert.optionalString(message, 'message');
+
     if (req.xhr) {
         return res.status(400).send({
             status: 400,
@@ -75,11 +86,13 @@ function sendError(req, res, message = '') {
  * Handle contact post requests.
  *
  * @function
- * @param {Object} req The current request object
- * @param {Object} res The express/http result to be send
+ * @param {Object} req - The current request object
+ * @param {Object} res - The express/http result to be send
  * @returns {Future}
  */
 function middlewarePost(req, res) {
+    assert.object(req, 'req');
+    assert.object(res, 'res');
 
     const transporter = nodemailer.createTransport();
     let postData = req.body;

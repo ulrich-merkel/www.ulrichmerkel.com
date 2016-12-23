@@ -5,12 +5,13 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @version 0.0.5
  *
  * @requires react
  * @requires react-dom
  * @requires react-router
  * @requires lodash
+ * @requires assert-plus
  * @requires common/config/application
  * @requires common/config/routes
  * @requires common/utils/logger
@@ -29,6 +30,7 @@
  * @see {@link https://github.com/reactjs/redux/issues/723}
  *
  * @changelog
+ * - 0.0.5 Add assert-plus as function parameter checker
  * - 0.0.4 Improve error handling and above the fold files
  * - 0.0.3 Adjusted async rendering
  * - 0.0.2 Moved code to es6
@@ -38,6 +40,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { RouterContext, match } from 'react-router';
 import { get } from 'lodash';
+import assert from 'assert-plus';
 
 import configApplication from './../../common/config/application';
 import configRoutes from './../../common/config/routes';
@@ -58,11 +61,14 @@ const { aboveTheFold } = configApplication;
  *
  * @function
  * @private
- * @param {Object} Component The current router react component
- * @param {Object} props The current react component props
- * @returns {React.Element} React component markup
+ * @param {Function} Component - The current router react component
+ * @param {Object} props - The current react component props
+ * @returns {ReactElement} React component markup
  */
 function createElement(Component, props) {
+    assert.func(Component, 'Component');
+    assert.object(props, 'props');
+
     return <Component {...props} />;
 }
 
@@ -75,13 +81,18 @@ function createElement(Component, props) {
  *
  * @function
  * @private
- * @param {Object} store The created redux store
- * @param {Object} renderProps The component properties to be rendered
- * @param {string} [cssBase=''] The file contents from base.css
- * @param {string} [scriptBootstrap=''] The file contents from loader.js
+ * @param {Object} store - The created redux store
+ * @param {Object} renderProps - The component properties to be rendered
+ * @param {string} [cssBase=''] - The file contents from base.css
+ * @param {string} [scriptBootstrap=''] - The file contents from loader.js
  * @returns {string} The rendered html string
  */
-function getHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
+function renderHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
+    assert.object(store, 'store');
+    assert.object(renderProps, 'renderProps');
+    assert.optionalString(cssBase, 'cssBase');
+    assert.optionalString(scriptBootstrap, 'scriptBootstrap');
+
     return renderToStaticMarkup(
         <Root store={store}>
             <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
@@ -98,11 +109,15 @@ function getHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
  * Handle react server rendering and react routering.
  *
  * @function
- * @param {Object} req The current request object
- * @param {Object} res The result object
+ * @param {Object} req - The current request object
+ * @param {Object} res - The result object
+ * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */
 function middlewareReact(req, res, next) {
+    assert.object(req, 'req');
+    assert.object(res, 'res');
+    assert.func(next, 'next');
 
     /**
      * Using the new match function instead of Router.run
@@ -162,12 +177,12 @@ function middlewareReact(req, res, next) {
             ]).then((result) => {
                 return res
                     .status(statusCode)
-                    .send(`<!doctype html>${getHtml(store, renderProps, result[0], result[1])}`);
+                    .send(`<!doctype html>${renderHtml(store, renderProps, result[0], result[1])}`);
             }).catch((reason) => {
                 logger.warn(reason);
                 return res
                     .status(statusCode)
-                    .send(`<!doctype html>${getHtml(store, renderProps)}`);
+                    .send(`<!doctype html>${renderHtml(store, renderProps)}`);
             });
 
         }
