@@ -13,148 +13,173 @@
  *
  * @requires lwip
  * @requires minimist
- * @requires application/config/picture
+ * @requires chalk
+ * @requires assert-plus
+ * @requires application/config/pictures
  *
  * @TODO: Add winston logging for performance
- * @TODO: Adjust and implement config rotate if needed
+ * @TODO: Add verbose option to reduce logging
  *
  * @changelog
- * - 0.0.2 switched to node6
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Add assert-plus as function parameter checker
+ * - 0.0.2 Switched to node6
+ * - 0.0.1 Basic functions and structure
  */
 const lwip = require('lwip');
-const minimist = require('minimist'); // eslint-disable-line import/no-extraneous-dependencies
+const minimist = require('minimist');
+const chalk = require('chalk');
+const assert = require('assert-plus');
+const pictures = require('./../application/common/config/pictures');
 
 const argv = minimist(process.argv.slice(2));
-const folder = argv.d || './build/';
-const picture = require('./../application/common/config/pictures');
+const argvSrcFolder = argv.s || './';
+const argvDestFolder = argv.d || './build/';
+const argvImageFolder = argv.i || '/public/img/';
 
-const pictureSizesKeyvisual = picture.sizes.keyvisual;
-const pictureSizesKeyvisualWork = picture.sizes.keyvisualWork;
-const pictureSizesKeyvisualWorkPrint = picture.sizes.keyvisualWorkPrint;
-const pictureSizesFeatured = picture.sizes.featured;
-const pictureSizesAppleTouchIcon = picture.sizes.appleTouchIcon;
-const pictureSizesAppleTouchStartupImage = picture.sizes.appleTouchStartupImage;
-const pictureSizesIcon = picture.sizes.icon;
-const config = {
-    srcFolder: 'public/img/',
-    destFolder: `${folder}/public/img/`,
-    images: [
-        {
-            name: 'keyvisual',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesKeyvisual
-        },
-        {
-            name: 'featured--gedanken-kollektiv',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--optik-ludewig',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--lebenswelt-schule',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--momentariness',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--revolution',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--summer-inspiration',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'featured--verlegeservice-bunge',
-            ext: 'jpg',
-            path: 'content/home/',
-            sizes: pictureSizesFeatured
-        },
-        {
-            name: 'optik-ludewig--keyvisual',
-            ext: 'png',
-            path: 'content/work/optik-ludewig/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'summer-inspiration--keyvisual',
-            ext: 'png',
-            path: 'content/work/summer-inspiration/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'momentariness--keyvisual',
-            ext: 'png',
-            path: 'content/work/momentariness/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'lebenswelt-schule--keyvisual',
-            ext: 'png',
-            path: 'content/work/lebenswelt-schule/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'revolution--keyvisual',
-            ext: 'png',
-            path: 'content/work/revolution/',
-            sizes: pictureSizesKeyvisualWorkPrint
-        },
-        {
-            name: 'verlegeservice-bunge--keyvisual',
-            ext: 'png',
-            path: 'content/work/verlegeservice-bunge/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'gedanken-kollektiv--keyvisual',
-            ext: 'png',
-            path: 'content/work/gedanken-kollektiv/',
-            sizes: pictureSizesKeyvisualWork
-        },
-        {
-            name: 'apple-touch-icon',
-            ext: 'png',
-            path: 'share/',
-            sizes: pictureSizesAppleTouchIcon,
-            separator: '-'
-        },
-        {
-            // @TODO: adjust and implement config rotate if needed!
-            name: 'apple-touch-startup-image',
-            ext: 'png',
-            path: 'share/',
-            sizes: pictureSizesAppleTouchStartupImage
-        },
-        {
-            name: 'icon',
-            ext: 'png',
-            path: 'share/',
-            sizes: pictureSizesIcon
-        }
-    ]
-};
-const configSrcFolder = config.srcFolder;
-const configDestFolder = config.destFolder;
-const configImages = config.images;
+/**
+ * Get configuration for image resizing.
+ *
+ * @function
+ * @private
+ * @param {Object} sizesConfig - The image size config for different image types and responsive resolutions
+ * @param {string} srcFolder - The main source folder
+ * @param {string} destFolder - The main build bolder
+ * @param {string} imageFolder - The image folder path (relative to main source/build folder)
+ * @returns {Object} The parsed config object
+ */
+function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
+    assert.object(sizesConfig, 'sizesConfig');
+    assert.string(srcFolder, 'srcFolder');
+    assert.string(destFolder, 'destFolder');
+    assert.string(imageFolder, 'imageFolder');
+
+    const pictureSizesKeyvisual = sizesConfig.sizes.keyvisual;
+    const pictureSizesKeyvisualWork = sizesConfig.sizes.keyvisualWork;
+    const pictureSizesKeyvisualWorkPrint = sizesConfig.sizes.keyvisualWorkPrint;
+    const pictureSizesFeatured = sizesConfig.sizes.featured;
+    const pictureSizesAppleTouchIcon = sizesConfig.sizes.appleTouchIcon;
+    const pictureSizesAppleTouchStartupImage = sizesConfig.sizes.appleTouchStartupImage;
+    const pictureSizesIcon = sizesConfig.sizes.icon;
+
+    const config = {
+        srcFolder: `${srcFolder}${imageFolder}`,
+        destFolder: `${destFolder}${imageFolder}`,
+        images: [
+            {
+                name: 'keyvisual',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesKeyvisual
+            },
+            {
+                name: 'featured--gedanken-kollektiv',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--optik-ludewig',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--lebenswelt-schule',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--momentariness',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--revolution',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--summer-inspiration',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'featured--verlegeservice-bunge',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
+                name: 'optik-ludewig--keyvisual',
+                ext: 'png',
+                path: 'content/work/optik-ludewig/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'summer-inspiration--keyvisual',
+                ext: 'png',
+                path: 'content/work/summer-inspiration/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'momentariness--keyvisual',
+                ext: 'png',
+                path: 'content/work/momentariness/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'lebenswelt-schule--keyvisual',
+                ext: 'png',
+                path: 'content/work/lebenswelt-schule/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'revolution--keyvisual',
+                ext: 'png',
+                path: 'content/work/revolution/',
+                sizes: pictureSizesKeyvisualWorkPrint
+            },
+            {
+                name: 'verlegeservice-bunge--keyvisual',
+                ext: 'png',
+                path: 'content/work/verlegeservice-bunge/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'gedanken-kollektiv--keyvisual',
+                ext: 'png',
+                path: 'content/work/gedanken-kollektiv/',
+                sizes: pictureSizesKeyvisualWork
+            },
+            {
+                name: 'apple-touch-icon',
+                ext: 'png',
+                path: 'share/',
+                sizes: pictureSizesAppleTouchIcon,
+                separator: '-'
+            },
+            {
+                // @TODO: adjust and implement config rotate if needed!
+                name: 'apple-touch-startup-image',
+                ext: 'png',
+                path: 'share/',
+                sizes: pictureSizesAppleTouchStartupImage
+            },
+            {
+                name: 'icon',
+                ext: 'png',
+                path: 'share/',
+                sizes: pictureSizesIcon
+            }
+        ]
+    };
+
+    return config;
+}
 
 /**
  * Resize given image via node js helper module.
@@ -163,31 +188,63 @@ const configImages = config.images;
  * @private
  * @param {string} src The image source file
  * @param {string} dest The resized image destination
- * @param {string|number} width The resized image width
- * @param {string|number} height The resized image width
+ * @param {number} width The resized image width
+ * @param {number} height The resized image width
+ * @param {number} [degrees=0] The resized image rotation
  * @returns {void}
  */
-function resize(src, dest, width, height) {
+function resize(src, dest, width, height, degrees = 0) {
+    assert.string(src, 'src');
+    assert.string(dest, 'dest');
+    assert.number(width, 'width');
+    assert.number(height, 'height');
+    assert.optionalNumber(height, 'height');
+
     lwip.open(src, function handleOpenImage(openError, image) {
         if (openError) {
-            return void console.error(openError);
+            return void console.error(chalk.red(openError));
         }
 
         return void image
             .batch()
             .cover(width, height)
+            .rotate(degrees, 'white')
             .writeFile(dest, function handleWriteFile(writeError) {
                 if (writeError) {
-                    return void console.error(writeError);
+                    return void console.error(chalk.red(writeError));
                 }
-                return void console.log(`File written: ${dest}`);
+                return void console.log(chalk.green(`File written: ${dest}`));
             });
     });
 }
 
-// Run resize helper for all given image files
-if (configImages && configImages.length) {
-    configImages.forEach(function handleForEachImages(image) {
+/**
+ * Run resize helper for all given image files.
+ *
+ * @function
+ * @private
+ * @param {Object} config - The resize config
+ * @returns {void}
+ */
+function run(config) {
+    const images = config.images;
+    const srcFolder = config.srcFolder;
+    const destFolder = config.destFolder;
+
+    if (!images || !images.length) {
+        return void console.log(chalk.grey('No images provided for resizing'));
+    }
+
+    if (!srcFolder) {
+        return void console.log(chalk.grey('No source folder provided for resizing'));
+    }
+
+    if (!destFolder) {
+        return void console.log(chalk.grey('No destination folder provided for resizing'));
+    }
+
+    console.log(chalk.grey(`Start resizing for ${images.length} images`));
+    return void images.forEach(function handleForEachImages(image) {
 
         const name = image.name;
         const path = image.path;
@@ -203,12 +260,16 @@ if (configImages && configImages.length) {
 
             const width = size.width;
             const height = size.height;
-            const source = `${configSrcFolder}${path}${name}.${ext}`;
-            const destination = `${configDestFolder}${path}${name}${separator}${width}x${height}.${ext}`;
+            const degrees = size.degrees;
+            const source = `${srcFolder}${path}${name}.${ext}`;
+            const destination = `${destFolder}${path}${name}${separator}${width}x${height}.${ext}`;
 
-            resize(source, destination, width, height);
+            resize(source, destination, width, height, degrees);
 
         });
 
     });
+
 }
+
+run(getConfig(pictures, argvSrcFolder, argvDestFolder, argvImageFolder));

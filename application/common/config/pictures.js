@@ -215,7 +215,8 @@ const configPictures = {
             },
             {
                 width: 2048,
-                height: 1496
+                height: 1496,
+                degrees: 90
             },
             {
                 width: 768,
@@ -223,7 +224,8 @@ const configPictures = {
             },
             {
                 width: 1024,
-                height: 748
+                height: 748,
+                degrees: 90
             },
             {
                 width: 320,

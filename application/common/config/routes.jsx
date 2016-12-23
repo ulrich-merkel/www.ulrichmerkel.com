@@ -1,5 +1,5 @@
 /**
- * Handle react router config.
+ * Setup react router config.
  *
  * @file
  * @module
@@ -71,6 +71,12 @@ const childRoutes = [
     }
 ];
 
+/**
+ * We use this type of notation to allow locale based routing (e.g. contact/ and
+ * de/contact/) ro improve SEO, so a new locale could be easily added here.
+ *
+ * @type {Object}
+ */
 const configRoutes = {
     path: `${url.index}`,
     component: LayoutBody,

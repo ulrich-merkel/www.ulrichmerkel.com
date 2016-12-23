@@ -5,7 +5,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.6
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
@@ -32,6 +32,7 @@
  * @requires cookie-parser
  * @requires morgan
  * @requires ip
+ * @requires assert-plus
  *
  * @requires common/config/application
  * @requires common/utils/logger
@@ -43,11 +44,12 @@
  * @requires server/middleware/application-cache
  *
  * @changelog
- * - 0.0.5 refactoring, removed minimist due to dotenv
- * - 0.0.4 remove http.createServer in favour for server.listen, added logger and minimist
- * - 0.0.3 added some security aspects
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.6 Add assert-plus as function parameter checker
+ * - 0.0.5 Refactoring, removed minimist due to dotenv
+ * - 0.0.4 Remove http.createServer in favour for server.listen, added logger and minimist
+ * - 0.0.3 Added some security aspects
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import 'babel-polyfill';
 
@@ -62,6 +64,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import ip from 'ip';
+import assert from 'assert-plus';
 
 import { url, port, sessionSecret, debug } from './../common/config/application';
 import logger from './../common/utils/logger';
@@ -77,10 +80,12 @@ import middlewareApplicationCache from './middleware/application-cache';
  *
  * @function
  * @private
- * @param {string|number} portNumber
+ * @param {string|number} portNumber - The server listen port
  * @returns {void}
  */
 function logServerStarted(portNumber) {
+    assert.string(portNumber, 'portNumber');
+
     logger.log('✅  Server is running and listening');
     logger.log(`
         Localhost: http://localhost:${portNumber}
@@ -94,11 +99,13 @@ function logServerStarted(portNumber) {
  *
  * @function
  * @private
- * @param {Object} [config={}] Optional server and express options
- * @param {Function} [callback=noop] Called when server started listening
+ * @param {Object} [config={}] - Optional server and express options
+ * @param {Function} [callback=noop] - Called when server started listening
  * @returns {Object} The newly created and running server object
  */
 function create(config = {}, callback = Function.prototype) {
+    assert.optionalObject(config, 'config');
+    assert.optionalFunc(callback, 'callback');
 
     // Merge defaults with config
     const options = Object.assign(
@@ -118,6 +125,9 @@ function create(config = {}, callback = Function.prototype) {
 
     // Declare express is sitting behind a proxy
     app.enable('trust proxy');
+
+    // Don't expose any software information to hackers.
+    app.disable('x-powered-by');
 
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
@@ -199,11 +209,14 @@ function create(config = {}, callback = Function.prototype) {
  * Handle express server initialisation.
  *
  * @function
- * @param {Object} [config={}] Optional server and express options
- * @param {Function} [callback=noop] Called when server started listening
+ * @param {Object} [config={}] - Optional server and express options
+ * @param {Function} [callback=noop] - Called when server started listening
  * @returns {Object} The newly created and running server object
  */
 function server(config, callback) {
+    assert.optionalObject(config, 'config');
+    assert.optionalFunc(callback, 'callback');
+
     return create(config, callback);
 }
 

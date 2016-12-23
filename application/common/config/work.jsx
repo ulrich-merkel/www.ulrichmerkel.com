@@ -1,5 +1,5 @@
 /**
-* Handle global application config.
+* Setup work pages routing.
 *
 * @file
 * @module
