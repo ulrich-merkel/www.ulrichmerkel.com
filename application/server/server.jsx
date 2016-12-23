@@ -26,7 +26,7 @@
  * @requires express-request-language
  * @requires hpp
  * @requires helmet
- * @requires compression
+ * @requires shrink-ray
  * @requires path
  * @requires body-parser
  * @requires cookie-parser
@@ -56,7 +56,7 @@ import express from 'express';
 import requestLanguage from 'express-request-language';
 import hpp from 'hpp';
 import helmet from 'helmet';
-import compression from 'compression';
+import shrinkRay from 'shrink-ray';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -157,8 +157,9 @@ function create(config = {}, callback = Function.prototype) {
     // Prevent HTTP query parameter pollution
     app.use(hpp());
 
-    // Enable compression
-    app.use(compression());
+    // Enable compression, using advanced response compression using a async zopfli/brotli combination
+    // @see {@link https://github.com/aickin/shrink-ray}
+    app.use(shrinkRay());
 
     // Serve static files
     app.use(express.static(path.resolve(__dirname, options.staticPath), {
