@@ -117,7 +117,7 @@ function renderHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
 function middlewareReact(req, res, next) {
     assert.object(req, 'req');
     assert.object(res, 'res');
-    assert.func(next, 'next');
+    assert.optionalFunc(next, 'next');
 
     /**
      * Using the new match function instead of Router.run
