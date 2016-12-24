@@ -18,24 +18,24 @@
 import { createSelector } from 'reselect';
 
 /**
- * Select dialog state from redux store.
+ * Select intl locale state from redux store.
  *
  * @function
  * @param {Object} state - The current redux state
- * @returns {boolean} The dialog visiblity state
+ * @returns {string} The intl locale state
  */
-const selectStateDialogVisible = createSelector(
+const selectStateIntlLocale = createSelector(
     [
-        (state) => state.dialog
+        (state) => state.intl
     ],
-    (dialog) => {
-        if (!dialog || !dialog.visible) {
-            return false;
+    (intl) => {
+        if (!intl || !intl.locale) {
+            return '';
         }
-        return dialog.visible;
+        return intl.locale;
     }
 );
 
 export {
-    selectStateDialogVisible
+    selectStateIntlLocale
 };

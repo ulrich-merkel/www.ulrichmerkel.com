@@ -15,6 +15,7 @@
  * @requires react-redux
  * @requires lodash
  * @requires common/utils/content
+ * @requires common/state/selectors
  *
  * @changelog
  * - 0.0.4 refactored for better readability
@@ -27,6 +28,7 @@ import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import { getTranslatedContent } from './../../utils/content';
+import { selectStateIntlLocale } from './../../state/selectors';
 
 /**
  * Higher order function to get translation data.
@@ -92,7 +94,7 @@ function addContent(configKey) {
          */
         function mapStateToProps(state, ownProps) {
             return {
-                locale: get(state, 'intl.locale') || get(ownProps, 'locale'),
+                locale: selectStateIntlLocale(state) || get(ownProps, 'locale'),
                 config: get(state, 'config') || get(ownProps, 'config')
             };
         }

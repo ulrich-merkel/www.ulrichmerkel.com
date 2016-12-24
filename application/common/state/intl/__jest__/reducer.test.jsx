@@ -2,7 +2,7 @@
 import { INTL_CHANGE_LOCALE, AVAILABLE_LOCALES } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
-describe('reducer', function () {
+describe('common/state/intl/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });

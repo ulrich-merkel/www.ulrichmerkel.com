@@ -14,10 +14,18 @@
  * @requires common/state/intl/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { INTL_CHANGE_LOCALE } from './constants';
 
+/**
+ * Handle locale string state change.
+ *
+ * @function
+ * @param {string} locale - The new locale
+ * @param {string} fallback - The fallback locale if new locale is not available
+ * @returns {Object} The redux action playload
+ */
 function changeLocale(locale, fallback) {
     return {
         type: INTL_CHANGE_LOCALE,
