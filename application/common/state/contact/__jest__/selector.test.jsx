@@ -24,7 +24,7 @@ describe('common/state/contact/selector', function () {
             expect(selectStateContact(state)).toEqual(state.contact);
         });
 
-        it('should return an empty object if state isn\t found', function () {
+        it('should return an empty object if state isn\'t found', function () {
             const state = Object.assign({}, {
                 foo: {
                     bar: 'lorem'

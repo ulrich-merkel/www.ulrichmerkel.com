@@ -29,7 +29,7 @@ import xor from './../../../utils/xor';
 import logger from './../../../utils/logger';
 import scrollTo from './../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from './../../../utils/xhr';
-import { selectStateContact } from './../../../state/selectors';
+import { selectStateContact, selectStateCsrfToken } from './../../../state/selectors';
 import { changeContact } from './../../../state/contact/actions';
 import { validate, isValid } from './../../../state/contact/utils';
 import Row from './../../grid/row';
@@ -577,7 +577,7 @@ ModuleFormContact.defaultProps = {
 function mapStateToProps(state) {
     return {
         storeState: selectStateContact(state),
-        csrfToken: get(state, 'csrf.token')
+        csrfToken: selectStateCsrfToken(state)
     };
 }
 
