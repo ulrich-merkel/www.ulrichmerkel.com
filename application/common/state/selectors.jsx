@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 /**
  * Es6 module for Redux Architecture.
  *
@@ -11,4 +10,4 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-export const CONTACT_CHANGE = 'CONTACT_CHANGE';
+export * from './contact/selector';

@@ -1,5 +1,6 @@
 /**
  * Es6 module for Redux Architecture.
+ * This file just serves some constants for the config state.
  *
  * @file
  * @module
