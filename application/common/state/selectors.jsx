@@ -12,3 +12,4 @@
  */
 export * from './contact/selector';
 export * from './csrf/selector';
+export * from './dialog/selector';

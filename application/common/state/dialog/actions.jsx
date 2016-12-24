@@ -14,10 +14,17 @@
  * @requires common/state/dialog/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { DIALOG_CHANGE_VISIBLE } from './constants';
 
+/**
+ * Handle dialog visibility state change.
+ *
+ * @function
+ * @param {boolean} visible - The new visible state
+ * @returns {Object} The redux action playload
+ */
 function changeDialogVisible(visible) {
     return {
         type: DIALOG_CHANGE_VISIBLE,

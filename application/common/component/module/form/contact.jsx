@@ -21,7 +21,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { get, isFunction, has } from 'lodash';
+import { isFunction, has } from 'lodash';
 
 import configApplication, { url } from './../../../config/application';
 import { isBrowser } from './../../../utils/environment';

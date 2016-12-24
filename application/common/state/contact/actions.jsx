@@ -25,9 +25,13 @@ import { CONTACT_CHANGE } from './constants';
  * @param {Object} contact - The new contact state
  * @returns {Object} The redux action playload
  */
-export function changeContact(contact) {
+function changeContact(contact) {
     return {
         type: CONTACT_CHANGE,
         contact
     };
 }
+
+export {
+    changeContact
+};
