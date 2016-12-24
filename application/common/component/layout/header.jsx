@@ -17,6 +17,7 @@
  * @requires lodash
  * @requires component/decorator/add-content
  * @requires utils/content
+ * @requires state/selectors
  * @requires state/intl/actions
  * @requires state/intl/constants
  * @requires component/grid/container
@@ -37,6 +38,11 @@ import { get } from 'lodash';
 
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
+import {
+    selectStateIntlLocale,
+    selectStateScrollHeaderFixed,
+    selectStateScrollHeaderVisible
+} from './../../state/selectors';
 import { changeLocale } from './../../state/intl/actions';
 import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from './../../state/intl/constants';
 import GridContainer from './../grid/container';
@@ -187,10 +193,10 @@ LayoutHeader.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        intlLocale: get(state, 'intl.locale') || ownProps.intlLocale,
+        intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
         intlAvailableLocales: get(state, 'intl.availableLocales') || ownProps.intlAvailableLocales,
-        headerFixed: get(state, 'scroll.headerFixed') || ownProps.headerFixed,
-        headerVisible: get(state, 'scroll.headerVisible') || ownProps.headerVisible
+        headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
+        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible
     };
 }
 
