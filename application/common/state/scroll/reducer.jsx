@@ -44,11 +44,10 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case SCROLL_HEADER_FIXED: {
-        const headerFixed = !!action.headerFixed;
+        const headerFixed = action.headerFixed !== undefined
+            ? !!action.headerFixed
+            : defaultState.headerFixed;
 
-        if (headerFixed === undefined) {
-            return state;
-        }
         return {
             ...state,
             headerFixed
@@ -56,11 +55,10 @@ function reducer(state = defaultState, action) {
 
     }
     case SCROLL_HEADER_VISIBLE: {
-        const headerVisible = !!action.headerVisible;
+        const headerVisible = action.headerVisible !== undefined
+            ? !!action.headerVisible
+            : defaultState.headerVisible;
 
-        if (headerVisible === undefined) {
-            return state;
-        }
         return {
             ...state,
             headerVisible

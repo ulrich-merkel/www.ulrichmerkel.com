@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 import { selectStatePage } from './../selector';
 
-describe('common/state/intl/selector', function () {
+describe('common/state/page/selector', function () {
     describe('selectStatePage', function () {
         it('should return the correct state', function () {
             const state = Object.assign({}, {
