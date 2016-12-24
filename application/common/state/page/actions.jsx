@@ -14,10 +14,16 @@
  * @requires common/state/page/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { PAGE_INCREASE_VIEWS } from './constants';
 
+/**
+ * Handle page view increment state change.
+ *
+ * @function
+ * @returns {Object} The redux action playload
+ */
 function addPageView() {
     return {
         type: PAGE_INCREASE_VIEWS,

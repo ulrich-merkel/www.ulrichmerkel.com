@@ -14,7 +14,6 @@
  * @requires react
  * @requires react-addons-css-transition-group
  * @requires react-redux
- * @requires lodash
  * @requires utils/transition
  * @requires component/grid/section
  * @requires component/grid/spaced
@@ -29,8 +28,8 @@
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
-import { get } from 'lodash';
 
+import { selectStatePage } from './../../../state/selectors';
 import getSectionTransition from './../../../utils/transition';
 import GridSection from './../../grid/section';
 import GridSpaced from './../../grid/spaced';
@@ -92,7 +91,7 @@ SectionCommonGridSpaced.propTypes = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        page: get(state, 'page') || ownProps.page
+        page: selectStatePage(state) || ownProps.page
     };
 }
 

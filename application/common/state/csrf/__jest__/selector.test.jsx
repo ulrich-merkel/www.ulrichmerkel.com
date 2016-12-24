@@ -3,7 +3,6 @@ import { selectStateCsrfToken } from './../selector';
 
 describe('common/state/contact/selector', function () {
     describe('selectStateCsrfToken', function () {
-
         it('should return the correct state', function () {
             const state = Object.assign({}, {
                 csrf: {
@@ -12,7 +11,6 @@ describe('common/state/contact/selector', function () {
             });
             expect(selectStateCsrfToken(state)).toEqual(state.csrf.token);
         });
-
         it('should return an empty string if state isn\'t found', function () {
             const state = Object.assign({}, {
                 foo: {

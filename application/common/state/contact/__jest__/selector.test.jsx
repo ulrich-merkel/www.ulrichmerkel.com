@@ -3,7 +3,6 @@ import { selectStateContact } from './../selector';
 
 describe('common/state/contact/selector', function () {
     describe('selectStateContact', function () {
-
         it('should return the correct state', function () {
             const state = Object.assign({}, {
                 contact: {
@@ -23,7 +22,6 @@ describe('common/state/contact/selector', function () {
             });
             expect(selectStateContact(state)).toEqual(state.contact);
         });
-
         it('should return an empty object if state isn\'t found', function () {
             const state = Object.assign({}, {
                 foo: {

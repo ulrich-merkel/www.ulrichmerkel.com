@@ -11,4 +11,8 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
+
+/**
+ * @type {string}
+ */
 export const PAGE_INCREASE_VIEWS = 'PAGE_INCREASE_VIEWS';
