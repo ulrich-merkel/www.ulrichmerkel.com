@@ -17,7 +17,7 @@
  * @requires common/state/page/actions
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -28,7 +28,7 @@ import { addPageView } from './../../state/page/actions';
  * The tracking higher order function handling page visits.
  *
  * @function
- * @param {Object} SourceComponent The react component to be decorated
+ * @param {Object} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
 function addPageTracking(SourceComponent) {
@@ -69,7 +69,7 @@ function addPageTracking(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleAddPageView The link target/react-router path
+     * @property {Function} handleAddPageView - Trigger page view increment
      */
     AddPageTracking.propTypes = {
         handleAddPageView: PropTypes.func

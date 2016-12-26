@@ -10,6 +10,7 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
+export * from './config/selector';
 export * from './contact/selector';
 export * from './csrf/selector';
 export * from './dialog/selector';

@@ -16,7 +16,7 @@
  * @requires picturefill
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component } from 'react';
 

@@ -40,6 +40,7 @@ import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import {
     selectStateIntlLocale,
+    selectStateIntlAvailableLocales,
     selectStateScrollHeaderFixed,
     selectStateScrollHeaderVisible
 } from './../../state/selectors';
@@ -194,7 +195,7 @@ LayoutHeader.defaultProps = {
 function mapStateToProps(state, ownProps) {
     return {
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
-        intlAvailableLocales: get(state, 'intl.availableLocales') || ownProps.intlAvailableLocales,
+        intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
         headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
         headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible
     };

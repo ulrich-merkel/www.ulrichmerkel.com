@@ -18,8 +18,9 @@
  * @requires react-helmet
  * @requires lodash
  * @requires serialize-javascript
- * @requires config/application
- * @requires utils/csp
+ * @requires common/state/selectors
+ * @requires common/config/application
+ * @requires common/utils/csp
  *
  * @changelog
  * - 0.0.3 moved to stateless function
@@ -32,6 +33,7 @@ import Helmet from 'react-helmet';
 import { get, omit } from 'lodash';
 import serialize from 'serialize-javascript';
 
+import { selectStateIntlLocale } from './../../state/selectors';
 import configApplication, { url, csp } from './../../config/application';
 import { getNonceConfig, getCspRules } from './../../utils/csp';
 
@@ -151,7 +153,7 @@ LayoutHtml.propTypes = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        locale: get(state, 'intl.locale') || get(ownProps, 'locale')
+        locale: selectStateIntlLocale(state) || get(ownProps, 'locale')
     };
 }
 
