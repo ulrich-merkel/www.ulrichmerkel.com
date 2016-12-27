@@ -196,6 +196,7 @@
     "imagemin-pngquant": "5.0.0",
     "jest-cli": "17.0.3",
     "jsdoc": "3.4.3",
+    "jsdom": "9.9.1",
     "lwip": "0.0.9",
     "ngrok": "2.2.4",
     "nock": "9.0.2",
