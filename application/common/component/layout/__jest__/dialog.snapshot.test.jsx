@@ -13,7 +13,7 @@ describe('component/layout/dialog', function () {
         it('should render correctly', function () {
             const tree = renderer.create(
                 <Provider store={mockedStore}>
-                    <ComponentToBeTested content={content}>
+                    <ComponentToBeTested content={content} dialogVisible>
                         Hello
                     </ComponentToBeTested>
                 </Provider>

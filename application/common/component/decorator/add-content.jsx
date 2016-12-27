@@ -15,24 +15,26 @@
  * @requires react-redux
  * @requires lodash
  * @requires common/utils/content
+ * @requires common/state/selectors
  *
  * @changelog
- * - 0.0.4 refactored for better readability
- * - 0.0.3 moved to stateless function
- * - 0.0.2 moved code to es6
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Refactored for better readability
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Moved code to es6
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import { getTranslatedContent } from './../../utils/content';
+import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
 
 /**
  * Higher order function to get translation data.
  *
  * @function
- * @param {string} configKey The object key to be found in translation config
+ * @param {string} configKey - The object key to be found in translation config
  * @returns {Function}
  */
 function addContent(configKey) {
@@ -41,7 +43,7 @@ function addContent(configKey) {
      * The react higher order function for passing data to props.
      *
      * @function
-     * @param {ReactElement} SourceComponent The react component to be decorated
+     * @param {ReactElement} SourceComponent - The react component to be decorated
      * @returns {ReactElement}
      */
     return function sourceComponent(SourceComponent) {
@@ -50,7 +52,7 @@ function addContent(configKey) {
          * Wrapper component to get redux state.
          *
          * @function
-         * @param {Object} [props] The current component props
+         * @param {Object} [props] - The current component props
          * @returns {ReactElement} React component markup
          */
         function ReturnedComponent(props) {
@@ -71,8 +73,8 @@ function addContent(configKey) {
          *
          * @static
          * @type {Object}
-         * @property {string} [locale] The current locale string
-         * @property {Object} [config] The content configuration
+         * @property {string} [locale] - The current locale string
+         * @property {Object} [config] - The content configuration
          */
         ReturnedComponent.propTypes = {
             locale: PropTypes.string,
@@ -86,14 +88,14 @@ function addContent(configKey) {
          *
          * @function
          * @private
-         * @param {Object.<*>} state The redux store state
-         * @param {Object.<*>} [ownProps] The current component props
+         * @param {Object.<*>} state - The redux store state
+         * @param {Object.<*>} [ownProps] - The current component props
          * @returns {Object} The state properties to be passed as component props
          */
         function mapStateToProps(state, ownProps) {
             return {
-                locale: get(state, 'intl.locale') || get(ownProps, 'locale'),
-                config: get(state, 'config') || get(ownProps, 'config')
+                locale: selectStateIntlLocale(state) || get(ownProps, 'locale'),
+                config: selectStateConfig(state) || get(ownProps, 'config')
             };
         }
 

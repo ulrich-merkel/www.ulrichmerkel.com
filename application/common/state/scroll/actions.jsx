@@ -13,10 +13,17 @@
  * @requires common/state/scroll/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './constants';
 
+/**
+ * Handle header fixed state change.
+ *
+ * @function
+ * @param {boolean} headerFixed - Whether the header should be displayed fixed or not
+ * @returns {Object} The redux action playload
+ */
 function changeHeaderFixed(headerFixed) {
     return {
         type: SCROLL_HEADER_FIXED,
@@ -24,6 +31,13 @@ function changeHeaderFixed(headerFixed) {
     };
 }
 
+/**
+ * Handle header visible state change.
+ *
+ * @function
+ * @param {boolean} headerVisible - Whether the header is visible or not
+ * @returns {Object} The redux action playload
+ */
 function changeHeaderVisible(headerVisible) {
     return {
         type: SCROLL_HEADER_VISIBLE,

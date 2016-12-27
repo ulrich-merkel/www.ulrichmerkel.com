@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /**
  * Es6 module for Redux Architecture.
  *
@@ -8,6 +9,10 @@
  * @version 0.0.1
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
-export const ADD_CSRF_TOKEN = 'ADD_CSRF_TOKEN'; // eslint-disable-line import/prefer-default-export
+
+/**
+ * @type {string}
+ */
+export const ADD_CSRF_TOKEN = 'ADD_CSRF_TOKEN';

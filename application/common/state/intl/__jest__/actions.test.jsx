@@ -2,7 +2,7 @@
 import { INTL_CHANGE_LOCALE, INTL_LOCALE_DE_DE } from './../constants';
 import { changeLocale } from './../actions';
 
-describe('actions', function () {
+describe('common/state/intl/actions', function () {
     describe('changeLocale', function () {
         it(`should have a type of ${INTL_CHANGE_LOCALE}`, function () {
             expect(changeLocale().type).toEqual(INTL_CHANGE_LOCALE);

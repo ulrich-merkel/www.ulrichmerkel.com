@@ -2,7 +2,7 @@
 import { CONTACT_CHANGE } from './../constants';
 import { changeContact } from './../actions';
 
-describe('actions', function () {
+describe('common/state/contact/actions', function () {
     describe('changeContact', function () {
 
         it(`should have a type of ${CONTACT_CHANGE}`, function () {

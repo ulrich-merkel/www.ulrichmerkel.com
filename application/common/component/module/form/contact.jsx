@@ -21,7 +21,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { get, isFunction, has } from 'lodash';
+import { isFunction, has } from 'lodash';
 
 import configApplication, { url } from './../../../config/application';
 import { isBrowser } from './../../../utils/environment';
@@ -29,6 +29,7 @@ import xor from './../../../utils/xor';
 import logger from './../../../utils/logger';
 import scrollTo from './../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from './../../../utils/xhr';
+import { selectStateContact, selectStateCsrfToken } from './../../../state/selectors';
 import { changeContact } from './../../../state/contact/actions';
 import { validate, isValid } from './../../../state/contact/utils';
 import Row from './../../grid/row';
@@ -575,8 +576,8 @@ ModuleFormContact.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        storeState: get(state, 'contact'),
-        csrfToken: get(state, 'csrf.token')
+        storeState: selectStateContact(state),
+        csrfToken: selectStateCsrfToken(state)
     };
 }
 

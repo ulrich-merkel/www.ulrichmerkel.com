@@ -1,6 +1,6 @@
 exports[`component/layout/header Snapshot should render correctly 1`] = `
 <header
-  className="l-header foo-bar"
+  className="l-header is-visible foo-bar"
   itemScope={true}
   itemType="http://schema.org/WPHeader"
   role="banner">

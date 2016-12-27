@@ -2,7 +2,7 @@
 import { ADD_CSRF_TOKEN } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
-describe('reducer', function () {
+describe('common/state/csrf/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });

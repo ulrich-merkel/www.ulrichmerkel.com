@@ -14,13 +14,24 @@
  * @requires common/state/csrf/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { ADD_CSRF_TOKEN } from './constants';
 
-export function addToken(token) {
+/**
+ * Handle csrf token state change.
+ *
+ * @function
+ * @param {Object} token - The new csrf token
+ * @returns {Object} The redux action playload
+ */
+function addToken(token) {
     return {
         type: ADD_CSRF_TOKEN,
         token
     };
 }
+
+export {
+    addToken
+};

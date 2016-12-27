@@ -14,13 +14,24 @@
  * @requires common/state/contact/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { CONTACT_CHANGE } from './constants';
 
-export function changeContact(contact) {
+/**
+ * Handle contact state change.
+ *
+ * @function
+ * @param {Object} contact - The new contact state
+ * @returns {Object} The redux action playload
+ */
+function changeContact(contact) {
     return {
         type: CONTACT_CHANGE,
         contact
     };
 }
+
+export {
+    changeContact
+};

@@ -2,7 +2,7 @@
 import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './../constants';
 import { changeHeaderFixed, changeHeaderVisible } from './../actions';
 
-describe('actions', function () {
+describe('common/state/scroll/actions', function () {
     describe('changeHeaderFixed', function () {
         it(`should have a type of ${SCROLL_HEADER_FIXED}`, function () {
             expect(changeHeaderFixed().type).toEqual(SCROLL_HEADER_FIXED);
