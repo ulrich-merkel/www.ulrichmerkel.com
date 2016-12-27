@@ -11,7 +11,7 @@
  * @requires common/config/application
 
  * @changelog
- * - 0.0.1 basic function and structure
+ * - 0.0.1 Basic function and structure
  */
 import { get } from 'lodash';
 import configApplication from './../config/application';
@@ -20,7 +20,7 @@ import configApplication from './../config/application';
  * Get transition config based on page view count.
  *
  * @function
- * @param {Object} page The redux page state
+ * @param {Object} page - The redux page state
  * @returns {Object} The ReactCSSTransitionGroup config
  */
 function getSectionTransition(page) {

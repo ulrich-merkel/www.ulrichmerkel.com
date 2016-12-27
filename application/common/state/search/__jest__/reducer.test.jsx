@@ -2,7 +2,7 @@
 import { SEARCH_CHANGE_TERM } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
-describe('reducer', function () {
+describe('common/state/search/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });

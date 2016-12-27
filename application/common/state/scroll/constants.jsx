@@ -8,7 +8,15 @@
  * @version 0.0.1
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
+ */
+
+/**
+ * @type {string}
  */
 export const SCROLL_HEADER_FIXED = 'SCROLL_HEADER_FIXED';
+
+/**
+ * @type {string}
+ */
 export const SCROLL_HEADER_VISIBLE = 'SCROLL_HEADER_VISIBLE';

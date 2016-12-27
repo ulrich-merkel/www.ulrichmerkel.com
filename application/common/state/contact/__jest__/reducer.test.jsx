@@ -2,7 +2,7 @@
 import { CONTACT_CHANGE } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
-describe('reducer', function () {
+describe('common/state/contact/reducer', function () {
 
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);

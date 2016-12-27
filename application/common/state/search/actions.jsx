@@ -14,10 +14,17 @@
  * @requires common/state/search/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { SEARCH_CHANGE_TERM } from './constants';
 
+/**
+ * Handle search term state change.
+ *
+ * @function
+ * @param {string} term - The search input value
+ * @returns {Object} The redux action playload
+ */
 function changeSearchTerm(term) {
     return {
         type: SEARCH_CHANGE_TERM,

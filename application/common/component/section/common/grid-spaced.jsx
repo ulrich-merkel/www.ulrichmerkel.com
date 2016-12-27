@@ -14,23 +14,23 @@
  * @requires react
  * @requires react-addons-css-transition-group
  * @requires react-redux
- * @requires lodash
- * @requires utils/transition
- * @requires component/grid/section
- * @requires component/grid/spaced
- * @requires component/grid/row
- * @requires component/grid/col
+ * @requires common/utils/transition
+ * @requires common/state/selectors
+ * @requires common/component/grid/section
+ * @requires common/component/grid/spaced
+ * @requires common/component/grid/row
+ * @requires common/component/grid/col
  *
  * @changelog
- + - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ + - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
-import { get } from 'lodash';
 
+import { selectStatePage } from './../../../state/selectors';
 import getSectionTransition from './../../../utils/transition';
 import GridSection from './../../grid/section';
 import GridSpaced from './../../grid/spaced';
@@ -92,7 +92,7 @@ SectionCommonGridSpaced.propTypes = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        page: get(state, 'page') || ownProps.page
+        page: selectStatePage(state) || ownProps.page
     };
 }
 

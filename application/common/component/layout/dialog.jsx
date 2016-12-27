@@ -29,8 +29,9 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { get, throttle, isEqual } from 'lodash';
+import { throttle, isEqual } from 'lodash';
 
+import { selectStateDialogVisible } from './../../state/selectors';
 import { changeDialogVisible } from './../../state/dialog/actions';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
@@ -249,7 +250,7 @@ LayoutDialog.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: get(state, 'dialog.visible') || ownProps.dialogVisible
+        dialogVisible: selectStateDialogVisible(state) || ownProps.dialogVisible
     };
 }
 
