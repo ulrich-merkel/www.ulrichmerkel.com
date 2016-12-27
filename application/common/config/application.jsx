@@ -71,16 +71,20 @@ const configApplication = Object.assign({}, {
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
+        // @TODO: Use fallback param for toBoolean insetad of ||
         use: toBoolean(process.env.XOR) || true,
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        use: toBoolean(process.env.CSP) || true
+        // @TODO: Use fallback param for toBoolean insetad of ||
+        use: false//toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER) || false
+        // @TODO: Use fallback param for toBoolean insetad of ||
+        use: toBoolean(process.env.SERVICEWORKER) || true
     },
     applicationCache: {
+        // @TODO: Use fallback param for toBoolean insetad of ||
         use: toBoolean(process.env.APPCACHE) || true,
         timeStamp: '2016-12-24'
     },
