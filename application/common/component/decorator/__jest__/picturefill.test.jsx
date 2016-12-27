@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
+import 'jsdom-global/register';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
+
 import picturefill from './../picturefill';
 
 describe('common/decorator/picturefill', function () {
     it('should return the source component', function () {
-
         const ChildComponent = function () {
             return <h1>Test</h1>;
         };
