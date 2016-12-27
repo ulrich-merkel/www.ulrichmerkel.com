@@ -1,12 +1,12 @@
-exports[`component/element/a Snapshot should render correctly 1`] = `
+exports[`common/component/element/a should render correctly 1`] = `
 <a
-  className="c-link foo"
+  className="c-link link"
   href="testpage"
-  lang="foobar"
+  lang="lang"
   rel="noopener noreferrer"
   tabIndex="0"
   target="_blank"
-  title="bar">
-  Hello
+  title="title">
+  Link Children
 </a>
 `;

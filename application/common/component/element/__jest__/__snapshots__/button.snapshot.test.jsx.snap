@@ -1,15 +1,16 @@
-exports[`component/element/button Snapshot should render correctly 1`] = `
+exports[`common/component/element/button should render correctly 1`] = `
 <button
-  className="c-btn foo c-btn--primary c-btn--large is-disabled"
+  className="c-btn button c-btn--primary c-btn--large is-disabled"
   disabled="disabled"
-  id="foo"
-  label="Test label"
-  name="bar"
+  id="button"
+  name="button"
   role="button"
-  title="Test title"
+  title="Test button title"
   to={undefined}
   type="submit">
   <span
-    className="c-btn__label test" />
+    className="c-btn__label button-label">
+    Test button label Children
+  </span>
 </button>
 `;

@@ -3,15 +3,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ComponentToBeTested from './../label';
 
-describe('component/element/label', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested className='foo' htmlFor='bar'>
-                    Hello
-                </ComponentToBeTested>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/element/label', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ComponentToBeTested className='label' htmlFor='foo-bar'>
+                Label Children
+            </ComponentToBeTested>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

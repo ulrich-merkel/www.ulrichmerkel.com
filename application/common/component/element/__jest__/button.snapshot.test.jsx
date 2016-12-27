@@ -3,25 +3,24 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ComponentToBeTested from './../button';
 
-describe('component/element/button', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested
-                    componentType='button'
-                    className='foo'
-                    classNameLabel='test'
-                    id='foo'
-                    name='bar'
-                    label='Test label'
-                    title='Test title'
-                    type='submit'
-                    isPrimary
-                    isLarge
-                    isDisabled
-                />
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/element/button', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ComponentToBeTested
+                componentType='button'
+                className='button'
+                classNameLabel='button-label'
+                id='button'
+                name='button'
+                title='Test button title'
+                type='submit'
+                isPrimary
+                isLarge
+                isDisabled
+            >
+                Test button label Children
+            </ComponentToBeTested>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

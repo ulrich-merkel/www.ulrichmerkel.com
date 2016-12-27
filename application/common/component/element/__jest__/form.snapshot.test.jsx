@@ -3,20 +3,18 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ComponentToBeTested from './../form';
 
-describe('component/element/form', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested
-                    action='test'
-                    id='bar'
-                    className='foo'
-                    data-test='bar'
-                >
-                    Hello
-                </ComponentToBeTested>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/element/form', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ComponentToBeTested
+                action='test'
+                id='form'
+                className='form'
+                data-test='form-data'
+            >
+                Form Content Children
+            </ComponentToBeTested>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });
