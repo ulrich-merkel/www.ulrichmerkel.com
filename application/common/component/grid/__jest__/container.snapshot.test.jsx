@@ -3,15 +3,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ComponentToBeTested from './../container';
 
-describe('component/grid/container', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested htmlElement='span' className='foo'>
-                    Hello
-                </ComponentToBeTested>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/grid/container', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ComponentToBeTested htmlElement='span' className='foo'>
+                Grid Container Children
+            </ComponentToBeTested>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });
