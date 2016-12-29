@@ -10,13 +10,13 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
  *
- * @requires React
+ * @requires react
  * @requires classnames
- * @requires component/element/headline
- * @requires component/element/paragraph
+ * @requires common/component/element/headline
+ * @requires common/component/element/paragraph
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -28,7 +28,7 @@ import P from './../../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleCornerstoneItemEducation(props) {
@@ -64,7 +64,7 @@ function ModuleCornerstoneItemEducation(props) {
                         (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time' itemProp='endDate'>{timeEnd}</time>)
                     </P>
                     {description.map((text, index) => {
-                        /*
+                        /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
                          * are not possible to be set via translation strings.
                          *
@@ -100,14 +100,14 @@ function ModuleCornerstoneItemEducation(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] The item headline
- * @property {string} [lead] The item subline
- * @property {string} [timeStart] The item start time
- * @property {string} [timeEnd] The item end time
- * @property {Array} [description=[]] The items description
- * @property {Object='{}'} [place] The items place description
- * @property {string} [cssModifier] The bem css modifier
- * @property {string} [offset] The css top offset to display items nice
+ * @property {string} [headline] - The item headline
+ * @property {string} [lead] - The item subline
+ * @property {string} [timeStart] - The item start time
+ * @property {string} [timeEnd] - The item end time
+ * @property {Array} [description=[]] - The items description
+ * @property {Object='{}'} [place] - The items place description
+ * @property {string} [cssModifier] - The bem css modifier
+ * @property {string} [offset] - The css top offset to display items nice
  */
 ModuleCornerstoneItemEducation.propTypes = {
     headline: PropTypes.string,
