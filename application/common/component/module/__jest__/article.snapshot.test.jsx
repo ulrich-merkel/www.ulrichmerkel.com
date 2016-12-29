@@ -19,7 +19,7 @@ describe('common/component/module/article', function () {
                     author: 'Author'
                 }}
             >
-                Module Article Children
+                Module article children
             </ModuleArticle>
         ).toJSON();
         expect(tree).toMatchSnapshot();

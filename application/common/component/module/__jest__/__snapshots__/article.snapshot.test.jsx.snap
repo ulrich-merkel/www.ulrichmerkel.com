@@ -18,7 +18,7 @@ exports[`common/component/module/article should render correctly 1`] = `
   <div
     className="m-article__text"
     itemProp="text">
-    Module Article Children
+    Module article children
   </div>
   <meta
     content="Headline Article"

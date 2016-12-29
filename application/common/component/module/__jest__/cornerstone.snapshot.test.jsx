@@ -48,13 +48,24 @@ describe('common/component/module/cornerstone', function () {
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
-    it('should return null if content is empty', function () {
+    it('should return null if no content is empty', function () {
         const tree = renderer.create(
             <ModuleCornerstone
                 {...defaultProps}
                 content={null}
             >
-                Module Cornerstone Children not rendered
+                Module cornerstone children not rendered
+            </ModuleCornerstone>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should render no itemType if unset', function () {
+        const tree = renderer.create(
+            <ModuleCornerstone
+                {...defaultProps}
+                itemType={null}
+            >
+                Module cornerstone children
             </ModuleCornerstone>
         ).toJSON();
         expect(tree).toMatchSnapshot();
