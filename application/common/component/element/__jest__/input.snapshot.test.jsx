@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../input';
+import ElementInput from './../input';
 
 describe('common/component/element/input', function () {
     it('should render correctly with default callbacks', function () {
         const component = renderer.create(
-            <ComponentToBeTested
+            <ElementInput
                 className='input'
                 classNameLabel='input-label'
                 id='input'
@@ -32,7 +32,7 @@ describe('common/component/element/input', function () {
         const onBlur = jest.fn();
         const onChange = jest.fn();
         const component = renderer.create(
-            <ComponentToBeTested
+            <ElementInput
                 onBlur={onBlur}
                 onChange={onChange}
             />

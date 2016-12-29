@@ -13,6 +13,6 @@ exports[`common/component/element/form should render correctly 1`] = `
   onReset={[Function]}
   onSubmit={[Function]}
   role="form">
-  Form Content Children
+  Form Children
 </form>
 `;

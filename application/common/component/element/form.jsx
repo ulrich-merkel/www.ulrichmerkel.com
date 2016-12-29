@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
@@ -86,16 +86,16 @@ class ElementForm extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} action The form action attribute
- * @property {string} [acceptCharset='utf-8'] The form action attribute
- * @property {string} [id] The form id attribute
- * @property {string} [itemProp='potentialAction'] The form itemProp attribute
- * @property {string} [itemType='http://schema.org/CommunicateAction'] The form itemType attribute
- * @property {string} [method='post'] The form method attribute
- * @property {string} [role='form'] The form role attribute
- * @property {string} [className] The form css class names - will be merged into component default classNames
- * @property {Function} [onSubmit=Function.prototype] The form submit handler function
- * @property {Function} [onReset=Function.prototype] The form reset handler function
+ * @property {string} action - The form action attribute
+ * @property {string} [acceptCharset='utf-8'] - The form action attribute
+ * @property {string} [id] - The form id attribute
+ * @property {string} [itemProp='potentialAction'] - The form itemProp attribute
+ * @property {string} [itemType='http://schema.org/CommunicateAction'] - The form itemType attribute
+ * @property {string} [method='post'] - The form method attribute
+ * @property {string} [role='form'] - The form role attribute
+ * @property {string} [className] - The form css class names, will be merged into component default classNames
+ * @property {Function} [onSubmit=Function.prototype] - The form submit handler function
+ * @property {Function} [onReset=Function.prototype] - The form reset handler function
  */
 ElementForm.propTypes = {
     action: PropTypes.string.isRequired,

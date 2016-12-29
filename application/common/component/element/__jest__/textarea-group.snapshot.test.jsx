@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../textarea-group';
+import ElementTextareaGroup from './../textarea-group';
 
 describe('common/component/element/textarea-group', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ComponentToBeTested
+            <ElementTextareaGroup
                 id='textarea-group'
                 name='textarea'
                 className='textarea-group'
@@ -16,7 +16,7 @@ describe('common/component/element/textarea-group', function () {
                 isPristine
             >
                 Textarea Group Children
-            </ComponentToBeTested>
+            </ElementTextareaGroup>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

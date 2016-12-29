@@ -14,7 +14,7 @@
  * @requires react
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 
@@ -22,7 +22,7 @@ import React, { PropTypes } from 'react';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement|null} React component markup
  */
 function ElementMeta(props) {
@@ -49,10 +49,10 @@ function ElementMeta(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [itemProp] The meta tag itemProp attribute
- * @property {string} [name] The meta tag name attribute
- * @property {string} [property] The meta tag property attribute
- * @property {string} [content] The meta tag content attribute
+ * @property {string} [itemProp] - The meta tag itemProp attribute
+ * @property {string} [name] - The meta tag name attribute
+ * @property {string} [property] - The meta tag property attribute
+ * @property {string} [content] - The meta tag content attribute
  */
 ElementMeta.propTypes = {
     itemProp: PropTypes.string,

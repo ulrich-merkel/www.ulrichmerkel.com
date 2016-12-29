@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  * import P from './paragraph';
@@ -35,7 +35,7 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementParagraph(props) {
@@ -69,10 +69,10 @@ function ElementParagraph(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='p'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {boolean} [isCentered=false] Whether the component should be centered via css or not
- * @property {boolean} [hasColumns2=false] Whether the component should be rendered in 2 columns via css or not
+ * @property {string} [htmlElement='p'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [isCentered=false] - Whether the component should be centered via css or not
+ * @property {boolean} [hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
  */
 ElementParagraph.propTypes = {
     htmlElement: PropTypes.string,

@@ -10,7 +10,7 @@ exports[`common/component/element/button should render correctly 1`] = `
   type="submit">
   <span
     className="c-btn__label button-label">
-    Test button label Children
+    Button Children
   </span>
 </button>
 `;

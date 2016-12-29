@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../textarea';
+import ElementTextarea from './../textarea';
 
 describe('common/component/element/textarea', function () {
     it('should render correctly with default callbacks', function () {
         const component = renderer.create(
-            <ComponentToBeTested
+            <ElementTextarea
                 className='textarea'
                 id='textarea'
                 name='textarea'
@@ -29,7 +29,7 @@ describe('common/component/element/textarea', function () {
         const onBlur = jest.fn();
         const onChange = jest.fn();
         const component = renderer.create(
-            <ComponentToBeTested
+            <ElementTextarea
                 onBlur={onBlur}
                 onChange={onChange}
             />

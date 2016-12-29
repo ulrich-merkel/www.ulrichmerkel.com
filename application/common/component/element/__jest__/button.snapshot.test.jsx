@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../button';
+import ElementButton from './../button';
 
 describe('common/component/element/button', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ComponentToBeTested
+            <ElementButton
                 componentType='button'
                 className='button'
                 classNameLabel='button-label'
@@ -18,8 +18,8 @@ describe('common/component/element/button', function () {
                 isLarge
                 isDisabled
             >
-                Test button label Children
-            </ComponentToBeTested>
+                Button Children
+            </ElementButton>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../input-group';
+import ElementInputGroup from './../input-group';
 
 describe('common/component/element/input-group', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ComponentToBeTested
+            <ElementInputGroup
                 id='input-group'
                 name='input'
                 className='input-group'
@@ -17,7 +17,7 @@ describe('common/component/element/input-group', function () {
                 isPristine
             >
                 Input Group Children
-            </ComponentToBeTested>
+            </ElementInputGroup>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
