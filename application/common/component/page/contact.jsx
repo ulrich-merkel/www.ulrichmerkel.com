@@ -32,7 +32,7 @@ import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionForm from './../section/form';
-import ModuleFormContact from './../module/form/contact';
+import ModuleFormContact from './../module/form/contact'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Function representing a component to return a single react child element.
