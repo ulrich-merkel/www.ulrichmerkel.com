@@ -15,21 +15,21 @@
  * @requires react-redux
  * @requires classnames
  * @requires lodash
- * @requires component/decorator/add-content
- * @requires utils/content
- * @requires state/selectors
- * @requires state/intl/actions
- * @requires state/intl/constants
- * @requires component/grid/container
- * @requires component/grid/row
- * @requires component/grid/col
- * @requires component/module/menu
- * @requires component/element/nav
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
+ * @requires common/state/selectors
+ * @requires common/state/intl/actions
+ * @requires common/state/intl/constants
+ * @requires common/component/grid/container
+ * @requires common/component/grid/row
+ * @requires common/component/grid/col
+ * @requires common/component/module/menu
+ * @requires common/component/element/nav
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -56,7 +56,7 @@ import Nav from './../element/nav';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function LayoutHeader(props) {
@@ -81,10 +81,10 @@ function LayoutHeader(props) {
         },
         className
     );
-    const buttonEnClassName = classnames('m-menu__item', {
+    const buttonEnClassName = classnames('m-menu__item', 'm-menu__item--en', {
         'is-active': intlLocale === INTL_LOCALE_EN_EN
     });
-    const buttonDeClassName = classnames('m-menu__item', {
+    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
         'is-active': intlLocale === INTL_LOCALE_DE_DE
     });
     const menuLanguageClassName = classnames('m-menu--language', 'm-nav__toggle-target', {
@@ -150,20 +150,20 @@ function LayoutHeader(props) {
  *
  * @static
  * @type {Object}
- * @property {string} intlLocale The current locale string
- * @property {Array.<string>} intlAvailableLocales All available locale strings
- * @property {boolean} headerFixed Whether the navigation bar is sticky/ficked or not
- * @property {boolean} headerVisible Whether the navigation bar is visible or not (used for css3 animation)
- * @property {Function} handleIntlChangeLocale Function handling language changes
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {Object} [content={}] The component content config
+ * @property {string} intlLocale - The current locale string
+ * @property {Array.<string>} intlAvailableLocales - All available locale strings
+ * @property {boolean} headerFixed - Whether the navigation bar is sticky/ficked or not
+ * @property {boolean} headerVisible - Whether the navigation bar is visible or not (used for css3 animation)
+ * @property {Function} handleIntlChangeLocale - Function handling language changes
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {Object} [content={}] - The component content config
  */
 LayoutHeader.propTypes = {
+    handleIntlChangeLocale: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
     intlAvailableLocales: PropTypes.array.isRequired,
     headerFixed: PropTypes.bool, // @TODO: check why headerFixed is sometimes missing
     headerVisible: PropTypes.bool, // @TODO: check why headerVisible is sometimes missing
-    handleIntlChangeLocale: PropTypes.func.isRequired,
     className: PropTypes.string,
     content: PropTypes.shape({
         menu: PropTypes.object // eslint-disable-line react/no-unused-prop-types
@@ -188,8 +188,8 @@ LayoutHeader.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state The redux store state
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Object.<*>} state - The redux store state
+ * @param {Object.<*>} [ownProps] - The current component props
  * @returns {Object}
  */
 function mapStateToProps(state, ownProps) {
@@ -209,8 +209,7 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @function
- * @param {Function} dispatch The redux store dispatch function
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}
  */
 function mapDispatchToProps(dispatch) {
@@ -231,3 +230,6 @@ const LayoutHeaderContainer = connect(
 )(addContent('LayoutHeader')(LayoutHeader));
 
 export default LayoutHeaderContainer;
+export {
+    LayoutHeader
+};

@@ -1,6 +1,6 @@
-exports[`component/layout/footer Snapshot should render correctly 1`] = `
+exports[`common/component/layout/footer should render correctly 1`] = `
 <footer
-  className="l-footer foo-bar"
+  className="l-footer layout-footer"
   itemScope={true}
   itemType="http://schema.org/WPFooter"
   role="contentinfo">

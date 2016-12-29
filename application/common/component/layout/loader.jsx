@@ -13,15 +13,16 @@
  * @TODO: Move flip part to own component
  *
  * @requires react
- * @requires component/decorator/add-content
- * @requires utils/content
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
+
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 
@@ -29,7 +30,7 @@ import { getContentSection } from './../../utils/content';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function LayoutLoader(props) {
@@ -59,7 +60,7 @@ function LayoutLoader(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] The component content config
+ * @property {Object} [content={}] - The component content config
  */
 LayoutLoader.propTypes = {
     content: PropTypes.shape({
