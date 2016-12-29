@@ -1,6 +1,6 @@
-exports[`component/module/key-visual Snapshot should render correctly 1`] = `
+exports[`common/component/module/key-visual should render correctly 1`] = `
 <nav
-  className="m-key-visual foo">
+  className="m-key-visual key-visual-snapshot">
   <article
     className="m-key-visual__text">
     <h3
@@ -34,3 +34,5 @@ exports[`component/module/key-visual Snapshot should render correctly 1`] = `
   </button>
 </nav>
 `;
+
+exports[`common/component/module/key-visual should return null if no content image is empty 1`] = `null`;

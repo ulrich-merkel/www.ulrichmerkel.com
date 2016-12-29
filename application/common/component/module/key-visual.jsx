@@ -96,7 +96,7 @@ class ModuleKeyVisual extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 
@@ -152,11 +152,11 @@ class ModuleKeyVisual extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='div'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {boolean} [isWork=false] Whether the component has work modifiers or not
- * @property {boolean} [isCovered=false] Whether the component should be background size covered or not
- * @property {Object} [content={}] The component translation config
+ * @property {string} [componentType='div'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [isWork=false] - Whether the component has work modifiers or not
+ * @property {boolean} [isCovered=false] - Whether the component should be background size covered or not
+ * @property {Object} [content={}] - The component translation config
  */
 ModuleKeyVisual.propTypes = {
     componentType: PropTypes.string,
