@@ -11,11 +11,11 @@
  * @version 0.0.2
  *
  * @requires react
- * @requires component/grid/container
+ * @requires common/component/grid/container
  *
  * @changelog
- * - 0.0.2 moved to stateless function
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Moved to stateless function
+ * - 0.0.1 Basic functions and structure
  */
 import React from 'react';
 import GridContainer from './container';
@@ -24,15 +24,13 @@ import GridContainer from './container';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function GridSection(props) {
-
     return (
         <GridContainer className={'m-section'} {...props} />
     );
-
 }
 
 export default GridSection;

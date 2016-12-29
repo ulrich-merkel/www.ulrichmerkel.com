@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../section';
+import GridSection from './../section';
 
 describe('common/component/grid/section', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ComponentToBeTested>
+            <GridSection>
                 Grid Section Children
-            </ComponentToBeTested>
+            </GridSection>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

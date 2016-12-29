@@ -35,7 +35,7 @@ import scroller from './../decorator/scroller';
 import addContent from './../decorator/add-content';
 import scrollTo, { getPageOffset } from './../../utils/scroll-to';
 
-import LayoutHeader from './header';
+import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-default
 import LayoutFooter from './footer';
 import LayoutLoader from './loader';
 import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
