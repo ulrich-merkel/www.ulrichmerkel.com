@@ -1,6 +1,6 @@
-exports[`component/module/cornerstone Snapshot should render correctly 1`] = `
+exports[`common/component/module/cornerstone should render correctly 1`] = `
 <span
-  className="m-cornerstone foo"
+  className="m-cornerstone cornerstone"
   itemScope={true}
   itemType="https://schema.org/ItemList"
   role="list">
@@ -161,6 +161,8 @@ exports[`component/module/cornerstone Snapshot should render correctly 1`] = `
     <div
       className="m-cornerstone__bubble c-font-icon--bookmark2" />
   </li>
-  Hello
+  Module Cornerstone Children
 </span>
 `;
+
+exports[`common/component/module/cornerstone should return null if content is empty 1`] = `null`;
