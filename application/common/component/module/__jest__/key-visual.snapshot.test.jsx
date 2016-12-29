@@ -8,7 +8,7 @@ import ModuleKeyVisual from './../key-visual';
 describe('common/component/module/key-visual', function () {
     const defaultProps = {
         componentType: 'nav',
-        className: 'key-visual-snapshot',
+        className: 'key-visual',
         content: {
             headline: 'headline',
             lead: 'lead',
@@ -21,7 +21,7 @@ describe('common/component/module/key-visual', function () {
                 alt: '',
                 sizes: []
             },
-            type: 'type'
+            type: 'print'
         }
     };
 
@@ -44,6 +44,18 @@ describe('common/component/module/key-visual', function () {
                 }}
             >
                 Module key-visual children not rendered
+            </ModuleKeyVisual>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should render isWork and isCovered css className', function () {
+        const tree = renderer.create(
+            <ModuleKeyVisual
+                {...defaultProps}
+                isWork
+                isCovered
+            >
+                Module key-visual children
             </ModuleKeyVisual>
         ).toJSON();
         expect(tree).toMatchSnapshot();

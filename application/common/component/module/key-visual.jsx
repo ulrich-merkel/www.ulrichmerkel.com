@@ -128,7 +128,7 @@ class ModuleKeyVisual extends Component {
                 <ModuleKeyVisualPicture
                     img={content.img}
                     type={content.type}
-                    {...isCovered}
+                    isCovered={isCovered}
                 />
                 <ModuleKeyVisualArticle
                     headline={content.headline}
