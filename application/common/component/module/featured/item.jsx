@@ -10,21 +10,20 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
- * @requires React-Router
+ * @requires react
+ * @requires react-Router
  * @requires classnames
- * @requires component/element/image
+ * @requires common/component/element/image
  *
  * @see {@link http://stackoverflow.com/questions/30115324/pass-props-in-link-react-router}
  *
  * @changelog
- * - 0.0.4 excluded headline/lead into separate component
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Excluded headline/lead into separate component
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
- * import Featured from './featured';
  */
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
@@ -35,16 +34,10 @@ import Picture from './../../element/picture';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
  * @constructor
  * @private
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
 function ModuleFeaturedItem(props) {
 
@@ -96,12 +89,11 @@ function ModuleFeaturedItem(props) {
  * Valiate props via React.PropTypes helpers.
 
  * @static
- * @type {React.Component.PropTypes}
- * @property {object} propTypes
- * @property {string} [path] The react-router link
- * @property {string} [headline] The items title content
- * @property {Object} [img] The items image config
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @type {Object}
+ * @property {string} [path] - The react-router link
+ * @property {string} [headline] - The items title content
+ * @property {Object} [img={}] - The items image config
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 ModuleFeaturedItem.propTypes = {
     path: PropTypes.string,
@@ -111,12 +103,12 @@ ModuleFeaturedItem.propTypes = {
 };
 
 /**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {React.Component.DefaultProps}
- * @property {Object} img='{}' The items image config
- */
+* Set defaults if props aren't available.
+*
+* @static
+* @type {Object}
+* @see ModuleFeaturedItem.propTypes
+*/
 ModuleFeaturedItem.defaultProps = {
     img: {}
 };
