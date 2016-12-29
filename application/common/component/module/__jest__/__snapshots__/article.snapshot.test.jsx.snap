@@ -1,27 +1,27 @@
-exports[`component/module/article Snapshot should render correctly 1`] = `
+exports[`common/component/module/article should render correctly 1`] = `
 <span
-  className="is-main has-no-margin m-article foo"
+  className="is-main has-no-margin m-article module-article"
   itemScope={true}
   itemType="https://schema.org/Article">
   <h1
     className="is-centered c-type--h1 is-spaced m-article__headline"
     itemProp="headline">
-    Headline
+    Headline Article
   </h1>
   <p
     className="is-centered c-type--p m-article__lead"
     itemProp="alternativeHeadline">
     <strong>
-      Lead
+      Lead Article
     </strong>
   </p>
   <div
     className="m-article__text"
     itemProp="text">
-    Hello
+    Module Article Children
   </div>
   <meta
-    content="Headline"
+    content="Headline Article"
     itemProp="name"
     name={undefined}
     property={undefined} />

@@ -12,16 +12,16 @@
 *
 * @requires react
 * @requires classnames
-* @requires component/module/article/headline
-* @requires component/module/article/lead
-* @requires component/module/article/button
-* @requires component/module/article/meta
+* @requires common/component/module/article/headline
+* @requires common/component/module/article/lead
+* @requires common/component/module/article/button
+* @requires common/component/module/article/meta
 *
 * @changelog
-* - 0.0.4 restructed module as simple wrapper article (rendering without children behaviour)
-* - 0.0.3 moved to stateless function
-* - 0.0.2 rewritten for es2015
-* - 0.0.1 basic functions and structure
+* - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
+* - 0.0.3 Moved to stateless function
+* - 0.0.2 Rewritten for es2015
+* - 0.0.1 Basic functions and structure
 */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -35,7 +35,7 @@ import Meta from './../element/meta';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleArticle(props) {
@@ -113,14 +113,14 @@ function ModuleArticle(props) {
 *
 * @static
 * @type {Object}
-* @property {string} [componentType='article'] The component element type used for React.createElement
-* @property {string} [className] The component css class names - will be merged into component default classNames
-* @property {boolean} [isMain=false] Whether the component text should be displayed as main article or not
-* @property {boolean} [noMargin=false] Whether the component has no css margin or not
-* @property {boolean} [isSpaced=false] Whether the component headline has a spaced grid or not
-* @property {string} [itemType='https://schema.org/Article'] The schema.org itemtype url attribute
-* @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {Object} [content={}] The component translation config
+* @property {string} [componentType='article'] - The component element type used for React.createElement
+* @property {string} [className] - The component css class names, will be merged into component default classNames
+* @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
+* @property {boolean} [noMargin=false] - Whether the component has no css margin or not
+* @property {boolean} [isSpaced=false] - Whether the component headline has a spaced grid or not
+* @property {string} [itemType='https://schema.org/Article'] - The schema.org itemtype url attribute
+* @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+* @property {Object} [content={}] - The component translation config
 */
 ModuleArticle.propTypes = {
     componentType: PropTypes.string,
