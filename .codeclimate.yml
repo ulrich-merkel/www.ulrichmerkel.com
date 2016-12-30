@@ -11,7 +11,7 @@ engines:
   eslint:
     enabled: true
     config:
-      config: config/.eslintrc.json
+      config: config/.eslintrc.codeclimate.json
   fixme:
     enabled: true
 ratings:

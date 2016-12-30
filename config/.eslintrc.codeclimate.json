@@ -27,7 +27,6 @@
     ],
     "rules": {
         "arrow-body-style": 0,
-        "comma-dangle": ["error", "never"],
         "indent": [
             "error",
             4
