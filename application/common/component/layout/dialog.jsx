@@ -127,6 +127,7 @@ class LayoutDialog extends Component {
      *
      * @function
      * @private
+     * @param {Object} event - Synthetic react event
      * @returns {void}
      */
     onKeyDown(event) {
@@ -140,6 +141,7 @@ class LayoutDialog extends Component {
      *
      * @function
      * @private
+     * @param {Object} event - Synthetic react event
      * @returns {void}
      */
     onClose(event) {

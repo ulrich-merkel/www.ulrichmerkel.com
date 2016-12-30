@@ -26,7 +26,7 @@ import React, { PropTypes } from 'react';
 
 import SectionCommonGridSpaced from './common/grid-spaced';
 import ModuleArticle from './../module/article';
-import ModuleText from './../module/text';
+import ModuleText from './../module/text'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Function representing a component to return a single react child element.
