@@ -66,6 +66,7 @@ exports[`common/component/module/person should render correctly 1`] = `
       website
     </a>
   </p>
+  Module person children
 </menu>
 `;
 
@@ -137,6 +138,7 @@ exports[`common/component/module/person should render isCentered correctly 1`] =
       website
     </a>
   </p>
+  Module person children
 </menu>
 `;
 
@@ -206,6 +208,7 @@ exports[`common/component/module/person should render no itemType if unset 1`] =
       website
     </a>
   </p>
+  Module person children
 </menu>
 `;
 

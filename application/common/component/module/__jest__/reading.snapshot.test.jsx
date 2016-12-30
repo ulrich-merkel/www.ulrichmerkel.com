@@ -1,39 +1,65 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
-import React from 'react';
-import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../reading';
-
 // @see https://github.com/airbnb/enzyme/issues/426
 // @see https://github.com/facebook/jest/issues/1353
+import React from 'react';
+import renderer from 'react-test-renderer';
+import ModuleReading from './../reading';
+
 describe('component/module/reading', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested
-                    componentType='menu'
-                    className='foo'
-                    isCentered
-                    content={{
-                        list: [
-                            {
-                                headline: 'headline',
-                                lead: 'lead',
-                                creator: 'creator',
-                                publisher: 'publisher'
-                            },
-                            {
-                                headline: 'headline',
-                                lead: 'lead',
-                                creator: 'creator',
-                                publisher: 'publisher'
-                            }
-                        ]
-                    }}
-                >
-                    Hello
-                </ComponentToBeTested>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+    const defaultProps = {
+        componentType: 'menu',
+        className: 'foo',
+        isCentered: true,
+        content: {
+            list: [
+                {
+                    headline: 'headline',
+                    lead: 'lead',
+                    creator: 'creator',
+                    publisher: 'publisher'
+                },
+                {
+                    headline: 'headline',
+                    lead: 'lead',
+                    creator: 'creator',
+                    publisher: 'publisher'
+                }
+            ]
+        }
+    };
+
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ModuleReading
+                {...defaultProps}
+            >
+                Module reading children
+            </ModuleReading>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should return null if no content is given', function () {
+        const tree = renderer.create(
+            <ModuleReading
+                {...defaultProps}
+                content={{
+                    list: null
+                }}
+            >
+                Module reading children not rendered
+            </ModuleReading>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should render no itemType if unset', function () {
+        const tree = renderer.create(
+            <ModuleReading
+                {...defaultProps}
+                itemType={null}
+            >
+                Module reading children
+            </ModuleReading>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });
