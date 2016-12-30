@@ -1,8 +1,19 @@
-exports[`common/component/page/imprint should render correctly 1`] = `
+exports[`common/component/page/privacy should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"
   role="main">
+  <div
+    className="l-main__transition">
+    <section
+      className="l-grid m-section">
+      <div
+        className="l-grid__row">
+        <div
+          className="l-grid__col--12" />
+      </div>
+    </section>
+  </div>
   <div
     className="l-main__transition">
     <section
@@ -28,3 +39,5 @@ exports[`common/component/page/imprint should render correctly 1`] = `
   </div>
 </main>
 `;
+
+exports[`common/component/page/privacy should return null if no work param is given 1`] = `null`;

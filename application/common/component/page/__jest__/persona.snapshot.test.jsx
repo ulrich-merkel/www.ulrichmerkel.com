@@ -4,17 +4,15 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../persona';
+import PagePersona from './../persona';
 
-describe('component/page/persona', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/page/persona', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <PagePersona />
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

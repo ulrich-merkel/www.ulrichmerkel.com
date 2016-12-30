@@ -4,17 +4,15 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../disclaimer';
+import PageDisclaimer from './../disclaimer';
 
-describe('component/page/disclaimer', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/page/disclaimer', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <PageDisclaimer />
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });
