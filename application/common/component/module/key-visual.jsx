@@ -173,7 +173,6 @@ ModuleKeyVisual.propTypes = {
     })
 };
 
-
 /**
  * Set defaults if props aren't available.
  *
