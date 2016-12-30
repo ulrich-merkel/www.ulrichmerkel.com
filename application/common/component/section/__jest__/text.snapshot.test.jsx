@@ -4,17 +4,20 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../text';
+import SectionText from './../text';
 
-describe('component/section/text', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/section/text', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <SectionText
+                    content={{}}
+                    isMain
+                >
+                    Section text children
+                </SectionText>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

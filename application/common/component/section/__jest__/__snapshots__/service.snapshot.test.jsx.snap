@@ -1,4 +1,4 @@
-exports[`component/section/reading Snapshot should render correctly 1`] = `
+exports[`common/component/section/service should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section

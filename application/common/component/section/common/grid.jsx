@@ -29,8 +29,8 @@ import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
-import { selectStatePage } from './../../../state/selectors';
 import getSectionTransition from './../../../utils/transition';
+import { selectStatePage } from './../../../state/selectors';
 import GridSection from './../../grid/section';
 import GridRow from './../../grid/row';
 import GridCol from './../../grid/col';
@@ -84,12 +84,11 @@ SectionCommonGrid.propTypes = {
  * @function
  * @private
  * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
  * @returns {Object}
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        page: selectStatePage(state) || ownProps.page
+        page: selectStatePage(state)
     };
 }
 

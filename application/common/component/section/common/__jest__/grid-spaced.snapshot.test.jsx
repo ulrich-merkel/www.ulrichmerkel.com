@@ -3,18 +3,20 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import SectionReading from './../reading';
+import mockedStore from './../../../__mocks__/store';
+import SectionCommonGridSpaced from './../grid-spaced';
 
-describe('common/component/section/reading', function () {
+describe('common/component/section/common/grid-spaced', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <SectionReading
-                    content={{}}
+                <SectionCommonGridSpaced
+                    page={{
+                        viewsAfterReload: 1
+                    }}
                 >
-                    Section reading children
-                </SectionReading>
+                    Section common grid spaced children
+                </SectionCommonGridSpaced>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

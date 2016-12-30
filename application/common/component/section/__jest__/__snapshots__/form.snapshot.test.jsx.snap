@@ -1,4 +1,4 @@
-exports[`component/section/form Snapshot should render correctly 1`] = `
+exports[`common/component/section/form should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section
@@ -10,12 +10,14 @@ exports[`component/section/form Snapshot should render correctly 1`] = `
         <div
           className="l-grid__col--12">
           <article
-            className="m-article"
+            className="is-main m-article"
             itemScope={true}
             itemType="https://schema.org/Article">
             <div
               className="m-article__text"
-              itemProp="text" />
+              itemProp="text">
+              Section form children
+            </div>
           </article>
         </div>
       </div>

@@ -1,4 +1,4 @@
-exports[`common/component/section/key-visual should render correctly 1`] = `
+exports[`common/component/section/common/grid should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section
@@ -6,7 +6,9 @@ exports[`common/component/section/key-visual should render correctly 1`] = `
     <div
       className="l-grid__row">
       <div
-        className="l-grid__col--12" />
+        className="l-grid__col--12">
+        Section common grid children
+      </div>
     </div>
   </section>
 </div>

@@ -41,7 +41,7 @@ import GridCol from './../../grid/col';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionCommonGridSpaced(props) {
@@ -72,8 +72,8 @@ function SectionCommonGridSpaced(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [page] The redux page state
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [page] - The redux page state
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 SectionCommonGridSpaced.propTypes = {
     page: PropTypes.object,
@@ -86,13 +86,12 @@ SectionCommonGridSpaced.propTypes = {
  * and it will be merged into the component’s props.
  *
  * @function
- * @param {Object.<*>} state The redux store state
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Object.<*>} state - The redux store state
  * @returns {Object}
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        page: selectStatePage(state) || ownProps.page
+        page: selectStatePage(state)
     };
 }
 
