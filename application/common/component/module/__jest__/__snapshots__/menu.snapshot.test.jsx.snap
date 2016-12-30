@@ -140,4 +140,4 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
 </ol>
 `;
 
-exports[`common/component/module/menu should return null if no content image is empty 1`] = `null`;
+exports[`common/component/module/menu should return null if content image is empty 1`] = `null`;
