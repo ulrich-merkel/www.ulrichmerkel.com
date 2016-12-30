@@ -4,9 +4,20 @@ import renderer from 'react-test-renderer';
 import ElementIcon from './../icon';
 
 describe('common/component/element/icon', function () {
+    const defaultProps = {
+        htmlElement: 'span',
+        className: 'icon'
+    };
+
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ElementIcon htmlElement='span' className='icon' icon='foo' />
+            <ElementIcon {...defaultProps} icon='foo' />
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should return null if icon is empty', function () {
+        const tree = renderer.create(
+            <ElementIcon {...defaultProps} />
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

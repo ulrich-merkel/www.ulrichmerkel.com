@@ -3,3 +3,5 @@ exports[`common/component/element/icon should render correctly 1`] = `
   aria-hidden="true"
   className="c-font-icon--foo icon" />
 `;
+
+exports[`common/component/element/icon should return null if icon is empty 1`] = `null`;

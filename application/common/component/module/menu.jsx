@@ -12,114 +12,24 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/a
- * @requires component/element/a
+ * @requires common/component/module/menu/item
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes, Children } from 'react';
+import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-import A from './../element/a';
-import Icon from './../element/icon';
+import ModuleMenuItem from './menu/item';
 
 /**
  * Function representing a component to return a single react child element.
- *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @private
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
- */
-function ComponentModuleMenuItem(props) {
-
-    const {
-        path,
-        title,
-        label,
-        children,
-        itemType,
-        icon,
-        isLabelHidden,
-        itemPropA,
-        ...otherProps
-    } = props;
-
-    if (!path) {
-        return null;
-    }
-
-    const componentListItemClassName = classnames('m-menu__list-item');
-    const labelClassName = classnames(
-        {
-            'is-visually-hidden': isLabelHidden
-        },
-        'm-menu__label'
-    );
-
-    return (
-        <li className={componentListItemClassName} itemProp='itemListElement' itemScope itemType={itemType} {...otherProps}>
-            <A itemProp={itemPropA} to={path} title={title} isMenu role='menuitem'>
-                {icon && <Icon className='m-menu__icon' icon={icon} />}
-                <span className={labelClassName} itemProp='name'>
-                    {label}
-                </span>
-            </A>
-            {children}
-        </li>
-    );
-
-}
-
-/**
- * Valiate props via React.PropTypes helpers.
-
- * @static
- * @type {React.Component.PropTypes}
- * @property {object} propTypes
- * @property {string} [path] The react-router link
- * @property {string} [title] The items title content
- * @property {string} [label] The items label content
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- */
-ComponentModuleMenuItem.propTypes = {
-    path: PropTypes.string,
-    title: PropTypes.string,
-    label: PropTypes.string,
-    children: PropTypes.node,
-    itemType: PropTypes.string,
-    icon: PropTypes.string,
-    isLabelHidden: PropTypes.bool,
-    itemPropA: PropTypes.string
-};
-
-ComponentModuleMenuItem.defaultProps = {
-    itemType: 'http://www.schema.org/SiteNavigationElement',
-    isLabelHidden: false,
-    itemPropA: 'url'
-};
-
-/**
- * Function representing a component to return a single react child element.
- *
- * This React classes component is defined as a plain JavaScript function.
- * In an ideal world, most of your components would be stateless functions
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
  *
  * @function
- * @param {object} props The current component props
- * @returns {React.Element} React component markup
+ * @param {object} props - The current component props
+ * @returns {ReactElement} React component markup
  */
-function ComponentModuleMenu(props) {
+function ModuleMenu(props) {
 
     const {
         componentType,
@@ -156,9 +66,9 @@ function ComponentModuleMenu(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list && content.list.map((value, index) => {
+            {content.list.map((value, index) => {
                 return (
-                    <ComponentModuleMenuItem
+                    <ModuleMenuItem
                         key={index}
                         path={value.path}
                         title={value.title}
@@ -169,13 +79,10 @@ function ComponentModuleMenu(props) {
                         itemPropA={value.itemPropA}
                     >
                         {value.metaLinkUrl && <link itemProp='url' href={value.metaLinkUrl} />}
-                    </ComponentModuleMenuItem>
+                    </ModuleMenuItem>
                 );
             })}
-            {children && Children.map((child) => {
-                return React.cloneElement(child, {
-                });
-            })}
+            {children}
         </ComponentType>
     );
 
@@ -185,15 +92,14 @@ function ComponentModuleMenu(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} [componentType] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [itemType] The schema.org itemtype url attribute
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [i18n] The component translation config
- * @property {Array.<Object>} [i18n.list] Translation input
+ * @type {Object}
+ * @property {string} [componentType='ul'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content={}] - The component translation config
  */
-ComponentModuleMenu.propTypes = {
+ModuleMenu.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string,
     itemType: PropTypes.string,
@@ -202,28 +108,30 @@ ComponentModuleMenu.propTypes = {
         name: PropTypes.string,
         list: PropTypes.arrayOf(
             PropTypes.shape({
-                url: PropTypes.string,
-                headline: PropTypes.string,
-                lead: PropTypes.string,
-                img: PropTypes.object
+                path: PropTypes.string,
+                title: PropTypes.string,
+                label: PropTypes.string,
+                children: PropTypes.node,
+                itemType: PropTypes.string,
+                icon: PropTypes.string,
+                isLabelHidden: PropTypes.bool,
+                itemPropA: PropTypes.string
             })
         )
     })
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {React.Component.DefaultProps}
-* @property {string} componentType='article' The component element type used for React.createElement
-* @property {string} itemType='https://schema.org/ItemList' The schema.org itemtype url attribute
-* @property {Object} i18n The component translation config
-*/
-ComponentModuleMenu.defaultProps = {
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleMenu.propTypes
+ */
+ModuleMenu.defaultProps = {
     componentType: 'ul',
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
 
-export default ComponentModuleMenu;
+export default ModuleMenu;

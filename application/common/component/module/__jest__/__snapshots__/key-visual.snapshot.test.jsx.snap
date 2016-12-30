@@ -72,4 +72,4 @@ exports[`common/component/module/key-visual should render isWork and isCovered c
 </nav>
 `;
 
-exports[`common/component/module/key-visual should return null if no content image is empty 1`] = `null`;
+exports[`common/component/module/key-visual should return null if content image is empty 1`] = `null`;

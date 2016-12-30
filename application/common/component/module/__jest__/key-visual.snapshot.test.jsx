@@ -35,7 +35,7 @@ describe('common/component/module/key-visual', function () {
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
-    it('should return null if no content image is empty', function () {
+    it('should return null if content image is empty', function () {
         const tree = renderer.create(
             <ModuleKeyVisual
                 {...defaultProps}

@@ -25,7 +25,7 @@ import classnames from 'classnames';
  *
  * @constructor
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
 
@@ -35,6 +35,10 @@ function ElementIcon(props) {
         icon,
         ...otherProps
     } = props;
+
+    if (!icon) {
+        return null;
+    }
 
     const ComponentHtmlElement = htmlElement;
     const componentClassName = classnames(`c-font-icon--${icon}`, className);
@@ -55,7 +59,7 @@ function ElementIcon(props) {
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  */
 ElementIcon.propTypes = {
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.string,
     htmlElement: PropTypes.string,
     className: PropTypes.string
 };
