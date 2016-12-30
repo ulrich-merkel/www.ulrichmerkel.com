@@ -4,7 +4,6 @@ import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import sinon from 'sinon';
 
 import mockedStore from './../../__mocks__/store';
 import { ModuleText } from './../text';
