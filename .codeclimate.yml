@@ -10,8 +10,9 @@ engines:
       - php
   eslint:
     enabled: true
+    channel: "eslint-3"
     config:
-      config: config/.eslintrc.codeclimate.json
+      config: config/.eslintrc.json
   fixme:
     enabled: true
 ratings:
