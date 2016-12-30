@@ -5,7 +5,7 @@ import TestUtils from 'react-addons-test-utils';
 
 import picturefill from './../picturefill';
 
-describe('common/decorator/picturefill', function () {
+describe('common/component/decorator/picturefill', function () {
     it('should return the source component', function () {
         const ChildComponent = function () {
             return <h1>Test</h1>;
