@@ -33,7 +33,7 @@ import { getPageOffset } from './../../utils/scroll-to';
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {Object} SourceComponent - The react component to be decorated
+ * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
 function scroller(SourceComponent) {
