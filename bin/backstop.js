@@ -71,9 +71,9 @@ class Backstop {
 
     /**
      * @constructs
-     * @param {string} configFile
-     * @param {Object} options
-     * @param {string} method
+     * @param {string} configFile - The backstop config json
+     * @param {Object} options - The cli options
+     * @param {string} method - The cli method to be called
      * @returns {void}
      */
     constructor(configFile, options, method) {
@@ -150,9 +150,9 @@ class Backstop {
      *
      * @function
      * @private
-     * @param {string} configFile
-     * @param {Object} options
-     * @param {string} method
+     * @param {string} configFile - The backstop config json
+     * @param {Object} options - The cli options
+     * @param {string} method - The cli method to be called
      * @returns {Promise}
      */
     configure(configFile, options = {}, method) {
@@ -177,7 +177,7 @@ class Backstop {
      *
      * @function
      * @private
-     * @param {string} method
+     * @param {string} method - The cli function to be called
      * @returns {Promise}
      */
     backstop(method) {
@@ -196,7 +196,7 @@ class Backstop {
      *
      * @function
      * @private
-     * @param {string} method
+     * @param {string} method - The cli function to be called
      * @returns {boolean}
      */
     isMethod(method) {
@@ -269,7 +269,7 @@ class Backstop {
      *
      * @function
      * @private
-     * @param {Object} reason
+     * @param {Object} reason - The error message
      * @returns {void}
      */
     fail(reason) {
@@ -289,9 +289,9 @@ class Backstop {
      *
      * @function
      * @private
-     * @param {string} configFile
-     * @param {Object} options
-     * @param {string} method
+     * @param {string} configFile - The backstop config json
+     * @param {Object} options - The cli options
+     * @param {string} method - The cli method to be called
      * @returns {void}
      */
     init(configFile, options, method) {

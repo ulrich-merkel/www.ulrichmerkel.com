@@ -104,8 +104,8 @@ function xorEncode(data, key) {
  * Encrypt data string.
  *
  * @function
- * @param {string} data
- * @param {string} key
+ * @param {string} data - The string to be encrypted
+ * @param {string} key - The password phrase used for crypt
  * @returns {string}
  */
 function encrypt(data, key) {
@@ -119,8 +119,8 @@ function encrypt(data, key) {
  * Decrypt data string.
  *
  * @function
- * @param {string} data
- * @param {string} key
+ * @param {string} data - The string to be decrypted
+ * @param {string} key - The password phrase used for crypt
  * @returns {string}
  */
 function decrypt(data, key) {

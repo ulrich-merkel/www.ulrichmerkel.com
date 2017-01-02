@@ -1859,6 +1859,12 @@ commander@~2.8.1:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
+comment-parser@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-0.4.0.tgz#b274a3c924b6b2e55768f712acd3e3003cb55f57"
+  dependencies:
+    readable-stream "^2.0.4"
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -2789,6 +2795,13 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
+eslint-plugin-jsdoc@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-2.4.0.tgz#7c1eaa8e88fab04c807472c17b6ff9a1ac7e564d"
+  dependencies:
+    comment-parser "^0.4.0"
+    lodash "^4.5.1"
+
 eslint-plugin-jsx-a11y@2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.3.tgz#4e35cb71b8a7db702ac415c806eb8e8d9ea6c65d"
@@ -2803,6 +2816,12 @@ eslint-plugin-react@6.8.0:
   dependencies:
     doctrine "^1.2.2"
     jsx-ast-utils "^1.3.4"
+
+eslint-plugin-security@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-security/-/eslint-plugin-security-1.2.0.tgz#fdabcbe964927adbd2f73cae654e4188736504f8"
+  dependencies:
+    safe-regex "^1.1.0"
 
 eslint@3.11.1:
   version "3.11.1"
@@ -4807,14 +4826,14 @@ js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
 
-js-yaml@3.6.1, js-yaml@~3.6.1:
+js-yaml@3.6.1, js-yaml@^3.2.1, js-yaml@^3.5.1, js-yaml@^3.5.3, js-yaml@~3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-js-yaml@3.x, js-yaml@^3.1.0, js-yaml@^3.2.1, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.5.3, js-yaml@^3.7.0:
+js-yaml@3.x, js-yaml@^3.1.0, js-yaml@^3.4.3, js-yaml@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
   dependencies:
@@ -7638,6 +7657,10 @@ restore-cursor@^1.0.1:
     exit-hook "^1.0.0"
     onetime "^1.0.0"
 
+ret@~0.1.10:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.13.tgz#38c2702ece654978941edd8b7dfac6aeeef4067d"
+
 retire@1.2.10:
   version "1.2.10"
   resolved "https://registry.yarnpkg.com/retire/-/retire-1.2.10.tgz#7987b2c858fd99ba0c5f7db541b240099451ad90"
@@ -7703,6 +7726,12 @@ rx@^4.1.0:
 safe-buffer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
+
+safe-regex@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
+  dependencies:
+    ret "~0.1.10"
 
 safe-wipe@0.*:
   version "0.2.4"

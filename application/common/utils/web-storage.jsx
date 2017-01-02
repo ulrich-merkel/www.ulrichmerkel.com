@@ -17,12 +17,17 @@
  */
 import { isFunction } from 'lodash';
 
+/**
+ * Handle saving of local data via web-storage api.
+ *
+ * @class
+ */
 class WebStorage {
 
     /**
      * The actual class constructor.
      *
-     * @constructor
+     * @constructs
      * @returns {void}
      */
     constructor() {
@@ -47,7 +52,7 @@ class WebStorage {
      * Get content by key from local store.
      *
      * @function
-     * @param {string} key The key to look for
+     * @param {string} key - The key to look for
      * @returns {string|null} The content if found
      */
     read(key) {
@@ -61,8 +66,8 @@ class WebStorage {
      * Save content in local store.
      *
      * @function
-     * @param {string} key The key to look for
-     * @param {string} value The content to be saved
+     * @param {string} key - The key to look for
+     * @param {string} value - The content to be saved
      * @returns {void}
      */
     save(key, value) {
@@ -75,7 +80,7 @@ class WebStorage {
      * Remove content from local store.
      *
      * @function
-     * @param {string} key The key to look for
+     * @param {string} key - The key to look for
      * @returns {void}
      */
     remove(key) {
