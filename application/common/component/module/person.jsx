@@ -9,16 +9,15 @@
 * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
 * @version 0.0.3
 *
-* @requires React
+* @requires react
 * @requires classnames
-* @requires component/element/h3
-* @requires component/element/paragraph
+* @requires common/component/element/paragraph
 *
 * @changelog
-* - 0.0.4 excluded headline/lead into separate component
-* - 0.0.3 moved to stateless function
+* - 0.0.4 Excluded headline/lead into separate component
+* - 0.0.3 Moved to stateless function
 * - 0.0.2 rewritten for es2015
-* - 0.0.1 basic functions and structure
+* - 0.0.1 Basic functions and structure
 *
 * @example <caption>Example usage (jsx)</caption>
 */
@@ -30,15 +29,9 @@ import P from './../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
  * @constructor
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
 class ModulePerson extends Component {
 
@@ -48,7 +41,8 @@ class ModulePerson extends Component {
             className,
             itemType,
             isCentered,
-            content
+            content,
+            children
         } = this.props;
 
         if (!content) {
@@ -99,6 +93,7 @@ class ModulePerson extends Component {
                 <P className='m-person__website'>
                     <abbr title='Website'>W.</abbr> <a href={`${content.website}`}>{content.website}</a>
                 </P>
+                {children}
             </ComponentType>
         );
     }
@@ -108,25 +103,20 @@ class ModulePerson extends Component {
 * Validate props via React.PropTypes helpers.
 *
 * @static
-* @type {React.Component.PropTypes}
-* @property {string} [componentType] The component element type used for React.createElement
-* @property {string} [className] The component css class names - will be merged into component default classNames
-* @property {boolean} [isCentered] Whether the component text should be centered via css or not
-* @property {boolean} [hasColumns2] Whether the component text should be clusted in columns via css or not
-* @property {string} [itemType] The schema.org itemtype url attribute
-* @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {Object} [i18n] The component translation config
-* @property {string} [i18n.headline] Translation input
-* @property {string} [i18n.lead] Translation input
-* @property {Array.<Object>} [i18n.text] Translation input
-* @property {string} [i18n.datePublished] Translation input
-* @property {string} [i18n.author] Translation input
+* @type {Object}
+* @property {string} [componentType='div'] - The component element type used for React.createElement
+* @property {string} [className] - The component css class names - will be merged into component default classNames
+* @property {boolean} [isCentered=true] - Whether the component text should be centered via css or not
+* @property {string} [itemType='http://schema.org/Person'] - The schema.org itemtype url attribute
+* @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+* @property {Object} [content={}] - The component translation config
 */
 ModulePerson.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string,
     isCentered: PropTypes.bool,
     itemType: PropTypes.string,
+    children: PropTypes.node,
     /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
         name: PropTypes.string,
@@ -142,15 +132,12 @@ ModulePerson.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {React.Component.DefaultProps}
-* @property {string} componentType='article' The component element type used for React.createElement
-* @property {boolean} isCentered=false Whether the component text should be centered via css or not
-* @property {boolean} hasColumns2=true Whether the component text should be clusted in columns via css or not
-* @property {Object} i18n The component translation config
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModulePerson.propTypes
+ */
 ModulePerson.defaultProps = {
     componentType: 'div',
     itemType: 'http://schema.org/Person',

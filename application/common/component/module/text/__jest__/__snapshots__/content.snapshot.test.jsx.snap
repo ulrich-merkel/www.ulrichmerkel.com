@@ -1,0 +1,3 @@
+exports[`common/component/module/text/content should render correctly 1`] = `null`;
+
+exports[`common/component/module/text/content should return null if content is empty 1`] = `null`;

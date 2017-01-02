@@ -13,7 +13,6 @@
  *
  * @requires react
  * @requires react-redux
- * @requires lodash
  * @requires common/state/page/actions
  *
  * @changelog
@@ -28,7 +27,7 @@ import { addPageView } from './../../state/page/actions';
  * The tracking higher order function handling page visits.
  *
  * @function
- * @param {Object} SourceComponent - The react component to be decorated
+ * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
 function addPageTracking(SourceComponent) {

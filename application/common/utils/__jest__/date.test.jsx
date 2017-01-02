@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 import { getDateNow } from './../date';
 
-describe('date', function () {
+describe('common/utils/date', function () {
     it('should return a date via performance', function () {
         global.performance = {
             now: jest.genMockFunction().mockReturnValue(1234567890)

@@ -12,13 +12,13 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/image
+ * @requires common/component/module/featured/item
  *
  * @changelog
- * - 0.0.4 excluded headline/lead into separate component
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Excluded item into separate component
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -29,7 +29,7 @@ import ModuleFeaturedItem from './featured/item';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleFeatured(props) {
@@ -43,7 +43,7 @@ function ModuleFeatured(props) {
         ...otherProps
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!content || !content.list || !content.list.length) {
         return null;
     }
 
@@ -90,11 +90,11 @@ function ModuleFeatured(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='ul'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [itemType='https://schema.org/ItemList'] The schema.org itemtype url attribute
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content='{}'] The component translation config
+ * @property {string} [componentType='ul'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content='{}'] - The component translation config
  */
 ModuleFeatured.propTypes = {
     componentType: PropTypes.string,

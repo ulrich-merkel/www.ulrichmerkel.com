@@ -13,10 +13,10 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/button
+ * @requires common/component/element/button
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
@@ -92,17 +92,17 @@ class ElementButtonGroup extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id The button id attribute
- * @property {string} name The button name attribute
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [type] The button type attribute
- * @property {string} [label] The button label attribute
- * @property {string} [title] The button title attribute
- * @property {string} [btnClassName] The button css class names - will be merged into button default classNames
- * @property {boolean} [isPrimary] Whether the button is primary displayed or not
- * @property {boolean} [isSecondary] Whether the button is secondary displayed or not
- * @property {boolean} [isDisabled] Whether the button is disabled displayed or not
- * @property {boolean} [isPending] Whether the button is pending displayed (form is processing) or not
+ * @property {string} id - The button id attribute
+ * @property {string} name - The button name attribute
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [type] - The button type attribute
+ * @property {string} [label] - The button label attribute
+ * @property {string} [title] - The button title attribute
+ * @property {string} [btnClassName] - The button css class names - will be merged into button default classNames
+ * @property {boolean} [isPrimary] - Whether the button is primary displayed or not
+ * @property {boolean} [isSecondary] - Whether the button is secondary displayed or not
+ * @property {boolean} [isDisabled] - Whether the button is disabled displayed or not
+ * @property {boolean} [isPending] - Whether the button is pending displayed (form is processing) or not
  */
 ElementButtonGroup.propTypes = {
     id: PropTypes.string.isRequired,

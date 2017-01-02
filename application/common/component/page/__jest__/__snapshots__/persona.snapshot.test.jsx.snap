@@ -1,4 +1,4 @@
-exports[`component/page/persona Snapshot should render correctly 1`] = `
+exports[`common/component/page/persona should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"

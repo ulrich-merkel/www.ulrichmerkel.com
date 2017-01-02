@@ -12,13 +12,13 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/grid/col
- * @requires component/element/headline
- * @requires component/element/meta
+ * @requires common/component/grid/col
+ * @requires common/component/element/headline
+ * @requires common/component/element/meta
  *
  * @changelog
- * - 0.0.2 removed inline style for csp support
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Removed inline style for csp support
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -32,7 +32,7 @@ import Meta from './../../element/meta';
  *
  * @function
  * @private
- * @param {string|number} percent The percent value to be calculated in degrees
+ * @param {string|number} percent - The percent value to be calculated in degrees
  * @returns {Object} The classNames config for left and right circle
  */
 function getCssTransformRotate(percent) {
@@ -66,7 +66,7 @@ function getCssTransformRotate(percent) {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleLanguageItem(props) {
@@ -108,9 +108,9 @@ function ModuleLanguageItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] The language item headline
- * @property {string} [lead] The language item lead text
- * @property {string|number} [percent=0] The language capability in percent
+ * @property {string} [headline] - The language item headline
+ * @property {string} [lead] - The language item lead text
+ * @property {string|number} [percent=0] - The language capability in percent
  */
 ModuleLanguageItem.propTypes = {
     headline: PropTypes.string,

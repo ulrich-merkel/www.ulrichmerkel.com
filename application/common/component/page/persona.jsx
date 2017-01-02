@@ -12,20 +12,20 @@
  *
  * @requires react
  * @requires react-helmet
- * @requires component/decorator/add-page-tracking
- * @requires component/decorator/add-content
- * @requires utils/content
- * @requires component/layout/main
- * @requires component/section/text
- * @requires component/section/cornerstone
- * @requires component/section/service
- * @requires component/section/language
- * @requires component/section/reading
+ * @requires common/component/decorator/add-page-tracking
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
+ * @requires common/component/layout/main
+ * @requires common/component/section/text
+ * @requires common/component/section/cornerstone
+ * @requires common/component/section/service
+ * @requires common/component/section/language
+ * @requires common/component/section/reading
  *
  * @changelog
- + - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ + - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
@@ -44,7 +44,7 @@ import SectionReading from './../section/reading';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PagePersona(props) {
@@ -69,7 +69,7 @@ function PagePersona(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] The component translation config
+ * @property {Object} [content={}] - The component translation config
  */
 PagePersona.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([

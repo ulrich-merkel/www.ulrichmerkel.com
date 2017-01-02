@@ -23,7 +23,7 @@ import {
 const mockStore = configureMockStore([thunk]);
 Date.now = jest.genMockFunction().mockReturnValue(1234567890);
 
-describe('actions', function () {
+describe('common/state/config/actions', function () {
     describe('addConfigContent', function () {
         it(`should have a type of ${CONFIG_CONTENT_ADD}`, function () {
             expect(addConfigContent().type).toEqual(CONFIG_CONTENT_ADD);

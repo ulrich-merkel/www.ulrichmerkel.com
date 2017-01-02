@@ -183,6 +183,7 @@
     "backstopjs": "2.3.3",
     "coveralls": "2.11.15",
     "cpx": "1.5.0",
+    "enzyme": "2.7.0",
     "eslint": "3.11.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-flowtype": "2.29.1",
@@ -219,6 +220,7 @@
     "retire": "1.2.10",
     "rimraf": "2.5.4",
     "sassdoc": "2.1.20",
+    "sinon": "1.17.6",
     "stylelint": "7.6.0",
     "uglify-js": "2.7.5",
     "webpack": "2.1.0-beta.27"

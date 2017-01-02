@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -24,7 +24,7 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementLabel(props) {
@@ -51,8 +51,8 @@ function ElementLabel(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] The label css class names - will be merged into component default classNames
- * @property {string} [htmlFor] The label for attribute
+ * @property {string} [className] - The label css class names, will be merged into component default classNames
+ * @property {string} [htmlFor] - The label for attribute
  */
 ElementLabel.propTypes = {
     className: PropTypes.string,

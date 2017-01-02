@@ -73,7 +73,7 @@ function SectionCommonGridSpaced(props) {
  * @static
  * @type {Object}
  * @property {Object} [page] - The redux page state
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 SectionCommonGridSpaced.propTypes = {
     page: PropTypes.object,
@@ -87,12 +87,11 @@ SectionCommonGridSpaced.propTypes = {
  *
  * @function
  * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
  * @returns {Object}
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        page: selectStatePage(state) || ownProps.page
+        page: selectStatePage(state)
     };
 }
 

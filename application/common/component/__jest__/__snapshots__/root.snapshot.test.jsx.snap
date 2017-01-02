@@ -1,1 +1,1 @@
-exports[`components <Root /> should render correctly 1`] = `<div />`;
+exports[`common/component/root should render correctly 1`] = `<div />`;

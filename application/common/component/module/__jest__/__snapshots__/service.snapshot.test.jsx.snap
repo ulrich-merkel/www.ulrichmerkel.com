@@ -1,4 +1,4 @@
-exports[`component/module/service Snapshot should render correctly 1`] = `
+exports[`common/component/module/service should render correctly 1`] = `
 <nav
   className="m-service foo"
   itemScope={true}
@@ -19,13 +19,13 @@ exports[`component/module/service Snapshot should render correctly 1`] = `
         className="m-service__description">
         <h3
           className="is-centered c-type--h3 m-service__headline">
-          headline
+          headline happy
         </h3>
         <p
           className="c-type--p m-service__text"
           dangerouslySetInnerHTML={
             Object {
-              "__html": "text",
+              "__html": "text happy",
             }
           } />
       </div>
@@ -46,13 +46,13 @@ exports[`component/module/service Snapshot should render correctly 1`] = `
         className="m-service__description">
         <h3
           className="is-centered c-type--h3 m-service__headline">
-          headline
+          headline xing
         </h3>
         <p
           className="c-type--p m-service__text"
           dangerouslySetInnerHTML={
             Object {
-              "__html": "text",
+              "__html": "text xing",
             }
           } />
       </div>
@@ -60,6 +60,126 @@ exports[`component/module/service Snapshot should render correctly 1`] = `
   </li>
   <li
     className="m-service__item--clear" />
-  Hello
+  <li
+    className="m-service__item--left"
+    itemProp="itemListElement">
+    <div
+      className="m-service__content">
+      <div
+        className="m-service__icon">
+        <i
+          aria-hidden="true"
+          className="c-font-icon--facebook m-service__icon-font" />
+      </div>
+      <div
+        className="m-service__description">
+        <h3
+          className="is-centered c-type--h3 m-service__headline">
+          headline facebook
+        </h3>
+        <p
+          className="c-type--p m-service__text"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "text facebook",
+            }
+          } />
+      </div>
+    </div>
+  </li>
+  Module service children
 </nav>
 `;
+
+exports[`common/component/module/service should render no itemType if unset 1`] = `
+<nav
+  className="m-service foo"
+  role="list">
+  <li
+    className="m-service__item--left"
+    itemProp="itemListElement">
+    <div
+      className="m-service__content">
+      <div
+        className="m-service__icon">
+        <i
+          aria-hidden="true"
+          className="c-font-icon--happy m-service__icon-font" />
+      </div>
+      <div
+        className="m-service__description">
+        <h3
+          className="is-centered c-type--h3 m-service__headline">
+          headline happy
+        </h3>
+        <p
+          className="c-type--p m-service__text"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "text happy",
+            }
+          } />
+      </div>
+    </div>
+  </li>
+  <li
+    className="m-service__item--right"
+    itemProp="itemListElement">
+    <div
+      className="m-service__content">
+      <div
+        className="m-service__icon">
+        <i
+          aria-hidden="true"
+          className="c-font-icon--xing m-service__icon-font" />
+      </div>
+      <div
+        className="m-service__description">
+        <h3
+          className="is-centered c-type--h3 m-service__headline">
+          headline xing
+        </h3>
+        <p
+          className="c-type--p m-service__text"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "text xing",
+            }
+          } />
+      </div>
+    </div>
+  </li>
+  <li
+    className="m-service__item--clear" />
+  <li
+    className="m-service__item--left"
+    itemProp="itemListElement">
+    <div
+      className="m-service__content">
+      <div
+        className="m-service__icon">
+        <i
+          aria-hidden="true"
+          className="c-font-icon--facebook m-service__icon-font" />
+      </div>
+      <div
+        className="m-service__description">
+        <h3
+          className="is-centered c-type--h3 m-service__headline">
+          headline facebook
+        </h3>
+        <p
+          className="c-type--p m-service__text"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "text facebook",
+            }
+          } />
+      </div>
+    </div>
+  </li>
+  Module service children
+</nav>
+`;
+
+exports[`common/component/module/service should return null if no content is given 1`] = `null`;

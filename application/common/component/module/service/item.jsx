@@ -12,12 +12,12 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/headline
- * @requires component/element/paragraph
- * @requires component/element/icon
+ * @requires common/component/element/headline
+ * @requires common/component/element/paragraph
+ * @requires common/component/element/icon
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -31,10 +31,10 @@ import Icon from './../../element/icon';
  *
  * @constructor
  * @private
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ComponentModuleServiceItem(props) {
+function ModuleServiceItem(props) {
 
     const {
         headline,
@@ -84,13 +84,13 @@ function ComponentModuleServiceItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] The component element headline text
- * @property {string} [text] The component element text
- * @property {number} [index] The component element index count
- * @property {string} [iconClassName] The component element additional icon classname
- * @property {boolean} [isClear] Whether this is a cleared entry or not
+ * @property {string} [headline] - The component element headline text
+ * @property {string} [text] - The component element text
+ * @property {number} [index] - The component element index count
+ * @property {string} [iconClassName] - The component element additional icon classname
+ * @property {boolean} [isClear] - Whether this is a cleared entry or not
  */
-ComponentModuleServiceItem.propTypes = {
+ModuleServiceItem.propTypes = {
     headline: PropTypes.string,
     text: PropTypes.string,
     index: PropTypes.number,
@@ -98,4 +98,4 @@ ComponentModuleServiceItem.propTypes = {
     isClear: PropTypes.bool
 };
 
-export default ComponentModuleServiceItem;
+export default ModuleServiceItem;

@@ -1,4 +1,4 @@
-exports[`component/module/key-visual/article Snapshot should render correctly 1`] = `
+exports[`common/component/module/key-visual/article should render correctly 1`] = `
 <article
   className="m-key-visual__text">
   <h3
@@ -20,4 +20,4 @@ exports[`component/module/key-visual/article Snapshot should render correctly 1`
 </article>
 `;
 
-exports[`component/module/key-visual/article Snapshot should render null if no content is provided 1`] = `null`;
+exports[`common/component/module/key-visual/article should render null if no content is provided 1`] = `null`;

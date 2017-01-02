@@ -1,0 +1,30 @@
+exports[`common/component/module/featured/item should render correctly 1`] = `
+<a
+  className="m-featured__item"
+  itemProp="itemListElement"
+  itemScope={true}
+  itemType="http://schema.org/SiteNavigationElement"
+  onClick={[Function]}
+  style={Object {}}
+  title="Featured item work headline">
+  <span
+    className="m-featured__hover">
+    <span
+      className="m-featured__text">
+      <span
+        aria-level="3"
+        className="m-featured__headline"
+        role="heading">
+        Featured item work headline
+      </span>
+      <span
+        aria-hidden="true"
+        className="m-featured__icon c-font-icon--plus" />
+    </span>
+  </span>
+  Module featured item children
+  <meta
+    content="Featured item work headline"
+    itemProp="name" />
+</a>
+`;

@@ -12,12 +12,12 @@
  * @version 0.0.4
  *
  * @requires react
- * @requires component/section/common/grid-spaced
- * @requires component/module/article
- * @requires component/module/list
+ * @requires common/component/section/common/grid-spaced
+ * @requires common/component/module/article
+ * @requires common/component/module/list
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 

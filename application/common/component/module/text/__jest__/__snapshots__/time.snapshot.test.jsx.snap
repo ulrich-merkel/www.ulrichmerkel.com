@@ -1,0 +1,19 @@
+exports[`common/component/module/text/time should render correctly 1`] = `
+<div
+  className="m-text__time is-centered">
+  <time
+    className="c-time">
+    123
+  </time>
+  <span
+    className="c-time--separator">
+    -
+  </span>
+  <time
+    className="c-time">
+    456
+  </time>
+</div>
+`;
+
+exports[`common/component/module/text/time should return null if text is empty 1`] = `null`;

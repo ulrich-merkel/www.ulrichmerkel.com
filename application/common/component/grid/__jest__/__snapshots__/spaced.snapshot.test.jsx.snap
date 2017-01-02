@@ -1,6 +1,6 @@
-exports[`component/grid/spaced Snapshot should render correctly 1`] = `
+exports[`common/component/grid/spaced should render correctly 1`] = `
 <div
   className="l-grid__spaced--small">
-  Hello
+  Grid Spaced Children
 </div>
 `;

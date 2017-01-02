@@ -31,6 +31,11 @@ import React, { Component } from 'react';
  */
 function initPicturefill() {
 
+    // could be undefined e.g. in test files
+    if (typeof picturefill === 'undefined') {
+        return;
+    }
+
     /**
      * For olders versions of picturefill the global pictureFill reference will be undefined for
      * browsers supporting <picture> natively. In newer versions (>= 3) pictureFill is exporting
@@ -50,7 +55,7 @@ function initPicturefill() {
  * The pictureFill higher order function handling responsive images.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
+ * @param {ReactElement} SourceComponent The react component to be decorated
  * @returns {ReactElement}
  */
 function pictureFill(SourceComponent) {

@@ -9,15 +9,37 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  *
- * @TODO: Add classname and htmlElement to props
+ * @TODO: Add classname and htmlElement to props, add honeypot again
  *
- * @requires *
+ * @requires react
+ * @requires react-redux
+ * @requires lodash
+ * @requires common/config/application
+ * @requires common/utils/environment
+ * @requires common/utils/xor
+ * @requires common/utils/logger
+ * @requires common/utils/scroll-to
+ * @requires common/utils/xhr
+ * @requires common/state/selectors
+ * @requires common/state/contact/actions
+ * @requires common/state/contact/utils
+ * @requires common/component/grid/row
+ * @requires common/component/grid/col
+ * @requires common/component/element/form
+ * @requires common/component/element/fieldset
+ * @requires common/component/element/legend
+ * @requires common/component/element/input-group
+ * @requires common/component/element/textarea-group
+ * @requires common/component/element/button-group
+ * @requires common/component/element/headline
+ * @requires common/component/element/paragraph
+ * @requires common/component/element/button
  *
  * @changelog
- * - 0.0.4 refactored, simplified state
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Refactored, simplified state
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -70,7 +92,7 @@ const xorKey = configApplication.xor.key;
  *
  * @function
  * @private
- * @param {Object} textMessage
+ * @param {Object} textMessage - The text message dom node
  * @returns {void}
  */
 function scrollToTextMessage(textMessage) {
@@ -82,12 +104,12 @@ function scrollToTextMessage(textMessage) {
     }
 }
 /**
- * Helper function to send post request
+ * Helper function to send post request.
  *
  * @function
  * @private
- * @param {Object} data The post data to be send
- * @param {Object} [csrfToken=''] The csrf token string to be validated
+ * @param {Object} data - The post data to be send
+ * @param {Object} [csrfToken=''] - The csrf token string to be validated
  * @returns {Future}
  */
 function send(data, csrfToken = '') {
@@ -113,8 +135,8 @@ function send(data, csrfToken = '') {
  *
  * @function
  * @private
- * @param {string} key
- * @param {Object} storeState
+ * @param {string} key - The state's key
+ * @param {Object} storeState - The redux contact state
  * @returns {*}
  */
 function getState(key, storeState) {
@@ -132,11 +154,8 @@ class ModuleFormContact extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
-     *
      * @constructs
-     * @param {Object} [props] The initial class properties
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -186,7 +205,7 @@ class ModuleFormContact extends Component {
      *
      * @function
      * @private
-     * @param {Object} e The current sytheticEvent object
+     * @param {Object} e - The current sytheticEvent object
      * @returns {void}
      */
     onChange(e) {
@@ -200,7 +219,7 @@ class ModuleFormContact extends Component {
         const stateName = target.name;
 
         /**
-         * setState() is not a synchronous operation, so we have to pass a callback
+         * setState() is not a synchronous operation, so we have to pass a callback.
          *
          * setState() does not immediately mutate this.state but creates a pending state transition.
          * Accessing this.state after calling this method can potentially return the existing value.
@@ -227,7 +246,7 @@ class ModuleFormContact extends Component {
      *
      * @function
      * @private
-     * @param {Object} e The current event object
+     * @param {Object} e - The current event object
      * @returns {void}
      */
     onSubmit(e) {
@@ -334,7 +353,7 @@ class ModuleFormContact extends Component {
     }
 
     /**
-     * Render success message
+     * Render success message.
      *
      * @function
      * @private
@@ -354,7 +373,7 @@ class ModuleFormContact extends Component {
     }
 
     /**
-     * Render eror message
+     * Render error message.
      *
      * @function
      * @private
@@ -560,7 +579,9 @@ ModuleFormContact.propTypes = {
  * @see ModuleFormContact.propTypes
  */
 ModuleFormContact.defaultProps = {
-    content: {}
+    content: {},
+    storeState: {},
+    handleContactChange: Function.prototype
 };
 
 /**
@@ -570,8 +591,7 @@ ModuleFormContact.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state The redux store state
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Object.<*>} state - The redux store state
  * @returns {Object}
  */
 function mapStateToProps(state) {
@@ -589,8 +609,7 @@ function mapStateToProps(state) {
  * If a function is passed, it will be given dispatch.
  *
  * @function
- * @param {Function} dispatch The redux store dispatch function
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}
  */
 function mapDispatchToProps(dispatch) {
@@ -611,3 +630,6 @@ const ModuleFormContactContainer = connect(
 )(ModuleFormContact);
 
 export default ModuleFormContactContainer;
+export {
+    ModuleFormContact
+};

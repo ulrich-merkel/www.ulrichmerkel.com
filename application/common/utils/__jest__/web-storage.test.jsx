@@ -7,7 +7,7 @@ global.localStorage = mockedLocalStorage;
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';
 const key = 'test';
 
-describe('webStorage', function () {
+describe('common/utils/webStorage', function () {
     let webStorage = null;
 
     beforeEach(function () {
@@ -21,12 +21,10 @@ describe('webStorage', function () {
     it('should save data', function () {
         expect(webStorage.save(key, data)).toBeUndefined();
     });
-
     it('should read data', function () {
         webStorage.save(key, data);
         expect(webStorage.read(key)).toEqual(data);
     });
-
     it('should delete data', function () {
         webStorage.save(key, data);
         expect(webStorage.read(key)).toEqual(data);

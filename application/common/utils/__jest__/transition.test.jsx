@@ -2,7 +2,7 @@
 import getSectionTransition from './../transition';
 import configApplication from './../../config/application';
 
-describe('transition', function () {
+describe('common/utils/transition', function () {
 
     const transition = configApplication.transition;
 
@@ -17,11 +17,9 @@ describe('transition', function () {
             }
         ));
     });
-
     it('should apply default transition if viewsAfterReload is greater than 1', function () {
         expect(getSectionTransition({
             viewsAfterReload: 2
         })).toEqual(transition);
     });
-
 });

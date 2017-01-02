@@ -1,12 +1,36 @@
-exports[`component/element/a Snapshot should render correctly 1`] = `
+exports[`common/component/element/a should handle correct link to index page 1`] = `
 <a
-  className="c-link foo"
+  className="c-link link-a"
+  lang="de"
+  onClick={[Function]}
+  style={Object {}}
+  tabIndex="0"
+  title="Link title">
+  Link Children
+</a>
+`;
+
+exports[`common/component/element/a should handle correct link to relative page 1`] = `
+<a
+  className="c-link link-a"
+  lang="de"
+  onClick={[Function]}
+  style={Object {}}
+  tabIndex="0"
+  title="Link title">
+  Link Children
+</a>
+`;
+
+exports[`common/component/element/a should render correctly 1`] = `
+<a
+  className="c-link link-a"
   href="testpage"
-  lang="foobar"
+  lang="de"
   rel="noopener noreferrer"
   tabIndex="0"
   target="_blank"
-  title="bar">
-  Hello
+  title="Link title">
+  Link Children
 </a>
 `;
