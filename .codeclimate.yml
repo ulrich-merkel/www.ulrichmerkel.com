@@ -25,6 +25,7 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-- bin/
-- config/
-- application/common/vendor/
+- "bin/"
+- "config/"
+- "application/common/vendor/"
+- "**/__jest__/"
