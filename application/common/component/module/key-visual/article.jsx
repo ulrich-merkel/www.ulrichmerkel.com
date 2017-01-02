@@ -29,7 +29,6 @@ import P from './../../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @constructor
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */

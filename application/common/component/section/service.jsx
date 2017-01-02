@@ -31,7 +31,7 @@ import ModuleService from './../module/service';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
+ * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */

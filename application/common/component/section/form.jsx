@@ -29,8 +29,8 @@ import ModuleArticle from './../module/article';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionForm(props) {

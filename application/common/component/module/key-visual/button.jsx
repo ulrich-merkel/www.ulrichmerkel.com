@@ -27,15 +27,8 @@ import Button from './../../element/button';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @private
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {React.Element} React component markup
  */
 function ModuleKeyVisualButton(props) {
@@ -72,10 +65,10 @@ function ModuleKeyVisualButton(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} [headline] The button title content
- * @property {string} [lead] The button label content
- * @property {Function} [onClickBtn] The button onclick handler
+ * @type {Object}
+ * @property {string} [headline] - The button title content
+ * @property {string} [lead] - The button label content
+ * @property {Function} [onClickBtn] - The button onclick handler
  */
 ModuleKeyVisualButton.propTypes = {
     title: PropTypes.string,

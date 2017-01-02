@@ -70,7 +70,7 @@ class PageWork extends Component {
     /**
      * The actual class constructor.
      *
-     * @constructor
+     * @constructs
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */

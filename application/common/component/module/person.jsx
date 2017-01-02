@@ -27,14 +27,19 @@ import classnames from 'classnames';
 import P from './../element/paragraph';
 
 /**
- * Function representing a component to return a single react child element.
+ * Class representing a component.
  *
- * @constructor
- * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @class
+ * @extends React.Component
  */
 class ModulePerson extends Component {
 
+    /**
+     * The required render function to return a single react child element.
+     *
+     * @function
+     * @returns {ReactElement} React component markup
+     */
     render() {
         const {
             componentType,

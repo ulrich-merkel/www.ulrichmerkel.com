@@ -26,7 +26,7 @@ import ModuleMenuItem from './menu/item';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {object} props - The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleMenu(props) {
