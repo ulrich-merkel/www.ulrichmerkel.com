@@ -46,6 +46,41 @@ Using next generation JavaScript today
 * [JSDoc](https://github.com/jsdoc3/jsdoc) - An API documentation generator for JavaScript
 * [SassDoc](https://github.com/SassDoc/sassdoc) - A SCSS documentation system to build pretty docs
 
+## Basic NPM script commands
+
+```Shell
+$ npm run watch
+```
+
+* Start watching source files and rebuild them when changes occur.
+* Build all files in development mode before start watching.
+
+```Shell
+$ npm run dev
+```
+
+* Build files in development mode, which is nearly the same as production but without minification.
+* Try to run subtasks in parallel if possible.
+
+```Shell
+$ npm run build
+```
+
+* Build files in production mode, minify and optimize files as much as possible.
+* Try to run subtasks in parallel if possible.
+
+```Shell
+$ npm run test
+```
+
+* Executes all testing and linting tools in parallel.
+
+```Shell
+$ npm run doc
+```
+
+* Generate JSDoc and SassDoc files and folders.
+
 
 ## Project Structure
 
@@ -83,27 +118,6 @@ Using next generation JavaScript today
 |- yarn.lock - Yarn configuration file
 ```
 
-## Basic NPM script commands
-
-### `npm run watch`
-
-* Start watching source files and rebuild them when changes occur.
-
-### `npm run dev`
-
-* Build files in development mode, which is nearly the same as production but without minification. Try to run subtasks in parallel if possible.
-
-### `npm run build`
-
-* Build files in production mode, minify and optimize files as much as possible. Try to run subtasks in parallel if possible.
-
-### `npm run test`
-
-* Executes all testing and linting tools in parallel.
-
-### `npm run doc`
-
-* Generate JSDoc and SassDoc files and folders.
 
 ## Some links which inspired my work
 
