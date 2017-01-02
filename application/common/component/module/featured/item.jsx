@@ -34,8 +34,7 @@ import Picture from './../../element/picture';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @private
+ * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */

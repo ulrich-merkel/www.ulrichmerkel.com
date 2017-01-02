@@ -25,7 +25,7 @@ const readFileOptions = {
  * Helper function to read file async from disc.
  *
  * @function
- * @param {string} fileName The file name
+ * @param {string} fileName - The file name
  * @returns {Function} The promise for this request
  */
 function readFile(fileName) {
@@ -50,7 +50,7 @@ function readFile(fileName) {
  *
  * @function
  * @deprecated Please use the async version
- * @param {string} fileName The file name
+ * @param {string} fileName - The file name
  * @returns {string} The utf-8 encoded file contents
  */
 function readFileSync(fileName) {

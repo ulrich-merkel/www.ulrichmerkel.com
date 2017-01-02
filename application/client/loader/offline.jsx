@@ -32,7 +32,7 @@ function getApi() {
  * Set progress bar values.
  *
  * @private
- * @param {string} value The progress value to be set
+ * @param {string} value - The progress value to be set
  * @returns {void}
  */
 function displayProgress(value) {
@@ -65,7 +65,7 @@ function displayAllLoaded() {
  * Handle application cache progress event.
  *
  * @private
- * @param {Object} e The event object
+ * @param {Object} e - The event object
  * @returns {void}
  */
 function onProgressEvent(e) {

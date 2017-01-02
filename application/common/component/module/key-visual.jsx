@@ -46,7 +46,7 @@ class ModuleKeyVisual extends Component {
      * We do this just because of completeness.
      *
      * @constructs
-     * @param {Object} [props] The initial class properties
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(...props) {

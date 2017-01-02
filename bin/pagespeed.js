@@ -44,7 +44,7 @@ process.stdin.setEncoding('utf8');
 /**
  * Get builded server entry.
  *
- * @TODO: Check if file exists
+ * @todo: Check if file exists
  *
  * @function
  * @private
@@ -68,7 +68,7 @@ function runPageSpeedInsights(url) {
     assert.string(url, 'url');
     console.log(chalk.grey('Starting PageSpeed Insights'));
 
-    // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
+    // @todo: Check if psi.output could be used again (removed due to non resolving promise)
     return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
         console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
         console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);

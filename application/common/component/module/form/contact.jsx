@@ -279,10 +279,10 @@ class ModuleFormContact extends Component {
      *
      * @function
      * @private
-     * @param {string} headline
-     * @param {string} text
-     * @param {string} btnTitle
-     * @param {string} btnLabel
+     * @param {string} headline - The message headline
+     * @param {string} text - The message text body
+     * @param {string} btnTitle - The message button title
+     * @param {string} btnLabel - The message button label
      * @returns {ReactElement}
      */
     getTextMessage(headline, text, btnTitle, btnLabel) {

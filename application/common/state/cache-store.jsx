@@ -60,7 +60,7 @@ function loadState() {
  * Save the given application state.
  *
  * @function
- * @param {Object} state
+ * @param {Object} state - The state object to be saved
  * @returns {void}
  */
 function saveState(state) {

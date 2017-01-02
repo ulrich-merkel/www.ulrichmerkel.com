@@ -25,7 +25,7 @@ import A from './../../element/a';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
+ * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement|null} React component markup
  */

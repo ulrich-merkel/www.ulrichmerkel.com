@@ -61,7 +61,7 @@ class LayoutDialog extends Component {
      * because a default constructor will call super(...props) for us.
      * We do this just because of completeness.
      *
-     * @constructor
+     * @constructs
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */

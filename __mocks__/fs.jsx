@@ -21,7 +21,7 @@ const fs = jest.genMockFromModule('fs');
  * @see {@link https://facebook.github.io/jest/docs/manual-mocks.html}
  *
  * @function
- * @param {Object} newMockFiles The file config
+ * @param {Object} newMockFiles - The file config
  * @returns {void}
  */
 let mockFiles = Object.create(null);
@@ -54,7 +54,7 @@ function __getMockFiles() {
  *
  * @function
  * @private
- * @param {string} filePath
+ * @param {string} filePath - The current path to file
  * @returns {string}
  */
 function __getMockFile(filePath) {
@@ -69,9 +69,9 @@ function __getMockFile(filePath) {
  * A custom version of node's `readFile`.
  *
  * @function
- * @param {string} filePath
- * @param {Object} [options={}]
- * @param {Function} callback
+ * @param {string} filePath - The current path to file
+ * @param {Object} [options={}] - The fs function options
+ * @param {Function} callback - The ready handler
  * @returns {void}
  */
 function readFile(filePath, options = {}, callback) {
@@ -84,8 +84,8 @@ function readFile(filePath, options = {}, callback) {
  * A custom version of node's `readFileSync`.
  *
  * @function
- * @param {string} filePath
- * @param {Object} [options={}]
+ * @param {string} filePath - The current path to file
+ * @param {Object} [options={}] - The fs function options
  * @returns {string}
  */
 function readFileSync(filePath, options = {}) {
@@ -98,7 +98,7 @@ function readFileSync(filePath, options = {}) {
  * A custom version of node's `existsSync`.
  *
  * @function
- * @param {string} filePath
+ * @param {string} filePath - The current path to file
  * @returns {boolean}
  */
 function existsSync(filePath) {

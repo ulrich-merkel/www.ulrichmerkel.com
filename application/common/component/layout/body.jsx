@@ -93,6 +93,7 @@ class LayoutBody extends Component {
      * Scroll to top animation helper.
      *
      * @function
+     * @param {Object} e - The synthetic react event
      * @returns {void}
      */
     handleScrollTop(e) { // eslint-disable-line class-methods-use-this
