@@ -28,7 +28,7 @@ function getDocumentDomNode() {
  * Get dom node element by id.
  *
  * @function
- * @param {string} id The elements tag name
+ * @param {string} id - The elements tag name
  * @returns {Object|null} The current element or null
  */
 function getDomNodeById(id) {
@@ -40,7 +40,7 @@ function getDomNodeById(id) {
  * Get dom node element by tag name.
  *
  * @function
- * @param {string} name The elements tag name
+ * @param {string} name - The elements tag name
  * @returns {Object|null} The current element or null
  */
 function getDomNodeByTagName(name) {
@@ -52,7 +52,7 @@ function getDomNodeByTagName(name) {
  * Get first dom node element by tag name.
  *
  * @function
- * @param {string} name The elements tag name
+ * @param {string} name - The elements tag name
  * @returns {Object|null} The current element or null
  */
 function getFirstDomNodeByTagName(name) {
@@ -74,9 +74,9 @@ function getHeadDomNode() {
  * Get first dom node element by tag name.
  *
  * @function
- * @param {string} id The elements id
- * @param {string} name The elements attribute name
- * @param {string} value The elements attribute value
+ * @param {string} id - The elements id
+ * @param {string} name - The elements attribute name
+ * @param {string} value - The elements attribute value
  * @returns {void}
  */
 function setDomNodeByAttribute(id, name, value) {
@@ -92,9 +92,9 @@ function setDomNodeByAttribute(id, name, value) {
  * Create dom node element.
  *
  * @function
- * @param {string} name The node element name type
- * @param {Object} attributes Name/value mapping of the element attributes
- * @return {Object|null} The created html object
+ * @param {string} name - The node element name type
+ * @param {Object} attributes - Name/value mapping of the element attributes
+ * @returns {Object|null} The created html object
  */
 function createDomNode(name, attributes) {
 

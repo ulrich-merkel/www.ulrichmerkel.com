@@ -32,7 +32,7 @@ import ModuleText from './../module/text';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionText(props) {
@@ -61,9 +61,9 @@ function SectionText(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The content config input
- * @property {boolean} [isMain] Whether the component text should be displayed as main article or not
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] - The content config input
+ * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
  */
 SectionText.propTypes = {
     children: PropTypes.node,

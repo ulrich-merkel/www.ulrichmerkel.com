@@ -83,7 +83,7 @@ const loggerMiddleware = createLogger();
  * There should only be a single store in your app.
  *
  * @function
- * @param {Object} [preloadedState={}] Initial store config to reduce the payload on load
+ * @param {Object} [preloadedState={}] - Initial store config to reduce the payload on load
  * @returns {Object} The newly created store
  */
 function configureStore(preloadedState = {}) {

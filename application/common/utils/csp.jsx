@@ -40,7 +40,7 @@ import { isEmpty } from 'lodash';
  *
  * @function
  * @private
- * @param {number} length
+ * @param {number} length - The generated number length
  * @returns {string}
  */
 function getNonce(length = 40) {
@@ -83,7 +83,7 @@ function getNonceConfig() {
  * @see {@link http://stackoverflow.com/questions/32788355/csp-nonce-ignored-by-safari}
  *
  * @function
- * @param {Object} nonceConfig
+ * @param {Object} nonceConfig - The output from a getNonceConfig call
  * @returns {string}
  */
 function getCspRules(nonceConfig) {

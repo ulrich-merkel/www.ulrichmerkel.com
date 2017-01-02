@@ -30,7 +30,7 @@ import ModuleKeyVisual from './../module/key-visual';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionKeyVisual(props) {
@@ -55,8 +55,8 @@ function SectionKeyVisual(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The content config input
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] - The content config input
  */
 SectionKeyVisual.propTypes = {
     children: PropTypes.node,

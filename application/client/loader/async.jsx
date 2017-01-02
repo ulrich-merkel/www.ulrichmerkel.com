@@ -26,8 +26,8 @@ const classNameLoaded = constants.IS_LAZY_LOADED;
  * @see {@link https://github.com/filamentgroup/loadCSS}
  *
  * @function
- * @param {string} src The css path to be loaded
- * @param {Function} [callback] The success/error handler for async loading
+ * @param {string} src - The css path to be loaded
+ * @param {Function} [callback] - The success/error handler for async loading
  * @returns {void}
  */
 function css(src, callback = Function.prototype) {
@@ -75,8 +75,8 @@ function css(src, callback = Function.prototype) {
  * @see {@link https://github.com/filamentgroup/loadJS}
  *
  * @function
- * @param {string} src The css path to be loaded
- * @param {Function} [callback] The success/error handler for async loading
+ * @param {string} src - The css path to be loaded
+ * @param {Function} [callback] - The success/error handler for async loading
  * @returns {void}
  */
 function js(src, callback = Function.prototype) {

@@ -9,13 +9,14 @@
  * @version 0.0.1
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 
 /**
  * Parse boolean values from string.
  *
- * @param {string|boolean} [value=''] The value to be checked
+ * @function
+ * @param {string|boolean} [value=''] - The value to be checked
  * @returns {boolean|undefined} The parsed value or undefined
  */
 function toBoolean(value = '') {
