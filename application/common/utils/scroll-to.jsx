@@ -29,7 +29,7 @@ import { isBrowser } from './environment';
  *
  * @function
  * @private
- * @param {number} t The current animation process running from 0 to 1
+ * @param {number} t - The current animation process running from 0 to 1
  * @returns {number} The next process value
  */
 function easeInOutQuad(t) {
@@ -100,11 +100,11 @@ function getPageOffset() {
  *
  * @function
  * @private
- * @param {Object} [options] The scrolling options
- * @param {number} [options.top] The window scroll top position
- * @param {number} [options.duration] The scrolling animation time
- * @param {Function} [options.easing] The animation easing function
- * @param {Function} [options.callback] The animation done callback
+ * @param {Object} [options] - The scrolling options
+ * @param {number} [options.top] - The window scroll top position
+ * @param {number} [options.duration] - The scrolling animation time
+ * @param {Function} [options.easing] - The animation easing function
+ * @param {Function} [options.callback] - The animation done callback
  * @returns {void}
  */
 function animate(options) {
@@ -146,11 +146,11 @@ function animate(options) {
  * Animate window scroll position.
  *
  * @function
- * @param {Object} [opts={}] The scrolling options
- * @param {number} [opts.top=0] The window scroll top position
- * @param {number} [opts.duration=300] The scrolling animation time
- * @param {Function} [opts.easing=easeInOutQuad] The animation easing function
- * @param {Function} [opts.callback=Function.prototype] The animation done callback
+ * @param {Object} [opts={}] - The scrolling options
+ * @param {number} [opts.top=0] - The window scroll top position
+ * @param {number} [opts.duration=300] - The scrolling animation time
+ * @param {Function} [opts.easing=easeInOutQuad] - The animation easing function
+ * @param {Function} [opts.callback=Function.prototype] - The animation done callback
  * @returns {void}
  */
 function scrollTo(opts = {}) {

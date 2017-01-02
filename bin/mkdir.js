@@ -56,8 +56,8 @@ const config = [
  *
  * @function
  * @private
- * @param {string} directory
- * @param {Function} callback
+ * @param {string} directory - The directory name
+ * @param {Function} callback - The ready callback
  * @returns {void}
  */
 function checkBuildDirectory(directory, callback) {
@@ -77,8 +77,8 @@ function checkBuildDirectory(directory, callback) {
  *
  * @function
  * @private
- * @param {Array} folders
- * @param {Function} callback
+ * @param {Array} folders - The folders to be checked
+ * @param {Function} callback - The final ready function
  * @returns {void}
  */
 function runThroughFolders(folders, callback) {
@@ -97,8 +97,8 @@ function runThroughFolders(folders, callback) {
  *
  * @function
  * @private
- * @param {Array} folders
- * @param {Function} callback
+ * @param {Array} folders - The folders to be checked
+ * @param {Function} callback - The final ready function
  * @returns {void}
  */
 function emptyFolders(folders, callback) {
@@ -120,7 +120,7 @@ function emptyFolders(folders, callback) {
  *
  * @function
  * @private
- * @param {Array} folders
+ * @param {Array} folders - The folders to be checked
  * @returns {void}
  */
 function createFolders(folders) {

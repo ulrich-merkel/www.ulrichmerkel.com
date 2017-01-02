@@ -41,12 +41,8 @@ class ModuleKeyVisualPicture extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
-     * We do this just because of completeness.
-     *
      * @constructs
-     * @param {Object} [props] The initial class properties
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -104,7 +100,7 @@ class ModuleKeyVisualPicture extends Component {
     }
 
     /**
-     * Set background image if it should be covered
+     * Set background image if it should be covered.
      *
      * @function
      * @returns {void}
@@ -126,6 +122,10 @@ class ModuleKeyVisualPicture extends Component {
                 }
             });
 
+        } else {
+            this.setState({
+                pictureStyle: {}
+            });
         }
     }
 
@@ -136,6 +136,7 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
+
         const {
             img,
             type
@@ -175,9 +176,9 @@ class ModuleKeyVisualPicture extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [img={}] The image alt description
- * @property {string} [type='digital'] The image src url
- * @property {boolean} [isCovered] Whether the image should be background size covered or not
+ * @property {string} [img={}] - The image alt description
+ * @property {string} [type='digital'] - The image src url
+ * @property {boolean} [isCovered] - Whether the image should be background size covered or not
  */
 ModuleKeyVisualPicture.propTypes = {
     img: PropTypes.object,

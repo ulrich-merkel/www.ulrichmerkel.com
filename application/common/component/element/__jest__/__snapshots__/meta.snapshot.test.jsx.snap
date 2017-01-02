@@ -1,11 +1,11 @@
-exports[`component/element/meta Snapshot should render correctly 1`] = `
+exports[`common/component/element/meta should render correctly 1`] = `
 <meta
   content="bar"
   itemProp="foo"
   name="name"
   property="foo">
-  Hello
+  Meta Children rendered
 </meta>
 `;
 
-exports[`component/element/meta Snapshot should render nothing if no content is set 1`] = `null`;
+exports[`common/component/element/meta should render nothing if no content is set 1`] = `null`;

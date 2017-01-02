@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 
 const mockStore = configureStore([]);
 const mockedStore = mockStore({
+    config: {},
     intl: {
         locale: 'en-EN',
         availableLocales: ['en-EN']

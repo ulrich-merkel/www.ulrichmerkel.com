@@ -24,7 +24,7 @@ import { required, email } from './../../utils/validation';
  *
  * @function
  * @param {Object} [state={}] - The current redux contact state if given
- * @returns {object} The validation status for all inputs as object
+ * @returns {Object} The validation status for all inputs as object
  */
 function validate(state = {}) {
     return {

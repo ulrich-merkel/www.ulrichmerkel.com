@@ -1,18 +1,18 @@
-exports[`component/element/button-group Snapshot should render correctly 1`] = `
+exports[`common/component/element/button-group should render correctly 1`] = `
 <div
   className="m-form__group">
   <button
-    className="c-btn m-form__btn foo c-btn--primary is-disabled"
+    className="c-btn m-form__btn button-group c-btn--primary is-disabled"
     disabled="disabled"
-    id="foo"
-    name="bar"
+    id="button-group"
+    name="button"
     role="button"
     title=""
     to={undefined}
     type="submit">
     <span
       className="c-btn__label">
-      test
+      button
     </span>
   </button>
 </div>

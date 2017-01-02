@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
@@ -67,14 +67,14 @@ class ElementTextarea extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [className] The textarea css class names - will be merged into component default classNames
- * @property {boolean} [required=false] The textarea required attribute
- * @property {string} [placeholder=''] The textarea placeholder attribute
- * @property {string} [cols='50'] The textarea cols attribute
- * @property {string} [rows='4'] The textarea rows attribute
- * @property {string} [value] The textarea value attribute
- * @property {Function} [onBlur=Function.prototype] The textarea onBlur handler
- * @property {Function} [onChange=Function.prototype] The textarea onChange handler
+ * @property {string} [className] - The textarea css class names - will be merged into component default classNames
+ * @property {boolean} [required=false] - The textarea required attribute
+ * @property {string} [placeholder=''] - The textarea placeholder attribute
+ * @property {string} [cols='50'] - The textarea cols attribute
+ * @property {string} [rows='4'] - The textarea rows attribute
+ * @property {string} [value] - The textarea value attribute
+ * @property {Function} [onBlur=Function.prototype] - The textarea onBlur handler
+ * @property {Function} [onChange=Function.prototype] - The textarea onChange handler
  */
 ElementTextarea.propTypes = {
     className: PropTypes.string,

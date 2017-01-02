@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 import { getNonceConfig, getCspRules } from './../csp';
 
-describe('csp', function () {
+describe('common/utils/csp', function () {
     it('should create a config via getNonceConfig', function () {
         const nonceConfig = getNonceConfig();
         expect(nonceConfig.style).toBeDefined();

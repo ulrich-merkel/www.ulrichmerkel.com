@@ -13,10 +13,10 @@
  *
  * @requires React
  * @requires classnames
- * @requires component/element/headline
+ * @requires common/component/element/headline
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  */
@@ -28,14 +28,8 @@ import Headline from './../element/headline';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {React.Element} React component markup
  */
 function ModuleList(props) {
@@ -89,11 +83,11 @@ function ModuleList(props) {
  *
  * @static
  * @type {React.Component.PropTypes}
- * @property {string} [componentType] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [itemType] The schema.org itemtype url attribute
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The component translation config
+ * @property {string} [componentType='ul'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content={}] - The component translation config
  */
 ModuleList.propTypes = {
     componentType: PropTypes.string,
@@ -107,7 +101,8 @@ ModuleList.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {React.Component.DefaultProps}
+ * @type {Object}
+ * @see ModuleList.propTypes
  */
 ModuleList.defaultProps = {
     componentType: 'ul',

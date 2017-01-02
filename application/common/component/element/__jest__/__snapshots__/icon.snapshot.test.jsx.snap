@@ -1,5 +1,7 @@
-exports[`component/element/icon Snapshot should render correctly 1`] = `
+exports[`common/component/element/icon should render correctly 1`] = `
 <span
   aria-hidden="true"
-  className="c-font-icon--foo foo" />
+  className="c-font-icon--foo icon" />
 `;
+
+exports[`common/component/element/icon should return null if icon is empty 1`] = `null`;

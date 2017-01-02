@@ -37,7 +37,7 @@ const XHR_DEFAULT_HEADERS = {
  *
  * @function
  * @private
- * @param {Object} response The http request response from a network request
+ * @param {Object} response - The http request response from a network request
  * @returns {Object} The response or throws an error
  */
 function checkStatus(response) {
@@ -53,8 +53,8 @@ function checkStatus(response) {
  * Simple wrapper around the fetch function.
  *
  * @function
- * @param {string} url The xhr request url
- * @param {Object} [options={}] The fetch options
+ * @param {string} url - The xhr request url
+ * @param {Object} [options={}] - The fetch options
  * @returns {Object} Promise
  */
 function xhr(url, options = {}) {

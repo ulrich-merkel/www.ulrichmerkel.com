@@ -16,9 +16,9 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 moved code to es6
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Moved code to es6
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  * import A from './a';
@@ -38,8 +38,8 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementA(props) {
@@ -100,14 +100,14 @@ function ElementA(props) {
  *
  * @static
  * @type {Object}
- * @property {string} to The link target/react-router path
- * @property {string} [componentType='a'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [activeClassName='is-active'] The default is active state css class name
- * @property {string} [title] The title string to be set on a tag
- * @property {boolean} [isIndex] Whether the component is link to home/index or not
- * @property {boolean} [isMenu=false] Whether the component is displayed in a menu or not
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {string} to - The link target/react-router path
+ * @property {string} [componentType='a'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [activeClassName='is-active'] - The default is active state css class name
+ * @property {string} [title] - The title string to be set on a tag
+ * @property {boolean} [isIndex] - Whether the component is link to home/index or not
+ * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementA.propTypes = {
     to: PropTypes.string.isRequired,

@@ -23,7 +23,8 @@
  * @requires common/component/section/text
  *
  * @changelog
- + - 0.0.3 Moved to stateless function
+ * - 0.0.4 Improve react-router routing
+ * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
@@ -69,11 +70,7 @@ class PageWork extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
-     * We do this just because of completeness.
-     *
-     * @constructor
+     * @constructs
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
@@ -202,3 +199,6 @@ const PageWorkContainer = connect(
 )(addPageTracking(withRouter(PageWork)));
 
 export default PageWorkContainer;
+export {
+    PageWork
+};

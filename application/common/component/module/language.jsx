@@ -12,16 +12,15 @@
  *
  * @requires React
  * @requires classnames
- * @requires component/module/language/item
+ * @requires common/component/module/language/item
  *
  * @changelog
- * - 0.0.4 excluded headline/lead into separate component
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Excluded headline/lead into separate component
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
- * import Language from './language';
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -31,15 +30,9 @@ import ModuleLanguageItem from './language/item';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React classes component is defined as a plain JavaScript function.
- * In an ideal world, most of your components would be stateless functions
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
  * @function
- * @param {object} props The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
 function ModuleLanguage(props) {
 
@@ -97,13 +90,12 @@ function ModuleLanguage(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} [componentType] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [itemType] The schema.org itemtype url attribute
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [i18n] The component translation config
- * @property {Array.<Object>} [i18n.list] Translation input
+ * @type {Object}
+ * @property {string} [componentType='ul'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content={}] - The component translation config
  */
 ModuleLanguage.propTypes = {
     componentType: PropTypes.string,
@@ -123,14 +115,12 @@ ModuleLanguage.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {React.Component.DefaultProps}
-* @property {string} componentType='article' The component element type used for React.createElement
-* @property {string} itemType='https://schema.org/ItemList' The schema.org itemtype url attribute
-* @property {Object} i18n The component translation config
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleLanguage.propTypes
+ */
 ModuleLanguage.defaultProps = {
     componentType: 'ul',
     itemType: 'https://schema.org/ItemList',

@@ -1,4 +1,4 @@
-exports[`component/page/imprint Snapshot should render correctly 1`] = `
+exports[`common/component/page/imprint should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"

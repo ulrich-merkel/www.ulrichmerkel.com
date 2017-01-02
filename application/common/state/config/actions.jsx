@@ -44,8 +44,8 @@ import {
  *
  * @function
  * @private
- * @param {Object} state The current redux store object
- * @param {string} stateKey The state key as input for lodash's get
+ * @param {Object} state - The current redux store object
+ * @param {string} stateKey - The state key as input for lodash's get
  * @returns {boolean}
  */
 function shouldFetch(state, stateKey) {
@@ -78,6 +78,7 @@ function requestConfigContent() {
  *
  * @function
  * @private
+ * @param {string} locale - The current language locale
  * @returns {Object} Redux action
  */
 function requestConfigTranslation(locale) {
@@ -92,7 +93,7 @@ function requestConfigTranslation(locale) {
  *
  * @function
  * @private
- * @param {Object} data The api json data
+ * @param {Object} data - The api json data
  * @returns {Object} Redux action
  */
 function receiveConfigContent(data) {
@@ -108,7 +109,8 @@ function receiveConfigContent(data) {
  *
  * @function
  * @private
- * @param {Object} data The api json data
+ * @param {Object} data - The api json data
+ * @param {string} locale - The current language locale
  * @returns {Object} Redux action
  */
 function receiveConfigTranslation(data, locale) {
@@ -138,6 +140,7 @@ function failedConfigContent() {
  *
  * @function
  * @private
+ * @param {string} locale - The current language locale
  * @returns {Object} Redux action
  */
 function failedConfigTranslation(locale) {
@@ -151,7 +154,7 @@ function failedConfigTranslation(locale) {
  * Add config content object directly.
  *
  * @function
- * @param {Object} data The api json data
+ * @param {Object} data - The api json data
  * @returns {Object} Redux action
  */
 function addConfigContent(data) {
@@ -166,7 +169,8 @@ function addConfigContent(data) {
  * Add config content object directly.
  *
  * @function
- * @param {Object} data The api json data
+ * @param {Object} data - The api json data
+ * @param {string} locale - The current language locale
  * @returns {Object} Redux action
  */
 function addConfigTranslation(data, locale) {
@@ -179,7 +183,7 @@ function addConfigTranslation(data, locale) {
 }
 
 /**
- * Redux thunk action creator for async config fetching.
+ * Redux thunk action creator for async content fetching.
  *
  * @function
  * @private
@@ -203,6 +207,14 @@ function fetchConfigContent() {
     };
 }
 
+/**
+ * Redux thunk action creator for async translation fetching.
+ *
+ * @function
+ * @private
+ * @param {string} locale - The current language locale
+ * @returns {Function}
+ */
 function fetchConfigTranslation(locale) {
     return function asyncDispatch(dispatch) {
         dispatch(requestConfigTranslation(locale));
@@ -240,6 +252,7 @@ function fetchConfigContentIfNeeded() {
  * Redux thunk action creator to check if data should be loaded.
  *
  * @function
+ * @param {string} loc - The current language locale
  * @returns {Function}
  */
 function fetchConfigTranslationIfNeeded(loc) {

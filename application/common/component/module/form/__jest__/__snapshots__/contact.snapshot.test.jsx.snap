@@ -1,4 +1,4 @@
-exports[`component/module/form/contact Snapshot should render a success message 1`] = `
+exports[`common/component/module/form/contact should render a success message 1`] = `
 <div
   className="m-article__text"
   id="m-form--contact-success"
@@ -29,7 +29,7 @@ exports[`component/module/form/contact Snapshot should render a success message 
 </div>
 `;
 
-exports[`component/module/form/contact Snapshot should render an error message 1`] = `
+exports[`common/component/module/form/contact should render an error message 1`] = `
 <div
   className="m-article__text"
   id="m-form--contact-success"
@@ -58,7 +58,7 @@ exports[`component/module/form/contact Snapshot should render an error message 1
 </div>
 `;
 
-exports[`component/module/form/contact Snapshot should render correctly 1`] = `
+exports[`common/component/module/form/contact should render correctly 1`] = `
 <form
   acceptCharset="utf-8"
   action="/contact/"
@@ -248,7 +248,7 @@ exports[`component/module/form/contact Snapshot should render correctly 1`] = `
 </form>
 `;
 
-exports[`component/module/form/contact Snapshot should render correctly 2`] = `
+exports[`common/component/module/form/contact should render correctly 2`] = `
 <form
   acceptCharset="utf-8"
   action="/contact/"

@@ -186,11 +186,11 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
  *
  * @function
  * @private
- * @param {string} src The image source file
- * @param {string} dest The resized image destination
- * @param {number} width The resized image width
- * @param {number} height The resized image width
- * @param {number} [degrees=0] The resized image rotation
+ * @param {string} src - The image source file
+ * @param {string} dest - The resized image destination
+ * @param {number} width - The resized image width
+ * @param {number} height - The resized image width
+ * @param {number} [degrees=0] - The resized image rotation
  * @returns {void}
  */
 function resize(src, dest, width, height, degrees = 0) {

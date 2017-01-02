@@ -1,4 +1,4 @@
-exports[`component/layout/dialog Snapshot should render correctly 1`] = `
+exports[`common/component/layout/dialog should render correctly 1`] = `
 <dialog
   className="l-dialog"
   role="presentation">
@@ -53,3 +53,5 @@ exports[`component/layout/dialog Snapshot should render correctly 1`] = `
     role="presentation" />
 </dialog>
 `;
+
+exports[`common/component/layout/dialog should render null if not visible 1`] = `null`;

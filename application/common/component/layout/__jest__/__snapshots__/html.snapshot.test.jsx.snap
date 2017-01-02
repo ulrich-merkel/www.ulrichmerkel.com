@@ -60,7 +60,7 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
     <script
       dangerouslySetInnerHTML={
         Object {
-          "__html": "__PRELOADED_STATE__={\"intl\":{\"locale\":\"en-EN\",\"availableLocales\":[\"en-EN\"]}};",
+          "__html": "__PRELOADED_STATE__={\"config\":{},\"intl\":{\"locale\":\"en-EN\",\"availableLocales\":[\"en-EN\"]}};",
         }
       }
       nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />

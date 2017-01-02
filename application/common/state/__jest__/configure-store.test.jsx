@@ -1,8 +1,7 @@
 /* eslint-disable func-names */
-
 import configureStore from './../configure-store';
 
-describe('configureStore', function () {
+describe('common/state/configure-store', function () {
     it('should create a store', function () {
         const store = configureStore();
         expect(store.dispatch).toBeDefined();

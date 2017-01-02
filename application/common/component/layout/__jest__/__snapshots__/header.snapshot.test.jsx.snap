@@ -1,6 +1,6 @@
-exports[`component/layout/header Snapshot should render correctly 1`] = `
+exports[`common/component/layout/header should render correctly 1`] = `
 <header
-  className="l-header is-visible foo-bar"
+  className="l-header is-visible layout-header"
   itemScope={true}
   itemType="http://schema.org/WPHeader"
   role="banner">
@@ -38,7 +38,7 @@ exports[`component/layout/header Snapshot should render correctly 1`] = `
               itemScope={true}
               itemType="http://www.schema.org/SiteNavigationElement">
               <button
-                className="m-menu__item is-active"
+                className="m-menu__item m-menu__item--en is-active"
                 data-locale="en-EN"
                 onClick={[Function]}
                 role="button"
@@ -50,7 +50,7 @@ exports[`component/layout/header Snapshot should render correctly 1`] = `
               itemScope={true}
               itemType="http://www.schema.org/SiteNavigationElement">
               <button
-                className="m-menu__item"
+                className="m-menu__item m-menu__item--de"
                 data-locale="de-DE"
                 onClick={[Function]}
                 role="button"

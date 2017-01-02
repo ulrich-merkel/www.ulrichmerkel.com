@@ -1,6 +1,6 @@
-exports[`component/grid/container Snapshot should render correctly 1`] = `
+exports[`common/component/grid/container should render correctly 1`] = `
 <span
   className="l-grid foo">
-  Hello
+  Grid Container Children
 </span>
 `;

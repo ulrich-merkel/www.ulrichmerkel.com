@@ -1,0 +1,3 @@
+exports[`common/component/module/text/person should render correctly 1`] = `null`;
+
+exports[`common/component/module/text/person should return null if content is empty 1`] = `null`;

@@ -1,0 +1,37 @@
+exports[`common/component/module/article/button should render btnLabel if btnTitle is empty 1`] = `
+<p
+  className="is-centered c-type--p article-button hide-on-print">
+  <a
+    className="c-btn"
+    onClick={[Function]}
+    role="button"
+    style={Object {}}
+    title="Button label"
+    type="button">
+    <span
+      className="c-btn__label">
+      Button label
+    </span>
+  </a>
+</p>
+`;
+
+exports[`common/component/module/article/button should render correctly 1`] = `
+<p
+  className="is-centered c-type--p article-button hide-on-print">
+  <a
+    className="c-btn"
+    onClick={[Function]}
+    role="button"
+    style={Object {}}
+    title="Button title"
+    type="button">
+    <span
+      className="c-btn__label">
+      Button label
+    </span>
+  </a>
+</p>
+`;
+
+exports[`common/component/module/article/button should return null if content is empty 1`] = `null`;

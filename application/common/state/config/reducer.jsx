@@ -38,8 +38,8 @@ const defaultState = {
  *
  * @function
  * @private
- * @param {Object} oldObject
- * @param {Object} newValues
+ * @param {Object} oldObject - The old state object
+ * @param {Object} newValues - The new state object
  * @returns {Object}
  */
 function updateStateObject(oldObject, newValues) {
@@ -51,7 +51,7 @@ function updateStateObject(oldObject, newValues) {
  *
  * @function
  * @private
- * @param {Object} action The redux action
+ * @param {Object} action - The redux action
  * @returns {Object} The new config content state
  */
 function getAsyncStateObject(action) {
@@ -68,8 +68,8 @@ function getAsyncStateObject(action) {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] The current state
- * @param {Object} action The action sent by the dispatcher
+ * @param {Object} [state=defaultState] - The current state
+ * @param {Object} action - The action sent by the dispatcher
  * @returns {Object} The new state for this store
  */
 function reducer(state = defaultState, action) {

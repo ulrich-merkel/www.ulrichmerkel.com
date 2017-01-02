@@ -1,12 +1,12 @@
-exports[`component/element/textarea-group Snapshot should render correctly 1`] = `
+exports[`common/component/element/textarea-group should render correctly 1`] = `
 <div
-  className="foobar">
+  className="textarea-group">
   <textarea
     aria-required={true}
     className="m-form__control--textarea is-pristine"
     cols="50"
-    id="foo"
-    name="bar"
+    id="textarea-group"
+    name="textarea"
     onBlur={[Function]}
     onChange={[Function]}
     required={true}
@@ -14,8 +14,8 @@ exports[`component/element/textarea-group Snapshot should render correctly 1`] =
     value="2" />
   <label
     className="m-form__label"
-    htmlFor="foo">
-    test
+    htmlFor="textarea-group">
+    textarea
     <i
       aria-hidden="true"
       className="c-font-icon--sad m-form__label__icon--error" />

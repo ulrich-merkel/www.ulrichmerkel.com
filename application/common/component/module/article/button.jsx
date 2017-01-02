@@ -10,18 +10,16 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
+ * @requires react
  * @requires classnames
- * @requires component/element/h1
- * @requires component/element/h3
- * @requires component/element/paragraph
- * @requires component/element/button
+ * @requires common/component/element/paragraph
+ * @requires common/component/element/button
  *
  * @changelog
- * - 0.0.4 restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  */
@@ -34,15 +32,9 @@ import Button from './../../element/button';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @function
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
 function ModuleArticleButton(props) {
 
@@ -73,10 +65,10 @@ function ModuleArticleButton(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} btnTo The button link target
- * @property {string} btnLabel The button label
- * @property {string} [btnTitle] The button title
+ * @type {Object}
+ * @property {string} btnTo - The button link target
+ * @property {string} btnLabel - The button label
+ * @property {string} [btnTitle] - The button title
  */
 ModuleArticleButton.propTypes = {
     btnTo: PropTypes.string,

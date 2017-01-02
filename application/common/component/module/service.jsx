@@ -12,23 +12,20 @@
  *
  * @requires React
  * @requires classnames
- * @requires component/element/h5
- * @requires component/element/paragraph
+ * @requires component/module/service/item
  *
  * @changelog
- * - 0.0.4 excluded headline/lead into separate component
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Excluded headline/lead into separate component
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
- * import Service from './service';
-
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-import ComponentModuleServiceItem from './service/item';
+import ModuleServiceItem from './service/item';
 
 /**
  * Helper function to insert clear items in array to ease css timeline
@@ -36,7 +33,7 @@ import ComponentModuleServiceItem from './service/item';
  *
  * @function
  * @private
- * @param {Array} input The source array
+ * @param {Array} input - The source array
  * @returns {Array} The converted list
  */
 function insertClearedListItems(input) {
@@ -63,17 +60,11 @@ function insertClearedListItems(input) {
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @function
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
-function ComponentModuleService(props) {
+function ModuleService(props) {
 
     const {
         componentType,
@@ -111,7 +102,7 @@ function ComponentModuleService(props) {
         >
             {insertClearedListItems(content.list).map((value, index) => {
                 return (
-                    <ComponentModuleServiceItem
+                    <ModuleServiceItem
                         key={index}
                         headline={value.headline}
                         text={value.text}
@@ -132,14 +123,13 @@ function ComponentModuleService(props) {
 *
 * @static
 * @type {React.Component.PropTypes}
-* @property {string} [componentType] The component element type used for React.createElement
-* @property {string} [className] The component css class names - will be merged into component default classNames
-* @property {string} [itemType] The schema.org itemtype url attribute
-* @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {Object} [i18n] The component translation config
-* @property {Array.<Object>} [i18n.list] Translation input with component list entries
+* @property {string} [componentType='ul'] - The component element type used for React.createElement
+* @property {string} [className] - The component css class names, will be merged into component default classNames
+* @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+* @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+* @property {Object} [content={}] - The component translation config
 */
-ComponentModuleService.propTypes = {
+ModuleService.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string,
     itemType: PropTypes.string,
@@ -156,18 +146,16 @@ ComponentModuleService.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {React.Component.DefaultProps}
-* @property {string} componentType='article' The component element type used for React.createElement
-* @property {string} itemType='https://schema.org/ItemList' The schema.org itemtype url attribute
-* @property {Object} i18n The component translation config
-*/
-ComponentModuleService.defaultProps = {
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleService.propTypes
+ */
+ModuleService.defaultProps = {
     componentType: 'ul',
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
 
-export default ComponentModuleService;
+export default ModuleService;

@@ -1,0 +1,133 @@
+exports[`common/component/layout/body should render correctly 1`] = `
+<div
+  className="l-react__body">
+  <header
+    className="l-header is-visible"
+    itemScope={true}
+    itemType="http://schema.org/WPHeader"
+    role="banner">
+    <progress
+      className="m-progress"
+      id="m-progress"
+      max="100"
+      value="0">
+      <div
+        className="m-progress__fallback"
+        id="m-progress__fallback" />
+    </progress>
+    <nav
+      className="m-nav m-nav--main"
+      role="navigation">
+      <section
+        className="l-grid">
+        <div
+          className="l-grid__row">
+          <div
+            className="l-grid__col--12">
+            <input
+              aria-label={undefined}
+              className="m-nav__toggle c-font-icon--menu"
+              data-label={undefined}
+              type="checkbox" />
+            <ul
+              className="m-menu--language m-nav__toggle-target is-hidden"
+              itemScope={true}
+              itemType="http://schema.org/ItemList"
+              role="menu">
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement">
+                <button
+                  className="m-menu__item m-menu__item--en is-active"
+                  data-locale="en-EN"
+                  onClick={[Function]}
+                  role="button"
+                  title={undefined} />
+              </li>
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement">
+                <button
+                  className="m-menu__item m-menu__item--de"
+                  data-locale="de-DE"
+                  onClick={[Function]}
+                  role="button"
+                  title={undefined} />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+  Body Children
+  <footer
+    className="l-footer"
+    itemScope={true}
+    itemType="http://schema.org/WPFooter"
+    role="contentinfo">
+    <button
+      className="c-btn l-footer__button--up c-font-icon--chevron-up"
+      onClick={[Function]}
+      role="button"
+      title=""
+      to={undefined}
+      type="button">
+      <span
+        className="c-btn__label is-visually-hidden" />
+    </button>
+    <nav
+      className="m-nav"
+      role="navigation">
+      <section
+        className="l-grid">
+        <div
+          className="l-grid__spaced--small">
+          <div
+            className="l-grid__row">
+            <div
+              className="l-grid__col--12" />
+          </div>
+          <div
+            className="l-grid__row">
+            <div
+              className="l-grid__col--12" />
+          </div>
+          <div
+            className="l-grid__row">
+            <div
+              className="l-grid__col--12">
+              <small
+                className="c-type--small">
+                © 
+                <strong />
+                 
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </footer>
+  <dialog
+    className="l-dialog--loading"
+    role="presentation">
+    <div
+      className="l-dialog__content">
+      <div
+        className="c-flip">
+        <div
+          className="c-flip__front" />
+        <div
+          className="c-flip__back" />
+      </div>
+    </div>
+    <div
+      className="l-dialog__background" />
+  </dialog>
+</div>
+`;

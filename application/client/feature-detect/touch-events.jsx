@@ -17,7 +17,7 @@
  * @see {@link http://flexslider.woothemes.com/}
  *
  * @function
- * @returns {Boolean} Whether this device has touch display or not
+ * @returns {boolean} Whether this device has touch display or not
  */
 function hasTouchEvents() {
     const touchstart = 'ontouchstart' in window;

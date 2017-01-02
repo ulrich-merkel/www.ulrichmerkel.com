@@ -13,9 +13,9 @@
  * @requires react
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 
@@ -23,17 +23,15 @@ import React, { PropTypes } from 'react';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function LayoutMain(props) {
-
     return (
         <main className='l-main' itemProp='mainContentOfPage' role='main'>
             {props.children}
         </main>
     );
-
 }
 
 /**
@@ -41,7 +39,7 @@ function LayoutMain(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component react children
+ * @property {Array|string} [children] - The component react children
  */
 LayoutMain.propTypes = {
     children: PropTypes.node
