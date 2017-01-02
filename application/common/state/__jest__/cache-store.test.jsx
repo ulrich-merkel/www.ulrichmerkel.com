@@ -20,7 +20,7 @@ import WebStorage from './../../utils/web-storage';
 
 const webStorage = new WebStorage();
 
-describe.only('cacheStore', function () {
+describe('common/state/cache-store', function () {
     it('should save and load a state', function () {
         const state = { foo: 'bar' };
         saveState(state);
@@ -28,6 +28,10 @@ describe.only('cacheStore', function () {
     });
     it('should return undefined if state is not valid', function () {
         webStorage.save(stateKey, JSON.stringify({ some: 'weirdState' }));
+        expect(loadState()).toEqual(undefined);
+    });
+    it('should return undefined if state not a JSON string', function () {
+        webStorage.save(stateKey, 'foo-bar');
         expect(loadState()).toEqual(undefined);
     });
 });
