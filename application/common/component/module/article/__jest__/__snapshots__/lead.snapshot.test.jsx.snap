@@ -1,0 +1,11 @@
+exports[`common/component/module/article/lead should render correctly 1`] = `
+<p
+  className="is-centered c-type--p article-lead"
+  itemProp="alternativeHeadline">
+  <strong>
+    Module article lead text
+  </strong>
+</p>
+`;
+
+exports[`common/component/module/article/lead should return null if text is empty 1`] = `null`;

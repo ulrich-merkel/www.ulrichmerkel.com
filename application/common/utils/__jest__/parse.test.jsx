@@ -1,8 +1,7 @@
 /* eslint-disable func-names */
 import { toBoolean } from './../parse';
 
-describe('parse', function () {
-
+describe('common/utils/parse', function () {
     it('should parse to boolean value via toBoolean', function () {
         expect(toBoolean(true)).toBeTruthy();
         expect(toBoolean('true')).toBeTruthy();
@@ -17,5 +16,4 @@ describe('parse', function () {
         expect(toBoolean(123)).toBeUndefined();
         expect(toBoolean()).toBeUndefined();
     });
-
 });

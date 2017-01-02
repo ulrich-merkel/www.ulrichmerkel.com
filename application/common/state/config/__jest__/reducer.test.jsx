@@ -11,7 +11,7 @@ import reducer, { defaultState } from './../reducer';
 
 const dateNow = Date.now();
 
-describe('reducer', function () {
+describe('common/state/config/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });

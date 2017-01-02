@@ -1,0 +1,17 @@
+exports[`common/component/module/article/button should render correctly 1`] = `
+<h2
+  className="is-centered c-type--h2 article-headline"
+  itemProp="headline">
+  Module article headline text
+</h2>
+`;
+
+exports[`common/component/module/article/button should render h1 htmlElement if isMain is set 1`] = `
+<h1
+  className="is-centered c-type--h1 article-headline"
+  itemProp="headline">
+  Module article headline text
+</h1>
+`;
+
+exports[`common/component/module/article/button should return null if text is empty 1`] = `null`;

@@ -1,13 +1,68 @@
-exports[`component/element/textarea Snapshot should render correctly 1`] = `
+exports[`common/component/element/textarea should call passed callbacks 1`] = `
 <textarea
-  aria-required={true}
-  className="m-form__control--textarea foo"
+  className="m-form__control--textarea"
   cols="50"
-  id="foo"
-  name="bar"
   onBlur={[Function]}
   onChange={[Function]}
-  placeholder="Test placeholder"
+  rows="4" />
+`;
+
+exports[`common/component/element/textarea should call passed callbacks 2`] = `
+<textarea
+  className="m-form__control--textarea"
+  cols="50"
+  onBlur={[Function]}
+  onChange={[Function]}
+  rows="4" />
+`;
+
+exports[`common/component/element/textarea should call passed callbacks 3`] = `
+<textarea
+  className="m-form__control--textarea"
+  cols="50"
+  onBlur={[Function]}
+  onChange={[Function]}
+  rows="4" />
+`;
+
+exports[`common/component/element/textarea should render correctly with default callbacks 1`] = `
+<textarea
+  aria-required={true}
+  className="m-form__control--textarea textarea"
+  cols="50"
+  id="textarea"
+  name="textarea"
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholder="Test textarea placeholder"
+  required={true}
+  rows="4" />
+`;
+
+exports[`common/component/element/textarea should render correctly with default callbacks 2`] = `
+<textarea
+  aria-required={true}
+  className="m-form__control--textarea textarea"
+  cols="50"
+  id="textarea"
+  name="textarea"
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholder="Test textarea placeholder"
+  required={true}
+  rows="4" />
+`;
+
+exports[`common/component/element/textarea should render correctly with default callbacks 3`] = `
+<textarea
+  aria-required={true}
+  className="m-form__control--textarea textarea"
+  cols="50"
+  id="textarea"
+  name="textarea"
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholder="Test textarea placeholder"
   required={true}
   rows="4" />
 `;

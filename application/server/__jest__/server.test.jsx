@@ -8,7 +8,7 @@ const rootUrl = `http://${host}:${port}`;
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000; // 20 second timeout
 
-describe('server', function () {
+describe('server/server', function () {
     let app;
 
     beforeAll(function () {

@@ -11,7 +11,7 @@ const data = {
     }
 };
 
-describe('xhr', function () {
+describe('common/utils/xhr', function () {
 
     afterEach(function () {
         nock.cleanAll();
@@ -28,7 +28,6 @@ describe('xhr', function () {
             expect(callback).not.toBeCalled();
         }).catch(callback);
     });
-
     it('should catch response status errors', function () {
         const callback = jest.fn();
         nock(`http://${host}:${port}`)
@@ -39,7 +38,6 @@ describe('xhr', function () {
             expect(callback).not.toBeCalled();
         });
     });
-
     it('should call get when set as option', function () {
         const callback = jest.fn();
         nock(`http://${host}:${port}`)
@@ -51,5 +49,4 @@ describe('xhr', function () {
             expect(callback).not.toBeCalled();
         }).catch(callback);
     });
-
 });

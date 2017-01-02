@@ -12,20 +12,21 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/decorator/add-content
- * @requires utils/content
- * @requires component/grid/container
- * @requires component/grid/spaced
- * @requires component/grid/row
- * @requires component/grid/col
- * @requires component/module/menu
- * @requires component/element/nav
- * @requires component/element/button
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
+ * @requires common/component/grid/container
+ * @requires common/component/grid/spaced
+ * @requires common/component/grid/row
+ * @requires common/component/grid/col
+ * @requires common/component/module/menu
+ * @requires common/component/element/nav
+ * @requires common/component/element/button
+ * @requires common/component/element/small
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -44,7 +45,7 @@ import Small from './../element/small';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function LayoutFooter(props) {
@@ -105,9 +106,9 @@ function LayoutFooter(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {Function} [handleSearchChange=Function.prototype] Function handling to top scrolling
- * @property {Object} [content={}] The component content config
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {Function} [handleSearchChange=Function.prototype] - Function handling to top scrolling
+ * @property {Object} [content={}] - The component content config
  */
 LayoutFooter.propTypes = {
     className: PropTypes.string,

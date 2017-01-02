@@ -1,6 +1,6 @@
-exports[`component/element/small Snapshot should render correctly 1`] = `
+exports[`common/component/element/small should render correctly 1`] = `
 <span
-  className="c-type--small foo">
-  Hello
+  className="c-type--small small">
+  Small Children
 </span>
 `;

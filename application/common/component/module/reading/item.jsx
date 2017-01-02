@@ -10,17 +10,16 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
- * @requires classnames
- * @requires component/element/headline
- * @requires component/element/paragraph
- * @requires component/element/small
+ * @requires react
+ * @requires common/component/element/headline
+ * @requires common/component/element/paragraph
+ * @requires common/component/element/small
  *
  * @changelog
- * - 0.0.4 excluded headline/lead into separate component
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Excluded headline/lead into separate component
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 
@@ -31,18 +30,12 @@ import Small from './../../element/small';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
  * @constructor
  * @private
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
-function ComponentModuleReadingItem(props) {
+function ModuleReadingItem(props) {
 
     const {
         headline,
@@ -74,16 +67,17 @@ function ComponentModuleReadingItem(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
- * @property {string} [headline] The component element headline text
- * @property {string} [lead] The component element lead text
- * @property {string} [creator] The component element author name
+ * @type {Object}
+ * @property {string} [headline] - The component element headline text
+ * @property {string} [lead] - The component element lead text
+ * @property {string} [creator] - The component element author name
+ * @property {string} [publisher] - The component element publisher name
  */
-ComponentModuleReadingItem.propTypes = {
+ModuleReadingItem.propTypes = {
     headline: PropTypes.string,
     lead: PropTypes.string,
     creator: PropTypes.string,
     publisher: PropTypes.string
 };
 
-export default ComponentModuleReadingItem;
+export default ModuleReadingItem;

@@ -1,0 +1,53 @@
+exports[`common/component/module/list should render correctly 1`] = `
+<ol
+  className="m-list--broadcast module-list"
+  itemScope={true}
+  itemType="http://schema.org/ItemList"
+  role="list">
+  <li
+    className="m-list__item">
+    <h3
+      className="c-type--h3 m-list__alt-headline">
+      2012
+    </h3>
+    <ul
+      className="m-list">
+      <li
+        className="m-list__item"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<a href=\'http://www.diamondleague.com/\' target=\'_blank\' title=\'Diamant League website\'>Diamant League</a>, track and field athletics, intl-broadcast-virtual-graphics - USA (New York, Eugene)",
+          }
+        }
+        itemProp="itemListElement" />
+    </ul>
+  </li>
+  <li
+    className="m-list__item">
+    <h3
+      className="c-type--h3 m-list__alt-headline">
+      2011
+    </h3>
+    <ul
+      className="m-list">
+      <li
+        className="m-list__item"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a>, intl-broadcast-virtual-graphics - Germany",
+          }
+        }
+        itemProp="itemListElement" />
+      <li
+        className="m-list__item"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<a href=\'http://www.mdr.de/\' target=\'_blank\' title=\'MDR website\'>Mitteldeutscher Rundfunk Leipzig</a>, intl-broadcast-tv-graphics - Germany",
+          }
+        }
+        itemProp="itemListElement" />
+    </ul>
+  </li>
+  Module list children
+</ol>
+`;

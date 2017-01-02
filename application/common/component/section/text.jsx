@@ -12,27 +12,27 @@
  * @version 0.0.4
  *
  * @requires react
- * @requires component/section/common/grid-spaced
- * @requires component/module/article
- * @requires component/module/text
+ * @requires common/component/section/common/grid-spaced
+ * @requires common/component/module/article
+ * @requires common/component/module/text
  *
  * @changelog
- * - 0.0.4 added SectionCommonGridDefault
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Added SectionCommonGridDefault
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 
 import SectionCommonGridSpaced from './common/grid-spaced';
 import ModuleArticle from './../module/article';
-import ModuleText from './../module/text';
+import ModuleText from './../module/text'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionText(props) {
@@ -61,9 +61,9 @@ function SectionText(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The content config input
- * @property {boolean} [isMain] Whether the component text should be displayed as main article or not
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] - The content config input
+ * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
  */
 SectionText.propTypes = {
     children: PropTypes.node,

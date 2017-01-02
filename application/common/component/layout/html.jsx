@@ -23,9 +23,9 @@
  * @requires common/utils/csp
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -41,7 +41,7 @@ import { getNonceConfig, getCspRules } from './../../utils/csp';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
@@ -126,11 +126,11 @@ function LayoutHtml(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} store Critical redux initial config
- * @property {Array|string} [children] The component react children
- * @property {string} [locale] The current locale string
- * @property {Object} [cssBase] File contents of base css file
- * @property {Object} [scriptBootstrap] File contents of loader javascript file
+ * @property {Object} store - Critical redux initial config
+ * @property {Array|string} [children] - The component react children
+ * @property {string} [locale] - The current locale string
+ * @property {Object} [cssBase] - File contents of base css file
+ * @property {Object} [scriptBootstrap] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
     store: PropTypes.object.isRequired,
@@ -147,8 +147,8 @@ LayoutHtml.propTypes = {
  *
  * @function
  * @private
- * @param {Object.<*>} state The redux store state
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Object.<*>} state - The redux store state
+ * @param {Object.<*>} [ownProps] - The current component props
  * @returns {Object}
  */
 function mapStateToProps(state, ownProps) {

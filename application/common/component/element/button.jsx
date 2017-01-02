@@ -16,8 +16,8 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.2 improved api
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Improved api
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  * import Button from './button';
@@ -38,7 +38,7 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementButton(props) {
@@ -110,20 +110,20 @@ function ElementButton(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='button'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [classNameLabel] The component label child css class names - will be merged into component default classNames
- * @property {string} [to] The react-router url target
- * @property {string} [type='button'] The element type attribute
- * @property {string} [title=''] The element title attribute
- * @property {string} [role='button'] The element role attribute
- * @property {boolean} [isPrimary] Whether the button is primary styled or not
- * @property {boolean} [isSecondary] Whether the button is secondary styled or not
- * @property {boolean} [isLarge] Whether the button is large styled or not
- * @property {boolean} [isSmall] Whether the button is small styled or not
- * @property {boolean} [isDisabled] Whether the button has disabled classed and attributes or not
- * @property {boolean} [isLabelHidden] Whether the label text is visually hidden or not
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {string} [componentType='button'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [classNameLabel] - The component label child css class names, will be merged into component default classNames
+ * @property {string} [to] - The react-router url target
+ * @property {string} [type='button'] - The element type attribute
+ * @property {string} [title=''] - The element title attribute
+ * @property {string} [role='button'] - The element role attribute
+ * @property {boolean} [isPrimary] - Whether the button is primary styled or not
+ * @property {boolean} [isSecondary] - Whether the button is secondary styled or not
+ * @property {boolean} [isLarge] - Whether the button is large styled or not
+ * @property {boolean} [isSmall] - Whether the button is small styled or not
+ * @property {boolean} [isDisabled] - Whether the button has disabled classed and attributes or not
+ * @property {boolean} [isLabelHidden] - Whether the label text is visually hidden or not
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementButton.propTypes = {
     componentType: PropTypes.string,

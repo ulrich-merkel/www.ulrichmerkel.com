@@ -1,6 +1,6 @@
-exports[`component/element/image Snapshot should render correctly 1`] = `
+exports[`common/component/element/image should render correctly 1`] = `
 <img
   alt="foo"
-  className="c-img foo"
+  className="c-img image"
   src="span" />
 `;

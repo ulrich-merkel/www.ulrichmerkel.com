@@ -1,11 +1,11 @@
-exports[`component/element/input-group Snapshot should render correctly 1`] = `
+exports[`common/component/element/input-group should render correctly 1`] = `
 <div
-  className="foobar">
+  className="input-group">
   <input
     aria-required={true}
     className="m-form__control--text is-pristine"
-    id="foo"
-    name="bar"
+    id="input-group"
+    name="input"
     onBlur={[Function]}
     onChange={[Function]}
     placeholder=""
@@ -14,8 +14,8 @@ exports[`component/element/input-group Snapshot should render correctly 1`] = `
     value="2" />
   <label
     className="m-form__label"
-    htmlFor="foo">
-    test
+    htmlFor="input-group">
+    input
     <i
       aria-hidden="true"
       className="c-font-icon--sad m-form__label__icon--error" />

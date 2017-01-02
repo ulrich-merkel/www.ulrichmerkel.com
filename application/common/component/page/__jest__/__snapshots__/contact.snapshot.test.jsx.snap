@@ -1,4 +1,4 @@
-exports[`component/page/contact Snapshot should render correctly 1`] = `
+exports[`common/component/page/contact should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"

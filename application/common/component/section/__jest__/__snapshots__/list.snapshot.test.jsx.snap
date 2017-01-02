@@ -1,4 +1,4 @@
-exports[`component/section/list Snapshot should render correctly 1`] = `
+exports[`common/component/section/list should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section
@@ -10,7 +10,7 @@ exports[`component/section/list Snapshot should render correctly 1`] = `
         <div
           className="l-grid__col--12">
           <article
-            className="m-article"
+            className="is-main m-article"
             itemScope={true}
             itemType="https://schema.org/Article">
             <div
@@ -20,7 +20,9 @@ exports[`component/section/list Snapshot should render correctly 1`] = `
                 className="m-list--broadcast"
                 itemScope={true}
                 itemType="http://schema.org/ItemList"
-                role="list" />
+                role="list">
+                Section list children
+              </ul>
             </div>
           </article>
         </div>

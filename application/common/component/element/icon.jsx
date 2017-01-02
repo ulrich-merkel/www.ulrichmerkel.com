@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -24,8 +24,8 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
- * @returns {ReactElement} React component markup
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
 
@@ -35,6 +35,10 @@ function ElementIcon(props) {
         icon,
         ...otherProps
     } = props;
+
+    if (!icon) {
+        return null;
+    }
 
     const ComponentHtmlElement = htmlElement;
     const componentClassName = classnames(`c-font-icon--${icon}`, className);
@@ -50,12 +54,12 @@ function ElementIcon(props) {
  *
  * @static
  * @type {Object}
- * @property {string} icon The icon name taken for the web font
- * @property {string} [htmlElement='i'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {string} icon - The icon name taken for the web font
+ * @property {string} [htmlElement='i'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
  */
 ElementIcon.propTypes = {
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.string,
     htmlElement: PropTypes.string,
     className: PropTypes.string
 };

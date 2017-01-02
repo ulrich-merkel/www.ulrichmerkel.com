@@ -8,8 +8,7 @@ const defaults = {
     callback: Function.prototype
 };
 
-describe('scroll-to', function () {
-
+describe('common/utils/scroll-to', function () {
     it('should call scrollTo with default options', function () {
         const callback = jest.fn();
         scrollTo({
@@ -20,7 +19,6 @@ describe('scroll-to', function () {
             callback
         }));
     });
-
     it('should call callback', function () {
         const callback = jest.fn();
         scrollTo({
@@ -33,5 +31,4 @@ describe('scroll-to', function () {
             callback
         }));
     });
-
 });

@@ -1,0 +1,8 @@
+exports[`common/component/module/text/headline should render correctly 1`] = `
+<h3
+  className="is-centered c-type--h3 m-text__headline">
+  Module text headline
+</h3>
+`;
+
+exports[`common/component/module/text/headline should return null if text is empty 1`] = `null`;

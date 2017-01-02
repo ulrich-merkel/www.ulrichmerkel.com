@@ -1,0 +1,95 @@
+exports[`common/component/module/text should render correctly 1`] = `
+<div
+  className="m-text module-text"
+  itemScope={true}
+  itemType="foo"
+  role="list">
+  <div
+    className="m-text__block">
+    <h3
+      className="is-centered c-type--h3 m-text__headline">
+      headline
+    </h3>
+    <div
+      className="m-text__content">
+      <p
+        className="c-type--p"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "content",
+          }
+        } />
+    </div>
+  </div>
+  <div
+    className="m-text__time is-centered">
+    <time
+      className="c-time">
+      567
+    </time>
+  </div>
+  <div
+    className="m-text__link is-centered">
+    <a
+      className="c-link"
+      onClick={[Function]}
+      style={Object {}}
+      tabIndex="0"
+      title="Link title">
+      <i
+        aria-hidden="true"
+        className="c-font-icon--earth" />
+      Link label
+    </a>
+  </div>
+  Module text children
+</div>
+`;
+
+exports[`common/component/module/text should render no itemType if unset 1`] = `
+<div
+  className="m-text module-text"
+  role="list">
+  <div
+    className="m-text__block">
+    <h3
+      className="is-centered c-type--h3 m-text__headline">
+      headline
+    </h3>
+    <div
+      className="m-text__content">
+      <p
+        className="c-type--p"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "content",
+          }
+        } />
+    </div>
+  </div>
+  <div
+    className="m-text__time is-centered">
+    <time
+      className="c-time">
+      567
+    </time>
+  </div>
+  <div
+    className="m-text__link is-centered">
+    <a
+      className="c-link"
+      onClick={[Function]}
+      style={Object {}}
+      tabIndex="0"
+      title="Link title">
+      <i
+        aria-hidden="true"
+        className="c-font-icon--earth" />
+      Link label
+    </a>
+  </div>
+  Module text children
+</div>
+`;
+
+exports[`common/component/module/text should return null if no content is given 1`] = `null`;

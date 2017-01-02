@@ -13,12 +13,12 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/textarea
- * @requires component/element/label
- * @requires component/element/icon
+ * @requires common/component/element/textarea
+ * @requires common/component/element/label
+ * @requires common/component/element/icon
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
@@ -96,15 +96,15 @@ class ElementTextareaGroup extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id The input id attribute
- * @property {string} name The input name attribute
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {string} [label] The input label attribute
- * @property {Function} [onBlur] The input blur handler
- * @property {Function} [onChange] The input change handler
- * @property {string} [value] The default input value
- * @property {boolean} [isValid=true] Whether the input has a valid value or not
- * @property {boolean} [isPristine] Whether the input has a user given value or not
+ * @property {string} id - The input id attribute
+ * @property {string} name - The input name attribute
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [label] - The input label attribute
+ * @property {Function} [onBlur] - The input blur handler
+ * @property {Function} [onChange] - The input change handler
+ * @property {string} [value] - The default input value
+ * @property {boolean} [isValid=true] - Whether the input has a valid value or not
+ * @property {boolean} [isPristine] - Whether the input has a user given value or not
  */
 ElementTextareaGroup.propTypes = {
     id: PropTypes.string.isRequired,

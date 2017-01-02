@@ -29,9 +29,9 @@
  * - 0.0.1 Basic functions and structure
  */
 import { url } from './../config/application';
-import LayoutBody from './../component/layout/body';
+import LayoutBody from './../component/layout/body'; // eslint-disable-line import/no-named-as-default
 import PageIndex from './../component/page/index';
-import PageWork from './../component/page/work';
+import PageWork from './../component/page/work'; // eslint-disable-line import/no-named-as-default
 import PagePersona from './../component/page/persona';
 import PageContact from './../component/page/contact';
 import PageDisclaimer from './../component/page/disclaimer';

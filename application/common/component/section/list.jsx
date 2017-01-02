@@ -12,12 +12,12 @@
  * @version 0.0.4
  *
  * @requires react
- * @requires component/section/common/grid-spaced
- * @requires component/module/article
- * @requires component/module/list
+ * @requires common/component/section/common/grid-spaced
+ * @requires common/component/module/article
+ * @requires common/component/module/list
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 
@@ -29,7 +29,7 @@ import ModuleList from './../module/list';
  * Function representing a component to return a single react child element.
  *
  * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function SectionList(props) {
@@ -58,9 +58,9 @@ function SectionList(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The content config input
- * @property {boolean} [isMain] Whether the component text should be displayed as main article or not
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] - The content config input
+ * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
  */
 SectionList.propTypes = {
     children: PropTypes.node,
