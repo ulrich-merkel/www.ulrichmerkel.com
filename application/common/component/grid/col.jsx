@@ -14,8 +14,8 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.2 moved to stateless function
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Moved to stateless function
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -23,8 +23,8 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function GridCol(props) {
@@ -53,9 +53,9 @@ function GridCol(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='div'] The component element type used for React.createElement
- * @property {string} [className] The addition css classNames
- * @property {number|string} [cols=12] The grid column cols
+ * @property {string} [htmlElement='div'] - The component element type used for React.createElement
+ * @property {string} [className] - The addition css classNames
+ * @property {number|string} [cols=12] - The grid column cols
  */
 GridCol.propTypes = {
     htmlElement: PropTypes.string,

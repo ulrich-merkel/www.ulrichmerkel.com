@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
@@ -87,15 +87,15 @@ class ElementInput extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [className] The input css class names - will be merged into component default classNames
- * @property {boolean} [required=false] The input required attribute
- * @property {string} [type='text'] The input type attribute
- * @property {string} [placeholder=''] The input placeholder attribute
- * @property {string} [name] The input name attribute
- * @property {string} [id] The input id attribute
- * @property {string} [value] The input value attribute
- * @property {Function} [onBlur=Function.prototype] The input onBlur handler
- * @property {Function} [onChange=Function.prototype] The input onChange handler
+ * @property {string} [className] - The input css class names - will be merged into component default classNames
+ * @property {boolean} [required=false] - The input required attribute
+ * @property {string} [type='text'] - The input type attribute
+ * @property {string} [placeholder=''] - The input placeholder attribute
+ * @property {string} [name] - The input name attribute
+ * @property {string} [id] - The input id attribute
+ * @property {string} [value] - The input value attribute
+ * @property {Function} [onBlur=Function.prototype] - The input onBlur handler
+ * @property {Function} [onChange=Function.prototype] - The input onChange handler
  */
 ElementInput.propTypes = {
     className: PropTypes.string,

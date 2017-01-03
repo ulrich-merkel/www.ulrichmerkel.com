@@ -1,6 +1,6 @@
-exports[`component/element/legend Snapshot should render correctly 1`] = `
+exports[`common/component/element/legend should render correctly 1`] = `
 <legend
-  className="m-form__legend foo">
-  Hello
+  className="m-form__legend legend">
+  Legend Children
 </legend>
 `;

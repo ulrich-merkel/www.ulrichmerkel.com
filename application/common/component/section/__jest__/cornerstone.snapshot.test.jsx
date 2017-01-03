@@ -4,17 +4,19 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../cornerstone';
+import SectionCornerstone from './../cornerstone';
 
-describe('component/section/cornerstone', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/section/cornerstone', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <SectionCornerstone
+                    content={{}}
+                >
+                    Section cornerstone children
+                </SectionCornerstone>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

@@ -9,6 +9,10 @@
  * @version 0.0.1
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
+ */
+
+/**
+ * @type {string}
  */
 export const CONTACT_CHANGE = 'CONTACT_CHANGE';

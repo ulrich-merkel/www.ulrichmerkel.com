@@ -12,11 +12,11 @@
  *
  * @requires react
  * @requires classnames
- * @requires component/element/headline
- * @requires component/element/paragraph
+ * @requires common/component/element/headline
+ * @requires common/component/element/paragraph
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  *
  */
 import React, { PropTypes } from 'react';
@@ -29,8 +29,7 @@ import P from './../../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @constructor
- * @param {Object} [props] The current component props
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleKeyVisualArticle(props) {
@@ -64,8 +63,8 @@ function ModuleKeyVisualArticle(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] The article headline content
- * @property {string} [lead] The article lead content
+ * @property {string} [headline] - The article headline content
+ * @property {string} [lead] - The article lead content
  */
 ModuleKeyVisualArticle.propTypes = {
     headline: PropTypes.string,

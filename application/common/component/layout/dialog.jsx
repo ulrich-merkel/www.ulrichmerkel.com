@@ -12,25 +12,28 @@
  * @requires react
  * @requires react-redux
  * @requires lodash
+ * @requires common/state/selectors
  * @requires common/state/dialog/actions
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
  * @requires common/utils/environment
+ * @requires common/component/module/article
+ * @requires common/component/module/list
  * @requires common/component/grid/spaced
  * @requires common/component/grid/row
  * @requires common/component/grid/col
  * @requires common/component/element/button
- * @requires common/component/element/headline
  *
  * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { get, throttle, isEqual } from 'lodash';
+import { throttle, isEqual } from 'lodash';
 
+import { selectStateDialogVisible } from './../../state/selectors';
 import { changeDialogVisible } from './../../state/dialog/actions';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
@@ -58,8 +61,8 @@ class LayoutDialog extends Component {
      * because a default constructor will call super(...props) for us.
      * We do this just because of completeness.
      *
-     * @constructor
-     * @param {Object} [props] The initial class properties
+     * @constructs
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(...props) {
@@ -80,7 +83,6 @@ class LayoutDialog extends Component {
          */
         this.onClose = this.onClose.bind(this);
         this.onKeyDown = throttle(this.onKeyDown.bind(this), 100);
-
     }
 
     /**
@@ -101,7 +103,7 @@ class LayoutDialog extends Component {
      * giving the developer the ability to short circuit this process.
      *
      * @function
-     * @param {Object} nextProps The news props to be rendered
+     * @param {Object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
     shouldComponentUpdate(nextProps) {
@@ -125,6 +127,7 @@ class LayoutDialog extends Component {
      *
      * @function
      * @private
+     * @param {Object} event - Synthetic react event
      * @returns {void}
      */
     onKeyDown(event) {
@@ -138,6 +141,7 @@ class LayoutDialog extends Component {
      *
      * @function
      * @private
+     * @param {Object} event - Synthetic react event
      * @returns {void}
      */
     onClose(event) {
@@ -215,9 +219,9 @@ class LayoutDialog extends Component {
  *
  * @static
  * @type {Object}
- * @property {Function} handleChangeDialogVisible Redux action callback to control dialog visibility
- * @property {boolean} dialogVisible Redux state whether this dialog is visible or not
- * @property {Object} [content={}] The component content config
+ * @property {Function} handleChangeDialogVisible - Redux action callback to control dialog visibility
+ * @property {boolean} dialogVisible - Redux state whether this dialog is visible or not
+ * @property {Object} [content={}] - The component content config
  */
 LayoutDialog.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
@@ -243,13 +247,13 @@ LayoutDialog.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state The redux store state
- * @param {Object.<*>} [ownProps] The current component props
+ * @param {Object.<*>} state - The redux store state
+ * @param {Object.<*>} [ownProps] - The current component props
  * @returns {Object}
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: get(state, 'dialog.visible') || ownProps.dialogVisible
+        dialogVisible: selectStateDialogVisible(state) || ownProps.dialogVisible
     };
 }
 
@@ -266,3 +270,6 @@ const LayoutDialogContainer = connect(
 )(addContent('PageBroadcast')(LayoutDialog));
 
 export default LayoutDialogContainer;
+export {
+    LayoutDialog
+};

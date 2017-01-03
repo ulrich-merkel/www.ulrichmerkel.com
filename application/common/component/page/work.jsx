@@ -11,26 +11,32 @@
  *
  * @requires react
  * @requires react-helmet
- * @requires component/decorator/add-page-tracking
- * @requires utils/content
- * @requires component/layout/main
- * @requires component/section/keyVisual
- * @requires component/section/text
+ * @requires react-redux
+ * @requires react-router
+ * @requires common/config/application
+ * @requires common/config/work
+ * @requires common/component/decorator/add-page-tracking
+ * @requires common/utils/content
+ * @requires common/state/selectors
+ * @requires common/component/layout/main
+ * @requires common/component/section/key-visual
+ * @requires common/component/section/text
  *
  * @changelog
- + - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Improve react-router routing
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { get } from 'lodash';
 
 import { url } from './../../config/application';
 import configWork from './../../config/work';
 import addPageTracking from './../decorator/add-page-tracking';
+import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
 import { getContentSection, getTranslatedContent } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionKeyVisual from './../section/key-visual';
@@ -41,8 +47,8 @@ import SectionText from './../section/text';
  *
  * @function
  * @private
- * @param {string} routerPath The current router path
- * @param {Array} config The work config
+ * @param {string} routerPath - The current router path
+ * @param {Array} config - The work config
  * @returns {string} The first found entry by name
  */
 function getWorkContentKey(routerPath, config) {
@@ -64,12 +70,8 @@ class PageWork extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
-     * We do this just because of completeness.
-     *
-     * @constructor
-     * @param {Object} [props] The initial class properties
+     * @constructs
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(...props) {
@@ -143,10 +145,10 @@ class PageWork extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} intlLocale The redux intl locale state
- * @property {Object} params The react router params
- * @property {Object} router The react router object coming from withRouter hoc
- * @property {Object} [content={}] The component translation config
+ * @property {string} intlLocale - The redux intl locale state
+ * @property {Object} params - The react router params
+ * @property {Object} router - The react router object coming from withRouter hoc
+ * @property {Object} [content={}] - The component translation config
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
@@ -178,13 +180,13 @@ PageWork.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state The redux store state
+ * @param {Object.<*>} state - The redux store state
  * @returns {Object}
  */
 function mapStateToProps(state) {
     return {
-        locale: get(state, 'intl.locale'),
-        config: get(state, 'config')
+        locale: selectStateIntlLocale(state),
+        config: selectStateConfig(state)
     };
 }
 
@@ -197,3 +199,6 @@ const PageWorkContainer = connect(
 )(addPageTracking(withRouter(PageWork)));
 
 export default PageWorkContainer;
+export {
+    PageWork
+};

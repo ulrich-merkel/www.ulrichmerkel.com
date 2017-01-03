@@ -10,6 +10,7 @@ engines:
       - php
   eslint:
     enabled: true
+    channel: "eslint-3"
     config:
       config: config/.eslintrc.json
   fixme:
@@ -24,6 +25,7 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-- bin/
-- config/
-- application/common/vendor/
+- "bin/"
+- "config/"
+- "application/common/vendor/"
+- "**/__jest__/"

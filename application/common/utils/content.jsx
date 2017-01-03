@@ -22,8 +22,8 @@ import { AVAILABLE_LOCALES } from './../state/intl/constants';
  *
  * @function
  * @private
- * @param {Array} source
- * @param {Function} callback
+ * @param {Array} source - The source content
+ * @param {Function} callback - The ready callback
  * @returns {Array}
  */
 function traverseArray(source, callback) {
@@ -37,8 +37,8 @@ function traverseArray(source, callback) {
  *
  * @function
  * @private
- * @param {Object} source
- * @param {Function} callback
+ * @param {Object} source - The source content
+ * @param {Function} callback - The ready callback
  * @returns {Object}
  */
 function traverseObject(source, callback) {
@@ -52,12 +52,12 @@ function traverseObject(source, callback) {
 /**
  * Walk through config
  *
- * @TODO use functional style, immutable
+ * @todo: Use functional style, immutable
  *
  * @function
  * @private
- * @param {Object|Array|string} source
- * @param {Function} callback
+ * @param {Object|Array|string} source - The source content
+ * @param {Function} callback - The ready callback
  * @returns {*}
  */
 function traverse(source, callback) {
@@ -76,12 +76,12 @@ function traverse(source, callback) {
 }
 
 /**
- * @TODO use functional style, immutable
+ * @todo: Use functional style, immutable
  *
  * @function
  * @private
- * @param {Object} configContent
- * @param {string} configTranslation
+ * @param {Object} configContent - The complete content config
+ * @param {string} configTranslation - The complete content translation
  * @returns {Object}
  */
 function translateContent(configContent, configTranslation) {
@@ -100,7 +100,7 @@ function translateContent(configContent, configTranslation) {
 
 /**
  * @function
- * @param {Object} config
+ * @param {Object} config - The translated config
  * @returns {Function}
  */
 function getContentSection(config) {
@@ -110,12 +110,12 @@ function getContentSection(config) {
 }
 
 /**
- * @TODO: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
+ * @todo: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
  *
  * @function
- * @param {string} [locale=defaultLocale]
- * @param {Object} config
- * @param {string} contentKey
+ * @param {string} [locale=defaultLocale] - The current locale
+ * @param {Object} config - The translated config
+ * @param {string} configKey - The config key
  * @returns {Object}
  */
 function getTranslatedContent(locale = AVAILABLE_LOCALES[0], config, configKey) {

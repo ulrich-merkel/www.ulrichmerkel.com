@@ -12,19 +12,16 @@
  *
  * @requires react
  * @requires react-helmet
- * @requires component/decorator/add-page-tracking
- * @requires component/decorator/add-content
- * @requires utils/content
- * @requires component/layout/main
- * @requires component/section/keyVisual
- * @requires component/section/text
- * @requires component/section/service
- * @requires component/section/featured
+ * @requires common/component/decorator/add-page-tracking
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/content
+ * @requires common/component/layout/main
+ * @requires common/component/section/list
  *
  * @changelog
- + - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ + - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
@@ -38,8 +35,8 @@ import SectionList from './../section/list';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PageBroadcast(props) {
@@ -60,7 +57,7 @@ function PageBroadcast(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] The component translation config
+ * @property {Object} [content={}] - The component translation config
  */
 PageBroadcast.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -76,7 +73,7 @@ PageBroadcast.propTypes = {
  *
  * @static
  * @type {Object}
- * @see PageIndex.propTypes
+ * @see PageBroadcast.propTypes
  */
 PageBroadcast.defaultProps = {
     content: {}

@@ -1,0 +1,57 @@
+exports[`common/component/module/menu/item should hide label if isLabelHidden is present 1`] = `
+<li
+  className="m-menu__list-item"
+  itemProp="itemListElement"
+  itemScope={true}
+  itemType="itemType">
+  <a
+    className="m-menu__item c-link"
+    href="path"
+    itemProp="bar"
+    rel="noopener noreferrer"
+    role="menuitem"
+    tabIndex="0"
+    target="_blank"
+    title="Menu item title">
+    <i
+      aria-hidden="true"
+      className="c-font-icon--foo m-menu__icon" />
+    <span
+      className="is-visually-hidden m-menu__label"
+      itemProp="name">
+      Menu item label
+    </span>
+  </a>
+  Module menu item children
+</li>
+`;
+
+exports[`common/component/module/menu/item should render correctly 1`] = `
+<li
+  className="m-menu__list-item"
+  itemProp="itemListElement"
+  itemScope={true}
+  itemType="itemType">
+  <a
+    className="m-menu__item c-link"
+    href="path"
+    itemProp="bar"
+    rel="noopener noreferrer"
+    role="menuitem"
+    tabIndex="0"
+    target="_blank"
+    title="Menu item title">
+    <i
+      aria-hidden="true"
+      className="c-font-icon--foo m-menu__icon" />
+    <span
+      className="m-menu__label"
+      itemProp="name">
+      Menu item label
+    </span>
+  </a>
+  Module menu item children
+</li>
+`;
+
+exports[`common/component/module/menu/item should return null if no path is given 1`] = `null`;

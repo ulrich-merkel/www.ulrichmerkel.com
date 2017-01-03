@@ -15,7 +15,7 @@
  * @requires common/utils/validation
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import { required, email } from './../../utils/validation';
 
@@ -23,8 +23,8 @@ import { required, email } from './../../utils/validation';
  * Validation helper to check all inputs.
  *
  * @function
- * @param {Object} [state={}] The current redux contact state if given
- * @returns {object} The validation status for all inputs as object
+ * @param {Object} [state={}] - The current redux contact state if given
+ * @returns {Object} The validation status for all inputs as object
  */
 function validate(state = {}) {
     return {
@@ -39,7 +39,7 @@ function validate(state = {}) {
  * Validation single or all input element(s), depending on parameter input.
  *
  * @function
- * @param {Object} state The current redux contact state
+ * @param {Object} state - The current redux contact state
  * @returns {boolean} The validation status
  */
 function isValid(state) {

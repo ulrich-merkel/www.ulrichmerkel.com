@@ -4,17 +4,20 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../form';
+import SectionForm from './../form';
 
-describe('component/section/form', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/section/form', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <SectionForm
+                    content={{}}
+                    isMain
+                >
+                    Section form children
+                </SectionForm>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

@@ -19,8 +19,8 @@
  * @requires common/utils/scroll-to
  *
  * @changelog
- * - 0.0.2 improved scroll handling
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Improved scroll handling
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -33,7 +33,7 @@ import { getPageOffset } from './../../utils/scroll-to';
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {Object} SourceComponent The react component to be decorated
+ * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
 function scroller(SourceComponent) {
@@ -54,7 +54,7 @@ function scroller(SourceComponent) {
          * We do this just because of completeness.
          *
          * @constructs
-         * @param {React.Props} [props] The initial class properties
+         * @param {Object} [props] - The initial class properties
          * @returns {void}
          */
         constructor(props) {
@@ -170,8 +170,8 @@ function scroller(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleScrollChangeHeaderFixed Callback action for updating redux
-     * @property {Function} handleScrollChangeHeaderVisible Callback action for updating redux
+     * @property {Function} handleScrollChangeHeaderFixed - Callback action for updating redux
+     * @property {Function} handleScrollChangeHeaderVisible - Callback action for updating redux
      */
     Scroller.propTypes = {
         handleScrollChangeHeaderFixed: PropTypes.func.isRequired,

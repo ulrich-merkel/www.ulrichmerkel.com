@@ -19,7 +19,7 @@
  *
  * @function
  * @private
- * @param {string} value The value to be checked
+ * @param {string} value - The value to be checked
  * @returns {boolean} Whether the value is empty or not
  */
 function isEmpty(value) {
@@ -30,7 +30,7 @@ function isEmpty(value) {
  * Validate email helper.
  *
  * @function
- * @param {string} value The value to be checked
+ * @param {string} value - The value to be checked
  * @returns {boolean} Whether the value is a valid email or not
  */
 function email(value) {
@@ -44,7 +44,7 @@ function email(value) {
  * Validate required helper.
  *
  * @function
- * @param {string} value The value to be checked
+ * @param {string} value - The value to be checked
  * @returns {boolean} Whether the value is empty/set or not
  */
 function required(value) {

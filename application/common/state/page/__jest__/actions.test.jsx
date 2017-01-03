@@ -2,7 +2,7 @@
 import { PAGE_INCREASE_VIEWS } from './../constants';
 import { addPageView } from './../actions';
 
-describe('actions', function () {
+describe('common/state/page/actions', function () {
     describe('addPageView', function () {
         it(`should have a type of ${PAGE_INCREASE_VIEWS}`, function () {
             expect(addPageView().type).toEqual(PAGE_INCREASE_VIEWS);

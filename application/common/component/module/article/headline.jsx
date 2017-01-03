@@ -10,12 +10,12 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
  *
- * @requires React
+ * @requires react
  * @requires classnames
- * @requires component/element/headline
+ * @requires common/component/element/headline
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -25,8 +25,8 @@ import Headline from './../../element/headline';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleArticleHeadline(props) {
@@ -61,9 +61,9 @@ function ModuleArticleHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} text The headline text
- * @property {boolean} [isMain=false] Whether this is a main headline (h1) or not
- * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {string} text - The headline text
+ * @property {boolean} [isMain=false] - Whether this is a main headline (h1) or not
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleHeadline.propTypes = {
     text: PropTypes.string,

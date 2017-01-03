@@ -4,21 +4,32 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../dialog';
+import LayoutDialogContainer from './../dialog';
 
-describe('component/layout/dialog', function () {
-    describe('Snapshot', function () {
-        const content = {};
+describe('common/component/layout/dialog', function () {
+    const defaultProps = {
+        dialogVisible: true,
+        content: {}
+    };
 
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested content={content}>
-                        Hello
-                    </ComponentToBeTested>
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <LayoutDialogContainer {...defaultProps}>
+                    Dialog Children
+                </LayoutDialogContainer>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+    it('should render null if not visible', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <LayoutDialogContainer {...defaultProps} dialogVisible={false}>
+                    Dialog Children
+                </LayoutDialogContainer>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

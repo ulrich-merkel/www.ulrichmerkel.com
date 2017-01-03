@@ -2,7 +2,7 @@
 import { DIALOG_CHANGE_VISIBLE } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
-describe('reducer', function () {
+describe('common/state/dialog/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });

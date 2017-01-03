@@ -14,6 +14,10 @@
  * @requires common/state/search/constants
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
+ */
+
+/**
+ * @type {string}
  */
 export const DIALOG_CHANGE_VISIBLE = 'DIALOG_CHANGE_VISIBLE';

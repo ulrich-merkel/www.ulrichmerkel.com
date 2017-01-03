@@ -13,18 +13,18 @@
  * @requires react
  * @requires react-helmet
  * @requires classnames
- * @requires component/decorator/picturefill
- * @requires component/decorator/scroller
- * @requires component/decorator/add-content
- * @requires utils/scroll-to
- * @requires component/layout/header
- * @requires component/layout/footer
- * @requires component/layout/loader
- * @requires component/layout/dialog
+ * @requires common/component/decorator/picturefill
+ * @requires common/component/decorator/scroller
+ * @requires common/component/decorator/add-content
+ * @requires common/utils/scroll-to
+ * @requires common/component/layout/header
+ * @requires common/component/layout/footer
+ * @requires common/component/layout/loader
+ * @requires common/component/layout/dialog
  *
  * @changelog
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
@@ -35,10 +35,10 @@ import scroller from './../decorator/scroller';
 import addContent from './../decorator/add-content';
 import scrollTo, { getPageOffset } from './../../utils/scroll-to';
 
-import LayoutHeader from './header';
+import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-default
 import LayoutFooter from './footer';
 import LayoutLoader from './loader';
-import LayoutDialog from './dialog';
+import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Class representing a component.
@@ -51,18 +51,13 @@ class LayoutBody extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
-     * We do this just because of completeness.
-     *
      * @constructs
-     * @param {Object} [props] The initial class properties
+     * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(...props) {
         super(...props);
 
-        // @TODO move handleScrollTop function to footer ?
         /**
          * Bind manually because React class components don't auto-bind.
          *
@@ -73,8 +68,6 @@ class LayoutBody extends Component {
          * Unfortunately React ES6 classes do not autobind their methods like components created
          * with the older React.createClass syntax. There are several approaches to binding methods
          * for ES6 classes. A basic approach is to just manually bind the methods in the constructor.
-         *
-         * We also throttle the scroll function here to avoid unnecessary function calls while scrolling.
          *
          * @see {@link http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding}
          * @see {@link http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479}
@@ -89,7 +82,7 @@ class LayoutBody extends Component {
      * giving the developer the ability to short circuit this process.
      *
      * @function
-     * @param {Object} nextProps The news props to be rendered
+     * @param {Object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
     shouldComponentUpdate(nextProps) {
@@ -100,6 +93,7 @@ class LayoutBody extends Component {
      * Scroll to top animation helper.
      *
      * @function
+     * @param {Object} e - The synthetic react event
      * @returns {void}
      */
     handleScrollTop(e) { // eslint-disable-line class-methods-use-this
@@ -146,8 +140,8 @@ class LayoutBody extends Component {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] The component content config
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content] - The component content config
  */
 LayoutBody.propTypes = {
     children: PropTypes.node,
@@ -155,3 +149,6 @@ LayoutBody.propTypes = {
 };
 
 export default scroller(picturefill(addContent('Head')(LayoutBody)));
+export {
+    LayoutBody
+};

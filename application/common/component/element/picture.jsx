@@ -14,7 +14,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
@@ -22,8 +22,8 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementPictureSource(props) {
@@ -56,13 +56,13 @@ function ElementPictureSource(props) {
  *
  * @static
  * @type {Object}
- * @property {string} path The image path (folder)
- * @property {string} name The image name
- * @property {string} ext The image extension (jpg, png)
- * @property {string|number} width The image width (for dynamically creating names)
- * @property {string|number} height The image height (for dynamically creating names)
- * @property {string|number} minWidth The mediaquery min-width value
- * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {string} path - The image path (folder)
+ * @property {string} name - The image name
+ * @property {string} ext - The image extension (jpg, png)
+ * @property {string|number} width - The image width (for dynamically creating names)
+ * @property {string|number} height - The image height (for dynamically creating names)
+ * @property {string|number} minWidth - The mediaquery min-width value
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ElementPictureSource.propTypes = {
     path: PropTypes.string.isRequired,
@@ -166,15 +166,15 @@ class ElementPicture extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='picture'] The component element type used for React.createElement
- * @property {string} [className] The component css class names - will be merged into component default classNames
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {string} [name=''] The image name
- * @property {string} [ext=''] The image extension
- * @property {string} [path=''] The image path (folder)
- * @property {string} [alt=''] The image description
- * @property {string} [placeholder='data:image/gifbase64,...'] The image placeholder to be set as src to prevent doubled download
- * @property {Array.<Object>} [sizes='[]'] The responsive sizes config
+ * @property {string} [htmlElement='picture'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {string} [name=''] - The image name
+ * @property {string} [ext=''] - The image extension
+ * @property {string} [path=''] - The image path (folder)
+ * @property {string} [alt=''] - The image description
+ * @property {string} [placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
+ * @property {Array.<Object>} [sizes='[]'] - The responsive sizes config
  */
 ElementPicture.propTypes = {
     htmlElement: PropTypes.string,

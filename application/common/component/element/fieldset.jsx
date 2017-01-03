@@ -15,7 +15,7 @@
  * @requires classnames
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
@@ -23,8 +23,8 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @constructor
- * @param {Object} [props] The current component props
+ * @function
+ * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementFieldset(props) {
@@ -50,7 +50,7 @@ function ElementFieldset(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] The component css class names - will be merged into component default classNames
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
  */
 ElementFieldset.propTypes = {
     className: PropTypes.string

@@ -1,4 +1,4 @@
-exports[`component/section/cornerstone Snapshot should render correctly 1`] = `
+exports[`common/component/section/cornerstone should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section

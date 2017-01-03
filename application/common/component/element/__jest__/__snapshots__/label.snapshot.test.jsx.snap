@@ -1,7 +1,7 @@
-exports[`component/element/label Snapshot should render correctly 1`] = `
+exports[`common/component/element/label should render correctly 1`] = `
 <label
-  className="m-form__label foo"
-  htmlFor="bar">
-  Hello
+  className="m-form__label label"
+  htmlFor="foo-bar">
+  Label Children
 </label>
 `;

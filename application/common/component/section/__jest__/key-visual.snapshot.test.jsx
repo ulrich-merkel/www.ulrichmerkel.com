@@ -4,17 +4,19 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../key-visual';
+import SectionKeyVisual from './../key-visual';
 
-describe('component/section/key-visual', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested />
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/section/key-visual', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <SectionKeyVisual
+                    content={{}}
+                >
+                    Section key-visual children
+                </SectionKeyVisual>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

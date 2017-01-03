@@ -1,27 +1,26 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../button';
+import ElementButton from './../button';
 
-describe('component/element/button', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested
-                    componentType='button'
-                    className='foo'
-                    classNameLabel='test'
-                    id='foo'
-                    name='bar'
-                    label='Test label'
-                    title='Test title'
-                    type='submit'
-                    isPrimary
-                    isLarge
-                    isDisabled
-                />
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('common/component/element/button', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(
+            <ElementButton
+                componentType='button'
+                className='button'
+                classNameLabel='button-label'
+                id='button'
+                name='button'
+                title='Test button title'
+                type='submit'
+                isPrimary
+                isLarge
+                isDisabled
+            >
+                Button Children
+            </ElementButton>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

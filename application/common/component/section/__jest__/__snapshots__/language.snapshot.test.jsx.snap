@@ -1,4 +1,4 @@
-exports[`component/section/language Snapshot should render correctly 1`] = `
+exports[`common/component/section/language should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section

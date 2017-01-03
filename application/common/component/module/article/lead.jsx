@@ -10,18 +10,15 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
+ * @requires react
  * @requires classnames
- * @requires component/element/h1
- * @requires component/element/h3
- * @requires component/element/paragraph
- * @requires component/element/button
+ * @requires common/component/element/paragraph
  *
  * @changelog
- * - 0.0.4 restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  *
  * @example <caption>Example usage (jsx)</caption>
  */
@@ -33,15 +30,9 @@ import P from './../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * This React component is defined as a plain JavaScript function.
- * In an ideal world, most of the components would be stateless functions,
- * because in the future we’ll also be able to make performance optimizations
- * specific to these components by avoiding unnecessary checks and memory allocations.
- * This is the recommended pattern, when possible.
- *
- * @constructor
- * @param {Object} [props] The current component props
- * @returns {React.Element} React component markup
+ * @function
+ * @param {Object} [props] - The current component props
+ * @returns {ReactElement} React component markup
  */
 function ModuleArticleLead(props) {
 
@@ -68,7 +59,9 @@ function ModuleArticleLead(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
+ * @type {Object}
+ * @property {string} text - The lead element text
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleLead.propTypes = {
     text: PropTypes.string,

@@ -1,4 +1,4 @@
-exports[`component/page/contact Snapshot should render correctly 1`] = `
+exports[`common/component/page/contact should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"
@@ -194,7 +194,7 @@ exports[`component/page/contact Snapshot should render correctly 1`] = `
                     <input
                       name="_csrf"
                       type="hidden"
-                      value={undefined} />
+                      value="" />
                   </fieldset>
                 </form>
               </div>

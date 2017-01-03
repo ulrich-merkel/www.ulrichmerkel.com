@@ -1,4 +1,4 @@
-exports[`component/module/featured Snapshot should render correctly 1`] = `
+exports[`common/component/module/featured should render correctly 1`] = `
 <span
   className="m-featured foo"
   itemScope={true}
@@ -31,6 +31,43 @@ exports[`component/module/featured Snapshot should render correctly 1`] = `
       content="headline"
       itemProp="name" />
   </a>
-  Hello
+  Module Featured Children
 </span>
 `;
+
+exports[`common/component/module/featured should render no itemType if unset 1`] = `
+<span
+  className="m-featured foo"
+  role="list">
+  <a
+    className="m-featured__item"
+    itemProp="itemListElement"
+    itemScope={true}
+    itemType="http://schema.org/SiteNavigationElement"
+    onClick={[Function]}
+    style={Object {}}
+    title="headline">
+    <span
+      className="m-featured__hover">
+      <span
+        className="m-featured__text">
+        <span
+          aria-level="3"
+          className="m-featured__headline"
+          role="heading">
+          headline
+        </span>
+        <span
+          aria-hidden="true"
+          className="m-featured__icon c-font-icon--plus" />
+      </span>
+    </span>
+    <meta
+      content="headline"
+      itemProp="name" />
+  </a>
+  Module featured children
+</span>
+`;
+
+exports[`common/component/module/featured should return null if no content is empty 1`] = `null`;

@@ -4,28 +4,27 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import ComponentToBeTested from './../header';
+import LayoutHeaderContainer from './../header';
 
-describe('component/layout/header', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const handleIntlChangeLocale = jest.fn();
-            const content = {
+describe('common/component/layout/header', function () {
+    it('should render correctly', function () {
+        const defaultProps = {
+            handleIntlChangeLocale: jest.fn(),
+            content: {
                 menu: {}
-            };
+            },
+            className: 'layout-header'
+        };
 
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested
-                        handleIntlChangeLocale={handleIntlChangeLocale}
-                        className={'foo-bar'}
-                        content={content}
-                    >
-                        Hello
-                    </ComponentToBeTested>
-                </Provider>
-            ).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+        const tree = renderer.create(
+            <Provider store={mockedStore}>
+                <LayoutHeaderContainer
+                    {...defaultProps}
+                >
+                    Header Children
+                </LayoutHeaderContainer>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });
