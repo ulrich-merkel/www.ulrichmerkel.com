@@ -22,7 +22,7 @@ import { toBoolean } from './../utils/parse';
 const configEnvironment = {
     development: {
         isProduction: false,
-        debug: toBoolean(process.env.DEBUG) || true
+        debug: toBoolean(process.env.DEBUG, true)
     },
     production: {
     },
@@ -38,7 +38,7 @@ const configApplication = Object.assign({}, {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
-    debug: toBoolean(process.env.DEBUG) || false,
+    debug: toBoolean(process.env.DEBUG, false),
     url: {
         index: '/',
         persona: '/persona',
@@ -71,21 +71,17 @@ const configApplication = Object.assign({}, {
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
-        // @TODO: Use fallback param for toBoolean insetad of ||
-        use: toBoolean(process.env.XOR) || true,
+        use: toBoolean(process.env.XOR, true),
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        // @TODO: Use fallback param for toBoolean insetad of ||
-        use: false//toBoolean(process.env.CSP) || true
+        use: false //toBoolean(process.env.CSP, true)
     },
     serviceWorker: {
-        // @TODO: Use fallback param for toBoolean insetad of ||
-        use: toBoolean(process.env.SERVICEWORKER) || true
+        use: toBoolean(process.env.SERVICEWORKER, true)
     },
     applicationCache: {
-        // @TODO: Use fallback param for toBoolean insetad of ||
-        use: toBoolean(process.env.APPCACHE) || true,
+        use: toBoolean(process.env.APPCACHE, true),
         timeStamp: '2016-12-24'
     },
     transition: {
