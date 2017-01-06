@@ -2,8 +2,7 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
 <html
   className="no-js"
   dir="ltr"
-  lang="en-EN"
-  manifest="/cache.manifest">
+  lang="en-EN">
   <head>
     <meta
       charSet="utf-8" />
