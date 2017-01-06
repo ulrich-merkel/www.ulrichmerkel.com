@@ -108,6 +108,8 @@ function middlewarePost(req, res) {
         );
     }
 
+    // @TODO: Escape user data
+    // http://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application/
     if (!isValid(postData)) {
         return sendError(req, res, 'Data not valid');
     }
