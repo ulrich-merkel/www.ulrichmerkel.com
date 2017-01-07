@@ -31,7 +31,10 @@ export default {
         on every device, pursue performance on each step and
         focus on solving problems with the right tools.
         With this in mind i create functional, beautiful and accessable
-        websites.`,
+        websites.
+        I believe that friendship, trust and loyalty are important values (of a team and in personal) - and these values are important
+        to succeed and to push things forward. Every interest and new idea is welcomed and celebrated, there should be no barriers in thinking
+        because learning on the go should be involved in every step in this fast moving development role.`,
     'intl-page-index-section2-btn-label': 'Learn more about my person',
     'intl-page-index-section2-btn-title': 'See my resume',
     'intl-page-index-section3-headline': 'Services',
