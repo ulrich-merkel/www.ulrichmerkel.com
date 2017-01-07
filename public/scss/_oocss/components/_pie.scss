@@ -45,6 +45,7 @@ $block: '#{$config-ns}c-pie';
         float: left;
         width: 50%;
         height: 100%;
+        overflow: hidden;
     }
 
     .#{$block}__mask {

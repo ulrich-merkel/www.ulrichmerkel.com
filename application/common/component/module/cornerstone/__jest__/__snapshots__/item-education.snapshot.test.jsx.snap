@@ -1,4 +1,4 @@
-exports[`common/component/module/cornerstone/itemEducation should render correctly 1`] = `
+exports[`common/component/module/cornerstone/item-education should render correctly 1`] = `
 <li
   className="m-cornerstone__item"
   itemProp="itemListElement"
@@ -82,7 +82,7 @@ exports[`common/component/module/cornerstone/itemEducation should render correct
 </li>
 `;
 
-exports[`common/component/module/cornerstone/itemEducation should render cssModifier and offset if passed 1`] = `
+exports[`common/component/module/cornerstone/item-education should render cssModifier and offset if passed 1`] = `
 <li
   className="m-cornerstone__item--education has-offset--100"
   itemProp="itemListElement"

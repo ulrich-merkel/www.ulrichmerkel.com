@@ -19,11 +19,13 @@
  * @see {@link https://blog.christophvoigt.com/how-to-setup-ghost-on-uberspace-de/}
  * @see {@link https://github.com/pillarjs/understanding-csrf}
  * @see {@link https://www.theodo.fr/blog/2015/04/preventing-csrf-attacks-with-express-and-angularjs/}
+ * @see {@link http://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application/?utm_source=nodeweekly&utm_medium=email}
  *
  * @requires babel-polyfill
  * @requires fs
  * @requires express
  * @requires express-request-language
+ * @requires express-rate-limit
  * @requires hpp
  * @requires helmet
  * @requires shrink-ray
@@ -56,6 +58,7 @@ import 'babel-polyfill';
 import fs from 'fs';
 import express from 'express';
 import requestLanguage from 'express-request-language';
+import RateLimit from 'express-rate-limit';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import shrinkRay from 'shrink-ray';
@@ -148,6 +151,14 @@ function create(config = {}, callback = Function.prototype) {
         languages: AVAILABLE_LOCALES
     }));
 
+    // Only apply rate-limit to requests that begin with /api/ for 15 minutes
+    const apiLimiter = new RateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 100,
+        delayMs: 0
+    });
+    app.use('/api/', apiLimiter);
+
     // Setup json api middleware, needs to be defined BEFORE bodyParser to
     // avoid 'socket hang up' errors
     // @see {@link https://github.com/nodejitsu/node-http-proxy/issues/180#issuecomment-12244852}
@@ -161,8 +172,13 @@ function create(config = {}, callback = Function.prototype) {
     // Parse incoming req bodies as application/json
     app.use(bodyParser.json());
 
-    // Secure server by setting various HTTP headers
-    app.use(helmet());
+    // Secure server by setting various HTTP headers, avoid 'Clickjacking attacks',
+    // by ensuring that their content is not embedded into other sites via frameguard
+    app.use(helmet({
+        frameguard: {
+            action: 'deny'
+        }
+    }));
 
     // Prevent HTTP query parameter pollution
     app.use(hpp());

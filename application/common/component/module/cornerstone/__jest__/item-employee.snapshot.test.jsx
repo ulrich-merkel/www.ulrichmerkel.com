@@ -1,24 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleCornerstoneItemEducation from './../itemEducation';
+import ModuleCornerstoneItemEmployee from './../item-employee';
 
-describe('common/component/module/cornerstone/itemEducation', function () {
+describe('common/component/module/cornerstone/item-employee', function () {
     const defaultProps = {
-        headline: 'Headline item education',
-        lead: 'Lead  item education',
+        headline: 'Headline item employee',
+        lead: 'Lead  item employee',
         timeStart: '20161212',
         timeEnd: '20161224',
         description: [
-            'Description item education 1',
-            'Description item education 2'
-        ],
-        place: {}
+            'Description item employee 1',
+            'Description item employee 2'
+        ]
     };
 
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ModuleCornerstoneItemEducation
+            <ModuleCornerstoneItemEmployee
                 {...defaultProps}
             />
         ).toJSON();
@@ -26,10 +25,10 @@ describe('common/component/module/cornerstone/itemEducation', function () {
     });
     it('should render cssModifier and offset if passed', function () {
         const tree = renderer.create(
-            <ModuleCornerstoneItemEducation
+            <ModuleCornerstoneItemEmployee
                 {...defaultProps}
-                cssModifier={'education'}
-                offset={'100'}
+                cssModifier={'employee'}
+                offset={'200'}
             />
         ).toJSON();
         expect(tree).toMatchSnapshot();
