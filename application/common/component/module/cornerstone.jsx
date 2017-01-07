@@ -13,8 +13,8 @@
  * @requires react
  * @requires classnames
  * @requires common/component/element/headline
- * @requires common/component/module/cornerstone/itemEmployee
- * @requires common/component/module/cornerstone/itemEducation
+ * @requires common/component/module/cornerstone/item-employee
+ * @requires common/component/module/cornerstone/item-education
  *
  * @changelog
  * - 0.0.4 Excluded headline/lead into separate component
@@ -26,8 +26,8 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
 import Headline from './../element/headline';
-import ModuleCornerstoneItemEmployee from './cornerstone/itemEmployee';
-import ModuleCornerstoneItemEducation from './cornerstone/itemEducation';
+import ModuleCornerstoneItemEmployee from './cornerstone/item-employee';
+import ModuleCornerstoneItemEducation from './cornerstone/item-education';
 
 /**
  * Function representing a component to return a single react child element.
