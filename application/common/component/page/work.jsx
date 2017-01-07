@@ -21,6 +21,7 @@
  * @requires common/component/layout/main
  * @requires common/component/section/key-visual
  * @requires common/component/section/text
+ * @requires common/component/section/featured
  *
  * @changelog
  * - 0.0.4 Improve react-router routing
@@ -41,6 +42,7 @@ import { getContentSection, getTranslatedContent } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionKeyVisual from './../section/key-visual';
 import SectionText from './../section/text';
+import SectionFeatured from './../section/featured';
 
 /**
  * Find current work page key from config array.
@@ -134,6 +136,7 @@ class PageWork extends Component {
                     hasColumns2={false}
                     itemType='https://schema.org/CreativeWork'
                 />
+                <SectionFeatured content={contentSection('section3')} />
             </LayoutMain>
         );
     }

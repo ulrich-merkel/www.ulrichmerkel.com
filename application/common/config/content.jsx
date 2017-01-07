@@ -33,6 +33,89 @@ const yyyy = today.getFullYear();
 const dd = today.getDate();
 const mm = today.getMonth() + 1;
 
+const configFeatured = {
+    headline: 'Featured Work',
+    list: [
+        {
+            path: 'optik-ludewig',
+            headline: 'intl-work-optik-ludewig-headline',
+            img: {
+                name: 'featured--optik-ludewig',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-optik-ludewig-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'summer-inspiration',
+            headline: 'intl-work-summer-inspiration-headline',
+            img: {
+                name: 'featured--summer-inspiration',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-summer-inspiration-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'momentariness',
+            headline: 'intl-work-momentariness-headline',
+            img: {
+                name: 'featured--momentariness',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-momentariness-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'lebenswelt-schule',
+            headline: 'intl-work-lebenswelt-schule-headline',
+            img: {
+                name: 'featured--lebenswelt-schule',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-lebenswelt-schule-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'revolution',
+            headline: 'intl-work-revolution-headline',
+            img: {
+                name: 'featured--revolution',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-revolution-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'verlegeservice-bunge',
+            headline: 'intl-work-verlegeservice-bunge-headline',
+            img: {
+                name: 'featured--verlegeservice-bunge',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-verlegeservice-bunge-alt',
+                sizes: pictureSizesFeatured
+            }
+        },
+        {
+            path: 'gedanken-kollektiv',
+            headline: 'intl-work-gedanken-kollektiv-headline',
+            img: {
+                name: 'featured--gedanken-kollektiv',
+                ext: 'jpg',
+                path: `${IMG}content/home/`,
+                alt: 'intl-work-gedanken-kollektiv-alt',
+                sizes: pictureSizesFeatured
+            }
+        }
+    ]
+};
+
 const configContent = {
     Head: {
         title: 'intl-default-title',
@@ -267,88 +350,7 @@ const configContent = {
                 }
             ]
         },
-        section4: {
-            headline: 'Featured Work',
-            list: [
-                {
-                    path: 'optik-ludewig',
-                    headline: 'intl-work-optik-ludewig-headline',
-                    img: {
-                        name: 'featured--optik-ludewig',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-optik-ludewig-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'summer-inspiration',
-                    headline: 'intl-work-summer-inspiration-headline',
-                    img: {
-                        name: 'featured--summer-inspiration',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-summer-inspiration-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'momentariness',
-                    headline: 'intl-work-momentariness-headline',
-                    img: {
-                        name: 'featured--momentariness',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-momentariness-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'lebenswelt-schule',
-                    headline: 'intl-work-lebenswelt-schule-headline',
-                    img: {
-                        name: 'featured--lebenswelt-schule',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-lebenswelt-schule-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'revolution',
-                    headline: 'intl-work-revolution-headline',
-                    img: {
-                        name: 'featured--revolution',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-revolution-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'verlegeservice-bunge',
-                    headline: 'intl-work-verlegeservice-bunge-headline',
-                    img: {
-                        name: 'featured--verlegeservice-bunge',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-verlegeservice-bunge-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                },
-                {
-                    path: 'gedanken-kollektiv',
-                    headline: 'intl-work-gedanken-kollektiv-headline',
-                    img: {
-                        name: 'featured--gedanken-kollektiv',
-                        ext: 'jpg',
-                        path: `${IMG}content/home/`,
-                        alt: 'intl-work-gedanken-kollektiv-alt',
-                        sizes: pictureSizesFeatured
-                    }
-                }
-            ]
-        }
+        section4: configFeatured
     },
     PageWork: {
         head: {
@@ -381,7 +383,8 @@ const configContent = {
             lead: 'intl-page-work-section1-lead',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section2: configFeatured
     },
     PageWorkOptikLudewig: {
         head: {
@@ -440,7 +443,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkSummerInspiration: {
         head: {
@@ -485,7 +489,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkMomentariness: {
         head: {
@@ -526,7 +531,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkLebensweltSchule: {
         head: {
@@ -570,7 +576,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkRevolution: {
         head: {
@@ -611,7 +618,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkVerlegeserviceBunge: {
         head: {
@@ -655,7 +663,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PageWorkGedankenKollektiv: {
         head: {
@@ -696,7 +705,8 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        }
+        },
+        section3: configFeatured
     },
     PagePersona: {
         head: {
