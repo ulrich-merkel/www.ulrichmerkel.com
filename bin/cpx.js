@@ -31,6 +31,7 @@ const argvDest = argv.d || './build/';
 const argvFiles = argv.f || [
     { source: './package.json', dest: argvDest },
     { source: './.env', dest: argvDest },
+    { source: './yarn.lock', dest: argvDest },
     { source: './public/js/**/*', dest: `${argvDest}/public/js` },
     { source: './public/img/**/*', dest: `${argvDest}/public/img` },
     { source: './public/font/**/*', dest: `${argvDest}/public/font` },
