@@ -20,6 +20,62 @@ exports[`common/component/module/text should render correctly 1`] = `
           }
         } />
     </div>
+    <div
+      className="is-centered m-person m-text__content"
+      itemScope={true}
+      itemType="http://schema.org/Person">
+      <p
+        className="c-type--p m-person__name">
+        <strong />
+      </p>
+      <address
+        className="m-person__address c-type--address"
+        itemProp="address"
+        itemScope={true}
+        itemType="http://schema.org/Address">
+        <span
+          className="m-person__street-address"
+          itemProp="street-address" />
+        <span
+          className="m-person__postal-code"
+          itemProp="postal-code" />
+        <span
+          className="m-person__locality"
+          itemProp="locality" />
+      </address>
+      <p
+        className="c-type--p m-person__email">
+        <abbr
+          title="E-Mail address">
+          E.
+        </abbr>
+         
+        <a
+          href="malto:undefined"
+          itemProp="email" />
+      </p>
+      <p
+        className="c-type--p m-person__phone">
+        <abbr
+          title="Phonenumber">
+          P.
+        </abbr>
+         
+        <a
+          href="tel:undefined"
+          itemProp="telephone" />
+      </p>
+      <p
+        className="c-type--p m-person__website">
+        <abbr
+          title="Website">
+          W.
+        </abbr>
+         
+        <a
+          href="undefined" />
+      </p>
+    </div>
   </div>
   <div
     className="m-text__time is-centered">
@@ -65,6 +121,62 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
             "__html": "content",
           }
         } />
+    </div>
+    <div
+      className="is-centered m-person m-text__content"
+      itemScope={true}
+      itemType="http://schema.org/Person">
+      <p
+        className="c-type--p m-person__name">
+        <strong />
+      </p>
+      <address
+        className="m-person__address c-type--address"
+        itemProp="address"
+        itemScope={true}
+        itemType="http://schema.org/Address">
+        <span
+          className="m-person__street-address"
+          itemProp="street-address" />
+        <span
+          className="m-person__postal-code"
+          itemProp="postal-code" />
+        <span
+          className="m-person__locality"
+          itemProp="locality" />
+      </address>
+      <p
+        className="c-type--p m-person__email">
+        <abbr
+          title="E-Mail address">
+          E.
+        </abbr>
+         
+        <a
+          href="malto:undefined"
+          itemProp="email" />
+      </p>
+      <p
+        className="c-type--p m-person__phone">
+        <abbr
+          title="Phonenumber">
+          P.
+        </abbr>
+         
+        <a
+          href="tel:undefined"
+          itemProp="telephone" />
+      </p>
+      <p
+        className="c-type--p m-person__website">
+        <abbr
+          title="Website">
+          W.
+        </abbr>
+         
+        <a
+          href="undefined" />
+      </p>
     </div>
   </div>
   <div

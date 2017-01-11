@@ -33,6 +33,8 @@ describe('common/component/element/input', function () {
         const onChange = jest.fn();
         const component = renderer.create(
             <ElementInput
+                id='input-callbacks'
+                name='input-callbacks'
                 onBlur={onBlur}
                 onChange={onChange}
             />

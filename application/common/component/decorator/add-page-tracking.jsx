@@ -71,7 +71,7 @@ function addPageTracking(SourceComponent) {
      * @property {Function} handleAddPageView - Trigger page view increment
      */
     AddPageTracking.propTypes = {
-        handleAddPageView: PropTypes.func
+        handleAddPageView: PropTypes.func.isRequired
     };
 
     /**

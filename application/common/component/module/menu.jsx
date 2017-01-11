@@ -12,6 +12,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/menu/item
  *
  * @changelog
@@ -19,6 +20,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleMenuItem from './menu/item';
 
@@ -66,10 +68,10 @@ function ModuleMenu(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleMenuItem
-                        key={index}
+                        key={shortid.generate()}
                         path={value.path}
                         title={value.title}
                         label={value.label}
@@ -101,9 +103,9 @@ function ModuleMenu(props) {
  */
 ModuleMenu.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         name: PropTypes.string,
         list: PropTypes.arrayOf(

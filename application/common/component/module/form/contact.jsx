@@ -521,27 +521,27 @@ class ModuleFormContact extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} content.legend - Translated string for element legend
- * @property {string} content.inputName - Translated string for name input
- * @property {string} content.inputEmail - Translated string for email input
- * @property {string} content.inputWebsite - Translated string for website input
- * @property {string} content.inputSubject - Translated string for subject input
- * @property {string} content.inputMessage - Translated string for message textarea
- * @property {string} content.btnResetTitle - Translated string for reset button title
- * @property {string} content.btnResetLabel - Translated string for reset button label
- * @property {string} content.btnSubmitTitle - Translated string for submit button title
- * @property {string} content.btnSubmitLabel - Translated string for submit button label
- * @property {string} content.btnRenewTitle - Translated string for renew button title
- * @property {string} content.btnRenewLabel - Translated string for renew button label
- * @property {string} content.thankYou - Translated string for thank you message
- * @property {string} content.errorHeadline - Translated string for error headline
- * @property {string} content.errorText - Translated string for error message
- * @property {string} content.btnTryAgainTitle - Translated string for retry button title
- * @property {string} content.btnTryAgainLabel - Translated string for retry button label
- * @property {Object} storeState - The redux contact state
- * @property {Function} handleContactChange - Action handler for redux contact state
- * @property {string} routerState - The current router params
- * @property {string} csrfToken - The csrf token for validation
+ * @property {string} [content.legend] - Translated string for element legend
+ * @property {string} [content.inputName] - Translated string for name input
+ * @property {string} [content.inputEmail] - Translated string for email input
+ * @property {string} [content.inputWebsite] - Translated string for website input
+ * @property {string} [content.inputSubject] - Translated string for subject input
+ * @property {string} [content.inputMessage] - Translated string for message textarea
+ * @property {string} [content.btnResetTitle] - Translated string for reset button title
+ * @property {string} [content.btnResetLabel] - Translated string for reset button label
+ * @property {string} [content.btnSubmitTitle] - Translated string for submit button title
+ * @property {string} [content.btnSubmitLabel] - Translated string for submit button label
+ * @property {string} [content.btnRenewTitle] - Translated string for renew button title
+ * @property {string} [content.btnRenewLabel] - Translated string for renew button label
+ * @property {string} [content.thankYou] - Translated string for thank you message
+ * @property {string} [content.errorHeadline] - Translated string for error headline
+ * @property {string} [content.errorText] - Translated string for error message
+ * @property {string} [content.btnTryAgainTitle] - Translated string for retry button title
+ * @property {string} [content.btnTryAgainLabel] - Translated string for retry button label
+ * @property {Object} [storeState={}] - The redux contact state
+ * @property {Function} [handleContactChange=Function.prototype] - Action handler for redux contact state
+ * @property {string} [routerState] - The current router params
+ * @property {string} [csrfToken=''] - The csrf token for validation
  */
 ModuleFormContact.propTypes = {
     /* eslint-disable react/no-unused-prop-types */
@@ -567,7 +567,7 @@ ModuleFormContact.propTypes = {
     /* eslint-enable react/no-unused-prop-types */
     storeState: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     handleContactChange: PropTypes.func,
-    routerState: PropTypes.string,
+    routerState: PropTypes.string, // eslint-disable-line react/require-default-props
     csrfToken: PropTypes.string
 };
 
@@ -581,7 +581,8 @@ ModuleFormContact.propTypes = {
 ModuleFormContact.defaultProps = {
     content: {},
     storeState: {},
-    handleContactChange: Function.prototype
+    handleContactChange: Function.prototype,
+    csrfToken: ''
 };
 
 /**

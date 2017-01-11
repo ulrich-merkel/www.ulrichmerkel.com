@@ -83,11 +83,11 @@ function ModuleServiceItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The component element headline text
- * @property {string} [text] - The component element text
- * @property {number} [index] - The component element index count
- * @property {string} [iconClassName] - The component element additional icon classname
- * @property {boolean} [isClear] - Whether this is a cleared entry or not
+ * @property {string} [headline=''] - The component element headline text
+ * @property {string} [text=''] - The component element text
+ * @property {number} [index=0] - The component element index count
+ * @property {string} [icon=''] - The component element additional icon type
+ * @property {boolean} [isClear=false] - Whether this is a cleared entry or not
  */
 ModuleServiceItem.propTypes = {
     headline: PropTypes.string,
@@ -95,6 +95,21 @@ ModuleServiceItem.propTypes = {
     index: PropTypes.number,
     icon: PropTypes.string,
     isClear: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleServiceItem.propTypes
+ */
+ModuleServiceItem.defaultProps = {
+    headline: '',
+    text: '',
+    index: 0,
+    icon: '',
+    isClear: false
 };
 
 export default ModuleServiceItem;

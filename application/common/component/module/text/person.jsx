@@ -60,14 +60,27 @@ function ModuleTextPerson(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content] - The person content's text
- * @property {boolean} [hasColumns2] - Whether the component text should be clusted in columns via css or not
- * @property {boolean} [isCentered] - Whether the component text should be centered via css or not
+ * @property {Object} [content={}] - The person content's text
+ * @property {boolean} [hasColumns2=false] - Whether the component text should be clusted in columns via css or not
+ * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  */
 ModuleTextPerson.propTypes = {
     content: PropTypes.object,
     hasColumns2: PropTypes.bool,
     isCentered: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextPerson.propTypes
+ */
+ModuleTextPerson.defaultProps = {
+    content: {},
+    hasColumns2: false,
+    isCentered: false
 };
 
 export default ModuleTextPerson;

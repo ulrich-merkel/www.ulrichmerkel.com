@@ -30,6 +30,8 @@ describe('common/component/element/textarea', function () {
         const onChange = jest.fn();
         const component = renderer.create(
             <ElementTextarea
+                id='textarea-callbacks'
+                name='textarea-callbacks'
                 onBlur={onBlur}
                 onChange={onChange}
             />

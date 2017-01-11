@@ -12,6 +12,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/featured/item
  *
  * @changelog
@@ -22,6 +23,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleFeaturedItem from './featured/item';
 
@@ -68,10 +70,10 @@ function ModuleFeatured(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleFeaturedItem
-                        key={index}
+                        key={shortid.generate()}
                         path={value.path}
                         headline={value.headline}
                         lead={value.lead}
@@ -98,9 +100,9 @@ function ModuleFeatured(props) {
  */
 ModuleFeatured.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         list: PropTypes.arrayOf(
             PropTypes.shape({

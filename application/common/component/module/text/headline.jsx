@@ -50,10 +50,21 @@ function ModuleTextHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [text] - The headline text
+ * @property {string} [text=''] - The headline text
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextHeadline.propTypes
+ */
+ModuleTextHeadline.defaultProps = {
+    text: ''
 };
 
 export default ModuleTextHeadline;

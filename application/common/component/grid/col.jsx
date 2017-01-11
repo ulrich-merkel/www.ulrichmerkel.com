@@ -59,7 +59,7 @@ function GridCol(props) {
  */
 GridCol.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     cols: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
@@ -76,7 +76,6 @@ GridCol.propTypes = {
 GridCol.defaultProps = {
     htmlElement: 'div',
     cols: 12
-
 };
 
 export default GridCol;

@@ -56,11 +56,22 @@ function SectionKeyVisual(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
+ * @property {Object} [content={}] - The content config input
  */
 SectionKeyVisual.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionKeyVisual.propTypes
+ */
+SectionKeyVisual.defaultProps = {
+    content: {}
 };
 
 export default SectionKeyVisual;

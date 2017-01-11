@@ -57,7 +57,7 @@ function ElementSmall(props) {
  */
 ElementSmall.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**

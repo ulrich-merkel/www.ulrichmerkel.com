@@ -53,7 +53,7 @@ function ElementLegend(props) {
  * @property {string} [className] - The legend css class names, will be merged into component default classNames
  */
 ElementLegend.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 export default ElementLegend;

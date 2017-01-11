@@ -160,7 +160,7 @@ class ModuleKeyVisual extends Component {
  */
 ModuleKeyVisual.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     isWork: PropTypes.bool,
     isCovered: PropTypes.bool,
     content: PropTypes.shape({

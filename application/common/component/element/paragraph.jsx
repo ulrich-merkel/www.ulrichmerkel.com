@@ -76,7 +76,7 @@ function ElementParagraph(props) {
  */
 ElementParagraph.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     isCentered: PropTypes.bool,
     hasColumns2: PropTypes.bool
 };

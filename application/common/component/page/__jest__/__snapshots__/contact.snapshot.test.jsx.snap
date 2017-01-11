@@ -57,6 +57,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                           <label
                             className="m-form__label"
                             htmlFor="name">
+                            
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error" />
@@ -84,6 +85,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                           <label
                             className="m-form__label"
                             htmlFor="email">
+                            
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error" />
@@ -114,6 +116,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                           <label
                             className="m-form__label"
                             htmlFor="subject">
+                            
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error" />
@@ -138,6 +141,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="message"
                             onBlur={[Function]}
                             onChange={[Function]}
+                            placeholder=""
                             required={true}
                             rows="4"
                             value="" />
@@ -166,10 +170,12 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="reset"
                             role="button"
                             title=""
-                            to={undefined}
+                            to=""
                             type="reset">
                             <span
-                              className="c-btn__label" />
+                              className="c-btn__label">
+                              
+                            </span>
                           </button>
                         </div>
                       </div>
@@ -183,10 +189,12 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="submit"
                             role="button"
                             title=""
-                            to={undefined}
+                            to=""
                             type="submit">
                             <span
-                              className="c-btn__label" />
+                              className="c-btn__label">
+                              
+                            </span>
                           </button>
                         </div>
                       </div>

@@ -15,7 +15,7 @@ describe('common/component/decorator/scroller', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = scroller(Page);

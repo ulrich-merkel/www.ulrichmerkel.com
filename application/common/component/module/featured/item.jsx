@@ -89,16 +89,16 @@ function ModuleFeaturedItem(props) {
 
  * @static
  * @type {Object}
- * @property {string} [path] - The react-router link
+ * @property {string} [path=''] - The react-router link
  * @property {string} [headline] - The items title content
  * @property {Object} [img={}] - The items image config
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 ModuleFeaturedItem.propTypes = {
     path: PropTypes.string,
-    headline: PropTypes.string,
+    headline: PropTypes.string, // eslint-disable-line react/require-default-props
     img: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    children: PropTypes.node
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -109,6 +109,7 @@ ModuleFeaturedItem.propTypes = {
 * @see ModuleFeaturedItem.propTypes
 */
 ModuleFeaturedItem.defaultProps = {
+    path: '',
     img: {}
 };
 

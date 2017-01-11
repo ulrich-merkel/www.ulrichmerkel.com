@@ -108,8 +108,8 @@ function ModuleLanguageItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The language item headline
- * @property {string} [lead] - The language item lead text
+ * @property {string} [headline=''] - The language item headline
+ * @property {string} [lead=''] - The language item lead text
  * @property {string|number} [percent=0] - The language capability in percent
  */
 ModuleLanguageItem.propTypes = {
@@ -129,6 +129,8 @@ ModuleLanguageItem.propTypes = {
  * @see ModuleLanguageItem.propTypes
  */
 ModuleLanguageItem.defaultProps = {
+    headline: '',
+    lead: '',
     percent: 0
 };
 

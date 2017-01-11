@@ -45,7 +45,9 @@ exports[`common/component/module/menu should render correctly 1`] = `
       title="title">
       <span
         className="is-visually-hidden m-menu__label"
-        itemProp="name" />
+        itemProp="name">
+        
+      </span>
     </a>
   </li>
   <li
@@ -63,7 +65,9 @@ exports[`common/component/module/menu should render correctly 1`] = `
       title="title">
       <span
         className="m-menu__label"
-        itemProp="name" />
+        itemProp="name">
+        
+      </span>
     </a>
   </li>
   Module menu children
@@ -115,7 +119,9 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
       title="title">
       <span
         className="is-visually-hidden m-menu__label"
-        itemProp="name" />
+        itemProp="name">
+        
+      </span>
     </a>
   </li>
   <li
@@ -133,7 +139,9 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
       title="title">
       <span
         className="m-menu__label"
-        itemProp="name" />
+        itemProp="name">
+        
+      </span>
     </a>
   </li>
   Module menu children

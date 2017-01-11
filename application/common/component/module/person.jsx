@@ -118,10 +118,10 @@ class ModulePerson extends Component {
 */
 ModulePerson.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     isCentered: PropTypes.bool,
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
         name: PropTypes.string,

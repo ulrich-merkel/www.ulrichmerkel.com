@@ -141,11 +141,22 @@ class LayoutBody extends Component {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The component content config
+ * @property {Object} [content={}] - The component content config
  */
 LayoutBody.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see LayoutBody.propTypes
+ */
+LayoutBody.defaultProps = {
+    content: {}
 };
 
 export default scroller(picturefill(addContent('Head')(LayoutBody)));

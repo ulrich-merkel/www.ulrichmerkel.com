@@ -129,15 +129,27 @@ function LayoutHtml(props) {
  * @property {Object} store - Critical redux initial config
  * @property {Array|string} [children] - The component react children
  * @property {string} [locale] - The current locale string
- * @property {Object} [cssBase] - File contents of base css file
- * @property {Object} [scriptBootstrap] - File contents of loader javascript file
+ * @property {Object} [cssBase=''] - File contents of base css file
+ * @property {Object} [scriptBootstrap=''] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
     store: PropTypes.object.isRequired,
-    children: PropTypes.node,
-    locale: PropTypes.string,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    locale: PropTypes.string, // eslint-disable-line react/require-default-props
     cssBase: PropTypes.string,
     scriptBootstrap: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see LayoutHtml.propTypes
+ */
+LayoutHtml.defaultProps = {
+    cssBase: '',
+    scriptBootstrap: ''
 };
 
 /**

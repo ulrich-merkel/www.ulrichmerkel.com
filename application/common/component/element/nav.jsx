@@ -57,7 +57,7 @@ function ElementNav(props) {
  */
 ElementNav.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**

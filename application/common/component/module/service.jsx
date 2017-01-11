@@ -10,8 +10,9 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
+ * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires component/module/service/item
  *
  * @changelog
@@ -24,6 +25,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleServiceItem from './service/item';
 
@@ -103,7 +105,7 @@ function ModuleService(props) {
             {insertClearedListItems(content.list).map((value, index) => {
                 return (
                     <ModuleServiceItem
-                        key={index}
+                        key={shortid.generate()}
                         headline={value.headline}
                         text={value.text}
                         isClear={value.isClear}
@@ -131,9 +133,9 @@ function ModuleService(props) {
 */
 ModuleService.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         list: PropTypes.arrayOf(
             PropTypes.shape({

@@ -10,8 +10,9 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
+ * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/reading/item
  *
  * @changelog
@@ -24,6 +25,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleReadingItem from './reading/item';
 
@@ -71,10 +73,10 @@ function ModuleReading(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleReadingItem
-                        key={index}
+                        key={shortid.generate()}
                         headline={value.headline}
                         lead={value.lead}
                         creator={value.creator}
@@ -101,9 +103,9 @@ function ModuleReading(props) {
 */
 ModuleReading.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         list: PropTypes.arrayOf(
             PropTypes.shape({

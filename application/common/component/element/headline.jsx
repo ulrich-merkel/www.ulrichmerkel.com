@@ -66,11 +66,12 @@ function ElementHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
  * @property {boolean} [isCentered=true] - Whether the component should be centered via css or not
  */
 ElementHeadline.propTypes = {
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     htmlElement: PropTypes.oneOf([
         'h1',
         'h2',
@@ -79,7 +80,6 @@ ElementHeadline.propTypes = {
         'h5',
         'h6'
     ]),
-    className: PropTypes.string,
     isCentered: PropTypes.bool
 };
 
@@ -94,5 +94,6 @@ ElementHeadline.defaultProps = {
     htmlElement: 'h1',
     isCentered: true
 };
+
 
 export default ElementHeadline;

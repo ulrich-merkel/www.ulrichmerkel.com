@@ -59,13 +59,25 @@ function SectionList(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
- * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
+ * @property {Object} [content={}] - The content config input
+ * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
 SectionList.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object,
     isMain: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionList.propTypes
+ */
+SectionList.defaultProps = {
+    content: {},
+    isMain: false
 };
 
 export default SectionList;

@@ -150,21 +150,21 @@ function LayoutHeader(props) {
  *
  * @static
  * @type {Object}
+ * @property {Function} handleIntlChangeLocale - Function handling language changes
  * @property {string} intlLocale - The current locale string
  * @property {Array.<string>} intlAvailableLocales - All available locale strings
- * @property {boolean} headerFixed - Whether the navigation bar is sticky/ficked or not
- * @property {boolean} headerVisible - Whether the navigation bar is visible or not (used for css3 animation)
- * @property {Function} handleIntlChangeLocale - Function handling language changes
+ * @property {boolean} [headerFixed] - Whether the navigation bar is sticky/ficked or not
+ * @property {boolean} [headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {Object} [content={}] - The component content config
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
-    intlAvailableLocales: PropTypes.array.isRequired,
-    headerFixed: PropTypes.bool, // @TODO: check why headerFixed is sometimes missing
-    headerVisible: PropTypes.bool, // @TODO: check why headerVisible is sometimes missing
-    className: PropTypes.string,
+    intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
+    headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
+    headerVisible: PropTypes.bool, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         menu: PropTypes.object // eslint-disable-line react/no-unused-prop-types
     })

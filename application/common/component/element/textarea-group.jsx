@@ -100,17 +100,17 @@ class ElementTextareaGroup extends Component {
  * @property {string} name - The input name attribute
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {string} [label] - The input label attribute
- * @property {Function} [onBlur] - The input blur handler
- * @property {Function} [onChange] - The input change handler
- * @property {string} [value] - The default input value
+ * @property {Function} [onBlur=Function.prototype] - The input blur handler
+ * @property {Function} [onChange=Function.prototype] - The input change handler
+ * @property {string} [value=''] - The default input value
  * @property {boolean} [isValid=true] - Whether the input has a valid value or not
- * @property {boolean} [isPristine] - Whether the input has a user given value or not
+ * @property {boolean} [isPristine=false] - Whether the input has a user given value or not
  */
 ElementTextareaGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    label: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    label: PropTypes.string, // eslint-disable-line react/require-default-props
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     value: PropTypes.string,
@@ -126,7 +126,11 @@ ElementTextareaGroup.propTypes = {
  * @see ElementTextareaGroup.propTypes
  */
 ElementTextareaGroup.defaultProps = {
-    isValid: true
+    onBlur: Function.prototype,
+    onChange: Function.prototype,
+    value: '',
+    isValid: true,
+    isPristine: false
 };
 
 export default ElementTextareaGroup;

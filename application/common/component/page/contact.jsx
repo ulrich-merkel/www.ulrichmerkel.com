@@ -64,7 +64,7 @@ function PageContact(props) {
  * @static
  * @type {Object}
  * @property {Object} [content={}] - The component translation config
- * @property {Object} [params] - The the router params config
+ * @property {Object} [params={}] - The the router params config
  */
 PageContact.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -84,7 +84,8 @@ PageContact.propTypes = {
  * @see PageContact.propTypes
  */
 PageContact.defaultProps = {
-    content: {}
+    content: {},
+    params: {}
 };
 
 export default addPageTracking(addContent('PageContact')(PageContact));

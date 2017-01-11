@@ -72,8 +72,8 @@ function SectionCommonGrid(props) {
  * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 SectionCommonGrid.propTypes = {
-    page: PropTypes.object,
-    children: PropTypes.node
+    page: PropTypes.object, // eslint-disable-line react/require-default-props
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 /**

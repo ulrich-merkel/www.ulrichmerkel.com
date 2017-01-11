@@ -67,16 +67,30 @@ function ModuleReadingItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The component element headline text
- * @property {string} [lead] - The component element lead text
- * @property {string} [creator] - The component element author name
- * @property {string} [publisher] - The component element publisher name
+ * @property {string} [headline=''] - The component element headline text
+ * @property {string} [lead=''] - The component element lead text
+ * @property {string} [creator=''] - The component element author name
+ * @property {string} [publisher=''] - The component element publisher name
  */
 ModuleReadingItem.propTypes = {
     headline: PropTypes.string,
     lead: PropTypes.string,
     creator: PropTypes.string,
     publisher: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleReadingItem.propTypes
+ */
+ModuleReadingItem.defaultProps = {
+    headline: '',
+    lead: '',
+    creator: '',
+    publisher: ''
 };
 
 export default ModuleReadingItem;

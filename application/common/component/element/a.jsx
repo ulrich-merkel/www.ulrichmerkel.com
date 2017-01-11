@@ -104,20 +104,20 @@ function ElementA(props) {
  * @property {string} [componentType='a'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {string} [activeClassName='is-active'] - The default is active state css class name
- * @property {string} [title] - The title string to be set on a tag
- * @property {boolean} [isIndex] - Whether the component is link to home/index or not
+ * @property {string} [title=''] - The title string to be set on a tag
+ * @property {boolean} [isIndex=false] - Whether the component is link to home/index or not
  * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementA.propTypes = {
     to: PropTypes.string.isRequired,
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     activeClassName: PropTypes.string,
     title: PropTypes.string,
     isIndex: PropTypes.bool,
     isMenu: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -130,6 +130,8 @@ ElementA.propTypes = {
 ElementA.defaultProps = {
     componentType: 'a',
     activeClassName: 'is-active',
+    title: '',
+    isIndex: false,
     isMenu: false
 };
 

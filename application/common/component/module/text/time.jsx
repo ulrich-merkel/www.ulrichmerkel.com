@@ -65,13 +65,24 @@ function ModuleTextTime(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content] - The time content's text
+ * @property {string} [content={}] - The time content's text
  */
 ModuleTextTime.propTypes = {
     content: PropTypes.shape({
         timeStart: PropTypes.string,
         timeEnd: PropTypes.string
     })
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextTime.propTypes
+ */
+ModuleTextTime.defaultProps = {
+    content: {}
 };
 
 export default ModuleTextTime;
