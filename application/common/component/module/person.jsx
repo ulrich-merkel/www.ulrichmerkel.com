@@ -9,6 +9,8 @@
 * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
 * @version 0.0.3
 *
+* @TODO: Find better mapping solution to prevent unnecessary rendering
+*
 * @requires react
 * @requires classnames
 * @requires common/component/element/paragraph
@@ -50,7 +52,15 @@ class ModulePerson extends Component {
             children
         } = this.props;
 
-        if (!content) {
+        if (
+            !content ||
+            !content.name ||
+            !content.streetAddress ||
+            !content.postalCode ||
+            !content.locality ||
+            !content.email ||
+            !content.phoneNumbers ||
+            !content.website) {
             return null;
         }
 
@@ -75,10 +85,10 @@ class ModulePerson extends Component {
                 className={componentClassName}
                 {...componentSchema}
             >
-                <P className='m-person__name'>
+                {content.name && <P className='m-person__name'>
                     <strong>{content.name}</strong>
-                </P>
-                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
+                </P>}
+                {content.streetAddress && <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
                     <span className='m-person__street-address' itemProp='street-address'>
                         {content.streetAddress}
                     </span>
@@ -88,16 +98,16 @@ class ModulePerson extends Component {
                     <span className='m-person__locality' itemProp='locality'>
                         {content.locality}
                     </span>
-                </address>
-                <P className='m-person__email'>
+                </address>}
+                {content.email && <P className='m-person__email'>
                     <abbr title='E-Mail address'>E.</abbr> <a href={`malto:${content.email}`} itemProp='email'>{content.email}</a>
-                </P>
-                <P className='m-person__phone'>
+                </P>}
+                {content.phoneNumbers && content.phone && <P className='m-person__phone'>
                     <abbr title='Phonenumber'>P.</abbr> <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>{content.phone}</a>
-                </P>
-                <P className='m-person__website'>
+                </P>}
+                {content.website && <P className='m-person__website'>
                     <abbr title='Website'>W.</abbr> <a href={`${content.website}`}>{content.website}</a>
-                </P>
+                </P>}
                 {children}
             </ComponentType>
         );
