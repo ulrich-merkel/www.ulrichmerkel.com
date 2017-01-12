@@ -1,11 +1,12 @@
 exports[`common/component/module/featured/item should render correctly 1`] = `
 <a
-  className="m-featured__item"
+  className="c-link m-featured__item"
   itemProp="itemListElement"
   itemScope={true}
   itemType="http://schema.org/SiteNavigationElement"
   onClick={[Function]}
   style={Object {}}
+  tabIndex="0"
   title="Featured item work headline">
   <span
     className="m-featured__hover">

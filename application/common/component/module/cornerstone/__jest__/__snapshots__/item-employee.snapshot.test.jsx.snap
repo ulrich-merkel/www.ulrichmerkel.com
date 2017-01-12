@@ -1,4 +1,4 @@
-exports[`common/component/module/cornerstone/itemEmployee should render correctly 1`] = `
+exports[`common/component/module/cornerstone/item-employee should render correctly 1`] = `
 <li
   className="m-cornerstone__item"
   itemProp="itemListElement"
@@ -58,7 +58,7 @@ exports[`common/component/module/cornerstone/itemEmployee should render correctl
 </li>
 `;
 
-exports[`common/component/module/cornerstone/itemEmployee should render cssModifier and offset if passed 1`] = `
+exports[`common/component/module/cornerstone/item-employee should render cssModifier and offset if passed 1`] = `
 <li
   className="m-cornerstone__item--employee has-offset--200"
   itemProp="itemListElement"

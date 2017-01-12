@@ -73,12 +73,12 @@ function addContent(configKey) {
          *
          * @static
          * @type {Object}
-         * @property {string} [locale] - The current locale string
-         * @property {Object} [config] - The content configuration
+         * @property {string} locale - The current locale string
+         * @property {Object} config - The content configuration
          */
         ReturnedComponent.propTypes = {
-            locale: PropTypes.string,
-            config: PropTypes.object // eslint-disable-line react/forbid-prop-types
+            locale: PropTypes.string.isRequired,
+            config: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
         };
 
         /**

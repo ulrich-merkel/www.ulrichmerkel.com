@@ -35,6 +35,7 @@
                 &:visited {
                     color: $config-color-grey !important;
                     text-decoration: underline;
+                    text-decoration-skip: ink;
                 }
             }
         }

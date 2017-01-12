@@ -14,7 +14,7 @@ describe('common/component/decorator/add-page-tracking', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = addPageTracking(Page);

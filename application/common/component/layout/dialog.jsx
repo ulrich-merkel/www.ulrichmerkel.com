@@ -31,7 +31,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { throttle, isEqual } from 'lodash';
+import { throttle, isEqual, get } from 'lodash';
 
 import { selectStateDialogVisible } from './../../state/selectors';
 import { changeDialogVisible } from './../../state/dialog/actions';
@@ -219,8 +219,8 @@ class LayoutDialog extends Component {
  *
  * @static
  * @type {Object}
- * @property {Function} handleChangeDialogVisible - Redux action callback to control dialog visibility
- * @property {boolean} dialogVisible - Redux state whether this dialog is visible or not
+ * @property {Function} [handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
+ * @property {boolean} [dialogVisible=false] - Redux state whether this dialog is visible or not
  * @property {Object} [content={}] - The component content config
  */
 LayoutDialog.propTypes = {
@@ -237,6 +237,8 @@ LayoutDialog.propTypes = {
  * @see LayoutDialog.propTypes
  */
 LayoutDialog.defaultProps = {
+    handleChangeDialogVisible: Function.prototype,
+    dialogVisible: false,
     content: {}
 };
 
@@ -253,7 +255,7 @@ LayoutDialog.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: selectStateDialogVisible(state) || ownProps.dialogVisible
+        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible')
     };
 }
 

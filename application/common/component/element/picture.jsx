@@ -10,78 +10,21 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
  *
+ * @see {@link https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n}
+ *
  * @requires react
  * @requires classnames
+ * @requires shortid
+ * @requires common/component/element/picture-source
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
-/**
- * Function representing a component to return a single react child element.
- *
- * @function
- * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
- */
-function ElementPictureSource(props) {
-
-    const {
-        className,
-        path,
-        name,
-        ext,
-        width,
-        height,
-        minWidth
-    } = props;
-
-    const composedClassName = classnames(
-        'c-picture__source',
-        className
-    );
-
-    const srcSet = `${path}${name}@${width}x${height}.${ext}`;
-    const media = `(min-width: ${minWidth}px)`;
-
-    return (
-        <source className={composedClassName} {...{ srcSet, media }} />
-    );
-}
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {Object}
- * @property {string} path - The image path (folder)
- * @property {string} name - The image name
- * @property {string} ext - The image extension (jpg, png)
- * @property {string|number} width - The image width (for dynamically creating names)
- * @property {string|number} height - The image height (for dynamically creating names)
- * @property {string|number} minWidth - The mediaquery min-width value
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- */
-ElementPictureSource.propTypes = {
-    path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    ext: PropTypes.string.isRequired,
-    width: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
-    height: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
-    minWidth: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
-    className: PropTypes.string
-};
+import ElementPictureSource from './picture-source';
 
 /**
  * Class representing a component to return a single react child element.
@@ -126,7 +69,7 @@ class ElementPicture extends Component {
 
         return (
             <ComponentType className={componentClassName} itemScope itemType='http://schema.org/ImageObject' {...otherProps}>
-                {sizes && sizes.map((value, index) => {
+                {sizes && sizes.map((value) => {
                     const {
                         width,
                         height,
@@ -135,7 +78,7 @@ class ElementPicture extends Component {
 
                     return (
                         <ElementPictureSource
-                            key={index}
+                            key={shortid.generate()}
                             {...{
                                 path,
                                 name,
@@ -178,10 +121,14 @@ class ElementPicture extends Component {
  */
 ElementPicture.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string,
-    children: PropTypes.node,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     name: PropTypes.string,
-    ext: PropTypes.string,
+    ext: PropTypes.oneOf([
+        'jpg',
+        'png',
+        ''
+    ]),
     path: PropTypes.string,
     alt: PropTypes.string,
     placeholder: PropTypes.string,

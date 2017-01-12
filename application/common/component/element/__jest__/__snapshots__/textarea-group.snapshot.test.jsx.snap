@@ -9,6 +9,7 @@ exports[`common/component/element/textarea-group should render correctly 1`] = `
     name="textarea"
     onBlur={[Function]}
     onChange={[Function]}
+    placeholder=""
     required={true}
     rows="4"
     value="2" />

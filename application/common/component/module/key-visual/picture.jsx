@@ -178,7 +178,7 @@ class ModuleKeyVisualPicture extends Component {
  * @type {Object}
  * @property {string} [img={}] - The image alt description
  * @property {string} [type='digital'] - The image src url
- * @property {boolean} [isCovered] - Whether the image should be background size covered or not
+ * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
  */
 ModuleKeyVisualPicture.propTypes = {
     img: PropTypes.object,
@@ -195,7 +195,8 @@ ModuleKeyVisualPicture.propTypes = {
 */
 ModuleKeyVisualPicture.defaultProps = {
     img: {},
-    type: 'digital'
+    type: 'digital',
+    isCovered: false
 };
 
 export default ModuleKeyVisualPicture;

@@ -17,7 +17,7 @@ describe('common/component/decorator/add-content', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = addContent('Page')(Page);

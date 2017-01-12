@@ -101,25 +101,25 @@ class ElementInputGroup extends Component {
  * @property {string} id - The input id attribute
  * @property {string} name - The input name attribute
  * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [type='text'] - The input type attribute
- * @property {string} [label] - The input label attribute
- * @property {Function} [onBlur] - The input blur handler
- * @property {Function} [onChange] - The input change handler
- * @property {string} [value] - The default input value
+ * @property {boolean} [isPristine=false] - Whether the input has a user given value or not
  * @property {boolean} [isValid=true] - Whether the input has a valid value or not
- * @property {boolean} [isPristine] - Whether the input has a user given value or not
+ * @property {string} [label=''] - The input label attribute
+ * @property {string} [type='text'] - The input type attribute
+ * @property {Function} [onBlur=Function.prototype] - The input blur handler
+ * @property {Function} [onChange=Function.prototype] - The input change handler
+ * @property {string} [value=''] - The default input value
  */
 ElementInputGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    type: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isPristine: PropTypes.bool,
+    isValid: PropTypes.bool,
     label: PropTypes.string,
+    type: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    value: PropTypes.string,
-    isValid: PropTypes.bool,
-    isPristine: PropTypes.bool
+    value: PropTypes.string
 };
 
 /**
@@ -130,8 +130,13 @@ ElementInputGroup.propTypes = {
  * @see ElementButtonGroup.propTypes
  */
 ElementInputGroup.defaultProps = {
+    isPristine: false,
+    isValid: true,
+    label: '',
     type: 'text',
-    isValid: true
+    onBlur: Function.prototype,
+    onChange: Function.prototype,
+    value: ''
 };
 
 export default ElementInputGroup;

@@ -62,7 +62,7 @@ describe('common/component/module/text', function () {
             </Router>
         );
 
-        wrapper.find('a').simulate('click');
+        wrapper.find('a').first().simulate('click');
         wrapper.unmount();
     });
 });

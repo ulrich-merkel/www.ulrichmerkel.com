@@ -26,7 +26,7 @@
  * @requires express-request-language
  * @requires hpp
  * @requires helmet
- * @requires shrink-ray
+ * @requires compression
  * @requires path
  * @requires body-parser
  * @requires cookie-parser
@@ -58,7 +58,7 @@ import express from 'express';
 import requestLanguage from 'express-request-language';
 import hpp from 'hpp';
 import helmet from 'helmet';
-import shrinkRay from 'shrink-ray';
+import compression from 'compression';
 import path from 'path';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -169,7 +169,8 @@ function create(config = {}, callback = Function.prototype) {
 
     // Enable compression, using advanced response compression using a async zopfli/brotli combination
     // @see {@link https://github.com/aickin/shrink-ray}
-    app.use(shrinkRay());
+    // @TODO: app.use(shrinkRay()); can't be used until now because the target system is not supported
+    app.use(compression());
 
     // Serve static files
     app.use(express.static(path.resolve(__dirname, options.staticPath), {

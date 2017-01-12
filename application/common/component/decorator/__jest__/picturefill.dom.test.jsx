@@ -14,7 +14,7 @@ describe('common/component/decorator/picturefill', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = picturefill(Page);

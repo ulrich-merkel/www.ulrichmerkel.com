@@ -42,6 +42,7 @@ $block: '#{$config-ns}m-text';
             .no-touchevents &:hover,
             .no-js &:hover {
                 text-decoration: underline;
+                text-decoration-skip: ink;
             }
         }
     }

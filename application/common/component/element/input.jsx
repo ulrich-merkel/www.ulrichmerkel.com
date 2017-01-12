@@ -87,24 +87,24 @@ class ElementInput extends Component {
  *
  * @static
  * @type {Object}
+ * @property {string} name - The input name attribute
+ * @property {string} id - The input id attribute
  * @property {string} [className] - The input css class names - will be merged into component default classNames
  * @property {boolean} [required=false] - The input required attribute
  * @property {string} [type='text'] - The input type attribute
  * @property {string} [placeholder=''] - The input placeholder attribute
- * @property {string} [name] - The input name attribute
- * @property {string} [id] - The input id attribute
  * @property {string} [value] - The input value attribute
  * @property {Function} [onBlur=Function.prototype] - The input onBlur handler
  * @property {Function} [onChange=Function.prototype] - The input onChange handler
  */
 ElementInput.propTypes = {
-    className: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     required: PropTypes.bool,
     type: PropTypes.string,
     placeholder: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.string, // eslint-disable-line react/require-default-props
     onBlur: PropTypes.func,
     onChange: PropTypes.func
 };

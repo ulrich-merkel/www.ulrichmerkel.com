@@ -61,11 +61,22 @@ function SectionCornerstone(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
+ * @property {Object} [content={}] - The content config input
  */
 SectionCornerstone.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionCornerstone.propTypes
+ */
+SectionCornerstone.defaultProps = {
+    content: {}
 };
 
 export default SectionCornerstone;

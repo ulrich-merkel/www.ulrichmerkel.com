@@ -76,20 +76,20 @@ function ModuleMenuItem(props) {
 
  * @static
  * @type {Object}
- * @property {string} [path] - The react-router link
- * @property {string} [title] - The items title content
- * @property {string} [label] - The items label content
+ * @property {string} [path=''] - The react-router link
+ * @property {string} [title=''] - The items title content
+ * @property {string} [label=''] - The items label content
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @property {string} [itemType='http://www.schema.org/SiteNavigationElement'] - The schema.org itemtype url attribute
- * @property {string} [icon] - The icon type
+ * @property {string} [icon=''] - The icon type
  * @property {boolean} [isLabelHidden=false] - Whether the label is hidden or not
- * @property {string} [itemPropA] - The link element itemProp attribute
+ * @property {string} [itemPropA='url'] - The link element itemProp attribute
  */
 ModuleMenuItem.propTypes = {
     path: PropTypes.string,
     title: PropTypes.string,
     label: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
     icon: PropTypes.string,
     isLabelHidden: PropTypes.bool,
@@ -104,7 +104,11 @@ ModuleMenuItem.propTypes = {
  * @see ModuleMenuItem.propTypes
  */
 ModuleMenuItem.defaultProps = {
+    path: '',
+    title: '',
+    label: '',
     itemType: 'http://www.schema.org/SiteNavigationElement',
+    icon: '',
     isLabelHidden: false,
     itemPropA: 'url'
 };

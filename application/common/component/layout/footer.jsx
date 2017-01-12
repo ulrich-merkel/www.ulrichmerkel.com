@@ -111,7 +111,7 @@ function LayoutFooter(props) {
  * @property {Object} [content={}] - The component content config
  */
 LayoutFooter.propTypes = {
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line  react/require-default-props
     handleScrollTop: PropTypes.func,
     content: PropTypes.object // eslint-disable-line react/forbid-prop-types
 };

@@ -32,6 +32,10 @@ $block: '#{$config-ns}m-featured';
         height: auto;
         float: left;
 
+        &.is-active {
+            display: none;
+        }
+
         @include breakpoint(320px) {
             width: 50%;
         }
@@ -56,6 +60,7 @@ $block: '#{$config-ns}m-featured';
 
                 .#{$block}__hover {
                     opacity: 1;
+                    transform: scale(1);
                 }
 
                 @supports (transform: scale(0.99)) {
@@ -102,15 +107,15 @@ $block: '#{$config-ns}m-featured';
         height: 100%;
         padding: rem-calc($config-type-scale-11);
         opacity: 0;
+        transform: scale(1.025);
 
         // advanced filters just work in safari right now
         // @link http://iamvdo.me/en/blog/advanced-css-filters
         background: $config-section-featured-hover-background;
-        -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
 
-        will-change: bottom, opacity;
-        transition: bottom $config-transition-arguments, opacity $config-transition-arguments;
+        will-change: bottom, opacity, transform;
+        transition: bottom $config-transition-arguments, opacity $config-transition-arguments, transform $config-transition-arguments;
 
         @include breakpoint(320px) {
             padding: rem-calc($config-type-scale-5);

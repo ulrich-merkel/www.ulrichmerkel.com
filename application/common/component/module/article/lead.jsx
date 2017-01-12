@@ -60,12 +60,23 @@ function ModuleArticleLead(props) {
  *
  * @static
  * @type {Object}
- * @property {string} text - The lead element text
+ * @property {string} [text=''] - The lead element text
  * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleLead.propTypes = {
     text: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
+};
+
+/**
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleArticleLead.propTypes
+ */
+ModuleArticleLead.defaultProps = {
+    text: ''
 };
 
 export default ModuleArticleLead;

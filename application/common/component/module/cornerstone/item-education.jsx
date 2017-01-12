@@ -12,6 +12,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/element/headline
  * @requires common/component/element/paragraph
  *
@@ -20,6 +21,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import Headline from './../../element/headline';
 import P from './../../element/paragraph';
@@ -31,7 +33,7 @@ import P from './../../element/paragraph';
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleCornerstoneItemEmployee(props) {
+function ModuleCornerstoneItemEducation(props) {
 
     const {
         cssModifier,
@@ -41,6 +43,7 @@ function ModuleCornerstoneItemEmployee(props) {
         timeStart,
         timeEnd,
         description,
+        place,
         ...otherProps
     } = props;
 
@@ -50,19 +53,19 @@ function ModuleCornerstoneItemEmployee(props) {
     );
 
     return (
-        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EmployeeRole' {...otherProps}>
+        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EducationEvent' {...otherProps}>
             <div className='m-cornerstone__description'>
                 <div className='m-cornerstone__description-content'>
-                    <Headline className='m-cornerstone__headline' itemProp='roleName' htmlElement='h4'>
+                    <Headline className='m-cornerstone__headline' itemProp='name' htmlElement='h4'>
                         {headline}
                     </Headline>
-                    <P className='m-cornerstone__company'>
+                    <P className='m-cornerstone__company' itemProp='alternateName'>
                         <strong>{lead}</strong>
                     </P>
-                    <P className='m-cornerstone__time' itemProp='description'>
-                        (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time'>{timeEnd}</time>)
+                    <P className='m-cornerstone__time'>
+                        (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time' itemProp='endDate'>{timeEnd}</time>)
                     </P>
-                    {description.map((value, index) => {
+                    {description.map((text) => {
                         /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
                          * are not possible to be set via translation strings.
@@ -71,17 +74,24 @@ function ModuleCornerstoneItemEmployee(props) {
                          */
                         return (
                             <P
-                                key={index}
+                                key={shortid.generate()}
                                 className='m-cornerstone__text'
                                 itemProp='description'
-                                dangerouslySetInnerHTML={{ __html: value }}
+                                dangerouslySetInnerHTML={{ __html: text }}
                             />
                         );
-
                     })}
                 </div>
             </div>
             <div className='m-cornerstone__bubble' />
+            <div hidden itemProp='location' itemScope itemType='https://schema.org/Place'>
+                <meta itemProp='name' content={place.name} />
+                <div itemProp='address' itemScope itemType='http://schema.org/PostalAddress'>
+                    <meta itemProp='streetAddress' content={place.streetAddress} />
+                    <meta itemProp='addressLocality' content={place.addressLocality} />
+                    <meta itemProp='sameAs' content={place.sameAs} />
+                </div>
+            </div>
         </li>
     );
 
@@ -97,17 +107,22 @@ function ModuleCornerstoneItemEmployee(props) {
  * @property {string} [timeStart] - The item start time
  * @property {string} [timeEnd] - The item end time
  * @property {Array} [description=[]] - The items description
+ * @property {Object} [place={}] - The items place description
  * @property {string} [cssModifier] - The bem css modifier
  * @property {string} [offset] - The css top offset to display items nice
  */
-ModuleCornerstoneItemEmployee.propTypes = {
-    headline: PropTypes.string,
-    lead: PropTypes.string,
-    timeStart: PropTypes.string,
-    timeEnd: PropTypes.string,
+ModuleCornerstoneItemEducation.propTypes = {
+    headline: PropTypes.string, // eslint-disable-line react/require-default-props
+    lead: PropTypes.string, // eslint-disable-line react/require-default-props
+    timeStart: PropTypes.string, // eslint-disable-line react/require-default-props
+    timeEnd: PropTypes.string, // eslint-disable-line react/require-default-props
     description: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    cssModifier: PropTypes.string,
-    offset: PropTypes.string
+    place: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ])),
+    cssModifier: PropTypes.string, // eslint-disable-line react/require-default-props
+    offset: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -115,10 +130,11 @@ ModuleCornerstoneItemEmployee.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleCornerstoneItemEmployee.propTypes
+ * @see ModuleCornerstoneItemEducation.propTypes
  */
-ModuleCornerstoneItemEmployee.defaultProps = {
-    description: []
+ModuleCornerstoneItemEducation.defaultProps = {
+    description: [],
+    place: {}
 };
 
-export default ModuleCornerstoneItemEmployee;
+export default ModuleCornerstoneItemEducation;

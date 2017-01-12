@@ -61,14 +61,14 @@ function ModuleArticleHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} text - The headline text
+ * @property {string} [text=''] - The headline text
  * @property {boolean} [isMain=false] - Whether this is a main headline (h1) or not
  * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleHeadline.propTypes = {
     text: PropTypes.string,
     isMain: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -79,6 +79,7 @@ ModuleArticleHeadline.propTypes = {
  * @see ModuleArticleHeadline.propTypes
  */
 ModuleArticleHeadline.defaultProps = {
+    text: '',
     isMain: false
 };
 

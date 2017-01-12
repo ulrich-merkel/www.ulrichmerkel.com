@@ -63,12 +63,24 @@ function ModuleKeyVisualArticle(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The article headline content
- * @property {string} [lead] - The article lead content
+ * @property {string} [headline=''] - The article headline content
+ * @property {string} [lead=''] - The article lead content
  */
 ModuleKeyVisualArticle.propTypes = {
     headline: PropTypes.string,
     lead: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleKeyVisualArticle.propTypes
+ */
+ModuleKeyVisualArticle.defaultProps = {
+    headline: '',
+    lead: ''
 };
 
 export default ModuleKeyVisualArticle;

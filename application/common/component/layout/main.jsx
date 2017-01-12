@@ -42,7 +42,7 @@ function LayoutMain(props) {
  * @property {Array|string} [children] - The component react children
  */
 LayoutMain.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 export default LayoutMain;

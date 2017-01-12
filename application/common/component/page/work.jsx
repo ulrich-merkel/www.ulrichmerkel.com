@@ -21,6 +21,7 @@
  * @requires common/component/layout/main
  * @requires common/component/section/key-visual
  * @requires common/component/section/text
+ * @requires common/component/section/featured
  *
  * @changelog
  * - 0.0.4 Improve react-router routing
@@ -41,6 +42,7 @@ import { getContentSection, getTranslatedContent } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionKeyVisual from './../section/key-visual';
 import SectionText from './../section/text';
+import SectionFeatured from './../section/featured';
 
 /**
  * Find current work page key from config array.
@@ -90,7 +92,33 @@ class PageWork extends Component {
      * @returns {void}
      */
     componentWillMount() {
-        const { params, router } = this.props;
+        const { params } = this.props;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Invoked before a mounted component receives new props. React only calls
+     * this method if some of component's props may update.
+     *
+     * @function
+     * @param {Object} [nextProps] - The new class properties
+     * @returns {void}
+     */
+    componentWillReceiveProps(nextProps) {
+        const { params } = nextProps;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Handle state transition or redirect based on the router params.
+     *
+     * @function
+     * @private
+     * @param {Object} params - The current router params
+     * @returns {void}
+     */
+    handleRouterParams(params) {
+        const { router } = this.props;
         const work = getWorkContentKey(params.work, configWork);
 
         // redirect if route couldn't be found
@@ -134,10 +162,10 @@ class PageWork extends Component {
                     hasColumns2={false}
                     itemType='https://schema.org/CreativeWork'
                 />
+                <SectionFeatured content={contentSection('section3')} />
             </LayoutMain>
         );
     }
-
 }
 
 /**

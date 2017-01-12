@@ -70,7 +70,7 @@ function ModuleTextLink(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content] - The link content's text
+ * @property {string} [content={}] - The link content's text
  */
 ModuleTextLink.propTypes = {
     content: PropTypes.shape({
@@ -78,6 +78,17 @@ ModuleTextLink.propTypes = {
         linkLabel: PropTypes.string,
         linkTitle: PropTypes.string
     })
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextLink.propTypes
+ */
+ModuleTextLink.defaultProps = {
+    content: {}
 };
 
 export default ModuleTextLink;

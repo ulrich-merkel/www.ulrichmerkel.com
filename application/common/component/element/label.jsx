@@ -51,12 +51,12 @@ function ElementLabel(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The label css class names, will be merged into component default classNames
  * @property {string} [htmlFor] - The label for attribute
+ * @property {string} [className] - The label css class names, will be merged into component default classNames
  */
 ElementLabel.propTypes = {
-    className: PropTypes.string,
-    htmlFor: PropTypes.string
+    htmlFor: PropTypes.string.isRequired,
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 export default ElementLabel;
