@@ -49,15 +49,15 @@ function ElementMeta(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [itemProp=''] - The meta tag itemProp attribute
- * @property {string} [name=''] - The meta tag name attribute
- * @property {string} [property=''] - The meta tag property attribute
+ * @property {string} [itemProp] - The meta tag itemProp attribute
+ * @property {string} [name] - The meta tag name attribute
+ * @property {string} [property] - The meta tag property attribute
  * @property {string} [content=''] - The meta tag content attribute
  */
 ElementMeta.propTypes = {
-    itemProp: PropTypes.string,
-    name: PropTypes.string,
-    property: PropTypes.string,
+    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
+    name: PropTypes.string, // eslint-disable-line react/require-default-props
+    property: PropTypes.string, // eslint-disable-line react/require-default-props
     content: PropTypes.string
 };
 
@@ -69,9 +69,6 @@ ElementMeta.propTypes = {
  * @see ElementMeta.propTypes
  */
 ElementMeta.defaultProps = {
-    itemProp: '',
-    name: '',
-    property: '',
     content: ''
 };
 
