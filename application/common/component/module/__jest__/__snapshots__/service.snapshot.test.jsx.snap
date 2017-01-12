@@ -59,6 +59,7 @@ exports[`common/component/module/service should render correctly 1`] = `
     </div>
   </li>
   <li
+    aria-hidden="true"
     className="m-service__item--clear" />
   <li
     className="m-service__item--left"
@@ -150,6 +151,7 @@ exports[`common/component/module/service should render no itemType if unset 1`] 
     </div>
   </li>
   <li
+    aria-hidden="true"
     className="m-service__item--clear" />
   <li
     className="m-service__item--left"

@@ -52,15 +52,7 @@ class ModulePerson extends Component {
             children
         } = this.props;
 
-        if (
-            !content ||
-            !content.name ||
-            !content.streetAddress ||
-            !content.postalCode ||
-            !content.locality ||
-            !content.email ||
-            !content.phoneNumbers ||
-            !content.website) {
+        if (!content) {
             return null;
         }
 
@@ -88,7 +80,8 @@ class ModulePerson extends Component {
                 {content.name && <P className='m-person__name'>
                     <strong>{content.name}</strong>
                 </P>}
-                {content.streetAddress && <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
+                {content.streetAddress && content.postalCode && content.locality &&
+                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
                     <span className='m-person__street-address' itemProp='street-address'>
                         {content.streetAddress}
                     </span>
@@ -132,7 +125,7 @@ ModulePerson.propTypes = {
     isCentered: PropTypes.bool,
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    /* eslint-disable react/no-unused-prop-types */
+    /* eslint-disable react/no-unused-prop-types, react/require-default-props */
     content: PropTypes.shape({
         name: PropTypes.string,
         streetAddress: PropTypes.string,
@@ -143,7 +136,7 @@ ModulePerson.propTypes = {
         phoneNumber: PropTypes.string,
         website: PropTypes.string
     })
-    /* eslint-enable react/no-unused-prop-types */
+    /* eslint-enable react/no-unused-prop-types, react/require-default-props */
 };
 
 /**
@@ -156,8 +149,7 @@ ModulePerson.propTypes = {
 ModulePerson.defaultProps = {
     componentType: 'div',
     itemType: 'http://schema.org/Person',
-    isCentered: true,
-    content: {}
+    isCentered: true
 };
 
 export default ModulePerson;

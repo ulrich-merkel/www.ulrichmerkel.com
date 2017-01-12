@@ -23,18 +23,18 @@ exports[`common/component/module/article should render correctly 1`] = `
   <meta
     content="Headline Article"
     itemProp="name"
-    name=""
-    property="" />
+    name={undefined}
+    property={undefined} />
   <meta
     content="Author"
     defaultContent="Ulrich Merkel"
     itemProp="author"
-    name=""
-    property="" />
+    name={undefined}
+    property={undefined} />
   <meta
     content="20161212"
     itemProp="datePublished"
-    name=""
-    property="" />
+    name={undefined}
+    property={undefined} />
 </span>
 `;

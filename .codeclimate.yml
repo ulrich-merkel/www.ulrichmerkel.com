@@ -35,6 +35,7 @@ engines:
     - e5feeb0f739bd69848e1225e558e0dfa
     - 6cf39a0ad8ddccb03c9f7ec0d3f8ed0a
     - 7828bdf2671bcfd1308fbd0f391d1cf6
+    - 7c18cbd6fa95a10719cb86ff0d4e610e
   eslint:
     enabled: true
     channel: "eslint-3"

@@ -30,5 +30,6 @@ exports[`common/component/module/service/item should render correctly 1`] = `
 
 exports[`common/component/module/service/item should render isClear correctly 1`] = `
 <li
+  aria-hidden="true"
   className="m-service__item--clear" />
 `;
