@@ -45,7 +45,7 @@ function ModuleServiceItem(props) {
 
     if (isClear) {
         return (
-            <li className='m-service__item--clear' aria-hidden="true" />
+            <li className='m-service__item--clear' aria-hidden='true' />
         );
     }
 
