@@ -11,14 +11,14 @@
  * @version 0.0.4
  *
  * @requires react
- * @requires react-Router
  * @requires classnames
+ * @requires common/component/element/a
  * @requires common/component/element/image
  *
  * @see {@link http://stackoverflow.com/questions/30115324/pass-props-in-link-react-router}
  *
  * @changelog
- * - 0.0.4 Excluded headline/lead into separate component
+ * - 0.0.4 Excluded headline/lead into separate component, improved nested routing
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -26,9 +26,9 @@
  * @example <caption>Example usage (jsx)</caption>
  */
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import classnames from 'classnames';
 
+import A from './../../element/a';
 import Picture from './../../element/picture';
 
 /**
@@ -50,8 +50,8 @@ function ModuleFeaturedItem(props) {
     const componentListItemClassName = classnames('m-featured__item');
 
     return (
-        <Link
-            to={`work/${path}`}
+        <A
+            to={`/work/${path}`}
             className={componentListItemClassName}
             title={headline}
             itemProp='itemListElement'
@@ -79,7 +79,7 @@ function ModuleFeaturedItem(props) {
             {children}
 
             <meta itemProp='name' content={headline} />
-        </Link>
+        </A>
     );
 
 }

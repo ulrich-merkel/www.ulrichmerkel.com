@@ -32,6 +32,10 @@ $block: '#{$config-ns}m-featured';
         height: auto;
         float: left;
 
+        &.is-active {
+            display: none;
+        }
+
         @include breakpoint(320px) {
             width: 50%;
         }

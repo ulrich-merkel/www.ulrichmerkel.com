@@ -110,8 +110,10 @@
   "main": "application/server/server.js",
   "browser": "application/client/client.js",
   "files": [
-    "lib/",
-    "bin/"
+    "*.md",
+    "doc",
+    "lib",
+    "bin"
   ],
   "repository": {
     "type": "git",
@@ -141,6 +143,7 @@
     "express-request-language": "1.1.9",
     "fastclick": "1.0.6",
     "helmet": "3.3.0",
+    "history": "3.2.1",
     "hpp": "0.2.1",
     "ip": "1.1.4",
     "isomorphic-fetch": "2.2.1",
