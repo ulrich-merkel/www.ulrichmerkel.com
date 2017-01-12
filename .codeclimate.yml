@@ -24,6 +24,10 @@ engines:
     - cb1cef1dbec7fe434fd52d2bf805bf5d
     - 0ebd3e1342c5dc9fcb3c247c751d3318
     - 9bf98f2e107de1bf2900efc07f96cef0
+    - 6de3817269cb52bcea038a8329aaeb94
+    - 4b775ee16f34d62346428c72da80908f
+    - 70736ecb0d79f80e0294b7702cabd824
+    - 35e33f1db9d7b8ba63362bfd2f1231bb
   eslint:
     enabled: true
     channel: "eslint-3"
