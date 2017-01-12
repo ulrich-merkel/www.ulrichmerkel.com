@@ -92,7 +92,33 @@ class PageWork extends Component {
      * @returns {void}
      */
     componentWillMount() {
-        const { params, router } = this.props;
+        const { params } = this.props;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Invoked before a mounted component receives new props. React only calls
+     * this method if some of component's props may update.
+     *
+     * @function
+     * @param {Object} [nextProps] - The new class properties
+     * @returns {void}
+     */
+    componentWillReceiveProps(nextProps) {
+        const { params } = nextProps;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Handle state transition or redirect based on the router params.
+     *
+     * @function
+     * @private
+     * @param {Object} params - The current router params
+     * @returns {void}
+     */
+    handleRouterParams(params) {
+        const { router } = this.props;
         const work = getWorkContentKey(params.work, configWork);
 
         // redirect if route couldn't be found
@@ -140,7 +166,6 @@ class PageWork extends Component {
             </LayoutMain>
         );
     }
-
 }
 
 /**
