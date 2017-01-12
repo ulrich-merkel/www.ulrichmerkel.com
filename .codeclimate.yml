@@ -8,6 +8,22 @@ engines:
       - javascript
       - python
       - php
+    exclude_fingerprints:
+    - b61fee05d1c46335ca527dd781d777dd
+    - 25561e74009fd114749f3c7b6a909173
+    - bb4469658b7cac864fdccc3d55e78c6f
+    - 0cda9e2ee3270564c99c1eaa9ef1c79b
+    - e508655ac84e93d29237679cec59923c
+    - 02c96a056f3236e937836c86485d958d
+    - 2feee580281bc645c4fced9c32a14487
+    - 6cc920644917b2e423cbcda656af9c3a
+    - 3b0f24a12ef2dc268b13769187b5502e
+    - e8f22cd58a080abcbcd8c69a4378a0e4
+    - 1be43f2e95934f90e6bfdaf087042dad
+    - b194bb451315864384fb8709ca7be592
+    - cb1cef1dbec7fe434fd52d2bf805bf5d
+    - 0ebd3e1342c5dc9fcb3c247c751d3318
+    - 9bf98f2e107de1bf2900efc07f96cef0
   eslint:
     enabled: true
     channel: "eslint-3"
