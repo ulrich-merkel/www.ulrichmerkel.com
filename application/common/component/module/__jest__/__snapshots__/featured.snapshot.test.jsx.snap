@@ -5,12 +5,13 @@ exports[`common/component/module/featured should render correctly 1`] = `
   itemType="https://schema.org/ItemList"
   role="list">
   <a
-    className="m-featured__item"
+    className="c-link m-featured__item"
     itemProp="itemListElement"
     itemScope={true}
     itemType="http://schema.org/SiteNavigationElement"
     onClick={[Function]}
     style={Object {}}
+    tabIndex="0"
     title="headline">
     <span
       className="m-featured__hover">
@@ -40,12 +41,13 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
   className="m-featured foo"
   role="list">
   <a
-    className="m-featured__item"
+    className="c-link m-featured__item"
     itemProp="itemListElement"
     itemScope={true}
     itemType="http://schema.org/SiteNavigationElement"
     onClick={[Function]}
     style={Object {}}
+    tabIndex="0"
     title="headline">
     <span
       className="m-featured__hover">
