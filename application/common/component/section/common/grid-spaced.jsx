@@ -86,6 +86,7 @@ SectionCommonGridSpaced.propTypes = {
  * and it will be merged into the component’s props.
  *
  * @function
+ * @private
  * @param {Object.<*>} state - The redux store state
  * @returns {Object}
  */
