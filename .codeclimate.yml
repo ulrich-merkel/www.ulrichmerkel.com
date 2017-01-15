@@ -57,3 +57,4 @@ exclude_paths:
 - "config/"
 - "application/common/vendor/"
 - "**/__jest__/"
+- "**/__mocks__/"
