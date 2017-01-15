@@ -57,7 +57,7 @@ function getWorkContentKey(routerPath, config) {
     return config.filter((entry) => {
         return entry.routerPath.substr(1) === routerPath;
     }).map((entry) => {
-        return entry.i18nKey;
+        return entry.intlKey;
     }).shift();
 }
 

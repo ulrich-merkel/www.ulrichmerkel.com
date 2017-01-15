@@ -11,8 +11,8 @@
  * @requires assert-plus
  * @requires common/config/application
  * @requires common/config/content
- * @requires common/config/i18n/en-EN
- * @requires common/config/i18n/de-DE
+ * @requires common/config/intl/en-EN
+ * @requires common/config/intl/de-DE
  *
  * @changelog
  * - 0.0.3 Add assert-plus as function parameter checker
@@ -24,8 +24,8 @@ import assert from 'assert-plus';
 
 import { url } from './../../common/config/application';
 import configContent from './../../common/config/content';
-import configI18nEnEn from './../../common/config/i18n/en-EN';
-import configI18nDeDe from './../../common/config/i18n/de-DE';
+import configIntlEnEn from './../../common/config/intl/en-EN';
+import configIntlDeDe from './../../common/config/intl/de-DE';
 
 /**
  * Routing handler to serve static files as json.
@@ -47,7 +47,7 @@ function serveFile(file, req, res) {
 
 const middlewareApi = Router();
 middlewareApi.get(url.apiConfigContent, serveFile.bind(null, configContent));
-middlewareApi.get(url.apiConfigEnEn, serveFile.bind(null, configI18nEnEn));
-middlewareApi.get(url.apiConfigDeDe, serveFile.bind(null, configI18nDeDe));
+middlewareApi.get(url.apiConfigEnEn, serveFile.bind(null, configIntlEnEn));
+middlewareApi.get(url.apiConfigDeDe, serveFile.bind(null, configIntlDeDe));
 
 export default middlewareApi;

@@ -15,31 +15,31 @@ import { url } from './application';
 
 const work = [
     {
-        i18nKey: 'PageWorkOptikLudewig',
+        intlKey: 'PageWorkOptikLudewig',
         routerPath: url.workOptikLudewig
     },
     {
-        i18nKey: 'PageWorkSummerInspiration',
+        intlKey: 'PageWorkSummerInspiration',
         routerPath: url.workSummerInspiration
     },
     {
-        i18nKey: 'PageWorkMomentariness',
+        intlKey: 'PageWorkMomentariness',
         routerPath: url.workMomentariness
     },
     {
-        i18nKey: 'PageWorkLebensweltSchule',
+        intlKey: 'PageWorkLebensweltSchule',
         routerPath: url.workLebensweltSchule
     },
     {
-        i18nKey: 'PageWorkRevolution',
+        intlKey: 'PageWorkRevolution',
         routerPath: url.workRevolution
     },
     {
-        i18nKey: 'PageWorkVerlegeserviceBunge',
+        intlKey: 'PageWorkVerlegeserviceBunge',
         routerPath: url.workVerlegeserviceBunge
     },
     {
-        i18nKey: 'PageWorkGedankenKollektiv',
+        intlKey: 'PageWorkGedankenKollektiv',
         routerPath: url.workGedankenKollektiv
     }
 ];
