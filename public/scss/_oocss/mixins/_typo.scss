@@ -37,7 +37,6 @@
 
 /// Enable word wrapping for long words
 @mixin word-wrap {
-    word-break: break-word;
     @if ($config-support-prefix-webkit) {
         -webkit-hyphens: auto;
     }
@@ -51,12 +50,11 @@
         -ms-hyphens: auto;
     }
     hyphens: auto;
+    word-break: break-word;
 }
 
 /// Disable word wrapping, useful if words can't be breaked
 @mixin no-wrap {
-    white-space: nowrap;
-
     // prevent css3 hyphens
     @if ($config-support-prefix-webkit) {
         -webkit-hyphens: none;
@@ -71,6 +69,7 @@
         -ms-hyphens: none;
     }
     hyphens: none;
+    white-space: nowrap;
 }
 
 /// User select for selecting text on the page

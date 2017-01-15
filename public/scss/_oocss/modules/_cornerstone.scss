@@ -14,10 +14,10 @@ $block: 'm-cornerstone';
         position: relative;
         z-index: 2;
         display: block;
-        overflow: hidden;
         width: 100%;
         margin: 0;
         padding: 0;
+        overflow: hidden;
         list-style: none;
 
         &::after {
@@ -25,9 +25,9 @@ $block: 'm-cornerstone';
             top: 0;
             left: 50%;
             z-index: 1;
-            content: ' ';
             width: 0;
             height: 100%;
+            content: ' ';
             border-right: 1px solid $config-color-black;
         }
     }
@@ -81,8 +81,8 @@ $block: 'm-cornerstone';
     .#{$block}__item--right {
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            clear: right;
             float: right;
+            clear: right;
 
             .#{$block}__description {
                 padding-left: rem-calc($config-type-scale-11);
@@ -104,8 +104,8 @@ $block: 'm-cornerstone';
     .#{$block}__item--left {
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            clear: left;
             float: left;
+            clear: left;
 
             .#{$block}__description {
                 padding-right: rem-calc($config-type-scale-11);
@@ -133,16 +133,16 @@ $block: 'm-cornerstone';
         text-align: center;
 
         .#{$block}__bubble {
-            display: inline-block;
             top: -23px;
+            display: inline-block;
             width: rem-calc($config-type-scale-11);
             height: rem-calc($config-type-scale-11);
             margin-left: rem-calc($config-type-scale-11 * -1);
             padding: rem-calc($config-type-scale-5);
+            color: $config-color-white;
             background: $config-color-black;
             border: 2px solid $config-color-white;
             border-radius: 50%;
-            color: $config-color-white;
         }
 
     }
@@ -208,9 +208,9 @@ $block: 'm-cornerstone';
 
     .#{$block}__bubble {
         position: absolute;
+        top: rem-calc($config-type-scale-8);
         z-index: 3;
         display: none;
-        top: rem-calc($config-type-scale-8);
         width: rem-calc($config-type-scale-6);
         height: rem-calc($config-type-scale-6);
         background: $config-color-black;

@@ -14,20 +14,20 @@ $block: '#{$config-ns}l-dialog';
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
         position: fixed;
-        z-index: 10;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: scroll;
-        overflow-x: hidden;
+        left: 0;
+        z-index: 10;
         display: block;
         width: auto;
         max-width: 100%;
         height: auto;
         margin: 0 auto;
         padding: 0;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+        overflow-y: scroll;
         background: transparent;
         contain: layout;
 
@@ -51,11 +51,11 @@ $block: '#{$config-ns}l-dialog';
 
     .#{$block}__background {
         position: fixed;
-        z-index: 9;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
+        left: 0;
+        z-index: 9;
         width: 100%;
         height: 100%;
         background: $config-color-blue--2;
@@ -63,19 +63,23 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}__button--close {
+        // stylelint-disable declaration-no-important
         position: absolute !important;
-        z-index: 12;
+        // stylelint-enable declaration-no-important
         top: 0;
         right: 0;
+        z-index: 12;
         width: rem-calc($config-grid--gutter * 2);
         height: rem-calc($config-grid--gutter * 2);
+        // stylelint-disable declaration-no-important
         padding: 9px 0 0 6px !important;
-        background: $config-color-blue--1;
-        color: $config-color-white;
+        // stylelint-enable declaration-no-important
         font-size: 130%;
         line-height: 2.5;
+        color: $config-color-white;
         text-align: center;
         letter-spacing: normal;
+        background: $config-color-blue--1;
 
         &:focus {
             color: $config-color-white;
@@ -145,11 +149,11 @@ $block: '#{$config-ns}l-dialog';
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
-        opacity: 1;
-        visibility: visible;
         display: block;
-        animation-duration: 0.3s;
+        visibility: visible;
+        opacity: 1;
         animation-fill-mode: forwards;
+        animation-duration: 0.3s;
 
         &.animate-enter {
             visibility: visible;
@@ -175,7 +179,9 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}--loading {
+        // stylelint-disable declaration-no-important
         display: none !important;
+        // stylelint-enable declaration-no-important
     }
 
     .#{$block} {

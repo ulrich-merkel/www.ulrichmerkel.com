@@ -15,15 +15,16 @@
         display: block;
         margin: 0;
         padding: 0;
-        border: 0;
-        color: $config-color-link;
         line-height: inherit;
+        color: $config-color-link;
         text-align: center;
         text-decoration: none;
         text-transform: none;
-        background: none;
         cursor: pointer;
+        background: none;
+        border: 0;
         appearance: none;
+
         will-change: background, color;
         transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
     }
