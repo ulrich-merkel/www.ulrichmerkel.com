@@ -47,10 +47,10 @@ $block: '#{$config-ns}c-flip';
 
         margin-top: -50px;
         margin-left: -40px;
-        text-align: center;
-        color: $config-color-white;
         font-size: rem-calc($config-type-scale-12);
         line-height: rem-calc(150);
+        color: $config-color-white;
+        text-align: center;
         transform-style: preserve-3d;
     }
 

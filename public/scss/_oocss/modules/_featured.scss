@@ -27,10 +27,10 @@ $block: '#{$config-ns}m-featured';
     [class*=' #{$block}__item--'] {
         position: relative;
         display: block;
-        overflow: hidden;
+        float: left;
         width: 100%;
         height: auto;
-        float: left;
+        overflow: hidden;
 
         &.is-active {
             display: none;
@@ -80,9 +80,9 @@ $block: '#{$config-ns}m-featured';
     }
 
     .#{$block}__image {
-        display: block;
         position: relative;
         z-index: 1;
+        display: block;
         width: 100%;
 
         will-change: transform;
@@ -96,23 +96,23 @@ $block: '#{$config-ns}m-featured';
 
     .#{$block}__hover {
         position: absolute;
-        z-index: 2;
         top: auto;
         right: 0;
         bottom: 0;
         left: 0;
-        display: block;
+        z-index: 2;
         box-sizing: border-box;
+        display: block;
         width: 100%;
         height: 100%;
         padding: rem-calc($config-type-scale-11);
-        opacity: 0;
-        transform: scale(1.025);
 
         // advanced filters just work in safari right now
         // @link http://iamvdo.me/en/blog/advanced-css-filters
         background: $config-section-featured-hover-background;
         backdrop-filter: blur(3px);
+        opacity: 0;
+        transform: scale(1.025);
 
         will-change: bottom, opacity, transform;
         transition: bottom $config-transition-arguments, opacity $config-transition-arguments, transform $config-transition-arguments;
@@ -194,8 +194,10 @@ $block: '#{$config-ns}m-featured';
         .#{$block},
         [class^='#{$block}__item--'],
         [class*=' #{$block}__item--'] {
+            // stylelint-disable declaration-no-important
             display: inline-block !important;
             width: 25% !important;
+            // stylelint-enable declaration-no-important
         }
     }
 

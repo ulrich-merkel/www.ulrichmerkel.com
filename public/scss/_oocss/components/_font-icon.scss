@@ -21,8 +21,9 @@ $block: '#{$config-ns}c-font-icon';
             url('#{$fonticons}.woff?41546266') format('woff'),
             url('#{$fonticons}.ttf?41546266') format('truetype'),
             url('#{$fonticons}.svg?41546266#fonticons') format('svg');
-        font-weight: $config-font-weight-normal;
         font-style: normal;
+        font-weight: $config-font-weight-normal;
+
     }
     /* stylelint-enable declaration-colon-newline-after */
 
@@ -30,10 +31,9 @@ $block: '#{$config-ns}c-font-icon';
     [class*=' #{$block}--']::before {
         display: inline-block;
         width: 1em;
-        vertical-align: baseline;
         font-family: 'fonticons';
-        font-weight: $config-font-weight-normal;
         font-style: normal;
+        font-weight: $config-font-weight-normal;
 
         // for safety - reset parent styles, that can break glyph codes
         font-variant: normal;
@@ -45,6 +45,7 @@ $block: '#{$config-ns}c-font-icon';
         text-decoration: inherit;
         text-transform: none;
         speak: none;
+        vertical-align: baseline;
 
         // Better Font Rendering
         @if ($config-support-prefix-webkit) {

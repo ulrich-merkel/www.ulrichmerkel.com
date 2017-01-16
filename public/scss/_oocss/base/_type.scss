@@ -33,8 +33,6 @@
     }
 
     body {
-        color: $config-font-color;
-
         // better font rendering
         @if ($config-support-prefix-webkit) {
             -webkit-font-smoothing: antialiased;
@@ -47,21 +45,22 @@
             -o-font-smoothing: antialiased;
         }
         font-smooth: auto; // stylelint-disable-line property-no-unknown
+        color: $config-font-color;
     }
 
     html,
     body {
         font-family: $config-type-font-family;
-        font-weight: $config-font-weight-normal;
-        font-style: normal;
         font-size: rem-calc($config-type-scale-9);
+        font-style: normal;
+        font-weight: $config-font-weight-normal;
         line-height: 1.375;
     }
 
     p {
+        margin-bottom: rem-calc($config-type-scale-9);
         font-size: inherit;
         line-height: 1.6;
-        margin-bottom: rem-calc($config-type-scale-9);
         text-rendering: optimizeLegibility;
     }
 
@@ -84,9 +83,9 @@
 
     sub,
     sup {
+        position: relative;
         font-size: 75%;
         line-height: 0;
-        position: relative;
         vertical-align: baseline;
     }
 

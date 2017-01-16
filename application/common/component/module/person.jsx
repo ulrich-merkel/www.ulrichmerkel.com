@@ -81,17 +81,18 @@ class ModulePerson extends Component {
                     <strong>{content.name}</strong>
                 </P>}
                 {content.streetAddress && content.postalCode && content.locality &&
-                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
-                    <span className='m-person__street-address' itemProp='street-address'>
-                        {content.streetAddress}
-                    </span>
-                    <span className='m-person__postal-code' itemProp='postal-code'>
-                        {content.postalCode}
-                    </span>
-                    <span className='m-person__locality' itemProp='locality'>
-                        {content.locality}
-                    </span>
-                </address>}
+                    <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
+                        <span className='m-person__street-address' itemProp='street-address'>
+                            {content.streetAddress}
+                        </span>
+                        <span className='m-person__postal-code' itemProp='postal-code'>
+                            {content.postalCode}
+                        </span>
+                        <span className='m-person__locality' itemProp='locality'>
+                            {content.locality}
+                        </span>
+                    </address>
+                }
                 {content.email && <P className='m-person__email'>
                     <abbr title='E-Mail address'>E.</abbr> <a href={`malto:${content.email}`} itemProp='email'>{content.email}</a>
                 </P>}

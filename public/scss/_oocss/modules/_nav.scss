@@ -22,15 +22,14 @@ $block: '#{$config-ns}m-nav';
         width: 40px;
         height: 40px;
         margin: rem-calc($config-grid--gutter / 2) rem-calc($config-grid--gutter);
-        background: transparent;
-        -webkit-appearance: none;
         appearance: none;
-        outline: none;
         font-size: 180%;
         line-height: 1;
         color: $config-color-blue--1;
         cursor: pointer;
+        background: transparent;
         border: 0;
+        outline: none;
 
         will-change: color;
         transition: color $config-transition-arguments;

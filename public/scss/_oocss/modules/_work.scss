@@ -39,9 +39,9 @@ $block: '#{$config-ns}m-work';
         text-align: left;
 
         &::after {
+            white-space: pre;
             // \A is the line feed character... it's an escape
             content: ' \A';
-            white-space: pre;
         }
 
     }

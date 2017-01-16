@@ -36,6 +36,19 @@ engines:
     - 6cf39a0ad8ddccb03c9f7ec0d3f8ed0a
     - 7828bdf2671bcfd1308fbd0f391d1cf6
     - 7c18cbd6fa95a10719cb86ff0d4e610e
+    - f401c205e9657427fb33a71265ffe1a4
+    - 2c804557c776481bedd9cf2e898e0269
+    - d1d534fd4cc646022eb420598959b60f
+    - 845997d884fecbbcf53df83dac33b0ee
+    - 563de8ae83995e7318202e778052d1f7
+    - 64d25903ac8798708d9221130df79a0b
+    - 25c735c5b8cabf7cdb9ccc34d010b439
+    - b8ea1a3fe08ad5ad4a90762e81e1168b
+    - 381a357e7fc86341b5694e11e4dd37cf
+    - 401ef1f15f5c7cf4649a9f7222c4904a
+    - 7e94f6c2dce095f911c6b33fa8dc320c
+    - 75d52eceeff3a1e489826bed9723f6a1
+    - 457e124c50c090930838ce94692baba2
   eslint:
     enabled: true
     channel: "eslint-3"
@@ -57,3 +70,4 @@ exclude_paths:
 - "config/"
 - "application/common/vendor/"
 - "**/__jest__/"
+- "**/__mocks__/"

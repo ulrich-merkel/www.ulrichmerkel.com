@@ -4,12 +4,12 @@ jest.mock('./../../../common/config/content', function () {
         content: 'foo'
     };
 });
-jest.mock('./../../../common/config/i18n/en-EN', function () {
+jest.mock('./../../../common/config/intl/en-EN', function () {
     return {
         key: 'en-EN'
     };
 });
-jest.mock('./../../../common/config/i18n/de-DE', function () {
+jest.mock('./../../../common/config/intl/de-DE', function () {
     return {
         key: 'de-DE'
     };

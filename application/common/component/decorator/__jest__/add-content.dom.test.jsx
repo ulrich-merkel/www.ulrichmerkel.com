@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names */
 jest.mock('./../../../config/content');
-jest.mock('./../../../config/i18n/en-EN');
+jest.mock('./../../../config/intl/en-EN');
 
 import 'jsdom-global/register';
 import React, { PropTypes } from 'react';

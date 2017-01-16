@@ -18,8 +18,8 @@ $block: '#{$config-ns}l-grid';
     [class^='#{$block}__spaced--'],
     [class*=' #{$block}__spaced--'] {
         margin: 0 auto;
-        padding-left: rem-calc($config-grid--gutter);
         padding-right: rem-calc($config-grid--gutter);
+        padding-left: rem-calc($config-grid--gutter);
 
         &.is-aligned--left {
             margin: 0;
@@ -44,8 +44,8 @@ $block: '#{$config-ns}l-grid';
     [class*=' #{$block}__row--'] {
         @include clearfix;
         width: 100%;
-        margin-left: auto;
         margin-right: auto;
+        margin-left: auto;
     }
 
     .#{$block}__row--spaced {
@@ -55,9 +55,9 @@ $block: '#{$config-ns}l-grid';
     .#{$block}__col,
     [class^='#{$block}__col--'],
     [class*=' #{$block}__col--'] {
-        width: 100%;
-        float: left;
         box-sizing: border-box;
+        float: left;
+        width: 100%;
 
         &:last-child {
             &:not(:first-child) {
@@ -132,8 +132,8 @@ $block: '#{$config-ns}l-grid';
 
         .#{$block}__col--12 {
             width: 100%;
-            padding-left: 0;
             padding-right: 0;
+            padding-left: 0;
         }
     }
 

@@ -14,10 +14,10 @@ $block: '#{$config-ns}m-service';
         position: relative;
         z-index: 2;
         display: block;
-        overflow: hidden;
         width: 100%;
         margin: 0;
         padding: 0;
+        overflow: hidden;
         list-style: none;
     }
 
@@ -53,9 +53,9 @@ $block: '#{$config-ns}m-service';
         width: 50px;
         height: 50px;
         margin-right: rem-calc($config-grid--gutter);
-        background: $config-color-red;
         color: $config-color-white;
         text-align: center;
+        background: $config-color-red;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             margin-right: 0;
@@ -69,7 +69,9 @@ $block: '#{$config-ns}m-service';
         display: block;
 
         &::before {
+            // stylelint-disable declaration-no-important
             margin-right: 0 !important;
+            // stylelint-enable declaration-no-important
         }
 
         &.c-font-icon--skill-html,
@@ -92,8 +94,8 @@ $block: '#{$config-ns}m-service';
     .#{$block}__item--right {
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            clear: right;
             float: right;
+            clear: right;
             direction: ltr;
 
             .#{$block}__content {
@@ -115,8 +117,8 @@ $block: '#{$config-ns}m-service';
     .#{$block}__item--left {
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            clear: left;
             float: left;
+            clear: left;
             direction: rtl;
 
             .#{$block}__content {
