@@ -24,9 +24,9 @@
     time, mark, audio, video {
         margin: 0;
         padding: 0;
-        border: 0;
         font: inherit;
         vertical-align: baseline;
+        border: 0;
     }
     /* stylelint-enable selector-list-comma-newline-after */
 
@@ -93,12 +93,12 @@
 
     // Remove border when inside `a` element in IE 8/9/10.
     img {
-        border: 0;
+        display: inline-block;
         max-width: 100%;
         height: auto;
         -ms-interpolation-mode: bicubic;
-        display: inline-block;
         vertical-align: middle;
+        border: 0;
     }
 
     // Correct overflow not hidden in IE 9/10/11.

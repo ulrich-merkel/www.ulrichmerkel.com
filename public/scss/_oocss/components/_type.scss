@@ -13,17 +13,17 @@ $block: '#{$config-ns}c-type';
     @include hyphens(auto);
     margin-top: 0;
     font-family: $config-type-font-family;
-    font-weight: $config-font-weight-normal;
     font-style: normal;
-    line-height: 1.4; //1.375;
+    font-weight: $config-font-weight-normal;
+    line-height: 1.4;
     color: $config-color-blue--2;
     text-rendering: optimizeLegibility;
 
     small {
         display: block;
         font-size: $config-font-small-size;
-        color: inherit;
         line-height: 0;
+        color: inherit;
     }
 }
 
@@ -105,10 +105,10 @@ $block: '#{$config-ns}c-type';
                 bottom: -20px;
                 left: 0;
                 display: block;
-                margin: 0;
-                content: ' ';
                 width: rem-calc($config-type-scale-14 * 4);
                 height: 0;
+                margin: 0;
+                content: ' ';
                 border-top: 1px solid $config-color-black;
             }
 
@@ -138,8 +138,8 @@ $block: '#{$config-ns}c-type';
     }
 
     .is-spaced {
-        padding-left: rem-calc($config-grid--gutter / 2);
         padding-right: rem-calc($config-grid--gutter / 2);
+        padding-left: rem-calc($config-grid--gutter / 2);
     }
 
     p,

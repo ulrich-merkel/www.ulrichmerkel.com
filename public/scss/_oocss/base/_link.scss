@@ -12,8 +12,8 @@
     // default basic styling
     // ----------------------------
     a {
-        color: $config-color-link;
         line-height: inherit;
+        color: $config-color-link;
         text-decoration: none;
 
         will-change: background, color;
@@ -49,14 +49,14 @@
         a[href^='fax'] {
             color: $config-font-color;
             text-decoration: none;
-            cursor: default;
 
             // make all links non-reactive to any events such as dragging, hovering, clicking
             // @see
             // - https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
             // - http://www.w3.org/Submission/pointer-events/#the-touch-action-css-property
-            touch-action: none;
             pointer-events: none;
+            touch-action: none;
+            cursor: default;
 
             &:hover {
                 color: $config-font-color;

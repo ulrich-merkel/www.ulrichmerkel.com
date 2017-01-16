@@ -18,10 +18,10 @@ $block: '#{$config-ns}l-header';
         &.is-fixed {
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 position: fixed;
-                z-index: 10;
                 top: -$config-layout-header-height;
                 right: 0;
                 left: 0;
+                z-index: 10;
 
                 will-change: top;
                 transition: top $config-transition-arguments-slow;

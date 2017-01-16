@@ -27,8 +27,8 @@ $block: '#{$config-ns}m-progress';
         &[value] {
             margin: 0;
             appearance: none;
-            border: 0;
             background: $config-color-blue--2;
+            border: 0;
 
             &::-webkit-progress-bar {
                 background: $config-color-blue--2;
