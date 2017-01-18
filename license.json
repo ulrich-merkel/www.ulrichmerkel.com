@@ -1,0 +1,40 @@
+{
+    "licenses": [
+        "Apache",
+        "Apache-2.0",
+        "Apache License, Version 2.0",
+        "BSD",
+        "BSD-like",
+        "BSD-new",
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause",
+        "CC-BY-4.0",
+        "CC0-1.0, Public Domain",
+        "ISC",
+        "MIT",
+        "MIT/X11",
+        "Public Domain",
+        "Unlicense",
+        "WTFPL"
+    ],
+    "ignores": [
+        "buffers",
+        "chroma-js",
+        "color-convert",
+        "cycle",
+        "domelementtype",
+        "domhandler",
+        "domutils",
+        "extsprintf",
+        "isnumeric",
+        "log-driver",
+        "map-stream",
+        "retire",
+        "rgb",
+        "shellwords",
+        "taffydb",
+        "undefsafe",
+        "verror"
+    ]
+}
