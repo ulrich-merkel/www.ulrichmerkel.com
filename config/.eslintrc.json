@@ -25,7 +25,9 @@
         "jsx-a11y",
         "flowtype",
         "jsdoc",
-        "security"
+        "security",
+        "xss",
+        "new-with-error"
     ],
     "rules": {
         "arrow-body-style": 0,
