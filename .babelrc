@@ -9,7 +9,8 @@
         "react"
     ],
     "plugins": [
-        "transform-object-assign"
+        "transform-object-assign",
+        "transform-flow-strip-types"
     ],
     "ignore": [
         "**/__jest__/",
