@@ -6,7 +6,7 @@
  *
  * @file
  * @module
- * @flow weak
+ * @flow
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
@@ -23,19 +23,18 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
- * @param {Object} [props] - The current component props
+ * @constructor
+ * @param {Object} props - The current component props
  * @returns {ReactElement} React component markup
  */
 function ElementSmall(props) {
 
     const {
-        htmlElement,
+        htmlElement: ComponentType,
         className,
         ...otherProps
     } = props;
 
-    const ComponentType = htmlElement;
     const composedClassName = classnames(
         'c-type--small',
         className
@@ -53,11 +52,11 @@ function ElementSmall(props) {
  * @static
  * @type {Object}
  * @property {string} [htmlElement='nav'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [className=''] - The component css class names, will be merged into component default classNames
  */
 ElementSmall.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string // eslint-disable-line react/require-default-props
+    className: PropTypes.string
 };
 
 /**
@@ -68,7 +67,8 @@ ElementSmall.propTypes = {
  * @see ElementSmall.propTypes
  */
 ElementSmall.defaultProps = {
-    htmlElement: 'small'
+    htmlElement: 'small',
+    className: ''
 };
 
 export default ElementSmall;
