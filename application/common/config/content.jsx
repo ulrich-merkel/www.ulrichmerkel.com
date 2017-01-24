@@ -267,7 +267,12 @@ const configContent = {
             // chrome for android
             { rel: 'icon', sizes: '192x192', href: `${IMG_SHARE}icon@192x192.png`, type: 'image/png' },
             // favicon
-            { rel: 'shortcut icon', href: `${IMG_SHARE}favicon.ico`, type: 'image/x-icon' }
+            { rel: 'shortcut icon', href: `${IMG_SHARE}favicon.ico`, type: 'image/x-icon' },
+            // social microformats
+            { rel: 'me', href: 'https://www.xing.com/profile/Ulrich_Merkel4' },
+            { rel: 'me', href: 'https://www.facebook.com/ulrich.merkel' },
+            { rel: 'me', href: 'https://github.com/ulrich-merkel' },
+            { rel: 'me', href: 'https://delicious.com/ulrichmerkel' }
         ]
     },
     PageIndex: {

@@ -55,8 +55,8 @@ class LayoutBody extends Component {
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(...props) {
-        super(...props);
+    constructor(props) {
+        super(props);
 
         /**
          * Bind manually because React class components don't auto-bind.
