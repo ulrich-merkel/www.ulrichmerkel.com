@@ -43,6 +43,13 @@ function getLogOptions() {
     };
 }
 
+/**
+ * Get additional information to be passed into winston.Logger
+ *
+ * @constructor
+ * @param {string} name - The prefix to be used for messages
+ * @returns {Object} The current instance
+ */
 function Logger(name) {
     this.name = name;
     this._log = noop;
@@ -55,14 +62,33 @@ function Logger(name) {
 
 Logger.prototype = {
 
+    /**
+     * Set prefix for messages.
+     *
+     * @param {string} name - The prefix to be used
+     * @returns {void}
+     */
     setName: function setNameFn(name) {
-        this.name = name;
+        if (name) {
+            this.name = name;
+        }
     },
 
+    /**
+     * Check if logging is available.
+     *
+     * @returns {boolean} Whether logging is enabled or not
+     */
     isEnabled: function isEnabledFn() {
         return this._enabled;
     },
 
+    /**
+     * Enable logging and declare basic log functions.
+     *
+     * @param {boolean} shouldBeEnabled - A switch to easily control enabling/disabling
+     * @returns {Object} The current logger instance
+     */
     enable: function enableFn(shouldBeEnabled) {
 
         if (!shouldBeEnabled) {
@@ -91,6 +117,13 @@ Logger.prototype = {
         return this;
     },
 
+    /**
+     * Write messages to console functions.
+     *
+     * @param {Object} output - The implemented console log function (log, error, etc...)
+     * @param {Object} args - The messages to be logged
+     * @returns {Object} The current logger instance
+     */
     write: function writeFn(output, args) {
         if (!this._enabled) {
             return undefined;
@@ -104,18 +137,38 @@ Logger.prototype = {
         return this;
     },
 
+    /**
+     * Write messages to standard log.
+     *
+     * @returns {Object} The current logger instance
+     */
     log: function logFn() {
         return this.write(this._log, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to info log.
+     *
+     * @returns {Object} The current logger instance
+     */
     info: function infoFn() {
         return this.write(this._info, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to warn log.
+     *
+     * @returns {Object} The current logger instance
+     */
     warn: function warnFn() {
         return this.write(this._warn, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to error log.
+     *
+     * @returns {Object} The current logger instance
+     */
     error: function errorFn() {
         return this.write(this._error, arguments); // eslint-disable-line prefer-rest-params
     }

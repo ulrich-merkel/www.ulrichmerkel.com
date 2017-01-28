@@ -13,6 +13,7 @@
         "plugin:react/recommended",
         "airbnb"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -25,7 +26,9 @@
         "jsx-a11y",
         "flowtype",
         "jsdoc",
-        "security"
+        "security",
+        "xss",
+        "new-with-error"
     ],
     "rules": {
         "arrow-body-style": 0,

@@ -129,6 +129,7 @@ $ npm run doc
 * [Webpack — The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.5m75wyl2e)
 * [Optimizing React + ES6 + Webpack Production Build](http://moduscreate.com/optimizing-react-es6-webpack-production-build/)
 * [Index as a key is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n)
+* [Typing React Components](https://datarockets.com/blog/typing-react-components)
 
 ### Node & NPM
 
