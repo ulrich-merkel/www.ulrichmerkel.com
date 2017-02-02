@@ -42,9 +42,11 @@ import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
     selectStateScrollHeaderFixed,
-    selectStateScrollHeaderVisible
+    selectStateScrollHeaderVisible,
+    selectStateSearchTerm
 } from './../../state/selectors';
 import { changeLocale } from './../../state/intl/actions';
+import { changeSearchTerm } from './../../state/search/actions';
 import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from './../../state/intl/constants';
 import GridContainer from './../grid/container';
 import GridRow from './../grid/row';
@@ -67,6 +69,8 @@ function LayoutHeader(props) {
         handleIntlChangeLocale,
         intlLocale,
         intlAvailableLocales,
+        handleSearchChangeTerm,
+        searchTerm,
         headerFixed,
         headerVisible
     } = props;
@@ -136,6 +140,17 @@ function LayoutHeader(props) {
                                     </button>
                                 </li>
                             </ul>
+
+                            <form action='' className='m-nav__search' method='get'>
+                                <input
+                                    className='c-font-icon--search'
+                                    data-label={contentSection('button.toggle.search')}
+                                    type='search'
+                                    name='search'
+                                    onChange={handleSearchChangeTerm}
+                                    defaultValue={searchTerm}
+                                />
+                            </form>
                         </GridCol>
                     </GridRow>
                 </GridContainer>
@@ -153,6 +168,8 @@ function LayoutHeader(props) {
  * @property {Function} handleIntlChangeLocale - Function handling language changes
  * @property {string} intlLocale - The current locale string
  * @property {Array.<string>} intlAvailableLocales - All available locale strings
+ * @property {Function} handleSearchChangeTerm - Function handling search term changes
+ * @property {string} searchTerm - The current search term string
  * @property {boolean} [headerFixed] - Whether the navigation bar is sticky/ficked or not
  * @property {boolean} [headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @property {string} [className] - The component css class names - will be merged into component default classNames
@@ -162,6 +179,8 @@ LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
     intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
+    handleSearchChangeTerm: PropTypes.func.isRequired,
+    searchTerm: PropTypes.string,
     headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
     headerVisible: PropTypes.bool, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -197,7 +216,8 @@ function mapStateToProps(state, ownProps) {
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
         intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
         headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible
+        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible,
+        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm
     };
 }
 
@@ -216,6 +236,9 @@ function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale: (e) => {
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
+        },
+        handleSearchChangeTerm: (e) => {
+            dispatch(changeSearchTerm(get(e, 'target.value')));
         }
     };
 }

@@ -114,7 +114,7 @@ function getContentSection(config) {
  *
  * @function
  * @param {string} [locale=defaultLocale] - The current locale
- * @param {Object} config - The translated config
+ * @param {Object} config - The translation config
  * @param {string} configKey - The config key
  * @returns {Object}
  */

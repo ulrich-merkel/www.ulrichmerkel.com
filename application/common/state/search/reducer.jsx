@@ -21,7 +21,9 @@ import { SEARCH_CHANGE_TERM } from './constants';
 /**
  * @type {Object}
  */
-const defaultState = {};
+const defaultState = {
+    term: ''
+};
 
 /**
  * Used to reduce a stream of actions coming from the dispatcher into a

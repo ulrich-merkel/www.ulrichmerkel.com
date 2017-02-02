@@ -39,6 +39,7 @@ import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-d
 import LayoutFooter from './footer';
 import LayoutLoader from './loader';
 import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
+import LayoutSearch from './search';
 
 /**
  * Class representing a component.
@@ -127,6 +128,7 @@ class LayoutBody extends Component {
                     {...otherProps}
                 />
                 <LayoutLoader {...otherProps} />
+                <LayoutSearch {...otherProps} />
                 <LayoutDialog {...otherProps} />
             </div>
         );
