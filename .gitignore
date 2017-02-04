@@ -10,6 +10,7 @@ npm-debug.log
 yarn-error.log
 .idea
 .env
+.eslintcache
 .coveralls.yml
 .htaccess
 google*.html
