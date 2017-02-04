@@ -99,7 +99,7 @@
     "postcss": "cross-var postcss --config $npm_package_directories_config/postcss.json $npm_package_directories_build_public/css/*.css -d $npm_package_directories_build_public/css/",
     "mkdir": "cross-var node $npm_package_directories_bin/mkdir -d $npm_package_directories_build_root/",
     "travis": "cross-var rimraf $npm_package_directories_build_root && npm test --silent && npm run doc && npm run build --silent && npm run staged --silent",
-    "coverage": "cross-var \"if which coveralls ; then cat $npm_package_directories_report/lcov.info | coveralls ; else echo \"coveralls not installed\" ; fi\"",
+    "coverage": "if which coveralls ; then cat $npm_package_directories_report/lcov.info | coveralls ; else echo \"coveralls not installed\" ; fi",
     "coverage:open": "cross-var open $npm_package_directories_report/lcov-report/index.html",
     "snyk": "snyk test && snyk wizard",
     "snyk-protect": "snyk protect",
