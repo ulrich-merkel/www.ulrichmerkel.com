@@ -71,7 +71,7 @@
     "test:dependencies": "npm list",
     "test:npm-version": "cross-var node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:node-version": "cross-var node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
-    "test:eslint": "cross-var eslint --config $npm_package_directories_config/.eslintrc.json --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx --cache",
+    "test:eslint": "cross-var eslint --config $npm_package_directories_config/.eslintrc.json --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx --cache --cache-location $npm_package_directories_report/.eslintcache",
     "test:eslint:fix": "npm run test:eslint -- --fix",
     "test:jest": "cross-var cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/config.json",
     "test:flow": "flow check; test $? -eq 0 -o $? -eq 2",
