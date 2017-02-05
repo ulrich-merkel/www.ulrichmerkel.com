@@ -184,6 +184,14 @@ $block: '#{$config-ns}l-dialog';
         // stylelint-enable declaration-no-important
     }
 
+    .#{$block}--search {
+        top: 60px;
+
+        .#{$block}__background {
+            top: 60px;
+        }
+    }
+
     .#{$block} {
         .m-article--broadcast {
             margin-top: 0;

@@ -52,12 +52,19 @@ function LayoutSearch(props) {
     } = props;
 
     const contentSection = getContentSection(content);
-    findMatches(searchTerm, intlLocale, config)
-    return null
+    const matches = findMatches(searchTerm, intlLocale, config)
+    if (!matches || !matches.length) {
+        return null
+    }
+
     return (
         <dialog className='l-dialog--search' role='presentation'>
             <div className='l-dialog__content'>
-
+                <ul>
+                {matches.map((entry) => {
+                    return <li>{entry}</li>
+                })}
+                </ul>
             </div>
             <div className='l-dialog__background' />
         </dialog>
