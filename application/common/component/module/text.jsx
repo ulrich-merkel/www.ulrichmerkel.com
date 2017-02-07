@@ -32,7 +32,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisible } from './../../state/dialog/actions';
+import { changeDialogVisibleBroadcast } from './../../state/dialog/actions';
 import { isBrowser } from './../../utils/environment';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
@@ -292,7 +292,7 @@ ModuleText.defaultProps = {
 const ModuleTextContainer = connect(
     null,
     {
-        handleChangeDialogVisible: changeDialogVisible
+        handleChangeDialogVisible: changeDialogVisibleBroadcast
     }
 )(ModuleText);
 

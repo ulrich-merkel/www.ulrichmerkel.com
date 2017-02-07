@@ -38,6 +38,7 @@ import PageDisclaimer from './../component/page/disclaimer';
 import PagePrivacy from './../component/page/privacy';
 import PageImprint from './../component/page/imprint';
 import PageBroadcast from './../component/page/broadcast';
+import PageSearch from './../component/page/search';
 import PageNotFound from './../component/page/not-found';
 
 const childRoutes = [
@@ -68,6 +69,10 @@ const childRoutes = [
     {
         path: url.broadcast.substr(1),
         component: PageBroadcast
+    },
+    {
+        path: url.search.substr(1),
+        component: PageSearch
     }
 ];
 

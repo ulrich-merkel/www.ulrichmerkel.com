@@ -23,7 +23,7 @@ import React, { PropTypes } from 'react';
 
 import SectionCommonGridSpaced from './common/grid-spaced';
 import ModuleArticle from './../module/article';
-import ModuleList from './../module/list';
+import ModuleSearch from './../module/search';
 
 /**
  * Function representing a component to return a single react child element.
@@ -32,7 +32,7 @@ import ModuleList from './../module/list';
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function SectionList(props) {
+function SectionSearch(props) {
 
     const {
         children,
@@ -45,9 +45,9 @@ function SectionList(props) {
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle {...{ content, isMain, isDialog }}>
-                <ModuleList {...{ content }} {...moduleProps}>
+                <ModuleSearch {...{ content }} {...moduleProps}>
                     {children}
-                </ModuleList>
+                </ModuleSearch>
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
@@ -63,7 +63,7 @@ function SectionList(props) {
  * @property {Object} [content={}] - The content config input
  * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
-SectionList.propTypes = {
+SectionSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object,
     isMain: PropTypes.bool,
@@ -77,10 +77,10 @@ SectionList.propTypes = {
  * @type {Object}
  * @see SectionList.propTypes
  */
-SectionList.defaultProps = {
+SectionSearch.defaultProps = {
     content: {},
     isMain: false,
     isDialog: false
 };
 
-export default SectionList;
+export default SectionSearch;

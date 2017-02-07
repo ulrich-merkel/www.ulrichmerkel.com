@@ -27,19 +27,26 @@
  * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import classnames from 'classnames';
+import { get } from 'lodash';
 
 import picturefill from './../decorator/picturefill';
 import scroller from './../decorator/scroller';
 import addContent from './../decorator/add-content';
 import scrollTo, { getPageOffset } from './../../utils/scroll-to';
+import { selectStateDialogVisible, selectStateDialogPage, selectStateSearchTerm } from './../../state/selectors';
+import { STATE_DIALOG_PAGE_BROADCAST, STATE_DIALOG_PAGE_SEARCH } from './../../state/constants';
+import { changeDialogVisibleSearch } from './../../state/dialog/actions';
 
 import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-default
 import LayoutFooter from './footer';
 import LayoutLoader from './loader';
 import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
 import LayoutSearch from './search';
+import PageBroadcast from './../page/broadcast';
+import PageSearch from './../page/search';
 
 /**
  * Class representing a component.
@@ -114,7 +121,13 @@ class LayoutBody extends Component {
      */
     render() {
 
-        const { children, content, ...otherProps } = this.props;
+        const {
+            dialogVisible,
+            dialogPage,
+            children,
+            content,
+            ...otherProps
+        } = this.props;
 
         const componentClassName = classnames('l-react__body');
 
@@ -128,8 +141,12 @@ class LayoutBody extends Component {
                     {...otherProps}
                 />
                 <LayoutLoader {...otherProps} />
-                <LayoutSearch {...otherProps} />
-                <LayoutDialog {...otherProps} />
+                <LayoutDialog {...otherProps} page={STATE_DIALOG_PAGE_SEARCH}>
+                    <PageSearch isDialog {...otherProps} />
+                </LayoutDialog>
+                <LayoutDialog {...otherProps} page={STATE_DIALOG_PAGE_BROADCAST}>
+                    <PageBroadcast isDialog {...otherProps} />
+                </LayoutDialog>
             </div>
         );
 
@@ -161,7 +178,37 @@ LayoutBody.defaultProps = {
     content: {}
 };
 
-export default scroller(picturefill(addContent('Head')(LayoutBody)));
+/**
+ * The component will subscribe to Redux store updates. Any time it updates,
+ * mapStateToProps will be called, Its result must be a plain object,
+ * and it will be merged into the component’s props.
+ *
+ * @function
+ * @private
+ * @param {Object.<*>} state - The redux store state
+ * @param {Object.<*>} [ownProps] - The current component props
+ * @returns {Object}
+ */
+function mapStateToProps(state, ownProps) {
+    return {
+        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm
+    };
+}
+
+/**
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {React.Element}
+ */
+const LayoutBodyContainer = connect(
+    mapStateToProps,
+    {
+        handleChangeDialogVisibleSearch: changeDialogVisibleSearch
+    }
+)(scroller(picturefill(addContent('Head')(LayoutBody))));
+
+export default LayoutBodyContainer;
 export {
     LayoutBody
 };

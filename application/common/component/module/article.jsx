@@ -43,6 +43,7 @@ function ModuleArticle(props) {
     const {
         componentType,
         className,
+        isDialog,
         itemType,
         isMain,
         isSpaced,
@@ -89,6 +90,7 @@ function ModuleArticle(props) {
                 btnLabel={content.btnLabel}
                 btnTitle={content.btnTitle}
                 className={'m-article__button'}
+                isDialog
             />
             <Meta
                 itemProp='name'
@@ -115,6 +117,7 @@ function ModuleArticle(props) {
  * @type {Object}
  * @property {string} [componentType='article'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [isDialog] -
  * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  * @property {boolean} [noMargin=false] - Whether the component has no css margin or not
  * @property {boolean} [isSpaced=false] - Whether the component headline has a spaced grid or not
@@ -125,6 +128,7 @@ function ModuleArticle(props) {
 ModuleArticle.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isDialog: PropTypes.bool,
     isMain: PropTypes.bool,
     noMargin: PropTypes.bool,
     isSpaced: PropTypes.bool,
@@ -146,6 +150,7 @@ ModuleArticle.propTypes = {
  * @see ModuleArticle.propTypes
  */
 ModuleArticle.defaultProps = {
+    isDialog: false,
     componentType: 'article',
     itemType: 'https://schema.org/Article',
     isSpaced: false,

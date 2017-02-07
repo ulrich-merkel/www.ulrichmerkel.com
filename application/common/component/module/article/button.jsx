@@ -42,10 +42,11 @@ function ModuleArticleButton(props) {
         btnTo,
         btnLabel,
         btnTitle,
+        isDialog,
         className
     } = props;
 
-    if (!btnTo || !btnLabel) {
+    if (!btnTo || !btnLabel || isDialog) {
         return null;
     }
 
@@ -75,6 +76,7 @@ ModuleArticleButton.propTypes = {
     btnTo: PropTypes.string,
     btnLabel: PropTypes.string,
     btnTitle: PropTypes.string,
+    isDialog: PropTypes.bool,
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
@@ -88,7 +90,8 @@ ModuleArticleButton.propTypes = {
 ModuleArticleButton.defaultProps = {
     btnTo: '',
     btnLabel: '',
-    btnTitle: ''
+    btnTitle: '',
+    isDialog: false
 };
 
 export default ModuleArticleButton;

@@ -52,6 +52,7 @@ const configApplication = Object.assign({}, {
         workGedankenKollektiv: '/gedanken-kollektiv',
         broadcast: '/broadcast',
         contact: '/contact',
+        search: '/search',
         contactSuccess: '/contact/success',
         contactError: '/contact/error',
         imprint: '/imprint',

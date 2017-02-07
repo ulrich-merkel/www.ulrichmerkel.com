@@ -45,9 +45,15 @@ import {
     selectStateScrollHeaderVisible,
     selectStateSearchTerm
 } from './../../state/selectors';
-import { changeLocale } from './../../state/intl/actions';
-import { changeSearchTerm } from './../../state/search/actions';
-import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from './../../state/intl/constants';
+import {
+    changeLocale,
+    changeSearchTerm,
+    changeDialogVisibleSearch
+} from './../../state/actions';
+import {
+    INTL_LOCALE_EN_EN,
+    INTL_LOCALE_DE_DE
+} from './../../state/constants';
 import GridContainer from './../grid/container';
 import GridRow from './../grid/row';
 import GridCol from './../grid/col';
@@ -239,8 +245,9 @@ function mapDispatchToProps(dispatch) {
         },
         handleSearchChangeTerm: (e) => {
             dispatch(changeSearchTerm(get(e, 'target.value')));
+            dispatch(changeDialogVisibleSearch(get(e, 'target.value', false)));
         }
-    };
+    }
 }
 
 /**

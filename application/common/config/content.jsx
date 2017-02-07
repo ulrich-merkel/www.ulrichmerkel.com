@@ -1173,6 +1173,22 @@ const configContent = {
             btnLabel: 'intl-btn-back-to-start-page-label'
         }
     },
+    PageSearch: {
+        head: {
+            title: 'intl-broadcast-section1-headline',
+            meta: [
+                { name: 'description', content: 'intl-page-not-found-head-description' },
+                { property: 'og:description', content: 'intl-page-not-found-head-description' },
+                { name: 'twitter:description', content: 'intl-page-not-found-head-description' },
+                { name: 'dcterms.Title', content: 'intl-page-not-found-head-title' },
+                { name: 'dcterms.Description', content: 'intl-page-not-found-head-description' }
+            ]
+        },
+        section1: {
+            headline: 'intl-broadcast-section1-headline',
+            lead: 'intl-broadcast-section1-lead'
+        }
+    },
     PageBroadcast: {
         head: {
             title: 'intl-broadcast-section1-headline',
@@ -1447,10 +1463,6 @@ const configContent = {
             btnTo: '/',
             btnTitle: 'intl-btn-back-to-start-page-title',
             btnLabel: 'intl-btn-back-to-start-page-label'
-        },
-        nav: {
-            btnCloseTitle: 'intl-btn-close-dialog-title',
-            btnCloseLabel: 'intl-btn-close-dialog-label'
         }
     },
     PageNotFound: {
@@ -1601,8 +1613,10 @@ const configContent = {
         lead: 'intl-loading'
     },
     LayoutDialog: {
-        btnCloseTitle: 'intl-btn-close-dialog-title',
-        btnCloseLabel: 'intl-btn-close-dialog-label'
+        nav: {
+            btnCloseTitle: 'intl-btn-close-dialog-title',
+            btnCloseLabel: 'intl-btn-close-dialog-label'
+        }
     }
 };
 

@@ -30,7 +30,7 @@ import addPageTracking from './../decorator/add-page-tracking';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import LayoutMain from './../layout/main';
-import SectionList from './../section/list';
+import SectionSearch from './../section/search';
 
 /**
  * Function representing a component to return a single react child element.
@@ -39,20 +39,20 @@ import SectionList from './../section/list';
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function PageBroadcast(props) {
+function PageSearch(props) {
     const { content, isDialog } = props;
     const contentSection = getContentSection(content);
 
     if (isDialog) {
         return (
-            <SectionList content={contentSection('section1')} isMain isDialog />
+            <SectionSearch content={contentSection('section1')} isMain isDialog />
         )
     }
 
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionList content={contentSection('section1')} isMain />
+            <SectionSearch content={contentSection('section1')} isMain />
         </LayoutMain>
     );
 }
@@ -64,7 +64,7 @@ function PageBroadcast(props) {
  * @type {Object}
  * @property {Object} [content={}] - The component translation config
  */
-PageBroadcast.propTypes = {
+PageSearch.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -78,10 +78,10 @@ PageBroadcast.propTypes = {
  *
  * @static
  * @type {Object}
- * @see PageBroadcast.propTypes
+ * @see PageSearch.propTypes
  */
-PageBroadcast.defaultProps = {
+PageSearch.defaultProps = {
     content: {}
 };
 
-export default addPageTracking(addContent('PageBroadcast')(PageBroadcast));
+export default addPageTracking(addContent('PageSearch')(PageSearch));

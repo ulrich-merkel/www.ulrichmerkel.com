@@ -11,6 +11,7 @@
  *
  * @requires react
  * @requires react-redux
+ * @requires classnames
  * @requires lodash
  * @requires common/state/selectors
  * @requires common/state/dialog/actions
@@ -31,16 +32,15 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';
 
-import { selectStateDialogVisible } from './../../state/selectors';
-import { changeDialogVisible } from './../../state/dialog/actions';
+import { selectStateDialogVisible, selectStateDialogPage } from './../../state/selectors';
+import { changeDialogVisible } from './../../state/actions';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import { isBrowser } from './../../utils/environment';
 
-import ModuleArticle from './../module/article';
-import ModuleList from './../module/list';
 import GridSpaced from './../grid/spaced';
 import GridRow from './../grid/row';
 import GridCol from './../grid/col';
@@ -156,40 +156,37 @@ class LayoutDialog extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             dialogVisible,
-            content
+            dialogPage,
+            content,
+            page,
+            className,
+            children
         } = this.props;
 
-        if (!dialogVisible) {
+        if (!dialogVisible || !page || dialogPage !== page) {
             return null;
         }
 
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
+        const composedClassName = classnames('l-dialog', className)
 
         return (
-            <dialog className='l-dialog' role='presentation'>
+            <dialog className={composedClassName} role='presentation'>
                 <div className='l-dialog__content'>
 
                     <GridSpaced>
                         <GridRow>
                             <GridCol>
-
-                                {/** @TODO: dynamic content */}
-                                <ModuleArticle content={contentSection('section1')} className='m-article--broadcast' isMain>
-                                    <ModuleList content={contentSection('section1')} />
-
-                                    <Button
-                                        title={contentSectionNav.btnCloseTitle}
-                                        onClick={this.onClose}
-                                    >
-                                        {contentSectionNav.btnCloseLabel}
-                                    </Button>
-
-                                </ModuleArticle>
-
+                                {children}
+                                <Button
+                                    title={contentSectionNav.btnCloseTitle}
+                                    onClick={this.onClose}
+                                >
+                                    {contentSectionNav.btnCloseLabel}
+                                </Button>
                             </GridCol>
                         </GridRow>
                     </GridSpaced>
@@ -225,6 +222,7 @@ class LayoutDialog extends Component {
  */
 LayoutDialog.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
+    dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
     content: PropTypes.object // eslint-disable-line react/forbid-prop-types
 };
@@ -238,6 +236,7 @@ LayoutDialog.propTypes = {
  */
 LayoutDialog.defaultProps = {
     handleChangeDialogVisible: Function.prototype,
+    dialogPage: '',
     dialogVisible: false,
     content: {}
 };
@@ -255,21 +254,17 @@ LayoutDialog.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible')
+        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
+        dialogPage: selectStateDialogPage(state) || get(ownProps, 'dialogPage')
     };
 }
 
-
-/**
- * Connects a React component to a Redux store. It does not modify the
- * component class passed to it. Instead, it returns a new, connected component class.
- */
 const LayoutDialogContainer = connect(
     mapStateToProps,
     {
         handleChangeDialogVisible: changeDialogVisible
     }
-)(addContent('PageBroadcast')(LayoutDialog));
+)(addContent('LayoutDialog')(LayoutDialog))
 
 export default LayoutDialogContainer;
 export {
