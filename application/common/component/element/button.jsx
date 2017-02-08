@@ -42,7 +42,6 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementButton(props) {
-
     const {
         componentType,
         className,
@@ -55,6 +54,7 @@ function ElementButton(props) {
         isSecondary,
         isLarge,
         isSmall,
+        isClear,
         isDisabled,
         isLabelHidden,
         children,
@@ -77,6 +77,7 @@ function ElementButton(props) {
             'c-btn--secondary': isSecondary,
             'c-btn--large': isLarge,
             'c-btn--small': isSmall,
+            'c-btn--clear': isClear,
             'is-disabled': isDisabled
         }
     );
@@ -101,7 +102,6 @@ function ElementButton(props) {
             </span>
         </ComponentType>
     );
-
 }
 
 
@@ -121,6 +121,7 @@ function ElementButton(props) {
  * @property {boolean} [isSecondary=false] - Whether the button is secondary styled or not
  * @property {boolean} [isLarge=false] - Whether the button is large styled or not
  * @property {boolean} [isSmall=false] - Whether the button is small styled or not
+ * @property {boolean} [isClear=false] - Clear all basic stylings or not
  * @property {boolean} [isDisabled=false] - Whether the button has disabled classed and attributes or not
  * @property {boolean} [isLabelHidden=false] - Whether the label text is visually hidden or not
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
@@ -129,7 +130,7 @@ ElementButton.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     classNameLabel: PropTypes.string, // eslint-disable-line react/require-default-props
-    to: PropTypes.string,
+    to: PropTypes.string, // eslint-disable-line react/require-default-props
     type: PropTypes.string,
     title: PropTypes.string,
     role: PropTypes.string,
@@ -137,6 +138,7 @@ ElementButton.propTypes = {
     isSecondary: PropTypes.bool,
     isLarge: PropTypes.bool,
     isSmall: PropTypes.bool,
+    isClear: PropTypes.bool,
     isDisabled: PropTypes.bool,
     isLabelHidden: PropTypes.bool,
     children: PropTypes.node // eslint-disable-line react/require-default-props
@@ -151,7 +153,6 @@ ElementButton.propTypes = {
  */
 ElementButton.defaultProps = {
     componentType: 'button',
-    to: '',
     type: 'button',
     title: '',
     role: 'button',
@@ -159,6 +160,7 @@ ElementButton.defaultProps = {
     isSecondary: false,
     isLarge: false,
     isSmall: false,
+    isClear: false,
     isDisabled: false,
     isLabelHidden: false
 };
