@@ -1,56 +1,56 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable import/prefer-default-export,  no-use-before-define */
 import { get, isArray, isObject } from 'lodash';
 import { url } from './../config/application';
 
 const PAGES = {
-    'PageIndex': url.index,
-    'PageWork': url.work,
-    'PageWorkOptikLudewig': `${url.work}${url.workOptikLudewig}`,
-    'PageWorkSummerInspiration': `${url.work}${url.workSummerInspiration}`,
-    'PageWorkMomentariness': `${url.work}${url.workMomentariness}`,
-    'PageWorkLebensweltSchule': `${url.work}${url.workLebensweltSchule}`,
-    'PageWorkRevolution': `${url.work}${url.workRevolution}`,
-    'PageWorkVerlegeserviceBunge': `${url.work}${url.workVerlegeserviceBunge}`,
-    'PageWorkGedankenKollektiv': `${url.work}${url.workGedankenKollektiv}`,
-    'PagePersona': url.persona,
-    'PageContact': url.contact,
-    'PageDisclaimer': url.disclaimer,
-    'PagePrivacy': url.privacy,
-    'PageImprint': url.imprint,
-    'PageBroadcast': url.broadcast
+    PageIndex: url.index,
+    PageWorkOptikLudewig: `${url.work}${url.workOptikLudewig}`,
+    PageWorkSummerInspiration: `${url.work}${url.workSummerInspiration}`,
+    PageWorkMomentariness: `${url.work}${url.workMomentariness}`,
+    PageWorkLebensweltSchule: `${url.work}${url.workLebensweltSchule}`,
+    PageWorkRevolution: `${url.work}${url.workRevolution}`,
+    PageWorkVerlegeserviceBunge: `${url.work}${url.workVerlegeserviceBunge}`,
+    PageWorkGedankenKollektiv: `${url.work}${url.workGedankenKollektiv}`,
+    PagePersona: url.persona,
+    PageContact: url.contact,
+    PageDisclaimer: url.disclaimer,
+    PagePrivacy: url.privacy,
+    PageImprint: url.imprint,
+    PageBroadcast: url.broadcast
 };
 const CACHE = {};
 
 /**
- * ....
+ * Helper function for recursiv array reduce.
  *
  * @private
- * @param {}
- * @param {}
- * @returns {}
+ * @param {Array} array - The reducer target
+ * @param {Array|Object|string|number} val - The current iteration value
+ * @returns {Array} The newly filled target
  */
 function reducer(array, val) {
-    let value = val;
+    const value = val;
+
     if (isObject(value)) {
-        // value = Object.values(value);
-        return reduceObject(value, array);
+        return objectReduce(value, array);
     }
     if (isArray(value)) {
         return value.reduce(reducer, array);
     }
+
     array.push(value);
     return array;
 }
 
 /**
- * ....
+ * Helper function to get Object values and reduce them.
  *
- * @TODO: Rename to objectReduce
  * @private
- * @param {}
- * @returns {}
+ * @param {Object} object - The source object
+ * @param {Array} [initialValue=[]] - The reducer target
+ * @returns {Array} The object reduced values
  */
-function reduceObject(object, initialValue = []) {
+function objectReduce(object, initialValue = []) {
     return Object.values(object).reduce(reducer, initialValue);
 }
 
@@ -58,20 +58,20 @@ function reduceObject(object, initialValue = []) {
  * Create search index object.
  *
  * @private
- * @param {}
- * @param {}
- * @returns {}
+ * @param {string} locale - The current locale
+ * @param {Object} config - The current untranslated content config
+ * @returns {Array<string>} Array containing all search keys
  */
 function createIndex(locale, config) {
     const configContent = get(config, 'content.data', {});
     const configTranslation = get(config, `${locale}.data`, {});
 
-    return Object.keys(PAGES).reduce(function (result, value) {
+    return Object.keys(PAGES).reduce(function handleReduce(result, value) {
         return Object.assign(
             result,
             {
-                [value]: Object.keys(configTranslation).filter(function (key) {
-                    return reduceObject(configContent[value]).includes(key);
+                [value]: Object.keys(configTranslation).filter(function handleFilter(key) {
+                    return objectReduce(configContent[value]).includes(key);
                 })
             }
         );
@@ -82,19 +82,19 @@ function createIndex(locale, config) {
  * Create translated search index object which is used for caching.
  *
  * @private
- * @param {}
- * @param {}
- * @param {}
- * @returns {}
+ * @param {string} locale - The current locale
+ * @param {Object} config - The current untranslated content config
+ * @param {Array<string>} index - The per page search intl strings
+ * @returns {Array<string>} Array containing all translated search keys
  */
 function translateIndex(locale, config, index) {
     const configTranslation = get(config, `${locale}.data`, {});
 
-    return Object.keys(index).reduce(function (indexResult, indexKey) {
+    return Object.keys(index).reduce(function handleReduce(indexResult, indexKey) {
         return Object.assign(
             indexResult,
             {
-                [indexKey]: index[indexKey].reduce(function (indexContent, configTranslationKey) {
+                [indexKey]: index[indexKey].reduce(function handleAssignReduce(indexContent, configTranslationKey) {
                     if (configTranslation[configTranslationKey]) {
                         indexContent.push(configTranslation[configTranslationKey]);
                     }
@@ -106,15 +106,14 @@ function translateIndex(locale, config, index) {
 }
 
 /**
- * ....
+ * Get cached index or create a new one.
  *
- * @TODO: Rename to getCachedIndex
  * @private
- * @param {}
- * @param {}
- * @returns {}
+ * @param {string} locale - The current locale
+ * @param {Object} config - The current untranslated content config
+ * @returns {Array<string>} The cached (or created) index
  */
-function getIndex(locale, config) {
+function getCachedIndex(locale, config) {
     if (!CACHE[locale]) {
         CACHE[locale] = translateIndex(locale, config, createIndex(locale, config));
     }
@@ -122,12 +121,14 @@ function getIndex(locale, config) {
 }
 
 /**
- * ....
+ * Find search matches by terms.
  *
- * @param {}
- * @param {}
- * @param {}
- * @returns {}
+ * @TODO: Allow multiple search terms, set url query param for sharing
+ *
+ * @param {string} searchTerm - The term to be searched for
+ * @param {string} locale - The current locale
+ * @param {Object} config - The current untranslated content config
+ * @returns {Array<Object>} The search results to be displayed
  */
 function findMatches(searchTerm, locale, config = {}) {
     const escapedInput = searchTerm && searchTerm.trim().toLowerCase();
@@ -136,18 +137,18 @@ function findMatches(searchTerm, locale, config = {}) {
     }
 
     const matchRegex = new RegExp(`\\b${escapedInput}`, 'i');
-    const index = getIndex(locale.toLowerCase(), config);
+    const index = getCachedIndex(locale.toLowerCase(), config);
 
     return Object.keys(index)
-        .filter(function (key) {
-            return matchRegex.test(index[key]);
+        .filter(function handleFilter(key) {
+            return matchRegex && matchRegex.test(index[key]);
         })
-        .map(function (key) {
+        .map(function handleMap(key) {
             return {
                 url: PAGES[key],
                 title: key,
                 label: key
-            }
+            };
         })
         .slice(0, 10);
 }

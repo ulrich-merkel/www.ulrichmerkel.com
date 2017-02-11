@@ -50,7 +50,7 @@ function PageSearch(props) {
         return (
             <SectionSearch content={contentSection('section1')} isMain isDialog>
                 <ModuleFormSearch content={contentSection('formSearch')} />
-                <ModuleSearch content={contentSection('section1')} isMain>
+                <ModuleSearch isMain>
                     {children}
                 </ModuleSearch>
             </SectionSearch>
@@ -62,7 +62,7 @@ function PageSearch(props) {
             <Helmet {...contentSection('head')} />
             <SectionSearch content={contentSection('section1')} isMain>
                 <ModuleFormSearch content={contentSection('formSearch')} />
-                <ModuleSearch content={contentSection('section1')} isMain>
+                <ModuleSearch isMain>
                     {children}
                 </ModuleSearch>
             </SectionSearch>
@@ -80,7 +80,7 @@ function PageSearch(props) {
  * @property {boolean} isDialog
  */
 PageSearch.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,

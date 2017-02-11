@@ -28,7 +28,6 @@ import shortid from 'shortid';
 import { get } from 'lodash';
 
 import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
 import {
     selectStateIntlLocale,
     selectStateSearchTerm,
@@ -63,11 +62,10 @@ function ModuleSearch(props) {
 
     const ComponentType = componentType;
     const componentClassName = classnames(
-        'm-list--broadcast',
+        'm-list--search',
         className
     );
 
-    const contentSection = getContentSection(content);
     const matches = findMatches(searchTerm, intlLocale, config);
     if (!matches || !matches.length) {
         return (
@@ -79,8 +77,27 @@ function ModuleSearch(props) {
         <ComponentType className={componentClassName} itemScope itemType={itemType} role='list'>
             {matches.map((entry) => {
                 return (
-                    <li key={shortid.generate()}>
-                        <A to={entry.url} title={entry.title} isMenu onClick={handleChangeDialogVisibleSearch}>{entry.label}</A>
+                    <li
+                        key={shortid.generate()}
+                        className='m-list__list-item'
+                        itemProp='itemListElement'
+                    >
+                        <A
+                            to={entry.url}
+                            title={entry.title}
+                            isMenu
+                            className='m-list__item c-type--h4'
+                            onClick={handleChangeDialogVisibleSearch}
+                            itemScope
+                            itemType='http://www.schema.org/SiteNavigationElement'
+                        >
+                            <span className='m-menu__label'>
+                                {`${get(content, `${entry.label}.head.title`, '')}`}
+                            </span>
+                            <small className='m-menu__description'>
+                                {`${get(content, `${entry.label}.head.meta[0].content`, '')}`}
+                            </small>
+                        </A>
                     </li>
                 );
             })}
@@ -162,4 +179,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(addContent()(ModuleSearch));
+)(addContent('')(ModuleSearch));
