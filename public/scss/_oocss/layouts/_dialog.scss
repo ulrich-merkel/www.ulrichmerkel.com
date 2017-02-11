@@ -38,7 +38,7 @@ $block: '#{$config-ns}l-dialog';
     .#{$block}__content {
         position: relative;
         z-index: 11;
-        padding-top: rem-calc($config-grid--gutter * 2.4);
+        padding-top: rem-calc($config-grid--gutter * 2.5);
 
         .m-article__headline,
         .m-article__alt-headline,
@@ -184,31 +184,6 @@ $block: '#{$config-ns}l-dialog';
         // stylelint-enable declaration-no-important
     }
 
-    .#{$block}--search {
-        .m-form__control--text {
-            background: $config-color-blue--2;
-            color: $config-color-white;
-            text-align: center;
-        }
-        .c-type--h3 {
-            color: $config-color-white;
-        }
-        .m-menu__item {
-            text-align: center;
-
-            // just show hover for non-touch devices
-            @if ($config-support-hovers) {
-                .no-touch &,
-                .no-touchevents &,
-                .no-js & {
-                    &:hover {
-                        color: $config-color-white;
-                    }
-                }
-            }
-        }
-    }
-
     .#{$block} {
         .m-article--broadcast {
             margin-top: 0;
@@ -237,6 +212,37 @@ $block: '#{$config-ns}l-dialog';
             }
             .m-list__alt-headline {
                 color: $config-color-white;
+            }
+        }
+    }
+
+    .#{$block}--search {
+        .#{$block}__content {
+            padding-bottom: rem-calc($config-grid--gutter * 2.5);
+        }
+        .m-form__control--text {
+            background: $config-color-blue--2;
+            color: $config-color-white;
+        }
+        .c-type--h3 {
+            color: $config-color-white;
+        }
+        .m-menu__item {
+            // just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &,
+                .no-touchevents &,
+                .no-js & {
+                    &:hover {
+                        color: $config-color-white;
+                    }
+                }
+            }
+        }
+        .c-btn {
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                display: block;
+                margin: 0 auto;
             }
         }
     }
