@@ -31,6 +31,8 @@ import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionSearch from './../section/search';
+import ModuleSearch from './../module/search';
+import ModuleFormSearch from './../module/form/search'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Function representing a component to return a single react child element.
@@ -40,19 +42,30 @@ import SectionSearch from './../section/search';
  * @returns {ReactElement} React component markup
  */
 function PageSearch(props) {
-    const { content, isDialog } = props;
+    const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
 
+    // @TODO: Use own child component for SectionSearch
     if (isDialog) {
         return (
-            <SectionSearch content={contentSection('section1')} isMain isDialog />
-        )
+            <SectionSearch content={contentSection('section1')} isMain isDialog>
+                <ModuleFormSearch content={contentSection('formSearch')} />
+                <ModuleSearch content={contentSection('section1')} isMain>
+                    {children}
+                </ModuleSearch>
+            </SectionSearch>
+        );
     }
 
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionSearch content={contentSection('section1')} isMain />
+            <SectionSearch content={contentSection('section1')} isMain>
+                <ModuleFormSearch content={contentSection('formSearch')} />
+                <ModuleSearch content={contentSection('section1')} isMain>
+                    {children}
+                </ModuleSearch>
+            </SectionSearch>
         </LayoutMain>
     );
 }
@@ -62,15 +75,19 @@ function PageSearch(props) {
  *
  * @static
  * @type {Object}
+ * @property {boolean} children
  * @property {Object} [content={}] - The component translation config
+ * @property {boolean} isDialog
  */
 PageSearch.propTypes = {
+    children: PropTypes.node,
     content: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
         PropTypes.array,
         PropTypes.object
-    ]))
+    ])),
+    isDialog: PropTypes.bool
 };
 
 /**
@@ -81,7 +98,8 @@ PageSearch.propTypes = {
  * @see PageSearch.propTypes
  */
 PageSearch.defaultProps = {
-    content: {}
+    content: {},
+    isDialog: false
 };
 
 export default addPageTracking(addContent('PageSearch')(PageSearch));

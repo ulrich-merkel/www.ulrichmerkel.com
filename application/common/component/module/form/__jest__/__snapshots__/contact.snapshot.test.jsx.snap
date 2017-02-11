@@ -212,7 +212,7 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             name="reset"
             role="button"
             title="btnResetTitle"
-            to=""
+            to={undefined}
             type="reset">
             <span
               className="c-btn__label">
@@ -231,7 +231,7 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             name="submit"
             role="button"
             title="btnSubmitTitle"
-            to=""
+            to={undefined}
             type="submit">
             <span
               className="c-btn__label">
@@ -404,7 +404,7 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             name="reset"
             role="button"
             title="btnResetTitle"
-            to=""
+            to={undefined}
             type="reset">
             <span
               className="c-btn__label">
@@ -423,7 +423,7 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             name="submit"
             role="button"
             title="btnSubmitTitle"
-            to=""
+            to={undefined}
             type="submit">
             <span
               className="c-btn__label">

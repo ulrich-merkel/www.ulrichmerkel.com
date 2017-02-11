@@ -170,7 +170,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="reset"
                             role="button"
                             title=""
-                            to=""
+                            to={undefined}
                             type="reset">
                             <span
                               className="c-btn__label">
@@ -189,7 +189,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="submit"
                             role="button"
                             title=""
-                            to=""
+                            to={undefined}
                             type="submit">
                             <span
                               className="c-btn__label">

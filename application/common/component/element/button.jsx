@@ -11,6 +11,8 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
+ * @TODO: Check markup rendering with defaultProps, looks ugly
+ *
  * @requires react
  * @requires react-router
  * @requires classnames

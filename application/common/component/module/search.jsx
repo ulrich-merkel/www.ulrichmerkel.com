@@ -25,15 +25,21 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import shortid from 'shortid';
+import { get } from 'lodash';
 
-import Headline from './../element/headline';
+import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import {
     selectStateIntlLocale,
     selectStateSearchTerm,
     selectStateConfig
 } from './../../state/selectors';
+import {
+    changeDialogVisibleSearch
+} from './../../state/actions';
 import { findMatches } from './../../utils/search';
+import A from './../element/a';
+import Headline from './../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
@@ -43,7 +49,6 @@ import { findMatches } from './../../utils/search';
  * @returns {React.Element} React component markup
  */
 function ModuleSearch(props) {
-
     const {
         componentType,
         className,
@@ -52,7 +57,8 @@ function ModuleSearch(props) {
         children,
         intlLocale,
         searchTerm,
-        config
+        config,
+        handleChangeDialogVisibleSearch
     } = props;
 
     const ComponentType = componentType;
@@ -62,16 +68,21 @@ function ModuleSearch(props) {
     );
 
     const contentSection = getContentSection(content);
-    const matches = findMatches(searchTerm, intlLocale, config)
-    console.log(matches)
+    const matches = findMatches(searchTerm, intlLocale, config);
     if (!matches || !matches.length) {
-        return null
+        return (
+            <Headline htmlElement='h3'>Found 0 search results</Headline>
+        );
     }
 
     return (
         <ComponentType className={componentClassName} itemScope itemType={itemType} role='list'>
             {matches.map((entry) => {
-                return <li>{entry}</li>
+                return (
+                    <li key={shortid.generate()}>
+                        <A to={entry.url} title={entry.title} isMenu onClick={handleChangeDialogVisibleSearch}>{entry.label}</A>
+                    </li>
+                );
             })}
             {children}
         </ComponentType>
@@ -85,16 +96,21 @@ function ModuleSearch(props) {
  * @type {Object}
  * @property {string} [componentType='ul'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [intlLocale]
  * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {Object} [content={}] - The component translation config
  */
 ModuleSearch.propTypes = {
-    componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
+    componentType: PropTypes.string,
+    config: PropTypes.object,
+    intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object
+    content: PropTypes.object,
+    searchTerm: PropTypes.string, // eslint-disable-line react/require-default-props,
+    handleChangeDialogVisibleSearch: PropTypes.func
 };
 
 /**
@@ -106,22 +122,44 @@ ModuleSearch.propTypes = {
  */
 ModuleSearch.defaultProps = {
     componentType: 'ul',
+    config: {},
     itemType: 'http://schema.org/ItemList',
-    content: {}
+    content: {},
+    handleChangeDialogVisibleSearch: Function.prototype
 };
 
-function mapStateToProps (state, ownProps) {
+// @TODO
+function mapStateToProps(state, ownProps) {
     return {
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
         searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm,
         config: selectStateConfig(state) || get(ownProps, 'config')
-    }
-};
+    };
+}
 
+/**
+ * If an object is passed, each function inside it will be assumed to
+ * be a Redux action creator. An object with the same function names,
+ * but with every action creator wrapped into a dispatch call so they
+ * may be invoked directly, will be merged into the component’s props.
+ * If a function is passed, it will be given dispatch.
+ *
+ * @function
+ * @param {Function} dispatch - The redux store dispatch function
+ * @returns {Object}
+ */
+function mapDispatchToProps(dispatch) {
+    return {
+        handleChangeDialogVisibleSearch: () => {
+            dispatch(changeDialogVisibleSearch(false));
+        }
+    };
+}
 /**
 * Connects a React component to a Redux store. It does not modify the
 * component class passed to it. Instead, it returns a new, connected component class.
 */
 export default connect(
-    mapStateToProps
-)(ModuleSearch);
+    mapStateToProps,
+    mapDispatchToProps
+)(addContent()(ModuleSearch));

@@ -31,7 +31,7 @@ import addPageTracking from './../decorator/add-page-tracking';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import LayoutMain from './../layout/main';
-import SectionForm from './../section/form';
+import SectionContact from './../section/contact';
 import ModuleFormContact from './../module/form/contact'; // eslint-disable-line import/no-named-as-default
 
 /**
@@ -50,9 +50,9 @@ function PageContact(props) {
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionForm content={contentSection('section1')} isMain>
+            <SectionContact content={contentSection('section1')} isMain>
                 <ModuleFormContact content={contentSection('formContact')} {...{ routerState }} />
-            </SectionForm>
+            </SectionContact>
         </LayoutMain>
     );
 
