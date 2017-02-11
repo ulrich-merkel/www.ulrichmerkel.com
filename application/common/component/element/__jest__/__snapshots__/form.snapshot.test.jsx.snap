@@ -2,7 +2,7 @@ exports[`common/component/element/form should render correctly 1`] = `
 <form
   acceptCharset="utf-8"
   action="test"
-  className="m-form--contact form"
+  className="m-form form"
   data-test="form-data"
   id="form"
   itemProp="potentialAction"

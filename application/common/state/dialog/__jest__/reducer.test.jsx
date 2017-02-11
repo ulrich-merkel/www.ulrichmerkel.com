@@ -1,14 +1,14 @@
 /* eslint-disable func-names */
-import { DIALOG_CHANGE_VISIBLE } from './../constants';
+import { STATE_DIALOG_VISIBLE_CHANGE } from './../constants';
 import reducer, { defaultState } from './../reducer';
 
 describe('common/state/dialog/reducer', function () {
     it('should return the initial state', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });
-    it(`should react to an action with the type ${DIALOG_CHANGE_VISIBLE}`, function () {
+    it(`should react to an action with the type ${STATE_DIALOG_VISIBLE_CHANGE}`, function () {
         expect(reducer(undefined, {
-            type: DIALOG_CHANGE_VISIBLE,
+            type: STATE_DIALOG_VISIBLE_CHANGE,
             visible: true
         })).toEqual({
             visible: true
@@ -19,7 +19,7 @@ describe('common/state/dialog/reducer', function () {
             visible: false
         };
         expect(reducer(state, {
-            type: DIALOG_CHANGE_VISIBLE
+            type: STATE_DIALOG_VISIBLE_CHANGE
         })).toEqual(state);
     });
 });

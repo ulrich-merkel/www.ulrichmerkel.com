@@ -23,7 +23,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                 <form
                   acceptCharset="utf-8"
                   action="/contact/"
-                  className="m-form--contact"
+                  className="m-form m-form--contact"
                   id="m-form--contact"
                   itemProp="potentialAction"
                   itemScope={true}
