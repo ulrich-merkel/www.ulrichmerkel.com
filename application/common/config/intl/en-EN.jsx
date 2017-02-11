@@ -414,6 +414,14 @@ export default {
     'intl-broadcast-2012-list-1-job': '',
     'intl-broadcast-2012-list-1-place': '',
 
+    // Page
+    'intl-search-head-title': 'Search',
+    'intl-search-head-description': 'Find page content by keywords',
+    'intl-search-section1-headline': 'Search',
+    'intl-search-section1-lead': 'Find page content by keywords',
+    'intl-search-section1-form-legend': 'Insert your search',
+    'intl-search-section1-form-input-name': 'Your search term',
+
     // Menu
     'intl-menu-main-link-1-label': 'Work',
     'intl-menu-main-link-1-title': 'Show some work',

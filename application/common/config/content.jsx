@@ -116,6 +116,20 @@ const configFeatured = {
     ]
 };
 
+/**
+ * @TODO: Improve broadcast string code, restructure/rename config entries:
+ * {
+ *    pages: {
+ *        index: {},
+ *        ....
+ *    },
+ *    layout: {
+ *        head: {},
+ *        ....
+ *    }
+ * }
+ *
+ */
 const configContent = {
     Head: {
         title: 'intl-default-title',
@@ -339,7 +353,7 @@ const configContent = {
                     text: 'intl-page-index-section3-list-1-text'
                 },
                 {
-                    icon: 'stats-dots2',
+                    icon: 'stats-dots',
                     headline: 'intl-page-index-section3-list-2-headline',
                     text: 'intl-page-index-section3-list-2-text'
                 },
@@ -1175,29 +1189,33 @@ const configContent = {
     },
     PageSearch: {
         head: {
-            title: 'intl-broadcast-section1-headline',
+            title: 'intl-search-section1-headline',
             meta: [
-                { name: 'description', content: 'intl-page-not-found-head-description' },
-                { property: 'og:description', content: 'intl-page-not-found-head-description' },
-                { name: 'twitter:description', content: 'intl-page-not-found-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-not-found-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-not-found-head-description' }
+                { name: 'description', content: 'intl-search-head-description' },
+                { property: 'og:description', content: 'intl-search-head-description' },
+                { name: 'twitter:description', content: 'intl-search-head-description' },
+                { name: 'dcterms.Title', content: 'intl-search-head-title' },
+                { name: 'dcterms.Description', content: 'intl-search-head-description' }
             ]
         },
         section1: {
-            headline: 'intl-broadcast-section1-headline',
-            lead: 'intl-broadcast-section1-lead'
+            headline: 'intl-search-section1-headline',
+            lead: 'intl-search-section1-lead'
+        },
+        formSearch: {
+            legend: 'intl-search-section1-form-legend',
+            inputTerm: 'intl-search-section1-form-input-name'
         }
     },
     PageBroadcast: {
         head: {
             title: 'intl-broadcast-section1-headline',
             meta: [
-                { name: 'description', content: 'intl-page-not-found-head-description' },
-                { property: 'og:description', content: 'intl-page-not-found-head-description' },
-                { name: 'twitter:description', content: 'intl-page-not-found-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-not-found-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-not-found-head-description' }
+                { name: 'description', content: 'intl-broadcast-head-description' },
+                { property: 'og:description', content: 'intl-broadcast-head-description' },
+                { name: 'twitter:description', content: 'intl-broadcast-head-description' },
+                { name: 'dcterms.Title', content: 'intl-broadcast-head-title' },
+                { name: 'dcterms.Description', content: 'intl-broadcast-head-description' }
             ]
         },
         section1: {
