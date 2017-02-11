@@ -1,6 +1,22 @@
 exports[`common/component/layout/body should render correctly 1`] = `
 <div
   className="l-react__body">
+  <dialog
+    className="l-dialog--loading"
+    role="presentation">
+    <div
+      className="l-dialog__content">
+      <div
+        className="c-flip">
+        <div
+          className="c-flip__front" />
+        <div
+          className="c-flip__back" />
+      </div>
+    </div>
+    <div
+      className="l-dialog__background" />
+  </dialog>
   <header
     className="l-header is-visible"
     itemScope={true}
@@ -40,11 +56,16 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement">
                 <button
-                  className="m-menu__item m-menu__item--en is-active"
+                  className="c-btn m-menu__item m-menu__item--en is-active c-btn--small c-btn--clear"
                   data-locale="en-EN"
                   onClick={[Function]}
                   role="button"
-                  title={undefined} />
+                  title=""
+                  to={undefined}
+                  type="button">
+                  <span
+                    className="c-btn__label" />
+                </button>
               </li>
               <li
                 className="m-menu__list-item"
@@ -52,11 +73,42 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement">
                 <button
-                  className="m-menu__item m-menu__item--de"
+                  className="c-btn m-menu__item m-menu__item--de c-btn--small c-btn--clear"
                   data-locale="de-DE"
                   onClick={[Function]}
                   role="button"
-                  title={undefined} />
+                  title=""
+                  to={undefined}
+                  type="button">
+                  <span
+                    className="c-btn__label" />
+                </button>
+              </li>
+            </ul>
+            <ul
+              className="m-nav__search"
+              itemScope={true}
+              itemType="http://schema.org/ItemList"
+              role="menu">
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement">
+                <button
+                  className="c-btn m-menu__item c-btn--small c-btn--clear"
+                  onClick={[Function]}
+                  role="button"
+                  title="Suche"
+                  to={undefined}
+                  type="button">
+                  <span
+                    className="c-btn__label">
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--search m-menu__icon" />
+                  </span>
+                </button>
               </li>
             </ul>
           </div>
@@ -75,7 +127,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
       onClick={[Function]}
       role="button"
       title=""
-      to=""
+      to={undefined}
       type="button">
       <span
         className="c-btn__label is-visually-hidden" />
@@ -113,21 +165,5 @@ exports[`common/component/layout/body should render correctly 1`] = `
       </section>
     </nav>
   </footer>
-  <dialog
-    className="l-dialog--loading"
-    role="presentation">
-    <div
-      className="l-dialog__content">
-      <div
-        className="c-flip">
-        <div
-          className="c-flip__front" />
-        <div
-          className="c-flip__back" />
-      </div>
-    </div>
-    <div
-      className="l-dialog__background" />
-  </dialog>
 </div>
 `;

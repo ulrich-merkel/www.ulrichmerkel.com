@@ -8,7 +8,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @requires react
  * @requires react-helmet
@@ -17,34 +17,39 @@
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
  * @requires common/utils/scroll-to
+ * @requires common/state/constants
  * @requires common/component/layout/header
  * @requires common/component/layout/footer
  * @requires common/component/layout/loader
  * @requires common/component/layout/dialog
+ * @requires common/component/page/broadcast
+ * @requires common/component/page/search
  *
  * @changelog
+ * - 0.0.3 Remove connect and state handling, improve dialog handling
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import classnames from 'classnames';
-import { get } from 'lodash';
 
-import picturefill from './../decorator/picturefill';
-import scroller from './../decorator/scroller';
-import addContent from './../decorator/add-content';
+import {
+    picturefill,
+    scroller,
+    addContent
+} from './../decorator/';
 import scrollTo, { getPageOffset } from './../../utils/scroll-to';
-import { selectStateDialogVisible, selectStateDialogPage, selectStateSearchTerm } from './../../state/selectors';
-import { STATE_DIALOG_PAGE_BROADCAST, STATE_DIALOG_PAGE_SEARCH } from './../../state/constants';
-import { changeDialogVisibleSearch } from './../../state/dialog/actions';
-
-import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-default
-import LayoutFooter from './footer';
-import LayoutLoader from './loader';
-import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
-import LayoutSearch from './search';
+import {
+    STATE_DIALOG_PAGE_BROADCAST,
+    STATE_DIALOG_PAGE_SEARCH
+} from './../../state/constants';
+import {
+    LayoutHeader,
+    LayoutFooter,
+    LayoutLoader,
+    LayoutDialog
+} from './index';
 import PageBroadcast from './../page/broadcast';
 import PageSearch from './../page/search';
 
@@ -82,7 +87,6 @@ class LayoutBody extends Component {
          * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
          */
         this.handleScrollTop = this.handleScrollTop.bind(this);
-
     }
 
     /**
@@ -117,16 +121,12 @@ class LayoutBody extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
-
         const {
-            dialogVisible,
-            dialogPage,
             children,
-            content,
-            ...otherProps
+            content
         } = this.props;
 
         const componentClassName = classnames('l-react__body');
@@ -134,22 +134,26 @@ class LayoutBody extends Component {
         return (
             <div className={componentClassName}>
                 <Helmet {...content} />
-                <LayoutHeader {...otherProps} />
+                <LayoutLoader />
+                <LayoutHeader />
                 {children}
                 <LayoutFooter
                     handleScrollTop={this.handleScrollTop}
-                    {...otherProps}
                 />
-                <LayoutLoader {...otherProps} />
-                <LayoutDialog {...otherProps} page={STATE_DIALOG_PAGE_SEARCH}>
-                    <PageSearch isDialog {...otherProps} />
+                <LayoutDialog
+                    page={STATE_DIALOG_PAGE_SEARCH}
+                    isSearch
+                >
+                    <PageSearch isDialog />
                 </LayoutDialog>
-                <LayoutDialog {...otherProps} page={STATE_DIALOG_PAGE_BROADCAST}>
-                    <PageBroadcast isDialog {...otherProps} />
+                <LayoutDialog
+                    page={STATE_DIALOG_PAGE_BROADCAST}
+                    isBroadcast
+                >
+                    <PageBroadcast isDialog />
                 </LayoutDialog>
             </div>
         );
-
     }
 
 }
@@ -179,34 +183,12 @@ LayoutBody.defaultProps = {
 };
 
 /**
- * The component will subscribe to Redux store updates. Any time it updates,
- * mapStateToProps will be called, Its result must be a plain object,
- * and it will be merged into the component’s props.
- *
- * @function
- * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
- */
-function mapStateToProps(state, ownProps) {
-    return {
-        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm
-    };
-}
-
-/**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  *
  * @type {React.Element}
  */
-const LayoutBodyContainer = connect(
-    mapStateToProps,
-    {
-        handleChangeDialogVisibleSearch: changeDialogVisibleSearch
-    }
-)(scroller(picturefill(addContent('Head')(LayoutBody))));
+const LayoutBodyContainer = scroller(picturefill(addContent('Head')(LayoutBody)));
 
 export default LayoutBodyContainer;
 export {
