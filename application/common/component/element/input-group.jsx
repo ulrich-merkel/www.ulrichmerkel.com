@@ -9,7 +9,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @requires react
  * @requires classnames
@@ -18,6 +18,7 @@
  * @requires common/component/element/icon
  *
  * @changelog
+ * - 0.0.2 Add isLabelVisuallyHidden and placeholder to props
  * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes, Component } from 'react';
@@ -45,7 +46,6 @@ class ElementInputGroup extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             id,
             name,
@@ -53,6 +53,8 @@ class ElementInputGroup extends Component {
             onBlur,
             label,
             type,
+            isLabelVisuallyHidden,
+            placeholder,
             value,
             isValid,
             isPristine,
@@ -79,10 +81,11 @@ class ElementInputGroup extends Component {
                         type,
                         onBlur,
                         onChange,
-                        value
+                        value,
+                        placeholder
                     }}
                 />
-                <Label htmlFor={id}>
+                <Label htmlFor={id} isVisuallyHidden={isLabelVisuallyHidden}>
                     {label}
                     <Icon className='m-form__label__icon--error' icon='sad' />
                     <Icon className='m-form__label__icon--success' icon='smile' />
@@ -105,6 +108,7 @@ class ElementInputGroup extends Component {
  * @property {boolean} [isValid=true] - Whether the input has a valid value or not
  * @property {string} [label=''] - The input label attribute
  * @property {string} [type='text'] - The input type attribute
+ * @property {boolean} [isLabelVisuallyHidden] - Whether the label legend is visually hidden or not
  * @property {Function} [onBlur=Function.prototype] - The input blur handler
  * @property {Function} [onChange=Function.prototype] - The input change handler
  * @property {string} [value=''] - The default input value
@@ -117,6 +121,8 @@ ElementInputGroup.propTypes = {
     isValid: PropTypes.bool,
     label: PropTypes.string,
     type: PropTypes.string,
+    isLabelVisuallyHidden: PropTypes.bool,
+    placeholder: PropTypes.string, // eslint-disable-line react/require-default-props
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     value: PropTypes.string
@@ -134,6 +140,7 @@ ElementInputGroup.defaultProps = {
     isValid: true,
     label: '',
     type: 'text',
+    isLabelVisuallyHidden: false,
     onBlur: Function.prototype,
     onChange: Function.prototype,
     value: ''
