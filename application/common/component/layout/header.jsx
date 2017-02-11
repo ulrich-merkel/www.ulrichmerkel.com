@@ -42,12 +42,10 @@ import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
     selectStateScrollHeaderFixed,
-    selectStateScrollHeaderVisible,
-    selectStateSearchTerm
+    selectStateScrollHeaderVisible
 } from './../../state/selectors';
 import {
     changeLocale,
-    changeSearchTerm,
     changeDialogVisibleSearch
 } from './../../state/actions';
 import {
@@ -59,6 +57,8 @@ import GridRow from './../grid/row';
 import GridCol from './../grid/col';
 import ModuleMenu from './../module/menu';
 import Nav from './../element/nav';
+import Button from './../element/button';
+import Icon from './../element/icon';
 
 /**
  * Function representing a component to return a single react child element.
@@ -68,15 +68,13 @@ import Nav from './../element/nav';
  * @returns {ReactElement} React component markup
  */
 function LayoutHeader(props) {
-
     const {
         className,
         content,
         handleIntlChangeLocale,
         intlLocale,
         intlAvailableLocales,
-        handleSearchChangeTerm,
-        searchTerm,
+        handleChangeDialogVisibleSearch,
         headerFixed,
         headerVisible
     } = props;
@@ -124,46 +122,50 @@ function LayoutHeader(props) {
                             {/* @TODO: should be separated into own component, extend component menu, map available locales */}
                             <ul className={menuLanguageClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
-                                    <button
+                                    <Button
                                         className={buttonEnClassName}
-                                        role='button'
                                         data-locale={INTL_LOCALE_EN_EN}
                                         title={contentSection('menu.language.list[0].title')}
                                         onClick={handleIntlChangeLocale}
+                                        isSmall
+                                        isClear
                                     >
                                         {contentSection('menu.language.list[0].label')}
-                                    </button>
+                                    </Button>
                                 </li>
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
-                                    <button
+                                    <Button
                                         className={buttonDeClassName}
-                                        role='button'
                                         data-locale={INTL_LOCALE_DE_DE}
                                         title={contentSection('menu.language.list[1].title')}
                                         onClick={handleIntlChangeLocale}
+                                        isSmall
+                                        isClear
                                     >
                                         {contentSection('menu.language.list[1].label')}
-                                    </button>
+                                    </Button>
                                 </li>
                             </ul>
 
-                            <form action='' className='m-nav__search' method='get'>
-                                <input
-                                    className='c-font-icon--search'
-                                    data-label={contentSection('button.toggle.search')}
-                                    type='search'
-                                    name='search'
-                                    onChange={handleSearchChangeTerm}
-                                    defaultValue={searchTerm}
-                                />
-                            </form>
+                            <ul className='m-nav__search' role='menu' itemScope itemType='http://schema.org/ItemList'>
+                                <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
+                                    <Button
+                                        className='m-menu__item'
+                                        onClick={handleChangeDialogVisibleSearch}
+                                        title={'Suche'}
+                                        isSmall
+                                        isClear
+                                    >
+                                        <Icon className='m-menu__icon' icon='search' />
+                                    </Button>
+                                </li>
+                            </ul>
                         </GridCol>
                     </GridRow>
                 </GridContainer>
             </Nav>
         </header>
     );
-
 }
 
 /**
@@ -171,11 +173,10 @@ function LayoutHeader(props) {
  *
  * @static
  * @type {Object}
- * @property {Function} handleIntlChangeLocale - Function handling language changes
+ * @property {Function} handleIntlChangeLocale - Function handling language state changes
+ * @property {Function} handleChangeDialogVisibleSearch - Function handling dialog state changes
  * @property {string} intlLocale - The current locale string
  * @property {Array.<string>} intlAvailableLocales - All available locale strings
- * @property {Function} handleSearchChangeTerm - Function handling search term changes
- * @property {string} searchTerm - The current search term string
  * @property {boolean} [headerFixed] - Whether the navigation bar is sticky/ficked or not
  * @property {boolean} [headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @property {string} [className] - The component css class names - will be merged into component default classNames
@@ -183,10 +184,9 @@ function LayoutHeader(props) {
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
+    handleChangeDialogVisibleSearch: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
     intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
-    handleSearchChangeTerm: PropTypes.func.isRequired,
-    searchTerm: PropTypes.string,
     headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
     headerVisible: PropTypes.bool, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -222,8 +222,7 @@ function mapStateToProps(state, ownProps) {
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
         intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
         headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible,
-        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm
+        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible
     };
 }
 
@@ -243,11 +242,10 @@ function mapDispatchToProps(dispatch) {
         handleIntlChangeLocale: (e) => {
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
         },
-        handleSearchChangeTerm: (e) => {
-            dispatch(changeSearchTerm(get(e, 'target.value')));
-            dispatch(changeDialogVisibleSearch(get(e, 'target.value', false)));
+        handleChangeDialogVisibleSearch: () => {
+            dispatch(changeDialogVisibleSearch(true));
         }
-    }
+    };
 }
 
 /**
