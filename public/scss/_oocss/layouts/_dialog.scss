@@ -39,6 +39,7 @@ $block: '#{$config-ns}l-dialog';
         position: relative;
         z-index: 11;
         padding-top: rem-calc($config-grid--gutter * 2.5);
+        padding-bottom: rem-calc($config-grid--gutter * 2.5);
 
         .m-article__headline,
         .m-article__alt-headline,
@@ -217,9 +218,6 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}--search {
-        .#{$block}__content {
-            padding-bottom: rem-calc($config-grid--gutter * 2.5);
-        }
         .m-form__control--text {
             background: $config-color-blue--2;
             color: $config-color-white;
