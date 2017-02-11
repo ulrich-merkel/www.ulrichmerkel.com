@@ -62,7 +62,7 @@ GridContainer.propTypes = {
  *
  * @static
  * @type {Object}
- * @see GridCol.propTypes
+ * @see GridContainer.propTypes
  */
 GridContainer.defaultProps = {
     htmlElement: 'section'

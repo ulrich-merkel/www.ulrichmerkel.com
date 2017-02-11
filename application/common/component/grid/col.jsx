@@ -28,7 +28,6 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function GridCol(props) {
-
     const {
         htmlElement,
         cols,
@@ -45,7 +44,6 @@ function GridCol(props) {
     return (
         <ComponentType className={composedClassName} {...otherProps} />
     );
-
 }
 
 /**

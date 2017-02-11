@@ -47,13 +47,16 @@ import { isFunction, get } from 'lodash';
 
 import { selectStateSearchTerm, selectStateCsrfToken } from './../../../state/selectors';
 import { changeSearchTerm } from './../../../state/actions';
-import Row from './../../grid/row';
-import Col from './../../grid/col';
-import Form from './../../element/form';
-import Fieldset from './../../element/fieldset';
-import Legend from './../../element/legend';
-import InputGroup from './../../element/input-group';
-import ButtonGroup from './../../element/button-group';
+import {
+    GridRow,
+    GridCol
+} from './../../grid';
+import {
+    Form,
+    Fieldset,
+    Legend,
+    InputGroup
+} from './../../element';
 
 /**
  * Handle form submit event.
@@ -99,7 +102,6 @@ class ModuleFormSearch extends Component {
          * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
          */
         this.onReset = this.onReset.bind(this);
-
     }
 
     /**
@@ -141,8 +143,8 @@ class ModuleFormSearch extends Component {
                         {content.legend}
                     </Legend>
 
-                    <Row>
-                        <Col cols={'12'}>
+                    <GridRow>
+                        <GridCol cols={'12'}>
                             <InputGroup
                                 id={'name'}
                                 name={'name'}
@@ -152,8 +154,8 @@ class ModuleFormSearch extends Component {
                                 isLabelVisuallyHidden
                                 value={searchTerm}
                             />
-                        </Col>
-                    </Row>
+                        </GridCol>
+                    </GridRow>
                     <input type='hidden' name='_csrf' value={csrfToken} />
                 </Fieldset>
             </Form>
