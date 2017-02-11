@@ -7,7 +7,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires react-redux
@@ -26,6 +26,7 @@
  * @requires common/component/element/button
  *
  * @changelog
+ * - 0.0.4 Add isBroadcast and isSearch to props
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -159,6 +160,8 @@ class LayoutDialog extends Component {
         const {
             dialogVisible,
             dialogPage,
+            isBroadcast,
+            isSearch,
             content,
             page,
             className,
@@ -171,16 +174,20 @@ class LayoutDialog extends Component {
 
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
-        const composedClassName = classnames('l-dialog', className)
+        const composedClassName = classnames('l-dialog', className, {
+            'l-dialog--broadcast': isBroadcast,
+            'l-dialog--search': isSearch
+        });
 
         return (
             <dialog className={composedClassName} role='presentation'>
                 <div className='l-dialog__content'>
 
+                    {children}
+
                     <GridSpaced>
                         <GridRow>
                             <GridCol>
-                                {children}
                                 <Button
                                     title={contentSectionNav.btnCloseTitle}
                                     onClick={this.onClose}
@@ -222,9 +229,14 @@ class LayoutDialog extends Component {
  */
 LayoutDialog.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
-    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+    isBroadcast: PropTypes.bool,
+    isSearch: PropTypes.bool,
+    content: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+    page: PropTypes.string
 };
 
 /**
@@ -238,7 +250,10 @@ LayoutDialog.defaultProps = {
     handleChangeDialogVisible: Function.prototype,
     dialogPage: '',
     dialogVisible: false,
-    content: {}
+    isBroadcast: false,
+    isSearch: false,
+    content: {},
+    page: ''
 };
 
 /**
@@ -264,7 +279,7 @@ const LayoutDialogContainer = connect(
     {
         handleChangeDialogVisible: changeDialogVisible
     }
-)(addContent('LayoutDialog')(LayoutDialog))
+)(addContent('LayoutDialog')(LayoutDialog));
 
 export default LayoutDialogContainer;
 export {
