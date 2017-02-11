@@ -35,7 +35,7 @@ import Helmet from 'react-helmet';
 import classnames from 'classnames';
 
 import {
-    picturefill,
+    pictureFill,
     scroller,
     addContent
 } from './../decorator/';
@@ -188,7 +188,7 @@ LayoutBody.defaultProps = {
  *
  * @type {React.Element}
  */
-const LayoutBodyContainer = scroller(picturefill(addContent('Head')(LayoutBody)));
+const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
 
 export default LayoutBodyContainer;
 export {
