@@ -418,6 +418,7 @@ class ModuleFormContact extends Component {
         return (
             <Form
                 action='/contact/'
+                className='m-form--contact'
                 id='m-form--contact'
                 itemProp='potentialAction'
                 onSubmit={this.onSubmit}

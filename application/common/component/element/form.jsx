@@ -54,7 +54,7 @@ class ElementForm extends Component {
         } = this.props;
 
         const composedClassName = classnames(
-            'm-form--contact',
+            'm-form',
             className
         );
 

@@ -9,8 +9,6 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  *
- * @TODO: Add classname and htmlElement to props, add honeypot again
- *
  * @requires react
  * @requires react-redux
  * @requires lodash
@@ -21,31 +19,25 @@
  * @requires common/utils/scroll-to
  * @requires common/utils/xhr
  * @requires common/state/selectors
- * @requires common/state/contact/actions
- * @requires common/state/contact/utils
+ * @requires common/state/actions
  * @requires common/component/grid/row
  * @requires common/component/grid/col
  * @requires common/component/element/form
  * @requires common/component/element/fieldset
  * @requires common/component/element/legend
  * @requires common/component/element/input-group
- * @requires common/component/element/textarea-group
- * @requires common/component/element/button-group
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- * @requires common/component/element/button
  *
  * @changelog
- * - 0.0.4 Refactored, simplified state
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { isFunction, get } from 'lodash';
 
-import { selectStateSearchTerm, selectStateCsrfToken } from './../../../state/selectors';
+import {
+    selectStateSearchTerm,
+    selectStateCsrfToken
+} from './../../../state/selectors';
 import { changeSearchTerm } from './../../../state/actions';
 import {
     GridRow,
@@ -72,95 +64,45 @@ function onSubmit(e) {
     }
 }
 
-/**
- * Class representing a component.
- *
- * @class
- * @extends React.Component
- */
-class ModuleFormSearch extends Component {
+function ModuleFormSearch(props) {
+    const {
+        content,
+        csrfToken,
+        searchTerm,
+        handleSearchChangeTerm
+    } = props;
 
-    /**
-     * The actual class constructor.
-     *
-     * @constructs
-     * @param {Object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
+    return (
+        <Form
+            action='/search/'
+            className='m-form--search'
+            id='m-form--search'
+            itemProp='potentialAction'
+            onSubmit={onSubmit}
+        >
+            <Fieldset>
 
-        /**
-         * A bind call or arrow function in a JSX prop will create a brand new
-         * function on every single render. This is bad for performance, as it
-         * will result in the garbage collector being invoked way more than is necessary.
-         *
-         * Unfortunately React ES6 classes do not autobind their methods like components created
-         * with the older React.createClass syntax. There are several approaches to binding methods
-         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
-         *
-         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-         */
-        this.onReset = this.onReset.bind(this);
-    }
+                <Legend isVisuallyHidden>
+                    {content.legend}
+                </Legend>
 
-    /**
-     * Handle form reset event.
-     *
-     * @function
-     * @private
-     * @returns {void}
-     */
-    onReset() {
-        this.props.handleSearchChangeTerm('');
-    }
-
-    /**
-     * The required render function to return a single react child element.
-     *
-     * @function
-     * @returns {ReactElement} React component markup
-     */
-    render() {
-        const {
-            content,
-            csrfToken,
-            searchTerm,
-            handleSearchChangeTerm
-        } = this.props;
-
-        return (
-            <Form
-                action='/search/'
-                id='m-form--search'
-                itemProp='potentialAction'
-                onSubmit={onSubmit}
-                onReset={this.onReset}
-            >
-                <Fieldset>
-
-                    <Legend isVisuallyHidden>
-                        {content.legend}
-                    </Legend>
-
-                    <GridRow>
-                        <GridCol cols={'12'}>
-                            <InputGroup
-                                id={'name'}
-                                name={'name'}
-                                onChange={handleSearchChangeTerm}
-                                label={content.inputTerm}
-                                placeholder={content.inputTerm}
-                                isLabelVisuallyHidden
-                                value={searchTerm}
-                            />
-                        </GridCol>
-                    </GridRow>
-                    <input type='hidden' name='_csrf' value={csrfToken} />
-                </Fieldset>
-            </Form>
-        );
-    }
+                <GridRow>
+                    <GridCol cols={'12'}>
+                        <InputGroup
+                            id={'name'}
+                            name={'name'}
+                            onChange={handleSearchChangeTerm}
+                            label={content.inputTerm}
+                            placeholder={content.inputTerm}
+                            isLabelVisuallyHidden
+                            value={searchTerm}
+                        />
+                    </GridCol>
+                </GridRow>
+                <input type='hidden' name='_csrf' value={csrfToken} />
+            </Fieldset>
+        </Form>
+    );
 }
 
 /**
@@ -181,7 +123,6 @@ ModuleFormSearch.propTypes = {
     /* eslint-enable react/no-unused-prop-types */
     searchTerm: PropTypes.string,
     handleSearchChangeTerm: PropTypes.func,
-    // routerState: PropTypes.string, // eslint-disable-line react/require-default-props
     csrfToken: PropTypes.string
 };
 
