@@ -19,7 +19,7 @@ describe('common/component/element/input-group', function () {
             >
                 Input Group Children
             </ElementInputGroup>
-        )
+        );
         expect(wrapper.html()).toMatchSnapshot();
 
         wrapper.setProps({

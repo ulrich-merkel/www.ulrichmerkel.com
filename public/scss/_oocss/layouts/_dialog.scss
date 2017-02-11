@@ -38,7 +38,7 @@ $block: '#{$config-ns}l-dialog';
     .#{$block}__content {
         position: relative;
         z-index: 11;
-        padding-top: rem-calc(100);
+        padding-top: rem-calc($config-grid--gutter * 2.4);
 
         .m-article__headline,
         .m-article__alt-headline,
@@ -69,10 +69,10 @@ $block: '#{$config-ns}l-dialog';
         top: 0;
         right: 0;
         z-index: 12;
-        width: rem-calc($config-grid--gutter * 2);
-        height: rem-calc($config-grid--gutter * 2);
+        width: 61px; // rem-calc($config-grid--gutter * 3);
+        height: 61px; // rem-calc($config-grid--gutter * 3);
         // stylelint-disable declaration-no-important
-        padding: 9px 0 0 6px !important;
+        padding: 13px 0 0 5px !important;
         // stylelint-enable declaration-no-important
         font-size: 130%;
         line-height: 2.5;
@@ -185,10 +185,27 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}--search {
-        top: 60px;
+        .m-form__control--text {
+            background: $config-color-blue--2;
+            color: $config-color-white;
+            text-align: center;
+        }
+        .c-type--h3 {
+            color: $config-color-white;
+        }
+        .m-menu__item {
+            text-align: center;
 
-        .#{$block}__background {
-            top: 60px;
+            // just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &,
+                .no-touchevents &,
+                .no-js & {
+                    &:hover {
+                        color: $config-color-white;
+                    }
+                }
+            }
         }
     }
 

@@ -28,7 +28,6 @@ import classnames from 'classnames';
  * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
-
     const {
         htmlElement,
         className,
@@ -46,7 +45,6 @@ function ElementIcon(props) {
     return (
         <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
     );
-
 }
 
 /**

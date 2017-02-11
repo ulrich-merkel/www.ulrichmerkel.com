@@ -63,6 +63,10 @@ $block: '#{$config-ns}m-featured';
                     transform: scale(1);
                 }
 
+                .#{$block}__icon {
+                    opacity: 1;
+                }
+
                 @supports (transform: scale(0.99)) {
                     .#{$block}__image {
                         transform: scale(0.99);
@@ -186,8 +190,12 @@ $block: '#{$config-ns}m-featured';
         top: rem-calc($config-type-scale-15);
     }
 
-    .#{$block}__item__icon {
-        top: rem-calc($config-type-scale-15 * 2);
+    .#{$block}__icon {
+        top: 100%;
+        opacity: 0;
+
+        will-change: top;
+        transition: top $config-transition-arguments, opacity $config-transition-arguments;
     }
 
     @media print {

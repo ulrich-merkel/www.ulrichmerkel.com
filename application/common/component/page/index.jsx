@@ -10,6 +10,8 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
+ * @TODO: Rename this file to something different than index, due to node folder exports
+ *
  * @requires react
  * @requires react-helmet
  * @requires common/component/decorator/add-page-tracking

@@ -83,8 +83,8 @@ $block: '#{$config-ns}m-nav';
 
     .#{$block}__search {
         position: absolute;
-        top: 22px;
-        right: 100px;
+        top: 25px;
+        right: rem-calc($config-grid--gutter / 2);
         margin-bottom: 0;
     }
 }

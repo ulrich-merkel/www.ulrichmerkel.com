@@ -17,9 +17,7 @@
  * - 0.0.1 Basic functions and structure
  */
 import {
-    STATE_DIALOG_VISIBLE_CHANGE,
-    STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH
+    STATE_DIALOG_VISIBLE_CHANGE
 } from './constants';
 
 /**

@@ -46,7 +46,7 @@ function PageBroadcast(props) {
     if (isDialog) {
         return (
             <SectionList content={contentSection('section1')} isMain isDialog />
-        )
+        );
     }
 
     return (
@@ -63,6 +63,7 @@ function PageBroadcast(props) {
  * @static
  * @type {Object}
  * @property {Object} [content={}] - The component translation config
+ * @property {boolean} isDialog
  */
 PageBroadcast.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -70,7 +71,8 @@ PageBroadcast.propTypes = {
         PropTypes.number,
         PropTypes.array,
         PropTypes.object
-    ]))
+    ])),
+    isDialog: PropTypes.bool
 };
 
 /**
@@ -81,7 +83,8 @@ PageBroadcast.propTypes = {
  * @see PageBroadcast.propTypes
  */
 PageBroadcast.defaultProps = {
-    content: {}
+    content: {},
+    isDialog: false
 };
 
 export default addPageTracking(addContent('PageBroadcast')(PageBroadcast));

@@ -90,7 +90,7 @@ function ModuleArticle(props) {
                 btnLabel={content.btnLabel}
                 btnTitle={content.btnTitle}
                 className={'m-article__button'}
-                isDialog
+                {...{ isDialog }}
             />
             <Meta
                 itemProp='name'

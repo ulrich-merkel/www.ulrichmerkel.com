@@ -33,8 +33,7 @@ import ModuleArticle from './../module/article';
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function SectionForm(props) {
-
+function SectionContact(props) {
     const {
         children,
         content,
@@ -49,7 +48,6 @@ function SectionForm(props) {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
@@ -61,7 +59,7 @@ function SectionForm(props) {
  * @property {Object} [content={}] - The content config input
  * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
-SectionForm.propTypes = {
+SectionContact.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object,
     isMain: PropTypes.bool
@@ -74,9 +72,9 @@ SectionForm.propTypes = {
  * @type {Object}
  * @see SectionForm.propTypes
  */
-SectionForm.defaultProps = {
+SectionContact.defaultProps = {
     content: {},
     isMain: false
 };
 
-export default SectionForm;
+export default SectionContact;

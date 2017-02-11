@@ -18,9 +18,9 @@ exports[`common/component/module/featured/item should render correctly 1`] = `
         role="heading">
         Featured item work headline
       </span>
-      <span
+      <i
         aria-hidden="true"
-        className="m-featured__icon c-font-icon--plus" />
+        className="c-font-icon--plus m-featured__icon" />
     </span>
   </span>
   Module featured item children

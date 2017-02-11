@@ -23,7 +23,6 @@ import React, { PropTypes } from 'react';
 
 import SectionCommonGridSpaced from './common/grid-spaced';
 import ModuleArticle from './../module/article';
-import ModuleSearch from './../module/search';
 
 /**
  * Function representing a component to return a single react child element.
@@ -33,25 +32,20 @@ import ModuleSearch from './../module/search';
  * @returns {ReactElement} React component markup
  */
 function SectionSearch(props) {
-
     const {
         children,
         content,
         isMain,
-        isDialog,
-        ...moduleProps
+        isDialog
     } = props;
 
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle {...{ content, isMain, isDialog }}>
-                <ModuleSearch {...{ content }} {...moduleProps}>
-                    {children}
-                </ModuleSearch>
+                {children}
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
