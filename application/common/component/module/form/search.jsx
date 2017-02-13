@@ -78,7 +78,10 @@ function ModuleFormSearch(props) {
             className='m-form--search'
             id='m-form--search'
             itemProp='potentialAction'
+            itemScope
+            itemType='http://schema.org/SearchAction'
             onSubmit={onSubmit}
+            role='search'
         >
             <Fieldset>
 
@@ -90,11 +93,13 @@ function ModuleFormSearch(props) {
                     <GridCol cols={'12'}>
                         <InputGroup
                             id={'name'}
+                            isLabelVisuallyHidden
+                            itemProp='query-input'
+                            label={content.inputTerm}
                             name={'name'}
                             onChange={handleSearchChangeTerm}
-                            label={content.inputTerm}
                             placeholder={content.inputTerm}
-                            isLabelVisuallyHidden
+                            type='search'
                             value={searchTerm}
                         />
                     </GridCol>
