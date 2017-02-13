@@ -52,13 +52,18 @@ import {
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
 } from './../../state/constants';
-import GridContainer from './../grid/container';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
 import ModuleMenu from './../module/menu';
-import Nav from './../element/nav';
-import Button from './../element/button';
-import Icon from './../element/icon';
+import {
+    GridContainer,
+    GridRow,
+    GridCol
+} from './../grid';
+import {
+    A,
+    Nav,
+    Button,
+    Icon
+} from './../element';
 
 /**
  * Function representing a component to return a single react child element.
@@ -90,14 +95,18 @@ function LayoutHeader(props) {
         className
     );
     const buttonEnClassName = classnames('m-menu__item', 'm-menu__item--en', {
-        'is-active': intlLocale === INTL_LOCALE_EN_EN
-    });
-    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
-        'is-active': intlLocale === INTL_LOCALE_DE_DE
-    });
-    const menuLanguageClassName = classnames('m-menu--language', 'm-nav__toggle-target', {
+        'is-active': intlLocale === INTL_LOCALE_EN_EN,
         'is-hidden': intlAvailableLocales && intlAvailableLocales.length <= 1
     });
+    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
+        'is-active': intlLocale === INTL_LOCALE_DE_DE,
+        'is-hidden': intlAvailableLocales && intlAvailableLocales.length <= 1
+    });
+    const menuAsideClassName = classnames(
+        'm-menu--aside',
+        'm-nav__toggle-target',
+        'm-nav__aside'
+    );
 
     return (
         <header className={componentClassName} itemScope itemType='http://schema.org/WPHeader' role='banner'>
@@ -120,7 +129,7 @@ function LayoutHeader(props) {
                             />
 
                             {/* @TODO: should be separated into own component, extend component menu, map available locales */}
-                            <ul className={menuLanguageClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
+                            <ul className={menuAsideClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
                                     <Button
                                         className={buttonEnClassName}
@@ -145,19 +154,21 @@ function LayoutHeader(props) {
                                         {contentSection('menu.language.list[1].label')}
                                     </Button>
                                 </li>
-                            </ul>
-
-                            <ul className='m-nav__search' role='menu' itemScope itemType='http://schema.org/ItemList'>
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
-                                    <Button
-                                        className='m-menu__item'
-                                        onClick={handleChangeDialogVisibleSearch}
+                                    <A
+                                        className='m-menu__item c-btn--small c-btn--clear'
+                                        to='/search'
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleChangeDialogVisibleSearch();
+                                        }}
                                         title={'Suche'}
-                                        isSmall
-                                        isClear
+                                        isTargetSelf
                                     >
-                                        <Icon className='m-menu__icon' icon='search' />
-                                    </Button>
+                                        <span className='c-btn__label'>
+                                            <Icon className='c-btn__icon' icon='search' />
+                                        </span>
+                                    </A>
                                 </li>
                             </ul>
                         </GridCol>
@@ -240,6 +251,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale: (e) => {
+            console.log(get(e, 'target.dataset.locale'))
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
         },
         handleChangeDialogVisibleSearch: () => {

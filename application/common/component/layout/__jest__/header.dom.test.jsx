@@ -27,5 +27,6 @@ describe('common/component/layout/header', function () {
         );
 
         wrapper.find('.m-menu__item--en').simulate('click');
+        wrapper.find('.m-menu__list-item .m-menu__item').simulate('click');
     });
 });

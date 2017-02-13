@@ -1,3 +1,5 @@
-exports[`common/component/layout/dialog should render correctly 1`] = `null`;
+exports[`common/component/layout/dialog should render correctly 1`] = `"<dialog class=\"l-dialog\" role=\"presentation\"><div class=\"l-dialog__content\">Dialog Children<div class=\"l-grid__spaced--small\"><div class=\"l-grid__row\"><div class=\"l-grid__col--12\"><button class=\"c-btn\" role=\"button\" type=\"button\" title=\"\"><span class=\"c-btn__label\"></span></button></div></div></div><button class=\"c-btn l-dialog__button--close c-font-icon--close c-btn--small\" role=\"button\" type=\"button\" title=\"\"><span class=\"c-btn__label is-visually-hidden\"></span></button></div><div class=\"l-dialog__background\" role=\"presentation\"></div></dialog>"`;
 
 exports[`common/component/layout/dialog should render null if not visible 1`] = `null`;
+
+exports[`common/component/layout/dialog should render null if not visible 2`] = `null`;
