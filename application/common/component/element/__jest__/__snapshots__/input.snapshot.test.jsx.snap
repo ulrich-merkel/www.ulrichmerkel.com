@@ -2,6 +2,7 @@ exports[`common/component/element/input should call passed callbacks 1`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
+  itemProp={undefined}
   name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
@@ -14,6 +15,7 @@ exports[`common/component/element/input should call passed callbacks 2`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
+  itemProp={undefined}
   name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
@@ -26,6 +28,7 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
+  itemProp={undefined}
   name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
@@ -40,6 +43,7 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
@@ -55,6 +59,7 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
@@ -70,6 +75,7 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}

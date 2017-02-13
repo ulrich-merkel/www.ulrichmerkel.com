@@ -48,6 +48,7 @@ class ElementInputGroup extends Component {
     render() {
         const {
             id,
+            itemProp,
             name,
             onChange,
             onBlur,
@@ -77,6 +78,7 @@ class ElementInputGroup extends Component {
                     className={composedInputClassName}
                     {...{
                         id,
+                        itemProp,
                         name,
                         type,
                         onBlur,
@@ -106,7 +108,8 @@ class ElementInputGroup extends Component {
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {boolean} [isPristine=false] - Whether the input has a user given value or not
  * @property {boolean} [isValid=true] - Whether the input has a valid value or not
- * @property {string} [label=''] - The input label attribute
+ * @property {string} [isValid=true] - Whether the input has a valid value or not
+ * @property {string} [itemProp] - The itemProp input attribute
  * @property {string} [type='text'] - The input type attribute
  * @property {boolean} [isLabelVisuallyHidden] - Whether the label legend is visually hidden or not
  * @property {Function} [onBlur=Function.prototype] - The input blur handler
@@ -119,6 +122,7 @@ ElementInputGroup.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     isPristine: PropTypes.bool,
     isValid: PropTypes.bool,
+    itemProp: PropTypes.string,  // eslint-disable-line react/require-default-props
     label: PropTypes.string,
     type: PropTypes.string,
     isLabelVisuallyHidden: PropTypes.bool,
