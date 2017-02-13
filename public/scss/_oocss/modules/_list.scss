@@ -68,6 +68,7 @@ $block: '#{$config-ns}m-list';
     .#{$block}--search {
         .m-menu__item {
             margin-bottom: rem-calc($config-grid--gutter * 0.5);
+            color: $config-color-blue--3;
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 text-align: center;
@@ -78,7 +79,6 @@ $block: '#{$config-ns}m-list';
             display: block;
         }
         .m-menu__description {
-            color: $config-color-white;
             font-style: normal;
         }
     }

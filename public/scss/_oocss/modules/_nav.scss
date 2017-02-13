@@ -81,10 +81,9 @@ $block: '#{$config-ns}m-nav';
 
     }
 
-    .#{$block}__search {
+    .#{$block}__aside {
         position: absolute;
-        top: 25px;
-        right: rem-calc($config-grid--gutter / 2);
-        margin-bottom: 0;
+        top: rem-calc($config-type-scale-5);
+        right: rem-calc($config-type-scale-5);
     }
 }
