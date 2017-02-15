@@ -219,8 +219,8 @@ $block: '#{$config-ns}l-dialog';
 
     .#{$block}--search {
         .m-form__control--text {
-            background: $config-color-blue--2;
             color: $config-color-white;
+            background: $config-color-blue--2;
         }
         .c-type--h3 {
             color: $config-color-white;
