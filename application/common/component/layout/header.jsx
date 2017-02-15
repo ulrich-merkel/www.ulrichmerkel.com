@@ -156,7 +156,7 @@ function LayoutHeader(props) {
                                 </li>
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
                                     <A
-                                        className='m-menu__item c-btn--small c-btn--clear'
+                                        className='m-menu__item--search c-btn--small c-btn--clear'
                                         to='/search'
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -251,7 +251,6 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale: (e) => {
-            console.log(get(e, 'target.dataset.locale'))
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
         },
         handleChangeDialogVisibleSearch: () => {

@@ -93,7 +93,7 @@ $block: '#{$config-ns}m-menu';
             position: relative;
         }
 
-        .#{$block}__item {
+        .#{$block}__item--search {
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
             color: $config-color-white;
 

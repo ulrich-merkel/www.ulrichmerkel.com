@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-assign */
 /**
  * Es6 module for handling initial file loading.
  *

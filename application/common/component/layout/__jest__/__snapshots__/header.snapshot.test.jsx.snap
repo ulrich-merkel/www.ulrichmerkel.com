@@ -72,7 +72,7 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemScope={true}
               itemType="http://www.schema.org/SiteNavigationElement">
               <a
-                className="c-link m-menu__item c-btn--small c-btn--clear"
+                className="c-link m-menu__item--search c-btn--small c-btn--clear"
                 onClick={[Function]}
                 style={Object {}}
                 tabIndex="0"
