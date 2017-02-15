@@ -419,6 +419,7 @@ export default {
     'intl-search-head-description': 'Find page content by keywords',
     'intl-search-section1-headline': 'Search',
     'intl-search-section1-lead': 'Find page content by keywords',
+    'intl-search-section1-no-results': 'Found 0 search results',
     'intl-search-section1-form-legend': 'Insert your search',
     'intl-search-section1-form-input-name': 'Your search term',
 

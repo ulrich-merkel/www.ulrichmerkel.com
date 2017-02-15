@@ -12,9 +12,17 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires react-redux
  * @requires classnames
  * @requires shortid
+ * @requires lodash
+ * @requires common/state/selectors
+ * @requires common/state/actions
+ * @requires common/utils/content
+ * @requires common/utils/search
+ * @requires common/component/decorator/add-content
  * @requires common/component/element/headline
+ * @requires common/component/element/a
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
@@ -27,7 +35,6 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 import { get } from 'lodash';
 
-import addContent from './../decorator/add-content';
 import {
     selectStateIntlLocale,
     selectStateSearchTerm,
@@ -36,7 +43,9 @@ import {
 import {
     changeDialogVisibleSearch
 } from './../../state/actions';
+import { getContentSection } from './../../utils/content';
 import { findMatches } from './../../utils/search';
+import addContent from './../decorator/add-content';
 import A from './../element/a';
 import Headline from './../element/headline';
 
@@ -49,32 +58,31 @@ import Headline from './../element/headline';
  */
 function ModuleSearch(props) {
     const {
-        componentType,
-        className,
-        itemType,
-        content,
         children,
-        intlLocale,
-        searchTerm,
+        className,
         config,
-        handleChangeDialogVisibleSearch
+        content,
+        handleChangeDialogVisibleSearch,
+        htmlElement: HtmlElement,
+        intlLocale,
+        itemType,
+        searchTerm
     } = props;
 
-    const ComponentType = componentType;
     const componentClassName = classnames(
         'm-list--search',
         className
     );
-
+    const contentSection = getContentSection(content);
     const matches = findMatches(searchTerm, intlLocale, config);
     if (!matches || !matches.length) {
         return (
-            <Headline htmlElement='h3'>Found 0 search results</Headline>
+            <Headline htmlElement='h3'>{contentSection('PageSearch.section1.noResults')}</Headline>
         );
     }
 
     return (
-        <ComponentType className={componentClassName} itemScope itemType={itemType} role='list'>
+        <HtmlElement className={componentClassName} itemScope itemType={itemType} role='list'>
             {matches.map((entry) => {
                 return (
                     <li
@@ -102,7 +110,7 @@ function ModuleSearch(props) {
                 );
             })}
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
 
@@ -111,23 +119,26 @@ function ModuleSearch(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='ul'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [intlLocale]
- * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {Object} [config={}] - The application content configuration
  * @property {Object} [content={}] - The component translation config
+ * @property {Function} [handleChangeDialogVisibleSearch=Function.prototype] - Redux action handler
+ * @property {string} [htmlElement='ul'] - The component element type used for React.createElement
+ * @property {string} [intlLocale] - The current selected language
+ * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {string} [searchTerm] - The current search term
  */
 ModuleSearch.propTypes = {
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    componentType: PropTypes.string,
     config: PropTypes.object,
+    content: PropTypes.object,
+    handleChangeDialogVisibleSearch: PropTypes.func,
+    htmlElement: PropTypes.string,
     intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object,
-    searchTerm: PropTypes.string, // eslint-disable-line react/require-default-props,
-    handleChangeDialogVisibleSearch: PropTypes.func
+    searchTerm: PropTypes.string // eslint-disable-line react/require-default-props,
 };
 
 /**
@@ -135,22 +146,32 @@ ModuleSearch.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleList.propTypes
+ * @see ModuleSearch.propTypes
  */
 ModuleSearch.defaultProps = {
-    componentType: 'ul',
     config: {},
-    itemType: 'http://schema.org/ItemList',
     content: {},
-    handleChangeDialogVisibleSearch: Function.prototype
+    handleChangeDialogVisibleSearch: Function.prototype,
+    htmlElement: 'ul',
+    itemType: 'http://schema.org/ItemList'
 };
 
-// @TODO
+/**
+ * The component will subscribe to Redux store updates. Any time it updates,
+ * mapStateToProps will be called, Its result must be a plain object,
+ * and it will be merged into the component’s props.
+ *
+ * @function
+ * @private
+ * @param {Object.<*>} state - The redux store state
+ * @param {Object.<*>} [ownProps] - The current component props
+ * @returns {Object}
+ */
 function mapStateToProps(state, ownProps) {
     return {
+        config: selectStateConfig(state) || get(ownProps, 'config'),
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
-        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm,
-        config: selectStateConfig(state) || get(ownProps, 'config')
+        searchTerm: selectStateSearchTerm(state) || ownProps.searchTerm
     };
 }
 
@@ -162,6 +183,7 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @function
+ * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}
  */
@@ -172,6 +194,7 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
+
 /**
 * Connects a React component to a Redux store. It does not modify the
 * component class passed to it. Instead, it returns a new, connected component class.

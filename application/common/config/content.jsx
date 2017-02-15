@@ -1200,7 +1200,8 @@ const configContent = {
         },
         section1: {
             headline: 'intl-search-section1-headline',
-            lead: 'intl-search-section1-lead'
+            lead: 'intl-search-section1-lead',
+            noResults: 'intl-search-section1-no-results'
         },
         formSearch: {
             legend: 'intl-search-section1-form-legend',
