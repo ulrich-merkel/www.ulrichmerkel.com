@@ -33,7 +33,7 @@ import ModuleLanguage from './../module/language';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function SectionLanguage(props) {
 

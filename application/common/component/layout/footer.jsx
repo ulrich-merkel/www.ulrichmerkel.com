@@ -46,7 +46,7 @@ import Small from './../element/small';
  * Function representing a component to return a single react child element.
  *
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutFooter(props) {
 

@@ -45,7 +45,7 @@ import SectionReading from './../section/reading';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function PagePersona(props) {
 
