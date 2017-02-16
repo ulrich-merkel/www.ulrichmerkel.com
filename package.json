@@ -80,6 +80,7 @@
     "test:retire": "cross-var retire --ignorefile $npm_package_directories_config/.retireignore; exit 0;",
     "test:package": "pjl-cli",
     "test:license": "license",
+    "test:legal": "tldrlegal",
     "staged": "npm-run-all staged:*",
     "staged:pagespeed": "cross-var cross-env PORT=3002 node $npm_package_directories_bin/pagespeed",
     "doc": "npm-run-all doc:*",
@@ -236,6 +237,7 @@
     "sassdoc": "2.2.0",
     "sinon": "1.17.7",
     "stylelint": "7.8.0",
+    "tldrlegal": "1.0.3",
     "uglify-js": "2.7.5",
     "webpack": "2.2.1"
   },
