@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export,  no-use-before-define */
-import { get, isArray, isObject } from 'lodash';
+import { get, isArray, isObject, isString, isEmpty } from 'lodash';
 import { url } from './../config/application';
+import logger from './../utils/logger';
 
 const PAGES = {
     PageIndex: url.index,
@@ -20,22 +21,26 @@ const PAGES = {
 };
 const CACHE = {};
 
+const values = Object.values;
+const keys = Object.keys;
+const assign = Object.assign;
+
 /**
  * Helper function for recursiv array reduce.
  *
  * @private
  * @param {Array} array - The reducer target
- * @param {Array|Object|string|number} val - The current iteration value
+ * @param {Array|Object|string|number} val - The current reduce iteration value
  * @returns {Array} The newly filled target
  */
 function reducer(array, val) {
     const value = val;
 
-    if (isObject(value)) {
-        return objectReduce(value, array);
-    }
     if (isArray(value)) {
         return value.reduce(reducer, array);
+    }
+    if (isObject(value)) {
+        return objectReduce(value, array);
     }
 
     array.push(value);
@@ -50,8 +55,8 @@ function reducer(array, val) {
  * @param {Array} [initialValue=[]] - The reducer target
  * @returns {Array} The object reduced values
  */
-function objectReduce(object, initialValue = []) {
-    return Object.values(object).reduce(reducer, initialValue);
+function objectReduce(object = {}, initialValue = []) {
+    return values(object).reduce(reducer, initialValue);
 }
 
 /**
@@ -66,12 +71,15 @@ function createIndex(locale, config) {
     const configContent = get(config, 'content.data', {});
     const configTranslation = get(config, `${locale}.data`, {});
 
-    return Object.keys(PAGES).reduce(function handleReduce(result, value) {
-        return Object.assign(
+    return keys(PAGES).reduce(function reducePage(result, page) {
+        return assign(
             result,
             {
-                [value]: Object.keys(configTranslation).filter(function handleFilter(key) {
-                    return objectReduce(configContent[value]).includes(key);
+                [page]: keys(configTranslation).filter(function filterKey(key) {
+                    if (!configContent[page]) {
+                        return false;
+                    }
+                    return objectReduce(configContent[page]).includes(key);
                 })
             }
         );
@@ -89,14 +97,19 @@ function createIndex(locale, config) {
  */
 function translateIndex(locale, config, index) {
     const configTranslation = get(config, `${locale}.data`, {});
+    if (isEmpty(configTranslation)) {
+        logger.warn(`No ${locale}.data in redux config state found`);
+        return {};
+    }
 
-    return Object.keys(index).reduce(function handleReduce(indexResult, indexKey) {
-        return Object.assign(
-            indexResult,
+    return keys(index).reduce(function reduceIndexKey(result, indexKey) {
+        return assign(
+            result,
             {
-                [indexKey]: index[indexKey].reduce(function handleAssignReduce(indexContent, configTranslationKey) {
-                    if (configTranslation[configTranslationKey]) {
-                        indexContent.push(configTranslation[configTranslationKey]);
+                [indexKey]: index[indexKey].reduce(function reduceKey(indexContent, key) {
+                    const content = configTranslation[key];
+                    if (content) {
+                        indexContent.push(content);
                     }
                     return indexContent;
                 }, [])
@@ -114,8 +127,12 @@ function translateIndex(locale, config, index) {
  * @returns {Array<string>} The cached (or created) index
  */
 function getCachedIndex(locale, config) {
-    if (!CACHE[locale]) {
-        CACHE[locale] = translateIndex(locale, config, createIndex(locale, config));
+    if (!CACHE[locale] || isEmpty(CACHE[locale])) {
+        // Just save index to cache if there are valid results returned
+        const translatedIndex = translateIndex(locale, config, createIndex(locale, config));
+        if (!isEmpty(translatedIndex)) {
+            CACHE[locale] = translatedIndex;
+        }
     }
     return CACHE[locale];
 }
@@ -126,24 +143,30 @@ function getCachedIndex(locale, config) {
  * @TODO: Allow multiple search terms, set url query param for sharing
  *
  * @param {string} searchTerm - The term to be searched for
- * @param {string} locale - The current locale
- * @param {Object} config - The current untranslated content config
+ * @param {string} locale - The selected locale
+ * @param {Object} config - The (untranslated) redux config state
  * @returns {Array<Object>} The search results to be displayed
  */
 function findMatches(searchTerm, locale, config = {}) {
-    const escapedInput = searchTerm && searchTerm.trim().toLowerCase();
+    const escapedInput = isString(searchTerm) && searchTerm.trim().toLowerCase();
     if (!escapedInput) {
         return [];
     }
 
-    const matchRegex = new RegExp(`\\b${escapedInput}`, 'i');
-    const index = getCachedIndex(locale.toLowerCase(), config);
+    const index = isString(locale) && getCachedIndex(locale.toLowerCase(), config);
+    if (!index) {
+        return [];
+    }
 
-    return Object.keys(index)
-        .filter(function handleFilter(key) {
-            return matchRegex && matchRegex.test(index[key]);
+    const escapedInputs = escapedInput.split(' ');
+    return keys(index)
+        .filter(function filterKey(key) {
+            return escapedInputs.every(function someNeedle(needle) {
+                const matchRegex = new RegExp(`\\b${needle}`, 'i');
+                return matchRegex && matchRegex.test(index[key]);
+            }) || false;
         })
-        .map(function handleMap(key) {
+        .map(function mapKey(key) {
             return {
                 url: PAGES[key],
                 title: key,

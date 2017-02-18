@@ -12,7 +12,7 @@
  *
  * @requires reselect
  * @requires lodash
- * @requires common/state/intl/reducer
+ * @requires common/state/search/reducer
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
@@ -27,7 +27,7 @@ import { defaultState } from './reducer';
  *
  * @function
  * @param {Object} state - The current redux state
- * @returns {string} The intl locale state
+ * @returns {string} The search term state
  */
 const selectStateSearchTerm = createSelector(
     [

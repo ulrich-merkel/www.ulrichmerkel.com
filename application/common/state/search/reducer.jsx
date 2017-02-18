@@ -43,7 +43,7 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case SEARCH_CHANGE_TERM: {
-        const term = action.term && action.term.trim();
+        const term = action.term;
         return {
             ...state,
             term
