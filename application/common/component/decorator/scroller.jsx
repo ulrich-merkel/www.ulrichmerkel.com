@@ -50,7 +50,7 @@ function scroller(SourceComponent) {
          * The actual class constructor.
          *
          * This is usally unnecessary if we don't perform any actions here,
-         * because a default constructor will call super(...props) for us.
+         * because a default constructor will call super(props) for us.
          * We do this just because of completeness.
          *
          * @constructs
