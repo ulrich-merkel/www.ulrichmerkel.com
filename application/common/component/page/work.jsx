@@ -123,7 +123,7 @@ class PageWork extends Component {
 
         // redirect if route couldn't be found
         if (!work) {
-            router.push(url.index);
+            router.push(url.home);
             return;
         }
 

@@ -1,5 +1,5 @@
 const mockedConfigContent = {
-    PageIndex: {
+    PageHome: {
         head: {
             title: 'intl-title-1',
             meta: [

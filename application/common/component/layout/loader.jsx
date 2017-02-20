@@ -10,8 +10,6 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
- * @TODO: Move flip part to own component
- *
  * @requires react
  * @requires common/component/decorator/add-content
  * @requires common/utils/content

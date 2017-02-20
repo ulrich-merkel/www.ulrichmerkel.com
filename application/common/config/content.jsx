@@ -289,7 +289,7 @@ const configContent = {
             { rel: 'me', href: 'https://delicious.com/ulrichmerkel' }
         ]
     },
-    PageIndex: {
+    PageHome: {
         head: {
             title: 'intl-page-index-head-title',
             meta: [

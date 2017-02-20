@@ -15,9 +15,9 @@ describe('common/utils/search', function () {
                 data: configIntlEnEn
             }
         };
-        const PageIndex = {
-            label: 'PageIndex',
-            title: 'PageIndex',
+        const PageHome = {
+            label: 'PageHome',
+            title: 'PageHome',
             url: '/'
         };
         const PagePersona = {
@@ -50,11 +50,11 @@ describe('common/utils/search', function () {
         expect(findMatches('search term', 'en-EN', { foo: 'bar' })).toEqual([]);
 
         expect(findMatches('lead', 'en-EN', config)).toEqual([
-            PageIndex
+            PageHome
         ]);
 
         expect(findMatches('lorem', 'en-EN', config)).toEqual([
-            PageIndex,
+            PageHome,
             PagePersona
         ]);
 

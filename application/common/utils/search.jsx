@@ -4,7 +4,7 @@ import { url } from './../config/application';
 import logger from './../utils/logger';
 
 const PAGES = {
-    PageIndex: url.index,
+    PageHome: url.home,
     PageWorkOptikLudewig: `${url.work}${url.workOptikLudewig}`,
     PageWorkSummerInspiration: `${url.work}${url.workSummerInspiration}`,
     PageWorkMomentariness: `${url.work}${url.workMomentariness}`,

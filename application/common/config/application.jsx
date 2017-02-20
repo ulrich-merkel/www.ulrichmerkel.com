@@ -40,7 +40,7 @@ const configApplication = Object.assign({}, {
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
     debug: toBoolean(process.env.DEBUG) || false,
     url: {
-        index: '/',
+        home: '/',
         persona: '/persona',
         work: '/work',
         workOptikLudewig: '/optik-ludewig',
