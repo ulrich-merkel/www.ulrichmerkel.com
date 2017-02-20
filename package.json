@@ -78,7 +78,7 @@
     "test:css": "cross-var stylelint --config $npm_package_directories_config/.stylelintrc --syntax scss \"**/*.scss\"",
     "test:nsp": "nsp check",
     "test:retire": "cross-var retire --ignorefile $npm_package_directories_config/.retireignore; exit 0;",
-    "test:package": "pjl-cli",
+    "test:package": "pjl-cli --rules-file $npm_package_directories_config/.npmpackagejsonlintrc.json",
     "test:license": "license",
     "test:legal": "tldrlegal",
     "staged": "npm-run-all staged:*",
