@@ -45,27 +45,23 @@ function PageSearch(props) {
     const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
 
-    // @TODO: Use own child component for SectionSearch
+    const pageSearchContent = (
+        <SectionSearch content={contentSection('section1')} isMain isDialog>
+            <ModuleFormSearch content={contentSection('formSearch')} />
+            <ModuleSearch isMain>
+                {children}
+            </ModuleSearch>
+        </SectionSearch>
+    );
+
     if (isDialog) {
-        return (
-            <SectionSearch content={contentSection('section1')} isMain isDialog>
-                <ModuleFormSearch content={contentSection('formSearch')} />
-                <ModuleSearch isMain>
-                    {children}
-                </ModuleSearch>
-            </SectionSearch>
-        );
+        return pageSearchContent;
     }
 
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionSearch content={contentSection('section1')} isMain>
-                <ModuleFormSearch content={contentSection('formSearch')} />
-                <ModuleSearch isMain>
-                    {children}
-                </ModuleSearch>
-            </SectionSearch>
+            {pageSearchContent}
         </LayoutMain>
     );
 }
