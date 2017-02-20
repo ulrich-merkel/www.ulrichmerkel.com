@@ -12,6 +12,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires lodash
  * @requires common/component/module/person
  *
  * @changelog
@@ -19,6 +20,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import { isEmpty } from 'lodash';
 
 import ModulePerson from './../person';
 
@@ -37,7 +39,7 @@ function ModuleTextPerson(props) {
         isCentered
     } = props;
 
-    if (!content) {
+    if (!content || isEmpty(content)) {
         return null;
     }
 

@@ -20,10 +20,6 @@ exports[`common/component/module/text should render correctly 1`] = `
           }
         } />
     </div>
-    <div
-      className="is-centered m-person m-text__content"
-      itemScope={true}
-      itemType="http://schema.org/Person" />
   </div>
   <div
     className="m-text__time is-centered">
@@ -70,10 +66,6 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
           }
         } />
     </div>
-    <div
-      className="is-centered m-person m-text__content"
-      itemScope={true}
-      itemType="http://schema.org/Person" />
   </div>
   <div
     className="m-text__time is-centered">
