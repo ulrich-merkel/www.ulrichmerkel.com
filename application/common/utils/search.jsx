@@ -140,7 +140,7 @@ function getCachedIndex(locale, config) {
 /**
  * Find search matches by terms.
  *
- * @TODO: Allow multiple search terms, set url query param for sharing
+ * @TODO: Set url query param for sharing
  *
  * @param {string} searchTerm - The term to be searched for
  * @param {string} locale - The selected locale
