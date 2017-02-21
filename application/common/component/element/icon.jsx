@@ -25,10 +25,9 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ElementIcon(props) {
-
     const {
         htmlElement,
         className,
@@ -46,7 +45,6 @@ function ElementIcon(props) {
     return (
         <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
     );
-
 }
 
 /**

@@ -35,4 +35,12 @@ describe('common/component/element/a', function () {
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
+    it('should return null of there is no to attribute', function () {
+        const tree = renderer.create(
+            <ElementA {...defaultProps} to={null}>
+                Link Children
+            </ElementA>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

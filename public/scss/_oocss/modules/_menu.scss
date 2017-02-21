@@ -40,6 +40,10 @@ $block: '#{$config-ns}m-menu';
     .#{$block}__item {
         display: block;
         text-align: left;
+
+        &.is-hidden {
+            display: none;
+        }
     }
 
     .#{$block}__label {
@@ -58,13 +62,9 @@ $block: '#{$config-ns}m-menu';
         }
 
         .#{$block}__item {
-            display: block;
             padding: rem-calc($config-type-scale-11) rem-calc($config-type-scale-12) rem-calc($config-type-scale-10);
             color: $config-color-white;
             background: $config-color-blue--2;
-
-            will-change: background, color;
-            transition: background $config-transition-arguments, color $config-transition-arguments;
 
             &.is-active {
                 color: $config-color-white;
@@ -85,87 +85,27 @@ $block: '#{$config-ns}m-menu';
 
     }
 
-    .#{$block}--language {
-        @include clearfix;
-        position: absolute;
-        top: rem-calc($config-type-scale-5);
-        right: rem-calc($config-type-scale-5);
+    // menu header aside
+    .#{$block}--aside {
         margin-bottom: 0;
-
-        .no-js &,
-        &.is-hidden {
-            display: none;
-        }
 
         .#{$block}__list-item {
             position: relative;
         }
 
-        .#{$block}__item {
-            display: block;
+        .#{$block}__item--search {
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
             color: $config-color-white;
 
             will-change: color;
             transition: color $config-transition-arguments;
 
-            &::after {
-                @include breakpoint($config-grid--breakpoint-xsmall) {
-                    position: relative;
-                    top: 7px;
-                    display: block;
-                    width: 0;
-                    height: 0;
-                    margin: 0 auto;
-                    content: ' ';
-                    border-top: 1px solid $config-color-white;
-
-                    will-change: width;
-                    transition: width $config-transition-arguments;
-                }
-            }
-
             &.is-active {
                 color: $config-color-white;
-
-                &::after {
-                    width: 100%;
-                }
-            }
-
-            @if ($config-support-hovers) {
-                .no-touch &:hover,
-                .no-touchevents &:hover,
-                .no-js &:hover,
-                &:focus {
-                    color: $config-color-white;
-
-                    &::after {
-                        width: 100%;
-                    }
-                }
             }
 
         }
 
-    }
-
-    // menu main
-    .#{$block}--search {
-        @include clearfix;
-
-        .#{$block}__list-item {
-            position: relative;
-            float: none;
-            clear: both;
-        }
-
-        .#{$block}__item {
-            display: block;
-            padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
-            color: $config-color-white;
-
-        }
     }
 
     // menu footer

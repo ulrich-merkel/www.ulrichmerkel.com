@@ -134,6 +134,11 @@ $block: '#{$config-ns}c-btn';
         padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-13) rem-calc($config-type-scale-7);
     }
 
+    .#{$block}--clear {
+        padding: unset;
+        background: unset;
+    }
+
     // @see {@link http://codepen.io/Maathieu24/pen/YPjLYe}
     .#{$block}--submit {
         display: inline-block;

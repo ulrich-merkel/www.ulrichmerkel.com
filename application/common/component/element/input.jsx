@@ -35,7 +35,7 @@ class ElementInput extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
 
@@ -45,6 +45,7 @@ class ElementInput extends Component {
             type,
             name,
             id,
+            itemProp,
             placeholder,
             onBlur,
             onChange,
@@ -68,6 +69,7 @@ class ElementInput extends Component {
                 {...{
                     type,
                     id,
+                    itemProp,
                     name,
                     value,
                     onBlur,
@@ -90,6 +92,7 @@ class ElementInput extends Component {
  * @property {string} name - The input name attribute
  * @property {string} id - The input id attribute
  * @property {string} [className] - The input css class names - will be merged into component default classNames
+ * @property {string} [itemProp] - The itemProp attribute
  * @property {boolean} [required=false] - The input required attribute
  * @property {string} [type='text'] - The input type attribute
  * @property {string} [placeholder=''] - The input placeholder attribute
@@ -101,6 +104,7 @@ ElementInput.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
+    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
     required: PropTypes.bool,
     type: PropTypes.string,
     placeholder: PropTypes.string,

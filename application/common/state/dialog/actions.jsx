@@ -16,7 +16,12 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import { DIALOG_CHANGE_VISIBLE } from './constants';
+// @TODO: Rename STATE_DIALOG_PAGE_BROADCAST to STATE_DIALOG_CONTENT_BROADCAST
+import {
+    STATE_DIALOG_VISIBLE_CHANGE,
+    STATE_DIALOG_PAGE_BROADCAST,
+    STATE_DIALOG_PAGE_SEARCH
+} from './constants';
 
 /**
  * Handle dialog visibility state change.
@@ -27,11 +32,43 @@ import { DIALOG_CHANGE_VISIBLE } from './constants';
  */
 function changeDialogVisible(visible) {
     return {
-        type: DIALOG_CHANGE_VISIBLE,
+        type: STATE_DIALOG_VISIBLE_CHANGE,
+        visible
+    };
+}
+
+/**
+ * Handle dialog visibility state change.
+ *
+ * @function
+ * @param {boolean} visible - The new visible state
+ * @returns {Object} The redux action playload
+ */
+function changeDialogVisibleBroadcast(visible) {
+    return {
+        type: STATE_DIALOG_VISIBLE_CHANGE,
+        page: STATE_DIALOG_PAGE_BROADCAST,
+        visible
+    };
+}
+
+/**
+ * Handle dialog visibility state change.
+ *
+ * @function
+ * @param {boolean} visible - The new visible state
+ * @returns {Object} The redux action playload
+ */
+function changeDialogVisibleSearch(visible) {
+    return {
+        type: STATE_DIALOG_VISIBLE_CHANGE,
+        page: STATE_DIALOG_PAGE_SEARCH,
         visible
     };
 }
 
 export {
-    changeDialogVisible
+    changeDialogVisible,
+    changeDialogVisibleBroadcast,
+    changeDialogVisibleSearch
 };

@@ -4,13 +4,18 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
 import mockedStore from './../../__mocks__/store';
-import PageIndex from './../index';
+import SectionSearch from './../search';
 
-describe('common/component/page/index', function () {
+describe('common/component/section/search', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <PageIndex />
+                <SectionSearch
+                    content={{}}
+                    isMain
+                >
+                    Section search children
+                </SectionSearch>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

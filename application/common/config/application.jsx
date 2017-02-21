@@ -40,7 +40,7 @@ const configApplication = Object.assign({}, {
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
     debug: toBoolean(process.env.DEBUG) || false,
     url: {
-        index: '/',
+        home: '/',
         persona: '/persona',
         work: '/work',
         workOptikLudewig: '/optik-ludewig',
@@ -52,6 +52,7 @@ const configApplication = Object.assign({}, {
         workGedankenKollektiv: '/gedanken-kollektiv',
         broadcast: '/broadcast',
         contact: '/contact',
+        search: '/search',
         contactSuccess: '/contact/success',
         contactError: '/contact/error',
         imprint: '/imprint',
@@ -82,7 +83,7 @@ const configApplication = Object.assign({}, {
     },
     applicationCache: {
         use: toBoolean(process.env.APPCACHE) || true,
-        timeStamp: '2017-01-10'
+        timeStamp: '2017-02-21'
     },
     transition: {
         transitionName: 'animate',

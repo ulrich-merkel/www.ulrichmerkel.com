@@ -27,8 +27,8 @@ import { addPageView } from './../../state/page/actions';
  * The tracking higher order function handling page visits.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
- * @returns {ReactElement}
+ * @param {React.Element} SourceComponent - The react component to be decorated
+ * @returns {React.Element}
  */
 function addPageTracking(SourceComponent) {
 
@@ -55,7 +55,7 @@ function addPageTracking(SourceComponent) {
          * The required render function to return a single react child element.
          *
          * @function
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

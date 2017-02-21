@@ -25,7 +25,7 @@ import classnames from 'classnames';
  *
  * @constructor
  * @param {Object} props - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementSmall(props) {
 

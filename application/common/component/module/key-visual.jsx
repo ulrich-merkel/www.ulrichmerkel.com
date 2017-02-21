@@ -42,15 +42,15 @@ class ModuleKeyVisual extends Component {
      * The actual class constructor.
      *
      * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(...props) for us.
+     * because a default constructor will call super(props) for us.
      * We do this just because of completeness.
      *
      * @constructs
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(...props) {
-        super(...props);
+    constructor(props) {
+        super(props);
 
         /**
          * A bind call or arrow function in a JSX prop will create a brand new
@@ -96,7 +96,7 @@ class ModuleKeyVisual extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
 

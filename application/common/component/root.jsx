@@ -23,7 +23,7 @@ import { Provider } from 'react-redux';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function Root(props) {
     const { children, store } = props;

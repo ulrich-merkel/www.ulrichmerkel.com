@@ -26,6 +26,14 @@ describe('common/component/layout/header', function () {
             </Provider>
         );
 
-        wrapper.find('.m-menu__item--en').simulate('click');
+        const btnLanguage = wrapper.find('.m-menu--aside .m-menu__item--en');
+        if (btnLanguage.length) {
+            btnLanguage.simulate('click');
+        }
+
+        const btnSearch = wrapper.find('.m-menu--aside .m-menu__item--search');
+        if (btnSearch.length) {
+            btnSearch.simulate('click');
+        }
     });
 });

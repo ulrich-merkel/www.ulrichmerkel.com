@@ -29,6 +29,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
 import A from './../../element/a';
+import Icon from './../../element/icon';
 import Picture from './../../element/picture';
 
 /**
@@ -36,7 +37,7 @@ import Picture from './../../element/picture';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleFeaturedItem(props) {
 
@@ -63,7 +64,7 @@ function ModuleFeaturedItem(props) {
                     <span aria-level='3' className='m-featured__headline' role='heading'>
                         {headline}
                     </span>
-                    <span aria-hidden='true' className='m-featured__icon c-font-icon--plus' />
+                    <Icon className='m-featured__icon' icon='plus' />
                 </span>
             </span>
 

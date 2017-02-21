@@ -28,7 +28,7 @@ exports[`common/component/layout/header should render correctly 1`] = `
             data-label={undefined}
             type="checkbox" />
           <ul
-            className="m-menu--language m-nav__toggle-target is-hidden"
+            className="m-menu--aside m-nav__toggle-target m-nav__aside"
             itemScope={true}
             itemType="http://schema.org/ItemList"
             role="menu">
@@ -38,11 +38,16 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemScope={true}
               itemType="http://www.schema.org/SiteNavigationElement">
               <button
-                className="m-menu__item m-menu__item--en is-active"
+                className="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                 data-locale="en-EN"
                 onClick={[Function]}
                 role="button"
-                title={undefined} />
+                title=""
+                to={undefined}
+                type="button">
+                <span
+                  className="c-btn__label" />
+              </button>
             </li>
             <li
               className="m-menu__list-item"
@@ -50,11 +55,35 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemScope={true}
               itemType="http://www.schema.org/SiteNavigationElement">
               <button
-                className="m-menu__item m-menu__item--de"
+                className="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                 data-locale="de-DE"
                 onClick={[Function]}
                 role="button"
-                title={undefined} />
+                title=""
+                to={undefined}
+                type="button">
+                <span
+                  className="c-btn__label" />
+              </button>
+            </li>
+            <li
+              className="m-menu__list-item"
+              itemProp="itemListElement"
+              itemScope={true}
+              itemType="http://www.schema.org/SiteNavigationElement">
+              <a
+                className="c-link m-menu__item--search c-btn--small c-btn--clear"
+                onClick={[Function]}
+                style={Object {}}
+                tabIndex="0"
+                title="Suche">
+                <span
+                  className="c-btn__label">
+                  <i
+                    aria-hidden="true"
+                    className="c-font-icon--search c-btn__icon" />
+                </span>
+              </a>
             </li>
           </ul>
         </div>

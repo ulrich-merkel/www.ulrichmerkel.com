@@ -163,7 +163,6 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
                 separator: '-'
             },
             {
-                // @TODO: adjust and implement config rotate if needed!
                 name: 'apple-touch-startup-image',
                 ext: 'png',
                 path: 'share/',

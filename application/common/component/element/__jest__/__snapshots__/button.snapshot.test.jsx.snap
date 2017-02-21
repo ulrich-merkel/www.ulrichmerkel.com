@@ -6,7 +6,7 @@ exports[`common/component/element/button should render correctly 1`] = `
   name="button"
   role="button"
   title="Test button title"
-  to=""
+  to={undefined}
   type="submit">
   <span
     className="c-btn__label button-label">

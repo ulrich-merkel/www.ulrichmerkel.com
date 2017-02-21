@@ -31,7 +31,7 @@ import addPageTracking from './../decorator/add-page-tracking';
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';
 import LayoutMain from './../layout/main';
-import SectionForm from './../section/form';
+import SectionContact from './../section/contact';
 import ModuleFormContact from './../module/form/contact'; // eslint-disable-line import/no-named-as-default
 
 /**
@@ -39,7 +39,7 @@ import ModuleFormContact from './../module/form/contact'; // eslint-disable-line
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function PageContact(props) {
 
@@ -50,9 +50,9 @@ function PageContact(props) {
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionForm content={contentSection('section1')} isMain>
+            <SectionContact content={contentSection('section1')} isMain>
                 <ModuleFormContact content={contentSection('formContact')} {...{ routerState }} />
-            </SectionForm>
+            </SectionContact>
         </LayoutMain>
     );
 

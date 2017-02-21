@@ -32,7 +32,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisible } from './../../state/dialog/actions';
+import { changeDialogVisibleBroadcast } from './../../state/dialog/actions';
 import { isBrowser } from './../../utils/environment';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
@@ -151,7 +151,7 @@ class ModuleText extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
         const {
@@ -292,7 +292,7 @@ ModuleText.defaultProps = {
 const ModuleTextContainer = connect(
     null,
     {
-        handleChangeDialogVisible: changeDialogVisible
+        handleChangeDialogVisible: changeDialogVisibleBroadcast
     }
 )(ModuleText);
 

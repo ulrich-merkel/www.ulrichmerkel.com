@@ -65,6 +65,24 @@ $block: '#{$config-ns}m-list';
         }
     }
 
+    .#{$block}--search {
+        .m-menu__item {
+            margin-bottom: rem-calc($config-grid--gutter * 0.5);
+            color: $config-color-blue--3;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                text-align: center;
+            }
+        }
+        .m-menu__label,
+        .m-menu__description {
+            display: block;
+        }
+        .m-menu__description {
+            font-style: normal;
+        }
+    }
+
     @media print {
         .#{$block}--reading {
             text-align: left;

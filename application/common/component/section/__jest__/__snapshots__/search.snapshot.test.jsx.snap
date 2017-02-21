@@ -1,4 +1,4 @@
-exports[`common/component/section/form should render correctly 1`] = `
+exports[`common/component/section/search should render correctly 1`] = `
 <div
   className="l-main__transition">
   <section
@@ -16,7 +16,7 @@ exports[`common/component/section/form should render correctly 1`] = `
             <div
               className="m-article__text"
               itemProp="text">
-              Section form children
+              Section search children
             </div>
           </article>
         </div>
