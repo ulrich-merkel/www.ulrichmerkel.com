@@ -25,7 +25,6 @@
         "flowtype",
         "jsdoc",
         "jsx-a11y",
-        "new-with-error",
         "promise",
         "security",
         "react"
