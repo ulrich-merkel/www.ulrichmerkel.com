@@ -40,7 +40,7 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementA(props) {
 
@@ -50,17 +50,26 @@ function ElementA(props) {
         activeClassName,
         isMenu,
         isIndex,
+        isTargetSelf,
         to,
         children,
         title,
         ...otherProps
     } = props;
 
-    const ancorAttributes = {
-        href: to,
-        rel: 'noopener noreferrer',
-        target: '_blank'
-    };
+    if (!to) {
+        return null;
+    }
+
+    const ancorAttributes = Object.assign(
+        {
+            href: to
+        },
+        !isTargetSelf && {
+            rel: 'noopener noreferrer',
+            target: '_blank'
+        }
+    );
 
     const componentAttributes = {
         to,
@@ -107,6 +116,7 @@ function ElementA(props) {
  * @property {string} [title=''] - The title string to be set on a tag
  * @property {boolean} [isIndex=false] - Whether the component is link to home/index or not
  * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
+ * @property {boolean} [isTargetSelf=false] - Whether to set rel and target blank attributes or not
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementA.propTypes = {
@@ -117,6 +127,7 @@ ElementA.propTypes = {
     title: PropTypes.string,
     isIndex: PropTypes.bool,
     isMenu: PropTypes.bool,
+    isTargetSelf: PropTypes.bool,
     children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
@@ -132,7 +143,8 @@ ElementA.defaultProps = {
     activeClassName: 'is-active',
     title: '',
     isIndex: false,
-    isMenu: false
+    isMenu: false,
+    isTargetSelf: false
 };
 
 export default ElementA;

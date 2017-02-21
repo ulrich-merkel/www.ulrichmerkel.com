@@ -208,6 +208,19 @@ $block: '#{$config-ns}m-form';
     }
 
     // ----------------------------
+    // modifiers
+    // ----------------------------
+
+    .#{$block}--search {
+        .#{$block}__control--text {
+            padding-left: 10px;
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                text-align: center;
+            }
+        }
+    }
+
+    // ----------------------------
     // success feedback
     // ----------------------------
 

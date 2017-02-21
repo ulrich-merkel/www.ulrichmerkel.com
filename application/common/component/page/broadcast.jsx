@@ -37,11 +37,17 @@ import SectionList from './../section/list';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function PageBroadcast(props) {
+    const { content, isDialog } = props;
+    const contentSection = getContentSection(content);
 
-    const contentSection = getContentSection(props.content);
+    if (isDialog) {
+        return (
+            <SectionList content={contentSection('section1')} isMain isDialog />
+        );
+    }
 
     return (
         <LayoutMain>
@@ -49,7 +55,6 @@ function PageBroadcast(props) {
             <SectionList content={contentSection('section1')} isMain />
         </LayoutMain>
     );
-
 }
 
 /**
@@ -58,6 +63,7 @@ function PageBroadcast(props) {
  * @static
  * @type {Object}
  * @property {Object} [content={}] - The component translation config
+ * @property {boolean} isDialog
  */
 PageBroadcast.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -65,7 +71,8 @@ PageBroadcast.propTypes = {
         PropTypes.number,
         PropTypes.array,
         PropTypes.object
-    ]))
+    ])),
+    isDialog: PropTypes.bool
 };
 
 /**
@@ -76,7 +83,8 @@ PageBroadcast.propTypes = {
  * @see PageBroadcast.propTypes
  */
 PageBroadcast.defaultProps = {
-    content: {}
+    content: {},
+    isDialog: false
 };
 
 export default addPageTracking(addContent('PageBroadcast')(PageBroadcast));

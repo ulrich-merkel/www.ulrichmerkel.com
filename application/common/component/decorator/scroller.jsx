@@ -33,8 +33,8 @@ import { getPageOffset } from './../../utils/scroll-to';
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
- * @returns {ReactElement}
+ * @param {React.Element} SourceComponent - The react component to be decorated
+ * @returns {React.Element}
  */
 function scroller(SourceComponent) {
 
@@ -50,7 +50,7 @@ function scroller(SourceComponent) {
          * The actual class constructor.
          *
          * This is usally unnecessary if we don't perform any actions here,
-         * because a default constructor will call super(...props) for us.
+         * because a default constructor will call super(props) for us.
          * We do this just because of completeness.
          *
          * @constructs
@@ -158,7 +158,7 @@ function scroller(SourceComponent) {
          * The required render function to return a single react child element.
          *
          * @function
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

@@ -283,7 +283,7 @@ class ModuleFormContact extends Component {
      * @param {string} text - The message text body
      * @param {string} btnTitle - The message button title
      * @param {string} btnLabel - The message button label
-     * @returns {ReactElement}
+     * @returns {React.Element}
      */
     getTextMessage(headline, text, btnTitle, btnLabel) {
         return (
@@ -396,7 +396,7 @@ class ModuleFormContact extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
 
@@ -418,6 +418,7 @@ class ModuleFormContact extends Component {
         return (
             <Form
                 action='/contact/'
+                className='m-form--contact'
                 id='m-form--contact'
                 itemProp='potentialAction'
                 onSubmit={this.onSubmit}

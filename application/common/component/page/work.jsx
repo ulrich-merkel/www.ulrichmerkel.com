@@ -76,8 +76,8 @@ class PageWork extends Component {
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(...props) {
-        super(...props);
+    constructor(props) {
+        super(props);
 
         this.state = {
             work: null
@@ -123,7 +123,7 @@ class PageWork extends Component {
 
         // redirect if route couldn't be found
         if (!work) {
-            router.push(url.index);
+            router.push(url.home);
             return;
         }
 
@@ -136,7 +136,7 @@ class PageWork extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
         const { locale, config } = this.props;

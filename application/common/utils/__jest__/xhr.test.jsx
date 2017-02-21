@@ -19,6 +19,7 @@ describe('common/utils/xhr', function () {
 
     it('should call post with default options', function () {
         const callback = jest.fn();
+
         nock(`http://${host}:${port}`)
             .post('/test', {})
             .reply(200, data);
@@ -30,6 +31,7 @@ describe('common/utils/xhr', function () {
     });
     it('should catch response status errors', function () {
         const callback = jest.fn();
+
         nock(`http://${host}:${port}`)
             .post('/test', {})
             .reply(500, data);
@@ -40,6 +42,7 @@ describe('common/utils/xhr', function () {
     });
     it('should call get when set as option', function () {
         const callback = jest.fn();
+
         nock(`http://${host}:${port}`)
             .get('/test')
             .reply(200, data);

@@ -1,4 +1,4 @@
-exports[`common/component/page/index should render correctly 1`] = `
+exports[`common/component/page/home should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"

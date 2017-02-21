@@ -42,7 +42,7 @@ import { getNonceConfig, getCspRules } from './../../utils/csp';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutHtml(props) {
 

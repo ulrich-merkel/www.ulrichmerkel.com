@@ -21,7 +21,9 @@ import { SEARCH_CHANGE_TERM } from './constants';
 /**
  * @type {Object}
  */
-const defaultState = {};
+const defaultState = {
+    term: ''
+};
 
 /**
  * Used to reduce a stream of actions coming from the dispatcher into a
@@ -41,7 +43,7 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case SEARCH_CHANGE_TERM: {
-        const term = action.term && action.term.trim();
+        const term = action.term;
         return {
             ...state,
             term

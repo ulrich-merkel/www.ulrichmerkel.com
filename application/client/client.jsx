@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function handleEvent() {
  * @private
  * @param {Object} Component - The current router react component
  * @param {Object} props - The current react component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function createElement(Component, props) {
     return <Component {...props} />;

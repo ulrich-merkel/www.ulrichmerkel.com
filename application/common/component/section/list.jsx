@@ -30,7 +30,7 @@ import ModuleList from './../module/list';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function SectionList(props) {
 
@@ -38,12 +38,13 @@ function SectionList(props) {
         children,
         content,
         isMain,
+        isDialog,
         ...moduleProps
     } = props;
 
     return (
         <SectionCommonGridSpaced>
-            <ModuleArticle {...{ content, isMain }}>
+            <ModuleArticle {...{ content, isMain, isDialog }}>
                 <ModuleList {...{ content }} {...moduleProps}>
                     {children}
                 </ModuleList>
@@ -65,7 +66,8 @@ function SectionList(props) {
 SectionList.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.object,
-    isMain: PropTypes.bool
+    isMain: PropTypes.bool,
+    isDialog: PropTypes.bool
 };
 
 /**
@@ -77,7 +79,8 @@ SectionList.propTypes = {
  */
 SectionList.defaultProps = {
     content: {},
-    isMain: false
+    isMain: false,
+    isDialog: false
 };
 
 export default SectionList;

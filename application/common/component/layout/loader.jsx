@@ -10,8 +10,6 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
- * @TODO: Move flip part to own component
- *
  * @requires react
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
@@ -31,7 +29,7 @@ import { getContentSection } from './../../utils/content';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutLoader(props) {
 

@@ -27,7 +27,7 @@ import A from './../../element/a';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ModuleTextLink(props) {
 

@@ -23,9 +23,9 @@ exports[`common/component/module/featured should render correctly 1`] = `
           role="heading">
           headline
         </span>
-        <span
+        <i
           aria-hidden="true"
-          className="m-featured__icon c-font-icon--plus" />
+          className="c-font-icon--plus m-featured__icon" />
       </span>
     </span>
     <meta
@@ -59,9 +59,9 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
           role="heading">
           headline
         </span>
-        <span
+        <i
           aria-hidden="true"
-          className="m-featured__icon c-font-icon--plus" />
+          className="c-font-icon--plus m-featured__icon" />
       </span>
     </span>
     <meta

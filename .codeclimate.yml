@@ -53,7 +53,7 @@ engines:
     enabled: true
     channel: "eslint-3"
     config:
-      config: config/.eslintrc.json
+      config: config/.eslintrc.codeclimate.json
   fixme:
     enabled: true
 ratings:

@@ -34,3 +34,5 @@ exports[`common/component/element/a should render correctly 1`] = `
   Link Children
 </a>
 `;
+
+exports[`common/component/element/a should return null of there is no to attribute 1`] = `null`;
