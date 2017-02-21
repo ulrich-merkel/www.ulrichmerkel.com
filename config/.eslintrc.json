@@ -22,13 +22,14 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "jsx-a11y",
         "flowtype",
         "jsdoc",
+        "jsx-a11y",
+        "new-with-error",
+        "promise",
         "security",
-        "xss",
-        "new-with-error"
+        "react",
+        "xss"
     ],
     "rules": {
         "arrow-body-style": 0,
