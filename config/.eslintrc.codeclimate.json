@@ -1,0 +1,78 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "es6": true,
+        "jasmine": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "flowtype",
+        "jsdoc",
+        "security",
+        "new-with-error"
+    ],
+    "rules": {
+        "arrow-body-style": 0,
+        "comma-dangle": ["error", "never"],
+        "indent": [
+            "error",
+            4
+        ],
+        "jsx-quotes": ["error", "prefer-single"],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "max-len": [1, 220],
+        "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
+        "no-void": 1,
+        "one-var": [2, {
+            "var": "always",
+            "let": "always",
+            "const": "never"
+        }],
+        "operator-assignment": ["error", "never"],
+        "padded-blocks": 0,
+        "prefer-arrow-callback": 0,
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "react/forbid-prop-types": 1,
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": ["error", 4],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "jsdoc/check-param-names": 1,
+        "jsdoc/check-tag-names": 1,
+        "jsdoc/check-types": 1,
+        "jsdoc/newline-after-description": 1,
+        "jsdoc/require-description-complete-sentence": 0,
+        "jsdoc/require-hyphen-before-param-description": 1,
+        "jsdoc/require-param": 1,
+        "jsdoc/require-param-description": 1,
+        "jsdoc/require-param-type": 1,
+        "jsdoc/require-returns-description": 0,
+        "jsdoc/require-returns-type": 1
+    }
+}
