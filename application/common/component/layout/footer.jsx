@@ -114,7 +114,12 @@ function LayoutFooter(props) {
 LayoutFooter.propTypes = {
     className: PropTypes.string, // eslint-disable-line  react/require-default-props
     handleScrollTop: PropTypes.func,
-    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
 };
 
 /**

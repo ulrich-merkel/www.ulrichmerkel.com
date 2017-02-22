@@ -133,7 +133,12 @@ ModuleSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     config: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    content: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     handleChangeDialogVisibleSearch: PropTypes.func,
     htmlElement: PropTypes.string,
     intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props

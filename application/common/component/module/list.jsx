@@ -96,7 +96,12 @@ ModuleList.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
 };
 
 /**

@@ -76,7 +76,7 @@ function SectionCommonGridSpaced(props) {
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 SectionCommonGridSpaced.propTypes = {
-    page: PropTypes.object, // eslint-disable-line react/require-default-props
+    page: PropTypes.object, // eslint-disable-line react/require-default-props, react/forbid-prop-types
     children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 

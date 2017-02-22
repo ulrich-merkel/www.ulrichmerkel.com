@@ -45,7 +45,10 @@ function Root(props) {
  */
 Root.propTypes = {
     children: PropTypes.node.isRequired,
-    store: PropTypes.object.isRequired
+    store: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.object
+    ])).isRequired
 };
 
 export default Root;
