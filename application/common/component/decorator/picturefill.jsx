@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for handling translation data.
