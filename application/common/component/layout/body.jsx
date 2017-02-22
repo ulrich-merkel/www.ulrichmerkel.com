@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for React Component.

@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -133,7 +133,7 @@ function LayoutHtml(props) {
  * @property {Object} [scriptBootstrap=''] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
-    store: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     locale: PropTypes.string, // eslint-disable-line react/require-default-props
     cssBase: PropTypes.string,
