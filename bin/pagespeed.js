@@ -35,7 +35,7 @@ const assert = require('assert-plus');
 const argv = minimist(process.argv.slice(2));
 const argvPort = argv.port || process.env.PORT || 9000;
 const argvServerPath = argv.server || './../build/application/server/server';
-let runningServer;
+let runningServer; // eslint-disable-line immutable/no-let
 
 // Begin reading from stdin so the process does not exit.
 process.stdin.resume();

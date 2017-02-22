@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this, no-process-exit */
+/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this, no-process-exit, immutable/no-mutation */
 /**
  * Handle css regression tests via backstopJS.
  *
