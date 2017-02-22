@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation */
+/* eslint-disable immutable/no-let */
 /**
  * Es6 module for helper component.
  *
