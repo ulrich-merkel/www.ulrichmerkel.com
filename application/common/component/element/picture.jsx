@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
