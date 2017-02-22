@@ -40,12 +40,12 @@ function middlewareError(err, req, res, next) {
     assert.object(res, 'res');
     assert.func(next, 'next');
 
-    // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line prefer-const, immutable/no-let
     let error = err;
 
     // handle csrf token errors thrown by csurf
     if (error.code === 'EBADCSRFTOKEN') {
-        error.status = 403;
+        error.status = 403; // eslint-disable-line immutable/no-mutation
     }
 
     logger.error(error.stack);
