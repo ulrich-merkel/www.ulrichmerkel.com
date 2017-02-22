@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle, no-console */
+/* eslint-disable no-underscore-dangle, no-console, immutable/no-mutation */
 /**
 * Handle node js logging to improve performance.
 *
@@ -46,7 +46,7 @@ function getLogOptions() {
 /**
  * Get additional information to be passed into winston.Logger
  *
- * @constructor
+ * @function
  * @param {string} name - The prefix to be used for messages
  * @returns {Object} The current instance
  */

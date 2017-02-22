@@ -45,7 +45,7 @@ function checkStatus(response) {
         return response;
     }
     const error = new Error(response.statusText);
-    error.response = response;
+    error.response = response; // eslint-disable-line immutable/no-mutation
     throw error;
 }
 

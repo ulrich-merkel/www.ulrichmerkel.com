@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-let */
 // http://stackoverflow.com/questions/32911630/how-do-i-deal-with-localstorage-in-jest-tests
 // http://dev.paperlesspost.com/jest-unit-testing-react-js/325
 const localStorage = (function mockFn() {

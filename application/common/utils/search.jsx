@@ -131,7 +131,7 @@ function getCachedIndex(locale, config) {
         // Just save index to cache if there are valid results returned
         const translatedIndex = translateIndex(locale, config, createIndex(locale, config));
         if (!isEmpty(translatedIndex)) {
-            CACHE[locale] = translatedIndex;
+            CACHE[locale] = translatedIndex; // eslint-disable-line immutable/no-mutation
         }
     }
     return CACHE[locale];
