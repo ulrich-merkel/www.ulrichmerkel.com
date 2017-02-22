@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -67,7 +68,7 @@ function ModuleTextPerson(props) {
  * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  */
 ModuleTextPerson.propTypes = {
-    content: PropTypes.object,
+    content: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     hasColumns2: PropTypes.bool,
     isCentered: PropTypes.bool
 };

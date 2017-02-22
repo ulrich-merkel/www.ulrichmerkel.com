@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  *
@@ -275,7 +276,7 @@ class ModuleFormContact extends Component {
     /**
      * Helper function to render message.
      *
-     * @TODO: should be done in article module component
+     * @todo Should be done in article module component
      *
      * @function
      * @private

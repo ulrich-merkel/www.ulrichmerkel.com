@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -96,7 +96,7 @@ ModuleList.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object
+    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
 };
 
 /**
