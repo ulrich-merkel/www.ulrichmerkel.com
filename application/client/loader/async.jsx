@@ -6,11 +6,17 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
+ *
+ * @requires lodash
+ * @requires client/loader/constants
+ * @requires client/utils/dom
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Improve code style
+ * - 0.0.1 Basic functions and structure
  */
+import { isFunction } from 'lodash';
 import constants from './constants';
 import {
     createDomNode,
@@ -19,6 +25,20 @@ import {
 } from './../utils/dom';
 
 const classNameLoaded = constants.IS_LAZY_LOADED;
+
+/**
+ * Check if param is a callable function and invoke it.
+ *
+ * @private
+ * @param {Function} callback - The function to be checked
+ * @param {*} [result] - The optional function parameter
+ * @returns {void}
+ */
+function callFn(callback, result) {
+    if (isFunction(callback)) {
+        callback.call(result);
+    }
+}
 
 /**
  * Append css files async.
@@ -32,11 +52,10 @@ const classNameLoaded = constants.IS_LAZY_LOADED;
  * @returns {void}
  */
 function css(src, callback = Function.prototype) {
-
     const headDomNode = getHeadDomNode();
 
     if (!src || !headDomNode) {
-        return callback.call(false);
+        return callFn(callback, false);
     }
 
     /**
@@ -52,21 +71,20 @@ function css(src, callback = Function.prototype) {
         disabled: 'disabled'
     });
     if (!styleDomNode) {
-        return null;
+        return callFn(callback, false);
     }
 
     // Http loading starts here
     headDomNode.appendChild(styleDomNode);
 
     // Set media back to `all` so that the stylesheet applies once it loads
-    setTimeout(function handleSetTimeout() {
-        styleDomNode.media = 'all';
+    setTimeout(function setTimeoutFn() {
+        styleDomNode.media = 'all'; // eslint-disable-line immutable/no-mutation
         styleDomNode.removeAttribute('disabled');
-        callback.call(true);
+        callFn(callback, true);
     });
 
     return null;
-
 }
 
 /**
@@ -81,13 +99,11 @@ function css(src, callback = Function.prototype) {
  * @returns {void}
  */
 function js(src, callback = Function.prototype) {
-
     const headDomNode = getHeadDomNode();
     const refDomNode = getFirstDomNodeByTagName('script');
 
     if (!src) {
-        callback.call(false);
-        return;
+        return callFn(callback, false);
     }
 
     /**
@@ -101,40 +117,41 @@ function js(src, callback = Function.prototype) {
         src
     });
     if (!scriptDomNode) {
-        callback.call(false);
-        return;
+        return callFn(callback, false);
     }
 
     // Add script event listeners when loaded
+    /* eslint-disable immutable/no-mutation, immutable/no-this */
     scriptDomNode.onreadystatechange = scriptDomNode.onload = function handleEvent() {
         if (!this.readyState || this.readyState === 'complete' || this.readyState === 'loaded') {
 
             // avoid memory leaks in ie
             this.onreadystatechange = this.onload = this.onerror = null;
-            callback.call(true);
+            callFn(callback, true);
 
         }
     };
+    /* eslint-enable immutable/no-mutation, immutable/no-this */
 
     // Try to handle script errors
+    /* eslint-disable immutable/no-mutation, immutable/no-this */
     scriptDomNode.onerror = function handleEvent() {
 
         // avoid memory leaks in ie
         this.onreadystatechange = this.onload = this.onerror = null;
-        callback.call(false);
+        callFn(callback, false);
 
     };
+    /* eslint-enable immutable/no-mutation, immutable/no-this */
 
     // Start loading
-    scriptDomNode.src = src;
+    scriptDomNode.src = src; // eslint-disable-line immutable/no-mutation
 
     // Append script to according dom node
     if (refDomNode) {
-        refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
-        return;
+        return refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
     }
-    headDomNode.appendChild(scriptDomNode);
-
+    return headDomNode.appendChild(scriptDomNode);
 }
 
 export default {
