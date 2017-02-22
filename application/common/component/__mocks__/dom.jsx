@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, immutable/no-mutation */
 /**
  * @see {@link http://airbnb.io/enzyme/docs/guides/jsdom.html}
  * @see {@link http://blog.digongames.com/switching-from-jest-to-mocha/}

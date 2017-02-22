@@ -24,18 +24,27 @@ const fs = jest.genMockFromModule('fs');
  * @param {Object} newMockFiles - The file config
  * @returns {void}
  */
-let mockFiles = Object.create(null);
+let mockFiles = Object.create(null); // eslint-disable-line immutable/no-let
 function __setMockFiles(newMockFiles) {
-    mockFiles = Object.create(null);
-    Object.keys(newMockFiles).forEach(function handleValue(file) {
+    mockFiles = Object.keys(newMockFiles).reduce(function reduceFile(target, file) {
         const dirname = path.dirname(file);
         const basename = path.basename(file);
 
-        if (!mockFiles[dirname]) {
-            mockFiles[dirname] = {};
-        }
-        mockFiles[dirname][basename] = newMockFiles[file];
-    });
+        // Create nested target object dir if not already done
+        const reducedResult = {
+            ...target,
+            [dirname]: target[dirname] || {}
+        };
+
+        // Using the spread syntax to avoid mutation
+        return {
+            ...reducedResult,
+            [dirname]: {
+                ...reducedResult[dirname],
+                [basename]: newMockFiles[file]
+            }
+        };
+    }, {});
 }
 
 /**
