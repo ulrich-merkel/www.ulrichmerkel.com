@@ -9,9 +9,10 @@
         "jest": true
     },
     "extends": [
+        "airbnb",
         "eslint:recommended",
-        "plugin:react/recommended",
-        "airbnb"
+        "plugin:lodash/recommended",
+        "plugin:react/recommended"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -24,8 +25,10 @@
     "plugins": [
         "flowtype",
         "immutable",
+        "import",
         "jsdoc",
         "jsx-a11y",
+        "lodash",
         "new-with-error",
         "promise",
         "security",
@@ -58,6 +61,9 @@
             "error",
             "unix"
         ],
+        "lodash/import-scope": 0,
+        "lodash/prefer-noop": 0,
+        "lodash/prefer-lodash-method": 0,
         "max-len": [1, 220],
         "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
         "no-void": 1,
