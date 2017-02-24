@@ -162,7 +162,7 @@ function middlewareReact(req, res, next) {
              *
              * @see {@link https://github.com/ReactTraining/react-router/issues/2834}
              */
-            const statusCode = get(renderProps, 'components', []).indexOf(PageNotFound) !== -1 ? 404 : 200;
+            const statusCode = get(renderProps, 'components', []).includes(PageNotFound) ? 404 : 200;
 
             /**
              * Load all required data async via promises to

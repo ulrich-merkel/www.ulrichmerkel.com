@@ -23,7 +23,7 @@
  * @returns {boolean} Whether the value is empty or not
  */
 function isEmpty(value) {
-    return value === undefined || value === null || value === '';
+    return value === undefined || value === null || value === ''; // eslint-disable-line lodash/prefer-is-nil
 }
 
 /**
