@@ -1,3 +1,4 @@
+/* eslint-disable promise/avoid-new */
 /**
  * Es6 module for helper component.
  *

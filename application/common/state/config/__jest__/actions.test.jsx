@@ -67,7 +67,7 @@ describe('common/state/config/actions', function () {
             const store = mockStore({ config: null });
 
             return store.dispatch(fetchConfigContentIfNeeded()).then(function () {
-                expect(store.getActions()).toEqual(expectedActions);
+                return expect(store.getActions()).toEqual(expectedActions);
             });
         });
     });
@@ -95,7 +95,7 @@ describe('common/state/config/actions', function () {
             const store = mockStore({ config: null });
 
             return store.dispatch(fetchConfigTranslationIfNeeded('en-EN')).then(function () {
-                expect(store.getActions()).toEqual(expectedActions);
+                return expect(store.getActions()).toEqual(expectedActions);
             });
         });
     });

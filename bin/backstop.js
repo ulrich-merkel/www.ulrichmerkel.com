@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this, no-process-exit, immutable/no-mutation */
+/* eslint-disable no-console, import/no-unresolved, import/no-extraneous-dependencies, import/no-dynamic-require, class-methods-use-this, no-process-exit, immutable/no-mutation, promise/avoid-new */
 /**
  * Handle css regression tests via backstopJS.
  *
@@ -259,7 +259,7 @@ class Backstop {
             `Backstop ${this.method} successful`
         ));
         return this.stopServer().then(() => {
-            process.exit(0);
+            return process.exit(0);
         });
     }
 
@@ -280,7 +280,7 @@ class Backstop {
         ));
         this.backstop(METHODS.open);
         return this.stopServer().then(() => {
-            process.exit(1);
+            return process.exit(1);
         });
     }
 

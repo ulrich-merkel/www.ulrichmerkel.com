@@ -92,6 +92,7 @@ function run(folders, dest, plugins = []) {
 
     console.log(chalk.gray(`Start minifying ${foldersLength} image folders`));
     folders.forEach(function forEachFolder(folder) {
+        // eslint-disable-next-line promise/catch-or-return
         imagemin(
             [`${dest}${folder}*.{jpg,png}`],
             `${dest}${folder}`,

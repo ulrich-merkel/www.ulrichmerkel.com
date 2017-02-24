@@ -168,7 +168,7 @@ function middlewareReact(req, res, next) {
              * Load all required data async via promises to
              * improve the overall node performance.
              */
-            return Promise.all([
+            return Promise.all([ // eslint-disable-line promise/no-promise-in-callback
                 readFile(aboveTheFold.cssBase),
                 readFile(aboveTheFold.scriptBootstrap),
                 store.dispatch(fetchConfigContentIfNeeded()),
