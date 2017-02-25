@@ -91,6 +91,17 @@
         "react/forbid-prop-types": 1,
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": ["error", 4],
+        "security/detect-buffer-noassert": 2,
+        "security/detect-child-process": 2,
+        "security/detect-eval-with-expression": 2,
+        "security/detect-no-csrf-before-method-override": 2,
+        "security/detect-non-literal-fs-filename": 2,
+        "security/detect-non-literal-regexp": 2,
+        "security/detect-non-literal-require": 2,
+        "security/detect-object-injection": 0,
+        "security/detect-possible-timing-attacks": 2,
+        "security/detect-pseudoRandomBytes": 2,
+        "security/detect-unsafe-regex": 2,
         "semi": [
             "error",
             "always"
