@@ -23,6 +23,18 @@ const readFileOptions = {
 };
 
 /**
+ * Helper function to check if file exists.
+ *
+ * @function
+ * @private
+ * @param {string} filePath - The file name
+ * @returns {boolean} Whether the file exists or not
+ */
+function existsSync(filePath) {
+    return fs.existsSync(filePath); // eslint-disable-line security/detect-non-literal-fs-filename
+}
+
+/**
  * Helper function to read file async from disc.
  *
  * @function
@@ -33,11 +45,11 @@ function readFile(fileName) {
     const filePath = path.resolve(__dirname, fileName);
 
     return new Promise(function handlePromise(resolve, reject) {
-        if (!fs.existsSync(filePath)) {
+        if (!existsSync(filePath)) {
             return reject(Error(`No such file found ${filePath}`));
         }
 
-        return fs.readFile(filePath, readFileOptions, function handleReadFile(error, data) {
+        return fs.readFile(filePath, readFileOptions, function handleReadFile(error, data) { // eslint-disable-line security/detect-non-literal-fs-filename
             if (error) {
                 return reject(Error(error));
             }
@@ -57,11 +69,11 @@ function readFile(fileName) {
 function readFileSync(fileName) {
     const filePath = path.resolve(__dirname, fileName);
 
-    if (!fs.existsSync(filePath)) {
+    if (!existsSync(filePath)) {
         return '';
     }
 
-    return fs.readFileSync(filePath, readFileOptions);
+    return fs.readFileSync(filePath, readFileOptions); // eslint-disable-line security/detect-non-literal-fs-filename
 }
 
 export {

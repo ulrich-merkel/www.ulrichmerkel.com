@@ -162,7 +162,7 @@ function findMatches(searchTerm, locale, config = {}) {
     return keys(index)
         .filter(function filterKey(key) {
             return escapedInputs.every(function someNeedle(needle) {
-                const matchRegex = new RegExp(`\\b${needle}`, 'i');
+                const matchRegex = new RegExp(`\\b${needle}`, 'i'); // eslint-disable-line security/detect-non-literal-regexp
                 return matchRegex && matchRegex.test(index[key]);
             }) || false;
         })
