@@ -76,7 +76,7 @@ function addContent(configKey) {
          * @property {string} locale - The current locale string
          * @property {Object} config - The content configuration
          */
-        ReturnedComponent.propTypes = {
+        ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
             locale: PropTypes.string.isRequired,
             config: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
         };

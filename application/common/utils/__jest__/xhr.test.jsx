@@ -27,7 +27,8 @@ describe('common/utils/xhr', function () {
         return xhr('/test').then(function (response) {
             expect(response.status).toEqual(200);
             expect(callback).not.toBeCalled();
-        }).catch(callback);
+            return response;
+        }).catch(callback); // eslint-disable-line promise/no-callback-in-promise
     });
     it('should catch response status errors', function () {
         const callback = jest.fn();
@@ -36,7 +37,7 @@ describe('common/utils/xhr', function () {
             .post('/test', {})
             .reply(500, data);
 
-        return xhr('/test').then(callback).catch(function () {
+        return xhr('/test').then(callback).catch(function () { // eslint-disable-line promise/no-callback-in-promise
             expect(callback).not.toBeCalled();
         });
     });
@@ -50,6 +51,7 @@ describe('common/utils/xhr', function () {
         return xhr('/test', { method: 'GET' }).then(function (response) {
             expect(response.status).toEqual(200);
             expect(callback).not.toBeCalled();
-        }).catch(callback);
+            return response;
+        }).catch(callback); // eslint-disable-line promise/no-callback-in-promise
     });
 });

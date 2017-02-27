@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,

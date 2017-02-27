@@ -8,9 +8,12 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
  *
+ * @requires lodash
+ *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
+import { isBoolean, isString } from 'lodash';
 
 /**
  * Parse boolean values from string.
@@ -20,11 +23,11 @@
  * @returns {boolean|undefined} The parsed value or undefined
  */
 function toBoolean(value = '') {
-    if (typeof value === 'boolean') {
+    if (isBoolean(value)) {
         return value;
     }
 
-    if (typeof value === 'string') {
+    if (isString(value)) {
         switch (value.toLowerCase()) {
         case 'true':
         case '1':

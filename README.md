@@ -121,7 +121,7 @@ $ npm run doc
 
 ## Some links which inspired my work
 
-### React & Webpack
+### React & Webpack & JavaScript
 
 * [Plotly Academy](http://academy.plot.ly/)
 * [Component Rendering Performance in React](https://medium.com/modus-create-front-end-development/component-rendering-performance-in-react-df859b474adc#.8qyu2qbv9)
@@ -130,6 +130,7 @@ $ npm run doc
 * [Optimizing React + ES6 + Webpack Production Build](http://moduscreate.com/optimizing-react-es6-webpack-production-build/)
 * [Index as a key is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n)
 * [Typing React Components](https://datarockets.com/blog/typing-react-components)
+* [We have a problem with promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html)
 
 ### Node & NPM
 

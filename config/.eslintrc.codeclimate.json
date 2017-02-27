@@ -9,9 +9,10 @@
         "jest": true
     },
     "extends": [
+        "airbnb",
         "eslint:recommended",
-        "plugin:react/recommended",
-        "airbnb"
+        "plugin:lodash/recommended",
+        "plugin:react/recommended"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -23,8 +24,11 @@
     },
     "plugins": [
         "flowtype",
+        "immutable",
+        "import",
         "jsdoc",
         "jsx-a11y",
+        "lodash",
         "promise",
         "security",
         "react"

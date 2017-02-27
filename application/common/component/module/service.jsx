@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-let */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -86,14 +87,7 @@ function ModuleService(props) {
         'm-service',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType

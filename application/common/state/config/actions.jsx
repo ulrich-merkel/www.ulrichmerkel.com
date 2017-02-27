@@ -199,7 +199,7 @@ function fetchConfigContent() {
         ).then((response) => {
             return response.json();
         }).then((json) => {
-            dispatch(receiveConfigContent(json));
+            return dispatch(receiveConfigContent(json));
         }).catch((reason) => {
             dispatch(failedConfigContent());
             logger.warn(reason);
@@ -225,7 +225,7 @@ function fetchConfigTranslation(locale) {
         ).then((response) => {
             return response.json();
         }).then((json) => {
-            dispatch(receiveConfigTranslation(json, locale));
+            return dispatch(receiveConfigTranslation(json, locale));
         }).catch((reason) => {
             dispatch(failedConfigTranslation(locale));
             logger.warn(reason);

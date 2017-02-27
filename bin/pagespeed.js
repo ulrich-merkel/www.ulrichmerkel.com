@@ -13,6 +13,7 @@
  * @see {@link https://github.com/mxstbr/react-boilerplate/}
  * @see {@link http://stackoverflow.com/questions/23569171/nodes-process-stdin-readable-stream-logs-null-when-read-inside-a-readable-event}
  *
+ * @requires fs
  * @requires ngrok
  * @requires psi
  * @requires minimist
@@ -26,6 +27,7 @@
  * - 0.0.2 Improve local server handling
  * - 0.0.1 Basic functions and structure
  */
+const fs = require('fs');
 const ngrok = require('ngrok');
 const psi = require('psi');
 const minimist = require('minimist');
@@ -35,11 +37,23 @@ const assert = require('assert-plus');
 const argv = minimist(process.argv.slice(2));
 const argvPort = argv.port || process.env.PORT || 9000;
 const argvServerPath = argv.server || './../build/application/server/server';
-let runningServer;
+let runningServer; // eslint-disable-line immutable/no-let
 
 // Begin reading from stdin so the process does not exit.
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
+
+/**
+ * Helper function to check if file exists.
+ *
+ * @function
+ * @private
+ * @param {string} filePath - The file name
+ * @returns {boolean} Whether the file exists or not
+ */
+function existsSync(filePath) {
+    return fs.existsSync(filePath); // eslint-disable-line security/detect-non-literal-fs-filename
+}
 
 /**
  * Get builded server entry.
@@ -53,7 +67,10 @@ process.stdin.setEncoding('utf8');
  */
 function getServer(serverPath) {
     assert.string(serverPath, 'serverPath');
-    return require(serverPath);
+    if (!existsSync(serverPath)) {
+        return false;
+    }
+    return require(serverPath); // eslint-disable-line security/detect-non-literal-require
 }
 
 /**
@@ -68,7 +85,7 @@ function runPageSpeedInsights(url) {
     assert.string(url, 'url');
     console.log(chalk.grey('Starting PageSpeed Insights'));
 
-    // @todo: Check if psi.output could be used again (removed due to non resolving promise)
+    // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
     return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
         console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
         console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);

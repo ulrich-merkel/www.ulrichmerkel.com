@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Page components combine section components to the
@@ -73,7 +74,11 @@ PageContact.propTypes = {
         PropTypes.array,
         PropTypes.object
     ])),
-    params: PropTypes.object
+    params: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.string,
+        PropTypes.object
+    ]))
 };
 
 /**

@@ -71,15 +71,15 @@ function getHeadDomNode() {
 }
 
 /**
- * Get first dom node element by tag name.
+ * Set dom node attribute.
  *
  * @function
  * @param {string} id - The elements id
- * @param {string} name - The elements attribute name
- * @param {string} value - The elements attribute value
+ * @param {string} name - The elements attribute name to be set
+ * @param {string} value - The elements attribute value to be set
  * @returns {void}
  */
-function setDomNodeByAttribute(id, name, value) {
+function setDomNodeAttribute(id, name, value) {
     const domNode = getDomNodeById(id);
     if (!domNode) {
         return;
@@ -87,6 +87,30 @@ function setDomNodeByAttribute(id, name, value) {
     domNode.setAttribute(name, value);
 }
 
+/**
+ * Set dom node className.
+ *
+ * @function
+ * @param {string} id - The elements id
+ * @param {Array<string>} add - The elements classNames to be set
+ * @param {Array<string>} remove - The elements classNames to be removed
+ * @returns {void}
+ */
+function setDomNodeClassName(id, add, remove) {
+    const domNode = getDomNodeById(id);
+    if (!domNode || !add) {
+        return;
+    }
+
+    const classList = domNode.classList;
+    const containsClassNames = add.every(function someClassName(className) {
+        return classList.contains(className);
+    });
+    classList.remove.apply(classList, remove); // eslint-disable-line prefer-spread
+    if (!containsClassNames) {
+        classList.add.apply(classList, add); // eslint-disable-line prefer-spread
+    }
+}
 
 /**
  * Create dom node element.
@@ -97,7 +121,6 @@ function setDomNodeByAttribute(id, name, value) {
  * @returns {Object|null} The created html object
  */
 function createDomNode(name, attributes) {
-
     const doc = getDocumentDomNode();
     if (!doc) {
         return null;
@@ -114,7 +137,6 @@ function createDomNode(name, attributes) {
 
     // Return created node
     return domNode;
-
 }
 
 export {
@@ -124,5 +146,6 @@ export {
     getFirstDomNodeByTagName,
     getHeadDomNode,
     createDomNode,
-    setDomNodeByAttribute
+    setDomNodeAttribute,
+    setDomNodeClassName
 };

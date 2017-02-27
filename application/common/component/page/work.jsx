@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Page components combine section components to the
@@ -180,8 +181,17 @@ class PageWork extends Component {
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
-    params: PropTypes.object.isRequired,
-    router: PropTypes.object.isRequired,
+    params: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.string,
+        PropTypes.object
+    ])).isRequired,
+    router: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.func,
+        PropTypes.string,
+        PropTypes.object
+    ])).isRequired,
     config: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,

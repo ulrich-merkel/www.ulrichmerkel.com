@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this */
 /**
  * Es6 module for handling translation data.
  * Higher-Order Components (HOCs) and decorators are JavaScript functions
@@ -70,7 +71,7 @@ function addPageTracking(SourceComponent) {
      * @type {Object}
      * @property {Function} handleAddPageView - Trigger page view increment
      */
-    AddPageTracking.propTypes = {
+    AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired
     };
 

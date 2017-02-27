@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -42,11 +43,7 @@ function ModuleArticleHeadline(props) {
     }
 
     const composedClassName = classnames(className);
-
-    let htmlElement = 'h1';
-    if (!isMain) {
-        htmlElement = 'h2';
-    }
+    const htmlElement = isMain ? 'h1' : 'h2';
 
     return (
         <Headline className={composedClassName} itemProp='headline' htmlElement={htmlElement}>

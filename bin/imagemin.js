@@ -91,15 +91,16 @@ function run(folders, dest, plugins = []) {
     }
 
     console.log(chalk.gray(`Start minifying ${foldersLength} image folders`));
-    for (let i = 0; i < foldersLength; i = i + 1) {
+    folders.forEach(function forEachFolder(folder) {
+        // eslint-disable-next-line promise/catch-or-return
         imagemin(
-            [`${dest}${folders[i]}*.{jpg,png}`],
-            `${dest}${folders[i]}`,
+            [`${dest}${folder}*.{jpg,png}`],
+            `${dest}${folder}`,
             {
                 plugins
             }
         ).then(imagesMinified);
-    }
+    });
 }
 
 run(argvFolders, argvDest, argvPlugins);

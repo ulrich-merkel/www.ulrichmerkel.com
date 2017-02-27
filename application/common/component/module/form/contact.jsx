@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this, promise/avoid-new */
 /**
  * Es6 module for React Component.
  *
@@ -275,7 +276,7 @@ class ModuleFormContact extends Component {
     /**
      * Helper function to render message.
      *
-     * @TODO: should be done in article module component
+     * @todo Should be done in article module component
      *
      * @function
      * @private
@@ -328,11 +329,11 @@ class ModuleFormContact extends Component {
             success: false,
             error: false
         }, () => {
-            send(data, csrfToken).then((response) => {
+            send(data, csrfToken).then((response) => { // eslint-disable-line promise/catch-or-return
                 if (!response || !response.ok) {
                     throw new Error(`Can't send email! ${response.statusText}`);
                 }
-                this.setState({
+                return this.setState({
                     success: true,
                     pending: false
                 });
@@ -346,7 +347,7 @@ class ModuleFormContact extends Component {
                 });
             })
             .then(() => {
-                scrollToTextMessage(this.textMessage);
+                return scrollToTextMessage(this.textMessage);
             });
         });
 

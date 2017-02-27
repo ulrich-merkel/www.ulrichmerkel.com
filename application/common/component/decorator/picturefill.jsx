@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for handling translation data.
@@ -66,7 +67,7 @@ function pictureFill(SourceComponent) {
      * @class
      * @extends React.Component
      */
-    return class extends Component {
+    return class PictureFill extends Component {
 
         /**
          * Invoked once, only on the client (not on the server),

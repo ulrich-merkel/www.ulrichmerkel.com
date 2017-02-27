@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-let */
 /* global performance, requestAnimationFrame*/
 /**
  * Es6 module for helper component.
@@ -83,14 +84,13 @@ function getPageOffset() {
     if (!isBrowser()) {
         return 0;
     }
-    let currentScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
+    const currentScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
 
-    // could be negative while bouncing
-    if (currentScrollY < 0) {
-        currentScrollY = 0;
-    }
-
-    return currentScrollY;
+    /**
+     * Could be negative while bouncing, so we restrict the value
+     * here to avoid errors
+     */
+    return currentScrollY < 0 ? 0 : currentScrollY;
 }
 
 /**
