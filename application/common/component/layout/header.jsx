@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the

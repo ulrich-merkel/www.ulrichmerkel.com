@@ -97,7 +97,7 @@ function middlewarePost(req, res) {
     assert.object(res, 'res');
 
     const transporter = nodemailer.createTransport();
-    let postData = req.body;
+    let postData = req.body; // eslint-disable-line immutable/no-let
 
     if (!postData) {
         return sendError(req, res, 'No data recieved');

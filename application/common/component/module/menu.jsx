@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -52,14 +53,7 @@ function ModuleMenu(props) {
         content.name ? `m-menu--${content.name}` : '',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType

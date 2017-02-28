@@ -11,11 +11,13 @@
  *
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  *
+ * @requires lodash
  * @requires common/state/csrf/constants
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
+import { isUndefined } from 'lodash';
 import { ADD_CSRF_TOKEN } from './constants';
 
 /**
@@ -44,7 +46,7 @@ function reducer(state = defaultState, action) {
     switch (action.type) {
     case ADD_CSRF_TOKEN: {
         const token = action.token;
-        if (token === undefined) {
+        if (isUndefined(token)) {
             return state;
         }
         return {

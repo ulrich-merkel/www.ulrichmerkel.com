@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle, no-console */
+/* eslint-disable no-underscore-dangle, no-console, immutable/no-mutation */
 /**
 * Handle node js logging to improve performance.
 *
@@ -46,7 +46,7 @@ function getLogOptions() {
 /**
  * Get additional information to be passed into winston.Logger
  *
- * @constructor
+ * @function
  * @param {string} name - The prefix to be used for messages
  * @returns {Object} The current instance
  */
@@ -87,18 +87,18 @@ Logger.prototype = {
      * Enable logging and declare basic log functions.
      *
      * @param {boolean} shouldBeEnabled - A switch to easily control enabling/disabling
-     * @returns {Object} The current logger instance
+     * @returns {void}
      */
     enable: function enableFn(shouldBeEnabled) {
+
+        const logFunctions = [
+            'log', 'info', 'warn', 'error'
+        ];
 
         if (!shouldBeEnabled) {
             // @TODO: return noop implementations if logger is not enabled
             return undefined;
         }
-
-        const logFunctions = [
-            'log', 'info', 'warn', 'error'
-        ];
 
         if (console === undefined) {
             console = {}; // eslint-disable-line no-global-assign
@@ -113,16 +113,15 @@ Logger.prototype = {
         logFunctions.forEach(function forEachFn(val) {
             console[val] = Function.prototype.call.bind(console[val], console);
         });
-
-        return this;
     },
 
     /**
      * Write messages to console functions.
      *
+     * @private
      * @param {Object} output - The implemented console log function (log, error, etc...)
      * @param {Object} args - The messages to be logged
-     * @returns {Object} The current logger instance
+     * @returns {void}
      */
     write: function writeFn(output, args) {
         if (!this._enabled) {
@@ -133,8 +132,6 @@ Logger.prototype = {
         parameters.unshift(`${this.name}:`);
         parameters.push(getLogOptions());
         output.apply(console, parameters);
-
-        return this;
     },
 
     /**

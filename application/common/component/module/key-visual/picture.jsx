@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -181,7 +182,13 @@ class ModuleKeyVisualPicture extends Component {
  * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
  */
 ModuleKeyVisualPicture.propTypes = {
-    img: PropTypes.object,
+    img: PropTypes.shape({
+        name: PropTypes.string,
+        ext: PropTypes.string,
+        path: PropTypes.string,
+        alt: PropTypes.string,
+        sizes: PropTypes.array
+    }),
     type: PropTypes.string,
     isCovered: PropTypes.bool
 };

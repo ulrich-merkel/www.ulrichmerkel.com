@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names */
+/* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ElementTextarea from './../textarea';

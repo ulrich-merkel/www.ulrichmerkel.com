@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
 import mockedLocalStorage from './../__mocks__/localStorage';
 import WebStorage from './../web-storage';
 

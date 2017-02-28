@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
 import xor from './../xor';
 
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';

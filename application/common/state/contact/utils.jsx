@@ -43,19 +43,11 @@ function validate(state = {}) {
  * @returns {boolean} The validation status
  */
 function isValid(state) {
-
     const validated = validate(state);
-    let result = true;
 
-    // @see {@link https://esdiscuss.org/topic/es6-iteration-over-object-values}
-    Object.keys(validated).forEach((key) => {
-        if (validated[key] !== undefined && !validated[key]) {
-            result = false;
-        }
+    return !Object.keys(validated).some(function someKey(key) {
+        return validated[key] !== undefined && !validated[key];
     });
-
-    return result;
-
 }
 
 export {

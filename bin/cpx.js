@@ -70,14 +70,14 @@ function run(files) {
     }
 
     console.log(chalk.gray(`Start copying ${filesLength} file patterns`));
-    for (let i = 0; i < filesLength; i = i + 1) {
+    files.forEach(function forEachFile(file) {
         cpx.copy(
-            files[i].source,
-            files[i].dest,
+            file.source,
+            file.dest,
             {},
-            fileCopied.bind(null, files[i])
+            fileCopied.bind(null, file)
         );
-    }
+    });
 }
 
 run(argvFiles);

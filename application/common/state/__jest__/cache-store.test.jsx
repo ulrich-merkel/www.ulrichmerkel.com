@@ -1,4 +1,4 @@
-/* eslint-disable func-names, import/first */
+/* eslint-disable func-names, import/first, immutable/no-mutation */
 jest.mock('./../../utils/web-storage', function mockFn() {
     const cache = {};
     function Cache() {}

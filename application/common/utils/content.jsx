@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for helper component.
  *
@@ -52,7 +53,7 @@ function traverseObject(source, callback) {
 /**
  * Walk through config
  *
- * @todo: Use functional style, immutable
+ * @TODO: Use functional style, immutable
  *
  * @function
  * @private
@@ -76,7 +77,7 @@ function traverse(source, callback) {
 }
 
 /**
- * @todo: Use functional style, immutable
+ * @TODO: Use functional style, immutable
  *
  * @function
  * @private
@@ -110,7 +111,7 @@ function getContentSection(config) {
 }
 
 /**
- * @todo: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
+ * @TODO: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
  *
  * @function
  * @param {string} [locale=defaultLocale] - The current locale

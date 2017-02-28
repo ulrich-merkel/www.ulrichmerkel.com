@@ -199,12 +199,12 @@ function resize(src, dest, width, height, degrees = 0) {
     assert.number(height, 'height');
     assert.optionalNumber(height, 'height');
 
-    lwip.open(src, function handleOpenImage(openError, image) {
+    lwip.open(src, function handleOpenImage(openError, image) { // eslint-disable-line security/detect-non-literal-fs-filename
         if (openError) {
             return void console.error(chalk.red(openError));
         }
 
-        return void image
+        return void image // eslint-disable-line security/detect-non-literal-fs-filename
             .batch()
             .cover(width, height)
             .rotate(degrees, 'white')

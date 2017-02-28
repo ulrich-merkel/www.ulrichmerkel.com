@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
 * Es6 module for React Component.
 * Component module React classes combine elements to
@@ -64,14 +65,8 @@ class ModulePerson extends Component {
             'm-person',
             className
         );
-        let componentSchema = {};
+        const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
-        if (itemType) {
-            componentSchema = {
-                itemScope: true,
-                itemType
-            };
-        }
         return (
             <ComponentType
                 className={componentClassName}

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this, immutable/no-mutation */
 /* global window, document */
 /**
  * Es6 module for handling translation data.
@@ -134,17 +135,21 @@ function scroller(SourceComponent) {
 
             handleScrollChangeHeaderFixed(this.headerFixed);
 
-            // user is scrolling up, so show header
-            // also checking if initial scroll position is used
+            /**
+             * User is scrolling up, so show header.
+             * Also checking if initial scroll position is used.
+             */
             if (
-                (this.previousScrollY > currentScrollY && !this.headerVisible)
-                || (this.previousScrollY === 0 && currentScrollY === 0)
+                (this.previousScrollY > currentScrollY && !this.headerVisible) ||
+                (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
                 handleScrollChangeHeaderVisible(this.headerVisible);
             }
 
-            // user is scrolling down, so hide header
+            /**
+             * User is scrolling down, so hide header.
+             */
             if (this.previousScrollY < currentScrollY && this.headerVisible && headerHeight < currentScrollY) {
                 this.headerVisible = false;
                 handleScrollChangeHeaderVisible(this.headerVisible);

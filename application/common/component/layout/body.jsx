@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for React Component.
@@ -168,7 +169,12 @@ class LayoutBody extends Component {
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
 };
 
 /**

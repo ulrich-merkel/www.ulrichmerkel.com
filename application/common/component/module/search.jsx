@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -132,8 +132,13 @@ function ModuleSearch(props) {
 ModuleSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    config: PropTypes.object,
-    content: PropTypes.object,
+    config: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     handleChangeDialogVisibleSearch: PropTypes.func,
     htmlElement: PropTypes.string,
     intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props

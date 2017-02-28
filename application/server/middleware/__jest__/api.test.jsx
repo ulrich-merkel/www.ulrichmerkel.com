@@ -1,4 +1,4 @@
-/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle */
+/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle, immutable/no-let */
 jest.mock('./../../../common/config/content', function () {
     return {
         content: 'foo'

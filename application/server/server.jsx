@@ -133,7 +133,7 @@ function create(config = {}, callback = Function.prototype) {
     // create a write stream (in append mode)
     if (debug) {
         app.use(morgan('combined', {
-            stream: fs.createWriteStream(
+            stream: fs.createWriteStream( // eslint-disable-line security/detect-non-literal-fs-filename
                 path.resolve(__dirname, options.morganLogPath), { flags: 'a' }
             ) }
         ));

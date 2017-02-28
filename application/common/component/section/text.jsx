@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -67,7 +68,12 @@ function SectionText(props) {
  */
 SectionText.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.object,
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     isMain: PropTypes.bool
 };
 

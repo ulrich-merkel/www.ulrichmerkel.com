@@ -89,7 +89,7 @@ const loggerMiddleware = createLogger();
 function configureStore(preloadedState = {}) {
 
     // thunkMiddleware let's us dispatch() async functions
-    let middlewares = [thunkMiddleware]; // eslint-disable-line prefer-const
+    let middlewares = [thunkMiddleware]; // eslint-disable-line prefer-const, immutable/no-let
     if (debug && isBrowser()) {
         middlewares.push(loggerMiddleware);
     }

@@ -16,14 +16,14 @@ describe('common/utils/read-file', function () {
 
     it('should read a file async', function () {
         return readFile('/path/to/file1.js').then(function (result) {
-            expect(result).toEqual(MOCK_FILE_INFO['/path/to/file1.js']);
+            return expect(result).toEqual(MOCK_FILE_INFO['/path/to/file1.js']);
         }).catch(function (reason) {
             expect(reason).not.toBeDefined();
         });
     });
     it('should read no file async if file does not exist', function () {
         return readFile('/wrong/path/to/file1.js').then(function (result) {
-            expect(result).not.toBeDefined();
+            return expect(result).not.toBeDefined();
         }).catch(function (reason) {
             expect(reason).toBeDefined();
         });

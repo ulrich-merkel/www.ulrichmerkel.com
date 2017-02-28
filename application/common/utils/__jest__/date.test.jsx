@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, immutable/no-mutation */
 import { getDateNow } from './../date';
 
 describe('common/utils/date', function () {

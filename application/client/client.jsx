@@ -70,7 +70,7 @@ const mountNode = document.getElementById('l-react');
 
 if (debug) {
     // Enable debugger ror chrome dev tool support
-    window.React = React;
+    window.React = React; // eslint-disable-line immutable/no-mutation
 }
 
 featureDetect();
@@ -168,7 +168,7 @@ match({ routes: configRoutes, location }, function handleMatch(error, redirectLo
     }
 
     if (redirectLocation) {
-        window.location.pathname = redirectLocation.pathname;
+        window.location.pathname = redirectLocation.pathname; // eslint-disable-line immutable/no-mutation
         return;
     }
 

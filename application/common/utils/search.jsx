@@ -131,7 +131,7 @@ function getCachedIndex(locale, config) {
         // Just save index to cache if there are valid results returned
         const translatedIndex = translateIndex(locale, config, createIndex(locale, config));
         if (!isEmpty(translatedIndex)) {
-            CACHE[locale] = translatedIndex;
+            CACHE[locale] = translatedIndex; // eslint-disable-line immutable/no-mutation
         }
     }
     return CACHE[locale];
@@ -162,7 +162,7 @@ function findMatches(searchTerm, locale, config = {}) {
     return keys(index)
         .filter(function filterKey(key) {
             return escapedInputs.every(function someNeedle(needle) {
-                const matchRegex = new RegExp(`\\b${needle}`, 'i');
+                const matchRegex = new RegExp(`\\b${needle}`, 'i'); // eslint-disable-line security/detect-non-literal-regexp
                 return matchRegex && matchRegex.test(index[key]);
             }) || false;
         })

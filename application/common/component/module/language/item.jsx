@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-let */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires lodash
  * @requires common/component/grid/col
  * @requires common/component/element/headline
  * @requires common/component/element/meta
@@ -22,6 +24,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import { isString } from 'lodash';
 
 import GridCol from './../../grid/col';
 import Headline from './../../element/headline';
@@ -42,7 +45,7 @@ function getCssTransformRotate(percent) {
         deg = 0,
         perc = percent;
 
-    if (typeof perc === 'string') {
+    if (isString(perc)) {
         perc = parseInt(perc, 10);
     }
 

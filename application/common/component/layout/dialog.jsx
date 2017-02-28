@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -235,7 +236,12 @@ LayoutDialog.propTypes = {
     dialogVisible: PropTypes.bool,
     isBroadcast: PropTypes.bool,
     isSearch: PropTypes.bool,
-    content: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     page: PropTypes.string
 };
 

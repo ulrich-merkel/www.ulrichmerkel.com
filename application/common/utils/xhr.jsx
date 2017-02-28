@@ -1,3 +1,4 @@
+/* eslint-disable promise/avoid-new */
 /**
  * Es6 module for helper component.
  *
@@ -45,7 +46,7 @@ function checkStatus(response) {
         return response;
     }
     const error = new Error(response.statusText);
-    error.response = response;
+    error.response = response; // eslint-disable-line immutable/no-mutation
     throw error;
 }
 

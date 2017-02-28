@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names */
+/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 jest.mock('./../../../config/content');
 jest.mock('./../../../config/intl/en-EN');
 

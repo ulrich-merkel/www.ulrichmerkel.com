@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * @see {@link https://github.com/airbnb/enzyme/issues/426}
  */
