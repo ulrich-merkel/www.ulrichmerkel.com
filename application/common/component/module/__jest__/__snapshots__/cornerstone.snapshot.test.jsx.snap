@@ -1,13 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/cornerstone should render correctly 1`] = `
 <span
   className="m-cornerstone cornerstone"
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="list">
+  role="list"
+>
   <li
-    className="m-cornerstone__item--center">
+    className="m-cornerstone__item--center"
+  >
     <h3
-      className="is-centered c-type--h3 m-cornerstone__headline">
+      className="is-centered c-type--h3 m-cornerstone__headline"
+    >
       professionalExperience
     </h3>
   </li>
@@ -15,34 +20,42 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
     className="m-cornerstone__item--left"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/EmployeeRole">
+    itemType="https://schema.org/EmployeeRole"
+  >
     <div
-      className="m-cornerstone__description">
+      className="m-cornerstone__description"
+    >
       <div
-        className="m-cornerstone__description-content">
+        className="m-cornerstone__description-content"
+      >
         <h4
           className="is-centered c-type--h4 m-cornerstone__headline"
-          itemProp="roleName">
+          itemProp="roleName"
+        >
           headline
         </h4>
         <p
-          className="c-type--p m-cornerstone__company">
+          className="c-type--p m-cornerstone__company"
+        >
           <strong>
             lead
           </strong>
         </p>
         <p
           className="c-type--p m-cornerstone__time"
-          itemProp="description">
+          itemProp="description"
+        >
           (
           <time
             className="c-time"
-            itemProp="startDate">
+            itemProp="startDate"
+          >
             20161212
           </time>
            - 
           <time
-            className="c-time">
+            className="c-time"
+          >
             20161224
           </time>
           )
@@ -54,7 +67,8 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
               "__html": "description1",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
         <p
           className="c-type--p m-cornerstone__text"
           dangerouslySetInnerHTML={
@@ -62,16 +76,20 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
               "__html": "description2",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
       </div>
     </div>
     <div
-      className="m-cornerstone__bubble" />
+      className="m-cornerstone__bubble"
+    />
   </li>
   <li
-    className="m-cornerstone__item--center">
+    className="m-cornerstone__item--center"
+  >
     <h3
-      className="is-centered c-type--h3 m-cornerstone__headline">
+      className="is-centered c-type--h3 m-cornerstone__headline"
+    >
       academicEducation
     </h3>
   </li>
@@ -79,35 +97,43 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
     className="m-cornerstone__item--left"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/EducationEvent">
+    itemType="https://schema.org/EducationEvent"
+  >
     <div
-      className="m-cornerstone__description">
+      className="m-cornerstone__description"
+    >
       <div
-        className="m-cornerstone__description-content">
+        className="m-cornerstone__description-content"
+      >
         <h4
           className="is-centered c-type--h4 m-cornerstone__headline"
-          itemProp="name">
+          itemProp="name"
+        >
           headline
         </h4>
         <p
           className="c-type--p m-cornerstone__company"
-          itemProp="alternateName">
+          itemProp="alternateName"
+        >
           <strong>
             lead
           </strong>
         </p>
         <p
-          className="c-type--p m-cornerstone__time">
+          className="c-type--p m-cornerstone__time"
+        >
           (
           <time
             className="c-time"
-            itemProp="startDate">
+            itemProp="startDate"
+          >
             20161212
           </time>
            - 
           <time
             className="c-time"
-            itemProp="endDate">
+            itemProp="endDate"
+          >
             20161224
           </time>
           )
@@ -119,7 +145,8 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
               "__html": "description1",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
         <p
           className="c-type--p m-cornerstone__text"
           dangerouslySetInnerHTML={
@@ -127,39 +154,49 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
               "__html": "description2",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
       </div>
     </div>
     <div
-      className="m-cornerstone__bubble" />
+      className="m-cornerstone__bubble"
+    />
     <div
       hidden={true}
       itemProp="location"
       itemScope={true}
-      itemType="https://schema.org/Place">
+      itemType="https://schema.org/Place"
+    >
       <meta
         content={undefined}
-        itemProp="name" />
+        itemProp="name"
+      />
       <div
         itemProp="address"
         itemScope={true}
-        itemType="http://schema.org/PostalAddress">
+        itemType="http://schema.org/PostalAddress"
+      >
         <meta
           content={undefined}
-          itemProp="streetAddress" />
+          itemProp="streetAddress"
+        />
         <meta
           content={undefined}
-          itemProp="addressLocality" />
+          itemProp="addressLocality"
+        />
         <meta
           content={undefined}
-          itemProp="sameAs" />
+          itemProp="sameAs"
+        />
       </div>
     </div>
   </li>
   <li
-    className="m-cornerstone__item--start">
+    className="m-cornerstone__item--start"
+  >
     <div
-      className="m-cornerstone__bubble c-font-icon--bookmark2" />
+      className="m-cornerstone__bubble c-font-icon--bookmark2"
+    />
   </li>
   Module Cornerstone Children
 </span>
@@ -168,11 +205,14 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
 exports[`common/component/module/cornerstone should render no itemType if unset 1`] = `
 <span
   className="m-cornerstone cornerstone"
-  role="list">
+  role="list"
+>
   <li
-    className="m-cornerstone__item--center">
+    className="m-cornerstone__item--center"
+  >
     <h3
-      className="is-centered c-type--h3 m-cornerstone__headline">
+      className="is-centered c-type--h3 m-cornerstone__headline"
+    >
       professionalExperience
     </h3>
   </li>
@@ -180,34 +220,42 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
     className="m-cornerstone__item--left"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/EmployeeRole">
+    itemType="https://schema.org/EmployeeRole"
+  >
     <div
-      className="m-cornerstone__description">
+      className="m-cornerstone__description"
+    >
       <div
-        className="m-cornerstone__description-content">
+        className="m-cornerstone__description-content"
+      >
         <h4
           className="is-centered c-type--h4 m-cornerstone__headline"
-          itemProp="roleName">
+          itemProp="roleName"
+        >
           headline
         </h4>
         <p
-          className="c-type--p m-cornerstone__company">
+          className="c-type--p m-cornerstone__company"
+        >
           <strong>
             lead
           </strong>
         </p>
         <p
           className="c-type--p m-cornerstone__time"
-          itemProp="description">
+          itemProp="description"
+        >
           (
           <time
             className="c-time"
-            itemProp="startDate">
+            itemProp="startDate"
+          >
             20161212
           </time>
            - 
           <time
-            className="c-time">
+            className="c-time"
+          >
             20161224
           </time>
           )
@@ -219,7 +267,8 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
               "__html": "description1",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
         <p
           className="c-type--p m-cornerstone__text"
           dangerouslySetInnerHTML={
@@ -227,16 +276,20 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
               "__html": "description2",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
       </div>
     </div>
     <div
-      className="m-cornerstone__bubble" />
+      className="m-cornerstone__bubble"
+    />
   </li>
   <li
-    className="m-cornerstone__item--center">
+    className="m-cornerstone__item--center"
+  >
     <h3
-      className="is-centered c-type--h3 m-cornerstone__headline">
+      className="is-centered c-type--h3 m-cornerstone__headline"
+    >
       academicEducation
     </h3>
   </li>
@@ -244,35 +297,43 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
     className="m-cornerstone__item--left"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/EducationEvent">
+    itemType="https://schema.org/EducationEvent"
+  >
     <div
-      className="m-cornerstone__description">
+      className="m-cornerstone__description"
+    >
       <div
-        className="m-cornerstone__description-content">
+        className="m-cornerstone__description-content"
+      >
         <h4
           className="is-centered c-type--h4 m-cornerstone__headline"
-          itemProp="name">
+          itemProp="name"
+        >
           headline
         </h4>
         <p
           className="c-type--p m-cornerstone__company"
-          itemProp="alternateName">
+          itemProp="alternateName"
+        >
           <strong>
             lead
           </strong>
         </p>
         <p
-          className="c-type--p m-cornerstone__time">
+          className="c-type--p m-cornerstone__time"
+        >
           (
           <time
             className="c-time"
-            itemProp="startDate">
+            itemProp="startDate"
+          >
             20161212
           </time>
            - 
           <time
             className="c-time"
-            itemProp="endDate">
+            itemProp="endDate"
+          >
             20161224
           </time>
           )
@@ -284,7 +345,8 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
               "__html": "description1",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
         <p
           className="c-type--p m-cornerstone__text"
           dangerouslySetInnerHTML={
@@ -292,39 +354,49 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
               "__html": "description2",
             }
           }
-          itemProp="description" />
+          itemProp="description"
+        />
       </div>
     </div>
     <div
-      className="m-cornerstone__bubble" />
+      className="m-cornerstone__bubble"
+    />
     <div
       hidden={true}
       itemProp="location"
       itemScope={true}
-      itemType="https://schema.org/Place">
+      itemType="https://schema.org/Place"
+    >
       <meta
         content={undefined}
-        itemProp="name" />
+        itemProp="name"
+      />
       <div
         itemProp="address"
         itemScope={true}
-        itemType="http://schema.org/PostalAddress">
+        itemType="http://schema.org/PostalAddress"
+      >
         <meta
           content={undefined}
-          itemProp="streetAddress" />
+          itemProp="streetAddress"
+        />
         <meta
           content={undefined}
-          itemProp="addressLocality" />
+          itemProp="addressLocality"
+        />
         <meta
           content={undefined}
-          itemProp="sameAs" />
+          itemProp="sameAs"
+        />
       </div>
     </div>
   </li>
   <li
-    className="m-cornerstone__item--start">
+    className="m-cornerstone__item--start"
+  >
     <div
-      className="m-cornerstone__bubble c-font-icon--bookmark2" />
+      className="m-cornerstone__bubble c-font-icon--bookmark2"
+    />
   </li>
   Module cornerstone children
 </span>

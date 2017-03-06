@@ -1,22 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`component/layout/loader Snapshot should render correctly 1`] = `
 <dialog
   className="l-dialog--loading"
-  role="presentation">
+  role="presentation"
+>
   <div
-    className="l-dialog__content">
+    className="l-dialog__content"
+  >
     <div
-      className="c-flip">
+      className="c-flip"
+    >
       <div
-        className="c-flip__front">
+        className="c-flip__front"
+      >
         Headline
       </div>
       <div
-        className="c-flip__back">
+        className="c-flip__back"
+      >
         Lorem ipsum
       </div>
     </div>
   </div>
   <div
-    className="l-dialog__background" />
+    className="l-dialog__background"
+  />
 </dialog>
 `;

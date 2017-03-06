@@ -1,21 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/key-visual should render correctly 1`] = `
 <nav
-  className="m-key-visual key-visual">
+  className="m-key-visual key-visual"
+>
   <article
-    className="m-key-visual__text">
+    className="m-key-visual__text"
+  >
     <h3
       className="is-centered c-type--h3 m-key-visual__headline"
-      itemProp="headline">
+      itemProp="headline"
+    >
       <span
-        className="m-key-visual__boxed">
+        className="m-key-visual__boxed"
+      >
         headline
       </span>
     </h3>
     <p
       className="c-type--p m-key-visual__lead"
-      itemProp="description">
+      itemProp="description"
+    >
       <span
-        className="m-key-visual__boxed">
+        className="m-key-visual__boxed"
+      >
         lead
       </span>
     </p>
@@ -26,9 +34,11 @@ exports[`common/component/module/key-visual should render correctly 1`] = `
     role="button"
     title="btnTitle"
     to={undefined}
-    type="button">
+    type="button"
+  >
     <span
-      className="c-btn__label is-visually-hidden">
+      className="c-btn__label is-visually-hidden"
+    >
       btnLabel
     </span>
   </button>
@@ -37,22 +47,28 @@ exports[`common/component/module/key-visual should render correctly 1`] = `
 
 exports[`common/component/module/key-visual should render isWork and isCovered css className 1`] = `
 <nav
-  className="m-key-visual--work key-visual">
+  className="m-key-visual--work key-visual"
+>
   <article
-    className="m-key-visual__text">
+    className="m-key-visual__text"
+  >
     <h3
       className="is-centered c-type--h3 m-key-visual__headline"
-      itemProp="headline">
+      itemProp="headline"
+    >
       <span
-        className="m-key-visual__boxed">
+        className="m-key-visual__boxed"
+      >
         headline
       </span>
     </h3>
     <p
       className="c-type--p m-key-visual__lead"
-      itemProp="description">
+      itemProp="description"
+    >
       <span
-        className="m-key-visual__boxed">
+        className="m-key-visual__boxed"
+      >
         lead
       </span>
     </p>
@@ -63,9 +79,11 @@ exports[`common/component/module/key-visual should render isWork and isCovered c
     role="button"
     title="btnTitle"
     to={undefined}
-    type="button">
+    type="button"
+  >
     <span
-      className="c-btn__label is-visually-hidden">
+      className="c-btn__label is-visually-hidden"
+    >
       btnLabel
     </span>
   </button>

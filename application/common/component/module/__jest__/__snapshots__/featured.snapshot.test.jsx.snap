@@ -1,9 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/featured should render correctly 1`] = `
 <span
   className="m-featured foo"
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="list">
+  role="list"
+>
   <a
     className="c-link m-featured__item"
     itemProp="itemListElement"
@@ -12,25 +15,31 @@ exports[`common/component/module/featured should render correctly 1`] = `
     onClick={[Function]}
     style={Object {}}
     tabIndex="0"
-    title="headline">
+    title="headline"
+  >
     <span
-      className="m-featured__hover">
+      className="m-featured__hover"
+    >
       <span
-        className="m-featured__text">
+        className="m-featured__text"
+      >
         <span
           aria-level="3"
           className="m-featured__headline"
-          role="heading">
+          role="heading"
+        >
           headline
         </span>
         <i
           aria-hidden="true"
-          className="c-font-icon--plus m-featured__icon" />
+          className="c-font-icon--plus m-featured__icon"
+        />
       </span>
     </span>
     <meta
       content="headline"
-      itemProp="name" />
+      itemProp="name"
+    />
   </a>
   Module Featured Children
 </span>
@@ -39,7 +48,8 @@ exports[`common/component/module/featured should render correctly 1`] = `
 exports[`common/component/module/featured should render no itemType if unset 1`] = `
 <span
   className="m-featured foo"
-  role="list">
+  role="list"
+>
   <a
     className="c-link m-featured__item"
     itemProp="itemListElement"
@@ -48,25 +58,31 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
     onClick={[Function]}
     style={Object {}}
     tabIndex="0"
-    title="headline">
+    title="headline"
+  >
     <span
-      className="m-featured__hover">
+      className="m-featured__hover"
+    >
       <span
-        className="m-featured__text">
+        className="m-featured__text"
+      >
         <span
           aria-level="3"
           className="m-featured__headline"
-          role="heading">
+          role="heading"
+        >
           headline
         </span>
         <i
           aria-hidden="true"
-          className="c-font-icon--plus m-featured__icon" />
+          className="c-font-icon--plus m-featured__icon"
+        />
       </span>
     </span>
     <meta
       content="headline"
-      itemProp="name" />
+      itemProp="name"
+    />
   </a>
   Module featured children
 </span>

@@ -1,37 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/language should render correctly 1`] = `
 <span
   className="m-language foo"
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="list">
+  role="list"
+>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo1
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="1"
-            data-text="bar1">
+            data-text="bar1"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-hidden" />
+                className="c-pie__mask is-hidden"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask is-rotated-176" />
+                className="c-pie__mask is-rotated-176"
+              />
             </div>
           </div>
         </div>
@@ -40,37 +53,48 @@ exports[`common/component/module/language should render correctly 1`] = `
         content="foo1"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo2
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="20"
-            data-text="bar2">
+            data-text="bar2"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-hidden" />
+                className="c-pie__mask is-hidden"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask is-rotated-108" />
+                className="c-pie__mask is-rotated-108"
+              />
             </div>
           </div>
         </div>
@@ -79,37 +103,48 @@ exports[`common/component/module/language should render correctly 1`] = `
         content="foo2"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo3
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="80"
-            data-text="bar3">
+            data-text="bar3"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-rotated-72" />
+                className="c-pie__mask is-rotated-72"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask" />
+                className="c-pie__mask"
+              />
             </div>
           </div>
         </div>
@@ -118,7 +153,8 @@ exports[`common/component/module/language should render correctly 1`] = `
         content="foo3"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   Module language children
@@ -128,35 +164,46 @@ exports[`common/component/module/language should render correctly 1`] = `
 exports[`common/component/module/language should render no itemType if unset 1`] = `
 <span
   className="m-language foo"
-  role="list">
+  role="list"
+>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo1
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="1"
-            data-text="bar1">
+            data-text="bar1"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-hidden" />
+                className="c-pie__mask is-hidden"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask is-rotated-176" />
+                className="c-pie__mask is-rotated-176"
+              />
             </div>
           </div>
         </div>
@@ -165,37 +212,48 @@ exports[`common/component/module/language should render no itemType if unset 1`]
         content="foo1"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo2
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="20"
-            data-text="bar2">
+            data-text="bar2"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-hidden" />
+                className="c-pie__mask is-hidden"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask is-rotated-108" />
+                className="c-pie__mask is-rotated-108"
+              />
             </div>
           </div>
         </div>
@@ -204,37 +262,48 @@ exports[`common/component/module/language should render no itemType if unset 1`]
         content="foo2"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   <div
     className="l-grid__col--4"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Language">
+    itemType="https://schema.org/Language"
+  >
     <div
-      className="c-box">
+      className="c-box"
+    >
       <h3
-        className="is-centered c-type--h3 c-box__header">
+        className="is-centered c-type--h3 c-box__header"
+      >
         foo3
       </h3>
       <div
-        className="c-box__content">
+        className="c-box__content"
+      >
         <div
-          className="c-pie">
+          className="c-pie"
+        >
           <div
             className="c-pie__circle"
             data-percent="80"
-            data-text="bar3">
+            data-text="bar3"
+          >
             <div
-              className="c-pie__left">
+              className="c-pie__left"
+            >
               <span
-                className="c-pie__mask is-rotated-72" />
+                className="c-pie__mask is-rotated-72"
+              />
             </div>
             <div
-              className="c-pie__right">
+              className="c-pie__right"
+            >
               <span
-                className="c-pie__mask" />
+                className="c-pie__mask"
+              />
             </div>
           </div>
         </div>
@@ -243,7 +312,8 @@ exports[`common/component/module/language should render no itemType if unset 1`]
         content="foo3"
         itemProp="name"
         name={undefined}
-        property={undefined} />
+        property={undefined}
+      />
     </div>
   </div>
   Module language children

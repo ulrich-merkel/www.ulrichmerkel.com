@@ -1,24 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/service should render correctly 1`] = `
 <nav
   className="m-service foo"
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="list">
+  role="list"
+>
   <li
     className="m-service__item--left"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--happy m-service__icon-font" />
+          className="c-font-icon--happy m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline happy
         </h3>
         <p
@@ -27,25 +36,32 @@ exports[`common/component/module/service should render correctly 1`] = `
             Object {
               "__html": "text happy",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>
   <li
     className="m-service__item--right"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--xing m-service__icon-font" />
+          className="c-font-icon--xing m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline xing
         </h3>
         <p
@@ -54,28 +70,36 @@ exports[`common/component/module/service should render correctly 1`] = `
             Object {
               "__html": "text xing",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>
   <li
     aria-hidden="true"
-    className="m-service__item--clear" />
+    className="m-service__item--clear"
+  />
   <li
     className="m-service__item--left"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--facebook m-service__icon-font" />
+          className="c-font-icon--facebook m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline facebook
         </h3>
         <p
@@ -84,7 +108,8 @@ exports[`common/component/module/service should render correctly 1`] = `
             Object {
               "__html": "text facebook",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>
@@ -95,22 +120,29 @@ exports[`common/component/module/service should render correctly 1`] = `
 exports[`common/component/module/service should render no itemType if unset 1`] = `
 <nav
   className="m-service foo"
-  role="list">
+  role="list"
+>
   <li
     className="m-service__item--left"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--happy m-service__icon-font" />
+          className="c-font-icon--happy m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline happy
         </h3>
         <p
@@ -119,25 +151,32 @@ exports[`common/component/module/service should render no itemType if unset 1`] 
             Object {
               "__html": "text happy",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>
   <li
     className="m-service__item--right"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--xing m-service__icon-font" />
+          className="c-font-icon--xing m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline xing
         </h3>
         <p
@@ -146,28 +185,36 @@ exports[`common/component/module/service should render no itemType if unset 1`] 
             Object {
               "__html": "text xing",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>
   <li
     aria-hidden="true"
-    className="m-service__item--clear" />
+    className="m-service__item--clear"
+  />
   <li
     className="m-service__item--left"
-    itemProp="itemListElement">
+    itemProp="itemListElement"
+  >
     <div
-      className="m-service__content">
+      className="m-service__content"
+    >
       <div
-        className="m-service__icon">
+        className="m-service__icon"
+      >
         <i
           aria-hidden="true"
-          className="c-font-icon--facebook m-service__icon-font" />
+          className="c-font-icon--facebook m-service__icon-font"
+        />
       </div>
       <div
-        className="m-service__description">
+        className="m-service__description"
+      >
         <h3
-          className="is-centered c-type--h3 m-service__headline">
+          className="is-centered c-type--h3 m-service__headline"
+        >
           headline facebook
         </h3>
         <p
@@ -176,7 +223,8 @@ exports[`common/component/module/service should render no itemType if unset 1`] 
             Object {
               "__html": "text facebook",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </li>

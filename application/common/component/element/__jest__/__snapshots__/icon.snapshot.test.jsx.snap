@@ -1,7 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/icon should render correctly 1`] = `
 <span
   aria-hidden="true"
-  className="c-font-icon--foo icon" />
+  className="c-font-icon--foo icon"
+/>
 `;
 
 exports[`common/component/element/icon should return null if icon is empty 1`] = `null`;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/featured/item should render correctly 1`] = `
 <a
   className="c-link m-featured__item"
@@ -7,25 +9,31 @@ exports[`common/component/module/featured/item should render correctly 1`] = `
   onClick={[Function]}
   style={Object {}}
   tabIndex="0"
-  title="Featured item work headline">
+  title="Featured item work headline"
+>
   <span
-    className="m-featured__hover">
+    className="m-featured__hover"
+  >
     <span
-      className="m-featured__text">
+      className="m-featured__text"
+    >
       <span
         aria-level="3"
         className="m-featured__headline"
-        role="heading">
+        role="heading"
+      >
         Featured item work headline
       </span>
       <i
         aria-hidden="true"
-        className="c-font-icon--plus m-featured__icon" />
+        className="c-font-icon--plus m-featured__icon"
+      />
     </span>
   </span>
   Module featured item children
   <meta
     content="Featured item work headline"
-    itemProp="name" />
+    itemProp="name"
+  />
 </a>
 `;

@@ -1,3 +1,5 @@
-exports[`common/component/element/label should render correctly 1`] = `"<label class=\"m-form__label label\" for=\"foo-bar\">Label Children</label>"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`common/component/element/label should render correctly 2`] = `"<label class=\"m-form__label label is-visually-hidden\" for=\"foo-bar\">Label Children</label>"`;
+exports[`common/component/element/label should render correctly 1`] = `"<label class=\\"m-form__label label\\" for=\\"foo-bar\\">Label Children</label>"`;
+
+exports[`common/component/element/label should render correctly 2`] = `"<label class=\\"m-form__label label is-visually-hidden\\" for=\\"foo-bar\\">Label Children</label>"`;

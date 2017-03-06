@@ -1,9 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/meta should render correctly 1`] = `
 <meta
   content="bar"
   itemProp="foo"
   name="name"
-  property="foo">
+  property="foo"
+>
   Meta Children rendered
 </meta>
 `;

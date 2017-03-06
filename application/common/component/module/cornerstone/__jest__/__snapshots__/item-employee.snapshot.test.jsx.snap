@@ -1,36 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/cornerstone/item-employee should render correctly 1`] = `
 <li
   className="m-cornerstone__item"
   itemProp="itemListElement"
   itemScope={true}
-  itemType="https://schema.org/EmployeeRole">
+  itemType="https://schema.org/EmployeeRole"
+>
   <div
-    className="m-cornerstone__description">
+    className="m-cornerstone__description"
+  >
     <div
-      className="m-cornerstone__description-content">
+      className="m-cornerstone__description-content"
+    >
       <h4
         className="is-centered c-type--h4 m-cornerstone__headline"
-        itemProp="roleName">
+        itemProp="roleName"
+      >
         Headline item employee
       </h4>
       <p
-        className="c-type--p m-cornerstone__company">
+        className="c-type--p m-cornerstone__company"
+      >
         <strong>
           Lead  item employee
         </strong>
       </p>
       <p
         className="c-type--p m-cornerstone__time"
-        itemProp="description">
+        itemProp="description"
+      >
         (
         <time
           className="c-time"
-          itemProp="startDate">
+          itemProp="startDate"
+        >
           20161212
         </time>
          - 
         <time
-          className="c-time">
+          className="c-time"
+        >
           20161224
         </time>
         )
@@ -42,7 +52,8 @@ exports[`common/component/module/cornerstone/item-employee should render correct
             "__html": "Description item employee 1",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
       <p
         className="c-type--p m-cornerstone__text"
         dangerouslySetInnerHTML={
@@ -50,11 +61,13 @@ exports[`common/component/module/cornerstone/item-employee should render correct
             "__html": "Description item employee 2",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
     </div>
   </div>
   <div
-    className="m-cornerstone__bubble" />
+    className="m-cornerstone__bubble"
+  />
 </li>
 `;
 
@@ -63,34 +76,42 @@ exports[`common/component/module/cornerstone/item-employee should render cssModi
   className="m-cornerstone__item--employee has-offset--200"
   itemProp="itemListElement"
   itemScope={true}
-  itemType="https://schema.org/EmployeeRole">
+  itemType="https://schema.org/EmployeeRole"
+>
   <div
-    className="m-cornerstone__description">
+    className="m-cornerstone__description"
+  >
     <div
-      className="m-cornerstone__description-content">
+      className="m-cornerstone__description-content"
+    >
       <h4
         className="is-centered c-type--h4 m-cornerstone__headline"
-        itemProp="roleName">
+        itemProp="roleName"
+      >
         Headline item employee
       </h4>
       <p
-        className="c-type--p m-cornerstone__company">
+        className="c-type--p m-cornerstone__company"
+      >
         <strong>
           Lead  item employee
         </strong>
       </p>
       <p
         className="c-type--p m-cornerstone__time"
-        itemProp="description">
+        itemProp="description"
+      >
         (
         <time
           className="c-time"
-          itemProp="startDate">
+          itemProp="startDate"
+        >
           20161212
         </time>
          - 
         <time
-          className="c-time">
+          className="c-time"
+        >
           20161224
         </time>
         )
@@ -102,7 +123,8 @@ exports[`common/component/module/cornerstone/item-employee should render cssModi
             "__html": "Description item employee 1",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
       <p
         className="c-type--p m-cornerstone__text"
         dangerouslySetInnerHTML={
@@ -110,10 +132,12 @@ exports[`common/component/module/cornerstone/item-employee should render cssModi
             "__html": "Description item employee 2",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
     </div>
   </div>
   <div
-    className="m-cornerstone__bubble" />
+    className="m-cornerstone__bubble"
+  />
 </li>
 `;

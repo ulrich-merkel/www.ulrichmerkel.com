@@ -1,5 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/nav should render correctly 1`] = `
 <div
   className="m-nav nav"
-  role="navigation" />
+  role="navigation"
+/>
 `;
