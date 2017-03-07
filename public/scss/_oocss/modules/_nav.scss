@@ -22,6 +22,10 @@ $block: '#{$config-ns}m-nav';
         width: 37px;
         height: 37px;
         margin: rem-calc($config-grid--gutter / 2) rem-calc($config-grid--gutter);
+        // @TODO: This should be done by autoprefixer!!!
+        @if ($config-support-prefix-webkit) {
+            -webkit-appearance: none;
+        }
         appearance: none;
         font-size: 180%;
         line-height: 1;
