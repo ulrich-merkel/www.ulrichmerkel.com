@@ -88,7 +88,7 @@ function LayoutHtml(props) {
         <html className='no-js' dir='ltr' lang={langLocale} {...manifest}>
             <head>
                 <meta charSet='utf-8' />
-                <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+                <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
                 <meta name='viewport' content='width=device-width' />
                 {csp.use && <meta httpEquiv='Content-Security-Policy' content={getCspRules(nonceConfig)} />}
                 <link rel='preload' href='/css/app.css' as='style' />
