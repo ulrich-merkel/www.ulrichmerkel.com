@@ -85,12 +85,14 @@ function ElementButton(props) {
     );
 
     const HtmlElement = to ? Link : htmlElement;
+    const htmlElementType = !to ? type : null;
     const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 
     return (
         <HtmlElement
             className={componentClassName}
-            {...{ role, type, title, to }}
+            type={htmlElementType}
+            {...{ role, title, to }}
             {...disabledAttr}
             {...otherProps}
         >
