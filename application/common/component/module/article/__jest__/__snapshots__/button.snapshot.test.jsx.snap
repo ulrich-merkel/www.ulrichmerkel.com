@@ -10,7 +10,7 @@ exports[`common/component/module/article/button should render btnLabel if btnTit
     role="button"
     style={Object {}}
     title="Button label"
-    type="button"
+    type={null}
   >
     <span
       className="c-btn__label"
@@ -31,7 +31,7 @@ exports[`common/component/module/article/button should render correctly 1`] = `
     role="button"
     style={Object {}}
     title="Button title"
-    type="button"
+    type={null}
   >
     <span
       className="c-btn__label"

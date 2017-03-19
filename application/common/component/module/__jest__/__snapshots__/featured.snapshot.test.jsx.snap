@@ -7,40 +7,44 @@ exports[`common/component/module/featured should render correctly 1`] = `
   itemType="https://schema.org/ItemList"
   role="list"
 >
-  <a
-    className="c-link m-featured__item"
+  <li
+    className="m-featured__list-item"
     itemProp="itemListElement"
     itemScope={true}
     itemType="http://schema.org/SiteNavigationElement"
-    onClick={[Function]}
-    style={Object {}}
-    tabIndex="0"
-    title="headline"
   >
-    <span
-      className="m-featured__hover"
+    <a
+      className="c-link m-featured__item"
+      onClick={[Function]}
+      style={Object {}}
+      tabIndex="0"
+      title="headline"
     >
       <span
-        className="m-featured__text"
+        className="m-featured__hover"
       >
         <span
-          aria-level="3"
-          className="m-featured__headline"
-          role="heading"
+          className="m-featured__text"
         >
-          headline
+          <span
+            aria-level="3"
+            className="m-featured__headline"
+            role="heading"
+          >
+            headline
+          </span>
+          <i
+            aria-hidden="true"
+            className="c-font-icon--plus m-featured__icon"
+          />
         </span>
-        <i
-          aria-hidden="true"
-          className="c-font-icon--plus m-featured__icon"
-        />
       </span>
-    </span>
-    <meta
-      content="headline"
-      itemProp="name"
-    />
-  </a>
+      <meta
+        content="headline"
+        itemProp="name"
+      />
+    </a>
+  </li>
   Module Featured Children
 </span>
 `;
@@ -50,40 +54,44 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
   className="m-featured foo"
   role="list"
 >
-  <a
-    className="c-link m-featured__item"
+  <li
+    className="m-featured__list-item"
     itemProp="itemListElement"
     itemScope={true}
     itemType="http://schema.org/SiteNavigationElement"
-    onClick={[Function]}
-    style={Object {}}
-    tabIndex="0"
-    title="headline"
   >
-    <span
-      className="m-featured__hover"
+    <a
+      className="c-link m-featured__item"
+      onClick={[Function]}
+      style={Object {}}
+      tabIndex="0"
+      title="headline"
     >
       <span
-        className="m-featured__text"
+        className="m-featured__hover"
       >
         <span
-          aria-level="3"
-          className="m-featured__headline"
-          role="heading"
+          className="m-featured__text"
         >
-          headline
+          <span
+            aria-level="3"
+            className="m-featured__headline"
+            role="heading"
+          >
+            headline
+          </span>
+          <i
+            aria-hidden="true"
+            className="c-font-icon--plus m-featured__icon"
+          />
         </span>
-        <i
-          aria-hidden="true"
-          className="c-font-icon--plus m-featured__icon"
-        />
       </span>
-    </span>
-    <meta
-      content="headline"
-      itemProp="name"
-    />
-  </a>
+      <meta
+        content="headline"
+        itemProp="name"
+      />
+    </a>
+  </li>
   Module featured children
 </span>
 `;

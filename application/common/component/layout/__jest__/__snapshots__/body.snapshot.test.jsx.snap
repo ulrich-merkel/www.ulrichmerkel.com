@@ -6,7 +6,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
 >
   <dialog
     className="l-dialog--loading"
-    role="presentation"
+    role="dialog"
   >
     <div
       className="l-dialog__content"
@@ -38,7 +38,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
       max="100"
       value="0"
     >
-      <div
+      <span
         className="m-progress__fallback"
         id="m-progress__fallback"
       />
