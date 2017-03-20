@@ -13,7 +13,7 @@ exports[`common/component/layout/header should render correctly 1`] = `
     max="100"
     value="0"
   >
-    <div
+    <span
       className="m-progress__fallback"
       id="m-progress__fallback"
     />

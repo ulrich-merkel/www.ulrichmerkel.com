@@ -52,36 +52,40 @@ function ModuleFeaturedItem(props) {
     const componentListItemClassName = classnames('m-featured__item');
 
     return (
-        <A
-            to={`/work/${path}`}
-            className={componentListItemClassName}
-            title={headline}
+        <li
+            className='m-featured__list-item'
             itemProp='itemListElement'
             itemScope
             itemType='http://schema.org/SiteNavigationElement'
         >
-            <span className='m-featured__hover'>
-                <span className='m-featured__text'>
-                    <span aria-level='3' className='m-featured__headline' role='heading'>
-                        {headline}
+            <A
+                to={`/work/${path}`}
+                className={componentListItemClassName}
+                title={headline}
+            >
+                <span className='m-featured__hover'>
+                    <span className='m-featured__text'>
+                        <span aria-level='3' className='m-featured__headline' role='heading'>
+                            {headline}
+                        </span>
+                        <Icon className='m-featured__icon' icon='plus' />
                     </span>
-                    <Icon className='m-featured__icon' icon='plus' />
                 </span>
-            </span>
 
-            <Picture
-                name={img.name}
-                ext={img.ext}
-                path={img.path}
-                alt={img.alt}
-                sizes={img.sizes}
-                className={'m-featured__image'}
-            />
+                <Picture
+                    name={img.name}
+                    ext={img.ext}
+                    path={img.path}
+                    alt={img.alt}
+                    sizes={img.sizes}
+                    className={'m-featured__image'}
+                />
 
-            {children}
+                {children}
 
-            <meta itemProp='name' content={headline} />
-        </A>
+                <meta itemProp='name' content={headline} />
+            </A>
+        </li>
     );
 
 }

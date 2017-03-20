@@ -14,6 +14,7 @@
  * @see {@link http://stackoverflow.com/questions/23569171/nodes-process-stdin-readable-stream-logs-null-when-read-inside-a-readable-event}
  *
  * @requires fs
+ * @requires path
  * @requires ngrok
  * @requires psi
  * @requires minimist
@@ -28,6 +29,7 @@
  * - 0.0.1 Basic functions and structure
  */
 const fs = require('fs');
+const path = require('path');
 const ngrok = require('ngrok');
 const psi = require('psi');
 const minimist = require('minimist');
@@ -36,7 +38,7 @@ const assert = require('assert-plus');
 
 const argv = minimist(process.argv.slice(2));
 const argvPort = argv.port || process.env.PORT || 9000;
-const argvServerPath = argv.server || './../build/application/server/server';
+const argvServerPath = argv.server || '../build/application/server/server.js';
 let runningServer; // eslint-disable-line immutable/no-let
 
 // Begin reading from stdin so the process does not exit.
@@ -52,7 +54,7 @@ process.stdin.setEncoding('utf8');
  * @returns {boolean} Whether the file exists or not
  */
 function existsSync(filePath) {
-    return fs.existsSync(filePath); // eslint-disable-line security/detect-non-literal-fs-filename
+    return fs.existsSync(path.resolve(__dirname, filePath)); // eslint-disable-line security/detect-non-literal-fs-filename
 }
 
 /**
@@ -67,6 +69,7 @@ function existsSync(filePath) {
  */
 function getServer(serverPath) {
     assert.string(serverPath, 'serverPath');
+
     if (!existsSync(serverPath)) {
         return false;
     }
@@ -83,7 +86,7 @@ function getServer(serverPath) {
  */
 function runPageSpeedInsights(url) {
     assert.string(url, 'url');
-    console.log(chalk.grey('Starting PageSpeed Insights'));
+    console.log(chalk.grey('Start PageSpeed Insights'));
 
     // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
     return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {

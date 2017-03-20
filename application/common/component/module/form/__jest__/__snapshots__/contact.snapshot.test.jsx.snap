@@ -25,7 +25,7 @@ exports[`common/component/module/form/contact should render a success message 1`
         role="button"
         style={Object {}}
         title="btnRenewTitle"
-        type="button"
+        type={null}
       >
         <span
           className="c-btn__label"
@@ -63,7 +63,7 @@ exports[`common/component/module/form/contact should render an error message 1`]
         role="button"
         style={Object {}}
         title=""
-        type="button"
+        type={null}
       >
         <span
           className="c-btn__label"

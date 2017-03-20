@@ -4,7 +4,7 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
 <html
   className="no-js"
   dir="ltr"
-  lang="en-EN"
+  lang="en"
   manifest="/cache.manifest"
 >
   <head>
@@ -12,7 +12,7 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
       charSet="utf-8"
     />
     <meta
-      content="IE=edge,chrome=1"
+      content="IE=edge"
       httpEquiv="X-UA-Compatible"
     />
     <meta

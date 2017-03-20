@@ -111,7 +111,7 @@ function LayoutHeader(props) {
     return (
         <header className={componentClassName} itemScope itemType='http://schema.org/WPHeader' role='banner'>
             <progress className='m-progress' id='m-progress' max='100' value='0'>
-                <div className='m-progress__fallback' id='m-progress__fallback' />
+                <span className='m-progress__fallback' id='m-progress__fallback' />
             </progress>
             <Nav className='m-nav--main'>
                 <GridContainer>

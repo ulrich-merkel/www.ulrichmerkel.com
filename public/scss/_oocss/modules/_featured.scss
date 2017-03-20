@@ -22,19 +22,11 @@ $block: '#{$config-ns}m-featured';
         @include clearfix;
     }
 
-    .#{$block}__item,
-    [class^='#{$block}__item--'],
-    [class*=' #{$block}__item--'] {
-        position: relative;
+    .#{$block}__list-item {
         display: block;
         float: left;
         width: 100%;
-        height: auto;
-        overflow: hidden;
-
-        &.is-active {
-            display: none;
-        }
+        list-style: none;
 
         @include breakpoint(320px) {
             width: 50%;
@@ -50,6 +42,20 @@ $block: '#{$config-ns}m-featured';
 
         @include breakpoint($config-grid--breakpoint-large) {
             width: 20%;
+        }
+    }
+
+    .#{$block}__item,
+    [class^='#{$block}__item--'],
+    [class*=' #{$block}__item--'] {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        &.is-active {
+            display: none;
         }
 
         @if ($config-support-hovers) {
