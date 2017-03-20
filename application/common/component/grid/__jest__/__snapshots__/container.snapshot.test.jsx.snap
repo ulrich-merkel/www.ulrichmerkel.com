@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/grid/container should render correctly 1`] = `
 <span
-  className="l-grid foo">
+  className="l-grid foo"
+>
   Grid Container Children
 </span>
 `;

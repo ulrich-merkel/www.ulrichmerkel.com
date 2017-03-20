@@ -1,16 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/text/time should render correctly 1`] = `
 <div
-  className="m-text__time is-centered">
+  className="m-text__time is-centered"
+>
   <time
-    className="c-time">
+    className="c-time"
+  >
     123
   </time>
   <span
-    className="c-time--separator">
+    className="c-time--separator"
+  >
     -
   </span>
   <time
-    className="c-time">
+    className="c-time"
+  >
     456
   </time>
 </div>

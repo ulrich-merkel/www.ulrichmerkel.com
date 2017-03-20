@@ -1,42 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/layout/header should render correctly 1`] = `
 <header
   className="l-header is-visible layout-header"
   itemScope={true}
   itemType="http://schema.org/WPHeader"
-  role="banner">
+  role="banner"
+>
   <progress
     className="m-progress"
     id="m-progress"
     max="100"
-    value="0">
-    <div
+    value="0"
+  >
+    <span
       className="m-progress__fallback"
-      id="m-progress__fallback" />
+      id="m-progress__fallback"
+    />
   </progress>
   <nav
     className="m-nav m-nav--main"
-    role="navigation">
+    role="navigation"
+  >
     <section
-      className="l-grid">
+      className="l-grid"
+    >
       <div
-        className="l-grid__row">
+        className="l-grid__row"
+      >
         <div
-          className="l-grid__col--12">
+          className="l-grid__col--12"
+        >
           <input
             aria-label={undefined}
             className="m-nav__toggle c-font-icon--menu"
             data-label={undefined}
-            type="checkbox" />
+            type="checkbox"
+          />
           <ul
             className="m-menu--aside m-nav__toggle-target m-nav__aside"
             itemScope={true}
             itemType="http://schema.org/ItemList"
-            role="menu">
+            role="menu"
+          >
             <li
               className="m-menu__list-item"
               itemProp="itemListElement"
               itemScope={true}
-              itemType="http://www.schema.org/SiteNavigationElement">
+              itemType="http://www.schema.org/SiteNavigationElement"
+            >
               <button
                 className="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                 data-locale="en-EN"
@@ -44,16 +56,19 @@ exports[`common/component/layout/header should render correctly 1`] = `
                 role="button"
                 title=""
                 to={undefined}
-                type="button">
+                type="button"
+              >
                 <span
-                  className="c-btn__label" />
+                  className="c-btn__label"
+                />
               </button>
             </li>
             <li
               className="m-menu__list-item"
               itemProp="itemListElement"
               itemScope={true}
-              itemType="http://www.schema.org/SiteNavigationElement">
+              itemType="http://www.schema.org/SiteNavigationElement"
+            >
               <button
                 className="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                 data-locale="de-DE"
@@ -61,27 +76,33 @@ exports[`common/component/layout/header should render correctly 1`] = `
                 role="button"
                 title=""
                 to={undefined}
-                type="button">
+                type="button"
+              >
                 <span
-                  className="c-btn__label" />
+                  className="c-btn__label"
+                />
               </button>
             </li>
             <li
               className="m-menu__list-item"
               itemProp="itemListElement"
               itemScope={true}
-              itemType="http://www.schema.org/SiteNavigationElement">
+              itemType="http://www.schema.org/SiteNavigationElement"
+            >
               <a
                 className="c-link m-menu__item--search c-btn--small c-btn--clear"
                 onClick={[Function]}
                 style={Object {}}
                 tabIndex="0"
-                title="Suche">
+                title="Suche"
+              >
                 <span
-                  className="c-btn__label">
+                  className="c-btn__label"
+                >
                   <i
                     aria-hidden="true"
-                    className="c-font-icon--search c-btn__icon" />
+                    className="c-font-icon--search c-btn__icon"
+                  />
                 </span>
               </a>
             </li>

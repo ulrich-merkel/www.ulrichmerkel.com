@@ -1,7 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/article/lead should render correctly 1`] = `
 <p
   className="is-centered c-type--p article-lead"
-  itemProp="alternativeHeadline">
+  itemProp="alternativeHeadline"
+>
   <strong>
     Module article lead text
   </strong>

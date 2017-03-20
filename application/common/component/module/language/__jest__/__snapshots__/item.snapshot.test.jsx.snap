@@ -1,32 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/language/item should render correctly 1`] = `
 <div
   className="l-grid__col--4"
   itemProp="itemListElement"
   itemScope={true}
-  itemType="https://schema.org/Language">
+  itemType="https://schema.org/Language"
+>
   <div
-    className="c-box">
+    className="c-box"
+  >
     <h3
-      className="is-centered c-type--h3 c-box__header">
+      className="is-centered c-type--h3 c-box__header"
+    >
       Headline language
     </h3>
     <div
-      className="c-box__content">
+      className="c-box__content"
+    >
       <div
-        className="c-pie">
+        className="c-pie"
+      >
         <div
           className="c-pie__circle"
           data-percent="70"
-          data-text="Lead language">
+          data-text="Lead language"
+        >
           <div
-            className="c-pie__left">
+            className="c-pie__left"
+          >
             <span
-              className="c-pie__mask is-rotated-108" />
+              className="c-pie__mask is-rotated-108"
+            />
           </div>
           <div
-            className="c-pie__right">
+            className="c-pie__right"
+          >
             <span
-              className="c-pie__mask" />
+              className="c-pie__mask"
+            />
           </div>
         </div>
       </div>
@@ -35,7 +47,8 @@ exports[`common/component/module/language/item should render correctly 1`] = `
       content="Headline language"
       itemProp="name"
       name={undefined}
-      property={undefined} />
+      property={undefined}
+    />
   </div>
 </div>
 `;

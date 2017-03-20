@@ -1,27 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/key-visual/picture should render correctly 1`] = `
 <picture
   className="c-picture m-key-visual__image m-key-visual__image--digital"
   itemScope={true}
   itemType="http://schema.org/ImageObject"
-  style={Object {}}>
+  style={Object {}}
+>
   <source
     className="c-picture__source"
     media="(min-width: 2560px)"
-    srcSet="/img/content/home/keyvisual@2560x1600.jpg" />
+    srcSet="/img/content/home/keyvisual@2560x1600.jpg"
+  />
   <source
     className="c-picture__source"
     media="(min-width: 1680px)"
-    srcSet="/img/content/home/keyvisual@1680x1050.jpg" />
+    srcSet="/img/content/home/keyvisual@1680x1050.jpg"
+  />
   <source
     className="c-picture__source"
     media="(min-width: 1440px)"
-    srcSet="/img/content/home/keyvisual@1440x960.jpg" />
+    srcSet="/img/content/home/keyvisual@1440x960.jpg"
+  />
   <img
     alt="foo"
     className="c-picture__img"
     itemProp="contentUrl"
     src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-    srcSet="/img/content/home/keyvisual.jpg" />
+    srcSet="/img/content/home/keyvisual.jpg"
+  />
 </picture>
 `;
 
@@ -32,24 +39,29 @@ exports[`common/component/module/key-visual/picture should render type and isCov
   className="c-picture m-key-visual__image m-key-visual__image--digital"
   itemScope={true}
   itemType="http://schema.org/ImageObject"
-  style={Object {}}>
+  style={Object {}}
+>
   <source
     className="c-picture__source"
     media="(min-width: 2560px)"
-    srcSet="/img/content/home/keyvisual@2560x1600.jpg" />
+    srcSet="/img/content/home/keyvisual@2560x1600.jpg"
+  />
   <source
     className="c-picture__source"
     media="(min-width: 1680px)"
-    srcSet="/img/content/home/keyvisual@1680x1050.jpg" />
+    srcSet="/img/content/home/keyvisual@1680x1050.jpg"
+  />
   <source
     className="c-picture__source"
     media="(min-width: 1440px)"
-    srcSet="/img/content/home/keyvisual@1440x960.jpg" />
+    srcSet="/img/content/home/keyvisual@1440x960.jpg"
+  />
   <img
     alt="foo"
     className="c-picture__img"
     itemProp="contentUrl"
     src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-    srcSet="/img/content/home/keyvisual.jpg" />
+    srcSet="/img/content/home/keyvisual.jpg"
+  />
 </picture>
 `;

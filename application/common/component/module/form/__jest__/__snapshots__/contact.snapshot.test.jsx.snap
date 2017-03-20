@@ -1,26 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/form/contact should render a success message 1`] = `
 <div
   className="m-article__text"
   id="m-form--contact-success"
-  itemProp="text">
+  itemProp="text"
+>
   <h3
-    className="is-centered c-type--h3" />
+    className="is-centered c-type--h3"
+  />
   <div
     className="m-article__description is-centered"
-    itemProp="description">
+    itemProp="description"
+  >
     <p
-      className="c-type--p" />
+      className="c-type--p"
+    />
     <p
-      className="c-type--p">
+      className="c-type--p"
+    >
       <a
         className="c-btn is-centered c-btn--large"
         onClick={[Function]}
         role="button"
         style={Object {}}
         title="btnRenewTitle"
-        type="button">
+        type={null}
+      >
         <span
-          className="c-btn__label">
+          className="c-btn__label"
+        >
           btnRenewLabel
         </span>
       </a>
@@ -33,25 +42,32 @@ exports[`common/component/module/form/contact should render an error message 1`]
 <div
   className="m-article__text"
   id="m-form--contact-success"
-  itemProp="text">
+  itemProp="text"
+>
   <h3
-    className="is-centered c-type--h3" />
+    className="is-centered c-type--h3"
+  />
   <div
     className="m-article__description is-centered"
-    itemProp="description">
+    itemProp="description"
+  >
     <p
-      className="c-type--p" />
+      className="c-type--p"
+    />
     <p
-      className="c-type--p">
+      className="c-type--p"
+    >
       <a
         className="c-btn is-centered c-btn--large"
         onClick={[Function]}
         role="button"
         style={Object {}}
         title=""
-        type="button">
+        type={null}
+      >
         <span
-          className="c-btn__label" />
+          className="c-btn__label"
+        />
       </a>
     </p>
   </div>
@@ -71,19 +87,25 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
-  role="form">
+  role="form"
+>
   <fieldset
-    className="m-form__fieldset">
+    className="m-form__fieldset"
+  >
     <legend
-      className="m-form__legend is-visually-hidden">
+      className="m-form__legend is-visually-hidden"
+    >
       legend
     </legend>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -95,24 +117,30 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             placeholder=""
             required={true}
             type="text"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="name">
+            htmlFor="name"
+          >
             inputName
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -124,27 +152,34 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             placeholder=""
             required={true}
             type="email"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="email">
+            htmlFor="email"
+          >
             inputEmail
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -156,27 +191,34 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             placeholder=""
             required={true}
             type="text"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="subject">
+            htmlFor="subject"
+          >
             inputSubject
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <textarea
             aria-required={true}
             className="m-form__control--textarea"
@@ -188,27 +230,34 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             placeholder=""
             required={true}
             rows="4"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="message">
+            htmlFor="message"
+          >
             inputMessage
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group m-form__group--reset hide-on-print">
+          className="m-form__group m-form__group--reset hide-on-print"
+        >
           <button
             className="c-btn m-form__btn c-btn--secondary"
             id="reset"
@@ -216,18 +265,22 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             role="button"
             title="btnResetTitle"
             to={undefined}
-            type="reset">
+            type="reset"
+          >
             <span
-              className="c-btn__label">
+              className="c-btn__label"
+            >
               btnResetLabel
             </span>
           </button>
         </div>
       </div>
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group m-form__group--submit hide-on-print">
+          className="m-form__group m-form__group--submit hide-on-print"
+        >
           <button
             className="c-btn m-form__btn c-btn--submit c-btn--primary"
             id="submit"
@@ -235,9 +288,11 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             role="button"
             title="btnSubmitTitle"
             to={undefined}
-            type="submit">
+            type="submit"
+          >
             <span
-              className="c-btn__label">
+              className="c-btn__label"
+            >
               btnSubmitLabel
             </span>
           </button>
@@ -247,7 +302,8 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
     <input
       name="_csrf"
       type="hidden"
-      value="" />
+      value=""
+    />
   </fieldset>
 </form>
 `;
@@ -265,19 +321,25 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
-  role="form">
+  role="form"
+>
   <fieldset
-    className="m-form__fieldset">
+    className="m-form__fieldset"
+  >
     <legend
-      className="m-form__legend is-visually-hidden">
+      className="m-form__legend is-visually-hidden"
+    >
       legend
     </legend>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -289,24 +351,30 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             placeholder=""
             required={true}
             type="text"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="name">
+            htmlFor="name"
+          >
             inputName
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -318,27 +386,34 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             placeholder=""
             required={true}
             type="email"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="email">
+            htmlFor="email"
+          >
             inputEmail
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -350,27 +425,34 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             placeholder=""
             required={true}
             type="text"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="subject">
+            htmlFor="subject"
+          >
             inputSubject
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <textarea
             aria-required={true}
             className="m-form__control--textarea"
@@ -382,27 +464,34 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             placeholder=""
             required={true}
             rows="4"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label"
-            htmlFor="message">
+            htmlFor="message"
+          >
             inputMessage
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
     </div>
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group m-form__group--reset hide-on-print">
+          className="m-form__group m-form__group--reset hide-on-print"
+        >
           <button
             className="c-btn m-form__btn c-btn--secondary is-disabled"
             disabled="disabled"
@@ -411,18 +500,22 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             role="button"
             title="btnResetTitle"
             to={undefined}
-            type="reset">
+            type="reset"
+          >
             <span
-              className="c-btn__label">
+              className="c-btn__label"
+            >
               btnResetLabel
             </span>
           </button>
         </div>
       </div>
       <div
-        className="l-grid__col--6">
+        className="l-grid__col--6"
+      >
         <div
-          className="m-form__group m-form__group--submit hide-on-print">
+          className="m-form__group m-form__group--submit hide-on-print"
+        >
           <button
             className="c-btn is-pending m-form__btn c-btn--submit c-btn--primary"
             id="submit"
@@ -430,9 +523,11 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             role="button"
             title="btnSubmitTitle"
             to={undefined}
-            type="submit">
+            type="submit"
+          >
             <span
-              className="c-btn__label">
+              className="c-btn__label"
+            >
               btnSubmitLabel
             </span>
           </button>
@@ -442,7 +537,8 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
     <input
       name="_csrf"
       type="hidden"
-      value="" />
+      value=""
+    />
   </fieldset>
 </form>
 `;

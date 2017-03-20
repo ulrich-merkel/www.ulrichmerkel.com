@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/form should render correctly 1`] = `
 <form
   acceptCharset="utf-8"
@@ -12,7 +14,8 @@ exports[`common/component/element/form should render correctly 1`] = `
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
-  role="form">
+  role="form"
+>
   Form Children
 </form>
 `;

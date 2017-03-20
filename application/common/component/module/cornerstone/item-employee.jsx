@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation */
+/* eslint-disable immutable/no-mutation, react/jsx-indent */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to

@@ -1,36 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`component/module/reading should render correctly 1`] = `
 <menu
   className="m-list--reading m-reading foo"
   isCentered={true}
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="list">
+  role="list"
+>
   <li
     className="m-list__item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Book">
+    itemType="https://schema.org/Book"
+  >
     <div
-      className="c-reading">
+      className="c-reading"
+    >
       <h3
         className="is-centered c-type--h3 c-reading__name"
-        itemProp="name">
+        itemProp="name"
+      >
         headline
       </h3>
       <p
         className="c-type--p c-reading__description"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         lead
       </p>
       <small
         className="c-type--small c-reading__source"
-        itemProp="creator">
+        itemProp="creator"
+      >
         <span
-          className="c-reading__source-creator">
+          className="c-reading__source-creator"
+        >
           creator
         </span>
         <em
-          className="c-reading__source-publisher">
+          className="c-reading__source-publisher"
+        >
           publisher
         </em>
       </small>
@@ -40,28 +50,35 @@ exports[`component/module/reading should render correctly 1`] = `
     className="m-list__item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Book">
+    itemType="https://schema.org/Book"
+  >
     <div
-      className="c-reading">
+      className="c-reading"
+    >
       <h3
         className="is-centered c-type--h3 c-reading__name"
-        itemProp="name">
+        itemProp="name"
+      >
         headline
       </h3>
       <p
         className="c-type--p c-reading__description"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         lead
       </p>
       <small
         className="c-type--small c-reading__source"
-        itemProp="creator">
+        itemProp="creator"
+      >
         <span
-          className="c-reading__source-creator">
+          className="c-reading__source-creator"
+        >
           creator
         </span>
         <em
-          className="c-reading__source-publisher">
+          className="c-reading__source-publisher"
+        >
           publisher
         </em>
       </small>
@@ -75,33 +92,41 @@ exports[`component/module/reading should render no itemType if unset 1`] = `
 <menu
   className="m-list--reading m-reading foo"
   isCentered={true}
-  role="list">
+  role="list"
+>
   <li
     className="m-list__item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Book">
+    itemType="https://schema.org/Book"
+  >
     <div
-      className="c-reading">
+      className="c-reading"
+    >
       <h3
         className="is-centered c-type--h3 c-reading__name"
-        itemProp="name">
+        itemProp="name"
+      >
         headline
       </h3>
       <p
         className="c-type--p c-reading__description"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         lead
       </p>
       <small
         className="c-type--small c-reading__source"
-        itemProp="creator">
+        itemProp="creator"
+      >
         <span
-          className="c-reading__source-creator">
+          className="c-reading__source-creator"
+        >
           creator
         </span>
         <em
-          className="c-reading__source-publisher">
+          className="c-reading__source-publisher"
+        >
           publisher
         </em>
       </small>
@@ -111,28 +136,35 @@ exports[`component/module/reading should render no itemType if unset 1`] = `
     className="m-list__item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="https://schema.org/Book">
+    itemType="https://schema.org/Book"
+  >
     <div
-      className="c-reading">
+      className="c-reading"
+    >
       <h3
         className="is-centered c-type--h3 c-reading__name"
-        itemProp="name">
+        itemProp="name"
+      >
         headline
       </h3>
       <p
         className="c-type--p c-reading__description"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         lead
       </p>
       <small
         className="c-type--small c-reading__source"
-        itemProp="creator">
+        itemProp="creator"
+      >
         <span
-          className="c-reading__source-creator">
+          className="c-reading__source-creator"
+        >
           creator
         </span>
         <em
-          className="c-reading__source-publisher">
+          className="c-reading__source-publisher"
+        >
           publisher
         </em>
       </small>

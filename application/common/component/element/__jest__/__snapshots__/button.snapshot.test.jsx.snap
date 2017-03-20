@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/button should render correctly 1`] = `
 <button
   className="c-btn button c-btn--primary c-btn--large is-disabled"
@@ -7,9 +9,11 @@ exports[`common/component/element/button should render correctly 1`] = `
   role="button"
   title="Test button title"
   to={undefined}
-  type="submit">
+  type="submit"
+>
   <span
-    className="c-btn__label button-label">
+    className="c-btn__label button-label"
+  >
     Button Children
   </span>
 </button>

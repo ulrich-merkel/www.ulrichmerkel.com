@@ -1,21 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/section/text should render correctly 1`] = `
 <div
-  className="l-main__transition">
+  className="l-main__transition"
+>
   <section
-    className="l-grid m-section">
+    className="l-grid m-section"
+  >
     <div
-      className="l-grid__spaced--small">
+      className="l-grid__spaced--small"
+    >
       <div
-        className="l-grid__row">
+        className="l-grid__row"
+      >
         <div
-          className="l-grid__col--12">
+          className="l-grid__col--12"
+        >
           <article
             className="is-main m-article"
             itemScope={true}
-            itemType="https://schema.org/Article">
+            itemType="https://schema.org/Article"
+          >
             <div
               className="m-article__text"
-              itemProp="text" />
+              itemProp="text"
+            />
           </article>
         </div>
       </div>

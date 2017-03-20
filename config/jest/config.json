@@ -20,7 +20,6 @@
         "<rootDir>/(build|docs|node_modules)/"
     ],
     "testEnvironment": "node",
-    "mocksPattern": "__mocks__",
     "coverageDirectory": "<rootDir>/report/",
     "coverageThreshold": {
         "global": {

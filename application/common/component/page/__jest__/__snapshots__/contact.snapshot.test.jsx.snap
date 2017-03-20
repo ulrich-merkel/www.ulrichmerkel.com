@@ -1,25 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/page/contact should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"
-  role="main">
+  role="main"
+>
   <div
-    className="l-main__transition">
+    className="l-main__transition"
+  >
     <section
-      className="l-grid m-section">
+      className="l-grid m-section"
+    >
       <div
-        className="l-grid__spaced--small">
+        className="l-grid__spaced--small"
+      >
         <div
-          className="l-grid__row">
+          className="l-grid__row"
+        >
           <div
-            className="l-grid__col--12">
+            className="l-grid__col--12"
+          >
             <article
               className="is-main m-article"
               itemScope={true}
-              itemType="https://schema.org/Article">
+              itemType="https://schema.org/Article"
+            >
               <div
                 className="m-article__text"
-                itemProp="text">
+                itemProp="text"
+              >
                 <form
                   acceptCharset="utf-8"
                   action="/contact/"
@@ -32,17 +42,23 @@ exports[`common/component/page/contact should render correctly 1`] = `
                   noValidate={true}
                   onReset={[Function]}
                   onSubmit={[Function]}
-                  role="form">
+                  role="form"
+                >
                   <fieldset
-                    className="m-form__fieldset">
+                    className="m-form__fieldset"
+                  >
                     <legend
-                      className="m-form__legend is-visually-hidden" />
+                      className="m-form__legend is-visually-hidden"
+                    />
                     <div
-                      className="l-grid__row">
+                      className="l-grid__row"
+                    >
                       <div
-                        className="l-grid__col--6">
+                        className="l-grid__col--6"
+                      >
                         <div
-                          className="m-form__group">
+                          className="m-form__group"
+                        >
                           <input
                             aria-required={true}
                             className="m-form__control--text"
@@ -54,24 +70,30 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             placeholder=""
                             required={true}
                             type="text"
-                            value="" />
+                            value=""
+                          />
                           <label
                             className="m-form__label"
-                            htmlFor="name">
+                            htmlFor="name"
+                          >
                             
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error" />
+                              className="c-font-icon--sad m-form__label__icon--error"
+                            />
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success" />
+                              className="c-font-icon--smile m-form__label__icon--success"
+                            />
                           </label>
                         </div>
                       </div>
                       <div
-                        className="l-grid__col--6">
+                        className="l-grid__col--6"
+                      >
                         <div
-                          className="m-form__group">
+                          className="m-form__group"
+                        >
                           <input
                             aria-required={true}
                             className="m-form__control--text"
@@ -83,27 +105,34 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             placeholder=""
                             required={true}
                             type="email"
-                            value="" />
+                            value=""
+                          />
                           <label
                             className="m-form__label"
-                            htmlFor="email">
+                            htmlFor="email"
+                          >
                             
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error" />
+                              className="c-font-icon--sad m-form__label__icon--error"
+                            />
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success" />
+                              className="c-font-icon--smile m-form__label__icon--success"
+                            />
                           </label>
                         </div>
                       </div>
                     </div>
                     <div
-                      className="l-grid__row">
+                      className="l-grid__row"
+                    >
                       <div
-                        className="l-grid__col--12">
+                        className="l-grid__col--12"
+                      >
                         <div
-                          className="m-form__group">
+                          className="m-form__group"
+                        >
                           <input
                             aria-required={true}
                             className="m-form__control--text"
@@ -115,27 +144,34 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             placeholder=""
                             required={true}
                             type="text"
-                            value="" />
+                            value=""
+                          />
                           <label
                             className="m-form__label"
-                            htmlFor="subject">
+                            htmlFor="subject"
+                          >
                             
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error" />
+                              className="c-font-icon--sad m-form__label__icon--error"
+                            />
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success" />
+                              className="c-font-icon--smile m-form__label__icon--success"
+                            />
                           </label>
                         </div>
                       </div>
                     </div>
                     <div
-                      className="l-grid__row">
+                      className="l-grid__row"
+                    >
                       <div
-                        className="l-grid__col--12">
+                        className="l-grid__col--12"
+                      >
                         <div
-                          className="m-form__group">
+                          className="m-form__group"
+                        >
                           <textarea
                             aria-required={true}
                             className="m-form__control--textarea"
@@ -147,26 +183,33 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             placeholder=""
                             required={true}
                             rows="4"
-                            value="" />
+                            value=""
+                          />
                           <label
                             className="m-form__label"
-                            htmlFor="message">
+                            htmlFor="message"
+                          >
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error" />
+                              className="c-font-icon--sad m-form__label__icon--error"
+                            />
                             <i
                               aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success" />
+                              className="c-font-icon--smile m-form__label__icon--success"
+                            />
                           </label>
                         </div>
                       </div>
                     </div>
                     <div
-                      className="l-grid__row">
+                      className="l-grid__row"
+                    >
                       <div
-                        className="l-grid__col--6">
+                        className="l-grid__col--6"
+                      >
                         <div
-                          className="m-form__group m-form__group--reset hide-on-print">
+                          className="m-form__group m-form__group--reset hide-on-print"
+                        >
                           <button
                             className="c-btn m-form__btn c-btn--secondary"
                             id="reset"
@@ -174,18 +217,22 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             role="button"
                             title=""
                             to={undefined}
-                            type="reset">
+                            type="reset"
+                          >
                             <span
-                              className="c-btn__label">
+                              className="c-btn__label"
+                            >
                               
                             </span>
                           </button>
                         </div>
                       </div>
                       <div
-                        className="l-grid__col--6">
+                        className="l-grid__col--6"
+                      >
                         <div
-                          className="m-form__group m-form__group--submit hide-on-print">
+                          className="m-form__group m-form__group--submit hide-on-print"
+                        >
                           <button
                             className="c-btn m-form__btn c-btn--submit c-btn--primary"
                             id="submit"
@@ -193,9 +240,11 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             role="button"
                             title=""
                             to={undefined}
-                            type="submit">
+                            type="submit"
+                          >
                             <span
-                              className="c-btn__label">
+                              className="c-btn__label"
+                            >
                               
                             </span>
                           </button>
@@ -205,7 +254,8 @@ exports[`common/component/page/contact should render correctly 1`] = `
                     <input
                       name="_csrf"
                       type="hidden"
-                      value="" />
+                      value=""
+                    />
                   </fieldset>
                 </form>
               </div>

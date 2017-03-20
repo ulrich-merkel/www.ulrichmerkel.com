@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/form/search should render correctly 1`] = `
 <form
   acceptCharset="utf-8"
@@ -11,17 +13,23 @@ exports[`common/component/module/form/search should render correctly 1`] = `
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
-  role="search">
+  role="search"
+>
   <fieldset
-    className="m-form__fieldset">
+    className="m-form__fieldset"
+  >
     <legend
-      className="m-form__legend is-visually-hidden" />
+      className="m-form__legend is-visually-hidden"
+    />
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -33,17 +41,21 @@ exports[`common/component/module/form/search should render correctly 1`] = `
             placeholder=""
             required={true}
             type="search"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label is-visually-hidden"
-            htmlFor="name">
+            htmlFor="name"
+          >
             
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
@@ -51,7 +63,8 @@ exports[`common/component/module/form/search should render correctly 1`] = `
     <input
       name="_csrf"
       type="hidden"
-      value="" />
+      value=""
+    />
   </fieldset>
 </form>
 `;
@@ -69,17 +82,23 @@ exports[`common/component/module/form/search should render correctly 2`] = `
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
-  role="search">
+  role="search"
+>
   <fieldset
-    className="m-form__fieldset">
+    className="m-form__fieldset"
+  >
     <legend
-      className="m-form__legend is-visually-hidden" />
+      className="m-form__legend is-visually-hidden"
+    />
     <div
-      className="l-grid__row">
+      className="l-grid__row"
+    >
       <div
-        className="l-grid__col--12">
+        className="l-grid__col--12"
+      >
         <div
-          className="m-form__group">
+          className="m-form__group"
+        >
           <input
             aria-required={true}
             className="m-form__control--text"
@@ -91,17 +110,21 @@ exports[`common/component/module/form/search should render correctly 2`] = `
             placeholder=""
             required={true}
             type="search"
-            value="" />
+            value=""
+          />
           <label
             className="m-form__label is-visually-hidden"
-            htmlFor="name">
+            htmlFor="name"
+          >
             
             <i
               aria-hidden="true"
-              className="c-font-icon--sad m-form__label__icon--error" />
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
             <i
               aria-hidden="true"
-              className="c-font-icon--smile m-form__label__icon--success" />
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
           </label>
         </div>
       </div>
@@ -109,7 +132,8 @@ exports[`common/component/module/form/search should render correctly 2`] = `
     <input
       name="_csrf"
       type="hidden"
-      value="" />
+      value=""
+    />
   </fieldset>
 </form>
 `;

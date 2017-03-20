@@ -1,31 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`component/layout/html Snapshot should render correctly 1`] = `
 <html
   className="no-js"
   dir="ltr"
-  lang="en-EN"
-  manifest="/cache.manifest">
+  lang="en"
+  manifest="/cache.manifest"
+>
   <head>
     <meta
-      charSet="utf-8" />
+      charSet="utf-8"
+    />
     <meta
-      content="IE=edge,chrome=1"
-      httpEquiv="X-UA-Compatible" />
+      content="IE=edge"
+      httpEquiv="X-UA-Compatible"
+    />
     <meta
       content="width=device-width"
-      name="viewport" />
+      name="viewport"
+    />
     <meta
-      content="default-src \'self\' www.ulrichmerkel.com;script-src \'self\' www.ulrichmerkel.com \'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\' \'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\' \'unsafe-inline\';style-src \'self\' www.ulrichmerkel.com \'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\' \'unsafe-inline\';img-src \'self\' www.ulrichmerkel.com data:;child-src \'none\';object-src \'none\';"
-      httpEquiv="Content-Security-Policy" />
+      content="default-src 'self' www.ulrichmerkel.com;script-src 'self' www.ulrichmerkel.com 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'unsafe-inline';style-src 'self' www.ulrichmerkel.com 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'unsafe-inline';img-src 'self' www.ulrichmerkel.com data:;child-src 'none';object-src 'none';"
+      httpEquiv="Content-Security-Policy"
+    />
     <link
       as="style"
       href="/css/app.css"
-      rel="preload" />
+      rel="preload"
+    />
     <link
       as="script"
       href="/js/client.bundle.js"
-      rel="preload" />
+      rel="preload"
+    />
     <title
-      data-react-helmet={true}>
+      data-react-helmet={true}
+    >
       
     </title>
     <style
@@ -34,20 +44,24 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
           "__html": "",
         }
       }
-      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />
+      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    />
     <noscript>
       <link
         href="/css/app.css"
         media="all"
         rel="stylesheet"
-        type="text/css" />
+        type="text/css"
+      />
     </noscript>
   </head>
   <body
     itemScope={true}
-    itemType="http://schema.org/WebPage">
+    itemType="http://schema.org/WebPage"
+  >
     <div
-      id="l-react">
+      id="l-react"
+    >
       Hello
     </div>
     <script
@@ -56,14 +70,16 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
           "__html": "",
         }
       }
-      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />
+      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    />
     <script
       dangerouslySetInnerHTML={
         Object {
-          "__html": "__PRELOADED_STATE__={\"config\":{},\"intl\":{\"locale\":\"en-EN\",\"availableLocales\":[\"en-EN\"]}};",
+          "__html": "__PRELOADED_STATE__={\\"config\\":{},\\"intl\\":{\\"locale\\":\\"en-EN\\",\\"availableLocales\\":[\\"en-EN\\"]}};",
         }
       }
-      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" />
+      nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    />
   </body>
 </html>
 `;
