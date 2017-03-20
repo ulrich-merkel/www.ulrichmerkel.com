@@ -21,7 +21,7 @@ describe('common/component/element/a', function () {
      * @see {@link https://gist.github.com/scmx/d98cc058a7c3dfef7890}
      */
     beforeAll(function () {
-        stub(console, 'error', () => {});
+        stub(console, 'error').callsFake(() => {})
     });
     afterAll(function () {
         console.error.restore(); // eslint-disable-line no-console
