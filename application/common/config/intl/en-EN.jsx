@@ -325,7 +325,7 @@ export default {
 
     'intl-page-imprint-section1-text-2-headline': 'Indication of source for images and graphics',
     'intl-page-imprint-section1-text-2-content-1': `<a href='http://www.adrian-kuehne.de/' target='_blank' title='Show Adrian Kühne website' rel='noopener noreferrer'>
-        <i aria-hidden='true' className='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
+        <i aria-hidden='true' class='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
         </a>`,
     'intl-page-imprint-section1-text-3-headline': 'Technology',
     'intl-page-imprint-section1-text-3-content-1': `This website is build with React.js, Node.js, ${HTML5}, ${CSS3}, love and 100% recycled pixels.
