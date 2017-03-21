@@ -43,6 +43,7 @@ $block: '#{$config-ns}m-list';
                     a {
                         &:hover {
                             text-decoration: underline;
+                            text-decoration-skip: ink;
                         }
                     }
                 }
@@ -56,11 +57,29 @@ $block: '#{$config-ns}m-list';
         width: 100%;
         margin: 0 0 rem-calc($config-grid--gutter * 3);
         padding: 0;
-        list-style: none;
         text-align: left;
+        list-style: none;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;
+        }
+    }
+
+    .#{$block}--search {
+        .m-menu__item {
+            margin-bottom: rem-calc($config-grid--gutter * 0.5);
+            color: $config-color-blue--3;
+
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                text-align: center;
+            }
+        }
+        .m-menu__label,
+        .m-menu__description {
+            display: block;
+        }
+        .m-menu__description {
+            font-style: normal;
         }
     }
 

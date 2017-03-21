@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
 import xor from './../xor';
 
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';
@@ -16,7 +16,7 @@ describe('common/utils/xor', function () {
     });
 
     describe('client', function handleDescribeClient() {
-        it('should encrypt data', function handleIt() {
+        it('should encrypt data', function () {
             expect(dataEncrypted).not.toEqual(data);
         });
         it('should decrypt data correctly', function handleIt() {

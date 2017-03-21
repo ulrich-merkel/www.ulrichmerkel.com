@@ -1,6 +1,5 @@
-exports[`common/component/element/legend should render correctly 1`] = `
-<legend
-  className="m-form__legend legend">
-  Legend Children
-</legend>
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/component/element/legend should render correctly 1`] = `"<legend class=\\"m-form__legend legend\\">Legend Children</legend>"`;
+
+exports[`common/component/element/legend should render correctly 2`] = `"<legend class=\\"m-form__legend legend is-visually-hidden\\">Legend Children</legend>"`;

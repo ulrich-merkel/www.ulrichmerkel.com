@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -34,7 +35,7 @@ import Button from './../../element/button';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleArticleButton(props) {
 
@@ -42,10 +43,11 @@ function ModuleArticleButton(props) {
         btnTo,
         btnLabel,
         btnTitle,
+        isDialog,
         className
     } = props;
 
-    if (!btnTo || !btnLabel) {
+    if (!btnTo || !btnLabel || isDialog) {
         return null;
     }
 
@@ -66,15 +68,31 @@ function ModuleArticleButton(props) {
  *
  * @static
  * @type {Object}
- * @property {string} btnTo - The button link target
- * @property {string} btnLabel - The button label
- * @property {string} [btnTitle] - The button title
+ * @property {string} [btnTo=''] - The button link target
+ * @property {string} [btnLabel=''] - The button label
+ * @property {string} [btnTitle=''] - The button title
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleButton.propTypes = {
     btnTo: PropTypes.string,
     btnLabel: PropTypes.string,
     btnTitle: PropTypes.string,
-    className: PropTypes.string
+    isDialog: PropTypes.bool,
+    className: PropTypes.string // eslint-disable-line react/require-default-props
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleArticleButton.propTypes
+ */
+ModuleArticleButton.defaultProps = {
+    btnTo: '',
+    btnLabel: '',
+    btnTitle: '',
+    isDialog: false
 };
 
 export default ModuleArticleButton;

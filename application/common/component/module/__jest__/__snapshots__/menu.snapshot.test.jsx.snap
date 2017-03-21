@@ -1,14 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/menu should render correctly 1`] = `
 <ol
   className="m-menu m-menu--bar module-menu"
   itemScope={true}
   itemType="https://schema.org/ItemList"
-  role="menu">
+  role="menu"
+>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="foo">
+    itemType="foo"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="bar"
@@ -16,25 +20,30 @@ exports[`common/component/module/menu should render correctly 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <i
         aria-hidden="true"
-        className="c-font-icon--icon m-menu__icon" />
+        className="c-font-icon--icon m-menu__icon"
+      />
       <span
         className="m-menu__label"
-        itemProp="name">
+        itemProp="name"
+      >
         label
       </span>
     </a>
     <link
       href="/test"
-      itemProp="url" />
+      itemProp="url"
+    />
   </li>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="http://www.schema.org/SiteNavigationElement">
+    itemType="http://www.schema.org/SiteNavigationElement"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="url"
@@ -42,17 +51,22 @@ exports[`common/component/module/menu should render correctly 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <span
         className="is-visually-hidden m-menu__label"
-        itemProp="name" />
+        itemProp="name"
+      >
+        
+      </span>
     </a>
   </li>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="http://www.schema.org/SiteNavigationElement">
+    itemType="http://www.schema.org/SiteNavigationElement"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="url"
@@ -60,10 +74,14 @@ exports[`common/component/module/menu should render correctly 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <span
         className="m-menu__label"
-        itemProp="name" />
+        itemProp="name"
+      >
+        
+      </span>
     </a>
   </li>
   Module menu children
@@ -73,12 +91,14 @@ exports[`common/component/module/menu should render correctly 1`] = `
 exports[`common/component/module/menu should render no itemType if unset 1`] = `
 <ol
   className="m-menu m-menu--bar module-menu"
-  role="menu">
+  role="menu"
+>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="foo">
+    itemType="foo"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="bar"
@@ -86,25 +106,30 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <i
         aria-hidden="true"
-        className="c-font-icon--icon m-menu__icon" />
+        className="c-font-icon--icon m-menu__icon"
+      />
       <span
         className="m-menu__label"
-        itemProp="name">
+        itemProp="name"
+      >
         label
       </span>
     </a>
     <link
       href="/test"
-      itemProp="url" />
+      itemProp="url"
+    />
   </li>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="http://www.schema.org/SiteNavigationElement">
+    itemType="http://www.schema.org/SiteNavigationElement"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="url"
@@ -112,17 +137,22 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <span
         className="is-visually-hidden m-menu__label"
-        itemProp="name" />
+        itemProp="name"
+      >
+        
+      </span>
     </a>
   </li>
   <li
     className="m-menu__list-item"
     itemProp="itemListElement"
     itemScope={true}
-    itemType="http://www.schema.org/SiteNavigationElement">
+    itemType="http://www.schema.org/SiteNavigationElement"
+  >
     <a
       className="m-menu__item c-link"
       itemProp="url"
@@ -130,10 +160,14 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
       role="menuitem"
       style={Object {}}
       tabIndex="0"
-      title="title">
+      title="title"
+    >
       <span
         className="m-menu__label"
-        itemProp="name" />
+        itemProp="name"
+      >
+        
+      </span>
     </a>
   </li>
   Module menu children

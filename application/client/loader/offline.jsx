@@ -5,18 +5,28 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
+ *
+ * @requires common/config/application
+ * @requires common/utils/logger
+ * @requires common/utils/environment
+ * @requires client/utils/dom
  *
  * @see {@link http://www.bennadel.com/blog/2029-using-html5-offline-application-cache-events-in-javascript.htm}
  * @see {@link http://www.html5rocks.com/de/tutorials/appcache/beginner/}
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Improve code style
+ * - 0.0.1 Basic functions and structure
  */
 import { debug } from './../../common/config/application';
 import logger from './../../common/utils/logger';
 import { isBrowser } from './../../common/utils/environment';
-import { setDomNodeByAttribute } from './../utils/dom';
+import { setDomNodeAttribute, setDomNodeClassName } from './../utils/dom';
+
+const hasWidthClasses = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function mapNumbers(number) {
+    return `has-width--${number * 10}`;
+});
 
 /**
 * Get application cache api.
@@ -36,9 +46,8 @@ function getApi() {
  * @returns {void}
  */
 function displayProgress(value) {
-    setDomNodeByAttribute('m-progress', 'value', value);
-    // @TODO: Can't set inline style due to csp rules
-    // setDomNodeByAttribute('m-progress__fallback', 'style', `width: ${value}%`);
+    setDomNodeAttribute('m-progress', 'value', value);
+    setDomNodeClassName('m-progress__fallback', [`has-width--${Math.round(value / 10) * 10}`], hasWidthClasses);
 }
 
 /**
@@ -69,13 +78,12 @@ function displayAllLoaded() {
  * @returns {void}
  */
 function onProgressEvent(e) {
-    let value = 0;
-
     if (e && e.lengthComputable) {
-        value = Math.round(100 * e.loaded / e.total);
+        displayProgress(Math.round(100 * e.loaded / e.total));
+        return;
     }
 
-    displayProgress(value);
+    displayProgress(0);
 }
 
 /**
@@ -96,7 +104,7 @@ function onUpdateReadyEvent() {
         }
     }
 
-    // @TODO: find growl solution to notify for updates
+    // @TODO: Find growl solution to notify for updates
     // if (confirm('New version available - reload page?')) {
     // window.location.reload(true);
     // }

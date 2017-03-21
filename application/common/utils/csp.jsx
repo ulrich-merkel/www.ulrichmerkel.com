@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-let */
 /**
  * Es6 module to handle content security policies.
  *

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -24,7 +25,7 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ModuleTextTime(props) {
 
@@ -65,13 +66,24 @@ function ModuleTextTime(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content] - The time content's text
+ * @property {string} [content={}] - The time content's text
  */
 ModuleTextTime.propTypes = {
     content: PropTypes.shape({
         timeStart: PropTypes.string,
         timeEnd: PropTypes.string
     })
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextTime.propTypes
+ */
+ModuleTextTime.defaultProps = {
+    content: {}
 };
 
 export default ModuleTextTime;

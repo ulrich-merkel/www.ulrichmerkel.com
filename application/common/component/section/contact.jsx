@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -31,10 +32,9 @@ import ModuleArticle from './../module/article';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
-function SectionForm(props) {
-
+function SectionContact(props) {
     const {
         children,
         content,
@@ -49,7 +49,6 @@ function SectionForm(props) {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
@@ -58,13 +57,30 @@ function SectionForm(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
- * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
+ * @property {Object} [content={}] - The content config input
+ * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
-SectionForm.propTypes = {
-    children: PropTypes.node,
-    content: PropTypes.object,
+SectionContact.propTypes = {
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     isMain: PropTypes.bool
 };
 
-export default SectionForm;
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionForm.propTypes
+ */
+SectionContact.defaultProps = {
+    content: {},
+    isMain: false
+};
+
+export default SectionContact;

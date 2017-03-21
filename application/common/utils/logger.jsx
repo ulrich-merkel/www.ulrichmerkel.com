@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle, no-console */
+/* eslint-disable no-underscore-dangle, no-console, immutable/no-mutation */
 /**
 * Handle node js logging to improve performance.
 *
@@ -43,6 +43,13 @@ function getLogOptions() {
     };
 }
 
+/**
+ * Get additional information to be passed into winston.Logger
+ *
+ * @function
+ * @param {string} name - The prefix to be used for messages
+ * @returns {Object} The current instance
+ */
 function Logger(name) {
     this.name = name;
     this._log = noop;
@@ -55,24 +62,43 @@ function Logger(name) {
 
 Logger.prototype = {
 
+    /**
+     * Set prefix for messages.
+     *
+     * @param {string} name - The prefix to be used
+     * @returns {void}
+     */
     setName: function setNameFn(name) {
-        this.name = name;
+        if (name) {
+            this.name = name;
+        }
     },
 
+    /**
+     * Check if logging is available.
+     *
+     * @returns {boolean} Whether logging is enabled or not
+     */
     isEnabled: function isEnabledFn() {
         return this._enabled;
     },
 
+    /**
+     * Enable logging and declare basic log functions.
+     *
+     * @param {boolean} shouldBeEnabled - A switch to easily control enabling/disabling
+     * @returns {void}
+     */
     enable: function enableFn(shouldBeEnabled) {
+
+        const logFunctions = [
+            'log', 'info', 'warn', 'error'
+        ];
 
         if (!shouldBeEnabled) {
             // @TODO: return noop implementations if logger is not enabled
             return undefined;
         }
-
-        const logFunctions = [
-            'log', 'info', 'warn', 'error'
-        ];
 
         if (console === undefined) {
             console = {}; // eslint-disable-line no-global-assign
@@ -87,10 +113,16 @@ Logger.prototype = {
         logFunctions.forEach(function forEachFn(val) {
             console[val] = Function.prototype.call.bind(console[val], console);
         });
-
-        return this;
     },
 
+    /**
+     * Write messages to console functions.
+     *
+     * @private
+     * @param {Object} output - The implemented console log function (log, error, etc...)
+     * @param {Object} args - The messages to be logged
+     * @returns {void}
+     */
     write: function writeFn(output, args) {
         if (!this._enabled) {
             return undefined;
@@ -100,22 +132,40 @@ Logger.prototype = {
         parameters.unshift(`${this.name}:`);
         parameters.push(getLogOptions());
         output.apply(console, parameters);
-
-        return this;
     },
 
+    /**
+     * Write messages to standard log.
+     *
+     * @returns {Object} The current logger instance
+     */
     log: function logFn() {
         return this.write(this._log, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to info log.
+     *
+     * @returns {Object} The current logger instance
+     */
     info: function infoFn() {
         return this.write(this._info, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to warn log.
+     *
+     * @returns {Object} The current logger instance
+     */
     warn: function warnFn() {
         return this.write(this._warn, arguments); // eslint-disable-line prefer-rest-params
     },
 
+    /**
+     * Write messages to error log.
+     *
+     * @returns {Object} The current logger instance
+     */
     error: function errorFn() {
         return this.write(this._error, arguments); // eslint-disable-line prefer-rest-params
     }

@@ -1,7 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/fieldset should render correctly 1`] = `
 <fieldset
   className="m-form__fieldset fieldset"
-  htmlElement="span">
+  htmlElement="span"
+>
   Fieldset Children
 </fieldset>
 `;

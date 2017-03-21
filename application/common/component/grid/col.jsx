@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component grid React classes are small helpers for
@@ -25,10 +26,9 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function GridCol(props) {
-
     const {
         htmlElement,
         cols,
@@ -45,7 +45,6 @@ function GridCol(props) {
     return (
         <ComponentType className={composedClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -59,7 +58,7 @@ function GridCol(props) {
  */
 GridCol.propTypes = {
     htmlElement: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     cols: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
@@ -76,7 +75,6 @@ GridCol.propTypes = {
 GridCol.defaultProps = {
     htmlElement: 'div',
     cols: 12
-
 };
 
 export default GridCol;

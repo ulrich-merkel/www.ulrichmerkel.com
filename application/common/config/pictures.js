@@ -298,4 +298,4 @@ const configPictures = {
 };
 
 // module.exports due to node
-module.exports = configPictures;
+module.exports = configPictures; // eslint-disable-line immutable/no-mutation

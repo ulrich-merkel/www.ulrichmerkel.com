@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import ElementInputGroup from './../input-group';
 
 describe('common/component/element/input-group', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
+        const wrapper = shallow(
             <ElementInputGroup
                 id='input-group'
                 name='input'
@@ -15,10 +15,17 @@ describe('common/component/element/input-group', function () {
                 value='2'
                 isValid
                 isPristine
+
             >
                 Input Group Children
             </ElementInputGroup>
-        ).toJSON();
-        expect(tree).toMatchSnapshot();
+        );
+        expect(wrapper.html()).toMatchSnapshot();
+
+        wrapper.setProps({
+            placeholder: 'placeholder',
+            isLabelVisuallyHidden: true
+        });
+        expect(wrapper.html()).toMatchSnapshot();
     });
 });

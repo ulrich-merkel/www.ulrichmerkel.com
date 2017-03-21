@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/featured/item
  *
  * @changelog
@@ -22,6 +24,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleFeaturedItem from './featured/item';
 
@@ -30,7 +33,7 @@ import ModuleFeaturedItem from './featured/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleFeatured(props) {
 
@@ -52,14 +55,7 @@ function ModuleFeatured(props) {
         'm-featured',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
@@ -68,10 +64,10 @@ function ModuleFeatured(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleFeaturedItem
-                        key={index}
+                        key={shortid.generate()}
                         path={value.path}
                         headline={value.headline}
                         lead={value.lead}
@@ -98,9 +94,9 @@ function ModuleFeatured(props) {
  */
 ModuleFeatured.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         list: PropTypes.arrayOf(
             PropTypes.shape({

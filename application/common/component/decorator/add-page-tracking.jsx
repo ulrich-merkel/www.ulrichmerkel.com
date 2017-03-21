@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this */
 /**
  * Es6 module for handling translation data.
  * Higher-Order Components (HOCs) and decorators are JavaScript functions
@@ -27,8 +28,8 @@ import { addPageView } from './../../state/page/actions';
  * The tracking higher order function handling page visits.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
- * @returns {ReactElement}
+ * @param {React.Element} SourceComponent - The react component to be decorated
+ * @returns {React.Element}
  */
 function addPageTracking(SourceComponent) {
 
@@ -55,7 +56,7 @@ function addPageTracking(SourceComponent) {
          * The required render function to return a single react child element.
          *
          * @function
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;
@@ -70,8 +71,8 @@ function addPageTracking(SourceComponent) {
      * @type {Object}
      * @property {Function} handleAddPageView - Trigger page view increment
      */
-    AddPageTracking.propTypes = {
-        handleAddPageView: PropTypes.func
+    AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
+        handleAddPageView: PropTypes.func.isRequired
     };
 
     /**

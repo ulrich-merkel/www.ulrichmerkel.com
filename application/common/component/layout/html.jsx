@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,7 +9,7 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @see {@link http://www.html5rocks.com/en/tutorials/security/content-security-policy/}
  *
@@ -23,6 +23,7 @@
  * @requires common/utils/csp
  *
  * @changelog
+ * - 0.0.4 Improve html validation
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -38,14 +39,13 @@ import configApplication, { url, csp } from './../../config/application';
 import { getNonceConfig, getCspRules } from './../../utils/csp';
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing the base html layout.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutHtml(props) {
-
     const { locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
         ? { manifest: url.cacheManifest }
@@ -55,7 +55,7 @@ function LayoutHtml(props) {
     /**
      * To fix XSS vulnerability we will use serialize-javascript
      * instead of the simple JSON.stringify when rendering the
-     * store object into the html markup
+     * store object into the html markup.
      *
      * @see {@link https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0#.wxwoxhj7c}
      */
@@ -68,8 +68,8 @@ function LayoutHtml(props) {
     ]);
 
     /**
-     * Rewind Helmet for access to its data.
-     * Read about why rewinding is necessary on the server:
+     * Rewind Helmet for access to its data. Read about why rewinding
+     * is necessary on the server:
      * @see {@link https://github.com/nfl/react-helmet#server-usage}
      *
      * Note: Helmet will update your page's `<head`> on the client
@@ -77,11 +77,18 @@ function LayoutHtml(props) {
      */
     const helmet = Helmet.rewind();
 
+    /**
+     * The golden rule when creating language tags is to keep the tag as
+     * short as possible. Avoid region, script or other subtags except
+     * where they add useful distinguishing information.
+     */
+    const langLocale = locale.split('-')[0];
+
     return (
-        <html className='no-js' dir='ltr' lang={locale} {...manifest}>
+        <html className='no-js' dir='ltr' lang={langLocale} {...manifest}>
             <head>
                 <meta charSet='utf-8' />
-                <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+                <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
                 <meta name='viewport' content='width=device-width' />
                 {csp.use && <meta httpEquiv='Content-Security-Policy' content={getCspRules(nonceConfig)} />}
                 <link rel='preload' href='/css/app.css' as='style' />
@@ -126,18 +133,30 @@ function LayoutHtml(props) {
  *
  * @static
  * @type {Object}
+ * @property {string} locale - The current locale string
  * @property {Object} store - Critical redux initial config
  * @property {Array|string} [children] - The component react children
- * @property {string} [locale] - The current locale string
- * @property {Object} [cssBase] - File contents of base css file
- * @property {Object} [scriptBootstrap] - File contents of loader javascript file
+ * @property {Object} [cssBase=''] - File contents of base css file
+ * @property {Object} [scriptBootstrap=''] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
-    store: PropTypes.object.isRequired,
-    children: PropTypes.node,
-    locale: PropTypes.string,
+    locale: PropTypes.string.isRequired,
+    store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     cssBase: PropTypes.string,
     scriptBootstrap: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see LayoutHtml.propTypes
+ */
+LayoutHtml.defaultProps = {
+    cssBase: '',
+    scriptBootstrap: ''
 };
 
 /**

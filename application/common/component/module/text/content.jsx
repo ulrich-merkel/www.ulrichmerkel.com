@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -27,7 +28,7 @@ import P from './../../element/paragraph';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ModuleTextContent(props) {
 
@@ -63,13 +64,25 @@ function ModuleTextContent(props) {
  * @static
  * @type {Object}
  * @property {Object} [content] - The content's text
- * @property {boolean} [hasColumns2] - Whether the component text should be clusted in columns via css or not
- * @property {boolean} [isCentered] - Whether the component text should be centered via css or not
+ * @property {boolean} [hasColumns2=false] - Whether the component text should be clusted in columns via css or not
+ * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  */
 ModuleTextContent.propTypes = {
-    content: PropTypes.node,
+    content: PropTypes.node, // eslint-disable-line react/require-default-props
     hasColumns2: PropTypes.bool,
     isCentered: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextContent.propTypes
+ */
+ModuleTextContent.defaultProps = {
+    hasColumns2: false,
+    isCentered: false
 };
 
 export default ModuleTextContent;

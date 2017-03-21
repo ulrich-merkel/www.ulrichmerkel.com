@@ -43,8 +43,8 @@ function addContent(configKey) {
      * The react higher order function for passing data to props.
      *
      * @function
-     * @param {ReactElement} SourceComponent - The react component to be decorated
-     * @returns {ReactElement}
+     * @param {React.Element} SourceComponent - The react component to be decorated
+     * @returns {React.Element}
      */
     return function sourceComponent(SourceComponent) {
 
@@ -53,7 +53,7 @@ function addContent(configKey) {
          *
          * @function
          * @param {Object} [props] - The current component props
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         function ReturnedComponent(props) {
 
@@ -73,12 +73,12 @@ function addContent(configKey) {
          *
          * @static
          * @type {Object}
-         * @property {string} [locale] - The current locale string
-         * @property {Object} [config] - The content configuration
+         * @property {string} locale - The current locale string
+         * @property {Object} config - The content configuration
          */
-        ReturnedComponent.propTypes = {
-            locale: PropTypes.string,
-            config: PropTypes.object // eslint-disable-line react/forbid-prop-types
+        ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
+            locale: PropTypes.string.isRequired,
+            config: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
         };
 
         /**

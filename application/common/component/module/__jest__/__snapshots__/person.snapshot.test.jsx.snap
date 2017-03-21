@@ -1,10 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/person should render correctly 1`] = `
 <menu
   className="m-person foo"
   itemScope={true}
-  itemType="http://schema.org/Person">
+  itemType="http://schema.org/Person"
+>
   <p
-    className="c-type--p m-person__name">
+    className="c-type--p m-person__name"
+  >
     <strong>
       bar
     </strong>
@@ -13,56 +17,55 @@ exports[`common/component/module/person should render correctly 1`] = `
     className="m-person__address c-type--address"
     itemProp="address"
     itemScope={true}
-    itemType="http://schema.org/Address">
+    itemType="http://schema.org/Address"
+  >
     <span
       className="m-person__street-address"
-      itemProp="street-address">
+      itemProp="street-address"
+    >
       streetAddress
     </span>
     <span
       className="m-person__postal-code"
-      itemProp="postal-code">
+      itemProp="postal-code"
+    >
       postalCode
     </span>
     <span
       className="m-person__locality"
-      itemProp="locality">
+      itemProp="locality"
+    >
       locality
     </span>
   </address>
   <p
-    className="c-type--p m-person__email">
+    className="c-type--p m-person__email"
+  >
     <abbr
-      title="E-Mail address">
+      title="E-Mail address"
+    >
       E.
     </abbr>
      
     <a
       href="malto:email"
-      itemProp="email">
+      itemProp="email"
+    >
       email
     </a>
   </p>
   <p
-    className="c-type--p m-person__phone">
+    className="c-type--p m-person__website"
+  >
     <abbr
-      title="Phonenumber">
-      P.
-    </abbr>
-     
-    <a
-      href="tel:undefined"
-      itemProp="telephone" />
-  </p>
-  <p
-    className="c-type--p m-person__website">
-    <abbr
-      title="Website">
+      title="Website"
+    >
       W.
     </abbr>
      
     <a
-      href="website">
+      href="website"
+    >
       website
     </a>
   </p>
@@ -74,9 +77,11 @@ exports[`common/component/module/person should render isCentered correctly 1`] =
 <menu
   className="is-centered m-person foo"
   itemScope={true}
-  itemType="http://schema.org/Person">
+  itemType="http://schema.org/Person"
+>
   <p
-    className="c-type--p m-person__name">
+    className="c-type--p m-person__name"
+  >
     <strong>
       bar
     </strong>
@@ -85,56 +90,55 @@ exports[`common/component/module/person should render isCentered correctly 1`] =
     className="m-person__address c-type--address"
     itemProp="address"
     itemScope={true}
-    itemType="http://schema.org/Address">
+    itemType="http://schema.org/Address"
+  >
     <span
       className="m-person__street-address"
-      itemProp="street-address">
+      itemProp="street-address"
+    >
       streetAddress
     </span>
     <span
       className="m-person__postal-code"
-      itemProp="postal-code">
+      itemProp="postal-code"
+    >
       postalCode
     </span>
     <span
       className="m-person__locality"
-      itemProp="locality">
+      itemProp="locality"
+    >
       locality
     </span>
   </address>
   <p
-    className="c-type--p m-person__email">
+    className="c-type--p m-person__email"
+  >
     <abbr
-      title="E-Mail address">
+      title="E-Mail address"
+    >
       E.
     </abbr>
      
     <a
       href="malto:email"
-      itemProp="email">
+      itemProp="email"
+    >
       email
     </a>
   </p>
   <p
-    className="c-type--p m-person__phone">
+    className="c-type--p m-person__website"
+  >
     <abbr
-      title="Phonenumber">
-      P.
-    </abbr>
-     
-    <a
-      href="tel:undefined"
-      itemProp="telephone" />
-  </p>
-  <p
-    className="c-type--p m-person__website">
-    <abbr
-      title="Website">
+      title="Website"
+    >
       W.
     </abbr>
      
     <a
-      href="website">
+      href="website"
+    >
       website
     </a>
   </p>
@@ -142,11 +146,126 @@ exports[`common/component/module/person should render isCentered correctly 1`] =
 </menu>
 `;
 
+exports[`common/component/module/person should render just a name correctly 1`] = `
+<menu
+  className="m-person foo"
+  itemScope={true}
+  itemType="http://schema.org/Person"
+>
+  <p
+    className="c-type--p m-person__name"
+  >
+    <strong>
+      bar
+    </strong>
+  </p>
+  Module person children not rendered
+</menu>
+`;
+
+exports[`common/component/module/person should render just a phone number correctly 1`] = `
+<menu
+  className="m-person foo"
+  itemScope={true}
+  itemType="http://schema.org/Person"
+>
+  Module person children not rendered
+</menu>
+`;
+
+exports[`common/component/module/person should render just a website correctly 1`] = `
+<menu
+  className="m-person foo"
+  itemScope={true}
+  itemType="http://schema.org/Person"
+>
+  <p
+    className="c-type--p m-person__website"
+  >
+    <abbr
+      title="Website"
+    >
+      W.
+    </abbr>
+     
+    <a
+      href="website"
+    >
+      website
+    </a>
+  </p>
+  Module person children not rendered
+</menu>
+`;
+
+exports[`common/component/module/person should render just an address correctly 1`] = `
+<menu
+  className="m-person foo"
+  itemScope={true}
+  itemType="http://schema.org/Person"
+>
+  <address
+    className="m-person__address c-type--address"
+    itemProp="address"
+    itemScope={true}
+    itemType="http://schema.org/Address"
+  >
+    <span
+      className="m-person__street-address"
+      itemProp="street-address"
+    >
+      streetAddress
+    </span>
+    <span
+      className="m-person__postal-code"
+      itemProp="postal-code"
+    >
+      postalCode
+    </span>
+    <span
+      className="m-person__locality"
+      itemProp="locality"
+    >
+      locality
+    </span>
+  </address>
+  Module person children not rendered
+</menu>
+`;
+
+exports[`common/component/module/person should render just an email correctly 1`] = `
+<menu
+  className="m-person foo"
+  itemScope={true}
+  itemType="http://schema.org/Person"
+>
+  <p
+    className="c-type--p m-person__email"
+  >
+    <abbr
+      title="E-Mail address"
+    >
+      E.
+    </abbr>
+     
+    <a
+      href="malto:email"
+      itemProp="email"
+    >
+      email
+    </a>
+  </p>
+  Module person children not rendered
+</menu>
+`;
+
 exports[`common/component/module/person should render no itemType if unset 1`] = `
 <menu
-  className="m-person foo">
+  className="m-person foo"
+>
   <p
-    className="c-type--p m-person__name">
+    className="c-type--p m-person__name"
+  >
     <strong>
       bar
     </strong>
@@ -155,60 +274,130 @@ exports[`common/component/module/person should render no itemType if unset 1`] =
     className="m-person__address c-type--address"
     itemProp="address"
     itemScope={true}
-    itemType="http://schema.org/Address">
+    itemType="http://schema.org/Address"
+  >
     <span
       className="m-person__street-address"
-      itemProp="street-address">
+      itemProp="street-address"
+    >
       streetAddress
     </span>
     <span
       className="m-person__postal-code"
-      itemProp="postal-code">
+      itemProp="postal-code"
+    >
       postalCode
     </span>
     <span
       className="m-person__locality"
-      itemProp="locality">
+      itemProp="locality"
+    >
       locality
     </span>
   </address>
   <p
-    className="c-type--p m-person__email">
+    className="c-type--p m-person__email"
+  >
     <abbr
-      title="E-Mail address">
+      title="E-Mail address"
+    >
       E.
     </abbr>
      
     <a
       href="malto:email"
-      itemProp="email">
+      itemProp="email"
+    >
       email
     </a>
   </p>
   <p
-    className="c-type--p m-person__phone">
+    className="c-type--p m-person__website"
+  >
     <abbr
-      title="Phonenumber">
-      P.
-    </abbr>
-     
-    <a
-      href="tel:undefined"
-      itemProp="telephone" />
-  </p>
-  <p
-    className="c-type--p m-person__website">
-    <abbr
-      title="Website">
+      title="Website"
+    >
       W.
     </abbr>
      
     <a
-      href="website">
+      href="website"
+    >
       website
     </a>
   </p>
   Module person children
+</menu>
+`;
+
+exports[`common/component/module/person should render no schema if not given 1`] = `
+<menu
+  className="m-person foo"
+>
+  <p
+    className="c-type--p m-person__name"
+  >
+    <strong>
+      bar
+    </strong>
+  </p>
+  <address
+    className="m-person__address c-type--address"
+    itemProp="address"
+    itemScope={true}
+    itemType="http://schema.org/Address"
+  >
+    <span
+      className="m-person__street-address"
+      itemProp="street-address"
+    >
+      streetAddress
+    </span>
+    <span
+      className="m-person__postal-code"
+      itemProp="postal-code"
+    >
+      postalCode
+    </span>
+    <span
+      className="m-person__locality"
+      itemProp="locality"
+    >
+      locality
+    </span>
+  </address>
+  <p
+    className="c-type--p m-person__email"
+  >
+    <abbr
+      title="E-Mail address"
+    >
+      E.
+    </abbr>
+     
+    <a
+      href="malto:email"
+      itemProp="email"
+    >
+      email
+    </a>
+  </p>
+  <p
+    className="c-type--p m-person__website"
+  >
+    <abbr
+      title="Website"
+    >
+      W.
+    </abbr>
+     
+    <a
+      href="website"
+    >
+      website
+    </a>
+  </p>
+  Module person children not rendered
 </menu>
 `;
 

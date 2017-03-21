@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -27,7 +28,7 @@ import A from './../../element/a';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ModuleTextLink(props) {
 
@@ -70,7 +71,7 @@ function ModuleTextLink(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content] - The link content's text
+ * @property {string} [content={}] - The link content's text
  */
 ModuleTextLink.propTypes = {
     content: PropTypes.shape({
@@ -78,6 +79,17 @@ ModuleTextLink.propTypes = {
         linkLabel: PropTypes.string,
         linkTitle: PropTypes.string
     })
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextLink.propTypes
+ */
+ModuleTextLink.defaultProps = {
+    content: {}
 };
 
 export default ModuleTextLink;

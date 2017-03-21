@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-let */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires lodash
  * @requires common/component/grid/col
  * @requires common/component/element/headline
  * @requires common/component/element/meta
@@ -22,6 +24,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import { isString } from 'lodash';
 
 import GridCol from './../../grid/col';
 import Headline from './../../element/headline';
@@ -42,7 +45,7 @@ function getCssTransformRotate(percent) {
         deg = 0,
         perc = percent;
 
-    if (typeof perc === 'string') {
+    if (isString(perc)) {
         perc = parseInt(perc, 10);
     }
 
@@ -67,7 +70,7 @@ function getCssTransformRotate(percent) {
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleLanguageItem(props) {
 
@@ -108,8 +111,8 @@ function ModuleLanguageItem(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The language item headline
- * @property {string} [lead] - The language item lead text
+ * @property {string} [headline=''] - The language item headline
+ * @property {string} [lead=''] - The language item lead text
  * @property {string|number} [percent=0] - The language capability in percent
  */
 ModuleLanguageItem.propTypes = {
@@ -129,6 +132,8 @@ ModuleLanguageItem.propTypes = {
  * @see ModuleLanguageItem.propTypes
  */
 ModuleLanguageItem.defaultProps = {
+    headline: '',
+    lead: '',
     percent: 0
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -33,7 +34,7 @@ import ModuleText from './../module/text'; // eslint-disable-line import/no-name
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function SectionText(props) {
 
@@ -62,13 +63,30 @@ function SectionText(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
- * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
+ * @property {Object} [content={}] - The content config input
+ * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
 SectionText.propTypes = {
-    children: PropTypes.node,
-    content: PropTypes.object,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
     isMain: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionText.propTypes
+ */
+SectionText.defaultProps = {
+    content: {},
+    isMain: false
 };
 
 export default SectionText;

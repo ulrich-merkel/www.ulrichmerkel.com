@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -36,7 +37,7 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementHeadline(props) {
 
@@ -66,11 +67,12 @@ function ElementHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
  * @property {boolean} [isCentered=true] - Whether the component should be centered via css or not
  */
 ElementHeadline.propTypes = {
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     htmlElement: PropTypes.oneOf([
         'h1',
         'h2',
@@ -79,7 +81,6 @@ ElementHeadline.propTypes = {
         'h5',
         'h6'
     ]),
-    className: PropTypes.string,
     isCentered: PropTypes.bool
 };
 
@@ -94,5 +95,6 @@ ElementHeadline.defaultProps = {
     htmlElement: 'h1',
     isCentered: true
 };
+
 
 export default ElementHeadline;

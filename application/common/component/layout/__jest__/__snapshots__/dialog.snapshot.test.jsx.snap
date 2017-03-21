@@ -1,57 +1,7 @@
-exports[`common/component/layout/dialog should render correctly 1`] = `
-<dialog
-  className="l-dialog"
-  role="presentation">
-  <div
-    className="l-dialog__content">
-    <div
-      className="l-grid__spaced--small">
-      <div
-        className="l-grid__row">
-        <div
-          className="l-grid__col--12">
-          <article
-            className="is-main m-article m-article--broadcast"
-            itemScope={true}
-            itemType="https://schema.org/Article">
-            <div
-              className="m-article__text"
-              itemProp="text">
-              <ul
-                className="m-list--broadcast"
-                itemScope={true}
-                itemType="http://schema.org/ItemList"
-                role="list" />
-              <button
-                className="c-btn"
-                onClick={[Function]}
-                role="button"
-                title=""
-                to={undefined}
-                type="button">
-                <span
-                  className="c-btn__label" />
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-    <button
-      className="c-btn l-dialog__button--close c-font-icon--close c-btn--small"
-      onClick={[Function]}
-      role="button"
-      title=""
-      to={undefined}
-      type="button">
-      <span
-        className="c-btn__label is-visually-hidden" />
-    </button>
-  </div>
-  <div
-    className="l-dialog__background"
-    role="presentation" />
-</dialog>
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/component/layout/dialog should render correctly 1`] = `"<dialog class=\\"l-dialog\\" role=\\"presentation\\"><div class=\\"l-dialog__content\\">Dialog Children<div class=\\"l-grid__spaced--small\\"><div class=\\"l-grid__row\\"><div class=\\"l-grid__col--12\\"><button class=\\"c-btn\\" type=\\"button\\" role=\\"button\\" title=\\"\\"><span class=\\"c-btn__label\\"></span></button></div></div></div><button class=\\"c-btn l-dialog__button--close c-font-icon--close c-btn--small\\" type=\\"button\\" role=\\"button\\" title=\\"\\"><span class=\\"c-btn__label is-visually-hidden\\"></span></button></div><div class=\\"l-dialog__background\\" role=\\"presentation\\"></div></dialog>"`;
 
 exports[`common/component/layout/dialog should render null if not visible 1`] = `null`;
+
+exports[`common/component/layout/dialog should render null if not visible 2`] = `null`;

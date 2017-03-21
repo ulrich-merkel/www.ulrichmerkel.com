@@ -1,28 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/textarea should call passed callbacks 1`] = `
 <textarea
   className="m-form__control--textarea"
   cols="50"
+  id="textarea-callbacks"
+  name="textarea-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
-  rows="4" />
+  placeholder=""
+  rows="4"
+/>
 `;
 
 exports[`common/component/element/textarea should call passed callbacks 2`] = `
 <textarea
   className="m-form__control--textarea"
   cols="50"
+  id="textarea-callbacks"
+  name="textarea-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
-  rows="4" />
+  placeholder=""
+  rows="4"
+/>
 `;
 
 exports[`common/component/element/textarea should call passed callbacks 3`] = `
 <textarea
   className="m-form__control--textarea"
   cols="50"
+  id="textarea-callbacks"
+  name="textarea-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
-  rows="4" />
+  placeholder=""
+  rows="4"
+/>
 `;
 
 exports[`common/component/element/textarea should render correctly with default callbacks 1`] = `
@@ -36,7 +50,8 @@ exports[`common/component/element/textarea should render correctly with default 
   onChange={[Function]}
   placeholder="Test textarea placeholder"
   required={true}
-  rows="4" />
+  rows="4"
+/>
 `;
 
 exports[`common/component/element/textarea should render correctly with default callbacks 2`] = `
@@ -50,7 +65,8 @@ exports[`common/component/element/textarea should render correctly with default 
   onChange={[Function]}
   placeholder="Test textarea placeholder"
   required={true}
-  rows="4" />
+  rows="4"
+/>
 `;
 
 exports[`common/component/element/textarea should render correctly with default callbacks 3`] = `
@@ -64,5 +80,6 @@ exports[`common/component/element/textarea should render correctly with default 
   onChange={[Function]}
   placeholder="Test textarea placeholder"
   required={true}
-  rows="4" />
+  rows="4"
+/>
 `;

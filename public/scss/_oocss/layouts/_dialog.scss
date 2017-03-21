@@ -14,20 +14,20 @@ $block: '#{$config-ns}l-dialog';
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
         position: fixed;
-        z-index: 10;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: scroll;
-        overflow-x: hidden;
+        left: 0;
+        z-index: 10;
         display: block;
         width: auto;
         max-width: 100%;
         height: auto;
         margin: 0 auto;
         padding: 0;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+        overflow-y: scroll;
         background: transparent;
         contain: layout;
 
@@ -38,7 +38,8 @@ $block: '#{$config-ns}l-dialog';
     .#{$block}__content {
         position: relative;
         z-index: 11;
-        padding-top: rem-calc(100);
+        padding-top: rem-calc($config-grid--gutter * 2.5);
+        padding-bottom: rem-calc($config-grid--gutter * 2.5);
 
         .m-article__headline,
         .m-article__alt-headline,
@@ -51,11 +52,11 @@ $block: '#{$config-ns}l-dialog';
 
     .#{$block}__background {
         position: fixed;
-        z-index: 9;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
+        left: 0;
+        z-index: 9;
         width: 100%;
         height: 100%;
         background: $config-color-blue--2;
@@ -63,19 +64,23 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}__button--close {
+        // stylelint-disable declaration-no-important
         position: absolute !important;
-        z-index: 12;
+        // stylelint-enable declaration-no-important
         top: 0;
         right: 0;
-        width: rem-calc($config-grid--gutter * 2);
-        height: rem-calc($config-grid--gutter * 2);
-        padding: 9px 0 0 6px !important;
-        background: $config-color-blue--1;
-        color: $config-color-white;
+        z-index: 12;
+        width: 61px; // rem-calc($config-grid--gutter * 3);
+        height: 61px; // rem-calc($config-grid--gutter * 3);
+        // stylelint-disable declaration-no-important
+        padding: 13px 0 0 5px !important;
+        // stylelint-enable declaration-no-important
         font-size: 130%;
         line-height: 2.5;
+        color: $config-color-white;
         text-align: center;
         letter-spacing: normal;
+        background: $config-color-blue--1;
 
         &:focus {
             color: $config-color-white;
@@ -145,11 +150,11 @@ $block: '#{$config-ns}l-dialog';
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
-        opacity: 1;
-        visibility: visible;
         display: block;
-        animation-duration: 0.3s;
+        visibility: visible;
+        opacity: 1;
         animation-fill-mode: forwards;
+        animation-duration: 0.3s;
 
         &.animate-enter {
             visibility: visible;
@@ -175,7 +180,9 @@ $block: '#{$config-ns}l-dialog';
     }
 
     .#{$block}--loading {
+        // stylelint-disable declaration-no-important
         display: none !important;
+        // stylelint-enable declaration-no-important
     }
 
     .#{$block} {
@@ -207,6 +214,37 @@ $block: '#{$config-ns}l-dialog';
             .m-list__alt-headline {
                 color: $config-color-white;
             }
+        }
+    }
+
+    .#{$block}--search {
+        .m-form__control--text {
+            color: $config-color-white;
+            background: $config-color-blue--2;
+        }
+        .c-type--h3 {
+            color: $config-color-white;
+        }
+        .m-menu__item {
+            // just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &,
+                .no-touchevents &,
+                .no-js & {
+                    &:hover {
+                        color: $config-color-white;
+                    }
+                }
+            }
+        }
+        .c-btn {
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .m-menu__description {
+            color: $config-color-white;
         }
     }
 }

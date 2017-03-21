@@ -1,4 +1,4 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -11,8 +11,9 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
- * @requires React
+ * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/element/headline
  *
  * @changelog
@@ -22,6 +23,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import Headline from './../element/headline';
 
@@ -51,18 +53,18 @@ function ModuleList(props) {
     return (
         <ComponentType className={componentClassName} itemScope itemType={itemType} role='list'>
 
-            {content.text && content.text.map((entry, index) => {
+            {content.text && content.text.map((entry) => {
                 return (
-                    <li className='m-list__item' key={index}>
+                    <li className='m-list__item' key={shortid.generate()}>
                         <Headline className='m-list__alt-headline' isCentered={false} htmlElement='h3'>
                             {entry.headline}
                         </Headline>
                         <ul className='m-list'>
-                            {entry.list && entry.list.map((job, key) => {
+                            {entry.list && entry.list.map((job) => {
                                 const text = `${job.name}, ${job.job} - ${job.place}`;
                                 return (
                                     <li
-                                        key={key}
+                                        key={shortid.generate()}
                                         className='m-list__item'
                                         itemProp='itemListElement'
                                         dangerouslySetInnerHTML={{ __html: text }}
@@ -82,7 +84,7 @@ function ModuleList(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {React.Component.PropTypes}
+ * @type {Object}
  * @property {string} [componentType='ul'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
@@ -91,10 +93,15 @@ function ModuleList(props) {
  */
 ModuleList.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
-    content: PropTypes.object
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
 };
 
 /**

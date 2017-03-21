@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -33,7 +34,7 @@ import ModuleService from './../module/service';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function SectionService(props) {
 
@@ -61,11 +62,27 @@ function SectionService(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
+ * @property {Object} [content={}] - The content config input
  */
 SectionService.propTypes = {
-    children: PropTypes.node,
-    content: PropTypes.object
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionService.propTypes
+ */
+SectionService.defaultProps = {
+    content: {}
 };
 
 export default SectionService;

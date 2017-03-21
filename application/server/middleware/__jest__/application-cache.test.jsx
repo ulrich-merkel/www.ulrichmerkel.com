@@ -1,4 +1,4 @@
-/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle */
+/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle, immutable/no-mutation, immutable/no-let */
 jest.mock('./../../../common/config/application');
 
 import httpMocks from 'node-mocks-http';

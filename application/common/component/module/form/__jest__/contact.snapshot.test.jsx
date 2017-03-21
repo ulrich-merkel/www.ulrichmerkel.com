@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names */
+/* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 // @see https://github.com/airbnb/enzyme/issues/426
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';

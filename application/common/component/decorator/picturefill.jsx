@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for handling translation data.
@@ -55,8 +56,8 @@ function initPicturefill() {
  * The pictureFill higher order function handling responsive images.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
- * @returns {ReactElement}
+ * @param {React.Element} SourceComponent - The react component to be decorated
+ * @returns {React.Element}
  */
 function pictureFill(SourceComponent) {
 
@@ -66,7 +67,7 @@ function pictureFill(SourceComponent) {
      * @class
      * @extends React.Component
      */
-    return class extends Component {
+    return class PictureFill extends Component {
 
         /**
          * Invoked once, only on the client (not on the server),
@@ -94,7 +95,7 @@ function pictureFill(SourceComponent) {
          * The required render function to return a single react child element.
          *
          * @function
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

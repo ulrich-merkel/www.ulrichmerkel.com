@@ -19,22 +19,27 @@
 
         * {
             // Black prints faster: sanbeiji.com/archives/953
-            border-color: $config-color-black !important;
+            // stylelint-disable declaration-no-important
             color: $config-color-black !important;
             text-shadow: none !important;
             background: transparent !important;
             -ms-filter: none !important;
             filter: none !important;
-            box-shadow: none;
+            border-color: $config-color-black !important;
             border-radius: 0;
+            box-shadow: none;
+            // stylelint-enable declaration-no-important
         }
 
         p {
             a {
                 &,
                 &:visited {
+                    // stylelint-disable declaration-no-important
                     color: $config-color-grey !important;
+                    // stylelint-enable declaration-no-important
                     text-decoration: underline;
+                    text-decoration-skip: ink;
                 }
             }
         }
@@ -43,9 +48,9 @@
         abbr {
             &[title] {
                 &::after {
-                    /* stylelint-disable function-whitespace-after */
+                    // stylelint-disable function-whitespace-after
                     content: ' ('attr(title)') ';
-                    /* stylelint-enable function-whitespace-after */
+                    // stylelint-enable function-whitespace-after
                 }
             }
         }

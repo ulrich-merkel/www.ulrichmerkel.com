@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -9,12 +10,13 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @requires react
  * @requires classnames
  *
  * @changelog
+ * - 0.0.2 Add isVisuallyHidden to props
  * - 0.0.1 Basic functions and structure
  */
 import React, { PropTypes } from 'react';
@@ -25,25 +27,27 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementLabel(props) {
-
     const {
         className,
         htmlFor,
+        isVisuallyHidden,
         ...otherProps
     } = props;
 
     const composedClassName = classnames(
         'm-form__label',
-        className
+        className,
+        {
+            'is-visually-hidden': isVisuallyHidden
+        }
     );
 
     return (
         <label className={composedClassName} htmlFor={htmlFor} {...otherProps} />
     );
-
 }
 
 /**
@@ -51,12 +55,25 @@ function ElementLabel(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The label css class names, will be merged into component default classNames
  * @property {string} [htmlFor] - The label for attribute
+ * @property {string} [className] - The label css class names, will be merged into component default classNames
+ * @property {boolean} [isVisuallyHidden] - Whether the label is visually hidden or not
  */
 ElementLabel.propTypes = {
-    className: PropTypes.string,
-    htmlFor: PropTypes.string
+    htmlFor: PropTypes.string.isRequired,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isVisuallyHidden: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ElementLabel.propTypes
+ */
+ElementLabel.defaultProps = {
+    isVisuallyHidden: false
 };
 
 export default ElementLabel;

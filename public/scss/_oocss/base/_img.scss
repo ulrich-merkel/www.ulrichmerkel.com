@@ -9,14 +9,14 @@
 @if ($config-non-critical-css) {
 
     img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
         font-family: $config-type-font-family;
         font-weight: $config-font-weight-light;
         line-height: 2;
         text-align: center;
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
     }
 
     // ----------------------------
@@ -24,30 +24,30 @@
     // ----------------------------
     img {
         &::before {
-            content: ' ';
-            display: block;
             position: absolute;
             top: -10px;
             left: 0;
-            height: calc(100% + 10px);
+            display: block;
             width: 100%;
+            height: calc(100% + 10px);
+            content: ' ';
             background-color: $config-color-grey--2;
             border: 2px dotted $config-color-grey--3;
             border-radius: 5px;
         }
 
         &::after {
-            content: '\ea07 ' attr(alt) ' Image could not be loaded';
-            display: block;
-            @include font-size($config-type-scale-9);
-            font-style: normal;
-            font-family: fonticons;
-            color: $config-color-grey--6;
             position: absolute;
             top: 5px;
             left: 0;
+            display: block;
             width: 100%;
+            font-family: fonticons;
+            @include font-size($config-type-scale-9);
+            font-style: normal;
+            color: $config-color-grey--6;
             text-align: center;
+            content: '\ea07 ' attr(alt) ' Image could not be loaded';
         }
     }
 

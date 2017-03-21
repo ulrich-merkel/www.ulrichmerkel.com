@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, react/jsx-indent */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/element/headline
  * @requires common/component/element/paragraph
  *
@@ -20,6 +22,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import Headline from './../../element/headline';
 import P from './../../element/paragraph';
@@ -29,9 +32,9 @@ import P from './../../element/paragraph';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
-function ModuleCornerstoneItemEducation(props) {
+function ModuleCornerstoneItemEmployee(props) {
 
     const {
         cssModifier,
@@ -41,7 +44,6 @@ function ModuleCornerstoneItemEducation(props) {
         timeStart,
         timeEnd,
         description,
-        place,
         ...otherProps
     } = props;
 
@@ -51,19 +53,19 @@ function ModuleCornerstoneItemEducation(props) {
     );
 
     return (
-        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EducationEvent' {...otherProps}>
+        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EmployeeRole' {...otherProps}>
             <div className='m-cornerstone__description'>
                 <div className='m-cornerstone__description-content'>
-                    <Headline className='m-cornerstone__headline' itemProp='name' htmlElement='h4'>
+                    <Headline className='m-cornerstone__headline' itemProp='roleName' htmlElement='h4'>
                         {headline}
                     </Headline>
-                    <P className='m-cornerstone__company' itemProp='alternateName'>
+                    <P className='m-cornerstone__company'>
                         <strong>{lead}</strong>
                     </P>
-                    <P className='m-cornerstone__time'>
-                        (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time' itemProp='endDate'>{timeEnd}</time>)
+                    <P className='m-cornerstone__time' itemProp='description'>
+                        (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time'>{timeEnd}</time>)
                     </P>
-                    {description.map((text, index) => {
+                    {description.map((value) => {
                         /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
                          * are not possible to be set via translation strings.
@@ -72,24 +74,17 @@ function ModuleCornerstoneItemEducation(props) {
                          */
                         return (
                             <P
-                                key={index}
+                                key={shortid.generate()}
                                 className='m-cornerstone__text'
                                 itemProp='description'
-                                dangerouslySetInnerHTML={{ __html: text }}
+                                dangerouslySetInnerHTML={{ __html: value }}
                             />
                         );
+
                     })}
                 </div>
             </div>
             <div className='m-cornerstone__bubble' />
-            <div hidden itemProp='location' itemScope itemType='https://schema.org/Place'>
-                <meta itemProp='name' content={place.name} />
-                <div itemProp='address' itemScope itemType='http://schema.org/PostalAddress'>
-                    <meta itemProp='streetAddress' content={place.streetAddress} />
-                    <meta itemProp='addressLocality' content={place.addressLocality} />
-                    <meta itemProp='sameAs' content={place.sameAs} />
-                </div>
-            </div>
         </li>
     );
 
@@ -105,22 +100,17 @@ function ModuleCornerstoneItemEducation(props) {
  * @property {string} [timeStart] - The item start time
  * @property {string} [timeEnd] - The item end time
  * @property {Array} [description=[]] - The items description
- * @property {Object='{}'} [place] - The items place description
  * @property {string} [cssModifier] - The bem css modifier
  * @property {string} [offset] - The css top offset to display items nice
  */
-ModuleCornerstoneItemEducation.propTypes = {
-    headline: PropTypes.string,
-    lead: PropTypes.string,
-    timeStart: PropTypes.string,
-    timeEnd: PropTypes.string,
+ModuleCornerstoneItemEmployee.propTypes = {
+    headline: PropTypes.string, // eslint-disable-line react/require-default-props
+    lead: PropTypes.string, // eslint-disable-line react/require-default-props
+    timeStart: PropTypes.string, // eslint-disable-line react/require-default-props
+    timeEnd: PropTypes.string, // eslint-disable-line react/require-default-props
     description: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    place: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object
-    ])),
-    cssModifier: PropTypes.string,
-    offset: PropTypes.string
+    cssModifier: PropTypes.string, // eslint-disable-line react/require-default-props
+    offset: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -128,11 +118,10 @@ ModuleCornerstoneItemEducation.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleCornerstoneItemEducation.propTypes
+ * @see ModuleCornerstoneItemEmployee.propTypes
  */
-ModuleCornerstoneItemEducation.defaultProps = {
-    description: [],
-    place: {}
+ModuleCornerstoneItemEmployee.defaultProps = {
+    description: []
 };
 
-export default ModuleCornerstoneItemEducation;
+export default ModuleCornerstoneItemEmployee;

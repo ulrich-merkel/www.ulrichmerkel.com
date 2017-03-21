@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names */
+/* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ElementInput from './../input';
@@ -33,6 +33,8 @@ describe('common/component/element/input', function () {
         const onChange = jest.fn();
         const component = renderer.create(
             <ElementInput
+                id='input-callbacks'
+                name='input-callbacks'
                 onBlur={onBlur}
                 onChange={onChange}
             />

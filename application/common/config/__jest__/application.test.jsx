@@ -1,10 +1,11 @@
 /* eslint-disable func-names */
+import { isNumber, isString } from 'lodash';
 import configApplication, { port, host, sessionSecret, url } from './../application';
 
 describe('common/config/application', function () {
     it('should have valid port and host', function () {
         expect(port).toBeDefined();
-        expect(typeof port === 'number' || typeof port === 'string').toBeTruthy();
+        expect(isNumber(port) || isString(port)).toBeTruthy();
         expect(host).toBeDefined();
         expect(typeof host).toEqual('string');
     });

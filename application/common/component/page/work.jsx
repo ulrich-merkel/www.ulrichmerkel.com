@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Page components combine section components to the
@@ -21,6 +22,7 @@
  * @requires common/component/layout/main
  * @requires common/component/section/key-visual
  * @requires common/component/section/text
+ * @requires common/component/section/featured
  *
  * @changelog
  * - 0.0.4 Improve react-router routing
@@ -41,6 +43,7 @@ import { getContentSection, getTranslatedContent } from './../../utils/content';
 import LayoutMain from './../layout/main';
 import SectionKeyVisual from './../section/key-visual';
 import SectionText from './../section/text';
+import SectionFeatured from './../section/featured';
 
 /**
  * Find current work page key from config array.
@@ -55,7 +58,7 @@ function getWorkContentKey(routerPath, config) {
     return config.filter((entry) => {
         return entry.routerPath.substr(1) === routerPath;
     }).map((entry) => {
-        return entry.i18nKey;
+        return entry.intlKey;
     }).shift();
 }
 
@@ -74,8 +77,8 @@ class PageWork extends Component {
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(...props) {
-        super(...props);
+    constructor(props) {
+        super(props);
 
         this.state = {
             work: null
@@ -90,12 +93,38 @@ class PageWork extends Component {
      * @returns {void}
      */
     componentWillMount() {
-        const { params, router } = this.props;
+        const { params } = this.props;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Invoked before a mounted component receives new props. React only calls
+     * this method if some of component's props may update.
+     *
+     * @function
+     * @param {Object} [nextProps] - The new class properties
+     * @returns {void}
+     */
+    componentWillReceiveProps(nextProps) {
+        const { params } = nextProps;
+        this.handleRouterParams(params);
+    }
+
+    /**
+     * Handle state transition or redirect based on the router params.
+     *
+     * @function
+     * @private
+     * @param {Object} params - The current router params
+     * @returns {void}
+     */
+    handleRouterParams(params) {
+        const { router } = this.props;
         const work = getWorkContentKey(params.work, configWork);
 
         // redirect if route couldn't be found
         if (!work) {
-            router.push(url.index);
+            router.push(url.home);
             return;
         }
 
@@ -108,7 +137,7 @@ class PageWork extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
         const { locale, config } = this.props;
@@ -134,10 +163,10 @@ class PageWork extends Component {
                     hasColumns2={false}
                     itemType='https://schema.org/CreativeWork'
                 />
+                <SectionFeatured content={contentSection('section3')} />
             </LayoutMain>
         );
     }
-
 }
 
 /**
@@ -152,8 +181,17 @@ class PageWork extends Component {
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
-    params: PropTypes.object.isRequired,
-    router: PropTypes.object.isRequired,
+    params: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.string,
+        PropTypes.object
+    ])).isRequired,
+    router: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.func,
+        PropTypes.string,
+        PropTypes.object
+    ])).isRequired,
     config: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,

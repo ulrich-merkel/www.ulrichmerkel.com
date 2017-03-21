@@ -1,15 +1,15 @@
-/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle */
+/* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle, immutable/no-let */
 jest.mock('./../../../common/config/content', function () {
     return {
         content: 'foo'
     };
 });
-jest.mock('./../../../common/config/i18n/en-EN', function () {
+jest.mock('./../../../common/config/intl/en-EN', function () {
     return {
         key: 'en-EN'
     };
 });
-jest.mock('./../../../common/config/i18n/de-DE', function () {
+jest.mock('./../../../common/config/intl/de-DE', function () {
     return {
         key: 'de-DE'
     };

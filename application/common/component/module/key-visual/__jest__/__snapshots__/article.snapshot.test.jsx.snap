@@ -1,19 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/key-visual/article should render correctly 1`] = `
 <article
-  className="m-key-visual__text">
+  className="m-key-visual__text"
+>
   <h3
     className="is-centered c-type--h3 m-key-visual__headline"
-    itemProp="headline">
+    itemProp="headline"
+  >
     <span
-      className="m-key-visual__boxed">
+      className="m-key-visual__boxed"
+    >
       headline
     </span>
   </h3>
   <p
     className="c-type--p m-key-visual__lead"
-    itemProp="description">
+    itemProp="description"
+  >
     <span
-      className="m-key-visual__boxed">
+      className="m-key-visual__boxed"
+    >
       lead
     </span>
   </p>

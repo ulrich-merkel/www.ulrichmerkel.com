@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, immutable/no-mutation */
 // @see https://github.com/reactjs/redux/blob/master/docs/recipes/WritingTests.md
 import configureMockStore from 'redux-mock-store'; // eslint-disable-line import/no-extraneous-dependencies
 import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
@@ -67,7 +67,7 @@ describe('common/state/config/actions', function () {
             const store = mockStore({ config: null });
 
             return store.dispatch(fetchConfigContentIfNeeded()).then(function () {
-                expect(store.getActions()).toEqual(expectedActions);
+                return expect(store.getActions()).toEqual(expectedActions);
             });
         });
     });
@@ -95,7 +95,7 @@ describe('common/state/config/actions', function () {
             const store = mockStore({ config: null });
 
             return store.dispatch(fetchConfigTranslationIfNeeded('en-EN')).then(function () {
-                expect(store.getActions()).toEqual(expectedActions);
+                return expect(store.getActions()).toEqual(expectedActions);
             });
         });
     });

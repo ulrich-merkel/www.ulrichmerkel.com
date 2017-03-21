@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for React Component.
@@ -8,7 +9,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @requires react
  * @requires react-helmet
@@ -17,12 +18,16 @@
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
  * @requires common/utils/scroll-to
+ * @requires common/state/constants
  * @requires common/component/layout/header
  * @requires common/component/layout/footer
  * @requires common/component/layout/loader
  * @requires common/component/layout/dialog
+ * @requires common/component/page/broadcast
+ * @requires common/component/page/search
  *
  * @changelog
+ * - 0.0.3 Remove connect and state handling, improve dialog handling
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
@@ -30,15 +35,24 @@ import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import classnames from 'classnames';
 
-import picturefill from './../decorator/picturefill';
-import scroller from './../decorator/scroller';
-import addContent from './../decorator/add-content';
+import {
+    pictureFill,
+    scroller,
+    addContent
+} from './../decorator/';
 import scrollTo, { getPageOffset } from './../../utils/scroll-to';
-
-import LayoutHeader from './header'; // eslint-disable-line import/no-named-as-default
-import LayoutFooter from './footer';
-import LayoutLoader from './loader';
-import LayoutDialog from './dialog'; // eslint-disable-line import/no-named-as-default
+import {
+    STATE_DIALOG_PAGE_BROADCAST,
+    STATE_DIALOG_PAGE_SEARCH
+} from './../../state/constants';
+import {
+    LayoutHeader,
+    LayoutFooter,
+    LayoutLoader,
+    LayoutDialog
+} from './index';
+import PageBroadcast from './../page/broadcast';
+import PageSearch from './../page/search';
 
 /**
  * Class representing a component.
@@ -55,8 +69,8 @@ class LayoutBody extends Component {
      * @param {Object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(...props) {
-        super(...props);
+    constructor(props) {
+        super(props);
 
         /**
          * Bind manually because React class components don't auto-bind.
@@ -74,7 +88,6 @@ class LayoutBody extends Component {
          * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
          */
         this.handleScrollTop = this.handleScrollTop.bind(this);
-
     }
 
     /**
@@ -109,28 +122,39 @@ class LayoutBody extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
-
-        const { children, content, ...otherProps } = this.props;
+        const {
+            children,
+            content
+        } = this.props;
 
         const componentClassName = classnames('l-react__body');
 
         return (
             <div className={componentClassName}>
                 <Helmet {...content} />
-                <LayoutHeader {...otherProps} />
+                <LayoutLoader />
+                <LayoutHeader />
                 {children}
                 <LayoutFooter
                     handleScrollTop={this.handleScrollTop}
-                    {...otherProps}
                 />
-                <LayoutLoader {...otherProps} />
-                <LayoutDialog {...otherProps} />
+                <LayoutDialog
+                    page={STATE_DIALOG_PAGE_SEARCH}
+                    isSearch
+                >
+                    <PageSearch isDialog />
+                </LayoutDialog>
+                <LayoutDialog
+                    page={STATE_DIALOG_PAGE_BROADCAST}
+                    isBroadcast
+                >
+                    <PageBroadcast isDialog />
+                </LayoutDialog>
             </div>
         );
-
     }
 
 }
@@ -141,14 +165,38 @@ class LayoutBody extends Component {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The component content config
+ * @property {Object} [content={}] - The component content config
  */
 LayoutBody.propTypes = {
-    children: PropTypes.node,
-    content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ]))
 };
 
-export default scroller(picturefill(addContent('Head')(LayoutBody)));
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see LayoutBody.propTypes
+ */
+LayoutBody.defaultProps = {
+    content: {}
+};
+
+/**
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {React.Element}
+ */
+const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
+
+export default LayoutBodyContainer;
 export {
     LayoutBody
 };

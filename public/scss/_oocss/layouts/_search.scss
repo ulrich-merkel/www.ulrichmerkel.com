@@ -12,13 +12,13 @@ $block: '#{$config-ns}l-search';
 
     .#{$block} {
         position: absolute;
-        z-index: 10;
         top: $config-layout-header-height;
         right: 0;
         left: 0;
+        z-index: 10;
         display: block;
-        visibility: visible;
         margin-bottom: 0;
+        visibility: visible;
         background: $config-color-blue--2;
     }
 

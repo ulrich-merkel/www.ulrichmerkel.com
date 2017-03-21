@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -25,7 +26,7 @@ import Headline from './../../element/headline';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleTextHeadline(props) {
 
@@ -50,10 +51,21 @@ function ModuleTextHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [text] - The headline text
+ * @property {string} [text=''] - The headline text
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleTextHeadline.propTypes
+ */
+ModuleTextHeadline.defaultProps = {
+    text: ''
 };
 
 export default ModuleTextHeadline;

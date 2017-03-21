@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names, no-underscore-dangle */
+/* eslint-disable import/no-extraneous-dependencies, func-names, no-underscore-dangle, immutable/no-let, immutable/no-mutation */
 import httpMocks from 'node-mocks-http';
 import middleware from './../error';
 

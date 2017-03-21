@@ -7,6 +7,8 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.5
  *
+ * @see {@link http://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application/}
+ *
  * @requires nodemailer
  * @requires assert-plus
  * @requires common/config/application
@@ -46,7 +48,7 @@ const xorKey = configApplication.xor.key;
 function sendSuccess(req, res, message = '') {
     assert.object(req, 'req');
     assert.object(res, 'res');
-    assert.optionalString(message, 'message');
+    // assert.optionalString(message, 'message');
 
     if (req.xhr) {
         return res.status(200).send({
@@ -71,7 +73,7 @@ function sendSuccess(req, res, message = '') {
 function sendError(req, res, message = '') {
     assert.object(req, 'req');
     assert.object(res, 'res');
-    assert.optionalString(message, 'message');
+    // assert.optionalString(message, 'message');
 
     if (req.xhr) {
         return res.status(400).send({
@@ -95,7 +97,7 @@ function middlewarePost(req, res) {
     assert.object(res, 'res');
 
     const transporter = nodemailer.createTransport();
-    let postData = req.body;
+    let postData = req.body; // eslint-disable-line immutable/no-let
 
     if (!postData) {
         return sendError(req, res, 'No data recieved');
@@ -108,6 +110,8 @@ function middlewarePost(req, res) {
         );
     }
 
+    // @TODO: Escape user data
+    // @see {@link http://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application/}
     if (!isValid(postData)) {
         return sendError(req, res, 'Data not valid');
     }

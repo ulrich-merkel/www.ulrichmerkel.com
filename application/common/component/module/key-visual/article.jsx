@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -30,7 +31,7 @@ import P from './../../element/paragraph';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleKeyVisualArticle(props) {
 
@@ -63,12 +64,24 @@ function ModuleKeyVisualArticle(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The article headline content
- * @property {string} [lead] - The article lead content
+ * @property {string} [headline=''] - The article headline content
+ * @property {string} [lead=''] - The article lead content
  */
 ModuleKeyVisualArticle.propTypes = {
     headline: PropTypes.string,
     lead: PropTypes.string
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleKeyVisualArticle.propTypes
+ */
+ModuleKeyVisualArticle.defaultProps = {
+    headline: '',
+    lead: ''
 };
 
 export default ModuleKeyVisualArticle;

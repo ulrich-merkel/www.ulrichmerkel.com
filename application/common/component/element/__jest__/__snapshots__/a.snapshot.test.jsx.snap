@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/a should handle correct link to index page 1`] = `
 <a
   className="c-link link-a"
@@ -5,7 +7,8 @@ exports[`common/component/element/a should handle correct link to index page 1`]
   onClick={[Function]}
   style={Object {}}
   tabIndex="0"
-  title="Link title">
+  title="Link title"
+>
   Link Children
 </a>
 `;
@@ -17,7 +20,8 @@ exports[`common/component/element/a should handle correct link to relative page 
   onClick={[Function]}
   style={Object {}}
   tabIndex="0"
-  title="Link title">
+  title="Link title"
+>
   Link Children
 </a>
 `;
@@ -30,7 +34,10 @@ exports[`common/component/element/a should render correctly 1`] = `
   rel="noopener noreferrer"
   tabIndex="0"
   target="_blank"
-  title="Link title">
+  title="Link title"
+>
   Link Children
 </a>
 `;
+
+exports[`common/component/element/a should return null of there is no to attribute 1`] = `null`;

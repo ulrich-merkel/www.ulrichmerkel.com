@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/menu/item
  *
  * @changelog
@@ -19,6 +21,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleMenuItem from './menu/item';
 
@@ -27,7 +30,7 @@ import ModuleMenuItem from './menu/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleMenu(props) {
 
@@ -50,14 +53,7 @@ function ModuleMenu(props) {
         content.name ? `m-menu--${content.name}` : '',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
@@ -66,10 +62,10 @@ function ModuleMenu(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleMenuItem
-                        key={index}
+                        key={shortid.generate()}
                         path={value.path}
                         title={value.title}
                         label={value.label}
@@ -101,9 +97,9 @@ function ModuleMenu(props) {
  */
 ModuleMenu.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         name: PropTypes.string,
         list: PropTypes.arrayOf(

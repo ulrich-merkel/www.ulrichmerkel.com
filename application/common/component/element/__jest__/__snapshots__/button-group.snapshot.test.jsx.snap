@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/button-group should render correctly 1`] = `
 <div
-  className="m-form__group">
+  className="m-form__group"
+>
   <button
     className="c-btn m-form__btn button-group c-btn--primary is-disabled"
     disabled="disabled"
@@ -9,9 +12,11 @@ exports[`common/component/element/button-group should render correctly 1`] = `
     role="button"
     title=""
     to={undefined}
-    type="submit">
+    type="submit"
+  >
     <span
-      className="c-btn__label">
+      className="c-btn__label"
+    >
       button
     </span>
   </button>

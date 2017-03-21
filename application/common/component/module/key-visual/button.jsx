@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -66,14 +67,27 @@ function ModuleKeyVisualButton(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [headline] - The button title content
- * @property {string} [lead] - The button label content
- * @property {Function} [onClickBtn] - The button onclick handler
+ * @property {string} [headline=''] - The button title content
+ * @property {string} [lead=''] - The button label content
+ * @property {Function} [onClick=Function.prototype] - The button onclick handler
  */
 ModuleKeyVisualButton.propTypes = {
     title: PropTypes.string,
     label: PropTypes.string,
     onClick: PropTypes.func
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleKeyVisualButton.propTypes
+ */
+ModuleKeyVisualButton.defaultProps = {
+    title: '',
+    label: '',
+    onClick: Function.prototype
 };
 
 export default ModuleKeyVisualButton;

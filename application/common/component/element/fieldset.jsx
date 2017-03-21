@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -25,7 +26,7 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementFieldset(props) {
 
@@ -53,7 +54,8 @@ function ElementFieldset(props) {
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  */
 ElementFieldset.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
 };
+
 
 export default ElementFieldset;

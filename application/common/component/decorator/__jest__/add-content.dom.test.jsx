@@ -1,6 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names */
+/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 jest.mock('./../../../config/content');
-jest.mock('./../../../config/i18n/en-EN');
+jest.mock('./../../../config/intl/en-EN');
 
 import 'jsdom-global/register';
 import React, { PropTypes } from 'react';
@@ -17,7 +17,7 @@ describe('common/component/decorator/add-content', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = addContent('Page')(Page);

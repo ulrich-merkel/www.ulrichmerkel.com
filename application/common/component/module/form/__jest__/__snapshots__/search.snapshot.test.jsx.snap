@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/component/module/form/search should render correctly 1`] = `
+<form
+  acceptCharset="utf-8"
+  action="/search/"
+  className="m-form m-form--search"
+  id="m-form--search"
+  itemProp="potentialAction"
+  itemScope={true}
+  itemType="http://schema.org/SearchAction"
+  method="post"
+  noValidate={true}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  role="search"
+>
+  <fieldset
+    className="m-form__fieldset"
+  >
+    <legend
+      className="m-form__legend is-visually-hidden"
+    />
+    <div
+      className="l-grid__row"
+    >
+      <div
+        className="l-grid__col--12"
+      >
+        <div
+          className="m-form__group"
+        >
+          <input
+            aria-required={true}
+            className="m-form__control--text"
+            id="name"
+            itemProp="query-input"
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder=""
+            required={true}
+            type="search"
+            value=""
+          />
+          <label
+            className="m-form__label is-visually-hidden"
+            htmlFor="name"
+          >
+            
+            <i
+              aria-hidden="true"
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
+            <i
+              aria-hidden="true"
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <input
+      name="_csrf"
+      type="hidden"
+      value=""
+    />
+  </fieldset>
+</form>
+`;
+
+exports[`common/component/module/form/search should render correctly 2`] = `
+<form
+  acceptCharset="utf-8"
+  action="/search/"
+  className="m-form m-form--search"
+  id="m-form--search"
+  itemProp="potentialAction"
+  itemScope={true}
+  itemType="http://schema.org/SearchAction"
+  method="post"
+  noValidate={true}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  role="search"
+>
+  <fieldset
+    className="m-form__fieldset"
+  >
+    <legend
+      className="m-form__legend is-visually-hidden"
+    />
+    <div
+      className="l-grid__row"
+    >
+      <div
+        className="l-grid__col--12"
+      >
+        <div
+          className="m-form__group"
+        >
+          <input
+            aria-required={true}
+            className="m-form__control--text"
+            id="name"
+            itemProp="query-input"
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder=""
+            required={true}
+            type="search"
+            value=""
+          />
+          <label
+            className="m-form__label is-visually-hidden"
+            htmlFor="name"
+          >
+            
+            <i
+              aria-hidden="true"
+              className="c-font-icon--sad m-form__label__icon--error"
+            />
+            <i
+              aria-hidden="true"
+              className="c-font-icon--smile m-form__label__icon--success"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <input
+      name="_csrf"
+      type="hidden"
+      value=""
+    />
+  </fieldset>
+</form>
+`;

@@ -8,11 +8,52 @@ engines:
       - javascript
       - python
       - php
+    exclude_fingerprints:
+    - b61fee05d1c46335ca527dd781d777dd
+    - 25561e74009fd114749f3c7b6a909173
+    - bb4469658b7cac864fdccc3d55e78c6f
+    - 0cda9e2ee3270564c99c1eaa9ef1c79b
+    - e508655ac84e93d29237679cec59923c
+    - 02c96a056f3236e937836c86485d958d
+    - 2feee580281bc645c4fced9c32a14487
+    - 6cc920644917b2e423cbcda656af9c3a
+    - 3b0f24a12ef2dc268b13769187b5502e
+    - e8f22cd58a080abcbcd8c69a4378a0e4
+    - 1be43f2e95934f90e6bfdaf087042dad
+    - b194bb451315864384fb8709ca7be592
+    - cb1cef1dbec7fe434fd52d2bf805bf5d
+    - 0ebd3e1342c5dc9fcb3c247c751d3318
+    - 9bf98f2e107de1bf2900efc07f96cef0
+    - 6de3817269cb52bcea038a8329aaeb94
+    - 4b775ee16f34d62346428c72da80908f
+    - 70736ecb0d79f80e0294b7702cabd824
+    - 35e33f1db9d7b8ba63362bfd2f1231bb
+    - 9a75e22497cc4a4a0a64c0e20a7f739b
+    - 4d513aee8fa6d4c07ad52355e649fca2
+    - 801458b65a862c7155e71b4ddbd074c7
+    - 0321127ae51c3f9fd0d521f3f4d786fe
+    - e5feeb0f739bd69848e1225e558e0dfa
+    - 6cf39a0ad8ddccb03c9f7ec0d3f8ed0a
+    - 7828bdf2671bcfd1308fbd0f391d1cf6
+    - 7c18cbd6fa95a10719cb86ff0d4e610e
+    - f401c205e9657427fb33a71265ffe1a4
+    - 2c804557c776481bedd9cf2e898e0269
+    - d1d534fd4cc646022eb420598959b60f
+    - 845997d884fecbbcf53df83dac33b0ee
+    - 563de8ae83995e7318202e778052d1f7
+    - 64d25903ac8798708d9221130df79a0b
+    - 25c735c5b8cabf7cdb9ccc34d010b439
+    - b8ea1a3fe08ad5ad4a90762e81e1168b
+    - 381a357e7fc86341b5694e11e4dd37cf
+    - 401ef1f15f5c7cf4649a9f7222c4904a
+    - 7e94f6c2dce095f911c6b33fa8dc320c
+    - 75d52eceeff3a1e489826bed9723f6a1
+    - 457e124c50c090930838ce94692baba2
   eslint:
     enabled: true
     channel: "eslint-3"
     config:
-      config: config/.eslintrc.json
+      config: config/.eslintrc.codeclimate.json
   fixme:
     enabled: true
 ratings:
@@ -29,3 +70,4 @@ exclude_paths:
 - "config/"
 - "application/common/vendor/"
 - "**/__jest__/"
+- "**/__mocks__/"

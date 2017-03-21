@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/textarea-group should render correctly 1`] = `
 <div
-  className="textarea-group">
+  className="textarea-group"
+>
   <textarea
     aria-required={true}
     className="m-form__control--textarea is-pristine"
@@ -9,19 +12,24 @@ exports[`common/component/element/textarea-group should render correctly 1`] = `
     name="textarea"
     onBlur={[Function]}
     onChange={[Function]}
+    placeholder=""
     required={true}
     rows="4"
-    value="2" />
+    value="2"
+  />
   <label
     className="m-form__label"
-    htmlFor="textarea-group">
+    htmlFor="textarea-group"
+  >
     textarea
     <i
       aria-hidden="true"
-      className="c-font-icon--sad m-form__label__icon--error" />
+      className="c-font-icon--sad m-form__label__icon--error"
+    />
     <i
       aria-hidden="true"
-      className="c-font-icon--smile m-form__label__icon--success" />
+      className="c-font-icon--smile m-form__label__icon--success"
+    />
   </label>
 </div>
 `;

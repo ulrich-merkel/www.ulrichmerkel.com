@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-this, immutable/no-mutation */
 /* global window, document */
 /**
  * Es6 module for handling translation data.
@@ -33,8 +34,8 @@ import { getPageOffset } from './../../utils/scroll-to';
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {ReactElement} SourceComponent - The react component to be decorated
- * @returns {ReactElement}
+ * @param {React.Element} SourceComponent - The react component to be decorated
+ * @returns {React.Element}
  */
 function scroller(SourceComponent) {
 
@@ -50,7 +51,7 @@ function scroller(SourceComponent) {
          * The actual class constructor.
          *
          * This is usally unnecessary if we don't perform any actions here,
-         * because a default constructor will call super(...props) for us.
+         * because a default constructor will call super(props) for us.
          * We do this just because of completeness.
          *
          * @constructs
@@ -134,17 +135,21 @@ function scroller(SourceComponent) {
 
             handleScrollChangeHeaderFixed(this.headerFixed);
 
-            // user is scrolling up, so show header
-            // also checking if initial scroll position is used
+            /**
+             * User is scrolling up, so show header.
+             * Also checking if initial scroll position is used.
+             */
             if (
-                (this.previousScrollY > currentScrollY && !this.headerVisible)
-                || (this.previousScrollY === 0 && currentScrollY === 0)
+                (this.previousScrollY > currentScrollY && !this.headerVisible) ||
+                (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
                 handleScrollChangeHeaderVisible(this.headerVisible);
             }
 
-            // user is scrolling down, so hide header
+            /**
+             * User is scrolling down, so hide header.
+             */
             if (this.previousScrollY < currentScrollY && this.headerVisible && headerHeight < currentScrollY) {
                 this.headerVisible = false;
                 handleScrollChangeHeaderVisible(this.headerVisible);
@@ -158,7 +163,7 @@ function scroller(SourceComponent) {
          * The required render function to return a single react child element.
          *
          * @function
-         * @returns {ReactElement} React component markup
+         * @returns {React.Element} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -32,7 +33,7 @@ import P from './../../element/paragraph';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleArticleLead(props) {
 
@@ -60,12 +61,23 @@ function ModuleArticleLead(props) {
  *
  * @static
  * @type {Object}
- * @property {string} text - The lead element text
+ * @property {string} [text=''] - The lead element text
  * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleLead.propTypes = {
     text: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string // eslint-disable-line react/require-default-props
+};
+
+/**
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleArticleLead.propTypes
+ */
+ModuleArticleLead.defaultProps = {
+    text: ''
 };
 
 export default ModuleArticleLead;

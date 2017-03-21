@@ -36,6 +36,19 @@ const selectStateDialogVisible = createSelector(
     }
 );
 
+const selectStateDialogPage = createSelector(
+    [
+        (state) => state.dialog
+    ],
+    (dialog) => {
+        if (!dialog || !dialog.page) {
+            return false;
+        }
+        return dialog.page;
+    }
+);
+
 export {
-    selectStateDialogVisible
+    selectStateDialogVisible,
+    selectStateDialogPage
 };

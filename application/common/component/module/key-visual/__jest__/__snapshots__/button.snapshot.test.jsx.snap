@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/key-visual/button should render correctly 1`] = `
 <button
   className="c-btn m-key-visual__button--down c-font-icon--chevron-down"
@@ -5,9 +7,11 @@ exports[`common/component/module/key-visual/button should render correctly 1`] =
   role="button"
   title="title"
   to={undefined}
-  type="button">
+  type="button"
+>
   <span
-    className="c-btn__label is-visually-hidden">
+    className="c-btn__label is-visually-hidden"
+  >
     label
   </span>
 </button>
@@ -20,9 +24,11 @@ exports[`common/component/module/key-visual/button should render correctly 2`] =
   role="button"
   title="title"
   to={undefined}
-  type="button">
+  type="button"
+>
   <span
-    className="c-btn__label is-visually-hidden">
+    className="c-btn__label is-visually-hidden"
+  >
     label
   </span>
 </button>

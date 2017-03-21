@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -24,7 +25,7 @@ import React, { PropTypes } from 'react';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutMain(props) {
     return (
@@ -42,7 +43,7 @@ function LayoutMain(props) {
  * @property {Array|string} [children] - The component react children
  */
 LayoutMain.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 export default LayoutMain;

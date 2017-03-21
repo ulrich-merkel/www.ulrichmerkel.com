@@ -1,15 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/article/button should render btnLabel if btnTitle is empty 1`] = `
 <p
-  className="is-centered c-type--p article-button hide-on-print">
+  className="is-centered c-type--p article-button hide-on-print"
+>
   <a
     className="c-btn"
     onClick={[Function]}
     role="button"
     style={Object {}}
     title="Button label"
-    type="button">
+    type={null}
+  >
     <span
-      className="c-btn__label">
+      className="c-btn__label"
+    >
       Button label
     </span>
   </a>
@@ -18,16 +23,19 @@ exports[`common/component/module/article/button should render btnLabel if btnTit
 
 exports[`common/component/module/article/button should render correctly 1`] = `
 <p
-  className="is-centered c-type--p article-button hide-on-print">
+  className="is-centered c-type--p article-button hide-on-print"
+>
   <a
     className="c-btn"
     onClick={[Function]}
     role="button"
     style={Object {}}
     title="Button title"
-    type="button">
+    type={null}
+  >
     <span
-      className="c-btn__label">
+      className="c-btn__label"
+    >
       Button label
     </span>
   </a>

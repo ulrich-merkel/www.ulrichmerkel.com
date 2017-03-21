@@ -30,15 +30,18 @@
  */
 import { url } from './../config/application';
 import LayoutBody from './../component/layout/body'; // eslint-disable-line import/no-named-as-default
-import PageIndex from './../component/page/index';
-import PageWork from './../component/page/work'; // eslint-disable-line import/no-named-as-default
-import PagePersona from './../component/page/persona';
-import PageContact from './../component/page/contact';
-import PageDisclaimer from './../component/page/disclaimer';
-import PagePrivacy from './../component/page/privacy';
-import PageImprint from './../component/page/imprint';
-import PageBroadcast from './../component/page/broadcast';
-import PageNotFound from './../component/page/not-found';
+import {
+    PageHome,
+    PageWork,
+    PagePersona,
+    PageContact,
+    PageDisclaimer,
+    PagePrivacy,
+    PageImprint,
+    PageBroadcast,
+    PageSearch,
+    PageNotFound
+} from './../component/page/';
 
 const childRoutes = [
     {
@@ -68,6 +71,10 @@ const childRoutes = [
     {
         path: url.broadcast.substr(1),
         component: PageBroadcast
+    },
+    {
+        path: url.search.substr(1),
+        component: PageSearch
     }
 ];
 
@@ -78,10 +85,10 @@ const childRoutes = [
  * @type {Object}
  */
 const configRoutes = {
-    path: `${url.index}`,
+    path: `${url.home}`,
     component: LayoutBody,
     indexRoute: {
-        component: PageIndex
+        component: PageHome
     },
     childRoutes: [
         ...childRoutes,

@@ -1,9 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, immutable/no-mutation */
 /**
  * @see {@link http://airbnb.io/enzyme/docs/guides/jsdom.html}
  * @see {@link http://blog.digongames.com/switching-from-jest-to-mocha/}
  */
 import { jsdom } from 'jsdom';
+import { isUndefined } from 'lodash';
 
 /**
  * Create a new fake dom for testing.
@@ -19,7 +20,7 @@ function createDOM() {
     global.document = jsdom('');
     global.window = document.defaultView;
     Object.keys(document.defaultView).forEach((property) => {
-        if (typeof global[property] === 'undefined') {
+        if (isUndefined(global[property])) {
             global[property] = document.defaultView[property];
         }
     });

@@ -31,6 +31,7 @@ const argvDest = argv.d || './build/';
 const argvFiles = argv.f || [
     { source: './package.json', dest: argvDest },
     { source: './.env', dest: argvDest },
+    { source: './yarn.lock', dest: argvDest },
     { source: './public/js/**/*', dest: `${argvDest}/public/js` },
     { source: './public/img/**/*', dest: `${argvDest}/public/img` },
     { source: './public/font/**/*', dest: `${argvDest}/public/font` },
@@ -69,14 +70,14 @@ function run(files) {
     }
 
     console.log(chalk.gray(`Start copying ${filesLength} file patterns`));
-    for (let i = 0; i < filesLength; i = i + 1) {
+    files.forEach(function forEachFile(file) {
         cpx.copy(
-            files[i].source,
-            files[i].dest,
+            file.source,
+            file.dest,
             {},
-            fileCopied.bind(null, files[i])
+            fileCopied.bind(null, file)
         );
-    }
+    });
 }
 
 run(argvFiles);

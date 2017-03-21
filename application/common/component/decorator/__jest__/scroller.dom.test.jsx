@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names */
+/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 import 'jsdom-global/register';
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ describe('common/component/decorator/scroller', function () {
         );
     };
     Page.propTypes = {
-        children: PropTypes.node
+        children: PropTypes.node.isRequired
     };
 
     const Container = scroller(Page);

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -24,18 +25,17 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @param {Object} props - The current component props
+ * @returns {React.Element} React component markup
  */
 function ElementSmall(props) {
 
     const {
-        htmlElement,
+        htmlElement: ComponentType,
         className,
         ...otherProps
     } = props;
 
-    const ComponentType = htmlElement;
     const composedClassName = classnames(
         'c-type--small',
         className
@@ -53,7 +53,7 @@ function ElementSmall(props) {
  * @static
  * @type {Object}
  * @property {string} [htmlElement='nav'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [className=''] - The component css class names, will be merged into component default classNames
  */
 ElementSmall.propTypes = {
     htmlElement: PropTypes.string,
@@ -68,7 +68,8 @@ ElementSmall.propTypes = {
  * @see ElementSmall.propTypes
  */
 ElementSmall.defaultProps = {
-    htmlElement: 'small'
+    htmlElement: 'small',
+    className: ''
 };
 
 export default ElementSmall;

@@ -63,15 +63,24 @@ describe('common/component/layout/body', function () {
             </LayoutDialog>
         );
 
-        wrapper.find('.l-dialog__button--close').simulate('click');
-        expect(onClose.calledOnce).toBeTruthy();
-        expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
+        wrapper.setProps({
+            dialogVisible: true
+        });
+        const buttonClose = wrapper.find('.l-dialog__button--close');
+        if (buttonClose.length) {
+            buttonClose.simulate('click');
+            expect(onClose.calledOnce).toBeTruthy();
+            expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
+        }
 
         wrapper.setProps({
             dialogVisible: true
         });
-        wrapper.find('.m-article--broadcast button').simulate('click');
-        expect(onClose.calledTwice).toBeTruthy();
-        expect(handleChangeDialogVisible.calledTwice).toBeTruthy();
+        const buttonBroadcast = wrapper.find('.m-article--broadcast button');
+        if (buttonBroadcast.length) {
+            buttonBroadcast.simulate('click');
+            expect(onClose.calledTwice).toBeTruthy();
+            expect(handleChangeDialogVisible.calledTwice).toBeTruthy();
+        }
     });
 });

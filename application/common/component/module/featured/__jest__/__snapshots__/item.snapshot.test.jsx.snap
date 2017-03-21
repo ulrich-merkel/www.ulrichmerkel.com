@@ -1,30 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/module/featured/item should render correctly 1`] = `
-<a
-  className="m-featured__item"
+<li
+  className="m-featured__list-item"
   itemProp="itemListElement"
   itemScope={true}
   itemType="http://schema.org/SiteNavigationElement"
-  onClick={[Function]}
-  style={Object {}}
-  title="Featured item work headline">
-  <span
-    className="m-featured__hover">
+>
+  <a
+    className="c-link m-featured__item"
+    onClick={[Function]}
+    style={Object {}}
+    tabIndex="0"
+    title="Featured item work headline"
+  >
     <span
-      className="m-featured__text">
+      className="m-featured__hover"
+    >
       <span
-        aria-level="3"
-        className="m-featured__headline"
-        role="heading">
-        Featured item work headline
+        className="m-featured__text"
+      >
+        <span
+          aria-level="3"
+          className="m-featured__headline"
+          role="heading"
+        >
+          Featured item work headline
+        </span>
+        <i
+          aria-hidden="true"
+          className="c-font-icon--plus m-featured__icon"
+        />
       </span>
-      <span
-        aria-hidden="true"
-        className="m-featured__icon c-font-icon--plus" />
     </span>
-  </span>
-  Module featured item children
-  <meta
-    content="Featured item work headline"
-    itemProp="name" />
-</a>
+    Module featured item children
+    <meta
+      content="Featured item work headline"
+      itemProp="name"
+    />
+  </a>
+</li>
 `;

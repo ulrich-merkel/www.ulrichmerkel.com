@@ -1,28 +1,29 @@
+/* eslint-disable immutable/no-mutation */
 /**
-* Es6 module for React Component.
-* Component module React classes combine elements to
-* bigger parts of the page.
-*
-* @file
-* @module
-* @flow weak
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.4
-*
-* @requires react
-* @requires classnames
-* @requires common/component/module/article/headline
-* @requires common/component/module/article/lead
-* @requires common/component/module/article/button
-* @requires common/component/module/article/meta
-*
-* @changelog
-* - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
-* - 0.0.3 Moved to stateless function
-* - 0.0.2 Rewritten for es2015
-* - 0.0.1 Basic functions and structure
-*/
+ * Es6 module for React Component.
+ * Component module React classes combine elements to
+ * bigger parts of the page.
+ *
+ * @file
+ * @module
+ * @flow weak
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.4
+ *
+ * @requires react
+ * @requires classnames
+ * @requires common/component/module/article/headline
+ * @requires common/component/module/article/lead
+ * @requires common/component/module/article/button
+ * @requires common/component/module/article/meta
+ *
+ * @changelog
+ * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
+ * - 0.0.3 Moved to stateless function
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
+ */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
@@ -36,13 +37,14 @@ import Meta from './../element/meta';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleArticle(props) {
 
     const {
         componentType,
         className,
+        isDialog,
         itemType,
         isMain,
         isSpaced,
@@ -89,6 +91,7 @@ function ModuleArticle(props) {
                 btnLabel={content.btnLabel}
                 btnTitle={content.btnTitle}
                 className={'m-article__button'}
+                {...{ isDialog }}
             />
             <Meta
                 itemProp='name'
@@ -109,27 +112,29 @@ function ModuleArticle(props) {
 }
 
 /**
-* Validate props via React.PropTypes helpers.
-*
-* @static
-* @type {Object}
-* @property {string} [componentType='article'] - The component element type used for React.createElement
-* @property {string} [className] - The component css class names, will be merged into component default classNames
-* @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
-* @property {boolean} [noMargin=false] - Whether the component has no css margin or not
-* @property {boolean} [isSpaced=false] - Whether the component headline has a spaced grid or not
-* @property {string} [itemType='https://schema.org/Article'] - The schema.org itemtype url attribute
-* @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
-* @property {Object} [content={}] - The component translation config
-*/
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {Object}
+ * @property {string} [componentType='article'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [isDialog] -
+ * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
+ * @property {boolean} [noMargin=false] - Whether the component has no css margin or not
+ * @property {boolean} [isSpaced=false] - Whether the component headline has a spaced grid or not
+ * @property {string} [itemType='https://schema.org/Article'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {Object} [content={}] - The component translation config
+ */
 ModuleArticle.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isDialog: PropTypes.bool,
     isMain: PropTypes.bool,
     noMargin: PropTypes.bool,
     isSpaced: PropTypes.bool,
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node,  // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         headline: PropTypes.string,
         lead: PropTypes.string,
@@ -139,13 +144,14 @@ ModuleArticle.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {Object}
-* @see ModuleArticle.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see ModuleArticle.propTypes
+ */
 ModuleArticle.defaultProps = {
+    isDialog: false,
     componentType: 'article',
     itemType: 'https://schema.org/Article',
     isSpaced: false,

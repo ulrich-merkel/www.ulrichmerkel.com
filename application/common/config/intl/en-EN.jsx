@@ -31,7 +31,10 @@ export default {
         on every device, pursue performance on each step and
         focus on solving problems with the right tools.
         With this in mind i create functional, beautiful and accessable
-        websites.`,
+        websites.
+        I believe that friendship, trust and loyalty are important values (of a team and in personal) - and these values are important
+        to succeed and to push things forward. Every interest and new idea is welcomed and celebrated, there should be no barriers in thinking
+        because learning on the go should be involved in every step in this fast moving development role.`,
     'intl-page-index-section2-btn-label': 'Learn more about my person',
     'intl-page-index-section2-btn-title': 'See my resume',
     'intl-page-index-section3-headline': 'Services',
@@ -322,7 +325,7 @@ export default {
 
     'intl-page-imprint-section1-text-2-headline': 'Indication of source for images and graphics',
     'intl-page-imprint-section1-text-2-content-1': `<a href='http://www.adrian-kuehne.de/' target='_blank' title='Show Adrian Kühne website' rel='noopener noreferrer'>
-        <i aria-hidden='true' className='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
+        <i aria-hidden='true' class='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
         </a>`,
     'intl-page-imprint-section1-text-3-headline': 'Technology',
     'intl-page-imprint-section1-text-3-content-1': `This website is build with React.js, Node.js, ${HTML5}, ${CSS3}, love and 100% recycled pixels.
@@ -410,6 +413,15 @@ export default {
     'intl-broadcast-2012-list-1-name': '',
     'intl-broadcast-2012-list-1-job': '',
     'intl-broadcast-2012-list-1-place': '',
+
+    // Page
+    'intl-search-head-title': 'Search',
+    'intl-search-head-description': 'Find page content by keywords',
+    'intl-search-section1-headline': 'Search',
+    'intl-search-section1-lead': 'Find page content by keywords',
+    'intl-search-section1-no-results': 'Found 0 search results',
+    'intl-search-section1-form-legend': 'Insert your search',
+    'intl-search-section1-form-input-name': 'Your search term',
 
     // Menu
     'intl-menu-main-link-1-label': 'Work',

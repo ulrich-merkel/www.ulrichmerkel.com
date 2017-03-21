@@ -6,7 +6,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
@@ -17,6 +17,7 @@
  * @requires react
  * @requires react-dom
  * @requires react-router
+ * @requires history
  * @requires fastclick
  * @requires picturefill
  * @requires common/vendor/polyfill/base64
@@ -28,11 +29,15 @@
  * @requires common/config/routes
  * @requires common/config/application
  * @requires common/utils/scroll-to
+ * @requires common/utils/logger
  * @requires common/component/root
+ * @requires common/state/configure-store
+ * @requires client/feature-detect/feature-detect
  *
  * @changelog
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
+ * - 0.0.3 Adding history to get basename
+ * - 0.0.2 Rewritten for es2015
+ * - 0.0.1 Basic functions and structure
  */
 import 'babel-polyfill';
 import './../common/vendor/polyfill/console';
@@ -44,7 +49,8 @@ import './../common/vendor/standalone';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, browserHistory, match } from 'react-router';
+import { Router, useRouterHistory, match } from 'react-router';
+import { createHistory } from 'history';
 import attachFastClick from 'fastclick';
 import 'picturefill';
 
@@ -64,7 +70,7 @@ const mountNode = document.getElementById('l-react');
 
 if (debug) {
     // Enable debugger ror chrome dev tool support
-    window.React = React;
+    window.React = React; // eslint-disable-line immutable/no-mutation
 }
 
 featureDetect();
@@ -94,11 +100,24 @@ document.addEventListener('DOMContentLoaded', function handleEvent() {
  * @private
  * @param {Object} Component - The current router react component
  * @param {Object} props - The current react component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function createElement(Component, props) {
     return <Component {...props} />;
 }
+
+/**
+ * Adjusting routing with a basename to enable correct routing from
+ * a subdirectory. This is important if we want to link to '/subpage-b/foo'
+ * but are already located in '/subpage-a/' to ensure we don't end up
+ * in '/subpage-a/subpage-b/foo'.
+ *
+ * @type {Object}
+ * @see {@link https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#customize-your-history-further}
+ */
+const browserHistory = useRouterHistory(createHistory)({
+    basename: '/'
+});
 
 /**
  * Scroll to top after page changed
@@ -149,7 +168,7 @@ match({ routes: configRoutes, location }, function handleMatch(error, redirectLo
     }
 
     if (redirectLocation) {
-        window.location.pathname = redirectLocation.pathname;
+        window.location.pathname = redirectLocation.pathname; // eslint-disable-line immutable/no-mutation
         return;
     }
 

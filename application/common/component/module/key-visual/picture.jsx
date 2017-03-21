@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -133,7 +134,7 @@ class ModuleKeyVisualPicture extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
 
@@ -178,10 +179,16 @@ class ModuleKeyVisualPicture extends Component {
  * @type {Object}
  * @property {string} [img={}] - The image alt description
  * @property {string} [type='digital'] - The image src url
- * @property {boolean} [isCovered] - Whether the image should be background size covered or not
+ * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
  */
 ModuleKeyVisualPicture.propTypes = {
-    img: PropTypes.object,
+    img: PropTypes.shape({
+        name: PropTypes.string,
+        ext: PropTypes.string,
+        path: PropTypes.string,
+        alt: PropTypes.string,
+        sizes: PropTypes.array
+    }),
     type: PropTypes.string,
     isCovered: PropTypes.bool
 };
@@ -195,7 +202,8 @@ ModuleKeyVisualPicture.propTypes = {
 */
 ModuleKeyVisualPicture.defaultProps = {
     img: {},
-    type: 'digital'
+    type: 'digital',
+    isCovered: false
 };
 
 export default ModuleKeyVisualPicture;

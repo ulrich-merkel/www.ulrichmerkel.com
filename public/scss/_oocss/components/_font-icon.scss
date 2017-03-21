@@ -21,8 +21,9 @@ $block: '#{$config-ns}c-font-icon';
             url('#{$fonticons}.woff?41546266') format('woff'),
             url('#{$fonticons}.ttf?41546266') format('truetype'),
             url('#{$fonticons}.svg?41546266#fonticons') format('svg');
-        font-weight: $config-font-weight-normal;
         font-style: normal;
+        font-weight: $config-font-weight-normal;
+
     }
     /* stylelint-enable declaration-colon-newline-after */
 
@@ -30,10 +31,9 @@ $block: '#{$config-ns}c-font-icon';
     [class*=' #{$block}--']::before {
         display: inline-block;
         width: 1em;
-        vertical-align: baseline;
         font-family: 'fonticons';
-        font-weight: $config-font-weight-normal;
         font-style: normal;
+        font-weight: $config-font-weight-normal;
 
         // for safety - reset parent styles, that can break glyph codes
         font-variant: normal;
@@ -45,6 +45,7 @@ $block: '#{$config-ns}c-font-icon';
         text-decoration: inherit;
         text-transform: none;
         speak: none;
+        vertical-align: baseline;
 
         // Better Font Rendering
         @if ($config-support-prefix-webkit) {
@@ -62,7 +63,6 @@ $block: '#{$config-ns}c-font-icon';
         }
     }
 
-    // @TODO: remove unused and rename (e.g. facebook2 to facebook)!
     .#{$block}--skill-html::before {
         content: '\e900';
     }
@@ -126,9 +126,6 @@ $block: '#{$config-ns}c-font-icon';
     .#{$block}--feed::before {
         content: '\ea95';
     }
-    .#{$block}--facebook2::before {
-        content: '\e600';
-    }
     .#{$block}--github::before {
         content: '\e601';
     }
@@ -147,7 +144,7 @@ $block: '#{$config-ns}c-font-icon';
     .#{$block}--magic-wand::before {
         content: '\e902';
     }
-    .#{$block}--stats-dots2::before {
+    .#{$block}--stats-dots::before {
         content: '\e903';
     }
     .#{$block}--lab::before {
@@ -161,6 +158,15 @@ $block: '#{$config-ns}c-font-icon';
     }
     .#{$block}--sad::before {
         content: '\e9e5';
+    }
+    .#{$block}--search::before {
+        content: '\e986';
+    }
+    .#{$block}--enlarge::before {
+        content: '\e989';
+    }
+    .#{$block}--shrink::before {
+        content: '\e98a';
     }
     .#{$block}--check::before {
         content: '\f00c';

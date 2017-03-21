@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module as the root component for the react application.
  *
@@ -23,7 +24,7 @@ import { Provider } from 'react-redux';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function Root(props) {
     const { children, store } = props;
@@ -45,7 +46,10 @@ function Root(props) {
  */
 Root.propTypes = {
     children: PropTypes.node.isRequired,
-    store: PropTypes.object.isRequired
+    store: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.object
+    ])).isRequired
 };
 
 export default Root;

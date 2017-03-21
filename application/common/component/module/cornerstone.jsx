@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,9 +13,10 @@
  *
  * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/element/headline
- * @requires common/component/module/cornerstone/itemEmployee
- * @requires common/component/module/cornerstone/itemEducation
+ * @requires common/component/module/cornerstone/item-employee
+ * @requires common/component/module/cornerstone/item-education
  *
  * @changelog
  * - 0.0.4 Excluded headline/lead into separate component
@@ -24,17 +26,18 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import Headline from './../element/headline';
-import ModuleCornerstoneItemEmployee from './cornerstone/itemEmployee';
-import ModuleCornerstoneItemEducation from './cornerstone/itemEducation';
+import ModuleCornerstoneItemEmployee from './cornerstone/item-employee';
+import ModuleCornerstoneItemEducation from './cornerstone/item-education';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleCornerstone(props) {
 
@@ -56,14 +59,7 @@ function ModuleCornerstone(props) {
         'm-cornerstone',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
@@ -82,7 +78,7 @@ function ModuleCornerstone(props) {
             {content.professionalExperienceList && content.professionalExperienceList.map((value, index) => {
                 return (
                     <ModuleCornerstoneItemEmployee
-                        key={index}
+                        key={shortid.generate()}
                         headline={value.headline}
                         lead={value.lead}
                         timeStart={value.timeStart}
@@ -103,7 +99,7 @@ function ModuleCornerstone(props) {
             {content.academicEducationList && content.academicEducationList.map((value, index) => {
                 return (
                     <ModuleCornerstoneItemEducation
-                        key={index}
+                        key={shortid.generate()}
                         headline={value.headline}
                         lead={value.lead}
                         timeStart={value.timeStart}
@@ -140,9 +136,9 @@ function ModuleCornerstone(props) {
  */
 ModuleCornerstone.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         professionalExperience: PropTypes.string,
         professionalExperienceList: PropTypes.arrayOf(

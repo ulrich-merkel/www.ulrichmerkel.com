@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
 * Es6 module for React Component.
 * Component module React classes combine elements to
@@ -8,6 +9,8 @@
 *
 * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
 * @version 0.0.3
+*
+* @TODO: Find better mapping solution to prevent unnecessary rendering
 *
 * @requires react
 * @requires classnames
@@ -38,7 +41,7 @@ class ModulePerson extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
         const {
@@ -62,42 +65,38 @@ class ModulePerson extends Component {
             'm-person',
             className
         );
-        let componentSchema = {};
+        const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
-        if (itemType) {
-            componentSchema = {
-                itemScope: true,
-                itemType
-            };
-        }
         return (
             <ComponentType
                 className={componentClassName}
                 {...componentSchema}
             >
-                <P className='m-person__name'>
+                {content.name && <P className='m-person__name'>
                     <strong>{content.name}</strong>
-                </P>
-                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
-                    <span className='m-person__street-address' itemProp='street-address'>
-                        {content.streetAddress}
-                    </span>
-                    <span className='m-person__postal-code' itemProp='postal-code'>
-                        {content.postalCode}
-                    </span>
-                    <span className='m-person__locality' itemProp='locality'>
-                        {content.locality}
-                    </span>
-                </address>
-                <P className='m-person__email'>
+                </P>}
+                {content.streetAddress && content.postalCode && content.locality &&
+                    <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
+                        <span className='m-person__street-address' itemProp='street-address'>
+                            {content.streetAddress}
+                        </span>
+                        <span className='m-person__postal-code' itemProp='postal-code'>
+                            {content.postalCode}
+                        </span>
+                        <span className='m-person__locality' itemProp='locality'>
+                            {content.locality}
+                        </span>
+                    </address>
+                }
+                {content.email && <P className='m-person__email'>
                     <abbr title='E-Mail address'>E.</abbr> <a href={`malto:${content.email}`} itemProp='email'>{content.email}</a>
-                </P>
-                <P className='m-person__phone'>
+                </P>}
+                {content.phoneNumbers && content.phone && <P className='m-person__phone'>
                     <abbr title='Phonenumber'>P.</abbr> <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>{content.phone}</a>
-                </P>
-                <P className='m-person__website'>
+                </P>}
+                {content.website && <P className='m-person__website'>
                     <abbr title='Website'>W.</abbr> <a href={`${content.website}`}>{content.website}</a>
-                </P>
+                </P>}
                 {children}
             </ComponentType>
         );
@@ -118,11 +117,11 @@ class ModulePerson extends Component {
 */
 ModulePerson.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     isCentered: PropTypes.bool,
     itemType: PropTypes.string,
-    children: PropTypes.node,
-    /* eslint-disable react/no-unused-prop-types */
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    /* eslint-disable react/no-unused-prop-types, react/require-default-props */
     content: PropTypes.shape({
         name: PropTypes.string,
         streetAddress: PropTypes.string,
@@ -133,7 +132,7 @@ ModulePerson.propTypes = {
         phoneNumber: PropTypes.string,
         website: PropTypes.string
     })
-    /* eslint-enable react/no-unused-prop-types */
+    /* eslint-enable react/no-unused-prop-types, react/require-default-props */
 };
 
 /**
@@ -146,8 +145,7 @@ ModulePerson.propTypes = {
 ModulePerson.defaultProps = {
     componentType: 'div',
     itemType: 'http://schema.org/Person',
-    isCentered: true,
-    content: {}
+    isCentered: true
 };
 
 export default ModulePerson;

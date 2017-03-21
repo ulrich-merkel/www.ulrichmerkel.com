@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -44,29 +44,42 @@ import {
     selectStateScrollHeaderFixed,
     selectStateScrollHeaderVisible
 } from './../../state/selectors';
-import { changeLocale } from './../../state/intl/actions';
-import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from './../../state/intl/constants';
-import GridContainer from './../grid/container';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
+import {
+    changeLocale,
+    changeDialogVisibleSearch
+} from './../../state/actions';
+import {
+    INTL_LOCALE_EN_EN,
+    INTL_LOCALE_DE_DE
+} from './../../state/constants';
 import ModuleMenu from './../module/menu';
-import Nav from './../element/nav';
+import {
+    GridContainer,
+    GridRow,
+    GridCol
+} from './../grid';
+import {
+    A,
+    Nav,
+    Button,
+    Icon
+} from './../element';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutHeader(props) {
-
     const {
         className,
         content,
         handleIntlChangeLocale,
         intlLocale,
         intlAvailableLocales,
+        handleChangeDialogVisibleSearch,
         headerFixed,
         headerVisible
     } = props;
@@ -82,19 +95,23 @@ function LayoutHeader(props) {
         className
     );
     const buttonEnClassName = classnames('m-menu__item', 'm-menu__item--en', {
-        'is-active': intlLocale === INTL_LOCALE_EN_EN
-    });
-    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
-        'is-active': intlLocale === INTL_LOCALE_DE_DE
-    });
-    const menuLanguageClassName = classnames('m-menu--language', 'm-nav__toggle-target', {
+        'is-active': intlLocale === INTL_LOCALE_EN_EN,
         'is-hidden': intlAvailableLocales && intlAvailableLocales.length <= 1
     });
+    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
+        'is-active': intlLocale === INTL_LOCALE_DE_DE,
+        'is-hidden': intlAvailableLocales && intlAvailableLocales.length <= 1
+    });
+    const menuAsideClassName = classnames(
+        'm-menu--aside',
+        'm-nav__toggle-target',
+        'm-nav__aside'
+    );
 
     return (
         <header className={componentClassName} itemScope itemType='http://schema.org/WPHeader' role='banner'>
             <progress className='m-progress' id='m-progress' max='100' value='0'>
-                <div className='m-progress__fallback' id='m-progress__fallback' />
+                <span className='m-progress__fallback' id='m-progress__fallback' />
             </progress>
             <Nav className='m-nav--main'>
                 <GridContainer>
@@ -112,28 +129,46 @@ function LayoutHeader(props) {
                             />
 
                             {/* @TODO: should be separated into own component, extend component menu, map available locales */}
-                            <ul className={menuLanguageClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
+                            <ul className={menuAsideClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
-                                    <button
+                                    <Button
                                         className={buttonEnClassName}
-                                        role='button'
                                         data-locale={INTL_LOCALE_EN_EN}
                                         title={contentSection('menu.language.list[0].title')}
                                         onClick={handleIntlChangeLocale}
+                                        isSmall
+                                        isClear
                                     >
                                         {contentSection('menu.language.list[0].label')}
-                                    </button>
+                                    </Button>
                                 </li>
                                 <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
-                                    <button
+                                    <Button
                                         className={buttonDeClassName}
-                                        role='button'
                                         data-locale={INTL_LOCALE_DE_DE}
                                         title={contentSection('menu.language.list[1].title')}
                                         onClick={handleIntlChangeLocale}
+                                        isSmall
+                                        isClear
                                     >
                                         {contentSection('menu.language.list[1].label')}
-                                    </button>
+                                    </Button>
+                                </li>
+                                <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
+                                    <A
+                                        className='m-menu__item--search c-btn--small c-btn--clear'
+                                        to='/search'
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleChangeDialogVisibleSearch();
+                                        }}
+                                        title={'Suche'}
+                                        isTargetSelf
+                                    >
+                                        <span className='c-btn__label'>
+                                            <Icon className='c-btn__icon' icon='search' />
+                                        </span>
+                                    </A>
                                 </li>
                             </ul>
                         </GridCol>
@@ -142,7 +177,6 @@ function LayoutHeader(props) {
             </Nav>
         </header>
     );
-
 }
 
 /**
@@ -150,21 +184,23 @@ function LayoutHeader(props) {
  *
  * @static
  * @type {Object}
+ * @property {Function} handleIntlChangeLocale - Function handling language state changes
+ * @property {Function} handleChangeDialogVisibleSearch - Function handling dialog state changes
  * @property {string} intlLocale - The current locale string
  * @property {Array.<string>} intlAvailableLocales - All available locale strings
- * @property {boolean} headerFixed - Whether the navigation bar is sticky/ficked or not
- * @property {boolean} headerVisible - Whether the navigation bar is visible or not (used for css3 animation)
- * @property {Function} handleIntlChangeLocale - Function handling language changes
+ * @property {boolean} [headerFixed] - Whether the navigation bar is sticky/ficked or not
+ * @property {boolean} [headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {Object} [content={}] - The component content config
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
+    handleChangeDialogVisibleSearch: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
-    intlAvailableLocales: PropTypes.array.isRequired,
-    headerFixed: PropTypes.bool, // @TODO: check why headerFixed is sometimes missing
-    headerVisible: PropTypes.bool, // @TODO: check why headerVisible is sometimes missing
-    className: PropTypes.string,
+    intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
+    headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
+    headerVisible: PropTypes.bool, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         menu: PropTypes.object // eslint-disable-line react/no-unused-prop-types
     })
@@ -216,6 +252,9 @@ function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale: (e) => {
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
+        },
+        handleChangeDialogVisibleSearch: () => {
+            dispatch(changeDialogVisibleSearch(true));
         }
     };
 }

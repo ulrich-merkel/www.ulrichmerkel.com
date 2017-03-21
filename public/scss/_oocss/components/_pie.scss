@@ -22,8 +22,8 @@ $block: '#{$config-ns}c-pie';
         position: relative;
         width: 200px;
         height: 200px;
-        overflow: hidden;
         margin: 0;
+        overflow: hidden;
         background-color: $config-color-grey--2;
         border-radius: 50%;
 
@@ -45,6 +45,7 @@ $block: '#{$config-ns}c-pie';
         float: left;
         width: 50%;
         height: 100%;
+        overflow: hidden;
     }
 
     .#{$block}__mask {
@@ -106,18 +107,20 @@ $block: '#{$config-ns}c-pie';
     .#{$block}__circle {
         &::after {
             z-index: 2;
-            content: attr(data-text);
             font-family: Arial, sans-serif;
             font-size: rem-calc(18);
             font-weight: $config-font-weight-bold;
             text-align: center;
+            content: attr(data-text);
         }
     }
 
     @media print {
         .#{$block} {
             .#{$block}__mask {
+                // stylelint-disable declaration-no-important
                 background-color: $config-color-black !important;
+                // stylelint-enable declaration-no-important
             }
         }
     }

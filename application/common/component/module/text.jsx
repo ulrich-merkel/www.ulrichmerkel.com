@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -12,6 +13,7 @@
  * @requires react
  * @requires classnames
  * @requires react-redux
+ * @requires shortid
  * @requires common/state/dialog/actions
  * @requires common/utils/environment
  * @requires component/module/text/headline
@@ -29,8 +31,9 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import shortid from 'shortid';
 
-import { changeDialogVisible } from './../../state/dialog/actions';
+import { changeDialogVisibleBroadcast } from './../../state/dialog/actions';
 import { isBrowser } from './../../utils/environment';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
@@ -149,7 +152,7 @@ class ModuleText extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
         const {
@@ -174,14 +177,7 @@ class ModuleText extends Component {
         const componentTextBlockClassName = classnames(
             'm-text__block'
         );
-        let componentSchema = {};
-
-        if (itemType) {
-            componentSchema = {
-                itemScope: true,
-                itemType
-            };
-        }
+        const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
         return (
             <ComponentType
@@ -189,9 +185,9 @@ class ModuleText extends Component {
                 role='list'
                 {...componentSchema}
             >
-                {content.text.map((value, index) => {
+                {content.text.map((value) => {
                     return (
-                        <div key={index} className={componentTextBlockClassName}>
+                        <div key={shortid.generate()} className={componentTextBlockClassName}>
                             <ModuleTextHeadline
                                 text={value.headline}
                             />
@@ -231,18 +227,18 @@ class ModuleText extends Component {
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  * @property {boolean} [hasColumns2=true] - Whether the component text should be clusted in columns via css or not
- * @property {string} [itemType] - The schema.org itemtype url attribute
+ * @property {string} [itemType=''] - The schema.org itemtype url attribute
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {Object} [content={}] - The component translation config
  */
 ModuleText.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     isCentered: PropTypes.bool,
     hasColumns2: PropTypes.bool,
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
         text: PropTypes.arrayOf(
@@ -279,6 +275,7 @@ ModuleText.defaultProps = {
     componentType: 'div',
     isCentered: false,
     hasColumns2: true,
+    itemType: '',
     content: {}
 };
 
@@ -289,7 +286,7 @@ ModuleText.defaultProps = {
 const ModuleTextContainer = connect(
     null,
     {
-        handleChangeDialogVisible: changeDialogVisible
+        handleChangeDialogVisible: changeDialogVisibleBroadcast
     }
 )(ModuleText);
 

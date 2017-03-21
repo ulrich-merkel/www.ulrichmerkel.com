@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-let, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -40,7 +41,7 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementA(props) {
 
@@ -50,17 +51,26 @@ function ElementA(props) {
         activeClassName,
         isMenu,
         isIndex,
+        isTargetSelf,
         to,
         children,
         title,
         ...otherProps
     } = props;
 
-    const ancorAttributes = {
-        href: to,
-        rel: 'noopener noreferrer',
-        target: '_blank'
-    };
+    if (!to) {
+        return null;
+    }
+
+    const ancorAttributes = Object.assign(
+        {
+            href: to
+        },
+        !isTargetSelf && {
+            rel: 'noopener noreferrer',
+            target: '_blank'
+        }
+    );
 
     const componentAttributes = {
         to,
@@ -104,20 +114,22 @@ function ElementA(props) {
  * @property {string} [componentType='a'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {string} [activeClassName='is-active'] - The default is active state css class name
- * @property {string} [title] - The title string to be set on a tag
- * @property {boolean} [isIndex] - Whether the component is link to home/index or not
+ * @property {string} [title=''] - The title string to be set on a tag
+ * @property {boolean} [isIndex=false] - Whether the component is link to home/index or not
  * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
+ * @property {boolean} [isTargetSelf=false] - Whether to set rel and target blank attributes or not
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementA.propTypes = {
     to: PropTypes.string.isRequired,
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     activeClassName: PropTypes.string,
     title: PropTypes.string,
     isIndex: PropTypes.bool,
     isMenu: PropTypes.bool,
-    children: PropTypes.node
+    isTargetSelf: PropTypes.bool,
+    children: PropTypes.node // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -130,7 +142,10 @@ ElementA.propTypes = {
 ElementA.defaultProps = {
     componentType: 'a',
     activeClassName: 'is-active',
-    isMenu: false
+    title: '',
+    isIndex: false,
+    isMenu: false,
+    isTargetSelf: false
 };
 
 export default ElementA;

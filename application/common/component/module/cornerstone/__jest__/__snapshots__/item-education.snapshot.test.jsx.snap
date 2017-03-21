@@ -1,37 +1,47 @@
-exports[`common/component/module/cornerstone/itemEducation should render correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/component/module/cornerstone/item-education should render correctly 1`] = `
 <li
   className="m-cornerstone__item"
   itemProp="itemListElement"
   itemScope={true}
-  itemType="https://schema.org/EducationEvent">
+  itemType="https://schema.org/EducationEvent"
+>
   <div
-    className="m-cornerstone__description">
+    className="m-cornerstone__description"
+  >
     <div
-      className="m-cornerstone__description-content">
+      className="m-cornerstone__description-content"
+    >
       <h4
         className="is-centered c-type--h4 m-cornerstone__headline"
-        itemProp="name">
+        itemProp="name"
+      >
         Headline item education
       </h4>
       <p
         className="c-type--p m-cornerstone__company"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         <strong>
           Lead  item education
         </strong>
       </p>
       <p
-        className="c-type--p m-cornerstone__time">
+        className="c-type--p m-cornerstone__time"
+      >
         (
         <time
           className="c-time"
-          itemProp="startDate">
+          itemProp="startDate"
+        >
           20161212
         </time>
          - 
         <time
           className="c-time"
-          itemProp="endDate">
+          itemProp="endDate"
+        >
           20161224
         </time>
         )
@@ -43,7 +53,8 @@ exports[`common/component/module/cornerstone/itemEducation should render correct
             "__html": "Description item education 1",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
       <p
         className="c-type--p m-cornerstone__text"
         dangerouslySetInnerHTML={
@@ -51,71 +62,87 @@ exports[`common/component/module/cornerstone/itemEducation should render correct
             "__html": "Description item education 2",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
     </div>
   </div>
   <div
-    className="m-cornerstone__bubble" />
+    className="m-cornerstone__bubble"
+  />
   <div
     hidden={true}
     itemProp="location"
     itemScope={true}
-    itemType="https://schema.org/Place">
+    itemType="https://schema.org/Place"
+  >
     <meta
       content={undefined}
-      itemProp="name" />
+      itemProp="name"
+    />
     <div
       itemProp="address"
       itemScope={true}
-      itemType="http://schema.org/PostalAddress">
+      itemType="http://schema.org/PostalAddress"
+    >
       <meta
         content={undefined}
-        itemProp="streetAddress" />
+        itemProp="streetAddress"
+      />
       <meta
         content={undefined}
-        itemProp="addressLocality" />
+        itemProp="addressLocality"
+      />
       <meta
         content={undefined}
-        itemProp="sameAs" />
+        itemProp="sameAs"
+      />
     </div>
   </div>
 </li>
 `;
 
-exports[`common/component/module/cornerstone/itemEducation should render cssModifier and offset if passed 1`] = `
+exports[`common/component/module/cornerstone/item-education should render cssModifier and offset if passed 1`] = `
 <li
   className="m-cornerstone__item--education has-offset--100"
   itemProp="itemListElement"
   itemScope={true}
-  itemType="https://schema.org/EducationEvent">
+  itemType="https://schema.org/EducationEvent"
+>
   <div
-    className="m-cornerstone__description">
+    className="m-cornerstone__description"
+  >
     <div
-      className="m-cornerstone__description-content">
+      className="m-cornerstone__description-content"
+    >
       <h4
         className="is-centered c-type--h4 m-cornerstone__headline"
-        itemProp="name">
+        itemProp="name"
+      >
         Headline item education
       </h4>
       <p
         className="c-type--p m-cornerstone__company"
-        itemProp="alternateName">
+        itemProp="alternateName"
+      >
         <strong>
           Lead  item education
         </strong>
       </p>
       <p
-        className="c-type--p m-cornerstone__time">
+        className="c-type--p m-cornerstone__time"
+      >
         (
         <time
           className="c-time"
-          itemProp="startDate">
+          itemProp="startDate"
+        >
           20161212
         </time>
          - 
         <time
           className="c-time"
-          itemProp="endDate">
+          itemProp="endDate"
+        >
           20161224
         </time>
         )
@@ -127,7 +154,8 @@ exports[`common/component/module/cornerstone/itemEducation should render cssModi
             "__html": "Description item education 1",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
       <p
         className="c-type--p m-cornerstone__text"
         dangerouslySetInnerHTML={
@@ -135,32 +163,40 @@ exports[`common/component/module/cornerstone/itemEducation should render cssModi
             "__html": "Description item education 2",
           }
         }
-        itemProp="description" />
+        itemProp="description"
+      />
     </div>
   </div>
   <div
-    className="m-cornerstone__bubble" />
+    className="m-cornerstone__bubble"
+  />
   <div
     hidden={true}
     itemProp="location"
     itemScope={true}
-    itemType="https://schema.org/Place">
+    itemType="https://schema.org/Place"
+  >
     <meta
       content={undefined}
-      itemProp="name" />
+      itemProp="name"
+    />
     <div
       itemProp="address"
       itemScope={true}
-      itemType="http://schema.org/PostalAddress">
+      itemType="http://schema.org/PostalAddress"
+    >
       <meta
         content={undefined}
-        itemProp="streetAddress" />
+        itemProp="streetAddress"
+      />
       <meta
         content={undefined}
-        itemProp="addressLocality" />
+        itemProp="addressLocality"
+      />
       <meta
         content={undefined}
-        itemProp="sameAs" />
+        itemProp="sameAs"
+      />
     </div>
   </div>
 </li>

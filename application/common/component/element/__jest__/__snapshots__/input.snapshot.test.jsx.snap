@@ -1,37 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/element/input should call passed callbacks 1`] = `
 <input
   className="m-form__control--text"
-  id={undefined}
-  name={undefined}
+  id="input-callbacks"
+  itemProp={undefined}
+  name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder=""
   type="text"
-  value={undefined} />
+  value={undefined}
+/>
 `;
 
 exports[`common/component/element/input should call passed callbacks 2`] = `
 <input
   className="m-form__control--text"
-  id={undefined}
-  name={undefined}
+  id="input-callbacks"
+  itemProp={undefined}
+  name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder=""
   type="text"
-  value={undefined} />
+  value={undefined}
+/>
 `;
 
 exports[`common/component/element/input should call passed callbacks 3`] = `
 <input
   className="m-form__control--text"
-  id={undefined}
-  name={undefined}
+  id="input-callbacks"
+  itemProp={undefined}
+  name="input-callbacks"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder=""
   type="text"
-  value={undefined} />
+  value={undefined}
+/>
 `;
 
 exports[`common/component/element/input should render correctly with default callbacks 1`] = `
@@ -40,13 +48,15 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder="Test input placeholder"
   required={true}
   type="text"
-  value="4" />
+  value="4"
+/>
 `;
 
 exports[`common/component/element/input should render correctly with default callbacks 2`] = `
@@ -55,13 +65,15 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder="Test input placeholder"
   required={true}
   type="text"
-  value="4" />
+  value="4"
+/>
 `;
 
 exports[`common/component/element/input should render correctly with default callbacks 3`] = `
@@ -70,11 +82,13 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
+  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
   placeholder="Test input placeholder"
   required={true}
   type="text"
-  value="4" />
+  value="4"
+/>
 `;

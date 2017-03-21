@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -10,8 +11,9 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.4
  *
- * @requires React
+ * @requires react
  * @requires classnames
+ * @requires shortid
  * @requires common/component/module/language/item
  *
  * @changelog
@@ -24,6 +26,7 @@
  */
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
 import ModuleLanguageItem from './language/item';
 
@@ -32,7 +35,7 @@ import ModuleLanguageItem from './language/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ModuleLanguage(props) {
 
@@ -54,14 +57,7 @@ function ModuleLanguage(props) {
         'm-language',
         className
     );
-    let componentSchema = {};
-
-    if (itemType) {
-        componentSchema = {
-            itemScope: true,
-            itemType
-        };
-    }
+    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
@@ -70,10 +66,10 @@ function ModuleLanguage(props) {
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value, index) => {
+            {content.list.map((value) => {
                 return (
                     <ModuleLanguageItem
-                        key={index}
+                        key={shortid.generate()}
                         headline={value.headline}
                         lead={value.lead}
                         percent={value.percent}
@@ -99,9 +95,9 @@ function ModuleLanguage(props) {
  */
 ModuleLanguage.propTypes = {
     componentType: PropTypes.string,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemType: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
         list: PropTypes.arrayOf(PropTypes.shape({
             headline: PropTypes.string,

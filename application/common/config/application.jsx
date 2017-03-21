@@ -22,7 +22,7 @@ import { toBoolean } from './../utils/parse';
 const configEnvironment = {
     development: {
         isProduction: false,
-        debug: toBoolean(process.env.DEBUG, true)
+        debug: toBoolean(process.env.DEBUG) || true
     },
     production: {
     },
@@ -38,9 +38,9 @@ const configApplication = Object.assign({}, {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
-    debug: toBoolean(process.env.DEBUG, false),
+    debug: toBoolean(process.env.DEBUG) || false,
     url: {
-        index: '/',
+        home: '/',
         persona: '/persona',
         work: '/work',
         workOptikLudewig: '/optik-ludewig',
@@ -52,6 +52,7 @@ const configApplication = Object.assign({}, {
         workGedankenKollektiv: '/gedanken-kollektiv',
         broadcast: '/broadcast',
         contact: '/contact',
+        search: '/search',
         contactSuccess: '/contact/success',
         contactError: '/contact/error',
         imprint: '/imprint',
@@ -71,18 +72,18 @@ const configApplication = Object.assign({}, {
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
-        use: toBoolean(process.env.XOR, true),
+        use: toBoolean(process.env.XOR) || true,
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        use: toBoolean(process.env.CSP, true)
+        use: toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER, true)
+        use: toBoolean(process.env.SERVICEWORKER) || false
     },
     applicationCache: {
-        use: toBoolean(process.env.APPCACHE, false),
-        timeStamp: '2017-01-05'
+        use: toBoolean(process.env.APPCACHE) || true,
+        timeStamp: '2017-03-07'
     },
     transition: {
         transitionName: 'animate',

@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,8 +10,6 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
- *
- * @TODO: Move flip part to own component
  *
  * @requires react
  * @requires common/component/decorator/add-content
@@ -31,7 +30,7 @@ import { getContentSection } from './../../utils/content';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function LayoutLoader(props) {
 
@@ -42,7 +41,7 @@ function LayoutLoader(props) {
     const contentSection = getContentSection(content);
 
     return (
-        <dialog className='l-dialog--loading' role='presentation'>
+        <dialog className='l-dialog--loading' role='dialog'>
             <div className='l-dialog__content'>
                 <div className='c-flip'>
                     <div className='c-flip__front'>{contentSection('headline')}</div>

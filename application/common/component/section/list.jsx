@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -30,7 +31,7 @@ import ModuleList from './../module/list';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function SectionList(props) {
 
@@ -38,12 +39,13 @@ function SectionList(props) {
         children,
         content,
         isMain,
+        isDialog,
         ...moduleProps
     } = props;
 
     return (
         <SectionCommonGridSpaced>
-            <ModuleArticle {...{ content, isMain }}>
+            <ModuleArticle {...{ content, isMain, isDialog }}>
                 <ModuleList {...{ content }} {...moduleProps}>
                     {children}
                 </ModuleList>
@@ -59,13 +61,32 @@ function SectionList(props) {
  * @static
  * @type {Object}
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content] - The content config input
- * @property {boolean} [isMain] - Whether the component text should be displayed as main article or not
+ * @property {Object} [content={}] - The content config input
+ * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
 SectionList.propTypes = {
-    children: PropTypes.node,
-    content: PropTypes.object,
-    isMain: PropTypes.bool
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.array,
+        PropTypes.object
+    ])),
+    isMain: PropTypes.bool,
+    isDialog: PropTypes.bool
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {Object}
+ * @see SectionList.propTypes
+ */
+SectionList.defaultProps = {
+    content: {},
+    isMain: false,
+    isDialog: false
 };
 
 export default SectionList;

@@ -16,13 +16,16 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import { DIALOG_CHANGE_VISIBLE } from './constants';
+import {
+    STATE_DIALOG_VISIBLE_CHANGE
+} from './constants';
 
 /**
  * @type {Object}
  */
 const defaultState = {
-    visible: false
+    visible: false,
+    content: ''
 };
 
 /**
@@ -42,12 +45,23 @@ function reducer(state = defaultState, action) {
      * To ensure that the lexical declaration only applies to the current case clause wrap your clauses in blocks.
      */
     switch (action.type) {
-    case DIALOG_CHANGE_VISIBLE: {
+    case STATE_DIALOG_VISIBLE_CHANGE: {
         const visible = action.visible;
+        // @TODO: Rename to action.content
+        const page = action.page;
+
         if (visible === undefined) {
             return state;
         }
+
+        if (!page) {
+            return {
+                visible
+            };
+        }
+
         return {
+            page,
             visible
         };
     }

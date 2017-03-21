@@ -121,19 +121,24 @@ $ npm run doc
 
 ## Some links which inspired my work
 
-### React & Webpack
+### React & Webpack & JavaScript
 
 * [Plotly Academy](http://academy.plot.ly/)
 * [Component Rendering Performance in React](https://medium.com/modus-create-front-end-development/component-rendering-performance-in-react-df859b474adc#.8qyu2qbv9)
 * [Getting Started with Webpack 2](https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783#.6eciwkv63)
 * [Webpack — The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.5m75wyl2e)
 * [Optimizing React + ES6 + Webpack Production Build](http://moduscreate.com/optimizing-react-es6-webpack-production-build/)
+* [Index as a key is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n)
+* [Typing React Components](https://datarockets.com/blog/typing-react-components)
+* [We have a problem with promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html)
 
 ### Node & NPM
 
 * [Nodejitsu](https://docs.nodejitsu.com/)
 * [Node Hero - Node.js Security Tutorial](https://blog.risingstack.com/node-hero-node-js-security-tutorial/)
 * [How to Use npm as a Build Tool](https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/)
+* [How to Use npm Scripts as Your Build Tool](https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool)
+* [Writing cross-platform Node.js](https://shapeshed.com/writing-cross-platform-node/)
 * [Using Promises with Express.js](http://first-time-ceo.tumblr.com/post/104273001643/using-promises-with-expressjs)
 * [Unit testing express middleware](http://de.slideshare.net/morrissinger/unit-testing-express-middleware)
 * [Introduction to Using NPM as a Build Tool](https://medium.com/@dabit3/introduction-to-using-npm-as-a-build-tool-b41076f488b0#.1gtcn19os)

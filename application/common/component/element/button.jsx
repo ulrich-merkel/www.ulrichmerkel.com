@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -9,13 +10,14 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @requires react
  * @requires react-router
  * @requires classnames
  *
  * @changelog
+ * - 0.0.3 Improved propTypes ordering, renamed componentType to htmlElement
  * - 0.0.2 Improved api
  * - 0.0.1 Basic functions and structure
  *
@@ -39,12 +41,11 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement} React component markup
+ * @returns {React.Element} React component markup
  */
 function ElementButton(props) {
-
     const {
-        componentType,
+        htmlElement,
         className,
         classNameLabel,
         to,
@@ -55,6 +56,7 @@ function ElementButton(props) {
         isSecondary,
         isLarge,
         isSmall,
+        isClear,
         isDisabled,
         isLabelHidden,
         children,
@@ -77,31 +79,28 @@ function ElementButton(props) {
             'c-btn--secondary': isSecondary,
             'c-btn--large': isLarge,
             'c-btn--small': isSmall,
+            'c-btn--clear': isClear,
             'is-disabled': isDisabled
         }
     );
 
-    let ComponentType = componentType;
-
-    if (to) {
-        ComponentType = Link;
-    }
-
+    const HtmlElement = to ? Link : htmlElement;
+    const htmlElementType = !to ? type : null;
     const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 
     return (
-        <ComponentType
+        <HtmlElement
             className={componentClassName}
-            {...{ role, type, title, to }}
+            type={htmlElementType}
+            {...{ role, title, to }}
             {...disabledAttr}
             {...otherProps}
         >
             <span className={componentLabelClassName}>
                 {children}
             </span>
-        </ComponentType>
+        </HtmlElement>
     );
-
 }
 
 
@@ -110,36 +109,38 @@ function ElementButton(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='button'] - The component element type used for React.createElement
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {string} [className] - The component css class names, will be merged into component default classNames
  * @property {string} [classNameLabel] - The component label child css class names, will be merged into component default classNames
- * @property {string} [to] - The react-router url target
- * @property {string} [type='button'] - The element type attribute
- * @property {string} [title=''] - The element title attribute
+ * @property {string} [htmlElement='button'] - The component element type used for React.createElement
+ * @property {boolean} [isClear=false] - Clear all basic stylings or not
+ * @property {boolean} [isDisabled=false] - Whether the button has disabled classed and attributes or not
+ * @property {boolean} [isLabelHidden=false] - Whether the label text is visually hidden or not
+ * @property {boolean} [isLarge=false] - Whether the button is large styled or not
+ * @property {boolean} [isPrimary=false] - Whether the button is primary styled or not
+ * @property {boolean} [isSecondary=false] - Whether the button is secondary styled or not
+ * @property {boolean} [isSmall=false] - Whether the button is small styled or not
  * @property {string} [role='button'] - The element role attribute
- * @property {boolean} [isPrimary] - Whether the button is primary styled or not
- * @property {boolean} [isSecondary] - Whether the button is secondary styled or not
- * @property {boolean} [isLarge] - Whether the button is large styled or not
- * @property {boolean} [isSmall] - Whether the button is small styled or not
- * @property {boolean} [isDisabled] - Whether the button has disabled classed and attributes or not
- * @property {boolean} [isLabelHidden] - Whether the label text is visually hidden or not
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {string} [title=''] - The element title attribute
+ * @property {string} [to=''] - The react-router url target
+ * @property {string} [type='button'] - The element type attribute
  */
 ElementButton.propTypes = {
-    componentType: PropTypes.string,
-    className: PropTypes.string,
-    classNameLabel: PropTypes.string,
-    to: PropTypes.string,
-    type: PropTypes.string,
-    title: PropTypes.string,
-    role: PropTypes.string,
-    isPrimary: PropTypes.bool,
-    isSecondary: PropTypes.bool,
-    isLarge: PropTypes.bool,
-    isSmall: PropTypes.bool,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    classNameLabel: PropTypes.string, // eslint-disable-line react/require-default-props
+    htmlElement: PropTypes.string,
+    isClear: PropTypes.bool,
     isDisabled: PropTypes.bool,
     isLabelHidden: PropTypes.bool,
-    children: PropTypes.node
+    isLarge: PropTypes.bool,
+    isPrimary: PropTypes.bool,
+    isSecondary: PropTypes.bool,
+    isSmall: PropTypes.bool,
+    role: PropTypes.string,
+    title: PropTypes.string,
+    to: PropTypes.string, // eslint-disable-line react/require-default-props
+    type: PropTypes.string
 };
 
 /**
@@ -150,10 +151,17 @@ ElementButton.propTypes = {
  * @see ElementButton.propTypes
  */
 ElementButton.defaultProps = {
-    componentType: 'button',
-    type: 'button',
+    htmlElement: 'button',
+    isClear: false,
+    isDisabled: false,
+    isLabelHidden: false,
+    isLarge: false,
+    isPrimary: false,
+    isSmall: false,
+    isSecondary: false,
+    role: 'button',
     title: '',
-    role: 'button'
+    type: 'button'
 };
 
 export default ElementButton;

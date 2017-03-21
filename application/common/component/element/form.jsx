@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -35,7 +35,7 @@ class ElementForm extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {React.Element} React component markup
      */
     render() {
 
@@ -54,7 +54,7 @@ class ElementForm extends Component {
         } = this.props;
 
         const composedClassName = classnames(
-            'm-form--contact',
+            'm-form',
             className
         );
 
@@ -87,25 +87,25 @@ class ElementForm extends Component {
  * @static
  * @type {Object}
  * @property {string} action - The form action attribute
+ * @property {string} id - The form id attribute
  * @property {string} [acceptCharset='utf-8'] - The form action attribute
- * @property {string} [id] - The form id attribute
+ * @property {string} [className] - The form css class names, will be merged into component default classNames
  * @property {string} [itemProp='potentialAction'] - The form itemProp attribute
  * @property {string} [itemType='http://schema.org/CommunicateAction'] - The form itemType attribute
  * @property {string} [method='post'] - The form method attribute
  * @property {string} [role='form'] - The form role attribute
- * @property {string} [className] - The form css class names, will be merged into component default classNames
  * @property {Function} [onSubmit=Function.prototype] - The form submit handler function
  * @property {Function} [onReset=Function.prototype] - The form reset handler function
  */
 ElementForm.propTypes = {
     action: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     acceptCharset: PropTypes.string,
-    id: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemProp: PropTypes.string,
     itemType: PropTypes.string,
     method: PropTypes.string,
     role: PropTypes.string,
-    className: PropTypes.string,
     onSubmit: PropTypes.func,
     onReset: PropTypes.func
 };

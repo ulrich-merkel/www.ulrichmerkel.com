@@ -1,42 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`common/component/layout/footer should render correctly 1`] = `
 <footer
   className="l-footer layout-footer"
   itemScope={true}
   itemType="http://schema.org/WPFooter"
-  role="contentinfo">
+  role="contentinfo"
+>
   <button
     className="c-btn l-footer__button--up c-font-icon--chevron-up"
     onClick={[Function]}
     role="button"
     title=""
     to={undefined}
-    type="button">
+    type="button"
+  >
     <span
-      className="c-btn__label is-visually-hidden" />
+      className="c-btn__label is-visually-hidden"
+    />
   </button>
   <nav
     className="m-nav"
-    role="navigation">
+    role="navigation"
+  >
     <section
-      className="l-grid">
+      className="l-grid"
+    >
       <div
-        className="l-grid__spaced--small">
+        className="l-grid__spaced--small"
+      >
         <div
-          className="l-grid__row">
+          className="l-grid__row"
+        >
           <div
-            className="l-grid__col--12" />
+            className="l-grid__col--12"
+          />
         </div>
         <div
-          className="l-grid__row">
+          className="l-grid__row"
+        >
           <div
-            className="l-grid__col--12" />
+            className="l-grid__col--12"
+          />
         </div>
         <div
-          className="l-grid__row">
+          className="l-grid__row"
+        >
           <div
-            className="l-grid__col--12">
+            className="l-grid__col--12"
+          >
             <small
-              className="c-type--small">
+              className="c-type--small"
+            >
               © 
               <strong />
                

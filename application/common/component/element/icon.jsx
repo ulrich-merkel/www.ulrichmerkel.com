@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -25,10 +26,9 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {ReactElement|null} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ElementIcon(props) {
-
     const {
         htmlElement,
         className,
@@ -46,7 +46,6 @@ function ElementIcon(props) {
     return (
         <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
     );
-
 }
 
 /**
@@ -54,14 +53,14 @@ function ElementIcon(props) {
  *
  * @static
  * @type {Object}
- * @property {string} icon - The icon name taken for the web font
- * @property {string} [htmlElement='i'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {string} [htmlElement='i'] - The component element type used for React.createElement
+ * @property {string} [icon=''] - The icon name taken for the web font
  */
 ElementIcon.propTypes = {
-    icon: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     htmlElement: PropTypes.string,
-    className: PropTypes.string
+    icon: PropTypes.string
 };
 
 /**
@@ -72,7 +71,8 @@ ElementIcon.propTypes = {
  * @see ElementIcon.propTypes
  */
 ElementIcon.defaultProps = {
-    htmlElement: 'i'
+    htmlElement: 'i',
+    icon: ''
 };
 
 export default ElementIcon;
