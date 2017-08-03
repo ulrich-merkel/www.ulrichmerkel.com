@@ -23,23 +23,23 @@ loaderAsync.css('/css/app.css');
 loaderAsync.js('/js/client.bundle.js');
 
 // register the service worker if available
-// if (configApplication.serviceWorker.use && navigator.serviceWorker) {
-//     // checking live cycle
-//     // use req.unregister() or req.update() to handle upates
-//     navigator.serviceWorker.register('./service-worker.js')
-//         .then(function (reg) {
-//             if (reg.installing) {
-//                 // req.addEventListener('updatefound') reg.installing has changed
-//                 logger.log('Service worker installing');
-//             } else if (reg.waiting) {
-//                 logger.log('Service worker installed');
-//             } else if (reg.active) {
-//                 logger.log('Service worker active');
-//             } else {
-//                 logger.log('Successfully registered service worker', reg);
-//             }
-//         })
-//         .catch(function (err) {
-//             logger.warn('Error whilst registering service worker', err);
-//         });
-// }
+if (configApplication.serviceWorker.use && navigator.serviceWorker) {
+    // checking live cycle
+    // use req.unregister() or req.update() to handle upates
+    navigator.serviceWorker.register('./service-worker.js')
+        .then(function (reg) {
+            if (reg.installing) {
+                // req.addEventListener('updatefound') reg.installing has changed
+                logger.log('Service worker installing');
+            } else if (reg.waiting) {
+                logger.log('Service worker installed');
+            } else if (reg.active) {
+                logger.log('Service worker active');
+            } else {
+                logger.log('Successfully registered service worker', reg);
+            }
+        })
+        .catch(function (err) {
+            logger.warn('Error whilst registering service worker', err);
+        });
+}

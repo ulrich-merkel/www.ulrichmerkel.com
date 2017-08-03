@@ -3,6 +3,8 @@
 // https://classroom.udacity.com/courses/ud899
 // https://github.com/jakearchibald/wittr/
 // https://developer.mozilla.org/en/docs/Web/HTTP/Headers/Content-Security-Policy/child-src
+
+// https://julian.is/article/progressive-web-apps/
 var staticCacheName = 'ulrichmerkel-v1',
     urlsToCache = [
         './css/app.css',
