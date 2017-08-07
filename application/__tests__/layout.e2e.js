@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 module.exports = {  
     'Layout': function (browser) {
         browser.assert.ok(1);
@@ -8,10 +9,10 @@ module.exports = {
             .verify.visible('.l-header')
             .verify.visible('.l-main')
             .verify.visible('.l-footer')
-            .end()
+            .end();
     },
     after: function (browser, done) {
         browser.end();
         done();
     }
-}
+};
