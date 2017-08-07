@@ -10,7 +10,7 @@
  * @changelog
  * - 0.0.1 basic function and structure
  */
-(function () {
+(function (win) {
     var method,
         noop = function () {},
         methods = [
@@ -20,7 +20,7 @@
             'timeStamp', 'trace', 'warn'
         ],
         length = methods.length,
-        console = (window.console = window.console || {});
+        console = (win.console = win.console || {});
 
     while (length--) {
         method = methods[length];
@@ -30,9 +30,9 @@
             console[method] = noop;
         }
     }
-}());
+}(typeof window !== 'undefined' ? window : {}));
 
-if (window.console && typeof (window.console.time) == 'undefined') {
+if (typeof window !== 'undefined' && window.console && typeof (window.console.time) == 'undefined') {
     console.time = function (name, reset) {
         if (!name) {
             return;

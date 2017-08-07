@@ -1,6 +1,10 @@
 // Working demo: http://jsbin.com/ozusa6/2/
 (function () {
 
+    if (typeof window === 'undefined') {
+        return;
+    }
+
     function triggerEvent(type) {
         var event = document.createEvent('HTMLEvents');
         event.initEvent(type, true, true);
