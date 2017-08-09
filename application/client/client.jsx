@@ -50,7 +50,8 @@ import './../common/vendor/standalone';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, useRouterHistory, match } from 'react-router';
-import { createHistory } from 'history';
+import createBrowserHistory from 'react-router/node_modules/history/lib/createBrowserHistory';
+
 import attachFastClick from 'fastclick';
 import 'picturefill';
 
@@ -115,7 +116,7 @@ function createElement(Component, props) {
  * @type {Object}
  * @see {@link https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#customize-your-history-further}
  */
-const browserHistory = useRouterHistory(createHistory)({
+const browserHistory = useRouterHistory(createBrowserHistory)({
     basename: '/'
 });
 
