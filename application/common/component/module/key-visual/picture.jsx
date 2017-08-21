@@ -24,7 +24,6 @@
  *
  */
 import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
@@ -101,7 +100,9 @@ class ModuleKeyVisualPicture extends Component {
     }
 
     /**
-     * Set background image if it should be covered.
+     * Set background image if it should be covered. This is more or
+     * less just a workaround to improve seo instead of using a more
+     * simpler css solution.
      *
      * @function
      * @returns {void}
@@ -110,9 +111,7 @@ class ModuleKeyVisualPicture extends Component {
         const { isCovered } = this.props;
 
         if (isCovered && this.picture) {
-
-            const pictureDomNode = findDOMNode(this.picture);
-            const imgDomNode = pictureDomNode.querySelector('img');
+            const imgDomNode = this.picture.querySelector('img');
             const currentSrc = imgDomNode.currentSrc || imgDomNode.src;
 
             this.setState({
@@ -122,7 +121,6 @@ class ModuleKeyVisualPicture extends Component {
                     backgroundImage: `url(${currentSrc})`
                 }
             });
-
         } else {
             this.setState({
                 pictureStyle: {}

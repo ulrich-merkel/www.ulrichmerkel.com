@@ -329,26 +329,35 @@ class ModuleFormContact extends Component {
             success: false,
             error: false
         }, () => {
-            send(data, csrfToken).then((response) => { // eslint-disable-line promise/catch-or-return
-                if (!response || !response.ok) {
-                    throw new Error(`Can't send email! ${response.statusText}`);
-                }
-                return this.setState({
-                    success: true,
-                    pending: false
-                });
-            })
-            .catch((reason) => {
-                this.setState({
-                    error: true,
-                    pending: false
-                }, () => {
-                    logger.warn(reason);
-                });
-            })
-            .then(() => {
-                return scrollToTextMessage(this.textMessage);
-            });
+            send(data, csrfToken)
+                .then(
+                    (response) => {
+                        if (!response || !response.ok) {
+                            throw new Error(`Can't send email! ${response.statusText}`);
+                        }
+                        return new Promise((resolve) => {
+                            this.setState({
+                                success: true,
+                                pending: false
+                            }, resolve);
+                        });
+                    }
+                )
+                .then(
+                    () => {
+                        return scrollToTextMessage(this.textMessage);
+                    }
+                )
+                .catch(
+                    (reason) => {
+                        this.setState({
+                            error: true,
+                            pending: false
+                        }, () => {
+                            logger.warn(reason);
+                        });
+                    }
+                );
         });
 
     }

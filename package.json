@@ -71,9 +71,10 @@
     "test:dependencies": "npm list",
     "test:npm-version": "cross-var node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:node-version": "cross-var node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
-    "test:eslint": "cross-var eslint --config $npm_package_directories_config/.eslintrc.json --ignore-path $npm_package_directories_config/.eslintignore $npm_package_directories_source_root --ext .js,.jsx --cache --cache-location $npm_package_directories_report/.eslintcache",
+    "test:eslint": "cross-var eslint --config $npm_package_directories_config/.eslintrc.js --ignore-path .eslintignore --ext .js,.jsx --cache --cache-location $npm_package_directories_report/.eslintcache $npm_package_directories_source_root",
     "test:eslint:fix": "npm run test:eslint -- --fix",
-    "test:jest": "jest --config $npm_package_directories_config/jest/config.json",
+    "test:eslint:init": "eslint --init",
+    "test:jest": "cross-var cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/config.json",
     "test:e2e": "nightwatch -c $npm_package_directories_config/nightwatch/nightwatch.config.js",
     "test:flow": "flow check; test $? -eq 0 -o $? -eq 2",
     "test:css": "cross-var stylelint --config $npm_package_directories_config/.stylelintrc --syntax scss \"**/*.scss\"",
@@ -242,11 +243,11 @@
     "rimraf": "2.6.1",
     "sassdoc": "^2.3.0",
     "selenium-server": "3.4.0",
-    "sinon": "^3.1.0",
+    "sinon": "^3.2.0",
     "stylelint": "^8.0.0",
     "tldrlegal": "^1.0.5",
     "uglify-js": "^3.0.27",
-    "webpack": "^3.5.2"
+    "webpack": "^3.5.3"
   },
   "snyk": true
 }

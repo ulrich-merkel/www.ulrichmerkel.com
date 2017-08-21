@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies*/
+/* eslint-disable import/no-extraneous-dependencies, immutable/no-mutation */
 const babelJest = require('babel-jest');
 const babelDev = require('./babel.jest');
 

@@ -8,7 +8,7 @@ const scenarioDefaults = {
     misMatchThreshold: 0.1
 };
 
-module.exports = {
+module.exports = { // eslint-disable-line immutable/no-mutation
     id: 'visual_regression',
     viewports: [
         {

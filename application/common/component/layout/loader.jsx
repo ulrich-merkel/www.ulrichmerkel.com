@@ -41,7 +41,7 @@ function LayoutLoader(props) {
     const contentSection = getContentSection(content);
 
     return (
-        <dialog className='l-dialog--loading' role='dialog'>
+        <dialog className='l-dialog--loading'>
             <div className='l-dialog__content'>
                 <div className='c-flip'>
                     <div className='c-flip__front'>{contentSection('headline')}</div>

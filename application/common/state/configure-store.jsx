@@ -32,7 +32,7 @@
  */
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { omit, get } from 'lodash';
 
 import { debug } from './../config/application';

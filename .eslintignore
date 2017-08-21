@@ -1,0 +1,11 @@
+# Ignore custom files and folders.
+# "/node_modules/*" and "/bower_components/*" are ignored by default, but only exclude the 
+# top-level node_modules and bower_components by default. Patterns in an .eslintignore
+# file will be resolved from the .eslintignore file’s location since version 4!
+
+build/**
+application/common/vendor/**
+report/**
+doc/**
+config/flowtype/**
+**/**/*{.,-}min.js

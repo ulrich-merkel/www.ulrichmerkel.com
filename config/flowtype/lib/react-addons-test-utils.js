@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 declare type FunctionOrComponentClass = React$Component<*, *, *> | Function;
 declare module 'react-addons-test-utils' {
   declare var Simulate: {

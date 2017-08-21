@@ -1,5 +1,5 @@
+/** global picturefill */
 /* eslint-disable immutable/no-mutation, immutable/no-this */
-/* global picturefill */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the

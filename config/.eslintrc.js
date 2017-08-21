@@ -1,5 +1,4 @@
-{
-    "root": true,
+module.exports = {
     "env": {
         "browser": true,
         "node": true,
@@ -35,7 +34,7 @@
         "react",
         "xss"
     ],
-    "rules": {
+     "rules": {
         "arrow-body-style": 0,
         "comma-dangle": ["error", "never"],
         "immutable/no-let": 2,
@@ -107,4 +106,4 @@
             "always"
         ]
     }
-}
+};
