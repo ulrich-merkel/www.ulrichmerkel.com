@@ -26,10 +26,10 @@
 import nodemailer from 'nodemailer';
 import assert from 'assert-plus';
 
-import configApplication, { url } from './../../common/config/application';
-import logger from './../../common/utils/logger';
-import xor from './../../common/utils/xor';
-import { isValid } from './../../common/state/contact/utils';
+import configApplication, { url } from '../../common/config/application';
+import logger from '../../common/utils/logger';
+import xor from '../../common/utils/xor';
+import { isValid } from '../../common/state/contact/utils';
 
 const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;

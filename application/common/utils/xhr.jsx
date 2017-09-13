@@ -20,7 +20,7 @@
  */
 import fetch from 'isomorphic-fetch';
 
-import { host, port } from './../config/application';
+import { host, port } from '../config/application';
 import { isNode } from './environment';
 
 const XHR_DEFAULT_HEADERS = {

@@ -38,34 +38,34 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
 import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
     selectStateScrollHeaderFixed,
     selectStateScrollHeaderVisible
-} from './../../state/selectors';
+} from '../../state/selectors';
 import {
     changeLocale,
     changeDialogVisibleSearch
-} from './../../state/actions';
+} from '../../state/actions';
 import {
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
-} from './../../state/constants';
-import ModuleMenu from './../module/menu';
+} from '../../state/constants';
+import ModuleMenu from '../module/menu';
 import {
     GridContainer,
     GridRow,
     GridCol
-} from './../grid';
+} from '../grid';
 import {
     A,
     Nav,
     Button,
     Icon
-} from './../element';
+} from '../element';
 
 /**
  * Function representing a component to return a single react child element.

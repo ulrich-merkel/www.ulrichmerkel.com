@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { ADD_CSRF_TOKEN } from './../constants';
-import { addToken } from './../actions';
+import { ADD_CSRF_TOKEN } from '../constants';
+import { addToken } from '../actions';
 
 describe('common/state/csrf/actions', function () {
     describe('changeSearchTerm', function () {

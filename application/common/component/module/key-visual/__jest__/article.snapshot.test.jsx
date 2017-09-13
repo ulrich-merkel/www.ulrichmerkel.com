@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleKeyVisualArticle from './../article';
+import ModuleKeyVisualArticle from '../article';
 
 describe('common/component/module/key-visual/article', function () {
     it('should render correctly', function () {

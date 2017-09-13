@@ -29,8 +29,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 
-import { getTranslatedContent } from './../../utils/content';
-import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
+import { getTranslatedContent } from '../../utils/content';
+import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
 
 /**
  * Higher order function to get translation data.

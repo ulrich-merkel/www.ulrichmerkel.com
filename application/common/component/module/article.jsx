@@ -32,7 +32,7 @@ import classnames from 'classnames';
 import ArticleHeadline from './article/headline';
 import ArticleLead from './article/lead';
 import ArticleButton from './article/button';
-import Meta from './../element/meta';
+import Meta from '../element/meta';
 
 /**
  * Function representing a component to return a single react child element.

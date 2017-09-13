@@ -437,7 +437,7 @@ const configContent = {
             img: {
                 name: 'optik-ludewig--keyvisual',
                 ext: 'png',
-                path: '../../img/content/work/optik-ludewig/',
+                path: '.../img/content/work/optik-ludewig/',
                 alt: 'intl-work-optik-ludewig-alt',
                 sizes: pictureSizesKeyvisualWork
             },

@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import SectionSearch from './../search';
+import mockedStore from '../../__mocks__/store';
+import SectionSearch from '../search';
 
 describe('common/component/section/search', function () {
     it('should render correctly', function () {

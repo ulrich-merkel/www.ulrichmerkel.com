@@ -25,7 +25,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SectionCommonGridSpaced from './common/grid-spaced';
-import ModuleArticle from './../module/article';
+import ModuleArticle from '../module/article';
 
 /**
  * Function representing a component to return a single react child element.

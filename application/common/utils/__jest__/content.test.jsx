@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { getContentSection, getTranslatedContent } from './../content';
+import { getContentSection, getTranslatedContent } from '../content';
 
 describe('common/utils/content', function () {
     it('should return a config via getContentSection', function () {

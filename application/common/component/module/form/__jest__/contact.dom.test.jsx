@@ -4,7 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import { ModuleFormContact } from './../contact';
+import { ModuleFormContact } from '../contact';
 
 describe('common/component/module/form/contact', function () {
     const defaultProps = {

@@ -34,16 +34,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import GridContainer from './../grid/container';
-import GridSpaced from './../grid/spaced';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
-import ModuleMenu from './../module/menu';
-import Nav from './../element/nav';
-import Button from './../element/button';
-import Small from './../element/small';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import GridContainer from '../grid/container';
+import GridSpaced from '../grid/spaced';
+import GridRow from '../grid/row';
+import GridCol from '../grid/col';
+import ModuleMenu from '../module/menu';
+import Nav from '../element/nav';
+import Button from '../element/button';
+import Small from '../element/small';
 
 /**
  * Function representing a component to return a single react child element.

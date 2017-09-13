@@ -66,9 +66,9 @@ import morgan from 'morgan';
 import ip from 'ip';
 import assert from 'assert-plus';
 
-import { url, port, sessionSecret, debug } from './../common/config/application';
-import logger from './../common/utils/logger';
-import { AVAILABLE_LOCALES } from './../common/state/intl/constants';
+import { url, port, sessionSecret, debug } from '../common/config/application';
+import logger from '../common/utils/logger';
+import { AVAILABLE_LOCALES } from '../common/state/intl/constants';
 import middlewarePost from './middleware/post';
 import middlewareError from './middleware/error';
 import middlewareReact from './middleware/react';
@@ -114,8 +114,8 @@ function create(config = {}, callback = Function.prototype) {
             url,
             port,
             sessionSecret,
-            morganLogPath: '../../report/access.log',
-            staticPath: '../../public'
+            morganLogPath: '.../report/access.log',
+            staticPath: '.../public'
         },
         config
     );

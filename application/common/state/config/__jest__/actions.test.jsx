@@ -4,7 +4,7 @@
 // import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
 // import thunk from 'redux-thunk';
 
-// import { host, port, url } from './../../../config/application';
+// import { host, port, url } from '../../../config/application';
 import {
     CONFIG_CONTENT_ADD,
     CONFIG_TRANSLATION_ADD
@@ -12,13 +12,13 @@ import {
     // FETCH_CONFIG_CONTENT_SUCCESS,
     // FETCH_CONFIG_TRANSLATION_REQUEST,
     // FETCH_CONFIG_TRANSLATION_SUCCESS
-} from './../constants';
+} from '../constants';
 import {
     addConfigContent,
     addConfigTranslation
     // fetchConfigContentIfNeeded,
     // fetchConfigTranslationIfNeeded
-} from './../actions';
+} from '../actions';
 
 // const mockStore = configureMockStore([thunk]);
 Date.now = jest.genMockFunction().mockReturnValue(1234567890);

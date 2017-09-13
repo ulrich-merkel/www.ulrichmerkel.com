@@ -33,12 +33,12 @@ import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
-import { selectStatePage } from './../../../state/selectors';
-import getSectionTransition from './../../../utils/transition';
-import GridSection from './../../grid/section';
-import GridSpaced from './../../grid/spaced';
-import GridRow from './../../grid/row';
-import GridCol from './../../grid/col';
+import { selectStatePage } from '../../../state/selectors';
+import getSectionTransition from '../../../utils/transition';
+import GridSection from '../../grid/section';
+import GridSpaced from '../../grid/spaced';
+import GridRow from '../../grid/row';
+import GridCol from '../../grid/col';
 
 /**
  * Function representing a component to return a single react child element.

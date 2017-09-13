@@ -41,15 +41,15 @@ import {
     selectStateIntlLocale,
     selectStateSearchTerm,
     selectStateConfig
-} from './../../state/selectors';
+} from '../../state/selectors';
 import {
     changeDialogVisibleSearch
-} from './../../state/actions';
-import { getContentSection } from './../../utils/content';
-import { findMatches } from './../../utils/search';
-import addContent from './../decorator/add-content';
-import A from './../element/a';
-import Headline from './../element/headline';
+} from '../../state/actions';
+import { getContentSection } from '../../utils/content';
+import { findMatches } from '../../utils/search';
+import addContent from '../decorator/add-content';
+import A from '../element/a';
+import Headline from '../element/headline';
 
 /**
  * Function representing a component to return a single react child element.

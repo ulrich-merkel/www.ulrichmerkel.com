@@ -41,20 +41,20 @@ import {
     pictureFill,
     scroller,
     addContent
-} from './../decorator/';
-import scrollTo, { getPageOffset } from './../../utils/scroll-to';
+} from '../decorator/';
+import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
     STATE_DIALOG_PAGE_SEARCH
-} from './../../state/constants';
+} from '../../state/constants';
 import {
     LayoutHeader,
     LayoutFooter,
     LayoutLoader,
     LayoutDialog
 } from './index';
-import PageBroadcast from './../page/broadcast';
-import PageSearch from './../page/search';
+import PageBroadcast from '../page/broadcast';
+import PageSearch from '../page/search';
 
 /**
  * Class representing a component.

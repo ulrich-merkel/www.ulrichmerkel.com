@@ -23,7 +23,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import A from './../../element/a';
+import A from '../../element/a';
 
 /**
  * Function representing a component to return a single react child element.

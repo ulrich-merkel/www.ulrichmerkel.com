@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import scrollTo, { easeInOutQuad } from './../scroll-to';
+import scrollTo, { easeInOutQuad } from '../scroll-to';
 
 const defaults = {
     top: 0,

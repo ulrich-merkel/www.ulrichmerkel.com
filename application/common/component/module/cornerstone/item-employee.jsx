@@ -26,8 +26,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.

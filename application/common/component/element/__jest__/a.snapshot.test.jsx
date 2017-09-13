@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { stub } from 'sinon';
-import ElementA from './../a';
+import ElementA from '../a';
 
 describe('common/component/element/a', function () {
     const defaultProps = {

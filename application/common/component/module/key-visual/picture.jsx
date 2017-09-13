@@ -28,8 +28,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
-import Picture from './../../element/picture';
-import { isBrowser } from './../../../utils/environment';
+import Picture from '../../element/picture';
+import { isBrowser } from '../../../utils/environment';
 
 /**
  * Class representing a component.
@@ -165,7 +165,7 @@ class ModuleKeyVisualPicture extends Component {
                 path={img.path}
                 alt={img.alt}
                 sizes={img.sizes}
-                pictureRef={(picture) => { this.picture = picture }}
+                pictureRef={(picture) => { this.picture = picture; }}
                 className={componentPictureClassName}
                 style={componentPictureStyle}
             />

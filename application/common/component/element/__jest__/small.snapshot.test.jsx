@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementSmall from './../small';
+import ElementSmall from '../small';
 
 describe('common/component/element/small', function () {
     it('should render correctly', function () {

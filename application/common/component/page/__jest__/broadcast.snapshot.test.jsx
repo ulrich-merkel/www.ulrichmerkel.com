@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import PageBroadcast from './../broadcast';
+import mockedStore from '../../__mocks__/store';
+import PageBroadcast from '../broadcast';
 
 describe('common/component/page/broadcast', function () {
     const props = {

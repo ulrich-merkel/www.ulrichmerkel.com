@@ -1,4 +1,6 @@
 /* eslint-disable immutable/no-mutation */
+'use strict';
+
 module.exports = {
     // Don't try to find .babelrc because we want to force this configuration.
     'babelrc': false,

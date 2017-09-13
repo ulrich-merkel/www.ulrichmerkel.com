@@ -28,8 +28,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SectionCommonGrid from './common/grid';
-import ModuleArticle from './../module/article';
-import ModuleFeatured from './../module/featured';
+import ModuleArticle from '../module/article';
+import ModuleFeatured from '../module/featured';
 
 /**
  * Function representing a component to return a single react child element.

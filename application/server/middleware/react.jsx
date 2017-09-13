@@ -42,17 +42,17 @@ import { RouterContext, match } from 'react-router';
 import { get } from 'lodash';
 import assert from 'assert-plus';
 
-import configApplication from './../../common/config/application';
-import configRoutes from './../../common/config/routes';
-import logger from './../../common/utils/logger';
-import { readFile } from './../../common/utils/read-file';
-import Root from './../../common/component/root';
-import LayoutHtml from './../../common/component/layout/html';
-import PageNotFound from './../../common/component/page/not-found';
-import configureStore from './../../common/state/configure-store';
-import { changeLocale } from './../../common/state/intl/actions';
-import { fetchConfigContentIfNeeded, fetchConfigTranslationIfNeeded } from './../../common/state/config/actions';
-import { addToken } from './../../common/state/csrf/actions';
+import configApplication from '../../common/config/application';
+import configRoutes from '../../common/config/routes';
+import logger from '../../common/utils/logger';
+import { readFile } from '../../common/utils/read-file';
+import Root from '../../common/component/root';
+import LayoutHtml from '../../common/component/layout/html';
+import PageNotFound from '../../common/component/page/not-found';
+import configureStore from '../../common/state/configure-store';
+import { changeLocale } from '../../common/state/intl/actions';
+import { fetchConfigContentIfNeeded, fetchConfigTranslationIfNeeded } from '../../common/state/config/actions';
+import { addToken } from '../../common/state/csrf/actions';
 
 const { aboveTheFold } = configApplication;
 

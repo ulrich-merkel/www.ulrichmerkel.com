@@ -40,18 +40,18 @@ import { isFunction, get } from 'lodash';
 import {
     selectStateSearchTerm,
     selectStateCsrfToken
-} from './../../../state/selectors';
-import { changeSearchTerm } from './../../../state/actions';
+} from '../../../state/selectors';
+import { changeSearchTerm } from '../../../state/actions';
 import {
     GridRow,
     GridCol
-} from './../../grid';
+} from '../../grid';
 import {
     Form,
     Fieldset,
     Legend,
     InputGroup
-} from './../../element';
+} from '../../element';
 
 /**
  * Handle form submit event.

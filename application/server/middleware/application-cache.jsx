@@ -20,9 +20,9 @@
 import { EOL } from 'os';
 import assert from 'assert-plus';
 
-import configApplication from './../../common/config/application';
-import configPictures from './../../common/config/pictures';
-import { getDateNow } from './../../common/utils/date';
+import configApplication from '../../common/config/application';
+import configPictures from '../../common/config/pictures';
+import { getDateNow } from '../../common/utils/date';
 
 const configApplicationCache = configApplication.applicationCache;
 

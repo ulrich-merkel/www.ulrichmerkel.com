@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import { LayoutBody } from './../body';
+import mockedStore from '../../__mocks__/store';
+import { LayoutBody } from '../body';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {

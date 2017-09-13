@@ -79,7 +79,8 @@ class ElementPicture extends Component {
                 itemScope
                 itemType='http://schema.org/ImageObject'
                 ref={pictureRef}
-                {...otherProps}>
+                {...otherProps}
+            >
                 {sizes && sizes.map((value) => {
                     const {
                         height,

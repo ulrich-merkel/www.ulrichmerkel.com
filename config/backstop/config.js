@@ -1,5 +1,6 @@
-const rootUrl = `http://localhost:${process.env.PORT}`;
+'use strict';
 
+const rootUrl = `http://localhost:${process.env.PORT}`;
 const scenarioDefaults = {
     selectors: [
         'document'

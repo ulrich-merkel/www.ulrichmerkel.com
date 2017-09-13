@@ -23,7 +23,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Headline from './../../element/headline';
+import Headline from '../../element/headline';
 
 /**
  * Function representing a component to return a single react child element.

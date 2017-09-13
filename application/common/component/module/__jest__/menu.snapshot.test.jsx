@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleMenu from './../menu';
+import ModuleMenu from '../menu';
 
 describe('common/component/module/menu', function () {
     const defaultProps = {

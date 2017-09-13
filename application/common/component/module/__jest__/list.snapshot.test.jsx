@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleList from './../list';
+import ModuleList from '../list';
 
 describe('common/component/module/list', function () {
     const defaultProps = {

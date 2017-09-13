@@ -48,26 +48,26 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isFunction, has } from 'lodash';
 
-import configApplication, { url } from './../../../config/application';
-import { isBrowser } from './../../../utils/environment';
-import xor from './../../../utils/xor';
-import logger from './../../../utils/logger';
-import scrollTo from './../../../utils/scroll-to';
-import xhr, { XHR_DEFAULT_HEADERS } from './../../../utils/xhr';
-import { selectStateContact, selectStateCsrfToken } from './../../../state/selectors';
-import { changeContact } from './../../../state/contact/actions';
-import { validate, isValid } from './../../../state/contact/utils';
-import Row from './../../grid/row';
-import Col from './../../grid/col';
-import Form from './../../element/form';
-import Fieldset from './../../element/fieldset';
-import Legend from './../../element/legend';
-import InputGroup from './../../element/input-group';
-import TextareaGroup from './../../element/textarea-group';
-import ButtonGroup from './../../element/button-group';
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
-import Button from './../../element/button';
+import configApplication, { url } from '../../../config/application';
+import { isBrowser } from '../../../utils/environment';
+import xor from '../../../utils/xor';
+import logger from '../../../utils/logger';
+import scrollTo from '../../../utils/scroll-to';
+import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
+import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
+import { changeContact } from '../../../state/contact/actions';
+import { validate, isValid } from '../../../state/contact/utils';
+import Row from '../../grid/row';
+import Col from '../../grid/col';
+import Form from '../../element/form';
+import Fieldset from '../../element/fieldset';
+import Legend from '../../element/legend';
+import InputGroup from '../../element/input-group';
+import TextareaGroup from '../../element/textarea-group';
+import ButtonGroup from '../../element/button-group';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
+import Button from '../../element/button';
 
 const defaultState = {
     name: '',

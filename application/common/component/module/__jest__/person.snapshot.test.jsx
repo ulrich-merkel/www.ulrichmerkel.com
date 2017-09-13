@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModulePerson from './../person';
+import ModulePerson from '../person';
 
 describe('common/component/module/person', function () {
     const defaultProps = {

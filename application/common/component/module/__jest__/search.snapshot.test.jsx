@@ -2,10 +2,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import mockedStore from './../../__mocks__/store';
-import ModuleSearch from './../search';
+import mockedStore from '../../__mocks__/store';
+import ModuleSearch from '../search';
 
-jest.mock('./../../../utils/search');
+jest.mock('../../../utils/search');
 
 describe('common/component/module/search', function () {
     const defaultProps = {

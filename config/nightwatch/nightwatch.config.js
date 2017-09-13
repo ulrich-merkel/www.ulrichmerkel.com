@@ -6,6 +6,8 @@
  * @see {@link http://matthewroach.me/ui-testing-with-nightwatch-js/}
  * @see {@link https://blog.parsable.com/react-full-stack-tests-and-continuous-delivery-part-1-4-nightwatch-c378b6fbac8a}
  */
+'use strict';
+
 const seleniumServer = require('selenium-server');
 const phantomjs = require('phantomjs-prebuilt');
 

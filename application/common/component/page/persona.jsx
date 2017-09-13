@@ -33,15 +33,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import addPageTracking from './../decorator/add-page-tracking';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import LayoutMain from './../layout/main';
-import SectionText from './../section/text';
-import SectionCornerstone from './../section/cornerstone';
-import SectionService from './../section/service';
-import SectionLanguage from './../section/language';
-import SectionReading from './../section/reading';
+import addPageTracking from '../decorator/add-page-tracking';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import LayoutMain from '../layout/main';
+import SectionText from '../section/text';
+import SectionCornerstone from '../section/cornerstone';
+import SectionService from '../section/service';
+import SectionLanguage from '../section/language';
+import SectionReading from '../section/reading';
 
 /**
  * Function representing a component to return a single react child element.

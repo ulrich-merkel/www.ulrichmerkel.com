@@ -29,8 +29,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from './../../state/scroll/actions';
-import { getPageOffset } from './../../utils/scroll-to';
+import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { getPageOffset } from '../../utils/scroll-to';
 
 /**
  * The scroller higher order function handling window scrolling.

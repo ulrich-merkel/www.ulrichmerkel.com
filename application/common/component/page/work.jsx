@@ -37,15 +37,15 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import { url } from './../../config/application';
-import configWork from './../../config/work';
-import addPageTracking from './../decorator/add-page-tracking';
-import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
-import { getContentSection, getTranslatedContent } from './../../utils/content';
-import LayoutMain from './../layout/main';
-import SectionKeyVisual from './../section/key-visual';
-import SectionText from './../section/text';
-import SectionFeatured from './../section/featured';
+import { url } from '../../config/application';
+import configWork from '../../config/work';
+import addPageTracking from '../decorator/add-page-tracking';
+import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
+import { getContentSection, getTranslatedContent } from '../../utils/content';
+import LayoutMain from '../layout/main';
+import SectionKeyVisual from '../section/key-visual';
+import SectionText from '../section/text';
+import SectionFeatured from '../section/featured';
 
 /**
  * Find current work page key from config array.

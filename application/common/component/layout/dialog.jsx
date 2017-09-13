@@ -39,16 +39,16 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from './../../state/selectors';
-import { changeDialogVisible } from './../../state/actions';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import { isBrowser } from './../../utils/environment';
+import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
+import { changeDialogVisible } from '../../state/actions';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import { isBrowser } from '../../utils/environment';
 
-import GridSpaced from './../grid/spaced';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
-import Button from './../element/button';
+import GridSpaced from '../grid/spaced';
+import GridRow from '../grid/row';
+import GridCol from '../grid/col';
+import Button from '../element/button';
 
 /**
  * Class representing a component.

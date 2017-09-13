@@ -27,7 +27,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SectionCommonGrid from './common/grid';
-import ModuleKeyVisual from './../module/key-visual';
+import ModuleKeyVisual from '../module/key-visual';
 
 /**
  * Function representing a component to return a single react child element.

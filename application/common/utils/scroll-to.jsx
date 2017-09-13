@@ -161,12 +161,12 @@ function scrollTo(opts = {}) {
         easing: easeInOutQuad,
         callback: Function.prototype
     }, opts);
-    const hasWindowScrollTo = isBrowser() && isFunction(window.scrollTo);
 
     if (!isBrowser()) {
         options.callback.call(null, options);
         return;
     }
+    const hasWindowScrollTo = isFunction(window.scrollTo);
 
     if (!options.duration) {
         hasWindowScrollTo && window.scrollTo(0, options.top);

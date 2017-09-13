@@ -22,7 +22,7 @@ import {
     createDomNode,
     getHeadDomNode,
     getFirstDomNodeByTagName
-} from './../utils/dom';
+} from '../utils/dom';
 
 const classNameLoaded = constants.IS_LAZY_LOADED;
 

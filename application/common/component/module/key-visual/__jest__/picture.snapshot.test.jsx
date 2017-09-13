@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleKeyVisualPicture from './../picture';
+import ModuleKeyVisualPicture from '../picture';
 
 describe('common/component/module/key-visual/picture', function () {
     const defaultProps = {

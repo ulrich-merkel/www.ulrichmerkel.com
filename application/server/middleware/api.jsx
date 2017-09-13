@@ -22,10 +22,10 @@
 import { Router } from 'express';
 import assert from 'assert-plus';
 
-import { url } from './../../common/config/application';
-import configContent from './../../common/config/content';
-import configIntlEnEn from './../../common/config/intl/en-EN';
-import configIntlDeDe from './../../common/config/intl/de-DE';
+import { url } from '../../common/config/application';
+import configContent from '../../common/config/content';
+import configIntlEnEn from '../../common/config/intl/en-EN';
+import configIntlDeDe from '../../common/config/intl/de-DE';
 
 /**
  * Routing handler to serve static files as json.

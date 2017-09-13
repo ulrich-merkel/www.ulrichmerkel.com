@@ -1,9 +1,9 @@
 /* eslint-disable func-names, import/first, import/no-extraneous-dependencies, no-underscore-dangle, immutable/no-mutation, immutable/no-let */
-jest.mock('./../../../common/config/application');
+jest.mock('../../../common/config/application');
 
 import httpMocks from 'node-mocks-http';
-import config from './../../../common/config/application';
-import middleware from './../application-cache';
+import config from '../../../common/config/application';
+import middleware from '../application-cache';
 
 Date.now = jest.genMockFunction().mockReturnValue(1234567890);
 

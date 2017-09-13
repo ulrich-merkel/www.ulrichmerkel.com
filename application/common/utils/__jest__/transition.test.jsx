@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import getSectionTransition from './../transition';
-import configApplication from './../../config/application';
+import getSectionTransition from '../transition';
+import configApplication from '../../config/application';
 
 describe('common/utils/transition', function () {
 

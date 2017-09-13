@@ -35,8 +35,8 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisibleBroadcast } from './../../state/dialog/actions';
-import { isBrowser } from './../../utils/environment';
+import { changeDialogVisibleBroadcast } from '../../state/dialog/actions';
+import { isBrowser } from '../../utils/environment';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
 import ModuleTextPerson from './text/person';

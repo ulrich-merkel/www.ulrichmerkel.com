@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementPictureSource from './../picture-source';
+import ElementPictureSource from '../picture-source';
 
 describe('common/component/element/picture-source', function () {
     it('should render correctly', function () {

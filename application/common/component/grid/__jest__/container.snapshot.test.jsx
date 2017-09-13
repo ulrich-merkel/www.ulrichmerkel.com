@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import GridContainer from './../container';
+import GridContainer from '../container';
 
 describe('common/component/grid/container', function () {
     it('should render correctly', function () {
