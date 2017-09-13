@@ -1,26 +1,26 @@
 /* eslint-disable func-names, immutable/no-mutation */
 // @see https://github.com/reactjs/redux/blob/master/docs/recipes/WritingTests.md
-import configureMockStore from 'redux-mock-store'; // eslint-disable-line import/no-extraneous-dependencies
-import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
-import thunk from 'redux-thunk';
+// import configureMockStore from 'redux-mock-store'; // eslint-disable-line import/no-extraneous-dependencies
+// import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
+// import thunk from 'redux-thunk';
 
-import { host, port, url } from './../../../config/application';
+// import { host, port, url } from './../../../config/application';
 import {
     CONFIG_CONTENT_ADD,
-    CONFIG_TRANSLATION_ADD,
-    FETCH_CONFIG_CONTENT_REQUEST,
-    FETCH_CONFIG_CONTENT_SUCCESS,
-    FETCH_CONFIG_TRANSLATION_REQUEST,
-    FETCH_CONFIG_TRANSLATION_SUCCESS
+    CONFIG_TRANSLATION_ADD
+    // FETCH_CONFIG_CONTENT_REQUEST,
+    // FETCH_CONFIG_CONTENT_SUCCESS,
+    // FETCH_CONFIG_TRANSLATION_REQUEST,
+    // FETCH_CONFIG_TRANSLATION_SUCCESS
 } from './../constants';
 import {
     addConfigContent,
-    addConfigTranslation,
-    fetchConfigContentIfNeeded,
-    fetchConfigTranslationIfNeeded
+    addConfigTranslation
+    // fetchConfigContentIfNeeded,
+    // fetchConfigTranslationIfNeeded
 } from './../actions';
 
-const mockStore = configureMockStore([thunk]);
+// const mockStore = configureMockStore([thunk]);
 Date.now = jest.genMockFunction().mockReturnValue(1234567890);
 
 describe('common/state/config/actions', function () {

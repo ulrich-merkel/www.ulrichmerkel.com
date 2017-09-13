@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 module.exports = {
     'rootDir': '../../',
     'bail': true,
@@ -5,26 +6,26 @@ module.exports = {
     'testPathIgnorePatterns': [
         '<rootDir>/(build|docs|node_modules)/'
     ],
-    "setupFiles": [
-        "<rootDir>/config/jest/setup.js"
+    'setupFiles': [
+        '<rootDir>/config/jest/setup.js'
     ],
-    "transform": {
-        "^.+\\.jsx$": "<rootDir>/config/jest/transform.js"
+    'transform': {
+        '^.+\\.jsx$': '<rootDir>/config/jest/transform.js'
     },
     'verbose': true,
-    "moduleFileExtensions": [
-        "js",
-        "jsx"
+    'moduleFileExtensions': [
+        'js',
+        'jsx'
     ],
-    "testEnvironment": "node",
-    "coverageDirectory": "<rootDir>/report/",
-    "coverageThreshold": {
-        "global": {
-            "branches": 50,
-            "functions": 65,
-            "lines": 65,
-            "statements": 65
+    'testEnvironment': 'node',
+    'coverageDirectory': '<rootDir>/report/',
+    'coverageThreshold': {
+        'global': {
+            'branches': 50,
+            'functions': 65,
+            'lines': 65,
+            'statements': 65
         }
     },
-    "collectCoverage": true
+    'collectCoverage': true
 };

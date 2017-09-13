@@ -14,7 +14,7 @@ describe('component/layout/html', function () {
 
         // @see {@link https://github.com/nfl/react-helmet/issues/203}
         beforeEach(function () {
-            Helmet.canUseDOM = false;
+            Helmet.canUseDOM = false; // eslint-disable-line immutable/no-mutation
         });
 
         it('should render correctly', function () {
