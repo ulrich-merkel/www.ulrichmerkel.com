@@ -13,6 +13,7 @@
 * @TODO: Find better mapping solution to prevent unnecessary rendering
 *
 * @requires react
+@requires prop-types
 * @requires classnames
 * @requires common/component/element/paragraph
 *
@@ -24,7 +25,8 @@
 *
 * @example <caption>Example usage (jsx)</caption>
 */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import P from './../element/paragraph';

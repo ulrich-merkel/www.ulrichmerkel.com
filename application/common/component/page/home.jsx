@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
  * @requires common/component/decorator/add-page-tracking
  * @requires common/component/decorator/add-content
@@ -28,7 +29,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import addPageTracking from './../decorator/add-page-tracking';

@@ -13,6 +13,7 @@
  * @TODO: Add classname and htmlElement to props, add honeypot again
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires lodash
  * @requires common/config/application
@@ -42,7 +43,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isFunction, has } from 'lodash';
 

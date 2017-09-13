@@ -9,7 +9,7 @@
         var event = document.createEvent('HTMLEvents');
         event.initEvent(type, true, true);
         event.eventName = type;
-        (document.body || window).dispatchEvent(event);
+        (document.body || window).dispatchEvent(event, {});
     }
 
     function testConnection() {

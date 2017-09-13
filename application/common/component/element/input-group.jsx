@@ -12,6 +12,7 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/input
  * @requires common/component/element/label
@@ -21,7 +22,8 @@
  * - 0.0.2 Add isLabelVisuallyHidden and placeholder to props
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Input from './input';

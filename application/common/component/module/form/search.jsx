@@ -11,6 +11,7 @@
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires lodash
  * @requires common/config/application
@@ -31,7 +32,8 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isFunction, get } from 'lodash';
 

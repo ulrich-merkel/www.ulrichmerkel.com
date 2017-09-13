@@ -11,6 +11,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires classnames
  * @requires lodash
@@ -32,7 +33,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';

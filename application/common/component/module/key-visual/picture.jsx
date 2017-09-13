@@ -11,7 +11,7 @@
  * @version 0.0.3
  *
  * @requires react
- * @requires react-dom
+ * @requires prop-types
  * @requires classnames
  * @requires lodash
  * @requires common/component/element/picture
@@ -23,7 +23,8 @@
  * - 0.0.1 Basic functions and structure
  *
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
@@ -33,7 +34,7 @@ import { isBrowser } from './../../../utils/environment';
 /**
  * Class representing a component.
  *
- * @class
+ * @class 
  * @extends React.Component
  */
 class ModuleKeyVisualPicture extends Component {
@@ -83,7 +84,7 @@ class ModuleKeyVisualPicture extends Component {
     componentDidMount() {
         if (isBrowser()) {
             window.addEventListener('resize', this.onResize);
-            window.dispatchEvent(new CustomEvent('resize'));
+            window.dispatchEvent(new CustomEvent('resize'), {});
         }
     }
 

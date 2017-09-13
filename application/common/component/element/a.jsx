@@ -13,6 +13,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-router
  * @requires classnames
  *
@@ -32,7 +33,8 @@
  * //  Link text
  * // </a>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, IndexLink } from 'react-router';
 import classnames from 'classnames';
 

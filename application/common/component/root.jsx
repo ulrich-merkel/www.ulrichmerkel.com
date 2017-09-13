@@ -10,13 +10,15 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  *
  * @changelog
  * - 0.0.2 Moved redux store initialization to server files
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 
 /**

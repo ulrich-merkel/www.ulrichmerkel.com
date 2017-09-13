@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
  *
@@ -20,7 +21,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import addContent from './../decorator/add-content';
 import { getContentSection } from './../../utils/content';

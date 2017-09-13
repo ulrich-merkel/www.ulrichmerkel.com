@@ -3,7 +3,8 @@ jest.mock('./../../../config/content');
 jest.mock('./../../../config/intl/en-EN');
 
 import 'jsdom-global/register';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 

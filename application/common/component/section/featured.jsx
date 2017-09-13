@@ -13,6 +13,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires common/component/section/common/grid
  * @requires common/component/module/article
  * @requires common/component/module/featured
@@ -23,7 +24,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import SectionCommonGrid from './common/grid';
 import ModuleArticle from './../module/article';

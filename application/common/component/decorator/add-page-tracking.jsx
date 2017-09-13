@@ -13,13 +13,15 @@
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires common/state/page/actions
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { addPageView } from './../../state/page/actions';

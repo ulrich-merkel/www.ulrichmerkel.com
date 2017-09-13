@@ -14,6 +14,7 @@
  * @see {@link http://www.html5rocks.com/en/tutorials/security/content-security-policy/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires react-helmet
  * @requires lodash
@@ -28,7 +29,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { get, omit } from 'lodash';
