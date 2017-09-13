@@ -113,6 +113,12 @@ class ModuleKeyVisualPicture extends Component {
 
         if (isCovered && this.picture) {
             const imgDomNode = this.picture.querySelector('img');
+            if (!imgDomNode) {
+                this.setState({
+                    pictureStyle: {}
+                });
+                return;
+            }
             const currentSrc = imgDomNode.currentSrc || imgDomNode.src;
 
             this.setState({
@@ -159,9 +165,7 @@ class ModuleKeyVisualPicture extends Component {
                 path={img.path}
                 alt={img.alt}
                 sizes={img.sizes}
-                ref={
-                    (ref) => { this.picture = ref; }
-                }
+                pictureRef={(picture) => { this.picture = picture }}
                 className={componentPictureClassName}
                 style={componentPictureStyle}
             />
