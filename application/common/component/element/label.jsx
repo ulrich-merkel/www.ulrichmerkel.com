@@ -48,7 +48,7 @@ function ElementLabel(props) {
     );
 
     return (
-        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} />
+        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} /> // eslint-disable-line jsx-a11y/label-has-for
     );
 }
 

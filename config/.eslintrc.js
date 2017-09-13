@@ -55,6 +55,12 @@ module.exports = {
         "jsdoc/require-param-type": 1,
         "jsdoc/require-returns-description": 0,
         "jsdoc/require-returns-type": 1,
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "aspects": [ "noHref", "invalidHref", "preferButton" ]
+        }],
+        "jsx-a11y/href-no-hash": "off", // @see {@link https://github.com/facebookincubator/create-react-app/issues/2631}
         "jsx-quotes": ["error", "prefer-single"],
         "linebreak-style": [
             "error",
