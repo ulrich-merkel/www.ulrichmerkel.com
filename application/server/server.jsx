@@ -114,8 +114,8 @@ function create(config = {}, callback = Function.prototype) {
             url,
             port,
             sessionSecret,
-            morganLogPath: '.../report/access.log',
-            staticPath: '.../public'
+            morganLogPath: '../../report/access.log',
+            staticPath: '../../public'
         },
         config
     );

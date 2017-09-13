@@ -28,8 +28,8 @@ const configEnvironment = {
     },
     test: {
         aboveTheFold: {
-            cssBase: path.join(__dirname, '.../../build/public/css/base.css'),
-            scriptBootstrap: path.join(__dirname, '.../../build/public/js/bootstrap.bundle.js')
+            cssBase: path.join(__dirname, '../../../build/public/css/base.css'),
+            scriptBootstrap: path.join(__dirname, '../../../build/public/js/bootstrap.bundle.js')
         }
     }
 }[process.env.NODE_ENV || 'development'];
@@ -67,8 +67,8 @@ const configApplication = Object.assign({}, {
     },
     isProduction: true,
     aboveTheFold: {
-        cssBase: path.join(__dirname, '.../../public/css/base.css'),
-        scriptBootstrap: path.join(__dirname, '.../../public/js/bootstrap.bundle.js')
+        cssBase: path.join(__dirname, '../../../public/css/base.css'),
+        scriptBootstrap: path.join(__dirname, '../../../public/js/bootstrap.bundle.js')
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
