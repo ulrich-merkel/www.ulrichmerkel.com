@@ -129,8 +129,7 @@ $block: '#{$config-ns}c-type';
 
     .has-columns--2 {
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            column-count: 2;
-            column-width: rem-calc($config-grid--gutter);
+            columns: rem-calc($config-grid--gutter) 2;
             column-gap: rem-calc($config-grid--gutter);
             column-span: all;
         }

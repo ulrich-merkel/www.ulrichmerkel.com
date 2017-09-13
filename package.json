@@ -77,7 +77,7 @@
     "test:jest": "cross-var cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/config.js",
     "test:e2e": "nightwatch -c $npm_package_directories_config/nightwatch/nightwatch.config.js",
     "test:flow": "flow check; test $? -eq 0 -o $? -eq 2",
-    "test:css": "cross-var stylelint --config $npm_package_directories_config/.stylelintrc --syntax scss \"**/*.scss\"",
+    "test:css": "cross-var stylelint --config $npm_package_directories_config/stylelint.js --syntax scss \"**/*.scss\"",
     "test:nsp": "nsp check",
     "test:retire": "cross-var retire --ignorefile $npm_package_directories_config/.retireignore; exit 0;",
     "test:package": "pjl-cli --rules-file $npm_package_directories_config/.npmpackagejsonlintrc.json",
