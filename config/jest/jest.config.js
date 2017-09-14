@@ -9,10 +9,10 @@ module.exports = {
         '<rootDir>/(build|docs|node_modules)/'
     ],
     'setupFiles': [
-        '<rootDir>/config/jest/setup.js'
+        '<rootDir>/config/jest/jest.setup.js'
     ],
     'transform': {
-        '^.+\\.jsx$': '<rootDir>/config/jest/transform.js'
+        '^.+\\.jsx$': '<rootDir>/config/jest/jest.transform.js'
     },
     'verbose': true,
     'moduleFileExtensions': [
