@@ -132,9 +132,11 @@ function create(config = {}, callback = Function.prototype) {
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
     if (debug) {
+        // TODO: Check if morganLogPath file and dir exists otherwise create it
+        const morganLogPath = path.resolve(__dirname, options.morganLogPath);
         app.use(morgan('combined', {
             stream: fs.createWriteStream( // eslint-disable-line security/detect-non-literal-fs-filename
-                path.resolve(__dirname, options.morganLogPath), { flags: 'a' }
+                morganLogPath, { flags: 'a' }
             ) }
         ));
     }
