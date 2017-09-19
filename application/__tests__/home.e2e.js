@@ -1,12 +1,10 @@
 /* eslint-disable immutable/no-mutation */
 module.exports = {  
-    'Layout': function (browser) {
+    'Home': function (browser) {
         browser
             .init()
             .waitForElementPresent('#l-react', 4000)
-            .verify.elementPresent('.l-header')
-            .verify.elementPresent('.l-main')
-            .verify.elementPresent('.l-footer')
+            .verify.elementPresent('.m-key-visual')
             .end();
     },
     after: function (browser, done) {

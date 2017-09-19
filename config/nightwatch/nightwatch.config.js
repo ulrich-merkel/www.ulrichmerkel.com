@@ -2,6 +2,7 @@
 /**
  * Setting up nightwatch selenium end to end tests
  * 
+ * @see {@link https://www.codementor.io/johnkennedy/e2e-testing-with-nightwatch-part-two-b57uwf375}
  * @see {@link https://github.com/matthewroach/nightwatch-demo/blob/master/nightwatch.conf.js}
  * @see {@link http://matthewroach.me/ui-testing-with-nightwatch-js/}
  * @see {@link https://blog.parsable.com/react-full-stack-tests-and-continuous-delivery-part-1-4-nightwatch-c378b6fbac8a}
@@ -14,7 +15,7 @@ const phantomjs = require('phantomjs-prebuilt');
 module.exports = {
     'src_folders': ['application/__tests__'],
     'output_folder': 'report',
-    'page_objects_path' : 'config/nightwatch/pages',
+    // 'page_objects_path': 'config/nightwatch/pages',
 
     'selenium': {
         'start_process': true,
@@ -52,7 +53,6 @@ module.exports = {
                 'javascriptEnabled': true,
                 'acceptSslCerts': true
             }
-			
         },
 
         'firefox': {
@@ -61,7 +61,6 @@ module.exports = {
                 'javascriptEnabled': true,
                 'acceptSslCerts': true
             }
-			
         },
 
         'phantom': {
