@@ -6,12 +6,12 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2017
+ * @version 0.0.4
  *
- * @see {@link https://github.com/EyalAr/lwip}
+ * @see {@link http://sharp.dimens.io/}
  *
- * @requires lwip
+ * @requires sharp
  * @requires minimist
  * @requires chalk
  * @requires assert-plus
@@ -21,11 +21,12 @@
  * @TODO: Add verbose option to reduce logging
  *
  * @changelog
+ * - 0.0.4 Moving lwip to sharp
  * - 0.0.3 Add assert-plus as function parameter checker
  * - 0.0.2 Switched to node6
  * - 0.0.1 Basic functions and structure
  */
-const lwip = require('lwip');
+const sharp = require('sharp');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const assert = require('assert-plus');
@@ -39,7 +40,6 @@ const argvImageFolder = argv.i || '/public/img/';
 /**
  * Get configuration for image resizing.
  *
- * @function
  * @private
  * @param {Object} sizesConfig - The image size config for different image types and responsive resolutions
  * @param {string} srcFolder - The main source folder
@@ -183,7 +183,6 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
 /**
  * Resize given image via node js helper module.
  *
- * @function
  * @private
  * @param {string} src - The image source file
  * @param {string} dest - The resized image destination
@@ -199,28 +198,21 @@ function resize(src, dest, width, height, degrees = 0) {
     assert.number(height, 'height');
     assert.optionalNumber(height, 'height');
 
-    lwip.open(src, function handleOpenImage(openError, image) { // eslint-disable-line security/detect-non-literal-fs-filename
-        if (openError) {
-            return void console.error(chalk.red(openError));
-        }
-
-        return void image // eslint-disable-line security/detect-non-literal-fs-filename
-            .batch()
-            .cover(width, height)
-            .rotate(degrees, 'white')
-            .writeFile(dest, function handleWriteFile(writeError) {
-                if (writeError) {
-                    return void console.error(chalk.red(writeError));
-                }
-                return void console.log(chalk.green(`File written: ${dest}`));
-            });
-    });
+    sharp(src)
+        .resize(width, height)
+        .rotate(degrees)
+        .background({r: 255, g: 255, b: 255, alpha: 1})
+        .toFile(dest, function handleWriteFile (error, info) {
+            if (error) {
+                return void console.error(chalk.red(error));
+            }
+            return void console.log(chalk.green(`File written: ${dest}`));
+        });
 }
 
 /**
  * Run resize helper for all given image files.
  *
- * @function
  * @private
  * @param {Object} config - The resize config
  * @returns {void}
@@ -244,7 +236,6 @@ function run(config) {
 
     console.log(chalk.grey(`Start resizing for ${images.length} images`));
     return void images.forEach(function handleForEachImages(image) {
-
         const name = image.name;
         const path = image.path;
         const ext = image.ext;
@@ -256,7 +247,6 @@ function run(config) {
         }
 
         sizes.forEach(function handleForEachSizes(size) {
-
             const width = size.width;
             const height = size.height;
             const degrees = size.degrees;
@@ -264,11 +254,8 @@ function run(config) {
             const destination = `${destFolder}${path}${name}${separator}${width}x${height}.${ext}`;
 
             resize(source, destination, width, height, degrees);
-
         });
-
     });
-
 }
 
 run(getConfig(pictures, argvSrcFolder, argvDestFolder, argvImageFolder));
