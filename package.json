@@ -64,7 +64,7 @@
     "minify": "npm-run-all --parallel minify:*",
     "minify:client": "cross-var cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/client.bundle.js -c warnings=false -o $npm_package_directories_build_public/js/client.bundle.js",
     "minify:loader": "cross-var cross-env NODE_ENV=production uglifyjs $npm_package_directories_build_public/js/bootstrap.bundle.js -c warnings=false -o $npm_package_directories_build_public/js/bootstrap.bundle.js",
-    "minify:images": "cross-var node $npm_package_directories_bin/imagemin -d $npm_package_directories_build_root/public/img/",
+    "minify:images": "cross-var node $npm_package_directories_bin/imagemin -d $npm_package_directories_build_root/public/img/content/",
     "transpile:server": "cross-var babel $npm_package_directories_source_application -d $npm_package_directories_build_application",
     "transpile:client": "cross-var webpack --display-error-details --config $npm_package_directories_config/webpack.config.js",
     "test": "npm-run-all test:*",
