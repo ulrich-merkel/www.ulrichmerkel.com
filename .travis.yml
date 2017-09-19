@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.5"
+  - "8.1.4"
 env:
   - CXX=g++-4.8
 addons:
@@ -14,8 +14,8 @@ cache:
     - $HOME/.npm
     - $HOME/.yarn-cache
 install:
-  - "npm install -g yarn"
-  - "yarn install && yarn install"
+  - "npm install -g yarn@1.0.2"
+  - "yarn --pure-lockfile"
 script: npm run travis
 after_success: npm run coverage
 branches:
