@@ -202,7 +202,7 @@ function resize(src, dest, width, height, degrees = 0) {
         .resize(width, height)
         .rotate(degrees)
         .background({r: 255, g: 255, b: 255, alpha: 1})
-        .toFile(dest, function handleWriteFile (error, info) {
+        .toFile(dest, function handleWriteFile (error) {
             if (error) {
                 return void console.error(chalk.red(error));
             }
