@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import PageSearch from './../search';
+import mockedStore from '../../__mocks__/store';
+import PageSearch from '../search';
 
 describe('common/component/page/search', function () {
     const props = {

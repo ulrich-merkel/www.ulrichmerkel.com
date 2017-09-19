@@ -11,7 +11,7 @@
  * @version 0.0.3
  *
  * @requires react
- * @requires react-dom
+ * @requires prop-types
  * @requires classnames
  * @requires lodash
  * @requires common/component/element/picture
@@ -23,18 +23,18 @@
  * - 0.0.1 Basic functions and structure
  *
  */
-import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
-import Picture from './../../element/picture';
-import { isBrowser } from './../../../utils/environment';
+import Picture from '../../element/picture';
+import { isBrowser } from '../../../utils/environment';
 
 /**
  * Class representing a component.
  *
- * @class
+ * @class 
  * @extends React.Component
  */
 class ModuleKeyVisualPicture extends Component {
@@ -84,7 +84,7 @@ class ModuleKeyVisualPicture extends Component {
     componentDidMount() {
         if (isBrowser()) {
             window.addEventListener('resize', this.onResize);
-            window.dispatchEvent(new CustomEvent('resize'));
+            window.dispatchEvent(new CustomEvent('resize'), {});
         }
     }
 
@@ -101,7 +101,9 @@ class ModuleKeyVisualPicture extends Component {
     }
 
     /**
-     * Set background image if it should be covered.
+     * Set background image if it should be covered. This is more or
+     * less just a workaround to improve seo instead of using a more
+     * simpler css solution.
      *
      * @function
      * @returns {void}
@@ -110,9 +112,13 @@ class ModuleKeyVisualPicture extends Component {
         const { isCovered } = this.props;
 
         if (isCovered && this.picture) {
-
-            const pictureDomNode = findDOMNode(this.picture);
-            const imgDomNode = pictureDomNode.querySelector('img');
+            const imgDomNode = this.picture.querySelector('img');
+            if (!imgDomNode) {
+                this.setState({
+                    pictureStyle: {}
+                });
+                return;
+            }
             const currentSrc = imgDomNode.currentSrc || imgDomNode.src;
 
             this.setState({
@@ -122,7 +128,6 @@ class ModuleKeyVisualPicture extends Component {
                     backgroundImage: `url(${currentSrc})`
                 }
             });
-
         } else {
             this.setState({
                 pictureStyle: {}
@@ -160,9 +165,7 @@ class ModuleKeyVisualPicture extends Component {
                 path={img.path}
                 alt={img.alt}
                 sizes={img.sizes}
-                ref={
-                    (ref) => { this.picture = ref; }
-                }
+                pictureRef={(picture) => { this.picture = picture; }}
                 className={componentPictureClassName}
                 style={componentPictureStyle}
             />

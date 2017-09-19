@@ -1,6 +1,6 @@
 /* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
-import mockedLocalStorage from './../__mocks__/localStorage';
-import WebStorage from './../web-storage';
+import mockedLocalStorage from '../__mocks__/localStorage';
+import WebStorage from '../web-storage';
 
 global.localStorage = mockedLocalStorage;
 

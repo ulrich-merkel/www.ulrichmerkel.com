@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleTextTime from './../time';
+import ModuleTextTime from '../time';
 
 describe('common/component/module/text/time', function () {
     const defaultProps = {

@@ -4,7 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import ModuleKeyVisual from './../key-visual';
+import ModuleKeyVisual from '../key-visual';
 
 describe('common/component/module/key-visual', function () {
     const defaultProps = {

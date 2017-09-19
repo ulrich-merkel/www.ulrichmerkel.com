@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleReadingItem from './../item';
+import ModuleReadingItem from '../item';
 
 describe('common/component/module/reading/item', function () {
     const defaultProps = {

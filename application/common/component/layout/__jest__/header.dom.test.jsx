@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import LayoutHeader from './../header';
+import mockedStore from '../../__mocks__/store';
+import LayoutHeader from '../header';
 
 describe('common/component/layout/header', function () {
     it('should trigger shouldComponentUpdate', function () {

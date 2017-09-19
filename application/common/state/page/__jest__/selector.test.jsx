@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { selectStatePage } from './../selector';
+import { selectStatePage } from '../selector';
 
 describe('common/state/page/selector', function () {
     describe('selectStatePage', function () {

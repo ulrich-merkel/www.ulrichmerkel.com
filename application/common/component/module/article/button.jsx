@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/paragraph
  * @requires common/component/element/button
@@ -24,11 +25,12 @@
  *
  * @example <caption>Example usage (jsx)</caption>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import P from './../../element/paragraph';
-import Button from './../../element/button';
+import P from '../../element/paragraph';
+import Button from '../../element/button';
 
 /**
  * Function representing a component to return a single react child element.

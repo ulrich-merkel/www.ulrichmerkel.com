@@ -13,13 +13,15 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.2 Add isVisuallyHidden to props
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -46,7 +48,7 @@ function ElementLabel(props) {
     );
 
     return (
-        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} />
+        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} /> // eslint-disable-line jsx-a11y/label-has-for
     );
 }
 

@@ -166,9 +166,10 @@ function scrollTo(opts = {}) {
         options.callback.call(null, options);
         return;
     }
+    const hasWindowScrollTo = isFunction(window.scrollTo);
 
     if (!options.duration) {
-        window.scrollTo(0, options.top);
+        hasWindowScrollTo && window.scrollTo(0, options.top);
         options.callback.call(null, options);
         return;
     }
@@ -176,7 +177,8 @@ function scrollTo(opts = {}) {
     const scrollTopCurrent = getPageOffset();
     animate({
         render: function stepFunction(time) {
-            window.scrollTo(0, Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time)));
+            const top = Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time));
+            hasWindowScrollTo && window.scrollTo(0, top);
         },
         duration: options.duration,
         easing: options.easing,

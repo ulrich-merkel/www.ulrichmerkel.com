@@ -13,6 +13,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-addons-css-transition-group
  * @requires react-redux
  * @requires common/utils/transition
@@ -27,16 +28,17 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
-import { selectStatePage } from './../../../state/selectors';
-import getSectionTransition from './../../../utils/transition';
-import GridSection from './../../grid/section';
-import GridSpaced from './../../grid/spaced';
-import GridRow from './../../grid/row';
-import GridCol from './../../grid/col';
+import { selectStatePage } from '../../../state/selectors';
+import getSectionTransition from '../../../utils/transition';
+import GridSection from '../../grid/section';
+import GridSpaced from '../../grid/spaced';
+import GridRow from '../../grid/row';
+import GridCol from '../../grid/col';
 
 /**
  * Function representing a component to return a single react child element.

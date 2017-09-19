@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import PageImprint from './../imprint';
+import mockedStore from '../../__mocks__/store';
+import PageImprint from '../imprint';
 
 describe('common/component/page/imprint', function () {
     it('should render correctly', function () {

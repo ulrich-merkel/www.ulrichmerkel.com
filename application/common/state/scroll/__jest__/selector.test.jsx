@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { selectStateScrollHeaderFixed, selectStateScrollHeaderVisible } from './../selector';
-import { defaultState } from './../reducer';
+import { selectStateScrollHeaderFixed, selectStateScrollHeaderVisible } from '../selector';
+import { defaultState } from '../reducer';
 
 describe('common/state/scroll/selector', function () {
     describe('selectStateScrollHeaderFixed', function () {

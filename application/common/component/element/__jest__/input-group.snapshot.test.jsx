@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { shallow } from 'enzyme';
-import ElementInputGroup from './../input-group';
+import ElementInputGroup from '../input-group';
 
 describe('common/component/element/input-group', function () {
     it('should render correctly', function () {

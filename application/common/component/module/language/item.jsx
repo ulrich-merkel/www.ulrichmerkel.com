@@ -12,6 +12,7 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires lodash
  * @requires common/component/grid/col
@@ -22,13 +23,14 @@
  * - 0.0.2 Removed inline style for csp support
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { isString } from 'lodash';
 
-import GridCol from './../../grid/col';
-import Headline from './../../element/headline';
-import Meta from './../../element/meta';
+import GridCol from '../../grid/col';
+import Headline from '../../element/headline';
+import Meta from '../../element/meta';
 
 /**
  * Helper function to get style classNames for css3 rotate transform.

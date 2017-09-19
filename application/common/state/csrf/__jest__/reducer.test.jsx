@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { ADD_CSRF_TOKEN } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { ADD_CSRF_TOKEN } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/csrf/reducer', function () {
     it('should return the initial state', function () {

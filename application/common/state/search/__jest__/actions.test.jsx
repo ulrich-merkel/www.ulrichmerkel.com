@@ -1,6 +1,6 @@
 /* eslint-disable func-names*/
-import { SEARCH_CHANGE_TERM } from './../constants';
-import { changeSearchTerm } from './../actions';
+import { SEARCH_CHANGE_TERM } from '../constants';
+import { changeSearchTerm } from '../actions';
 
 describe('common/state/search/actions', function () {
     describe('changeSearchTerm', function () {

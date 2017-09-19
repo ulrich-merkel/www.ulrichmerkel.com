@@ -12,6 +12,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires lodash
  * @requires common/component/module/person
@@ -19,11 +20,12 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { isEmpty } from 'lodash';
 
-import ModulePerson from './../person';
+import ModulePerson from '../person';
 
 /**
  * Function representing a component to return a single react child element.

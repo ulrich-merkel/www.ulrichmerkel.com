@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementTextarea from './../textarea';
+import ElementTextarea from '../textarea';
 
 describe('common/component/element/textarea', function () {
     it('should render correctly with default callbacks', function () {

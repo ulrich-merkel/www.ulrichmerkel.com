@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { INTL_CHANGE_LOCALE, AVAILABLE_LOCALES } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { INTL_CHANGE_LOCALE, AVAILABLE_LOCALES } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/intl/reducer', function () {
     it('should return the initial state', function () {

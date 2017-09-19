@@ -1,5 +1,5 @@
+/** global picturefill */
 /* eslint-disable immutable/no-mutation, immutable/no-this */
-/* global picturefill */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
  * @requires classnames
  * @requires common/component/decorator/picturefill
@@ -31,7 +32,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import classnames from 'classnames';
 
@@ -39,20 +41,20 @@ import {
     pictureFill,
     scroller,
     addContent
-} from './../decorator/';
-import scrollTo, { getPageOffset } from './../../utils/scroll-to';
+} from '../decorator/';
+import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
     STATE_DIALOG_PAGE_SEARCH
-} from './../../state/constants';
+} from '../../state/constants';
 import {
     LayoutHeader,
     LayoutFooter,
     LayoutLoader,
     LayoutDialog
 } from './index';
-import PageBroadcast from './../page/broadcast';
-import PageSearch from './../page/search';
+import PageBroadcast from '../page/broadcast';
+import PageSearch from '../page/search';
 
 /**
  * Class representing a component.

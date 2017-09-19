@@ -12,20 +12,18 @@
  * - 0.0.1 basic function and structure
  */
 (function (window) {
-
-    // local vars
     var lastTime = 0,
         vendors = ['ms', 'moz', 'webkit', 'o'],
         vendorsLength = vendors.length,
         x;
 
-    // try to use browser prefixed version
+    // Try to use browser prefixed version
     for (x = 0; x < vendorsLength && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
         window.cancelRequestAnimationFrame = window[vendors[x] + 'CancelRequestAnimationFrame'];
     }
 
-    // fall back to standard timers
+    // Fall back to standard timers
     if (!window.requestAnimationFrame) {
         window.requestAnimationFrame = function (callback, element) {
             var currTime = new Date().getTime(),
@@ -41,5 +39,4 @@
             clearTimeout(id);
         };
     }
-
-}(window));
+}(typeof window !== 'undefined' ? window : {}));

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import GridSpaced from './../spaced';
+import GridSpaced from '../spaced';
 
 describe('common/component/grid/spaced', function () {
     it('should render correctly', function () {

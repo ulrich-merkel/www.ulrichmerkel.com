@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import LayoutFooterContainer from './../footer';
+import mockedStore from '../../__mocks__/store';
+import LayoutFooterContainer from '../footer';
 
 describe('common/component/layout/footer', function () {
     it('should render correctly', function () {

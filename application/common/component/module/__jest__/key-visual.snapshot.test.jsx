@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleKeyVisual from './../key-visual';
+import ModuleKeyVisual from '../key-visual';
 
 describe('common/component/module/key-visual', function () {
     const defaultProps = {

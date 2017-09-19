@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleCornerstoneItemEmployee from './../item-employee';
+import ModuleCornerstoneItemEmployee from '../item-employee';
 
 describe('common/component/module/cornerstone/item-employee', function () {
     const defaultProps = {

@@ -24,7 +24,7 @@
 * @changelog
 * - 0.0.1 basic functions and structure
 */
-import { debug } from './../config/application';
+import { debug } from '../config/application';
 import { getDateNow } from './date';
 
 const noop = Function.prototype;

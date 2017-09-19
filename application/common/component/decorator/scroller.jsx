@@ -14,6 +14,7 @@
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires lodash
  * @requires common/state/scroll/actions
@@ -23,12 +24,13 @@
  * - 0.0.2 Improved scroll handling
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from './../../state/scroll/actions';
-import { getPageOffset } from './../../utils/scroll-to';
+import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { getPageOffset } from '../../utils/scroll-to';
 
 /**
  * The scroller higher order function handling window scrolling.

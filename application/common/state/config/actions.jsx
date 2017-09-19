@@ -24,10 +24,10 @@
  */
 import { get } from 'lodash';
 
-import { url } from './../../config/application';
-import xhr from './../../utils/xhr';
-import { getDateNow } from './../../utils/date';
-import logger from './../../utils/logger';
+import { url } from '../../config/application';
+import xhr from '../../utils/xhr';
+import { getDateNow } from '../../utils/date';
+import logger from '../../utils/logger';
 import {
     FETCH_CONFIG_CONTENT_REQUEST,
     FETCH_CONFIG_CONTENT_SUCCESS,
@@ -190,7 +190,7 @@ function addConfigTranslation(data, locale) {
  * @returns {Function}
  */
 function fetchConfigContent() {
-    return function asyncDispatch(dispatch) {
+    return function reduxThunk(dispatch) {
         dispatch(requestConfigContent());
 
         return xhr(
@@ -216,7 +216,7 @@ function fetchConfigContent() {
  * @returns {Function}
  */
 function fetchConfigTranslation(locale) {
-    return function asyncDispatch(dispatch) {
+    return function reduxThunk(dispatch) {
         dispatch(requestConfigTranslation(locale));
 
         return xhr(
@@ -240,7 +240,7 @@ function fetchConfigTranslation(locale) {
  * @returns {Function}
  */
 function fetchConfigContentIfNeeded() {
-    return function asyncDispatch(dispatch, getState) {
+    return function reduxThunk(dispatch, getState) {
         if (shouldFetch(getState(), 'config.content')) {
             return dispatch(fetchConfigContent());
         }
@@ -256,7 +256,7 @@ function fetchConfigContentIfNeeded() {
  * @returns {Function}
  */
 function fetchConfigTranslationIfNeeded(loc) {
-    return function asyncDispatch(dispatch, getState) {
+    return function reduxThunk(dispatch, getState) {
         if (!loc) {
             return dispatch(failedConfigTranslation(loc));
         }

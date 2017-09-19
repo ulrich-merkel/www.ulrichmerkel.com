@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../../__mocks__/store';
-import SectionCommonGridSpaced from './../grid-spaced';
+import mockedStore from '../../../__mocks__/store';
+import SectionCommonGridSpaced from '../grid-spaced';
 
 describe('common/component/section/common/grid-spaced', function () {
     it('should render correctly', function () {

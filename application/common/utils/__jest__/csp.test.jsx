@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { getNonceConfig, getCspRules } from './../csp';
+import { getNonceConfig, getCspRules } from '../csp';
 
 describe('common/utils/csp', function () {
     it('should create a config via getNonceConfig', function () {

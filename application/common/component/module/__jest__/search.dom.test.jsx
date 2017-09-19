@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import ModuleSearch from './../search';
+import mockedStore from '../../__mocks__/store';
+import ModuleSearch from '../search';
 
-jest.mock('./../../../utils/search');
+jest.mock('../../../utils/search');
 
 describe('common/component/module/search', function () {
     const handleChangeDialogVisibleSearch = sinon.spy();

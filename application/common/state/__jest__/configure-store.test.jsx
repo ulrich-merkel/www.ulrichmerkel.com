@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import configureStore from './../configure-store';
+import configureStore from '../configure-store';
 
 describe('common/state/configure-store', function () {
     it('should create a store', function () {

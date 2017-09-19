@@ -1,6 +1,6 @@
 /* eslint-disable func-names, import/no-extraneous-dependencies */
 import { spy } from 'sinon';
-import logger from './../logger';
+import logger from '../logger';
 
 describe('common/utils/logger', function () {
     it('should call basic log functions', function () {

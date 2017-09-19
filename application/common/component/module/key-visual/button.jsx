@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
@@ -20,10 +21,11 @@
  * - 0.0.1 basic functions and structure
  *
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from './../../element/button';
+import Button from '../../element/button';
 
 /**
  * Function representing a component to return a single react child element.

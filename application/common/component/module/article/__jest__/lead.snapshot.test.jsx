@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleArticleLead from './../lead';
+import ModuleArticleLead from '../lead';
 
 describe('common/component/module/article/lead', function () {
     const defaultProps = {

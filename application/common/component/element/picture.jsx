@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this */
+/* eslint-disable immutable/no-mutation, immutable/no-this, react/prefer-stateless-function */
 /**
  * Es6 module for React Component.
  * Component element React classes are small parts of the page,
@@ -14,6 +14,7 @@
  * @see {@link https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n}
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires shortid
  * @requires common/component/element/picture-source
@@ -21,11 +22,14 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
 import ElementPictureSource from './picture-source';
+
+const noop = Function.prototype;
 
 /**
  * Class representing a component to return a single react child element.
@@ -46,15 +50,16 @@ class ElementPicture extends Component {
      */
     render() {
         const {
-            htmlElement,
-            className,
-            children,
-            name,
-            ext,
-            path,
             alt,
-            sizes,
+            children,
+            className,
+            ext,
+            htmlElement,
+            name,
+            path,
+            pictureRef,
             placeholder,
+            sizes,
             ...otherProps
         } = this.props;
 
@@ -69,24 +74,30 @@ class ElementPicture extends Component {
         );
 
         return (
-            <ComponentType className={componentClassName} itemScope itemType='http://schema.org/ImageObject' {...otherProps}>
+            <ComponentType
+                className={componentClassName}
+                itemScope
+                itemType='http://schema.org/ImageObject'
+                ref={pictureRef}
+                {...otherProps}
+            >
                 {sizes && sizes.map((value) => {
                     const {
-                        width,
                         height,
-                        minWidth
+                        minWidth,
+                        width
                     } = value;
 
                     return (
                         <ElementPictureSource
                             key={shortid.generate()}
                             {...{
-                                path,
-                                name,
                                 ext,
-                                width,
                                 height,
-                                minWidth
+                                minWidth,
+                                name,
+                                path,
+                                width
                             }}
                         />
                     );
@@ -94,9 +105,9 @@ class ElementPicture extends Component {
                 <img
                     alt={alt}
                     className='c-picture__img'
-                    srcSet={`${path}${name}.${ext}`}
-                    src={placeholder}
                     itemProp='contentUrl'
+                    src={placeholder}
+                    srcSet={`${path}${name}.${ext}`}
                 />
                 {children}
             </ComponentType>
@@ -110,28 +121,30 @@ class ElementPicture extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='picture'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {string} [name=''] - The image name
- * @property {string} [ext=''] - The image extension
- * @property {string} [path=''] - The image path (folder)
  * @property {string} [alt=''] - The image description
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [ext=''] - The image extension
+ * @property {string} [htmlElement='picture'] - The component element type used for React.createElement
+ * @property {string} [name=''] - The image name
+ * @property {string} [path=''] - The image path (folder)
+ * @property {Function} [pictureRef=noop] - Custom callback to get the img dom node
  * @property {string} [placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
  * @property {Array.<Object>} [sizes='[]'] - The responsive sizes config
  */
 ElementPicture.propTypes = {
-    htmlElement: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    alt: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    name: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
     ext: PropTypes.oneOf([
         'jpg',
         'png',
         ''
     ]),
+    htmlElement: PropTypes.string,
+    name: PropTypes.string,
     path: PropTypes.string,
-    alt: PropTypes.string,
+    pictureRef: PropTypes.func,
     placeholder: PropTypes.string,
     sizes: PropTypes.arrayOf(
         PropTypes.shape({
@@ -159,11 +172,12 @@ ElementPicture.propTypes = {
  * @see ElementPicture.propTypes
  */
 ElementPicture.defaultProps = {
+    alt: '',
+    ext: '',
     htmlElement: 'picture',
     name: '',
-    ext: '',
     path: '',
-    alt: '',
+    pictureRef: noop,
     placeholder: 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
     sizes: []
 };

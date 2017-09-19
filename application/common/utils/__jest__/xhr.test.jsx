@@ -1,8 +1,8 @@
 /* eslint-disable func-names */
 import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
 
-import xhr from './../xhr';
-import { host, port } from './../../config/application';
+import xhr from '../xhr';
+import { host, port } from '../../config/application';
 
 const data = {
     body: {

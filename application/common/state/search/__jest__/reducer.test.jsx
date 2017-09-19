@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { SEARCH_CHANGE_TERM } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { SEARCH_CHANGE_TERM } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/search/reducer', function () {
     it('should return the initial state', function () {

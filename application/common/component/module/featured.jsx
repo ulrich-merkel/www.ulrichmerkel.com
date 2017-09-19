@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires shortid
  * @requires common/component/module/featured/item
@@ -22,7 +23,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 

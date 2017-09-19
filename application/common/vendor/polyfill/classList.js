@@ -1,5 +1,9 @@
 (function () {
 
+    if (typeof window === 'undefined') {
+        return Function.prototype;
+    }
+
     if (typeof window.Element === "undefined" || "classList" in document.documentElement) {
         return;
     }

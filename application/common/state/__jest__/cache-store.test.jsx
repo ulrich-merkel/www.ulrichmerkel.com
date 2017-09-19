@@ -1,5 +1,5 @@
 /* eslint-disable func-names, import/first, immutable/no-mutation */
-jest.mock('./../../utils/web-storage', function mockFn() {
+jest.mock('../../utils/web-storage', function mockFn() {
     const cache = {};
     function Cache() {}
 
@@ -15,8 +15,8 @@ jest.mock('./../../utils/web-storage', function mockFn() {
     return Cache;
 });
 
-import { loadState, saveState, stateKey } from './../cache-store';
-import WebStorage from './../../utils/web-storage';
+import { loadState, saveState, stateKey } from '../cache-store';
+import WebStorage from '../../utils/web-storage';
 
 const webStorage = new WebStorage();
 

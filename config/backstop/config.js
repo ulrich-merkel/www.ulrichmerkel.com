@@ -1,5 +1,6 @@
-const rootUrl = `http://localhost:${process.env.PORT}`;
+'use strict';
 
+const rootUrl = `http://localhost:${process.env.PORT}`;
 const scenarioDefaults = {
     selectors: [
         'document'
@@ -8,7 +9,7 @@ const scenarioDefaults = {
     misMatchThreshold: 0.1
 };
 
-module.exports = {
+module.exports = { // eslint-disable-line immutable/no-mutation
     id: 'visual_regression',
     viewports: [
         {

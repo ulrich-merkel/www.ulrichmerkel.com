@@ -32,11 +32,11 @@
  */
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { omit, get } from 'lodash';
 
-import { debug } from './../config/application';
-import { isBrowser } from './../utils/environment';
+import { debug } from '../config/application';
+import { isBrowser } from '../utils/environment';
 import { loadState, saveState } from './cache-store';
 import config from './config/reducer';
 import contact from './contact/reducer';
@@ -49,7 +49,7 @@ import search from './search/reducer';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
-} from './../state/config/actions';
+} from '../state/config/actions';
 
 /**
  * Creating the single application store.
