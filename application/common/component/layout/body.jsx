@@ -61,6 +61,8 @@ import PageSearch from '../page/search';
  *
  * @class
  * @extends React.Component
+ * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
 
@@ -166,8 +168,6 @@ class LayoutBody extends Component {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The component content config
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -184,7 +184,6 @@ LayoutBody.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutBody.propTypes
  */
 LayoutBody.defaultProps = {
     content: {}

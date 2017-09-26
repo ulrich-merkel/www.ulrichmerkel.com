@@ -49,10 +49,12 @@ import Small from '../element/small';
  * Function representing a component to return a single react child element.
  *
  * @param {Object} [props] - The current component props
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {Object} [props.content={}] - The component content config
+ * @param {Function} [props.handleSearchChange=Function.prototype] - Function handling to top scrolling
  * @returns {React.Element} React component markup
  */
 function LayoutFooter(props) {
-
     const {
         className,
         content,
@@ -109,19 +111,16 @@ function LayoutFooter(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {Function} [handleSearchChange=Function.prototype] - Function handling to top scrolling
- * @property {Object} [content={}] - The component content config
  */
 LayoutFooter.propTypes = {
     className: PropTypes.string, // eslint-disable-line  react/require-default-props
-    handleScrollTop: PropTypes.func,
     content: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
         PropTypes.array,
         PropTypes.object
-    ]))
+    ])),
+    handleScrollTop: PropTypes.func
 };
 
 /**
@@ -129,11 +128,10 @@ LayoutFooter.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutFooter.propTypes
  */
 LayoutFooter.defaultProps = {
-    handleScrollTop: Function.prototype,
-    content: {}
+    content: {},
+    handleScrollTop: Function.prototype
 };
 
 export default addContent('LayoutFooter')(LayoutFooter);

@@ -27,6 +27,7 @@ import PropTypes from 'prop-types';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {Array|string} [props.children] - The component react children
  * @returns {React.Element} React component markup
  */
 function LayoutMain(props) {
@@ -42,7 +43,6 @@ function LayoutMain(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component react children
  */
 LayoutMain.propTypes = {
     children: PropTypes.node // eslint-disable-line react/require-default-props

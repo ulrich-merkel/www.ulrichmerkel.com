@@ -44,7 +44,12 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
  * Function representing the base html layout.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {Object} props - The current component props
+ * @param {string} props.locale - The current locale string
+ * @param {Object} props.store - Critical redux initial config
+ * @param {Array|string} [props.children] - The component react children
+ * @param {Object} [props.cssBase=''] - File contents of base css file
+ * @param {Object} [props.scriptBootstrap=''] - File contents of loader javascript file
  * @returns {React.Element} React component markup
  */
 function LayoutHtml(props) {
@@ -135,11 +140,6 @@ function LayoutHtml(props) {
  *
  * @static
  * @type {Object}
- * @property {string} locale - The current locale string
- * @property {Object} store - Critical redux initial config
- * @property {Array|string} [children] - The component react children
- * @property {Object} [cssBase=''] - File contents of base css file
- * @property {Object} [scriptBootstrap=''] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
     locale: PropTypes.string.isRequired,
@@ -154,7 +154,6 @@ LayoutHtml.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutHtml.propTypes
  */
 LayoutHtml.defaultProps = {
     cssBase: '',
