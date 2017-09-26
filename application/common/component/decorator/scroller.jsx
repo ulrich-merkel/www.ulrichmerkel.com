@@ -46,6 +46,8 @@ function scroller(SourceComponent) {
      *
      * @class
      * @extends React.Component
+     * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
+     * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
      */
     class Scroller extends Component {
 
@@ -127,7 +129,6 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         onScroll() {
-
             const headerHeight = 61;
             const {
                 handleScrollChangeHeaderFixed,
@@ -158,7 +159,6 @@ function scroller(SourceComponent) {
             }
 
             this.previousScrollY = currentScrollY;
-
         }
 
         /**
@@ -177,8 +177,6 @@ function scroller(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleScrollChangeHeaderFixed - Callback action for updating redux
-     * @property {Function} handleScrollChangeHeaderVisible - Callback action for updating redux
      */
     Scroller.propTypes = {
         handleScrollChangeHeaderFixed: PropTypes.func.isRequired,

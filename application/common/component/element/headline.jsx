@@ -39,10 +39,12 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @property {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement
+ * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
  * @returns {React.Element} React component markup
  */
 function ElementHeadline(props) {
-
     const {
         htmlElement: HtmlElement,
         className,
@@ -61,7 +63,6 @@ function ElementHeadline(props) {
     return (
         <HtmlElement className={componentClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -69,9 +70,6 @@ function ElementHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
- * @property {boolean} [isCentered=true] - Whether the component should be centered via css or not
  */
 ElementHeadline.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -91,12 +89,10 @@ ElementHeadline.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementHeadline.propTypes
  */
 ElementHeadline.defaultProps = {
     htmlElement: 'h1',
     isCentered: true
 };
-
 
 export default ElementHeadline;

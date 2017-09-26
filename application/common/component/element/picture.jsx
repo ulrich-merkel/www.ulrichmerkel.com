@@ -39,6 +39,16 @@ const noop = Function.prototype;
  *
  * @class
  * @extends React.Component
+ * @property {string} [props.alt=''] - The image description
+ * @property {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @property {string} [props.ext=''] - The image extension
+ * @property {string} [props.htmlElement='picture'] - The component element type used for React.createElement
+ * @property {string} [props.name=''] - The image name
+ * @property {string} [props.path=''] - The image path (folder)
+ * @property {Function} [props.pictureRef=noop] - Custom callback to get the img dom node
+ * @property {string} [props.placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
+ * @property {Array.<Object>} [props.sizes='[]'] - The responsive sizes config
  */
 class ElementPicture extends Component {
 
@@ -121,16 +131,6 @@ class ElementPicture extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} [alt=''] - The image description
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [ext=''] - The image extension
- * @property {string} [htmlElement='picture'] - The component element type used for React.createElement
- * @property {string} [name=''] - The image name
- * @property {string} [path=''] - The image path (folder)
- * @property {Function} [pictureRef=noop] - Custom callback to get the img dom node
- * @property {string} [placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
- * @property {Array.<Object>} [sizes='[]'] - The responsive sizes config
  */
 ElementPicture.propTypes = {
     alt: PropTypes.string,
@@ -169,7 +169,6 @@ ElementPicture.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementPicture.propTypes
  */
 ElementPicture.defaultProps = {
     alt: '',

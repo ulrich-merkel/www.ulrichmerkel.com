@@ -31,8 +31,7 @@ import React, { Component } from 'react';
  * @returns {void}
  */
 function initPicturefill() {
-
-    // could be undefined e.g. in test files
+    // Could be undefined e.g. in test files
     if (typeof picturefill === 'undefined') {
         return;
     }
@@ -49,7 +48,6 @@ function initPicturefill() {
     setTimeout(() => {
         picturefill();
     });
-
 }
 
 /**

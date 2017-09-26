@@ -25,7 +25,9 @@ import { Provider } from 'react-redux';
  * Function representing the react redux root.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {Object} props - The current component props
+ * @param {Array|string} props.children - Required due to Provider
+ * @param {Object} props.store - Complete redux store state
  * @returns {React.Element} React component markup
  */
 function Root(props) {
@@ -43,8 +45,6 @@ function Root(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} children - Required due to Provider
- * @property {Object} store - Redux store state
  */
 Root.propTypes = {
     children: PropTypes.node.isRequired,

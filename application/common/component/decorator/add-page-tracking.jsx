@@ -40,6 +40,7 @@ function addPageTracking(SourceComponent) {
      *
      * @class
      * @extends React.Component
+     * @property {Function} props.handleAddPageView - Trigger page view increment
      */
     class AddPageTracking extends Component {
 
@@ -71,7 +72,6 @@ function addPageTracking(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleAddPageView - Trigger page view increment
      */
     AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired

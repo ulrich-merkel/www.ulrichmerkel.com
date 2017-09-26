@@ -30,6 +30,16 @@ import classnames from 'classnames';
  *
  * @class
  * @extends React.Component
+ * @property {string} props.id - The input id attribute
+ * @property {string} props.name - The input name attribute
+ * @property {string} [props.className] - The input css class names - will be merged into component default classNames
+ * @property {string} [props.itemProp] - The itemProp attribute
+ * @property {Function} [props.onBlur=Function.prototype] - The input onBlur handler
+ * @property {Function} [props.onChange=Function.prototype] - The input onChange handler
+ * @property {string} [props.placeholder=''] - The input placeholder attribute
+ * @property {boolean} [props.required=false] - The input required attribute
+ * @property {string} [props.type='text'] - The input type attribute
+ * @property {string} [props.value] - The input value attribute
  */
 class ElementInput extends Component {
 
@@ -40,17 +50,16 @@ class ElementInput extends Component {
      * @returns {React.Element} React component markup
      */
     render() {
-
         const {
             className,
-            required,
-            type,
-            name,
             id,
             itemProp,
-            placeholder,
+            name,
             onBlur,
             onChange,
+            placeholder,
+            required,
+            type,
             value,
             ...other
         } = this.props;
@@ -91,28 +100,18 @@ class ElementInput extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} name - The input name attribute
- * @property {string} id - The input id attribute
- * @property {string} [className] - The input css class names - will be merged into component default classNames
- * @property {string} [itemProp] - The itemProp attribute
- * @property {boolean} [required=false] - The input required attribute
- * @property {string} [type='text'] - The input type attribute
- * @property {string} [placeholder=''] - The input placeholder attribute
- * @property {string} [value] - The input value attribute
- * @property {Function} [onBlur=Function.prototype] - The input onBlur handler
- * @property {Function} [onChange=Function.prototype] - The input onChange handler
  */
 ElementInput.propTypes = {
-    name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
     required: PropTypes.bool,
     type: PropTypes.string,
-    placeholder: PropTypes.string,
-    value: PropTypes.string, // eslint-disable-line react/require-default-props
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func
+    value: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -120,14 +119,13 @@ ElementInput.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementInput.propTypes
  */
 ElementInput.defaultProps = {
-    required: false,
-    type: 'text',
-    placeholder: '',
     onBlur: Function.prototype,
-    onChange: Function.prototype
+    onChange: Function.prototype,
+    placeholder: '',
+    required: false,
+    type: 'text'
 };
 
 export default ElementInput;

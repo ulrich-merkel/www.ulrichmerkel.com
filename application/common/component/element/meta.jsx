@@ -26,25 +26,28 @@ import PropTypes from 'prop-types';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {string} [props.content=''] - The meta tag content attribute
+ * @param {string} [props.itemProp] - The meta tag itemProp attribute
+ * @param {string} [props.name] - The meta tag name attribute
+ * @param {string} [props.property] - The meta tag property attribute
  * @returns {React.Element|null} React component markup
  */
 function ElementMeta(props) {
-
     const {
+        content,
         itemProp,
         name,
         property,
-        content,
         ...otherProps
     } = props;
 
     if (!content) {
         return null;
     }
+
     return (
         <meta {...{ itemProp, name, property, content }} {...otherProps} />
     );
-
 }
 
 /**
@@ -52,16 +55,12 @@ function ElementMeta(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [itemProp] - The meta tag itemProp attribute
- * @property {string} [name] - The meta tag name attribute
- * @property {string} [property] - The meta tag property attribute
- * @property {string} [content=''] - The meta tag content attribute
  */
 ElementMeta.propTypes = {
+    content: PropTypes.string,
     itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
     name: PropTypes.string, // eslint-disable-line react/require-default-props
-    property: PropTypes.string, // eslint-disable-line react/require-default-props
-    content: PropTypes.string
+    property: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -69,7 +68,6 @@ ElementMeta.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementMeta.propTypes
  */
 ElementMeta.defaultProps = {
     content: ''

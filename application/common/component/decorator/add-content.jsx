@@ -54,11 +54,12 @@ function addContent(configKey) {
          * Wrapper component to get redux state.
          *
          * @function
-         * @param {Object} [props] - The current component props
+         * @param {Object} props - The current component props
+         * @param {Object} props.config - The content configuration
+         * @param {string} props.locale - The current locale string
          * @returns {React.Element} React component markup
          */
         function ReturnedComponent(props) {
-
             const { locale, config } = props;
             const content = getTranslatedContent(locale, config, configKey);
 
@@ -67,7 +68,6 @@ function addContent(configKey) {
             }
 
             return <SourceComponent content={content} {...props} />;
-
         }
 
         /**
@@ -75,12 +75,10 @@ function addContent(configKey) {
          *
          * @static
          * @type {Object}
-         * @property {string} locale - The current locale string
-         * @property {Object} config - The content configuration
          */
         ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
-            locale: PropTypes.string.isRequired,
-            config: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+            config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+            locale: PropTypes.string.isRequired
         };
 
         /**
@@ -96,8 +94,8 @@ function addContent(configKey) {
          */
         function mapStateToProps(state, ownProps) {
             return {
-                locale: selectStateIntlLocale(state) || get(ownProps, 'locale'),
-                config: selectStateConfig(state) || get(ownProps, 'config')
+                config: selectStateConfig(state) || get(ownProps, 'config'),
+                locale: selectStateIntlLocale(state) || get(ownProps, 'locale')
             };
         }
 

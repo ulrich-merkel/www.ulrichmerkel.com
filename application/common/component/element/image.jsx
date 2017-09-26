@@ -27,11 +27,13 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {Object} props - The current component props
+ * @param {string} props.src - The current image location
+ * @param {string} [props.alt=''] - The image alt attribute
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @returns {React.Element} React component markup
  */
 function ElementImage(props) {
-
     const {
         className,
         alt,
@@ -52,7 +54,6 @@ function ElementImage(props) {
             {...otherProps}
         />
     );
-
 }
 
 /**
@@ -60,9 +61,6 @@ function ElementImage(props) {
  *
  * @static
  * @type {Object}
- * @property {string} src - The current image location
- * @property {string} [alt=''] - The image alt attribute
- * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ElementImage.propTypes = {
     src: PropTypes.string.isRequired,
@@ -75,7 +73,6 @@ ElementImage.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementImage.propTypes
  */
 ElementImage.defaultProps = {
     alt: ''

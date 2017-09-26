@@ -42,21 +42,29 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {Object} props - The current component props
+ * @param {string} props.to - The link target/react-router path
+ * @param {string} [props.activeClassName='is-active'] - The default is active state css class name
+ * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {string} [props.componentType='a'] - The component element type used for React.createElement
+ * @param {boolean} [props.isIndex=false] - Whether the component is link to home/index or not
+ * @param {boolean} [props.isMenu=false] - Whether the component is displayed in a menu or not
+ * @param {boolean} [props.isTargetSelf=false] - Whether to set rel and target blank attributes or not
+ * @param {string} [props.title=''] - The title string to be set on a tag
  * @returns {React.Element} React component markup
  */
 function ElementA(props) {
-
     const {
-        componentType,
-        className,
         activeClassName,
-        isMenu,
-        isIndex,
-        isTargetSelf,
-        to,
         children,
+        className,
+        componentType,
+        isIndex,
+        isMenu,
+        isTargetSelf,
         title,
+        to,
         ...otherProps
     } = props;
 
@@ -104,7 +112,6 @@ function ElementA(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -112,26 +119,17 @@ function ElementA(props) {
  *
  * @static
  * @type {Object}
- * @property {string} to - The link target/react-router path
- * @property {string} [componentType='a'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [activeClassName='is-active'] - The default is active state css class name
- * @property {string} [title=''] - The title string to be set on a tag
- * @property {boolean} [isIndex=false] - Whether the component is link to home/index or not
- * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
- * @property {boolean} [isTargetSelf=false] - Whether to set rel and target blank attributes or not
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 ElementA.propTypes = {
     to: PropTypes.string.isRequired,
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
     activeClassName: PropTypes.string,
-    title: PropTypes.string,
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    componentType: PropTypes.string,
     isIndex: PropTypes.bool,
     isMenu: PropTypes.bool,
     isTargetSelf: PropTypes.bool,
-    children: PropTypes.node // eslint-disable-line react/require-default-props
+    title: PropTypes.string
 };
 
 /**
@@ -139,15 +137,14 @@ ElementA.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementA.propTypes
  */
 ElementA.defaultProps = {
-    componentType: 'a',
     activeClassName: 'is-active',
-    title: '',
+    componentType: 'a',
     isIndex: false,
     isMenu: false,
-    isTargetSelf: false
+    isTargetSelf: false,
+    title: ''
 };
 
 export default ElementA;

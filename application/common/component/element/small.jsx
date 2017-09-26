@@ -27,11 +27,12 @@ import classnames from 'classnames';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} props - The current component props
+ * @param {Object} [props] - The current component props
+ * @param {string} [props.className=''] - The component css class names, will be merged into component default classNames
+ * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
  * @returns {React.Element} React component markup
  */
 function ElementSmall(props) {
-
     const {
         htmlElement: ComponentType,
         className,
@@ -46,7 +47,6 @@ function ElementSmall(props) {
     return (
         <ComponentType className={composedClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -54,12 +54,10 @@ function ElementSmall(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='nav'] - The component element type used for React.createElement
- * @property {string} [className=''] - The component css class names, will be merged into component default classNames
  */
 ElementSmall.propTypes = {
-    htmlElement: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    htmlElement: PropTypes.string
 };
 
 /**
@@ -67,11 +65,10 @@ ElementSmall.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementSmall.propTypes
  */
 ElementSmall.defaultProps = {
-    htmlElement: 'small',
-    className: ''
+    className: '',
+    htmlElement: 'small'
 };
 
 export default ElementSmall;

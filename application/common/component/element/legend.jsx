@@ -29,6 +29,8 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {string} [props.className] - The legend css class names, will be merged into component default classNames
+ * @param {boolean} [props.isVisuallyHidden] - Whether the legend is visually hidden or not
  * @returns {React.Element} React component markup
  */
 function ElementLegend(props) {
@@ -56,8 +58,6 @@ function ElementLegend(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The legend css class names, will be merged into component default classNames
- * @property {boolean} [isVisuallyHidden] - Whether the legend is visually hidden or not
  */
 ElementLegend.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -69,7 +69,6 @@ ElementLegend.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementLegend.propTypes
  */
 ElementLegend.defaultProps = {
     isVisuallyHidden: false
