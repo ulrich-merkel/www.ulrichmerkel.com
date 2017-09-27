@@ -36,10 +36,11 @@ import ModuleReading from '../module/reading';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {Object} [props.content={}] - The content config input
  * @returns {React.Element} React component markup
  */
 function SectionReading(props) {
-
     const {
         children,
         content,
@@ -55,7 +56,6 @@ function SectionReading(props) {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
@@ -63,8 +63,6 @@ function SectionReading(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The content config input
  */
 SectionReading.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -81,7 +79,6 @@ SectionReading.propTypes = {
  *
  * @static
  * @type {Object}
- * @see SectionReading.propTypes
  */
 SectionReading.defaultProps = {
     content: {}
