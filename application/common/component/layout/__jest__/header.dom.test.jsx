@@ -26,12 +26,14 @@ describe('common/component/layout/header', function () {
             </Provider>
         );
 
-        const btnLanguage = wrapper.find('.m-menu--aside .m-menu__item--en');
+        // @TODO: Adjust expect for enzyme@16
+        const btnLanguage = wrapper.find('.m-menu--aside .m-menu__item--en').first();
         if (btnLanguage.length) {
             btnLanguage.simulate('click');
         }
 
-        const btnSearch = wrapper.find('.m-menu--aside .m-menu__item--search');
+        // @TODO: Adjust expect for enzyme@16
+        const btnSearch = wrapper.find('.m-menu--aside .m-menu__item--search').first();
         if (btnSearch.length) {
             btnSearch.simulate('click');
         }

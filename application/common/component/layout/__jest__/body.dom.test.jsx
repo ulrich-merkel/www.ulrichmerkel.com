@@ -47,7 +47,8 @@ describe('common/component/layout/body', function () {
 
         const footerButton = wrapper.find('.l-footer__button--up');
         expect(handleScrollTop.calledOnce).toBeFalsy();
-        footerButton.simulate('click');
+        // @TODO: Adjust expect for enzyme@16
+        footerButton.first().simulate('click');
         expect(handleScrollTop.calledOnce).toBeTruthy();
     });
 });
