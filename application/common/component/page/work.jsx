@@ -35,7 +35,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { Redirect } from 'react-router';
 
 import { url } from '../../config/application';
 import configWork from '../../config/work';
@@ -47,10 +47,11 @@ import SectionKeyVisual from '../section/key-visual';
 import SectionText from '../section/text';
 import SectionFeatured from '../section/featured';
 
+const NOT_FOUND = 'not-found';
+
 /**
  * Find current work page key from config array.
  *
- * @function
  * @private
  * @param {string} routerPath - The current router path
  * @param {Array} config - The work config
@@ -69,6 +70,9 @@ function getWorkContentKey(routerPath, config) {
  *
  * @class
  * @extends React.Component
+ * @property {string} props.locale - The redux intl locale state
+ * @property {Object} props.match - The react router params
+ * @property {Object} [props.content={}] - The component translation config
  */
 class PageWork extends Component {
 
@@ -95,8 +99,7 @@ class PageWork extends Component {
      * @returns {void}
      */
     componentWillMount() {
-        const { params } = this.props;
-        this.handleRouterParams(params);
+        this.handleRouterParams(this.props);
     }
 
     /**
@@ -108,8 +111,7 @@ class PageWork extends Component {
      * @returns {void}
      */
     componentWillReceiveProps(nextProps) {
-        const { params } = nextProps;
-        this.handleRouterParams(params);
+        this.handleRouterParams(nextProps);
     }
 
     /**
@@ -117,17 +119,18 @@ class PageWork extends Component {
      *
      * @function
      * @private
-     * @param {Object} params - The current router params
+     * @param {Object} props - The current component props with router match
      * @returns {void}
      */
-    handleRouterParams(params) {
-        const { router } = this.props;
-        const work = getWorkContentKey(params.work, configWork);
+    handleRouterParams(props) {
+        const { match } = props;
+        const work = getWorkContentKey(match.params.work, configWork);
 
-        // redirect if route couldn't be found
+        // Set redirect state if route couldn't be found
         if (!work) {
-            router.push(url.home);
-            return;
+            return this.setState({
+                work: NOT_FOUND
+            });
         }
 
         this.setState({
@@ -145,8 +148,14 @@ class PageWork extends Component {
         const { locale, config } = this.props;
         const { work } = this.state;
 
+        // No valid work param passed yet
         if (!work) {
             return null;
+        }
+
+        // Not a valid work route
+        if (work === NOT_FOUND) {
+            return <Redirect to={url.notFound} />;
         }
 
         const contentSection = getContentSection(getTranslatedContent(locale, config, work));
@@ -176,24 +185,10 @@ class PageWork extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} intlLocale - The redux intl locale state
- * @property {Object} params - The react router params
- * @property {Object} router - The react router object coming from withRouter hoc
- * @property {Object} [content={}] - The component translation config
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
-    params: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.string,
-        PropTypes.object
-    ])).isRequired,
-    router: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.func,
-        PropTypes.string,
-        PropTypes.object
-    ])).isRequired,
+    match: PropTypes.object.isRequired,
     config: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -207,7 +202,6 @@ PageWork.propTypes = {
  *
  * @static
  * @type {Object}
- * @see PageWork.propTypes
  */
 PageWork.defaultProps = {
     config: {}
@@ -236,7 +230,7 @@ function mapStateToProps(state) {
  */
 const PageWorkContainer = connect(
     mapStateToProps
-)(addPageTracking(withRouter(PageWork)));
+)(addPageTracking(PageWork));
 
 export default PageWorkContainer;
 export {

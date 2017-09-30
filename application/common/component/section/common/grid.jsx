@@ -34,19 +34,22 @@ import { connect } from 'react-redux';
 
 import getSectionTransition from '../../../utils/transition';
 import { selectStatePage } from '../../../state/selectors';
-import GridSection from '../../grid/section';
-import GridRow from '../../grid/row';
-import GridCol from '../../grid/col';
+import {
+    GridSection,
+    GridRow,
+    GridCol
+} from '../../grid';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {Array|string} [props.children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @param {Object} [props.page] - The redux page state
  * @returns {React.Element} React component markup
  */
 function SectionCommonGrid(props) {
-
     const {
         children,
         page
@@ -63,7 +66,6 @@ function SectionCommonGrid(props) {
             </GridSection>
         </ReactCSSTransitionGroup>
     );
-
 }
 
 /**
@@ -71,12 +73,10 @@ function SectionCommonGrid(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [page] - The redux page state
- * @property {Array|string} [children] The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
 SectionCommonGrid.propTypes = {
-    page: PropTypes.object, // eslint-disable-line react/require-default-props, react/forbid-prop-types
-    children: PropTypes.node // eslint-disable-line react/require-default-props
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    page: PropTypes.object // eslint-disable-line react/require-default-props, react/forbid-prop-types
 };
 
 /**
@@ -84,7 +84,6 @@ SectionCommonGrid.propTypes = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @returns {Object}

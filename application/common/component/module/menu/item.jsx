@@ -35,7 +35,6 @@ import Icon from '../../element/icon';
  * @returns {React.Element} React component markup
  */
 function ModuleMenuItem(props) {
-
     const {
         path,
         title,
@@ -62,7 +61,7 @@ function ModuleMenuItem(props) {
 
     return (
         <li className={componentListItemClassName} itemProp='itemListElement' itemScope itemType={itemType} {...otherProps}>
-            <A itemProp={itemPropA} to={path} title={title} isMenu role='menuitem'>
+            <A itemProp={itemPropA} to={path} title={title} className='m-menu__item' role='menuitem' exact>
                 <Icon className='m-menu__icon' icon={icon} />
                 <span className={labelClassName} itemProp='name'>
                     {label}
@@ -71,7 +70,6 @@ function ModuleMenuItem(props) {
             {children}
         </li>
     );
-
 }
 
 /**

@@ -10,14 +10,15 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires prop-types
- * @requires react-router
+ * @requires react-router-dom
  * @requires classnames
  *
  * @changelog
+ * - 0.0.4 Switching to react-router@4
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
@@ -35,7 +36,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, IndexLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 /**
@@ -48,9 +49,6 @@ import classnames from 'classnames';
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.componentType='a'] - The component element type used for React.createElement
- * @param {boolean} [props.isIndex=false] - Whether the component is link to home/index or not
- * @param {boolean} [props.isMenu=false] - Whether the component is displayed in a menu or not
- * @param {boolean} [props.isTargetSelf=false] - Whether to set rel and target blank attributes or not
  * @param {string} [props.title=''] - The title string to be set on a tag
  * @returns {React.Element} React component markup
  */
@@ -60,9 +58,6 @@ function ElementA(props) {
         children,
         className,
         componentType,
-        isIndex,
-        isMenu,
-        isTargetSelf,
         title,
         to,
         ...otherProps
@@ -72,25 +67,14 @@ function ElementA(props) {
         return null;
     }
 
-    const ancorAttributes = Object.assign(
-        {
-            href: to
-        },
-        !isTargetSelf && {
-            rel: 'noopener noreferrer',
-            target: '_blank'
-        }
-    );
-
+    const ancorAttributes = {
+        href: to
+    };
     const componentAttributes = {
         to,
         activeClassName
     };
-
     const componentClassName = classnames(
-        {
-            'm-menu__item': isMenu
-        },
         'c-link',
         className
     );
@@ -98,12 +82,15 @@ function ElementA(props) {
     let ComponentType = componentType,
         attributes = ancorAttributes;
 
-    if (to.charAt(0) === '/') {
-        ComponentType = Link;
-        attributes = componentAttributes;
+    if (to.includes('www.')) {
+        attributes = Object.assign(attributes, {
+            rel: 'noopener noreferrer',
+            target: '_blank'
+        });
     }
-    if (isIndex || to === '/') {
-        ComponentType = IndexLink;
+
+    if (to.charAt(0) === '/') {
+        ComponentType = NavLink;
         attributes = componentAttributes;
     }
 
@@ -126,9 +113,6 @@ ElementA.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     componentType: PropTypes.string,
-    isIndex: PropTypes.bool,
-    isMenu: PropTypes.bool,
-    isTargetSelf: PropTypes.bool,
     title: PropTypes.string
 };
 
@@ -141,9 +125,6 @@ ElementA.propTypes = {
 ElementA.defaultProps = {
     activeClassName: 'is-active',
     componentType: 'a',
-    isIndex: false,
-    isMenu: false,
-    isTargetSelf: false,
     title: ''
 };
 

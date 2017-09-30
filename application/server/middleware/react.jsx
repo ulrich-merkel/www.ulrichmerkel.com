@@ -5,7 +5,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.5
+ * @version 0.0.6
  *
  * @requires react
  * @requires react-dom
@@ -13,12 +13,10 @@
  * @requires lodash
  * @requires assert-plus
  * @requires common/config/application
- * @requires common/config/routes
  * @requires common/utils/logger
  * @requires common/utils/read-file
  * @requires common/component/root
  * @requires common/component/layout/html
- * @requires common/component/page/not-found
  * @requires common/state/configure-store
  * @requires common/state/config/actions
  * @requires common/state/intl/actions
@@ -30,6 +28,7 @@
  * @see {@link https://github.com/reactjs/redux/issues/723}
  *
  * @changelog
+ * - 0.0.6 Switching to react-router@4
  * - 0.0.5 Add assert-plus as function parameter checker
  * - 0.0.4 Improve error handling and above the fold files
  * - 0.0.3 Adjusted async rendering
@@ -38,39 +37,22 @@
  */
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { RouterContext, match } from 'react-router';
+import { StaticRouter } from 'react-router';
 import { get } from 'lodash';
 import assert from 'assert-plus';
 
 import configApplication from '../../common/config/application';
-import configRoutes from '../../common/config/routes';
 import logger from '../../common/utils/logger';
 import { readFile } from '../../common/utils/read-file';
 import Root from '../../common/component/root';
+import Routes from '../../common/component/routes';
 import LayoutHtml from '../../common/component/layout/html';
-import PageNotFound from '../../common/component/page/not-found';
 import configureStore from '../../common/state/configure-store';
 import { changeLocale } from '../../common/state/intl/actions';
 import { fetchConfigContentIfNeeded, fetchConfigTranslationIfNeeded } from '../../common/state/config/actions';
 import { addToken } from '../../common/state/csrf/actions';
 
 const { aboveTheFold } = configApplication;
-
-/**
- * Helper function to pass props to child components if needed.
- *
- * @function
- * @private
- * @param {Function} Component - The current router react component
- * @param {Object} props - The current react component props
- * @returns {React.Element} React component markup
- */
-function createElement(Component, props) {
-    assert.func(Component, 'Component');
-    assert.object(props, 'props');
-
-    return <Component {...props} />;
-}
 
 /**
  * Create the final html result to be send to the client.
@@ -81,34 +63,82 @@ function createElement(Component, props) {
  *
  * @function
  * @private
+ * @param {string} url - The router path url
  * @param {Object} store - The created redux store
- * @param {Object} renderProps - The component properties to be rendered
  * @param {string} [cssBase=''] - The file contents from base.css
  * @param {string} [scriptBootstrap=''] - The file contents from loader.js
  * @returns {string} The rendered html string
  */
-function renderHtml(store, renderProps, cssBase = '', scriptBootstrap = '') {
+function render(url, store, cssBase = '', scriptBootstrap = '') {
+    assert.string(url, 'url');
     assert.object(store, 'store');
-    assert.object(renderProps, 'renderProps');
     assert.optionalString(cssBase, 'cssBase');
     assert.optionalString(scriptBootstrap, 'scriptBootstrap');
 
-    return renderToStaticMarkup(
-        <Root store={store}>
-            <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
-                <RouterContext
-                    {...renderProps}
-                    createElement={createElement}
-                />
-            </LayoutHtml>
-        </Root>
-    );
+    // This context object contains the results of the render, will
+    // be mutated by react-router
+    const context = {};
+
+    return {
+        html: renderToStaticMarkup(
+            <Root store={store}>
+                <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
+                    <StaticRouter location={url} context={context}>
+                        <Routes />
+                    </StaticRouter>
+                </LayoutHtml>
+            </Root>
+        ),
+        context: context
+    };
+}
+
+/**
+ * Read language which is given in the url locale parameter or via
+ * express middleware and store the selection in redux.
+ * 
+ * @param {Object} req - The current request object
+ * @param {Object} store - The complete redux store
+ * @returns {string} The currently accepted locale
+ */
+function getLocale(req, store) {
+    assert.object(req, 'req');
+    assert.object(store, 'store');
+
+    // @TODO: Read locale from router params
+    const urlLocale = get({}, 'router.params.locale', '');
+    store.dispatch(changeLocale([urlLocale, urlLocale.toUpperCase()].join('-'), req.language));
+    const acceptedLocale = get(store.getState(), 'intl.locale');
+
+    return acceptedLocale;
+}
+
+/**
+ * Load all required data async via promises to
+ * improve the overall node performance.
+ * 
+ * @param {Object} req - The current request object
+ * @param {Object} store - The complete redux store
+ * @param {string} acceptedLocale - The currently accepted locale
+ * @returns {Promise} Async state when initial data is loaded
+ */
+function loadData(req, store, acceptedLocale) {
+    assert.object(req, 'req');
+    assert.object(store, 'store');
+    assert.string(acceptedLocale, 'acceptedLocale');
+
+    return Promise.all([
+        readFile(aboveTheFold.cssBase),
+        readFile(aboveTheFold.scriptBootstrap),
+        store.dispatch(fetchConfigContentIfNeeded()),
+        store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
+        store.dispatch(addToken(req.csrfToken && req.csrfToken()))
+    ]);
 }
 
 /**
  * Handle react server rendering and react routering.
  *
- * @function
  * @param {Object} req - The current request object
  * @param {Object} res - The result object
  * @param {Function} next - The next iteration middleware function
@@ -119,77 +149,28 @@ function middlewareReact(req, res, next) {
     assert.object(res, 'res');
     assert.optionalFunc(next, 'next');
 
-    /**
-     * Using the new match function instead of Router.run
-     *
-     * Note that req.url here should be the full URL path from
-     * the original request, including the query string.
-     *
-     * @see {@link https://github.com/reactjs/react-router/blob/1.0.x/docs/guides/advanced/ServerRendering.md}
-     * @see {@link https://github.com/reactjs/react-router/blob/master/docs/guides/ServerRendering.md}
-     */
-    match({
-        routes: configRoutes,
-        location: req.url
-    }, (error, redirectLocation, renderProps) => {
+    const store = configureStore();
+    const acceptedLocale = getLocale(req, store);
 
-        if (error) {
-            return res.status(error.status || 500).send(error.message).end();
-        }
+    return loadData(req, store, acceptedLocale)
+        .then((result) => {
+            const rendered = render(req.url, store, result[0], result[1]);
+            const redirectUrl = rendered.context.url;
 
-        if (redirectLocation) {
-            return res.redirect(res.status || 302, `${redirectLocation.pathname}${redirectLocation.search}`);
-        }
-
-        if (renderProps) {
-
-            // Initialize redux store, combining single stores into a global one
-            const store = configureStore();
-
-            /**
-             * Read language which is given in the url locale parameter or via
-             * express middleware and store the selection in redux
-             */
-            const urlLocale = get(renderProps, 'router.params.locale', '');
-            store.dispatch(changeLocale([urlLocale, urlLocale.toUpperCase()].join('-'), req.language));
-            const acceptedLocale = get(store.getState(), 'intl.locale');
-
-            /**
-             * We check renderProps.components (or renderProps.routes) for
-             * the "not found" component or route respectively, and send a 404 as
-             * below, because we're using a catch-all error route in the router
-             * config.
-             *
-             * @see {@link https://github.com/ReactTraining/react-router/issues/2834}
-             */
-            const statusCode = get(renderProps, 'components', []).includes(PageNotFound) ? 404 : 200;
-
-            /**
-             * Load all required data async via promises to
-             * improve the overall node performance.
-             */
-            return Promise.all([ // eslint-disable-line promise/no-promise-in-callback
-                readFile(aboveTheFold.cssBase),
-                readFile(aboveTheFold.scriptBootstrap),
-                store.dispatch(fetchConfigContentIfNeeded()),
-                store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
-                store.dispatch(addToken(req.csrfToken && req.csrfToken()))
-            ]).then((result) => {
-                return res
-                    .status(statusCode)
-                    .send(`<!doctype html>${renderHtml(store, renderProps, result[0], result[1])}`);
-            }).catch((reason) => {
-                logger.warn(reason);
-                return res
-                    .status(statusCode)
-                    .send(`<!doctype html>${renderHtml(store, renderProps)}`);
-            });
-
-        }
-
-        return next();
-
-    });
+            if (redirectUrl) {
+                return res.redirect(res.status || 302, redirectUrl);
+            }
+            return res
+                .status(200)
+                .send(`<!doctype html>${rendered.html}`);
+        })
+        .catch((reason) => {
+            logger.warn(reason);
+            const rendered = render(req.url, store);
+            return res
+                .status(404)
+                .send(`<!doctype html>${rendered.html}`);
+        });
 }
 
 export default middlewareReact;

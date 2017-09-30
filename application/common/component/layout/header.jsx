@@ -173,7 +173,6 @@ function LayoutHeader(props) {
                                             handleChangeDialogVisibleSearch();
                                         }}
                                         title={'Suche'}
-                                        isTargetSelf
                                     >
                                         <span className='c-btn__label'>
                                             <Icon className='c-btn__icon' icon='search' />

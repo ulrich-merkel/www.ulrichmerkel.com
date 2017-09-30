@@ -58,6 +58,7 @@ const configApplication = Object.assign({}, {
         imprint: '/imprint',
         disclaimer: '/disclaimer',
         privacy: '/privacy',
+        notFound: '/not-found',
         api: '/api',
         apiConfig: '/config',
         apiConfigContent: '/config/content',

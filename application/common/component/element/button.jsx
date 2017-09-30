@@ -35,7 +35,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 /**
@@ -101,7 +101,7 @@ function ElementButton(props) {
         }
     );
 
-    const HtmlElement = to ? Link : htmlElement;
+    const HtmlElement = to ? NavLink : htmlElement;
     const htmlElementType = !to ? type : null;
     const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 

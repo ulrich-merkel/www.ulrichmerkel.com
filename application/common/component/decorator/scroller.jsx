@@ -9,7 +9,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
@@ -21,16 +21,21 @@
  * @requires common/utils/scroll-to
  *
  * @changelog
+ * - 0.0.3 Added scrollTop after change to react-router@4
  * - 0.0.2 Improved scroll handling
  * - 0.0.1 Basic functions and structure
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
 import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
-import { getPageOffset } from '../../utils/scroll-to';
+import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+
+// @TODO: Should be computed from actual css declaration
+const HEADER_HEIGHT = 61;
 
 /**
  * The scroller higher order function handling window scrolling.
@@ -48,6 +53,7 @@ function scroller(SourceComponent) {
      * @extends React.Component
      * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
      * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
+     * @property {Object} props.location - Current router location properties
      */
     class Scroller extends Component {
 
@@ -93,29 +99,31 @@ function scroller(SourceComponent) {
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentDidMount() {
             window.addEventListener('scroll', this.onScroll);
             this.onScroll();
+            this.scrollTop();
         }
 
         /**
          * Invoked immediately after the component's updates are flushed to
          * the DOM. This method is not called for the initial render.
          *
-         * @function
+         * @param {Object} prevProps - The previous component properties
          * @returns {void}
          */
-        componentDidUpdate() {
+        componentDidUpdate(prevProps) {
+            if (this.props.location !== prevProps.location) {
+                this.scrollTop();
+            }
             this.onScroll();
         }
 
         /**
          * Invoked immediately before a component is unmounted from the DOM.
          *
-         * @function
          * @returns {void}
          */
         componentWillUnmount() {
@@ -125,11 +133,9 @@ function scroller(SourceComponent) {
         /**
          * Handle window scrolling to calculate header offset.
          *
-         * @function
          * @returns {void}
          */
         onScroll() {
-            const headerHeight = 61;
             const {
                 handleScrollChangeHeaderFixed,
                 handleScrollChangeHeaderVisible
@@ -153,7 +159,7 @@ function scroller(SourceComponent) {
             /**
              * User is scrolling down, so hide header.
              */
-            if (this.previousScrollY < currentScrollY && this.headerVisible && headerHeight < currentScrollY) {
+            if (this.previousScrollY < currentScrollY && this.headerVisible && HEADER_HEIGHT < currentScrollY) {
                 this.headerVisible = false;
                 handleScrollChangeHeaderVisible(this.headerVisible);
             }
@@ -162,9 +168,23 @@ function scroller(SourceComponent) {
         }
 
         /**
+         * Scroll to top, make sure the page is already scrolled.
+         *
+         * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
+         *
+         * @returns {void}
+         */
+        scrollTop() {
+            if (getPageOffset()) {
+                scrollTo({
+                    top: 0
+                });
+            }
+        }
+
+        /**
          * The required render function to return a single react child element.
          *
-         * @function
          * @returns {React.Element} React component markup
          */
         render() {
@@ -180,7 +200,14 @@ function scroller(SourceComponent) {
      */
     Scroller.propTypes = {
         handleScrollChangeHeaderFixed: PropTypes.func.isRequired,
-        handleScrollChangeHeaderVisible: PropTypes.func.isRequired
+        handleScrollChangeHeaderVisible: PropTypes.func.isRequired,
+        location: PropTypes.shape({
+            hash: PropTypes.string,
+            key: PropTypes.string,
+            pathname: PropTypes.string,
+            search: PropTypes.string,
+            state: PropTypes.object
+        }).isRequired
     };
 
     /**
@@ -195,7 +222,7 @@ function scroller(SourceComponent) {
             handleScrollChangeHeaderFixed: changeHeaderFixed,
             handleScrollChangeHeaderVisible: changeHeaderVisible
         }
-    )(Scroller);
+    )(withRouter(Scroller));
 
     return ScrollerContainer;
 
