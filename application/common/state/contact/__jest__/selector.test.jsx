@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { selectStateContact } from './../selector';
+import { selectStateContact } from '../selector';
 
 describe('common/state/contact/selector', function () {
     describe('selectStateContact', function () {

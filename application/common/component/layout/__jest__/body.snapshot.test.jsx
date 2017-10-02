@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import { LayoutBody } from './../body';
+import mockedStore from '../../__mocks__/store';
+import { LayoutBody } from '../body';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleKeyVisualButton from './../button';
+import ModuleKeyVisualButton from '../button';
 
 describe('common/component/module/key-visual/button', function () {
     it('should render correctly', function () {

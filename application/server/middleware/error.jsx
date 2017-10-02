@@ -20,7 +20,7 @@
  */
 import assert from 'assert-plus';
 
-import logger from './../../common/utils/logger';
+import logger from '../../common/utils/logger';
 
 /**
  * Catch 404 and forward to error handler. Define custom error logic in here.

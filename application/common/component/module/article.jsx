@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/module/article/headline
  * @requires common/component/module/article/lead
@@ -24,13 +25,14 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import ArticleHeadline from './article/headline';
 import ArticleLead from './article/lead';
 import ArticleButton from './article/button';
-import Meta from './../element/meta';
+import Meta from '../element/meta';
 
 /**
  * Function representing a component to return a single react child element.

@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 import 'jsdom-global/register';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import mockedStore from './../../__mocks__/store';
-import picturefill from './../picturefill';
+import mockedStore from '../../__mocks__/store';
+import picturefill from '../picturefill';
 
 describe('common/component/decorator/picturefill', function () {
     const Page = function (props) {

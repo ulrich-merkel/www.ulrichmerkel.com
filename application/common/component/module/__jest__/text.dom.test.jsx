@@ -5,8 +5,8 @@ import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import mockedStore from './../../__mocks__/store';
-import { ModuleText } from './../text';
+import mockedStore from '../../__mocks__/store';
+import { ModuleText } from '../text';
 
 describe('common/component/module/text', function () {
     const defaultProps = {

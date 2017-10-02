@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { selectStateCsrfToken } from './../selector';
+import { selectStateCsrfToken } from '../selector';
 
 describe('common/state/contact/selector', function () {
     describe('selectStateCsrfToken', function () {

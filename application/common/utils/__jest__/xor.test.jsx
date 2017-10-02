@@ -1,5 +1,5 @@
 /* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
-import xor from './../xor';
+import xor from '../xor';
 
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';
 const key = 'abcDEFG1234=%#!§$';

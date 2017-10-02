@@ -40,27 +40,28 @@
  * - 0.0.1 Basic functions and structure
  */
 import 'babel-polyfill';
-import './../common/vendor/polyfill/console';
-import './../common/vendor/polyfill/requestAnimationFrame';
-import './../common/vendor/polyfill/CustomEvent';
-import './../common/vendor/polyfill/classList';
-import './../common/vendor/polyfill/base64';
-import './../common/vendor/standalone';
+import '../common/vendor/polyfill/console';
+import '../common/vendor/polyfill/requestAnimationFrame';
+import '../common/vendor/polyfill/CustomEvent';
+import '../common/vendor/polyfill/classList';
+import '../common/vendor/polyfill/base64';
+import '../common/vendor/standalone';
 
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, useRouterHistory, match } from 'react-router';
-import { createHistory } from 'history';
+import createBrowserHistory from 'react-router/node_modules/history/lib/createBrowserHistory';
+
 import attachFastClick from 'fastclick';
 import 'picturefill';
 
 import featureDetect from './feature-detect/feature-detect';
-import configRoutes from './../common/config/routes';
-import { debug } from './../common/config/application';
-import scrollTo, { getPageOffset } from './../common/utils/scroll-to';
-import logger from './../common/utils/logger';
-import Root from './../common/component/root';
-import configureStore from './../common/state/configure-store';
+import configRoutes from '../common/config/routes';
+import { debug } from '../common/config/application';
+import scrollTo, { getPageOffset } from '../common/utils/scroll-to';
+import logger from '../common/utils/logger';
+import Root from '../common/component/root';
+import configureStore from '../common/state/configure-store';
 
 /* eslint-disable no-unused-vars */
 const { pathname, search, hash } = window.location;
@@ -115,7 +116,7 @@ function createElement(Component, props) {
  * @type {Object}
  * @see {@link https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#customize-your-history-further}
  */
-const browserHistory = useRouterHistory(createHistory)({
+const browserHistory = useRouterHistory(createBrowserHistory)({
     basename: '/'
 });
 

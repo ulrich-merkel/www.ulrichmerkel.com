@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires classnames
  * @requires shortid
@@ -29,7 +30,8 @@
  *
  * @example <caption>Example usage (jsx)</caption>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import shortid from 'shortid';
@@ -39,15 +41,15 @@ import {
     selectStateIntlLocale,
     selectStateSearchTerm,
     selectStateConfig
-} from './../../state/selectors';
+} from '../../state/selectors';
 import {
     changeDialogVisibleSearch
-} from './../../state/actions';
-import { getContentSection } from './../../utils/content';
-import { findMatches } from './../../utils/search';
-import addContent from './../decorator/add-content';
-import A from './../element/a';
-import Headline from './../element/headline';
+} from '../../state/actions';
+import { getContentSection } from '../../utils/content';
+import { findMatches } from '../../utils/search';
+import addContent from '../decorator/add-content';
+import A from '../element/a';
+import Headline from '../element/headline';
 
 /**
  * Function representing a component to return a single react child element.

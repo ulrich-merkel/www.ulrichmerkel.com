@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { shallow } from 'enzyme';
-import ElementLegend from './../legend';
+import ElementLegend from '../legend';
 
 describe('common/component/element/legend', function () {
     it('should render correctly', function () {

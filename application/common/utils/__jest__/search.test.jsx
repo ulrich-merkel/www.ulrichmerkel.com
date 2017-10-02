@@ -1,9 +1,9 @@
 /* eslint-disable func-names, import/first */
-import configContent from './../../config/__mocks__/content';
-import configIntlEnEn from './../../config/intl/__mocks__/en-EN';
+import configContent from '../../config/__mocks__/content';
+import configIntlEnEn from '../../config/intl/__mocks__/en-EN';
 
-jest.mock('./../../config/intl/en-EN');
-import { findMatches } from './../search';
+jest.mock('../../config/intl/en-EN');
+import { findMatches } from '../search';
 
 describe('common/utils/search', function () {
     it('should handle findMatches() correctly', function () {

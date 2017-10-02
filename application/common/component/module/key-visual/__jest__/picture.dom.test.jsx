@@ -4,8 +4,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedWindowEvents from './../../../__mocks__/window-events';
-import ModuleKeyVisualPicture from './../picture';
+import mockedWindowEvents from '../../../__mocks__/window-events';
+import ModuleKeyVisualPicture from '../picture';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {

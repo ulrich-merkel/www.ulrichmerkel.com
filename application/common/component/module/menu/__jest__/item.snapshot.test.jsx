@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleMenuItem from './../item';
+import ModuleMenuItem from '../item';
 
 describe('common/component/module/menu/item', function () {
     const defaultProps = {

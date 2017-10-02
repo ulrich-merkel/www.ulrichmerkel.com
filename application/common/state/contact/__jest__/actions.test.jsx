@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { CONTACT_CHANGE } from './../constants';
-import { changeContact } from './../actions';
+import { CONTACT_CHANGE } from '../constants';
+import { changeContact } from '../actions';
 
 describe('common/state/contact/actions', function () {
     describe('changeContact', function () {

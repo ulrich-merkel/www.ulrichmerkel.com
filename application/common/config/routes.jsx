@@ -28,8 +28,8 @@
  * - 0.0.2 Switched to new router version 2.x and es6 syntax
  * - 0.0.1 Basic functions and structure
  */
-import { url } from './../config/application';
-import LayoutBody from './../component/layout/body'; // eslint-disable-line import/no-named-as-default
+import { url } from '../config/application';
+import LayoutBody from '../component/layout/body'; // eslint-disable-line import/no-named-as-default
 import {
     PageHome,
     PageWork,
@@ -41,7 +41,7 @@ import {
     PageBroadcast,
     PageSearch,
     PageNotFound
-} from './../component/page/';
+} from '../component/page/';
 
 const childRoutes = [
     {

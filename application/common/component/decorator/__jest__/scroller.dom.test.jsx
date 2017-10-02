@@ -1,12 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 import 'jsdom-global/register';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import mockedWindowEvents from './../../__mocks__/window-events';
-import mockedStore from './../../__mocks__/store';
-import scroller from './../scroller';
+import mockedWindowEvents from '../../__mocks__/window-events';
+import mockedStore from '../../__mocks__/store';
+import scroller from '../scroller';
 
 describe('common/component/decorator/scroller', function () {
     const Page = function (props) {

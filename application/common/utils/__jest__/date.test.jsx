@@ -1,5 +1,5 @@
 /* eslint-disable func-names, immutable/no-mutation */
-import { getDateNow } from './../date';
+import { getDateNow } from '../date';
 
 describe('common/utils/date', function () {
     it('should return a date via performance', function () {

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from './../main';
+import ComponentToBeTested from '../main';
 
 describe('component/layout/main', function () {
     describe('Snapshot', function () {

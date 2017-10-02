@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import mockedWindowEvents from './../../__mocks__/window-events';
-import LayoutDialogContainer, { LayoutDialog } from './../dialog';
+import mockedStore from '../../__mocks__/store';
+import mockedWindowEvents from '../../__mocks__/window-events';
+import LayoutDialogContainer, { LayoutDialog } from '../dialog';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {

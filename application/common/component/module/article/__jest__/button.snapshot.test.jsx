@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleArticleButton from './../button';
+import ModuleArticleButton from '../button';
 
 describe('common/component/module/article/button', function () {
     const defaultProps = {

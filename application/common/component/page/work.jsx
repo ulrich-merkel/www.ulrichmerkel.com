@@ -11,6 +11,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
  * @requires react-redux
  * @requires react-router
@@ -30,20 +31,21 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import { url } from './../../config/application';
-import configWork from './../../config/work';
-import addPageTracking from './../decorator/add-page-tracking';
-import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
-import { getContentSection, getTranslatedContent } from './../../utils/content';
-import LayoutMain from './../layout/main';
-import SectionKeyVisual from './../section/key-visual';
-import SectionText from './../section/text';
-import SectionFeatured from './../section/featured';
+import { url } from '../../config/application';
+import configWork from '../../config/work';
+import addPageTracking from '../decorator/add-page-tracking';
+import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
+import { getContentSection, getTranslatedContent } from '../../utils/content';
+import LayoutMain from '../layout/main';
+import SectionKeyVisual from '../section/key-visual';
+import SectionText from '../section/text';
+import SectionFeatured from '../section/featured';
 
 /**
  * Find current work page key from config array.

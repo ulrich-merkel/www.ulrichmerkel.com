@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './../constants';
-import { changeHeaderFixed, changeHeaderVisible } from './../actions';
+import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from '../constants';
+import { changeHeaderFixed, changeHeaderVisible } from '../actions';
 
 describe('common/state/scroll/actions', function () {
     describe('changeHeaderFixed', function () {

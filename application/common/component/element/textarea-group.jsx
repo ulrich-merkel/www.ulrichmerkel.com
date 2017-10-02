@@ -12,6 +12,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/textarea
  * @requires common/component/element/label
@@ -20,7 +21,8 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Textarea from './textarea';

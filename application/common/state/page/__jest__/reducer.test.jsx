@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { PAGE_INCREASE_VIEWS } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { PAGE_INCREASE_VIEWS } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/page/reducer', function () {
     it('should return the initial state', function () {

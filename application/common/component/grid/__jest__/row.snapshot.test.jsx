@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import GridRow from './../row';
+import GridRow from '../row';
 
 describe('common/component/grid/row', function () {
     it('should render correctly', function () {

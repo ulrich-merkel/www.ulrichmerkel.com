@@ -11,6 +11,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires classnames
  * @requires lodash
@@ -32,21 +33,22 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from './../../state/selectors';
-import { changeDialogVisible } from './../../state/actions';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import { isBrowser } from './../../utils/environment';
+import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
+import { changeDialogVisible } from '../../state/actions';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import { isBrowser } from '../../utils/environment';
 
-import GridSpaced from './../grid/spaced';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
-import Button from './../element/button';
+import GridSpaced from '../grid/spaced';
+import GridRow from '../grid/row';
+import GridCol from '../grid/col';
+import Button from '../element/button';
 
 /**
  * Class representing a component.

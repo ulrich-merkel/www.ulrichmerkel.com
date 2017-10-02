@@ -17,7 +17,7 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import { required, email } from './../../utils/validation';
+import { required, email } from '../../utils/validation';
 
 /**
  * Validation helper to check all inputs.

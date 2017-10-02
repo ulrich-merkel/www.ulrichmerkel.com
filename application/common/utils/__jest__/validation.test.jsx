@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { email, required } from './../validation';
+import { email, required } from '../validation';
 
 describe('common/utils/validation', function () {
     it('should validated an email address', function () {

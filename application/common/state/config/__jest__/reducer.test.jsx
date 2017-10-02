@@ -6,8 +6,8 @@ import {
     CONFIG_TRANSLATION_ADD,
     FETCH_CONFIG_TRANSLATION_REQUEST,
     FETCH_CONFIG_TRANSLATION_SUCCESS
-} from './../constants';
-import reducer, { defaultState } from './../reducer';
+} from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 const dateNow = Date.now();
 

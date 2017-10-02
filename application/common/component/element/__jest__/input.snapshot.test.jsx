@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-let */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementInput from './../input';
+import ElementInput from '../input';
 
 describe('common/component/element/input', function () {
     it('should render correctly with default callbacks', function () {

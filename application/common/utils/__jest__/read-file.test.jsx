@@ -2,7 +2,7 @@
 jest.mock('fs');
 
 import fs from 'fs';
-import { readFile, readFileSync } from './../read-file';
+import { readFile, readFileSync } from '../read-file';
 
 describe('common/utils/read-file', function () {
     const MOCK_FILE_INFO = {

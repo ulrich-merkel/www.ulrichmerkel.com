@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { INTL_CHANGE_LOCALE, INTL_LOCALE_DE_DE } from './../constants';
-import { changeLocale } from './../actions';
+import { INTL_CHANGE_LOCALE, INTL_LOCALE_DE_DE } from '../constants';
+import { changeLocale } from '../actions';
 
 describe('common/state/intl/actions', function () {
     describe('changeLocale', function () {

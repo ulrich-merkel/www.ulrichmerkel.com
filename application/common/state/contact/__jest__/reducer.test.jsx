@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { CONTACT_CHANGE } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { CONTACT_CHANGE } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/contact/reducer', function () {
 

@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires common/component/element/headline
  * @requires common/component/element/paragraph
  * @requires common/component/element/small
@@ -22,11 +23,12 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
-import Small from './../../element/small';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
+import Small from '../../element/small';
 
 /**
  * Function representing a component to return a single react child element.

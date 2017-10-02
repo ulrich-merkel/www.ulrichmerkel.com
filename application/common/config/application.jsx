@@ -17,7 +17,7 @@
  * - 0.0.1 basic functions and structure
  */
 import path from 'path';
-import { toBoolean } from './../utils/parse';
+import { toBoolean } from '../utils/parse';
 
 const configEnvironment = {
     development: {

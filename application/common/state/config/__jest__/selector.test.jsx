@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { selectStateConfig } from './../selector';
+import { selectStateConfig } from '../selector';
 
 describe('common/state/config/selector', function () {
     describe('selectStateConfig', function () {

@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleLanguage from './../language';
+import ModuleLanguage from '../language';
 
 describe('common/component/module/language', function () {
     const defaultProps = {

@@ -13,6 +13,7 @@
  * @TODO: Add classname and htmlElement to props, add honeypot again
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires lodash
  * @requires common/config/application
@@ -42,30 +43,31 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isFunction, has } from 'lodash';
 
-import configApplication, { url } from './../../../config/application';
-import { isBrowser } from './../../../utils/environment';
-import xor from './../../../utils/xor';
-import logger from './../../../utils/logger';
-import scrollTo from './../../../utils/scroll-to';
-import xhr, { XHR_DEFAULT_HEADERS } from './../../../utils/xhr';
-import { selectStateContact, selectStateCsrfToken } from './../../../state/selectors';
-import { changeContact } from './../../../state/contact/actions';
-import { validate, isValid } from './../../../state/contact/utils';
-import Row from './../../grid/row';
-import Col from './../../grid/col';
-import Form from './../../element/form';
-import Fieldset from './../../element/fieldset';
-import Legend from './../../element/legend';
-import InputGroup from './../../element/input-group';
-import TextareaGroup from './../../element/textarea-group';
-import ButtonGroup from './../../element/button-group';
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
-import Button from './../../element/button';
+import configApplication, { url } from '../../../config/application';
+import { isBrowser } from '../../../utils/environment';
+import xor from '../../../utils/xor';
+import logger from '../../../utils/logger';
+import scrollTo from '../../../utils/scroll-to';
+import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
+import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
+import { changeContact } from '../../../state/contact/actions';
+import { validate, isValid } from '../../../state/contact/utils';
+import Row from '../../grid/row';
+import Col from '../../grid/col';
+import Form from '../../element/form';
+import Fieldset from '../../element/fieldset';
+import Legend from '../../element/legend';
+import InputGroup from '../../element/input-group';
+import TextareaGroup from '../../element/textarea-group';
+import ButtonGroup from '../../element/button-group';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
+import Button from '../../element/button';
 
 const defaultState = {
     name: '',
@@ -329,26 +331,35 @@ class ModuleFormContact extends Component {
             success: false,
             error: false
         }, () => {
-            send(data, csrfToken).then((response) => { // eslint-disable-line promise/catch-or-return
-                if (!response || !response.ok) {
-                    throw new Error(`Can't send email! ${response.statusText}`);
-                }
-                return this.setState({
-                    success: true,
-                    pending: false
-                });
-            })
-            .catch((reason) => {
-                this.setState({
-                    error: true,
-                    pending: false
-                }, () => {
-                    logger.warn(reason);
-                });
-            })
-            .then(() => {
-                return scrollToTextMessage(this.textMessage);
-            });
+            send(data, csrfToken)
+                .then(
+                    (response) => {
+                        if (!response || !response.ok) {
+                            throw new Error(`Can't send email! ${response.statusText}`);
+                        }
+                        return new Promise((resolve) => {
+                            this.setState({
+                                success: true,
+                                pending: false
+                            }, resolve);
+                        });
+                    }
+                )
+                .then(
+                    () => {
+                        return scrollToTextMessage(this.textMessage);
+                    }
+                )
+                .catch(
+                    (reason) => {
+                        this.setState({
+                            error: true,
+                            pending: false
+                        }, () => {
+                            logger.warn(reason);
+                        });
+                    }
+                );
         });
 
     }

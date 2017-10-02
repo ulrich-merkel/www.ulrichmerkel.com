@@ -12,6 +12,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires shortid
  * @requires common/component/element/headline
@@ -20,12 +21,13 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.

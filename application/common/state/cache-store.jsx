@@ -17,10 +17,10 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import configApplication from './../config/application';
-import xor from './../utils/xor';
-import logger from './../utils/logger';
-import WebStorage from './../utils/web-storage';
+import configApplication from '../config/application';
+import xor from '../utils/xor';
+import logger from '../utils/logger';
+import WebStorage from '../utils/web-storage';
 
 const webStorage = new WebStorage();
 const xorUse = configApplication.xor.use;

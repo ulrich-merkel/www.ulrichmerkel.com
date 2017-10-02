@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleFeatured from './../featured';
+import ModuleFeatured from '../featured';
 
 describe('common/component/module/featured', function () {
     const defaultProps = {
