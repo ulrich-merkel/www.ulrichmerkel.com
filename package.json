@@ -77,7 +77,7 @@
     "test:jest": "cross-var cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/jest.config.js",
     "test:css": "cross-var stylelint --config $npm_package_directories_config/stylelint.config.js --syntax scss \"**/*.scss\"",
     "test:nsp": "nsp check; exit 0;",
-    "test:retire": "cross-var retire --ignorefile $npm_package_directories_config/.retireignore; exit 0;",
+    "test:retire": "cross-var retire --ignorefile $npm_package_directories_config/retireignore.json; exit 0;",
     "test:package": "pjl-cli --rules-file $npm_package_directories_config/.npmpackagejsonlintrc.json",
     "test:license": "license",
     "test:legal": "tldrlegal",
