@@ -8,13 +8,12 @@ exports[`common/component/module/menu/item should hide label if isLabelHidden is
   itemType="itemType"
 >
   <a
-    className="m-menu__item c-link"
+    className="c-link m-menu__item"
+    exact={true}
     href="path"
     itemProp="bar"
-    rel="noopener noreferrer"
     role="menuitem"
     tabIndex="0"
-    target="_blank"
     title="Menu item title"
   >
     <i
@@ -40,13 +39,12 @@ exports[`common/component/module/menu/item should render correctly 1`] = `
   itemType="itemType"
 >
   <a
-    className="m-menu__item c-link"
+    className="c-link m-menu__item"
+    exact={true}
     href="path"
     itemProp="bar"
-    rel="noopener noreferrer"
     role="menuitem"
     tabIndex="0"
-    target="_blank"
     title="Menu item title"
   >
     <i

@@ -3,6 +3,7 @@ import 'jsdom-global/register';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
 
 import mockedWindowEvents from '../../__mocks__/window-events';
@@ -24,9 +25,11 @@ describe('common/component/decorator/scroller', function () {
     it('should render correctly', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
-                <Container>
-                    Scroller children
-                </Container>
+                <MemoryRouter>
+                    <Container>
+                        Scroller children
+                    </Container>
+                </MemoryRouter>
             </Provider>
         );
         mockedWindowEvents.scroll();

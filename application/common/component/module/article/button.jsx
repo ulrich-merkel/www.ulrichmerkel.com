@@ -29,24 +29,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import P from '../../element/paragraph';
-import Button from '../../element/button';
+import {
+    Button,
+    P
+} from '../../element';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {string} [props.btnLabel=''] - The button label
+ * @param {string} [props.btnTitle=''] - The button title
+ * @param {string} [props.btnTo=''] - The button link target
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @param {boolean} [props.isDialog=false] - Flag if this is rendering within a dialog
  * @returns {React.Element} React component markup
  */
 function ModuleArticleButton(props) {
-
     const {
-        btnTo,
         btnLabel,
         btnTitle,
-        isDialog,
-        className
+        btnTo,
+        className,
+        isDialog
     } = props;
 
     if (!btnTo || !btnLabel || isDialog) {
@@ -62,7 +68,6 @@ function ModuleArticleButton(props) {
             </Button>
         </P>
     );
-
 }
 
 /**
@@ -70,17 +75,13 @@ function ModuleArticleButton(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [btnTo=''] - The button link target
- * @property {string} [btnLabel=''] - The button label
- * @property {string} [btnTitle=''] - The button title
- * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ModuleArticleButton.propTypes = {
-    btnTo: PropTypes.string,
     btnLabel: PropTypes.string,
     btnTitle: PropTypes.string,
-    isDialog: PropTypes.bool,
-    className: PropTypes.string // eslint-disable-line react/require-default-props
+    btnTo: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isDialog: PropTypes.bool
 };
 
 /**
@@ -88,12 +89,11 @@ ModuleArticleButton.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleArticleButton.propTypes
  */
 ModuleArticleButton.defaultProps = {
-    btnTo: '',
     btnLabel: '',
     btnTitle: '',
+    btnTo: '',
     isDialog: false
 };
 

@@ -90,9 +90,11 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemType="http://www.schema.org/SiteNavigationElement"
             >
               <a
+                aria-current={false}
                 className="c-link m-menu__item--search c-btn--small c-btn--clear"
+                href="/search"
                 onClick={[Function]}
-                style={Object {}}
+                style={undefined}
                 tabIndex="0"
                 title="Suche"
               >

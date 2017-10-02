@@ -2,6 +2,7 @@
 import 'jsdom-global/register';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
@@ -20,9 +21,11 @@ describe('common/component/layout/header', function () {
 
         const wrapper = mount(
             <Provider store={mockedStore}>
-                <LayoutHeader {...defaultProps}>
-                    Header Children
-                </LayoutHeader>
+                <MemoryRouter>
+                    <LayoutHeader {...defaultProps}>
+                        Header Children
+                    </LayoutHeader>
+                </MemoryRouter>
             </Provider>
         );
 

@@ -24,14 +24,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import A from '../../element/a';
-import Icon from '../../element/icon';
+import {
+    A,
+    Icon
+} from '../../element';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {string} [props.icon=''] - The icon type
+ * @param {boolean} [props.isLabelHidden=false] - Whether the label is hidden or not
+ * @param {string} [props.itemPropA='url'] - The link element itemProp attribute
+ * @param {string} [props.itemType='http://www.schema.org/SiteNavigationElement'] - The schema.org itemtype url attribute
+ * @param {string} [props.label=''] - The items label content
+ * @param {string} [props.path=''] - The react-router link
+ * @param {string} [props.title=''] - The items title content
  * @returns {React.Element} React component markup
  */
 function ModuleMenuItem(props) {
@@ -77,24 +87,16 @@ function ModuleMenuItem(props) {
 
  * @static
  * @type {Object}
- * @property {string} [path=''] - The react-router link
- * @property {string} [title=''] - The items title content
- * @property {string} [label=''] - The items label content
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {string} [itemType='http://www.schema.org/SiteNavigationElement'] - The schema.org itemtype url attribute
- * @property {string} [icon=''] - The icon type
- * @property {boolean} [isLabelHidden=false] - Whether the label is hidden or not
- * @property {string} [itemPropA='url'] - The link element itemProp attribute
  */
 ModuleMenuItem.propTypes = {
-    path: PropTypes.string,
-    title: PropTypes.string,
-    label: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    itemType: PropTypes.string,
     icon: PropTypes.string,
     isLabelHidden: PropTypes.bool,
-    itemPropA: PropTypes.string
+    itemPropA: PropTypes.string,
+    itemType: PropTypes.string,
+    label: PropTypes.string,
+    path: PropTypes.string,
+    title: PropTypes.string
 };
 
 /**
@@ -102,16 +104,15 @@ ModuleMenuItem.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleMenuItem.propTypes
  */
 ModuleMenuItem.defaultProps = {
-    path: '',
-    title: '',
-    label: '',
-    itemType: 'http://www.schema.org/SiteNavigationElement',
     icon: '',
     isLabelHidden: false,
-    itemPropA: 'url'
+    itemPropA: 'url',
+    itemType: 'http://www.schema.org/SiteNavigationElement',
+    label: '',
+    path: '',
+    title: ''
 };
 
 export default ModuleMenuItem;

@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-let, immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a html a tag or react-router component.
  *
  * @file
  * @module
@@ -52,7 +49,7 @@ import classnames from 'classnames';
  * @param {string} [props.title=''] - The title string to be set on a tag
  * @returns {React.Element} React component markup
  */
-function ElementA(props) {
+function A(props) {
     const {
         activeClassName,
         children,
@@ -62,10 +59,6 @@ function ElementA(props) {
         to,
         ...otherProps
     } = props;
-
-    if (!to) {
-        return null;
-    }
 
     const ancorAttributes = {
         href: to
@@ -82,7 +75,7 @@ function ElementA(props) {
     let ComponentType = componentType,
         attributes = ancorAttributes;
 
-    if (to.includes('www.')) {
+    if (to.includes('www.') || to.includes('http')) {
         attributes = Object.assign(attributes, {
             rel: 'noopener noreferrer',
             target: '_blank'
@@ -107,7 +100,7 @@ function ElementA(props) {
  * @static
  * @type {Object}
  */
-ElementA.propTypes = {
+A.propTypes = {
     to: PropTypes.string.isRequired,
     activeClassName: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -122,10 +115,10 @@ ElementA.propTypes = {
  * @static
  * @type {Object}
  */
-ElementA.defaultProps = {
+A.defaultProps = {
     activeClassName: 'is-active',
     componentType: 'a',
     title: ''
 };
 
-export default ElementA;
+export default A;

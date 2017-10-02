@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, func-names */
 import 'jsdom-global/register';
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { MemoryRouter, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
@@ -57,9 +57,9 @@ describe('common/component/module/text', function () {
             );
         };
         const wrapper = mount(
-            <Router history={hashHistory}>
+            <MemoryRouter>
                 <Route path='/' component={App} />
-            </Router>
+            </MemoryRouter>
         );
 
         wrapper.find('a').first().simulate('click');

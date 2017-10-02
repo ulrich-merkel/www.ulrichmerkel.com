@@ -37,7 +37,7 @@ import ModuleMenuItem from './menu/item';
  * @param {string} [props.componentType='ul'] - The component element type used for React.createElement
  * @param {Object} [props.content={}] - The component translation config
  * @param {string} [props.itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
- * @returns {React.Element} React component markup
+ * @returns {React.Element|null} React component markup
  */
 function ModuleMenu(props) {
     const {
@@ -49,7 +49,7 @@ function ModuleMenu(props) {
         ...otherProps
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!Array.isArray(content.list) || !content.list.length) {
         return null;
     }
 

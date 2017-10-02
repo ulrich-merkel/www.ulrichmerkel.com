@@ -2,6 +2,7 @@
 // @see https://github.com/airbnb/enzyme/issues/426
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 import ModuleMenu from '../menu';
 
@@ -36,35 +37,41 @@ describe('common/component/module/menu', function () {
 
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ModuleMenu
-                {...defaultProps}
-            >
-                Module menu children
-            </ModuleMenu>
+            <MemoryRouter>
+                <ModuleMenu
+                    {...defaultProps}
+                >
+                    Module menu children
+                </ModuleMenu>
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content image is empty', function () {
         const tree = renderer.create(
-            <ModuleMenu
-                {...defaultProps}
-                content={{
-                    list: null
-                }}
-            >
-                Module menu children not rendered
-            </ModuleMenu>
+            <MemoryRouter>
+                <ModuleMenu
+                    {...defaultProps}
+                    content={{
+                        list: null
+                    }}
+                >
+                    Module menu children not rendered
+                </ModuleMenu>
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
         const tree = renderer.create(
-            <ModuleMenu
-                {...defaultProps}
-                itemType={null}
-            >
-                Module menu children
-            </ModuleMenu>
+            <MemoryRouter>
+                <ModuleMenu
+                    {...defaultProps}
+                    itemType={null}
+                >
+                    Module menu children
+                </ModuleMenu>
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
