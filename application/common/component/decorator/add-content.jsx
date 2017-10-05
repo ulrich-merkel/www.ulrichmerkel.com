@@ -1,7 +1,5 @@
 /**
  * Es6 module for handling translation data.
- * Higher-Order Components (HOCs) and decorators are JavaScript functions
- * which add functionality to existing component classes.
  *
  * @file
  * @module
