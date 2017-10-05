@@ -1016,10 +1016,6 @@ babel-plugin-transform-react-remove-prop-types@0.4.9:
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.9.tgz#6805ef83d77bda94ded472ff2f2836bacd6ac44c"
 
-babel-plugin-transform-react-router-optimize@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-router-optimize/-/babel-plugin-transform-react-router-optimize-1.0.2.tgz#6fc8f98fe49cbb9fd7a71031d185d7b09e5e8eab"
-
 babel-plugin-transform-regenerator@^6.24.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-regenerator/-/babel-plugin-transform-regenerator-6.26.0.tgz#e0703696fbde27f0a3efcacf8b4dca2f7b3a8f2f"
