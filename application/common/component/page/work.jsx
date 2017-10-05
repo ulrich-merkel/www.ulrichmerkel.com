@@ -188,12 +188,12 @@ class PageWork extends Component {
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
-    match: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     config: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
         PropTypes.array,
-        PropTypes.object
+        PropTypes.object // eslint-disable-line react/forbid-prop-types
     ]))
 };
 

@@ -86,7 +86,8 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
                     <StaticRouter
                         basename='/'
                         context={context}
-                        location={url} >
+                        location={url}
+                    >
                         <Routes />
                     </StaticRouter>
                 </LayoutHtml>

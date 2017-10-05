@@ -45,7 +45,7 @@ import {
  *
  * @function
  * @param {Object} [props] - The current component props
- * @param {Array|string} [props.children] The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @param {Array|string} [props.children] - The component dom node childs (usally an array of components), if there is only a single child it's a string
  * @param {Object} [props.page] - The redux page state
  * @returns {React.Element} React component markup
  */
