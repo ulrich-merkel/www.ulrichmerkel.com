@@ -14,7 +14,7 @@
  * @requires prop-types
  * @requires react-helmet
  * @requires react-redux
- * @requires react-router
+ * @requires react-router-dom
  * @requires common/config/application
  * @requires common/config/work
  * @requires common/component/decorator/add-page-tracking
@@ -35,7 +35,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 import { url } from '../../config/application';
 import configWork from '../../config/work';

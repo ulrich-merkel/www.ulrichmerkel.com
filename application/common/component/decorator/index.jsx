@@ -1,5 +1,7 @@
 /**
  * Es6 index module for easier export handling.
+ * Higher-Order Components (HOCs) and decorators are JavaScript functions
+ * which add functionality to existing component classes.
  *
  * @file
  * @module

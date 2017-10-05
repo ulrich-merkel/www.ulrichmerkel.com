@@ -16,6 +16,7 @@
  * @requires react
  * @requires prop-types
  * @requires react-redux
+ * @requires react-router
  * @requires lodash
  * @requires common/state/scroll/actions
  * @requires common/utils/scroll-to
@@ -216,13 +217,13 @@ function scroller(SourceComponent) {
      * We also use the shorthand notation for mapDispatchToProps here to save
      * some bytes.
      */
-    const ScrollerContainer = connect(
+    const ScrollerContainer = withRouter(connect(
         null,
         {
             handleScrollChangeHeaderFixed: changeHeaderFixed,
             handleScrollChangeHeaderVisible: changeHeaderVisible
         }
-    )(withRouter(Scroller));
+    )(Scroller));
 
     return ScrollerContainer;
 

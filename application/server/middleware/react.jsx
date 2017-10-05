@@ -83,7 +83,10 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
         html: renderToStaticMarkup(
             <Root store={store}>
                 <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
-                    <StaticRouter location={url} context={context}>
+                    <StaticRouter
+                        basename='/'
+                        context={context}
+                        location={url} >
                         <Routes />
                     </StaticRouter>
                 </LayoutHtml>
