@@ -26,9 +26,217 @@ exports[`common/component/page/imprint should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h1
+                className="is-centered c-type--h1 m-article__headline"
+                itemProp="headline"
+              >
+                Imprint
+              </h1>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Legal details and information in accordance with section 5 TMG.
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <div
+                  className="m-text"
+                  role="list"
+                >
+                  <div
+                    className="m-text__block"
+                  >
+                    <h3
+                      className="is-centered c-type--h3 m-text__headline"
+                    >
+                      Publisher information
+                    </h3>
+                    <div
+                      className="is-centered m-text__content"
+                    >
+                      <p
+                        className="c-type--p"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": Array [
+                              "Person responsible for content in accordance with 55 Abs. 2 RStV:",
+                            ],
+                          }
+                        }
+                      />
+                    </div>
+                    <div
+                      className="is-centered m-person is-centered m-text__content"
+                      itemScope={true}
+                      itemType="http://schema.org/Person"
+                    >
+                      <p
+                        className="c-type--p m-person__name"
+                      >
+                        <strong>
+                          Ulrich Merkel
+                        </strong>
+                      </p>
+                      <address
+                        className="m-person__address c-type--address"
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/Address"
+                      >
+                        <span
+                          className="m-person__street-address"
+                          itemProp="street-address"
+                        >
+                          Pegauer Straße 51
+                        </span>
+                        <span
+                          className="m-person__postal-code"
+                          itemProp="postal-code"
+                        >
+                          04442
+                        </span>
+                        <span
+                          className="m-person__locality"
+                          itemProp="locality"
+                        >
+                          Zwenkau, Germany
+                        </span>
+                      </address>
+                      <p
+                        className="c-type--p m-person__email"
+                      >
+                        <abbr
+                          title="E-Mail address"
+                        >
+                          E.
+                        </abbr>
+                         
+                        <a
+                          href="mailto:hello@ulrichmerkel.com"
+                          itemProp="email"
+                        >
+                          hello@ulrichmerkel.com
+                        </a>
+                      </p>
+                      <p
+                        className="c-type--p m-person__website"
+                      >
+                        <abbr
+                          title="Website"
+                        >
+                          W.
+                        </abbr>
+                         
+                        <a
+                          href="http://www.ulrichmerkel.com"
+                        >
+                          http://www.ulrichmerkel.com
+                        </a>
+                      </p>
+                    </div>
+                    <div
+                      className="is-centered m-text__content"
+                    >
+                      <p
+                        className="c-type--p"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": Array [
+                              "Ust. (VAT) - Idnr. DE  235 248 02155<br />
+        Amtsgericht Borna",
+                            ],
+                          }
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="m-text__block"
+                  >
+                    <h3
+                      className="is-centered c-type--h3 m-text__headline"
+                    >
+                      Indication of source for images and graphics
+                    </h3>
+                    <div
+                      className="is-centered m-text__content"
+                    >
+                      <p
+                        className="c-type--p"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": Array [
+                              "<a href='http://www.adrian-kuehne.de/' target='_blank' title='Show Adrian Kühne website' rel='noopener noreferrer'>
+        <i aria-hidden='true' class='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
+        </a>",
+                            ],
+                          }
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="m-text__block"
+                  >
+                    <h3
+                      className="is-centered c-type--h3 m-text__headline"
+                    >
+                      Technology
+                    </h3>
+                    <div
+                      className="is-centered m-text__content"
+                    >
+                      <p
+                        className="c-type--p"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": Array [
+                              "This website is build with React.js, Node.js, <abbr title='HyperText Markup Language 5'>HTML5</abbr>, <abbr title='Cascading Style Sheets Level 3'>CSS3</abbr>, love and 100% recycled pixels.
+        View <a href='https://github.com/ulrich-merkel/www.ulrichmerkel.com' target='_blank' title='Show source code on GitHub' rel='noopener noreferrer'>source code</a> on Github.",
+                            ],
+                          }
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                className="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  aria-current="true"
+                  className="c-btn active"
+                  href="/"
+                  onClick={[Function]}
+                  role="button"
+                  style={Object {}}
+                  title="Go to startpage"
+                  type={null}
+                >
+                  <span
+                    className="c-btn__label"
+                  >
+                    Back to startpage
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="Imprint"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
+              />
+              <meta
+                content="2017-10-7"
+                itemProp="datePublished"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>

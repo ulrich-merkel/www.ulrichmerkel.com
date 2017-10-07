@@ -26,9 +26,81 @@ exports[`common/component/page/persona should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h1
+                className="is-centered c-type--h1 m-article__headline"
+                itemProp="headline"
+              >
+                Some notes about my person
+              </h1>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Who i am and what i can do for you
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <div
+                  className="m-text"
+                  role="list"
+                >
+                  <div
+                    className="m-text__block"
+                  >
+                    <div
+                      className="has-columns--2 m-text__content"
+                    >
+                      <p
+                        className="c-type--p"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": Array [
+                              "I am a frontend developer from Germany with a deeper love for design and usability.
+        With this passion in mind i am creating fast and beautiful web applications and sites.
+        I am trying to learn every week something new to push the boundries of what the web and
+        all the new technologies are able to do.
+        After a long experience with broadcast technologies with numerous productions for
+        <a href='/broadcast' class='js-show-broadcast' title='Show my broadcast experiences' rel='noopener noreferrer'>international and national clients</a>,
+        i decided to take a course of web technology studies to take my passion into profession.
+        Now i project, draft and develop complex webapplications for international and national companies and brands
+        in my daily worklive, where my strength are frontend technologies (<abbr title='HyperText Markup Language 5'>HTML5</abbr>, <abbr title='Cascading Style Sheets Level 3'>CSS3</abbr> and <abbr title='Lightweight scripting language for web pages'>JavaScript</abbr>).",
+                            ],
+                          }
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                className="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  aria-current="true"
+                  className="c-btn active"
+                  href="/"
+                  onClick={[Function]}
+                  role="button"
+                  style={Object {}}
+                  title="See some work examples"
+                  type={null}
+                >
+                  <span
+                    className="c-btn__label"
+                  >
+                    See some work
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="Some notes about my person"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>
@@ -56,9 +128,743 @@ exports[`common/component/page/persona should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h2
+                className="is-centered c-type--h2 m-article__headline"
+                itemProp="headline"
+              >
+                Personal Timeline
+              </h2>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Things i did in my live
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <ol
+                  className="m-cornerstone"
+                  itemScope={true}
+                  itemType="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    className="m-cornerstone__item--center"
+                  >
+                    <h3
+                      className="is-centered c-type--h3 m-cornerstone__headline"
+                    >
+                      Professional Experience
+                    </h3>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--left"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="roleName"
+                        >
+                          Software Engineer Frontend
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            TomTom Telematics
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                          itemProp="description"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2016
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                          >
+                            Today
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Design, implement and maintain
+        web applications for <a href='http://www.tomtom.com/' target='_blank' title='TomTom website' rel='noopener noreferrer'>TomTom Telematics</a>
+        with strong focus on code quality and continuously improving the technology stack with new ideas.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    className="m-cornerstone__item--right has-offset--100"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="roleName"
+                        >
+                          Senior frontend developer
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Pluspol interactive
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                          itemProp="description"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2011
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                          >
+                            2016
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Project, draft and develop complex webapplications for
+        international companies and brands at <a href='http://www.pluspol-interactive.de/' target='_blank' title='Pluspol interactive website' rel='noopener noreferrer'>Pluspol interactive</a>.
+        Building responsive and mobile websites including optimisations
+        for offline mode and performance.
+        Freelance frontend developer until 2014, afterwards full-time permanent.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    className="m-cornerstone__item--left has-offset--50"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="roleName"
+                        >
+                          TV graphics operator
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Mitteldeutscher Rundfunk
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                          itemProp="description"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2010
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                          >
+                            2012
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Doing freelance work for operation and creation of TV graphics
+        at the german television company <a href='http://www.mdr.de/' target='_blank' title='MDR website' rel='noopener noreferrer'>Mitteldeutscher Rundfunk</a>
+        (<abbr title='Mitteldeutscher Rundfunk Leipzig'>MDR</abbr>), mainly for live studio productions
+        with <a href='http://chyronhego.com/' target='_blank' rel='noopener noreferrer' title='Chyron'>Chyron</a>.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    className="m-cornerstone__item--right"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="roleName"
+                        >
+                          Virtual graphics operator
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Swiss Timing Sportservice
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                          itemProp="description"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2002
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                          >
+                            2009
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Teamleader, engineer and operator for TV graphics in live and studio
+        mode at <a href='http://www.swisstiming.com/' target='_blank' title='ST Sportservice website' rel='noopener noreferrer'>Swiss Timing Sportservice</a>, notably virtual TV
+        graphics with <a href='http://www.vizrt.com/' target='_blank' title='VizRT' rel='noopener noreferrer'>VizRT</a>, TV Draw
+        and <a href='http://www.evs.com/' target='_blank' title='EVS' rel='noopener noreferrer'>EVS</a>.
+        Numerous <a href='#' class='js-show-broadcast' title='Show my broadcast experiences'>international experiences</a> with broadcast productions for
+        international and national clients. Freelance frontend developer and TV operator from 2010 till 2012.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    className="m-cornerstone__item--center"
+                  >
+                    <h3
+                      className="is-centered c-type--h3 m-cornerstone__headline"
+                    >
+                      Education
+                    </h3>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--left"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="name"
+                        >
+                          Bachelor of Engineering
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                          itemProp="alternateName"
+                        >
+                          <strong>
+                            Media Technology
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2009
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                            itemProp="endDate"
+                          >
+                            2014
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Course of studies with focus on web technology, interactive media,
+        computer science and interface design at <a href='http://www.htwk-leipzig.de/' target='_blank' title='HTWK website' rel='noopener noreferrer'>University
+        of Applied Sciences</a> (<abbr title='Hochschule für Technik, Wirtschaft und Kultur Leipzig'>HTWK</abbr>) Leipzig.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden={true}
+                      itemProp="location"
+                      itemScope={true}
+                      itemType="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Leipzig)"
+                        itemProp="name"
+                      />
+                      <div
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Karl-Liebknecht-Straße 132"
+                          itemProp="streetAddress"
+                        />
+                        <meta
+                          content="Leipzig"
+                          itemProp="addressLocality"
+                        />
+                        <meta
+                          content="http://www.htwk-leipzig.de/"
+                          itemProp="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--right has-offset--100"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="name"
+                        >
+                          Apprenticeship
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                          itemProp="alternateName"
+                        >
+                          <strong>
+                            Digital Media Designer
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            2003
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                            itemProp="endDate"
+                          >
+                            2006
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Skilled Engineering Worker with specialisation in digital & print. Schooling with focus on web technology
+        via dual education (<a href='http://www.gutenbergschule-leipzig.de/' target='_blank' title='Gutenbergschule website' rel='noopener noreferrer'>Gutenbergschule
+        Leipzig</a> and <a href='http://www.swisstiming.com/' target='_blank' title='ST Sportservice' rel='noopener noreferrer'>ST Sportservice</a>).",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden={true}
+                      itemProp="location"
+                      itemScope={true}
+                      itemType="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Leipzig)"
+                        itemProp="name"
+                      />
+                      <div
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Gutenbergplatz 8"
+                          itemProp="streetAddress"
+                        />
+                        <meta
+                          content="Leipzig"
+                          itemProp="addressLocality"
+                        />
+                        <meta
+                          content="http://www.gutenbergschule-leipzig.de/"
+                          itemProp="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--left"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="name"
+                        >
+                          Music school
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                          itemProp="alternateName"
+                        >
+                          <strong>
+                            Anna-Magdalena Bach Zeitz
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            1986
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                            itemProp="endDate"
+                          >
+                            1999
+                          </time>
+                          )
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Schooling in clarinet, piano and musical composition.",
+                            }
+                          }
+                          itemProp="description"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden={true}
+                      itemProp="location"
+                      itemScope={true}
+                      itemType="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Zeitz)"
+                        itemProp="name"
+                      />
+                      <div
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Nicolaiplatz"
+                          itemProp="streetAddress"
+                        />
+                        <meta
+                          content="Zeitz"
+                          itemProp="addressLocality"
+                        />
+                        <meta
+                          content="http://www.kreismusikschule-burgenlandkreis.de/"
+                          itemProp="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--right"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="name"
+                        >
+                          Grammar school
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                          itemProp="alternateName"
+                        >
+                          <strong>
+                            Geschwister-Scholl Zeitz
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            1992
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                            itemProp="endDate"
+                          >
+                            1999
+                          </time>
+                          )
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden={true}
+                      itemProp="location"
+                      itemScope={true}
+                      itemType="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Zeitz)"
+                        itemProp="name"
+                      />
+                      <div
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Humboldtstraße 7"
+                          itemProp="streetAddress"
+                        />
+                        <meta
+                          content="Zeitz"
+                          itemProp="addressLocality"
+                        />
+                        <meta
+                          content="http://www.kreismusikschule-burgenlandkreis.de/"
+                          itemProp="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--left"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      className="m-cornerstone__description"
+                    >
+                      <div
+                        className="m-cornerstone__description-content"
+                      >
+                        <h4
+                          className="is-centered c-type--h4 m-cornerstone__headline"
+                          itemProp="name"
+                        >
+                          Elementary school
+                        </h4>
+                        <p
+                          className="c-type--p m-cornerstone__company"
+                          itemProp="alternateName"
+                        >
+                          <strong>
+                            Frederic-Joliot-Curie Pegau
+                          </strong>
+                        </p>
+                        <p
+                          className="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            className="c-time"
+                            itemProp="startDate"
+                          >
+                            1987
+                          </time>
+                           - 
+                          <time
+                            className="c-time"
+                            itemProp="endDate"
+                          >
+                            1992
+                          </time>
+                          )
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden={true}
+                      itemProp="location"
+                      itemScope={true}
+                      itemType="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Pegau)"
+                        itemProp="name"
+                      />
+                      <div
+                        itemProp="address"
+                        itemScope={true}
+                        itemType="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Ernst-Reinsdorf-Straße 3"
+                          itemProp="streetAddress"
+                        />
+                        <meta
+                          content="Pegau"
+                          itemProp="addressLocality"
+                        />
+                        <meta
+                          content="http://www.mittelschule-pegau.de/"
+                          itemProp="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-cornerstone__item--start"
+                  >
+                    <div
+                      className="m-cornerstone__bubble c-font-icon--bookmark2"
+                    />
+                  </li>
+                </ol>
+              </div>
+              <meta
+                content="Personal Timeline"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>
@@ -86,9 +892,253 @@ exports[`common/component/page/persona should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h2
+                className="is-centered c-type--h2 m-article__headline"
+                itemProp="headline"
+              >
+                What i can do for you
+              </h2>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Some detailed technical skills
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <ul
+                  className="m-service"
+                  itemScope={true}
+                  itemType="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    className="m-service__item--left"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--skill-html m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          HTML5
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Mobile, Offline, <abbr title='Accessible Rich Internet Applications'>ARIA</abbr>, Microdata, Performance, <abbr title='Search Engine Optimization'>SEO</abbr>",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-service__item--right"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--skill-css m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          CSS3
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Responsive, <abbr title='Syntactically Awesome Style Sheets'>SCSS</abbr>/Less, <abbr title='Block, Element, Modifier methodology'>BEM</abbr>, <abbr title='Scalable and Modular Architecture for CSS'>SMACSS</abbr>, <abbr title='Object Oriented CSS'>OOCSS</abbr>, Foundation, Bootstrap",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    className="m-service__item--clear"
+                  />
+                  <li
+                    className="m-service__item--left"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--skill-javascript m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          JavaScript
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "jQuery, Angular, Backbone, React, Node, object-oriented/functional",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-service__item--right"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--skill-php m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          Backend
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<abbr title='PHP: Hypertext Preprocessor'>PHP</abbr>, Zend, Kirby, MySQL, Ruby",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    className="m-service__item--clear"
+                  />
+                  <li
+                    className="m-service__item--left"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--magic-wand m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          Workflow
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Karma, Jasmine, Jest, QUnit, Grunt/Gulp, Git/<abbr title='Apache Subversion'>SVN</abbr>, <abbr title='Node Package Manager'>NPM</abbr>, Bower, Vagrant, Styleguides",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    className="m-service__item--right"
+                    itemProp="itemListElement"
+                  >
+                    <div
+                      className="m-service__content"
+                    >
+                      <div
+                        className="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--happy m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        className="m-service__description"
+                      >
+                        <h3
+                          className="is-centered c-type--h3 m-service__headline"
+                        >
+                          Design and UX
+                        </h3>
+                        <p
+                          className="c-type--p m-service__text"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "Adobe <abbr title='Creative Cloud'>CC</abbr> like Photoshop, Illustrator, Fireworks, InDesign, After Effects",
+                            }
+                          }
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    className="m-service__item--clear"
+                  />
+                </ul>
+              </div>
+              <meta
+                content="What i can do for you"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>
@@ -116,9 +1166,187 @@ exports[`common/component/page/persona should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h2
+                className="is-centered c-type--h2 m-article__headline"
+                itemProp="headline"
+              >
+                Languages
+              </h2>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Languages to communicate with
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <ul
+                  className="m-language"
+                  itemScope={true}
+                  itemType="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <div
+                    className="l-grid__col--4"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Language"
+                  >
+                    <div
+                      className="c-box"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-box__header"
+                      >
+                        German
+                      </h3>
+                      <div
+                        className="c-box__content"
+                      >
+                        <div
+                          className="c-pie"
+                        >
+                          <div
+                            className="c-pie__circle"
+                            data-percent={99}
+                            data-text="Native"
+                          >
+                            <div
+                              className="c-pie__left"
+                            >
+                              <span
+                                className="c-pie__mask is-rotated-4"
+                              />
+                            </div>
+                            <div
+                              className="c-pie__right"
+                            >
+                              <span
+                                className="c-pie__mask"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="German"
+                        itemProp="name"
+                        name={undefined}
+                        property={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="l-grid__col--4"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Language"
+                  >
+                    <div
+                      className="c-box"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-box__header"
+                      >
+                        English
+                      </h3>
+                      <div
+                        className="c-box__content"
+                      >
+                        <div
+                          className="c-pie"
+                        >
+                          <div
+                            className="c-pie__circle"
+                            data-percent={77}
+                            data-text="Fluent"
+                          >
+                            <div
+                              className="c-pie__left"
+                            >
+                              <span
+                                className="c-pie__mask is-rotated-83"
+                              />
+                            </div>
+                            <div
+                              className="c-pie__right"
+                            >
+                              <span
+                                className="c-pie__mask"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="English"
+                        itemProp="name"
+                        name={undefined}
+                        property={undefined}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="l-grid__col--4"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Language"
+                  >
+                    <div
+                      className="c-box"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-box__header"
+                      >
+                        French
+                      </h3>
+                      <div
+                        className="c-box__content"
+                      >
+                        <div
+                          className="c-pie"
+                        >
+                          <div
+                            className="c-pie__circle"
+                            data-percent={6}
+                            data-text="Poor"
+                          >
+                            <div
+                              className="c-pie__left"
+                            >
+                              <span
+                                className="c-pie__mask is-hidden"
+                              />
+                            </div>
+                            <div
+                              className="c-pie__right"
+                            >
+                              <span
+                                className="c-pie__mask is-rotated-158"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="French"
+                        itemProp="name"
+                        name={undefined}
+                        property={undefined}
+                      />
+                    </div>
+                  </div>
+                </ul>
+              </div>
+              <meta
+                content="Languages"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>
@@ -146,9 +1374,379 @@ exports[`common/component/page/persona should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h2
+                className="is-centered c-type--h2 m-article__headline"
+                itemProp="headline"
+              >
+                Recommended reading
+              </h2>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Some books i read and could recommend to you
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
+              >
+                <ul
+                  className="m-list--reading m-reading"
+                  itemScope={true}
+                  itemType="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        You don't know JS
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        ES6 and beyond
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          Simpson, Kyle
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          O'Reilly 2015
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        Real-Life Responsive Web Design
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Smashing Book #5
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          Smashing Magazine 2015
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        Data Structures and Algorithms with JavaScript
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Bringing classic computing approaches to the Web
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          McMillan, Michael
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          O'Reilly 2014
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        New Perspectives on Web Design
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Smashing Book #4
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          Smashing Magazine 2013
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        Responsive Webdesign
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Reaktionsfähige Websites gestalten und umsetzen
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          Zillgens, Christoph
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          Carl Hanser 2013
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        Secrets of the JavaScript Ninja
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          Resig, John & Bibeault, Bear
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          Manning, MITP 2012
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        JavaScript Web Applications
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        jQuery Developer Guide to Moving State to the Client
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          MacCaw, Alex
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          O'Reilly 2011
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        JavaScript Patterns
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Mit Coding Patterns und Entwurfsmustern zu besseren JavaScript-Anwendungen
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          MacCaw, Alex
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          O'Reilly 2010
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    className="m-list__item"
+                    itemProp="itemListElement"
+                    itemScope={true}
+                    itemType="https://schema.org/Book"
+                  >
+                    <div
+                      className="c-reading"
+                    >
+                      <h3
+                        className="is-centered c-type--h3 c-reading__name"
+                        itemProp="name"
+                      >
+                        High Performance JavaScript
+                      </h3>
+                      <p
+                        className="c-type--p c-reading__description"
+                        itemProp="alternateName"
+                      >
+                        Build Faster Web Application Interfaces
+                      </p>
+                      <small
+                        className="c-type--small c-reading__source"
+                        itemProp="creator"
+                      >
+                        <span
+                          className="c-reading__source-creator"
+                        >
+                          Zakas, Nicholas C.
+                        </span>
+                        <em
+                          className="c-reading__source-publisher"
+                        >
+                          O'Reilly 2010
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <meta
+                content="Recommended reading"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
               />
             </article>
           </div>
