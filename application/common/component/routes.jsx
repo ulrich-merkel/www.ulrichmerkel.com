@@ -1,6 +1,5 @@
-/* eslint-disable immutable/no-mutation */
 /**
- * Es6 module as the root component for the react application.
+ * Configure react-router routes as components.
  *
  * @file
  * @module
@@ -10,7 +9,10 @@
  * @version 0.0.1
  *
  * @requires react
- * @requires react-redux
+ * @requires react-router-dom
+ * @requires common/config/application
+ * @requires common/component/layout
+ * @requires common/component/page
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
@@ -33,6 +35,12 @@ import {
     PageNotFound
 } from '../component/page/';
 
+/**
+ * Handling routes and wrap content in a layout.
+ *
+ * @function
+ * @returns {React.Element} React component markup
+ */
 function Routes() {
     return (
         <LayoutBody>

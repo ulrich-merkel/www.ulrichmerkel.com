@@ -17,6 +17,7 @@
  * @requires react-router
  * @requires lodash
  * @requires common/state/scroll/actions
+ * @requires common/utils/environment
  * @requires common/utils/scroll-to
  *
  * @changelog
@@ -31,6 +32,7 @@ import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
 import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { isBrowser } from '../../utils/environment';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 
 // @TODO: Should be computed from actual css declaration
@@ -101,7 +103,7 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentDidMount() {
-            window.addEventListener('scroll', this.onScroll);
+            isBrowser() && window.addEventListener('scroll', this.onScroll);
             this.onScroll();
             this.scrollTop();
         }
@@ -126,7 +128,7 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentWillUnmount() {
-            window.removeEventListener('scroll', this.onScroll);
+            isBrowser() && window.removeEventListener('scroll', this.onScroll);
         }
 
         /**
