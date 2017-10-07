@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation, immutable/no-this, react/prefer-stateless-function */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a picture html tag.
  *
  * @file
  * @module
