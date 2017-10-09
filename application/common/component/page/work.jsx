@@ -15,6 +15,7 @@
  * @requires react-helmet
  * @requires react-redux
  * @requires react-router-dom
+ * @requires lodash
  * @requires common/config/application
  * @requires common/config/work
  * @requires common/component/decorator/add-page-tracking
@@ -35,7 +36,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
+import { get } from 'lodash';
 
 import { url } from '../../config/application';
 import configWork from '../../config/work';
@@ -43,9 +45,11 @@ import addPageTracking from '../decorator/add-page-tracking';
 import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
 import { getContentSection, getTranslatedContent } from '../../utils/content';
 import LayoutMain from '../layout/main';
-import SectionKeyVisual from '../section/key-visual';
-import SectionText from '../section/text';
-import SectionFeatured from '../section/featured';
+import {
+    SectionFeatured,
+    SectionKeyVisual,
+    SectionText
+} from '../section';
 
 const NOT_FOUND = 'not-found';
 
@@ -123,8 +127,8 @@ class PageWork extends Component {
      * @returns {void}
      */
     handleRouterParams(props) {
-        const { match } = props;
-        const work = getWorkContentKey(match.params.work, configWork);
+        const locationParamWork = get(props, 'match.params.work', null);
+        const work = getWorkContentKey(locationParamWork, configWork);
 
         // Set redirect state if route couldn't be found
         if (!work) {
@@ -142,7 +146,7 @@ class PageWork extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const { locale, config } = this.props;
@@ -228,9 +232,9 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const PageWorkContainer = connect(
+const PageWorkContainer = withRouter(connect(
     mapStateToProps
-)(addPageTracking(PageWork));
+)(addPageTracking(PageWork)));
 
 export default PageWorkContainer;
 export {

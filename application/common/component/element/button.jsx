@@ -55,7 +55,7 @@ import classnames from 'classnames';
  * @param {string} [props.title=''] - The element title attribute
  * @param {string} [props.to=''] - The react-router url target
  * @param {string} [props.type='button'] - The element type attribute
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementButton(props) {
     const {

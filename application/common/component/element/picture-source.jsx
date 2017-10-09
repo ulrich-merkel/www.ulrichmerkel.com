@@ -31,7 +31,7 @@ import classnames from 'classnames';
  * @param {string|number} props.height - The image height (for dynamically creating names)
  * @param {string|number} props.minWidth - The mediaquery min-width value
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementPictureSource(props) {
     const {

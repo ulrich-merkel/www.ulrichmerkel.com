@@ -382,8 +382,7 @@ exports[`common/component/routes should render correctly 1`] = `
                           className="c-type--p"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": Array [
-                                "I am a web developer with a deeply understanding of design and ux.
+                              "__html": "I am a web developer with a deeply understanding of design and ux.
         I love creating code and design that push the boundries of what the web can do.
         For me this means make it work for everyone
         on every device, pursue performance on each step and
@@ -393,7 +392,6 @@ exports[`common/component/routes should render correctly 1`] = `
         I believe that friendship, trust and loyalty are important values (of a team and in personal) - and these values are important
         to succeed and to push things forward. Every interest and new idea is welcomed and celebrated, there should be no barriers in thinking
         because learning on the go should be involved in every step in this fast moving development role.",
-                              ],
                             }
                           }
                         />

@@ -42,7 +42,7 @@ import {
  * @param {string} [props.label=''] - The items label content
  * @param {string} [props.path=''] - The react-router link
  * @param {string} [props.title=''] - The items title content
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleMenuItem(props) {
     const {

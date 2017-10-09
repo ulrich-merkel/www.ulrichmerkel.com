@@ -40,7 +40,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
  * @param {string} [props.htmlElement='p'] - The component element type used for React.createElement
  * @param {boolean} [props.isCentered=false] - Whether the component should be centered via css or not
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementParagraph(props) {
     const {

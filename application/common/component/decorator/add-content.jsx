@@ -43,8 +43,8 @@ function addContent(configKey) {
      * The react higher order function for passing data to props.
      *
      * @function
-     * @param {React.Element} SourceComponent - The react component to be decorated
-     * @returns {React.Element}
+     * @param {ReactElement} SourceComponent - The react component to be decorated
+     * @returns {ReactElement}
      */
     return function sourceComponent(SourceComponent) {
 
@@ -55,7 +55,7 @@ function addContent(configKey) {
          * @param {Object} props - The current component props
          * @param {Object} props.config - The content configuration
          * @param {string} props.locale - The current locale string
-         * @returns {React.Element} React component markup
+         * @returns {ReactElement} React component markup
          */
         function ReturnedComponent(props) {
             const { locale, config } = props;

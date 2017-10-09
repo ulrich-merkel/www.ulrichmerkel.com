@@ -27,10 +27,10 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
+ * @param {Object} [props.content={}] - The time content's text
  * @returns {React.Element|null} React component markup
  */
 function ModuleTextTime(props) {
-
     const {
         content
     } = props;
@@ -60,7 +60,6 @@ function ModuleTextTime(props) {
             </time>}
         </div>
     );
-
 }
 
 /**
@@ -68,7 +67,6 @@ function ModuleTextTime(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content={}] - The time content's text
  */
 ModuleTextTime.propTypes = {
     content: PropTypes.shape({
@@ -82,7 +80,6 @@ ModuleTextTime.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextTime.propTypes
  */
 ModuleTextTime.defaultProps = {
     content: {}

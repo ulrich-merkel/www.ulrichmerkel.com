@@ -80,7 +80,7 @@ import {
  * @param {Object} [props.content={}] - The component content config
  * @param {boolean} [props.headerFixed] - Whether the navigation bar is sticky/ficked or not
  * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function LayoutHeader(props) {
     const {

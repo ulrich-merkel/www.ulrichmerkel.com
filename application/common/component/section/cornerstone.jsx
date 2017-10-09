@@ -38,7 +38,7 @@ import ModuleCornerstone from '../module/cornerstone';
  * @param {Object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {Object} [props.content={}] - The content config input
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function SectionCornerstone(props) {
     const {

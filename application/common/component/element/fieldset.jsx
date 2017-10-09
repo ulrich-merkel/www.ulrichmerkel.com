@@ -26,7 +26,7 @@ import classnames from 'classnames';
  * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementFieldset(props) {
     const {

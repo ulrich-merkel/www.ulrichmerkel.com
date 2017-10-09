@@ -42,8 +42,8 @@ const HEADER_HEIGHT = 61;
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {React.Element} SourceComponent - The react component to be decorated
- * @returns {React.Element}
+ * @param {ReactElement} SourceComponent - The react component to be decorated
+ * @returns {ReactElement}
  */
 function scroller(SourceComponent) {
 
@@ -186,7 +186,7 @@ function scroller(SourceComponent) {
         /**
          * The required render function to return a single react child element.
          *
-         * @returns {React.Element} React component markup
+         * @returns {ReactElement} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

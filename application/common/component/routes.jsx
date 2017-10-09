@@ -39,7 +39,7 @@ import {
  * Handling routes and wrap content in a layout.
  *
  * @function
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function Routes() {
     return (

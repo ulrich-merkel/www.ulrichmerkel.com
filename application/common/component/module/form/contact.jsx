@@ -286,7 +286,7 @@ class ModuleFormContact extends Component {
      * @param {string} text - The message text body
      * @param {string} btnTitle - The message button title
      * @param {string} btnLabel - The message button label
-     * @returns {React.Element}
+     * @returns {ReactElement}
      */
     getTextMessage(headline, text, btnTitle, btnLabel) {
         return (
@@ -408,7 +408,7 @@ class ModuleFormContact extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 

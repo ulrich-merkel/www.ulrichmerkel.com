@@ -39,7 +39,7 @@ import classnames from 'classnames';
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
  * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement
  * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementHeadline(props) {
     const {

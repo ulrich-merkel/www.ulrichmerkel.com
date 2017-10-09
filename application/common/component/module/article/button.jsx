@@ -44,7 +44,7 @@ import {
  * @param {string} [props.btnTo=''] - The button link target
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {boolean} [props.isDialog=false] - Flag if this is rendering within a dialog
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleArticleButton(props) {
     const {

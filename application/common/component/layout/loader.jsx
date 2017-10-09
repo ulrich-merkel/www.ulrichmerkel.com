@@ -33,7 +33,7 @@ import { getContentSection } from '../../utils/content';
  * @function
  * @param {Object} [props] - The current component props
  * @param {Object} [props.content={}] - The component content config
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function LayoutLoader(props) {
     const {

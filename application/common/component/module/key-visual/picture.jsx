@@ -139,7 +139,7 @@ class ModuleKeyVisualPicture extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 

@@ -50,7 +50,7 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
  * @param {Array|string} [props.children] - The component react children
  * @param {Object} [props.cssBase=''] - File contents of base css file
  * @param {Object} [props.scriptBootstrap=''] - File contents of loader javascript file
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
     const { locale, store, cssBase, scriptBootstrap } = props;

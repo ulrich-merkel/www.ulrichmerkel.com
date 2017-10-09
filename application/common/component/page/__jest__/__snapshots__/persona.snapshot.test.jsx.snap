@@ -58,8 +58,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                         className="c-type--p"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": Array [
-                              "I am a frontend developer from Germany with a deeper love for design and usability.
+                            "__html": "I am a frontend developer from Germany with a deeper love for design and usability.
         With this passion in mind i am creating fast and beautiful web applications and sites.
         I am trying to learn every week something new to push the boundries of what the web and
         all the new technologies are able to do.
@@ -68,7 +67,6 @@ exports[`common/component/page/persona should render correctly 1`] = `
         i decided to take a course of web technology studies to take my passion into profession.
         Now i project, draft and develop complex webapplications for international and national companies and brands
         in my daily worklive, where my strength are frontend technologies (<abbr title='HyperText Markup Language 5'>HTML5</abbr>, <abbr title='Cascading Style Sheets Level 3'>CSS3</abbr> and <abbr title='Lightweight scripting language for web pages'>JavaScript</abbr>).",
-                            ],
                           }
                         }
                       />

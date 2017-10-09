@@ -28,7 +28,7 @@ import classnames from 'classnames';
  * @param {Object} [props] - The current component props
  * @param {string} [props.className] - The legend css class names, will be merged into component default classNames
  * @param {boolean} [props.isVisuallyHidden] - Whether the legend is visually hidden or not
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementLegend(props) {
     const {

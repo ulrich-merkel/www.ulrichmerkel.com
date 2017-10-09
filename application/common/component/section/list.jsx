@@ -37,7 +37,7 @@ import ModuleList from '../module/list';
  * @param {Object} [props.content={}] - The content config input
  * @param {boolean} [props.isDialog=false] - Whether the component text should be displayed in a dialog or not
  * @param {boolean} [props.isMain=false] - Whether the component text should be displayed as main article or not
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function SectionList(props) {
     const {

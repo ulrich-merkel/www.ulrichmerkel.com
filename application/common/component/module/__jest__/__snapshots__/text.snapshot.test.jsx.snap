@@ -15,18 +15,6 @@ exports[`common/component/module/text should render correctly 1`] = `
     >
       headline
     </h3>
-    <div
-      className="m-text__content"
-    >
-      <p
-        className="c-type--p"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "content",
-          }
-        }
-      />
-    </div>
   </div>
   <div
     className="m-text__time is-centered"
@@ -73,18 +61,6 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
     >
       headline
     </h3>
-    <div
-      className="m-text__content"
-    >
-      <p
-        className="c-type--p"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "content",
-          }
-        }
-      />
-    </div>
   </div>
   <div
     className="m-text__time is-centered"

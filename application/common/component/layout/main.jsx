@@ -28,7 +28,7 @@ import PropTypes from 'prop-types';
  * @function
  * @param {Object} [props] - The current component props
  * @param {Array|string} [props.children] - The component react children
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function LayoutMain(props) {
     return (

@@ -28,7 +28,7 @@ import { Provider } from 'react-redux';
  * @param {Object} props - The current component props
  * @param {Array|string} props.children - Required due to Provider
  * @param {Object} props.store - Complete redux store state
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function Root(props) {
     const { children, store } = props;

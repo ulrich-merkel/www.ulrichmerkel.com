@@ -52,7 +52,7 @@ import Small from '../element/small';
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {Object} [props.content={}] - The component content config
  * @param {Function} [props.handleSearchChange=Function.prototype] - Function handling to top scrolling
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function LayoutFooter(props) {
     const {

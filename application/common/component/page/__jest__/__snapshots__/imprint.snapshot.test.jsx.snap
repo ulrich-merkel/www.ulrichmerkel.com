@@ -63,9 +63,7 @@ exports[`common/component/page/imprint should render correctly 1`] = `
                         className="c-type--p"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": Array [
-                              "Person responsible for content in accordance with 55 Abs. 2 RStV:",
-                            ],
+                            "__html": "Person responsible for content in accordance with 55 Abs. 2 RStV:",
                           }
                         }
                       />
@@ -146,10 +144,8 @@ exports[`common/component/page/imprint should render correctly 1`] = `
                         className="c-type--p"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": Array [
-                              "Ust. (VAT) - Idnr. DE  235 248 02155<br />
+                            "__html": "Ust. (VAT) - Idnr. DE  235 248 02155<br />
         Amtsgericht Borna",
-                            ],
                           }
                         }
                       />
@@ -170,11 +166,9 @@ exports[`common/component/page/imprint should render correctly 1`] = `
                         className="c-type--p"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": Array [
-                              "<a href='http://www.adrian-kuehne.de/' target='_blank' title='Show Adrian Kühne website' rel='noopener noreferrer'>
+                            "__html": "<a href='http://www.adrian-kuehne.de/' target='_blank' title='Show Adrian Kühne website' rel='noopener noreferrer'>
         <i aria-hidden='true' class='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
         </a>",
-                            ],
                           }
                         }
                       />
@@ -195,10 +189,8 @@ exports[`common/component/page/imprint should render correctly 1`] = `
                         className="c-type--p"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": Array [
-                              "This website is build with React.js, Node.js, <abbr title='HyperText Markup Language 5'>HTML5</abbr>, <abbr title='Cascading Style Sheets Level 3'>CSS3</abbr>, love and 100% recycled pixels.
+                            "__html": "This website is build with React.js, Node.js, <abbr title='HyperText Markup Language 5'>HTML5</abbr>, <abbr title='Cascading Style Sheets Level 3'>CSS3</abbr>, love and 100% recycled pixels.
         View <a href='https://github.com/ulrich-merkel/www.ulrichmerkel.com' target='_blank' title='Show source code on GitHub' rel='noopener noreferrer'>source code</a> on Github.",
-                            ],
                           }
                         }
                       />

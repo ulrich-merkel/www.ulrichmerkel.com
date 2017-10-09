@@ -28,7 +28,7 @@ import classnames from 'classnames';
  * @param {string} props.src - The current image location
  * @param {string} [props.alt=''] - The image alt attribute
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ElementImage(props) {
     const {

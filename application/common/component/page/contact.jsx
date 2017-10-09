@@ -42,7 +42,7 @@ import ModuleFormContact from '../module/form/contact'; // eslint-disable-line i
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function PageContact(props) {
 

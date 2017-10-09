@@ -37,7 +37,7 @@ import ModuleLanguageItem from './language/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleLanguage(props) {
 

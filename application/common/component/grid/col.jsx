@@ -31,7 +31,7 @@ import classnames from 'classnames';
  * @param {string} [props.className] - The addition css classNames
  * @param {number|string} [props.cols=12] - The grid column cols
  * @param {string} [props.htmlElement='div'] - The component element type used for React.createElement
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function GridCol(props) {
     const {
