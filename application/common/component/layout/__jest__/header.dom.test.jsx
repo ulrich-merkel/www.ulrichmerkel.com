@@ -10,7 +10,7 @@ import mockedStore from '../../__mocks__/store';
 import LayoutHeader from '../header';
 
 describe('common/component/layout/header', function () {
-    it('should trigger shouldComponentUpdate', function () {
+    it('should render correctly', function () {
         const defaultProps = {
             handleIntlChangeLocale: sinon.spy(),
             content: {

@@ -31,7 +31,7 @@ import A from '../../element/a';
  * @function
  * @param {Object} [props] - The current component props
  * @param {Object} [props.content={}] - The link content's text
- * @returns {React.Element|null} React component markup
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextLink(props) {
     const {

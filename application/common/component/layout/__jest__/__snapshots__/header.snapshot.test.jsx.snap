@@ -2,7 +2,7 @@
 
 exports[`common/component/layout/header should render correctly 1`] = `
 <header
-  className="l-header is-visible layout-header"
+  className="l-header is-fixed is-visible layout-header"
   itemScope={true}
   itemType="http://schema.org/WPHeader"
   role="banner"

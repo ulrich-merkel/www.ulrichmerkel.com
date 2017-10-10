@@ -9,11 +9,12 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires prop-types
  * @requires react-redux
+ * @requires react-router
  * @requires classnames
  * @requires lodash
  * @requires common/component/decorator/add-content
@@ -28,6 +29,7 @@
  * @requires common/component/element/nav
  *
  * @changelog
+ * - 0.0.4 added withRouter to get correct rendering after hydrate
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -35,6 +37,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
@@ -93,7 +96,6 @@ function LayoutHeader(props) {
         intlAvailableLocales,
         intlLocale
     } = props;
-
     const contentSection = getContentSection(content);
 
     const componentClassName = classnames(
@@ -263,10 +265,10 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderContainer = connect(
+const LayoutHeaderContainer = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(addContent('LayoutHeader')(LayoutHeader));
+)(addContent('LayoutHeader')(LayoutHeader)));
 
 export default LayoutHeaderContainer;
 export {

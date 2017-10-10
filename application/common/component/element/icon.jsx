@@ -28,7 +28,7 @@ import classnames from 'classnames';
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.htmlElement='i'] - The component element type used for React.createElement
  * @param {string} [props.icon=''] - The icon name taken for the web font
- * @returns {React.Element|null} React component markup
+ * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
     const {

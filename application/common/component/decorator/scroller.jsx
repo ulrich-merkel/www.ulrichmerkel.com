@@ -217,13 +217,13 @@ function scroller(SourceComponent) {
      * We also use the shorthand notation for mapDispatchToProps here to save
      * some bytes.
      */
-    const ScrollerContainer = withRouter(connect(
+    const ScrollerContainer = connect(
         null,
         {
             handleScrollChangeHeaderFixed: changeHeaderFixed,
             handleScrollChangeHeaderVisible: changeHeaderVisible
         }
-    )(Scroller));
+    )(withRouter(Scroller));
 
     return ScrollerContainer;
 

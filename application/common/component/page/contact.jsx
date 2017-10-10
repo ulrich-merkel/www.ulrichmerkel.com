@@ -28,6 +28,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 
 import addPageTracking from '../decorator/add-page-tracking';
@@ -95,4 +96,4 @@ PageContact.defaultProps = {
     params: {}
 };
 
-export default addPageTracking(addContent('PageContact')(PageContact));
+export default addPageTracking(withRouter(addContent('PageContact')(PageContact)));

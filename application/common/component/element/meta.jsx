@@ -27,7 +27,7 @@ import PropTypes from 'prop-types';
  * @param {string} [props.itemProp] - The meta tag itemProp attribute
  * @param {string} [props.name] - The meta tag name attribute
  * @param {string} [props.property] - The meta tag property attribute
- * @returns {React.Element|null} React component markup
+ * @returns {ReactElement|null} React component markup
  */
 function ElementMeta(props) {
     const {

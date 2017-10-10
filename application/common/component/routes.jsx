@@ -48,7 +48,7 @@ function Routes() {
                 <Route exact path={url.home} component={PageHome} />
                 <Route path={`${url.work}/:work`} component={PageWork} />
                 <Route path={url.persona} component={PagePersona} />
-                <Route path={`${url.contact}/:state`} component={PageContact} />
+                <Route path={url.contact} component={PageContact} />
                 <Route path={url.disclaimer} component={PageDisclaimer} />
                 <Route path={url.privacy} component={PagePrivacy} />
                 <Route path={url.imprint} component={PageImprint} />

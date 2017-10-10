@@ -13,6 +13,7 @@
  *
  * @requires react
  * @requires prop-types
+ * @requires react-router
  * @requires classnames
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
@@ -32,6 +33,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import classnames from 'classnames';
 
 import addContent from '../decorator/add-content';
@@ -134,4 +136,4 @@ LayoutFooter.defaultProps = {
     handleScrollTop: Function.prototype
 };
 
-export default addContent('LayoutFooter')(LayoutFooter);
+export default withRouter(addContent('LayoutFooter')(LayoutFooter));

@@ -35,7 +35,7 @@ import P from '../../element/paragraph';
  * @param {Array<string>} [props.content] - The content's text
  * @param {boolean} [props.hasColumns2=false] - Whether the component text should be clusted in columns via css or not
  * @param {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
- * @returns {React.Element|null} React component markup
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextContent(props) {
     const {

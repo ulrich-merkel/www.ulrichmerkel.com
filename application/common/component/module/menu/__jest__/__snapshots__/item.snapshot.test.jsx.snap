@@ -9,7 +9,6 @@ exports[`common/component/module/menu/item should hide label if isLabelHidden is
 >
   <a
     className="c-link m-menu__item"
-    exact={true}
     href="path"
     itemProp="bar"
     role="menuitem"
@@ -40,7 +39,6 @@ exports[`common/component/module/menu/item should render correctly 1`] = `
 >
   <a
     className="c-link m-menu__item"
-    exact={true}
     href="path"
     itemProp="bar"
     role="menuitem"

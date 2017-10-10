@@ -30,7 +30,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
     />
   </dialog>
   <header
-    className="l-header is-visible"
+    className="l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -369,7 +369,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 >
                   <a
                     className="c-link m-menu__item"
-                    exact={true}
                     href="https://www.xing.com/profile/Ulrich_Merkel4"
                     itemProp="sameAs"
                     rel="noopener noreferrer"
@@ -402,7 +401,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 >
                   <a
                     className="c-link m-menu__item"
-                    exact={true}
                     href="https://www.facebook.com/ulrich.merkel"
                     itemProp="sameAs"
                     rel="noopener noreferrer"
@@ -435,7 +433,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 >
                   <a
                     className="c-link m-menu__item"
-                    exact={true}
                     href="https://github.com/ulrich-merkel"
                     itemProp="sameAs"
                     rel="noopener noreferrer"
@@ -468,7 +465,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 >
                   <a
                     className="c-link m-menu__item"
-                    exact={true}
                     href="https://delicious.com/ulrichmerkel"
                     itemProp="sameAs"
                     rel="noopener noreferrer"

@@ -14,7 +14,7 @@
  * @requires prop-types
  * @requires react-helmet
  * @requires react-redux
- * @requires react-router-dom
+ * @requires react-router
  * @requires lodash
  * @requires common/config/application
  * @requires common/config/work
@@ -36,7 +36,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router';
 import { get } from 'lodash';
 
 import { url } from '../../config/application';
@@ -232,9 +232,9 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const PageWorkContainer = withRouter(connect(
+const PageWorkContainer = connect(
     mapStateToProps
-)(addPageTracking(PageWork)));
+)(withRouter(addPageTracking(PageWork)));
 
 export default PageWorkContainer;
 export {

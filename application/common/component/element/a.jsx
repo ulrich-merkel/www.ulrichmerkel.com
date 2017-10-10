@@ -47,6 +47,7 @@ import classnames from 'classnames';
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.componentType='a'] - The component element type used for React.createElement
  * @param {string} [props.title=''] - The title string to be set on a tag
+ * @param {boolean} [props.exact] - Exclusively passed to NavLink
  * @returns {ReactElement} React component markup
  */
 function A(props) {
@@ -55,6 +56,8 @@ function A(props) {
         children,
         className,
         componentType,
+        exact,
+        strict,
         title,
         to,
         ...otherProps
@@ -64,8 +67,10 @@ function A(props) {
         href: to
     };
     const componentAttributes = {
-        to,
-        activeClassName
+        activeClassName,
+        exact,
+        strict,
+        to
     };
     const componentClassName = classnames(
         'c-link',
@@ -106,6 +111,8 @@ A.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     componentType: PropTypes.string,
+    exact: PropTypes.bool, // eslint-disable-line react/require-default-props
+    strict: PropTypes.bool, // eslint-disable-line react/require-default-props
     title: PropTypes.string
 };
 
