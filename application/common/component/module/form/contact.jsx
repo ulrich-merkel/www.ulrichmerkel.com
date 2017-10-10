@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this, promise/avoid-new */
+/* eslint-disable immutable/no-mutation, immutable/no-this, promise/avoid-new, react/no-did-mount-set-state */
 /**
  * Es6 module for React Component.
  *

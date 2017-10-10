@@ -9,7 +9,7 @@
 describe('common/component/module/form/contact', function () {
     it('should trigger onChange and handleContactChange', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const defaultProps = {
     //     componentType: 'nav',
     //     className: 'form-contact',
