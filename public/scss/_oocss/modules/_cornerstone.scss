@@ -28,7 +28,7 @@ $block: 'm-cornerstone';
             width: 0;
             height: 100%;
             content: ' ';
-            border-right: 1px solid $config-color-black;
+            border-right: $theme-module-cornerstone-border-center;
         }
     }
 
@@ -68,11 +68,11 @@ $block: 'm-cornerstone';
         @include breakpoint($config-grid--breakpoint-xsmall) {
             &:hover {
                 .#{$block}__description-content {
-                    background: $config-color-grey;
+                    background: $theme-module-cornerstone-highlight-background;
                 }
 
                 .#{$block}__bubble {
-                    background: $config-color-red;
+                    background: $theme-module-cornerstone-bubble-hover-background;
                 }
             }
         }
@@ -139,9 +139,9 @@ $block: 'm-cornerstone';
             height: rem-calc($config-type-scale-11);
             margin-left: rem-calc($config-type-scale-11 * -1);
             padding: rem-calc($config-type-scale-5);
-            color: $config-color-white;
-            background: $config-color-black;
-            border: 2px solid $config-color-white;
+            color: $theme-module-cornerstone-bubble-intro-color;
+            background: $theme-module-cornerstone-bubble-intro-background;
+            border: $theme-module-cornerstone-bubble-intro-border;
             border-radius: 50%;
         }
 
@@ -156,7 +156,7 @@ $block: 'm-cornerstone';
         .#{$block}__headline {
             display: inline-block;
             padding: rem-calc($config-type-scale-3);
-            background: $config-color-grey;
+            background: $theme-module-cornerstone-highlight-background;
         }
     }
 
@@ -169,7 +169,7 @@ $block: 'm-cornerstone';
         position: relative;
         display: block;
         padding: rem-calc($config-type-scale-5);
-        background: $config-color-grey;
+        background: $theme-module-cornerstone-highlight-background;
 
         will-change: background, color;
         transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -213,8 +213,8 @@ $block: 'm-cornerstone';
         display: none;
         width: rem-calc($config-type-scale-6);
         height: rem-calc($config-type-scale-6);
-        background: $config-color-black;
-        border: 2px solid $config-color-white;
+        background: $theme-module-cornerstone-bubble-background;
+        border: $theme-module-cornerstone-bubble-border;
         border-radius: 50%;
 
         will-change: background, color;

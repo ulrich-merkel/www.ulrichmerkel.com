@@ -20,12 +20,12 @@
         * {
             // Black prints faster: sanbeiji.com/archives/953
             // stylelint-disable declaration-no-important
-            color: $config-color-black !important;
+            color: $theme-layout-print-default-color !important;
             text-shadow: none !important;
             background: transparent !important;
             -ms-filter: none !important;
             filter: none !important;
-            border-color: $config-color-black !important;
+            border-color: $theme-layout-print-default-border-color !important;
             border-radius: 0;
             box-shadow: none;
             // stylelint-enable declaration-no-important
@@ -36,7 +36,7 @@
                 &,
                 &:visited {
                     // stylelint-disable declaration-no-important
-                    color: $config-color-grey !important;
+                    color: $theme-layout-print-text-visited-color !important;
                     // stylelint-enable declaration-no-important
                     text-decoration: underline;
                     text-decoration-skip: ink;
@@ -66,7 +66,7 @@
 
         pre,
         blockquote {
-            border: 1px solid $config-color-grey;
+            border: $theme-layout-print-quote-border;
             page-break-inside: avoid;
         }
 

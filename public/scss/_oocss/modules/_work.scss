@@ -21,7 +21,7 @@ $block: '#{$config-ns}m-work';
         position: relative;
         z-index: 2;
         padding: rem-calc($config-grid--gutter);
-        background: $config-color-grey;
+        background: $theme-module-work-text-background;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             position: absolute;
@@ -59,10 +59,10 @@ $block: '#{$config-ns}m-work';
         span {
             display: inline-block;
             padding: 1px 3px;
-            color: $config-font-color;
+            color: $theme-module-work-headline-color;
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
-                background: $config-color-grey;
+                background: $theme-module-work-headline-background;
             }
         }
     }
