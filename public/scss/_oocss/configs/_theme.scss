@@ -4,8 +4,6 @@
 /// @group configs
 /// @author Ulrich Merkel
 ////
-$config-layout-header-height: 61px;
-$config-section-featured-hover-background: rgba(0, 0, 0, 0.75);
 
 // Base styles
 $theme-base-img-missing-background: $config-color-concrete;
@@ -47,8 +45,12 @@ $theme-module-form-isvalid-color: $config-color-mountain-meadow;
 $theme-module-form-label-color-focus: $config-color-grey--4;
 $theme-module-form-label-color: $config-color-blue--1;
 
+$theme-module-section-featured-hover-background: rgba(0, 0, 0, 0.75);
+
 // Layouts
 $theme-layout-print-default-color: $config-color-black;
 $theme-layout-print-default-border-color: $config-color-black;
 $theme-layout-print-text-visited-color: $config-color-concrete;
 $theme-layout-print-quote-border: 1px solid $config-color-concrete;
+
+$theme-layout-header-height: 61px;
