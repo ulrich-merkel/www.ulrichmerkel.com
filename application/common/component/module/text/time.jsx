@@ -51,11 +51,13 @@ function ModuleTextTime(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            {timeStart && <time className='c-time'>
+            {timeStart &&
+            <time className='c-time'>
                 {timeStart}
             </time>}
             {timeStart && timeEnd && <span className='c-time--separator'>-</span>}
-            {timeEnd && <time className='c-time'>
+            {timeEnd &&
+            <time className='c-time'>
                 {timeEnd}
             </time>}
         </div>

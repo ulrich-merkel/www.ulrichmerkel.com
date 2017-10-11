@@ -67,7 +67,8 @@ function ModulePerson(props) {
             className={componentClassName}
             {...componentSchema}
         >
-            {content.name && <P className='m-person__name'>
+            {content.name &&
+            <P className='m-person__name'>
                 <strong>{content.name}</strong>
             </P>}
             {content.streetAddress && content.postalCode && content.locality &&
@@ -83,13 +84,16 @@ function ModulePerson(props) {
                 </span>
             </address>
             }
-            {content.email && <P className='m-person__email'>
+            {content.email &&
+            <P className='m-person__email'>
                 <abbr title='E-Mail address'>E.</abbr> <a href={`mailto:${content.email}`} itemProp='email'>{content.email}</a>
             </P>}
-            {content.phoneNumbers && content.phone && <P className='m-person__phone'>
+            {content.phoneNumbers && content.phone &&
+            <P className='m-person__phone'>
                 <abbr title='Phonenumber'>P.</abbr> <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>{content.phone}</a>
             </P>}
-            {content.website && <P className='m-person__website'>
+            {content.website &&
+            <P className='m-person__website'>
                 <abbr title='Website'>W.</abbr> <a href={`${content.website}`}>{content.website}</a>
             </P>}
             {children}

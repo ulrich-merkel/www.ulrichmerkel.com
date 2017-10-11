@@ -71,7 +71,6 @@ import ModuleFormContactMessage from './contact/message';
 const defaultState = {
     name: '',
     email: '',
-    website: '',
     subject: '',
     message: '',
     namePristine: false,
@@ -195,7 +194,6 @@ class ModuleFormContact extends Component {
         this.setState({
             name: getState('name', storeState),
             email: getState('email', storeState),
-            website: getState('website', storeState),
             subject: getState('subject', storeState),
             message: getState('message', storeState),
             namePristine: getState('namePristine', storeState),
