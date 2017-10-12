@@ -13,7 +13,7 @@ import scroller from '../scroller';
 describe('common/component/decorator/scroller', function () {
     const Page = function (props) {
         return (
-            <h1>{props.children}</h1>
+            <h1 className='page'>{props.children}</h1>
         );
     };
     Page.propTypes = {
@@ -27,16 +27,22 @@ describe('common/component/decorator/scroller', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <Container>
-                        Scroller children
+                        <div className='test'>Scroller children</div>
                     </Container>
                 </MemoryRouter>
             </Provider>
         );
         mockedWindowEvents.scroll();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
+
         wrapper.setProps({
             foo: 'bar'
         });
         mockedWindowEvents.scroll();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
+
         wrapper.unmount();
     });
 

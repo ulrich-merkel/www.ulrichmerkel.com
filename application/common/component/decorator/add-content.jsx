@@ -33,7 +33,6 @@ import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors'
 /**
  * Higher order function to get translation data.
  *
- * @function
  * @param {string} configKey - The object key to be found in translation config
  * @returns {Function}
  */
@@ -42,7 +41,6 @@ function addContent(configKey) {
     /**
      * The react higher order function for passing data to props.
      *
-     * @function
      * @param {ReactElement} SourceComponent - The react component to be decorated
      * @returns {ReactElement}
      */
@@ -51,7 +49,6 @@ function addContent(configKey) {
         /**
          * Wrapper component to get redux state.
          *
-         * @function
          * @param {Object} props - The current component props
          * @param {Object} props.config - The content configuration
          * @param {string} props.locale - The current locale string
@@ -84,7 +81,6 @@ function addContent(configKey) {
          * mapStateToProps will be called, Its result must be a plain object,
          * and it will be merged into the component’s props.
          *
-         * @function
          * @private
          * @param {Object.<*>} state - The redux store state
          * @param {Object.<*>} [ownProps] - The current component props

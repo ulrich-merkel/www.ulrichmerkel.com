@@ -24,7 +24,6 @@ import React, { Component } from 'react';
  *
  * @see {@link http://scottjehl.github.io/picturefill/}
  *
- * @function
  * @private
  * @returns {void}
  */
@@ -69,7 +68,6 @@ function pictureFill(SourceComponent) {
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentDidMount() {
@@ -80,7 +78,6 @@ function pictureFill(SourceComponent) {
          * Invoked immediately after the component's updates are flushed to the DOM.
          * This method is not called for the initial render.
          *
-         * @function
          * @returns {void}
          */
         componentDidUpdate() {
@@ -90,7 +87,6 @@ function pictureFill(SourceComponent) {
         /**
          * The required render function to return a single react child element.
          *
-         * @function
          * @returns {ReactElement} React component markup
          */
         render() {

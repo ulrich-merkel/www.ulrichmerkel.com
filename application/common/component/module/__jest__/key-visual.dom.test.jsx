@@ -6,6 +6,8 @@ import sinon from 'sinon';
 
 import ModuleKeyVisual from '../key-visual';
 
+global.window.scrollTo = function () {}; // eslint-disable-line immutable/no-mutation
+
 describe('common/component/module/key-visual', function () {
     const defaultProps = {
         componentType: 'nav',

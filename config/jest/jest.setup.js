@@ -1,3 +1,5 @@
+'use strict';
+
 require('babel-polyfill');
 const configure = require('enzyme').configure; // eslint-disable-line import/no-extraneous-dependencies
 const Adapter = require('enzyme-adapter-react-16'); // eslint-disable-line import/no-extraneous-dependencies

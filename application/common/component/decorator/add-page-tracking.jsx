@@ -27,7 +27,6 @@ import { addPageView } from '../../state/page/actions';
 /**
  * The tracking higher order function handling page visits.
  *
- * @function
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
@@ -36,7 +35,6 @@ function addPageTracking(SourceComponent) {
     /**
      * Wrapper class to connect to redux and handle tracking action.
      *
-     * @class
      * @extends React.Component
      * @property {Function} props.handleAddPageView - Trigger page view increment
      */
@@ -46,7 +44,6 @@ function addPageTracking(SourceComponent) {
          * Invoked once, both on the client and server,
          * immediately before the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentWillMount() {
@@ -56,7 +53,6 @@ function addPageTracking(SourceComponent) {
         /**
          * The required render function to return a single react child element.
          *
-         * @function
          * @returns {ReactElement} React component markup
          */
         render() {

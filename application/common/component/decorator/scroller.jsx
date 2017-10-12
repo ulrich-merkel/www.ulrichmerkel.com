@@ -109,16 +109,25 @@ function scroller(SourceComponent) {
         }
 
         /**
+         * Invoked before a mounted component receives new props. React only calls
+         * this method if some of component's props may update.
+         *
+         * @param {Object} [nextProps] - The new class properties
+         * @returns {void}
+         */
+        componentWillReceiveProps (nextProps) {
+            if (this.props.location !== nextProps.location) {
+                this.scrollTop();
+            }
+        }
+
+        /**
          * Invoked immediately after the component's updates are flushed to
          * the DOM. This method is not called for the initial render.
          *
-         * @param {Object} prevProps - The previous component properties
          * @returns {void}
          */
-        componentDidUpdate(prevProps) {
-            if (this.props.location !== prevProps.location) {
-                this.scrollTop();
-            }
+        componentDidUpdate() {
             this.onScroll();
         }
 

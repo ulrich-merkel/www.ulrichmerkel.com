@@ -15,7 +15,7 @@ import addContent from '../add-content';
 describe('common/component/decorator/add-content', function () {
     const Page = function (props) {
         return (
-            <h1>{props.children}</h1>
+            <h1 className='page'>{props.children}</h1>
         );
     };
     Page.propTypes = {
@@ -26,47 +26,45 @@ describe('common/component/decorator/add-content', function () {
     const mockStore = configureStore([]);
     const mockedStoreWithoutContent = mockStore({
         config: {},
-        intl: {}
+        intl: {
+            locale: 'en-EN',
+            availableLocales: ['en-EN']
+        }
     });
 
     it('should render correctly with content', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <Container>
-                    Add content children
+                    <div className='test'>Add content children</div>
                 </Container>
             </Provider>
         );
-        wrapper.unmount();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
     });
 
     it('should render correctly without content', function () {
-        const mockStore = configureStore([]);
-        const mockedStoreWithoutContent = mockStore({
-            config: {},
-            intl: {
-                locale: 'en-EN',
-                availableLocales: ['en-EN']
-            }
-        });
         const wrapper = mount(
             <Provider store={mockedStoreWithoutContent}>
                 <Container>
-                    Add content children
+                    <div className='test'>Add content children</div>
                 </Container>
             </Provider>
         );
-        wrapper.unmount();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
     });
 
     it('should render correctly with custom props', function () {
         const wrapper = mount(
             <Provider store={mockedStoreWithoutContent}>
                 <Container config={{}} locale={'en-EN'}>
-                    Add content children
+                    <div className='test'>Add content children</div>
                 </Container>
             </Provider>
         );
-        wrapper.unmount();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
     });
 });
