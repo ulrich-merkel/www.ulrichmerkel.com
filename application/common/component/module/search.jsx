@@ -56,7 +56,7 @@ import Headline from '../element/headline';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleSearch(props) {
     const {
@@ -95,8 +95,7 @@ function ModuleSearch(props) {
                         <A
                             to={entry.url}
                             title={entry.title}
-                            isMenu
-                            className='m-list__item c-type--h4'
+                            className='c-type--h4 m-list__item'
                             onClick={handleChangeDialogVisibleSearch}
                             itemScope
                             itemType='http://www.schema.org/SiteNavigationElement'

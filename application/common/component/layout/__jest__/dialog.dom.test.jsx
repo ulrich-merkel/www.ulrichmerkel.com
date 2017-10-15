@@ -15,16 +15,38 @@ describe('common/component/layout/body', function () {
             foo: 'bar'
         },
         dialogVisible: true,
-        handleChangeDialogVisible: Function.prototype
+        handleChangeDialogVisible: Function.prototype,
+        dialogPage: 'foo',
+        page: 'foo'
     };
 
+    it('should render correctly', function () {
+        const wrapper = mount(
+            <Provider store={mockedStore}>
+                <LayoutDialogContainer {...defaultProps}>
+                    <div className='test'>Dialog Children</div>
+                </LayoutDialogContainer>
+            </Provider>
+        );
+        expect(wrapper.find('.test').length).toEqual(1);
+    });
+    it('should render null if not visible', function () {
+        const wrapper = mount(
+            <Provider store={mockedStore}>
+                <LayoutDialogContainer {...defaultProps} dialogVisible={false}>
+                    <div className='test'>Dialog Children</div>
+                </LayoutDialogContainer>
+            </Provider>
+        );
+        expect(wrapper.find('.test').length).toEqual(0);
+    });
     it('should trigger shouldComponentUpdate', function () {
         const shouldComponentUpdate = sinon.spy(LayoutDialogContainer.prototype, 'shouldComponentUpdate');
 
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps}>
-                    Dialog Children
+                    <div className='test'>Dialog Children</div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -38,20 +60,20 @@ describe('common/component/layout/body', function () {
         expect(shouldComponentUpdate.calledOnce).toBeTruthy();
     });
     it('should handle onKeyDown events correctly', function () {
-        const onClose = sinon.spy(LayoutDialog.prototype, 'onKeyDown');
+        const onKeyDown = sinon.spy(LayoutDialog.prototype, 'onKeyDown');
         const handleChangeDialogVisible = sinon.spy();
 
         const wrapper = mount(
             <LayoutDialog {...defaultProps} handleChangeDialogVisible={handleChangeDialogVisible}>
-                Dialog Children
+                <div className='test'>Dialog Children</div>
             </LayoutDialog>
         );
 
         mockedWindowEvents.keydown({ keyCode: 27 });
-        expect(onClose.calledOnce).toBeTruthy();
+        expect(onKeyDown.calledOnce).toBeTruthy();
         expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
         wrapper.unmount();
-        expect(onClose.calledTwice).toBeFalsy();
+        expect(onKeyDown.calledTwice).toBeFalsy();
     });
     it('should handle onClose click events correctly', function () {
         const onClose = sinon.spy(LayoutDialog.prototype, 'onClose');
@@ -59,7 +81,7 @@ describe('common/component/layout/body', function () {
 
         const wrapper = mount(
             <LayoutDialog {...defaultProps} handleChangeDialogVisible={handleChangeDialogVisible}>
-                Dialog Children
+                <div className='test'>Dialog Children</div>
             </LayoutDialog>
         );
 
@@ -68,7 +90,8 @@ describe('common/component/layout/body', function () {
         });
         const buttonClose = wrapper.find('.l-dialog__button--close');
         if (buttonClose.length) {
-            buttonClose.simulate('click');
+            // @TODO: Adjust expect for enzyme@16
+            buttonClose.first().simulate('click');
             expect(onClose.calledOnce).toBeTruthy();
             expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
         }
@@ -78,7 +101,8 @@ describe('common/component/layout/body', function () {
         });
         const buttonBroadcast = wrapper.find('.m-article--broadcast button');
         if (buttonBroadcast.length) {
-            buttonBroadcast.simulate('click');
+            // @TODO: Adjust expect for enzyme@16
+            buttonBroadcast.first().simulate('click');
             expect(onClose.calledTwice).toBeTruthy();
             expect(handleChangeDialogVisible.calledTwice).toBeTruthy();
         }

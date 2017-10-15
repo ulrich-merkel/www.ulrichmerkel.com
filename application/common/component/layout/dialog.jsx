@@ -55,6 +55,9 @@ import Button from '../element/button';
  *
  * @class
  * @extends React.Component
+ * @property {Function} [props.handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
+ * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
+ * @property {Object} [props.content={}] - The component content config
  */
 class LayoutDialog extends Component {
 
@@ -157,7 +160,7 @@ class LayoutDialog extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
@@ -226,9 +229,6 @@ class LayoutDialog extends Component {
  *
  * @static
  * @type {Object}
- * @property {Function} [handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
- * @property {boolean} [dialogVisible=false] - Redux state whether this dialog is visible or not
- * @property {Object} [content={}] - The component content config
  */
 LayoutDialog.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
@@ -252,7 +252,6 @@ LayoutDialog.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutDialog.propTypes
  */
 LayoutDialog.defaultProps = {
     handleChangeDialogVisible: Function.prototype,

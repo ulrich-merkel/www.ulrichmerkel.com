@@ -36,10 +36,12 @@ import ModuleText from '../module/text'; // eslint-disable-line import/no-named-
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {Object} [props.content={}] - The content config input
+ * @param {boolean} [props.isMain=false] - Whether the component text should be displayed as main article or not
+ * @returns {ReactElement} React component markup
  */
 function SectionText(props) {
-
     const {
         children,
         content,
@@ -56,7 +58,6 @@ function SectionText(props) {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
@@ -64,9 +65,6 @@ function SectionText(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The content config input
- * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
 SectionText.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -84,7 +82,6 @@ SectionText.propTypes = {
  *
  * @static
  * @type {Object}
- * @see SectionText.propTypes
  */
 SectionText.defaultProps = {
     content: {},

@@ -118,7 +118,7 @@ $block: '#{$config-ns}m-form';
         top: rem-calc($config-type-scale-7);
         left: 0;
         width: 100%;
-        color: $config-color-blue--1;
+        color: $theme-module-form-label-color;
         cursor: pointer;
 
         will-change: top, color;
@@ -126,7 +126,7 @@ $block: '#{$config-ns}m-form';
 
         &:focus {
             top: rem-calc($config-type-scale-7 * -1);
-            color: $config-color-grey--4;
+            color: $theme-module-form-label-color-focus;
         }
 
     }
@@ -148,9 +148,9 @@ $block: '#{$config-ns}m-form';
         width: 100%;
         padding: 12px 10px 12px 0;
         font-size: inherit;
-        color: $config-font-color;
+        color: $theme-module-form-control-color;
         border: 0;
-        border-bottom: 1px solid $config-color-grey;
+        border-bottom: $theme-module-form-control-border-bottom;
 
         will-change: border, color;
         transition: border $config-transition-arguments, color $config-transition-arguments;
@@ -160,17 +160,17 @@ $block: '#{$config-ns}m-form';
         &:valid {
             + .#{$block}__label {
                 top: rem-calc($config-type-scale-7 * -1);
-                color: $config-color-grey--4;
+                color: $theme-module-form-control-color-label-focus;
             }
         }
 
         &:focus {
-            border-color: $config-color-blue--1;
+            border-color: $theme-module-form-control-border-color-focus;
             outline: none;
         }
 
         &.#{$config-ns}is-invalid {
-            border-color: $config-color-red;
+            border-color: $theme-module-form-control-border-color-invalid;
             animation: shake 0.3s;
         }
     }
@@ -238,11 +238,11 @@ $block: '#{$config-ns}m-form';
         .#{$block}__control--text,
         .#{$block}__control--select,
         .#{$block}__control--textarea {
-            border-color: $config-color-green;
+            border-color: $theme-module-form-isvalid-border-color;
         }
 
         .#{$block}__label {
-            color: $config-color-green;
+            color: $theme-module-form-isvalid-color;
         }
 
     }
@@ -265,14 +265,14 @@ $block: '#{$config-ns}m-form';
         .#{$block}__control--text,
         .#{$block}__control--select,
         .#{$block}__control--textarea {
-            border-color: $config-color-red;
+            border-color: $theme-module-form-invalid-border-color;
             animation: shake 0.3s;
         }
 
         .#{$block}__label__icon--error,
         .#{$block}__label {
             // important due to css pristine floating labels
-            color: $config-color-red;
+            color: $theme-module-form-invalid-color;
         }
 
     }

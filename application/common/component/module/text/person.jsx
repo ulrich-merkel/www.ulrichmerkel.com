@@ -32,10 +32,12 @@ import ModulePerson from '../person';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props.content={}] - The person content's text
+ * @param {boolean} [props.hasColumns2=false] - Whether the component text should be clusted in columns via css or not
+ * @param {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
+ * @returns {ReactElement} React component markup
  */
 function ModuleTextPerson(props) {
-
     const {
         content,
         hasColumns2,
@@ -57,7 +59,6 @@ function ModuleTextPerson(props) {
     return (
         <ModulePerson className={composedClassName} content={content} />
     );
-
 }
 
 /**
@@ -65,9 +66,6 @@ function ModuleTextPerson(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] - The person content's text
- * @property {boolean} [hasColumns2=false] - Whether the component text should be clusted in columns via css or not
- * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  */
 ModuleTextPerson.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -85,7 +83,6 @@ ModuleTextPerson.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextPerson.propTypes
  */
 ModuleTextPerson.defaultProps = {
     content: {},

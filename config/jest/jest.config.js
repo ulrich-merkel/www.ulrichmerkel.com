@@ -17,7 +17,8 @@ module.exports = {
     'verbose': true,
     'moduleFileExtensions': [
         'js',
-        'jsx'
+        'jsx',
+        'json'
     ],
     'testEnvironment': 'node',
     'coverageDirectory': '<rootDir>/report/',

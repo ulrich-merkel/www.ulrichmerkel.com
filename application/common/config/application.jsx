@@ -51,13 +51,14 @@ const configApplication = Object.assign({}, {
         workVerlegeserviceBunge: '/verlegeservice-bunge',
         workGedankenKollektiv: '/gedanken-kollektiv',
         broadcast: '/broadcast',
-        contact: '/contact',
         search: '/search',
+        contact: '/contact',
         contactSuccess: '/contact/success',
         contactError: '/contact/error',
         imprint: '/imprint',
         disclaimer: '/disclaimer',
         privacy: '/privacy',
+        notFound: '/not-found',
         api: '/api',
         apiConfig: '/config',
         apiConfigContent: '/config/content',
@@ -82,7 +83,7 @@ const configApplication = Object.assign({}, {
         use: toBoolean(process.env.SERVICEWORKER) || false
     },
     applicationCache: {
-        use: toBoolean(process.env.APPCACHE) || true,
+        use: toBoolean(process.env.APPCACHE) || false,
         timeStamp: '2017-03-07'
     },
     transition: {

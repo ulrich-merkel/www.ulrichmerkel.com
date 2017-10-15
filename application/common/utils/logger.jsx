@@ -39,7 +39,7 @@ const noop = Function.prototype;
 function getLogOptions() {
     return {
         timestamp: getDateNow(),
-        pid: process.pid
+        pid: process && process.pid
     };
 }
 
@@ -90,11 +90,6 @@ Logger.prototype = {
      * @returns {void}
      */
     enable: function enableFn(shouldBeEnabled) {
-
-        const logFunctions = [
-            'log', 'info', 'warn', 'error'
-        ];
-
         if (!shouldBeEnabled) {
             // @TODO: return noop implementations if logger is not enabled
             return undefined;
@@ -110,6 +105,9 @@ Logger.prototype = {
         this._error = console.error || this._log;
         this._enabled = true;
 
+        const logFunctions = [
+            'log', 'info', 'warn', 'error'
+        ];
         logFunctions.forEach(function forEachFn(val) {
             console[val] = Function.prototype.call.bind(console[val], console);
         });
@@ -125,7 +123,7 @@ Logger.prototype = {
      */
     write: function writeFn(output, args) {
         if (!this._enabled) {
-            return undefined;
+            return;
         }
 
         const parameters = Array.prototype.slice.call(args);

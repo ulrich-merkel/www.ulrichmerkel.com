@@ -5,9 +5,11 @@ exports[`common/component/module/text/link should render correctly 1`] = `
   className="m-text__link is-centered"
 >
   <a
+    aria-current={false}
     className="c-link"
+    href="/foo"
     onClick={[Function]}
-    style={Object {}}
+    style={undefined}
     tabIndex="0"
     title="Module text link title"
   >

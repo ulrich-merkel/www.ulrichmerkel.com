@@ -52,7 +52,6 @@ class WebStorage {
     /**
      * Get content by key from local store.
      *
-     * @function
      * @param {string} key - The key to look for
      * @returns {string|null} The content if found
      */
@@ -66,7 +65,6 @@ class WebStorage {
     /**
      * Save content in local store.
      *
-     * @function
      * @param {string} key - The key to look for
      * @param {string} value - The content to be saved
      * @returns {void}
@@ -80,7 +78,6 @@ class WebStorage {
     /**
      * Remove content from local store.
      *
-     * @function
      * @param {string} key - The key to look for
      * @returns {void}
      */

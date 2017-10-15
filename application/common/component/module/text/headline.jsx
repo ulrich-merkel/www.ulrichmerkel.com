@@ -28,10 +28,10 @@ import Headline from '../../element/headline';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.text=''] - The headline text
+ * @returns {ReactElement} React component markup
  */
 function ModuleTextHeadline(props) {
-
     const {
         text
     } = props;
@@ -45,7 +45,6 @@ function ModuleTextHeadline(props) {
             {text}
         </Headline>
     );
-
 }
 
 /**
@@ -53,7 +52,6 @@ function ModuleTextHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [text=''] - The headline text
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
@@ -64,7 +62,6 @@ ModuleTextHeadline.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextHeadline.propTypes
  */
 ModuleTextHeadline.defaultProps = {
     text: ''

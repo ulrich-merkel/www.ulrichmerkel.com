@@ -20,10 +20,12 @@ exports[`common/component/module/form/contact should render a success message 1`
       className="c-type--p"
     >
       <a
+        aria-current={false}
         className="c-btn is-centered c-btn--large"
+        href="/contact"
         onClick={[Function]}
         role="button"
-        style={Object {}}
+        style={undefined}
         title="btnRenewTitle"
         type={null}
       >
@@ -58,10 +60,12 @@ exports[`common/component/module/form/contact should render an error message 1`]
       className="c-type--p"
     >
       <a
+        aria-current={false}
         className="c-btn is-centered c-btn--large"
+        href="/contact"
         onClick={[Function]}
         role="button"
-        style={Object {}}
+        style={undefined}
         title=""
         type={null}
       >

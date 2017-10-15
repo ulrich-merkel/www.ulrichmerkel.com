@@ -32,20 +32,24 @@ import ModuleMenuItem from './menu/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @param {string} [props.componentType='ul'] - The component element type used for React.createElement
+ * @param {Object} [props.content={}] - The component translation config
+ * @param {string} [props.itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleMenu(props) {
-
     const {
-        componentType,
-        className,
-        itemType,
-        content,
         children,
+        className,
+        componentType,
+        content,
+        itemType,
         ...otherProps
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!Array.isArray(content.list) || !content.list.length) {
         return null;
     }
 
@@ -83,7 +87,6 @@ function ModuleMenu(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -91,17 +94,11 @@ function ModuleMenu(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [componentType='ul'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The component translation config
  */
 ModuleMenu.propTypes = {
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    componentType: PropTypes.string,
     content: PropTypes.shape({
         name: PropTypes.string,
         list: PropTypes.arrayOf(
@@ -116,7 +113,8 @@ ModuleMenu.propTypes = {
                 itemPropA: PropTypes.string
             })
         )
-    })
+    }),
+    itemType: PropTypes.string
 };
 
 /**
@@ -124,12 +122,11 @@ ModuleMenu.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleMenu.propTypes
  */
 ModuleMenu.defaultProps = {
     componentType: 'ul',
-    itemType: 'https://schema.org/ItemList',
-    content: {}
+    content: {},
+    itemType: 'https://schema.org/ItemList'
 };
 
 export default ModuleMenu;

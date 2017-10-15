@@ -34,7 +34,9 @@ import ModuleKeyVisual from '../module/key-visual';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {Object} [props.content={}] - The content config input
+ * @returns {ReactElement} React component markup
  */
 function SectionKeyVisual(props) {
 
@@ -58,8 +60,6 @@ function SectionKeyVisual(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The content config input
  */
 SectionKeyVisual.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -76,7 +76,6 @@ SectionKeyVisual.propTypes = {
  *
  * @static
  * @type {Object}
- * @see SectionKeyVisual.propTypes
  */
 SectionKeyVisual.defaultProps = {
     content: {}

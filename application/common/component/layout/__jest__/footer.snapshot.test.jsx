@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 
 import mockedStore from '../../__mocks__/store';
@@ -18,11 +19,13 @@ describe('common/component/layout/footer', function () {
 
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <LayoutFooterContainer
-                    {...defaultProps}
-                >
-                    Footer Children
-                </LayoutFooterContainer>
+                <MemoryRouter>
+                    <LayoutFooterContainer
+                        {...defaultProps}
+                    >
+                        Footer Children
+                    </LayoutFooterContainer>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

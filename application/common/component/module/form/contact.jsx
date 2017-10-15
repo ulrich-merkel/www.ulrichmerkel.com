@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this, promise/avoid-new */
+/* eslint-disable immutable/no-mutation, immutable/no-this, promise/avoid-new, react/no-did-mount-set-state */
 /**
  * Es6 module for React Component.
  *
@@ -27,15 +27,12 @@
  * @requires common/state/contact/utils
  * @requires common/component/grid/row
  * @requires common/component/grid/col
- * @requires common/component/element/form
- * @requires common/component/element/fieldset
- * @requires common/component/element/legend
- * @requires common/component/element/input-group
- * @requires common/component/element/textarea-group
  * @requires common/component/element/button-group
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- * @requires common/component/element/button
+ * @requires common/component/element/fieldset
+ * @requires common/component/element/form
+ * @requires common/component/element/input-group
+ * @requires common/component/element/legend
+ * @requires common/component/element/textarea-group
  *
  * @changelog
  * - 0.0.4 Refactored, simplified state
@@ -57,22 +54,23 @@ import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
 import { validate, isValid } from '../../../state/contact/utils';
-import Row from '../../grid/row';
-import Col from '../../grid/col';
-import Form from '../../element/form';
-import Fieldset from '../../element/fieldset';
-import Legend from '../../element/legend';
-import InputGroup from '../../element/input-group';
-import TextareaGroup from '../../element/textarea-group';
-import ButtonGroup from '../../element/button-group';
-import Headline from '../../element/headline';
-import P from '../../element/paragraph';
-import Button from '../../element/button';
+import {
+    GridCol,
+    GridRow
+} from '../../grid';
+import {
+    ButtonGroup,
+    Fieldset,
+    Form,
+    InputGroup,
+    Legend,
+    TextareaGroup
+} from '../../element';
+import ModuleFormContactMessage from './contact/message';
 
 const defaultState = {
     name: '',
     email: '',
-    website: '',
     subject: '',
     message: '',
     namePristine: false,
@@ -82,7 +80,8 @@ const defaultState = {
     messagePristine: false,
     pending: false,
     success: false,
-    error: false
+    error: false,
+    browser: false
 };
 
 const xorUse = configApplication.xor.use;
@@ -106,6 +105,7 @@ function scrollToTextMessage(textMessage) {
         });
     }
 }
+
 /**
  * Helper function to send post request.
  *
@@ -164,26 +164,7 @@ class ModuleFormContact extends Component {
     constructor(props) {
         super(props);
 
-        const {
-            storeState,
-            routerState
-        } = props;
-
-        // setup initial state properties
-        this.state = {
-            name: getState('name', storeState),
-            email: getState('email', storeState),
-            website: getState('website', storeState),
-            subject: getState('subject', storeState),
-            message: getState('message', storeState),
-            namePristine: getState('namePristine', storeState),
-            emailPristine: getState('emailPristine', storeState),
-            subjectPristine: getState('subjectPristine', storeState),
-            messagePristine: getState('messagePristine', storeState),
-            pending: getState('pending', storeState),
-            success: routerState === 'success' || getState('success', storeState),
-            error: routerState === 'error' || getState('error', storeState)
-        };
+        this.state = defaultState;
 
         /**
          * A bind call or arrow function in a JSX prop will create a brand new
@@ -200,7 +181,30 @@ class ModuleFormContact extends Component {
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
+        this.handleContactChange = this.handleContactChange.bind(this);
 
+    }
+
+    componentDidMount() {
+        const {
+            storeState,
+            routerState
+        } = this.props;
+
+        this.setState({
+            name: getState('name', storeState),
+            email: getState('email', storeState),
+            subject: getState('subject', storeState),
+            message: getState('message', storeState),
+            namePristine: getState('namePristine', storeState),
+            emailPristine: getState('emailPristine', storeState),
+            subjectPristine: getState('subjectPristine', storeState),
+            messagePristine: getState('messagePristine', storeState),
+            pending: getState('pending', storeState),
+            success: routerState === 'success' || getState('success', storeState),
+            error: routerState === 'error' || getState('error', storeState),
+            browser: isBrowser()
+        });
     }
 
     /**
@@ -212,7 +216,6 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     onChange(e) {
-
         if (!has(e, 'target')) {
             return;
         }
@@ -237,11 +240,8 @@ class ModuleFormContact extends Component {
                 [stateName]: stateValue,
                 [`${stateName}Pristine`]: true
             },
-            () => {
-                this.props.handleContactChange(this.state);
-            }
+            this.handleContactChange
         );
-
     }
 
     /**
@@ -269,9 +269,7 @@ class ModuleFormContact extends Component {
     onReset() {
         this.setState(
             defaultState,
-            () => {
-                this.props.handleContactChange(this.state);
-            }
+            this.handleContactChange
         );
     }
 
@@ -286,26 +284,20 @@ class ModuleFormContact extends Component {
      * @param {string} text - The message text body
      * @param {string} btnTitle - The message button title
      * @param {string} btnLabel - The message button label
-     * @returns {React.Element}
+     * @returns {ReactElement}
      */
     getTextMessage(headline, text, btnTitle, btnLabel) {
         return (
-            <div className='m-article__text' id='m-form--contact-success' itemProp='text' ref={(ref) => { this.textMessage = ref; }}>
-                <Headline htmlElement='h3'>
-                    {headline}
-                </Headline>
-                <div className='m-article__description is-centered' itemProp='description'>
-                    <P>
-                        {text}
-                    </P>
-                    <P>
-                        <Button isLarge className='is-centered' onClick={this.onReset} title={btnTitle} to={url.contact}>
-                            {btnLabel}
-                        </Button>
-                    </P>
-                </div>
-            </div>
+            <ModuleFormContactMessage
+                onReset={this.onReset}
+                resetUrl={url.contact}
+                {...{ headline, text, btnTitle, btnLabel }}
+            />
         );
+    }
+
+    handleContactChange() {
+        this.props.handleContactChange(this.state);
     }
 
     /**
@@ -316,7 +308,6 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     send() {
-
         const { csrfToken } = this.props;
         const state = this.state;
         const data = {
@@ -372,7 +363,6 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     renderSuccess() {
-
         const { content } = this.props;
 
         return this.getTextMessage(
@@ -381,7 +371,6 @@ class ModuleFormContact extends Component {
             content.btnRenewTitle,
             content.btnRenewLabel
         );
-
     }
 
     /**
@@ -392,7 +381,6 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     renderError() {
-
         const { content } = this.props;
 
         return this.getTextMessage(
@@ -401,17 +389,15 @@ class ModuleFormContact extends Component {
             content.btnTryAgainTitle,
             content.btnTryAgainLabel
         );
-
     }
 
     /**
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             content,
             csrfToken
@@ -442,8 +428,8 @@ class ModuleFormContact extends Component {
                         {content.legend}
                     </Legend>
 
-                    <Row>
-                        <Col cols={'6'}>
+                    <GridRow>
+                        <GridCol cols={'6'}>
                             <InputGroup
                                 id={'name'}
                                 name={'name'}
@@ -453,8 +439,8 @@ class ModuleFormContact extends Component {
                                 isValid={validate(state).name}
                                 isPristine={state.namePristine}
                             />
-                        </Col>
-                        <Col cols={'6'}>
+                        </GridCol>
+                        <GridCol cols={'6'}>
                             <InputGroup
                                 id={'email'}
                                 name={'email'}
@@ -465,10 +451,10 @@ class ModuleFormContact extends Component {
                                 isValid={validate(state).email}
                                 isPristine={state.emailPristine}
                             />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
+                        </GridCol>
+                    </GridRow>
+                    <GridRow>
+                        <GridCol>
                             <InputGroup
                                 id={'subject'}
                                 name={'subject'}
@@ -478,10 +464,10 @@ class ModuleFormContact extends Component {
                                 isValid={validate(state).subject}
                                 isPristine={state.subjectPristine}
                             />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
+                        </GridCol>
+                    </GridRow>
+                    <GridRow>
+                        <GridCol>
                             <TextareaGroup
                                 id={'message'}
                                 name={'message'}
@@ -492,10 +478,10 @@ class ModuleFormContact extends Component {
                                 isValid={validate(state).message}
                                 isPristine={state.messagePristine}
                             />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col cols={'6'}>
+                        </GridCol>
+                    </GridRow>
+                    <GridRow>
+                        <GridCol cols={'6'}>
                             <ButtonGroup
                                 id={'reset'}
                                 name={'reset'}
@@ -506,8 +492,8 @@ class ModuleFormContact extends Component {
                                 isSecondary
                                 isDisabled={state.pending}
                             />
-                        </Col>
-                        <Col cols={'6'}>
+                        </GridCol>
+                        <GridCol cols={'6'}>
                             <ButtonGroup
                                 id={'submit'}
                                 name={'submit'}
@@ -517,11 +503,11 @@ class ModuleFormContact extends Component {
                                 className={'m-form__group--submit hide-on-print'}
                                 btnClassName={'c-btn--submit'}
                                 isPrimary
-                                isDisabled={!state.pending && !isValid(state) && isBrowser()}
+                                isDisabled={!state.pending && !isValid(state) && state.browser}
                                 isPending={state.pending}
                             />
-                        </Col>
-                    </Row>
+                        </GridCol>
+                    </GridRow>
                     <input type='hidden' name='_csrf' value={csrfToken} />
                 </Fieldset>
             </Form>

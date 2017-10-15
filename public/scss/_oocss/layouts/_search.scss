@@ -12,7 +12,7 @@ $block: '#{$config-ns}l-search';
 
     .#{$block} {
         position: absolute;
-        top: $config-layout-header-height;
+        top: $theme-layout-header-height;
         right: 0;
         left: 0;
         z-index: 10;

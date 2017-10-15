@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a nav html tag.
  *
  * @file
  * @module
@@ -28,10 +25,11 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
+ * @returns {ReactElement} React component markup
  */
 function ElementNav(props) {
-
     const {
         htmlElement,
         className,
@@ -47,7 +45,6 @@ function ElementNav(props) {
     return (
         <ComponentType className={composedClassName} role='navigation' {...otherProps} />
     );
-
 }
 
 /**
@@ -55,8 +52,6 @@ function ElementNav(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='nav'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ElementNav.propTypes = {
     htmlElement: PropTypes.string,
@@ -68,7 +63,6 @@ ElementNav.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementNav.propTypes
  */
 ElementNav.defaultProps = {
     htmlElement: 'nav'

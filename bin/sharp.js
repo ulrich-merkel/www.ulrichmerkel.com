@@ -7,10 +7,11 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2017
- * @version 0.0.4
+ * @version 0.0.5
  *
  * @see {@link http://sharp.dimens.io/}
  *
+ * @requires fs
  * @requires sharp
  * @requires minimist
  * @requires chalk
@@ -21,11 +22,13 @@
  * @TODO: Add verbose option to reduce logging
  *
  * @changelog
+ * - 0.0.5 Adding check if file exists before starting resize
  * - 0.0.4 Moving lwip to sharp
  * - 0.0.3 Add assert-plus as function parameter checker
  * - 0.0.2 Switched to node6
  * - 0.0.1 Basic functions and structure
  */
+const fs = require('fs');
 const sharp = require('sharp');
 const minimist = require('minimist');
 const chalk = require('chalk');
@@ -197,6 +200,13 @@ function resize(src, dest, width, height, degrees = 0) {
     assert.number(width, 'width');
     assert.number(height, 'height');
     assert.optionalNumber(height, 'height');
+
+    // @TODO: Disable eslint rule due to a known bug
+    // @see {@link https://github.com/nodesecurity/eslint-plugin-security/issues/13}
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    if (!fs.existsSync(src)) {
+        return void console.error(chalk.red(`File ${src} not found`));
+    }
 
     sharp(src)
         .resize(width, height)

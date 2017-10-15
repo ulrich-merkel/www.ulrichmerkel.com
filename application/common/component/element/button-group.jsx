@@ -1,9 +1,6 @@
 /* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a button component with a wrapper to be used within a form.
  *
  * @file
  * @module
@@ -33,6 +30,17 @@ import Button from './button';
  *
  * @class
  * @extends React.Component
+ * @property {string} props.id - The button id attribute
+ * @property {string} props.name - The button name attribute
+ * @property {string} [props.btnClassName] - The button css class names - will be merged into button default classNames
+ * @property {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [props.isDisabled=false] - Whether the button is disabled displayed or not
+ * @property {boolean} [props.isPending=false] - Whether the button is pending displayed (form is processing) or not
+ * @property {boolean} [props.isPrimary=false] - Whether the button is primary displayed or not
+ * @property {boolean} [props.isSecondary=false] - Whether the button is secondary displayed or not
+ * @property {string} [props.label=''] - The button label attribute
+ * @property {string} [props.title=''] - The button title attribute
+ * @property {string} [props.type='button'] - The button type attribute
  */
 class ElementButtonGroup extends Component {
 
@@ -40,22 +48,21 @@ class ElementButtonGroup extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
-            id,
-            name,
-            label,
-            type,
-            title,
-            className,
             btnClassName,
-            isPrimary,
-            isSecondary,
+            className,
+            id,
             isDisabled,
             isPending,
+            isPrimary,
+            isSecondary,
+            label,
+            name,
+            title,
+            type,
             ...otherProps
         } = this.props;
 
@@ -86,7 +93,6 @@ class ElementButtonGroup extends Component {
             </div>
         );
     }
-
 }
 
 /**
@@ -94,30 +100,19 @@ class ElementButtonGroup extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id - The button id attribute
- * @property {string} name - The button name attribute
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [type='button'] - The button type attribute
- * @property {string} [label=''] - The button label attribute
- * @property {string} [title=''] - The button title attribute
- * @property {string} [btnClassName] - The button css class names - will be merged into button default classNames
- * @property {boolean} [isPrimary=false] - Whether the button is primary displayed or not
- * @property {boolean} [isSecondary=false] - Whether the button is secondary displayed or not
- * @property {boolean} [isDisabled=false] - Whether the button is disabled displayed or not
- * @property {boolean} [isPending=false] - Whether the button is pending displayed (form is processing) or not
  */
 ElementButtonGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    type: PropTypes.string,
-    label: PropTypes.string,
-    title: PropTypes.string,
     btnClassName: PropTypes.string, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isDisabled: PropTypes.bool,
+    isPending: PropTypes.bool,
     isPrimary: PropTypes.bool,
     isSecondary: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isPending: PropTypes.bool
+    label: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.string
 };
 
 /**
@@ -125,16 +120,15 @@ ElementButtonGroup.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementButtonGroup.propTypes
  */
 ElementButtonGroup.defaultProps = {
-    type: 'button',
-    label: '',
-    title: '',
+    isDisabled: false,
+    isPending: false,
     isPrimary: false,
     isSecondary: false,
-    isDisabled: false,
-    isPending: false
+    label: '',
+    title: '',
+    type: 'button'
 };
 
 export default ElementButtonGroup;

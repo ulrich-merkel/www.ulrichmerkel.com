@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 
 import mockedStore from '../../__mocks__/store';
@@ -9,11 +10,10 @@ import { PageWork } from '../work';
 describe('common/component/page/privacy', function () {
     const defaultProps = {
         locale: 'en-EN',
-        params: {
-            work: 'momentariness'
-        },
-        router: {
-            push: () => {}
+        match: {
+            params: {
+                work: 'momentariness'
+            }
         },
         config: {
             head: {
@@ -37,7 +37,9 @@ describe('common/component/page/privacy', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <PageWork {...defaultProps} />
+                <MemoryRouter>
+                    <PageWork {...defaultProps} />
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();
@@ -45,12 +47,14 @@ describe('common/component/page/privacy', function () {
     it('should return null if no work param is given', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <PageWork
-                    {...defaultProps}
-                    params={{
-                        work: ''
-                    }}
-                />
+                <MemoryRouter>
+                    <PageWork
+                        {...defaultProps}
+                        match={{params: {
+                            work: ''
+                        }}}
+                    />
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

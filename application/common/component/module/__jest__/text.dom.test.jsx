@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, func-names */
 import 'jsdom-global/register';
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { MemoryRouter, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
@@ -18,11 +18,11 @@ describe('common/component/module/text', function () {
             text: [
                 {
                     headline: 'Headline',
-                    content: `
+                    content: [`
                         After a long experience with broadcast technologies with numerous productions for
                         <a href='/broadcast' class='js-show-broadcast' title='Show my broadcast experiences' rel='noopener noreferrer'>international and national clients</a>,
                         i decided to take a course of web technology studies to take my passion into profession.
-                    `
+                    `]
                 },
                 {
                     headline: 'Headline',
@@ -57,9 +57,9 @@ describe('common/component/module/text', function () {
             );
         };
         const wrapper = mount(
-            <Router history={hashHistory}>
+            <MemoryRouter>
                 <Route path='/' component={App} />
-            </Router>
+            </MemoryRouter>
         );
 
         wrapper.find('a').first().simulate('click');

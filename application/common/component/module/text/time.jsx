@@ -27,10 +27,10 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element|null} React component markup
+ * @param {Object} [props.content={}] - The time content's text
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextTime(props) {
-
     const {
         content
     } = props;
@@ -51,16 +51,17 @@ function ModuleTextTime(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            {timeStart && <time className='c-time'>
+            {timeStart &&
+            <time className='c-time'>
                 {timeStart}
             </time>}
             {timeStart && timeEnd && <span className='c-time--separator'>-</span>}
-            {timeEnd && <time className='c-time'>
+            {timeEnd &&
+            <time className='c-time'>
                 {timeEnd}
             </time>}
         </div>
     );
-
 }
 
 /**
@@ -68,7 +69,6 @@ function ModuleTextTime(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content={}] - The time content's text
  */
 ModuleTextTime.propTypes = {
     content: PropTypes.shape({
@@ -82,7 +82,6 @@ ModuleTextTime.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextTime.propTypes
  */
 ModuleTextTime.defaultProps = {
     content: {}

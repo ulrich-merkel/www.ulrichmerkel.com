@@ -99,6 +99,10 @@ module.exports = {
         'react/forbid-prop-types': 1,
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': ['error', 4],
+        'react/jsx-curly-brace-presence': ['off', {
+            'props': 'always',
+            'children': 'ignore'
+        }],
         'security/detect-buffer-noassert': 2,
         'security/detect-child-process': 2,
         'security/detect-eval-with-expression': 2,

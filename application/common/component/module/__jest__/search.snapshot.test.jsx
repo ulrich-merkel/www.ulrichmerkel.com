@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import mockedStore from '../../__mocks__/store';
 import ModuleSearch from '../search';
@@ -19,14 +19,14 @@ describe('common/component/module/search', function () {
     };
 
     it('should render correctly', function () {
-        const tree = shallow(
+        const tree = renderer.create(
             <ModuleSearch
                 store={mockedStore}
                 {...defaultProps}
             >
                 Module list children
             </ModuleSearch>
-        );
-        expect(tree.html()).toMatchSnapshot();
+        ).toJSON;
+        expect(tree).toMatchSnapshot();
     });
 });

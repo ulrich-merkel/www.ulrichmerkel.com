@@ -81,44 +81,6 @@ $ npm run doc
 
 * Generate JSDoc and SassDoc files and folders.
 
-
-## Project Structure
-
-```
-/
-|- __mocks__/ - node_modules mocks for running tests
-|- application/ - All client and server JavaScript source files
-|  |- client/ - Client JavaScript files
-|  |- common/ - Shared JavaScript files
-|  |- server/ - Server JavaScript files
-|- bin/ - Node scripts used by NPM scripts
-|- build/ - The target output dir for our build commands
-|  |- client/ - The built client files
-|  |- common/ - The built shared common files
-|  |- server/ - The built server files
-|- config/ - NPM script configuration files
-|- doc/ - Generated documentation files
-|- public/ - Public available files
-|  |- font/ - Custom webfonts
-|  |- img/ - Image source files
-|  |- scss/ - SCSS/SASS files to be compiled to CSS
-|- report/ - Generated reporting files
-|- .babelrc - Babel configuration
-|- .coveralls.sample.yml - Sample local coveralls io configuration file
-|- .editorconfig - Editor config file
-|- .coveralls.sample.yml - Sample dotenv configuration file
-|- .flowconfig - Flowtype configuration file
-|- .gitattributes - Github line ending configuration file
-|- .gitignore - Github ignore configuration file
-|- .npmrc - NPM configuration file
-|- .snyk - Snyk vulnerabilities testing configuration file
-|- .travis.yml - Travis CI configuration file
-|- package.json - Basic NPM configuration file
-|- README.md - The file you are reading now
-|- yarn.lock - Yarn configuration file
-```
-
-
 ## Some links which inspired my work
 
 ### React & Webpack & JavaScript

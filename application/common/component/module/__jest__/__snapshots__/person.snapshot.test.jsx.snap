@@ -48,7 +48,7 @@ exports[`common/component/module/person should render correctly 1`] = `
     </abbr>
      
     <a
-      href="malto:email"
+      href="mailto:email"
       itemProp="email"
     >
       email
@@ -121,7 +121,7 @@ exports[`common/component/module/person should render isCentered correctly 1`] =
     </abbr>
      
     <a
-      href="malto:email"
+      href="mailto:email"
       itemProp="email"
     >
       email
@@ -249,7 +249,7 @@ exports[`common/component/module/person should render just an email correctly 1`
     </abbr>
      
     <a
-      href="malto:email"
+      href="mailto:email"
       itemProp="email"
     >
       email
@@ -305,7 +305,7 @@ exports[`common/component/module/person should render no itemType if unset 1`] =
     </abbr>
      
     <a
-      href="malto:email"
+      href="mailto:email"
       itemProp="email"
     >
       email
@@ -376,7 +376,7 @@ exports[`common/component/module/person should render no schema if not given 1`]
     </abbr>
      
     <a
-      href="malto:email"
+      href="mailto:email"
       itemProp="email"
     >
       email
