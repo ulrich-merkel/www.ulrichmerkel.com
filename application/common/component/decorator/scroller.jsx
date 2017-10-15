@@ -105,7 +105,6 @@ function scroller(SourceComponent) {
         componentDidMount() {
             isBrowser() && window.addEventListener('scroll', this.onScroll);
             this.onScroll();
-            this.scrollTop();
         }
 
         /**

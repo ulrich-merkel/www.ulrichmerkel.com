@@ -25,7 +25,6 @@ const readFileOptions = {
 /**
  * Helper function to check if file exists.
  *
- * @function
  * @private
  * @param {string} filePath - The file name
  * @returns {boolean} Whether the file exists or not
@@ -37,7 +36,6 @@ function existsSync(filePath) {
 /**
  * Helper function to read file async from disc.
  *
- * @function
  * @param {string} fileName - The file name
  * @returns {Function} The promise for this request
  */
@@ -45,13 +43,9 @@ function readFile(fileName) {
     const filePath = path.resolve(__dirname, fileName);
 
     return new Promise(function handlePromise(resolve, reject) {
-        if (!existsSync(filePath)) {
-            return reject(Error(`No such file found ${filePath}`));
-        }
-
         return fs.readFile(filePath, readFileOptions, function handleReadFile(error, data) { // eslint-disable-line security/detect-non-literal-fs-filename
             if (error) {
-                return reject(Error(error));
+                return reject(new Error(error));
             }
             return resolve(data);
         });
@@ -61,7 +55,6 @@ function readFile(fileName) {
 /**
  * Helper function to read file sync from disc.
  *
- * @function
  * @deprecated Please use the async version
  * @param {string} fileName - The file name
  * @returns {string} The utf-8 encoded file contents
