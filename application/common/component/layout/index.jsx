@@ -1,5 +1,7 @@
 /**
  * Es6 index module for easier export handling.
+ * Layout components merge modules to bigger parts of the
+ * overall page layout.
  *
  * @file
  * @module

@@ -42,7 +42,7 @@ import ModuleFormSearch from '../module/form/search'; // eslint-disable-line imp
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function PageSearch(props) {
     const { content, isDialog, children } = props;

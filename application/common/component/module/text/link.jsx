@@ -30,10 +30,10 @@ import A from '../../element/a';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element|null} React component markup
+ * @param {Object} [props.content={}] - The link content's text
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextLink(props) {
-
     const {
         content
     } = props;
@@ -65,7 +65,6 @@ function ModuleTextLink(props) {
             </A>
         </div>
     );
-
 }
 
 /**
@@ -73,7 +72,6 @@ function ModuleTextLink(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content={}] - The link content's text
  */
 ModuleTextLink.propTypes = {
     content: PropTypes.shape({
@@ -88,7 +86,6 @@ ModuleTextLink.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextLink.propTypes
  */
 ModuleTextLink.defaultProps = {
     content: {}

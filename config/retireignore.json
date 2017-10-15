@@ -1,0 +1,23 @@
+[
+    {
+        "component": "jquery",
+        "justification": "We dont call external resources with jQuery"
+    },
+    {
+        "component": "angularjs",
+        "justification": "We dont call external resources with AngularJs"
+    },
+    {
+        "component": "bootstrap",
+        "justification": "We dont call external resources with Bootstrap"
+    },
+    {
+        "component": "growl",
+        "justification": "We use Growl for rendering"
+    },
+    {
+        "component": "uglify-js",
+        "version": "2.4.24",
+        "justification": "We use an updated version for rendering"
+    }
+]

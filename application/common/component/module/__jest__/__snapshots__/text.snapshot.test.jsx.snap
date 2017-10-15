@@ -15,18 +15,6 @@ exports[`common/component/module/text should render correctly 1`] = `
     >
       headline
     </h3>
-    <div
-      className="m-text__content"
-    >
-      <p
-        className="c-type--p"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "content",
-          }
-        }
-      />
-    </div>
   </div>
   <div
     className="m-text__time is-centered"
@@ -41,9 +29,11 @@ exports[`common/component/module/text should render correctly 1`] = `
     className="m-text__link is-centered"
   >
     <a
+      aria-current={false}
       className="c-link"
+      href="/bar"
       onClick={[Function]}
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="Link title"
     >
@@ -71,18 +61,6 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
     >
       headline
     </h3>
-    <div
-      className="m-text__content"
-    >
-      <p
-        className="c-type--p"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "content",
-          }
-        }
-      />
-    </div>
   </div>
   <div
     className="m-text__time is-centered"
@@ -97,9 +75,11 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
     className="m-text__link is-centered"
   >
     <a
+      aria-current={false}
       className="c-link"
+      href="/bar"
       onClick={[Function]}
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="Link title"
     >

@@ -11,7 +11,7 @@ import addPageTracking from '../add-page-tracking';
 describe('common/component/decorator/add-page-tracking', function () {
     const Page = function (props) {
         return (
-            <h1>{props.children}</h1>
+            <h1 className='page'>{props.children}</h1>
         );
     };
     Page.propTypes = {
@@ -24,11 +24,12 @@ describe('common/component/decorator/add-page-tracking', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <Container>
-                    Add page tracking children
+                    <div className='test'>Add page tracking children</div>
                 </Container>
             </Provider>
         );
-        wrapper.unmount();
+        expect(wrapper.find('.page').length).toEqual(1);
+        expect(wrapper.find('.test').length).toEqual(1);
     });
 
 });

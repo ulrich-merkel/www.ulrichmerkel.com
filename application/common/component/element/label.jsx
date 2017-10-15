@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a label html tag.
  *
  * @file
  * @module
@@ -29,7 +26,10 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.htmlFor] - The label for attribute
+ * @param {string} [props.className] - The label css class names, will be merged into component default classNames
+ * @param {boolean} [props.isVisuallyHidden] - Whether the label is visually hidden or not
+ * @returns {ReactElement} React component markup
  */
 function ElementLabel(props) {
     const {
@@ -57,9 +57,6 @@ function ElementLabel(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlFor] - The label for attribute
- * @property {string} [className] - The label css class names, will be merged into component default classNames
- * @property {boolean} [isVisuallyHidden] - Whether the label is visually hidden or not
  */
 ElementLabel.propTypes = {
     htmlFor: PropTypes.string.isRequired,
@@ -72,7 +69,6 @@ ElementLabel.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementLabel.propTypes
  */
 ElementLabel.defaultProps = {
     isVisuallyHidden: false

@@ -1,9 +1,6 @@
 /* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a textarea component with a wrapper to be used within a form.
  *
  * @file
  * @module
@@ -37,6 +34,15 @@ import Icon from './icon';
  *
  * @class
  * @extends React.Component
+ * @property {string} props.id - The input id attribute
+ * @property {string}props.name - The input name attribute
+ * @property {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [props.isPristine=false] - Whether the input has a user given value or not
+ * @property {boolean} [props.isValid=true] - Whether the input has a valid value or not
+ * @property {string} [props.label] - The input label attribute
+ * @property {Function} [props.onBlur=Function.prototype] - The input blur handler
+ * @property {Function} [props.onChange=Function.prototype] - The input change handler
+ * @property {string} [props.value=''] - The default input value
  */
 class ElementTextareaGroup extends Component {
 
@@ -44,19 +50,18 @@ class ElementTextareaGroup extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             id,
-            name,
-            onChange,
-            onBlur,
-            label,
-            value,
-            isValid,
             isPristine,
+            isValid,
+            label,
+            name,
+            onBlur,
+            onChange,
+            value,
             ...otherProps
         } = this.props;
 
@@ -98,26 +103,17 @@ class ElementTextareaGroup extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id - The input id attribute
- * @property {string} name - The input name attribute
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [label] - The input label attribute
- * @property {Function} [onBlur=Function.prototype] - The input blur handler
- * @property {Function} [onChange=Function.prototype] - The input change handler
- * @property {string} [value=''] - The default input value
- * @property {boolean} [isValid=true] - Whether the input has a valid value or not
- * @property {boolean} [isPristine=false] - Whether the input has a user given value or not
  */
 ElementTextareaGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
+    id: PropTypes.string.isRequired,
+    isPristine: PropTypes.bool,
+    isValid: PropTypes.bool,
     label: PropTypes.string, // eslint-disable-line react/require-default-props
+    name: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
-    value: PropTypes.string,
-    isValid: PropTypes.bool,
-    isPristine: PropTypes.bool
+    value: PropTypes.string
 };
 
 /**
@@ -128,11 +124,11 @@ ElementTextareaGroup.propTypes = {
  * @see ElementTextareaGroup.propTypes
  */
 ElementTextareaGroup.defaultProps = {
+    isPristine: false,
+    isValid: true,
     onBlur: Function.prototype,
     onChange: Function.prototype,
-    value: '',
-    isValid: true,
-    isPristine: false
+    value: ''
 };
 
 export default ElementTextareaGroup;

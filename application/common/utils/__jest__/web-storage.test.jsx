@@ -31,4 +31,14 @@ describe('common/utils/webStorage', function () {
         webStorage.remove(key);
         expect(webStorage.read(key)).toBeUndefined();
     });
+    it('should gracefully degrate', function () {
+        global.localStorage = {
+            getItem: jest.fn()
+        };
+        webStorage = new WebStorage();
+
+        webStorage.save(key, data);
+        expect(webStorage.read(key)).toEqual(null);
+        webStorage.remove(key);
+    });
 });

@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a html tag to display font-icons.
  *
  * @file
  * @module
@@ -28,7 +25,10 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element|null} React component markup
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {string} [props.htmlElement='i'] - The component element type used for React.createElement
+ * @param {string} [props.icon=''] - The icon name taken for the web font
+ * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
     const {
@@ -55,9 +55,6 @@ function ElementIcon(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [htmlElement='i'] - The component element type used for React.createElement
- * @property {string} [icon=''] - The icon name taken for the web font
  */
 ElementIcon.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -70,7 +67,6 @@ ElementIcon.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementIcon.propTypes
  */
 ElementIcon.defaultProps = {
     htmlElement: 'i',

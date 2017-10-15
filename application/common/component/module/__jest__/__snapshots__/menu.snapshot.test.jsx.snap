@@ -14,11 +14,13 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="foo"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="bar"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -45,11 +47,13 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -68,11 +72,13 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -100,11 +106,13 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="foo"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="bar"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -131,11 +139,13 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -154,11 +164,13 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      className="m-menu__item c-link"
+      aria-current={false}
+      className="c-link m-menu__item"
+      href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={Object {}}
+      style={undefined}
       tabIndex="0"
       title="title"
     >

@@ -26,7 +26,7 @@ $block: '#{$config-ns}m-key-visual';
         position: relative;
         z-index: 2;
         padding: rem-calc($config-grid--gutter);
-        background: $config-color-grey;
+        background: $theme-module-key-visual-text-background;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             position: absolute;
@@ -64,10 +64,10 @@ $block: '#{$config-ns}m-key-visual';
         .#{$block}__boxed {
             display: inline-block;
             padding: 1px 3px;
-            color: $config-font-color;
+            color: $theme-module-key-visual-headline-color;
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
-                background: $config-color-grey;
+                background: $theme-module-key-visual-headline-background;
             }
         }
     }
@@ -112,18 +112,18 @@ $block: '#{$config-ns}m-key-visual';
         padding: 0;
         font-size: 130%;
         line-height: 2.5;
-        color: $config-color-white;
+        color: $theme-module-key-visual-button-color;
         text-align: center;
         letter-spacing: normal;
-        background: $config-color-blue--1;
+        background: $theme-module-key-visual-button-background;
         opacity: 0;
 
         &:focus {
-            color: $config-color-white;
+            color: $theme-module-key-visual-button-color;
         }
 
         &:visited {
-            color: $config-color-white;
+            color: $theme-module-key-visual-button-color;
         }
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
@@ -139,8 +139,8 @@ $block: '#{$config-ns}m-key-visual';
     .#{$block}--work {
 
         // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eeeeee+79,fefefe+91,f2f2f2+100 */
-        background: $config-color-grey;
-        background: linear-gradient(to bottom, $config-color-key-visual-gradient);
+        background: $theme-module-key-visual-work-background;
+        background: linear-gradient(to bottom, $theme-module-key-visual-gradient);
 
         .#{$block}__image--digital,
         .#{$block}__image--print {

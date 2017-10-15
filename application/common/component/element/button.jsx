@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a html button or react-router navlink.
  *
  * @file
  * @module
@@ -35,7 +32,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 /**
@@ -43,7 +40,22 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @param {string} [props.classNameLabel] - The component label child css class names, will be merged into component default classNames
+ * @param {string} [props.htmlElement='button'] - The component element type used for React.createElement
+ * @param {boolean} [props.isClear=false] - Clear all basic stylings or not
+ * @param {boolean} [props.isDisabled=false] - Whether the button has disabled classed and attributes or not
+ * @param {boolean} [props.isLabelHidden=false] - Whether the label text is visually hidden or not
+ * @param {boolean} [props.isLarge=false] - Whether the button is large styled or not
+ * @param {boolean} [props.isPrimary=false] - Whether the button is primary styled or not
+ * @param {boolean} [props.isSecondary=false] - Whether the button is secondary styled or not
+ * @param {boolean} [props.isSmall=false] - Whether the button is small styled or not
+ * @param {string} [props.role='button'] - The element role attribute
+ * @param {string} [props.title=''] - The element title attribute
+ * @param {string} [props.to=''] - The react-router url target
+ * @param {string} [props.type='button'] - The element type attribute
+ * @returns {ReactElement} React component markup
  */
 function ElementButton(props) {
     const {
@@ -86,7 +98,7 @@ function ElementButton(props) {
         }
     );
 
-    const HtmlElement = to ? Link : htmlElement;
+    const HtmlElement = to ? NavLink : htmlElement;
     const htmlElementType = !to ? type : null;
     const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 
@@ -111,21 +123,6 @@ function ElementButton(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [classNameLabel] - The component label child css class names, will be merged into component default classNames
- * @property {string} [htmlElement='button'] - The component element type used for React.createElement
- * @property {boolean} [isClear=false] - Clear all basic stylings or not
- * @property {boolean} [isDisabled=false] - Whether the button has disabled classed and attributes or not
- * @property {boolean} [isLabelHidden=false] - Whether the label text is visually hidden or not
- * @property {boolean} [isLarge=false] - Whether the button is large styled or not
- * @property {boolean} [isPrimary=false] - Whether the button is primary styled or not
- * @property {boolean} [isSecondary=false] - Whether the button is secondary styled or not
- * @property {boolean} [isSmall=false] - Whether the button is small styled or not
- * @property {string} [role='button'] - The element role attribute
- * @property {string} [title=''] - The element title attribute
- * @property {string} [to=''] - The react-router url target
- * @property {string} [type='button'] - The element type attribute
  */
 ElementButton.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -150,7 +147,6 @@ ElementButton.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementButton.propTypes
  */
 ElementButton.defaultProps = {
     htmlElement: 'button',
@@ -159,8 +155,8 @@ ElementButton.defaultProps = {
     isLabelHidden: false,
     isLarge: false,
     isPrimary: false,
-    isSmall: false,
     isSecondary: false,
+    isSmall: false,
     role: 'button',
     title: '',
     type: 'button'

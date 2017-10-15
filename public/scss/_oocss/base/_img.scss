@@ -31,9 +31,9 @@
             width: 100%;
             height: calc(100% + 10px);
             content: ' ';
-            background-color: $config-color-grey--2;
-            border: 2px dotted $config-color-grey--3;
-            border-radius: 5px;
+            background-color: $theme-base-img-missing-background;
+            border: $theme-base-img-missing-border;
+            border-radius: $theme-base-img-missing-border-radius;
         }
 
         &::after {
@@ -45,7 +45,7 @@
             font-family: fonticons;
             @include font-size($config-type-scale-9);
             font-style: normal;
-            color: $config-color-grey--6;
+            color: $theme-base-img-missing-color;
             text-align: center;
             content: '\ea07 ' attr(alt) ' Image could not be loaded';
         }

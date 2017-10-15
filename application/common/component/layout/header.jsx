@@ -9,11 +9,12 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires prop-types
  * @requires react-redux
+ * @requires react-router
  * @requires classnames
  * @requires lodash
  * @requires common/component/decorator/add-content
@@ -28,6 +29,7 @@
  * @requires common/component/element/nav
  *
  * @changelog
+ * - 0.0.4 added withRouter to get correct rendering after hydrate
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -35,6 +37,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
@@ -71,21 +74,28 @@ import {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} props - The current component props
+ * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
+ * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
+ * @param {Array.<string>} props.intlAvailableLocales - All available locale strings
+ * @param {string} props.intlLocale - The current locale string
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {Object} [props.content={}] - The component content config
+ * @param {boolean} [props.headerFixed] - Whether the navigation bar is sticky/ficked or not
+ * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
+ * @returns {ReactElement} React component markup
  */
 function LayoutHeader(props) {
     const {
         className,
         content,
-        handleIntlChangeLocale,
-        intlLocale,
-        intlAvailableLocales,
         handleChangeDialogVisibleSearch,
+        handleIntlChangeLocale,
         headerFixed,
-        headerVisible
+        headerVisible,
+        intlAvailableLocales,
+        intlLocale
     } = props;
-
     const contentSection = getContentSection(content);
 
     const componentClassName = classnames(
@@ -165,7 +175,6 @@ function LayoutHeader(props) {
                                             handleChangeDialogVisibleSearch();
                                         }}
                                         title={'Suche'}
-                                        isTargetSelf
                                     >
                                         <span className='c-btn__label'>
                                             <Icon className='c-btn__icon' icon='search' />
@@ -186,14 +195,6 @@ function LayoutHeader(props) {
  *
  * @static
  * @type {Object}
- * @property {Function} handleIntlChangeLocale - Function handling language state changes
- * @property {Function} handleChangeDialogVisibleSearch - Function handling dialog state changes
- * @property {string} intlLocale - The current locale string
- * @property {Array.<string>} intlAvailableLocales - All available locale strings
- * @property {boolean} [headerFixed] - Whether the navigation bar is sticky/ficked or not
- * @property {boolean} [headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {Object} [content={}] - The component content config
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
@@ -213,7 +214,6 @@ LayoutHeader.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutHeader.propTypes
  */
 LayoutHeader.defaultProps = {
     content: {}
@@ -232,10 +232,10 @@ LayoutHeader.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale,
-        intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
         headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible
+        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible,
+        intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
+        intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale
     };
 }
 
@@ -265,10 +265,10 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderContainer = connect(
+const LayoutHeaderContainer = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(addContent('LayoutHeader')(LayoutHeader));
+)(addContent('LayoutHeader')(LayoutHeader)));
 
 export default LayoutHeaderContainer;
 export {

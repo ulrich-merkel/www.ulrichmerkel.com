@@ -53,14 +53,18 @@ import {
     LayoutLoader,
     LayoutDialog
 } from './index';
-import PageBroadcast from '../page/broadcast';
-import PageSearch from '../page/search';
+import {
+    PageBroadcast,
+    PageSearch
+} from '../page';
 
 /**
  * Class representing a component.
  *
  * @class
  * @extends React.Component
+ * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
 
@@ -124,7 +128,7 @@ class LayoutBody extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
@@ -166,8 +170,6 @@ class LayoutBody extends Component {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The component content config
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -184,7 +186,6 @@ LayoutBody.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutBody.propTypes
  */
 LayoutBody.defaultProps = {
     content: {}
@@ -194,7 +195,7 @@ LayoutBody.defaultProps = {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  *
- * @type {React.Element}
+ * @type {ReactElement}
  */
 const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
 

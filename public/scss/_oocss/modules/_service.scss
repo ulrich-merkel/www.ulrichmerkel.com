@@ -55,7 +55,7 @@ $block: '#{$config-ns}m-service';
         margin-right: rem-calc($config-grid--gutter);
         color: $config-color-white;
         text-align: center;
-        background: $config-color-red;
+        background: $config-color-cinnabar;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             margin-right: 0;

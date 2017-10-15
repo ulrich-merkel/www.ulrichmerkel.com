@@ -1,6 +1,8 @@
-/* eslint-disableimport/export */
 /**
  * Es6 index module for easier export handling.
+ * Component element React classes are small parts of the page,
+ * like buttons and headlines. They often correspond to native
+ * html elements and are wrapped for easier maintaning.
  *
  * @file
  * @module
@@ -25,7 +27,7 @@ export { default as Label } from './label';
 export { default as Legend } from './legend';
 export { default as Meta } from './meta';
 export { default as Nav } from './nav';
-export { default as Paragraph } from './paragraph';
+export { default as P } from './paragraph';
 export { default as Picture } from './picture';
 export { default as PictureSource } from './picture-source';
 export { default as Textarea } from './textarea';

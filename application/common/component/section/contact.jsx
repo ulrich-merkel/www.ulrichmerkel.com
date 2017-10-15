@@ -34,7 +34,10 @@ import ModuleArticle from '../module/article';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {Object} [props.content={}] - The content config input
+ * @param {boolean} [props.isMain=false] - Whether the component text should be displayed as main article or not
+ * @returns {ReactElement} React component markup
  */
 function SectionContact(props) {
     const {
@@ -58,9 +61,6 @@ function SectionContact(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The content config input
- * @property {boolean} [isMain=false] - Whether the component text should be displayed as main article or not
  */
 SectionContact.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -78,7 +78,6 @@ SectionContact.propTypes = {
  *
  * @static
  * @type {Object}
- * @see SectionForm.propTypes
  */
 SectionContact.defaultProps = {
     content: {},

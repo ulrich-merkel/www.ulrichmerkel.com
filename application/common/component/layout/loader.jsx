@@ -32,10 +32,10 @@ import { getContentSection } from '../../utils/content';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props.content={}] - The component content config
+ * @returns {ReactElement} React component markup
  */
 function LayoutLoader(props) {
-
     const {
         content
     } = props;
@@ -53,7 +53,6 @@ function LayoutLoader(props) {
             <div className='l-dialog__background' />
         </dialog>
     );
-
 }
 
 /**
@@ -61,7 +60,6 @@ function LayoutLoader(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] - The component content config
  */
 LayoutLoader.propTypes = {
     content: PropTypes.shape({
@@ -76,7 +74,6 @@ LayoutLoader.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutLoader.propTypes
  */
 LayoutLoader.defaultProps = {
     content: {}

@@ -21,7 +21,6 @@ import { AVAILABLE_LOCALES } from '../state/intl/constants';
 /**
  * Walk through array
  *
- * @function
  * @private
  * @param {Array} source - The source content
  * @param {Function} callback - The ready callback
@@ -36,7 +35,6 @@ function traverseArray(source, callback) {
 /**
  * Walk through object
  *
- * @function
  * @private
  * @param {Object} source - The source content
  * @param {Function} callback - The ready callback
@@ -55,7 +53,6 @@ function traverseObject(source, callback) {
  *
  * @TODO: Use functional style, immutable
  *
- * @function
  * @private
  * @param {Object|Array|string} source - The source content
  * @param {Function} callback - The ready callback
@@ -79,7 +76,6 @@ function traverse(source, callback) {
 /**
  * @TODO: Use functional style, immutable
  *
- * @function
  * @private
  * @param {Object} configContent - The complete content config
  * @param {string} configTranslation - The complete content translation
@@ -100,7 +96,6 @@ function translateContent(configContent, configTranslation) {
 }
 
 /**
- * @function
  * @param {Object} config - The translated config
  * @returns {Function}
  */
@@ -113,7 +108,6 @@ function getContentSection(config) {
 /**
  * @TODO: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
  *
- * @function
  * @param {string} [locale=defaultLocale] - The current locale
  * @param {Object} config - The translation config
  * @param {string} configKey - The config key
