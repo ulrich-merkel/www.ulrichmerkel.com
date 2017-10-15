@@ -53,8 +53,10 @@ import {
     LayoutLoader,
     LayoutDialog
 } from './index';
-import PageBroadcast from '../page/broadcast';
-import PageSearch from '../page/search';
+import {
+    PageBroadcast,
+    PageSearch
+} from '../page';
 
 /**
  * Class representing a component.

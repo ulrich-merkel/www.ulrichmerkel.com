@@ -43,7 +43,6 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
 /**
  * Function representing the base html layout.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {string} props.locale - The current locale string
  * @param {Object} props.store - Critical redux initial config
@@ -55,8 +54,8 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
 function LayoutHtml(props) {
     const { locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
-        ? { manifest: url.cacheManifest }
-        : {};
+        ? url.cacheManifest
+        : null;
     const nonceConfig = getNonceConfig();
 
     /**
@@ -89,10 +88,10 @@ function LayoutHtml(props) {
      * short as possible. Avoid region, script or other subtags except
      * where they add useful distinguishing information.
      */
-    const langLocale = locale.split('-')[0];
+    const lang = locale.split('-')[0];
 
     return (
-        <html className='no-js' dir='ltr' lang={langLocale} {...manifest}>
+        <html className='no-js' dir='ltr' lang={lang} manifest={manifest}>
             <head>
                 <meta charSet='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
@@ -132,7 +131,6 @@ function LayoutHtml(props) {
             </body>
         </html>
     );
-
 }
 
 /**
@@ -165,7 +163,6 @@ LayoutHtml.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @param {Object.<*>} [ownProps] - The current component props

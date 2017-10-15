@@ -16,28 +16,39 @@ describe('common/component/layout/body', function () {
         }
     };
 
-    // @TODO: Fix useless test
-    // it('should trigger shouldComponentUpdate', function () {
-    //     const shouldComponentUpdate = sinon.spy(LayoutBody.prototype, 'shouldComponentUpdate');
+    it('should render correctly', function () {
+        const wrapper = mount(
+            <Provider store={mockedStore}>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        <div className='test'>Body Children</div>
+                    </LayoutBody>
+                </MemoryRouter>
+            </Provider>
+        );
+        expect(wrapper.find('.test').length).toEqual(1);
+    });
+    it('should trigger shouldComponentUpdate', function () {
+        const shouldComponentUpdate = sinon.spy(LayoutBody.prototype, 'shouldComponentUpdate');
 
-    //     const wrapper = mount(
-    //         <Provider store={mockedStore}>
-    //             <MemoryRouter>
-    //                 <LayoutBody {...defaultProps}>
-    //                     Body Children
-    //                 </LayoutBody>
-    //             </MemoryRouter>
-    //         </Provider>
-    //     );
+        const wrapper = mount(
+            <Provider store={mockedStore}>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        <div className='test'>Body Children</div>
+                    </LayoutBody>
+                </MemoryRouter>
+            </Provider>
+        );
 
-    //     expect(shouldComponentUpdate.calledOnce).toBeFalsy();
-    //     wrapper.setProps({
-    //         content: {
-    //             footer: 'bar'
-    //         }
-    //     });
-    //     expect(shouldComponentUpdate.calledOnce).toBeTruthy();
-    // });
+        expect(shouldComponentUpdate.calledOnce).toBeFalsy();
+        wrapper.setProps({
+            content: {
+                footer: 'bar'
+            }
+        });
+        expect(shouldComponentUpdate.calledOnce).toBeTruthy();
+    });
     it('should trigger handleScrollTop callback', function () {
         const handleScrollTop = sinon.spy(LayoutBody.prototype, 'handleScrollTop');
 
@@ -45,7 +56,7 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        Body Children
+                        <div className='test'>Body Children</div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>

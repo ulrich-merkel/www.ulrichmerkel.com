@@ -5,6 +5,7 @@ exports[`component/layout/html Snapshot should render correctly 1`] = `
   className="no-js"
   dir="ltr"
   lang="en"
+  manifest={null}
 >
   <head>
     <meta
