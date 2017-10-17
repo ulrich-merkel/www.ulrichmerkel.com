@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import GridCol from './../col';
+import GridCol from '../col';
 
 describe('common/component/grid/col', function () {
     it('should render correctly', function () {

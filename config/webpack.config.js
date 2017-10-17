@@ -1,3 +1,6 @@
+/* eslint-disable immutable/no-mutation */
+'use strict';
+
 const webpack = require('webpack');
 const path = require('path');
 
@@ -32,7 +35,7 @@ if (isProduction) {
                 comments: false
             }
         })
-    )
+    );
 }
 
 module.exports = {

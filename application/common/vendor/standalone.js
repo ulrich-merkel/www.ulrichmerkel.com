@@ -11,10 +11,13 @@
  * @changelog
  * - 0.0.1 basic function and structure
  */
-(function (document, navigator, standalone) {
+(function (win) {
     'use strict';
 
-    if (navigator && typeof navigator.standalone !== 'undefined' && navigator.standalone) {
+    var document = win.document,
+        navigator = document && document.navigator;
+
+    if (document && navigator && typeof navigator.standalone !== 'undefined' && navigator.standalone) {
         var curnode,
             location = document.location,
             stop = /^(a|html)$/i;
@@ -35,4 +38,4 @@
 
         }, false);
     }
-}(document, window.navigator, 'standalone'));
+}(typeof window !== 'undefined' ? window : {}));

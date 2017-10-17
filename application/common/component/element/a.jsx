@@ -1,22 +1,21 @@
 /* eslint-disable immutable/no-let, immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a html a tag or react-router component.
  *
  * @file
  * @module
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
- * @requires react-router
+ * @requires prop-types
+ * @requires react-router-dom
  * @requires classnames
  *
  * @changelog
+ * - 0.0.4 Switching to react-router@4
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
@@ -32,55 +31,48 @@
  * //  Link text
  * // </a>
  */
-import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} props - The current component props
+ * @param {string} props.to - The link target/react-router path
+ * @param {string} [props.activeClassName='is-active'] - The default is active state css class name
+ * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {string} [props.componentType='a'] - The component element type used for React.createElement
+ * @param {string} [props.title=''] - The title string to be set on a tag
+ * @param {boolean} [props.exact] - Exclusively passed to NavLink
+ * @returns {ReactElement} React component markup
  */
-function ElementA(props) {
-
+function A(props) {
     const {
-        componentType,
-        className,
         activeClassName,
-        isMenu,
-        isIndex,
-        isTargetSelf,
-        to,
         children,
+        className,
+        componentType,
+        exact,
+        strict,
         title,
+        to,
         ...otherProps
     } = props;
 
-    if (!to) {
-        return null;
-    }
-
-    const ancorAttributes = Object.assign(
-        {
-            href: to
-        },
-        !isTargetSelf && {
-            rel: 'noopener noreferrer',
-            target: '_blank'
-        }
-    );
-
-    const componentAttributes = {
-        to,
-        activeClassName
+    const ancorAttributes = {
+        href: to
     };
-
+    const componentAttributes = {
+        activeClassName,
+        exact,
+        strict,
+        to
+    };
     const componentClassName = classnames(
-        {
-            'm-menu__item': isMenu
-        },
         'c-link',
         className
     );
@@ -88,12 +80,15 @@ function ElementA(props) {
     let ComponentType = componentType,
         attributes = ancorAttributes;
 
-    if (to.charAt(0) === '/') {
-        ComponentType = Link;
-        attributes = componentAttributes;
+    if (to.includes('www.') || to.includes('http')) {
+        attributes = Object.assign(attributes, {
+            rel: 'noopener noreferrer',
+            target: '_blank'
+        });
     }
-    if (isIndex || to === '/') {
-        ComponentType = IndexLink;
+
+    if (to.charAt(0) === '/') {
+        ComponentType = NavLink;
         attributes = componentAttributes;
     }
 
@@ -102,7 +97,6 @@ function ElementA(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -110,26 +104,16 @@ function ElementA(props) {
  *
  * @static
  * @type {Object}
- * @property {string} to - The link target/react-router path
- * @property {string} [componentType='a'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [activeClassName='is-active'] - The default is active state css class name
- * @property {string} [title=''] - The title string to be set on a tag
- * @property {boolean} [isIndex=false] - Whether the component is link to home/index or not
- * @property {boolean} [isMenu=false] - Whether the component is displayed in a menu or not
- * @property {boolean} [isTargetSelf=false] - Whether to set rel and target blank attributes or not
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  */
-ElementA.propTypes = {
+A.propTypes = {
     to: PropTypes.string.isRequired,
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
     activeClassName: PropTypes.string,
-    title: PropTypes.string,
-    isIndex: PropTypes.bool,
-    isMenu: PropTypes.bool,
-    isTargetSelf: PropTypes.bool,
-    children: PropTypes.node // eslint-disable-line react/require-default-props
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    componentType: PropTypes.string,
+    exact: PropTypes.bool, // eslint-disable-line react/require-default-props
+    strict: PropTypes.bool, // eslint-disable-line react/require-default-props
+    title: PropTypes.string
 };
 
 /**
@@ -137,15 +121,11 @@ ElementA.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementA.propTypes
  */
-ElementA.defaultProps = {
-    componentType: 'a',
+A.defaultProps = {
     activeClassName: 'is-active',
-    title: '',
-    isIndex: false,
-    isMenu: false,
-    isTargetSelf: false
+    componentType: 'a',
+    title: ''
 };
 
-export default ElementA;
+export default A;

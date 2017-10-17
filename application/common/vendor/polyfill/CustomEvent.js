@@ -1,6 +1,6 @@
 (function () {
 
-    if (typeof window === undefined) {
+    if (typeof window === 'undefined') {
         return Function.prototype;
     }
 

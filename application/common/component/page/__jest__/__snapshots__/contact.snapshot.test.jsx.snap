@@ -26,6 +26,20 @@ exports[`common/component/page/contact should render correctly 1`] = `
               itemScope={true}
               itemType="https://schema.org/Article"
             >
+              <h1
+                className="is-centered c-type--h1 m-article__headline"
+                itemProp="headline"
+              >
+                Send me a message
+              </h1>
+              <p
+                className="is-centered c-type--p m-article__lead"
+                itemProp="alternativeHeadline"
+              >
+                <strong>
+                  Get in touch
+                </strong>
+              </p>
               <div
                 className="m-article__text"
                 itemProp="text"
@@ -49,7 +63,9 @@ exports[`common/component/page/contact should render correctly 1`] = `
                   >
                     <legend
                       className="m-form__legend is-visually-hidden"
-                    />
+                    >
+                      Contactform
+                    </legend>
                     <div
                       className="l-grid__row"
                     >
@@ -76,7 +92,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             className="m-form__label"
                             htmlFor="name"
                           >
-                            
+                            Your name
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error"
@@ -111,7 +127,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             className="m-form__label"
                             htmlFor="email"
                           >
-                            
+                            Your email
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error"
@@ -150,7 +166,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             className="m-form__label"
                             htmlFor="subject"
                           >
-                            
+                            Your subject
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error"
@@ -189,6 +205,7 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             className="m-form__label"
                             htmlFor="message"
                           >
+                            Your message
                             <i
                               aria-hidden="true"
                               className="c-font-icon--sad m-form__label__icon--error"
@@ -215,14 +232,14 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             id="reset"
                             name="reset"
                             role="button"
-                            title=""
+                            title="Reset form"
                             to={undefined}
                             type="reset"
                           >
                             <span
                               className="c-btn__label"
                             >
-                              
+                              Reset form
                             </span>
                           </button>
                         </div>
@@ -238,14 +255,14 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             id="submit"
                             name="submit"
                             role="button"
-                            title=""
+                            title="Send message"
                             to={undefined}
                             type="submit"
                           >
                             <span
                               className="c-btn__label"
                             >
-                              
+                              Send message
                             </span>
                           </button>
                         </div>
@@ -259,6 +276,12 @@ exports[`common/component/page/contact should render correctly 1`] = `
                   </fieldset>
                 </form>
               </div>
+              <meta
+                content="Send me a message"
+                itemProp="name"
+                name={undefined}
+                property={undefined}
+              />
             </article>
           </div>
         </div>

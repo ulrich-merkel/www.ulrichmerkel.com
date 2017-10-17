@@ -11,7 +11,7 @@
  * @see {@link https://davidwalsh.name/fetch}
  * @see {@link https://hacks.mozilla.org/2015/03/this-api-is-so-fetching/}
  *
- * @requires 'isomorphic-fetch'
+ * @requires isomorphic-fetch
  * @requires common/config/application
  * @requires common/utils/environment
  *
@@ -20,7 +20,7 @@
  */
 import fetch from 'isomorphic-fetch';
 
-import { host, port } from './../config/application';
+import { host, port } from '../config/application';
 import { isNode } from './environment';
 
 const XHR_DEFAULT_HEADERS = {
@@ -36,7 +36,6 @@ const XHR_DEFAULT_HEADERS = {
  *
  * @see {@link https://github.com/github/fetch}
  *
- * @function
  * @private
  * @param {Object} response - The http request response from a network request
  * @returns {Object} The response or throws an error
@@ -59,7 +58,6 @@ function checkStatus(response) {
  * @returns {Object} Promise
  */
 function xhr(url, options = {}) {
-
     const fetchOptions = Object.assign({}, {
         method: 'POST',
         mode: 'same-origin',

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, no-underscore-dangle, immutable/no-let */
 import httpMocks from 'node-mocks-http';
-import middleware from './../react';
+import middleware from '../react';
 
 describe('server/middleware/react', function () {
     let req,

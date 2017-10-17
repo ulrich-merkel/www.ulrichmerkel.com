@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a html headline tag, like h1, h2, h3...
  *
  * @file
  * @module
@@ -13,6 +10,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
@@ -29,7 +27,8 @@
  * // My Headline Text
  * // </h1>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -37,10 +36,12 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @property {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement
+ * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
+ * @returns {ReactElement} React component markup
  */
 function ElementHeadline(props) {
-
     const {
         htmlElement: HtmlElement,
         className,
@@ -59,7 +60,6 @@ function ElementHeadline(props) {
     return (
         <HtmlElement className={componentClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -67,9 +67,6 @@ function ElementHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [htmlElement='h1'] - The component element type used for React.createElement
- * @property {boolean} [isCentered=true] - Whether the component should be centered via css or not
  */
 ElementHeadline.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -89,12 +86,10 @@ ElementHeadline.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementHeadline.propTypes
  */
 ElementHeadline.defaultProps = {
     htmlElement: 'h1',
     isCentered: true
 };
-
 
 export default ElementHeadline;

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementHeadline from './../headline';
+import ElementHeadline from '../headline';
 
 describe('common/component/element/headline', function () {
     describe('Snapshot', function () {

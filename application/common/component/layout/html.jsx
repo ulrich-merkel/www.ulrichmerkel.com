@@ -14,6 +14,7 @@
  * @see {@link http://www.html5rocks.com/en/tutorials/security/content-security-policy/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires react-helmet
  * @requires lodash
@@ -28,28 +29,33 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { get, omit } from 'lodash';
 import serialize from 'serialize-javascript';
 
-import { selectStateIntlLocale } from './../../state/selectors';
-import configApplication, { url, csp } from './../../config/application';
-import { getNonceConfig, getCspRules } from './../../utils/csp';
+import { selectStateIntlLocale } from '../../state/selectors';
+import configApplication, { url, csp } from '../../config/application';
+import { getNonceConfig, getCspRules } from '../../utils/csp';
 
 /**
  * Function representing the base html layout.
  *
- * @function
- * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} props - The current component props
+ * @param {string} props.locale - The current locale string
+ * @param {Object} props.store - Critical redux initial config
+ * @param {Array|string} [props.children] - The component react children
+ * @param {Object} [props.cssBase=''] - File contents of base css file
+ * @param {Object} [props.scriptBootstrap=''] - File contents of loader javascript file
+ * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
     const { locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
-        ? { manifest: url.cacheManifest }
-        : {};
+        ? url.cacheManifest
+        : null;
     const nonceConfig = getNonceConfig();
 
     /**
@@ -82,10 +88,10 @@ function LayoutHtml(props) {
      * short as possible. Avoid region, script or other subtags except
      * where they add useful distinguishing information.
      */
-    const langLocale = locale.split('-')[0];
+    const lang = locale.split('-')[0];
 
     return (
-        <html className='no-js' dir='ltr' lang={langLocale} {...manifest}>
+        <html className='no-js' dir='ltr' lang={lang} manifest={manifest}>
             <head>
                 <meta charSet='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
@@ -125,7 +131,6 @@ function LayoutHtml(props) {
             </body>
         </html>
     );
-
 }
 
 /**
@@ -133,11 +138,6 @@ function LayoutHtml(props) {
  *
  * @static
  * @type {Object}
- * @property {string} locale - The current locale string
- * @property {Object} store - Critical redux initial config
- * @property {Array|string} [children] - The component react children
- * @property {Object} [cssBase=''] - File contents of base css file
- * @property {Object} [scriptBootstrap=''] - File contents of loader javascript file
  */
 LayoutHtml.propTypes = {
     locale: PropTypes.string.isRequired,
@@ -152,7 +152,6 @@ LayoutHtml.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutHtml.propTypes
  */
 LayoutHtml.defaultProps = {
     cssBase: '',
@@ -164,7 +163,6 @@ LayoutHtml.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @param {Object.<*>} [ownProps] - The current component props

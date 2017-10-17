@@ -11,6 +11,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/utils/scroll-to
  * @requires common/component/key-visual/picture
@@ -23,10 +24,11 @@
  * - 0.0.1 Basic functions and structure
  *
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import scrollTo from './../../utils/scroll-to';
+import scrollTo from '../../utils/scroll-to';
 import ModuleKeyVisualPicture from './key-visual/picture';
 import ModuleKeyVisualArticle from './key-visual/article';
 import ModuleKeyVisualButton from './key-visual/button';
@@ -97,7 +99,7 @@ class ModuleKeyVisual extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 

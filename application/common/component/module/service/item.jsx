@@ -12,6 +12,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/headline
  * @requires common/component/element/paragraph
@@ -20,19 +21,20 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Headline from './../../element/headline';
-import P from './../../element/paragraph';
-import Icon from './../../element/icon';
+import Headline from '../../element/headline';
+import P from '../../element/paragraph';
+import Icon from '../../element/icon';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleServiceItem(props) {
 

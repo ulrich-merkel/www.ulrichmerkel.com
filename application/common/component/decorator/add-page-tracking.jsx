@@ -1,8 +1,6 @@
 /* eslint-disable immutable/no-this */
 /**
- * Es6 module for handling translation data.
- * Higher-Order Components (HOCs) and decorators are JavaScript functions
- * which add functionality to existing component classes.
+ * Es6 module for handling page views.
  *
  * @file
  * @module
@@ -13,31 +11,32 @@
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires common/state/page/actions
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addPageView } from './../../state/page/actions';
+import { addPageView } from '../../state/page/actions';
 
 /**
  * The tracking higher order function handling page visits.
  *
- * @function
- * @param {React.Element} SourceComponent - The react component to be decorated
- * @returns {React.Element}
+ * @param {ReactElement} SourceComponent - The react component to be decorated
+ * @returns {ReactElement}
  */
 function addPageTracking(SourceComponent) {
 
     /**
      * Wrapper class to connect to redux and handle tracking action.
      *
-     * @class
      * @extends React.Component
+     * @property {Function} props.handleAddPageView - Trigger page view increment
      */
     class AddPageTracking extends Component {
 
@@ -45,7 +44,6 @@ function addPageTracking(SourceComponent) {
          * Invoked once, both on the client and server,
          * immediately before the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentWillMount() {
@@ -55,8 +53,7 @@ function addPageTracking(SourceComponent) {
         /**
          * The required render function to return a single react child element.
          *
-         * @function
-         * @returns {React.Element} React component markup
+         * @returns {ReactElement} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;
@@ -69,7 +66,6 @@ function addPageTracking(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleAddPageView - Trigger page view increment
      */
     AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired

@@ -2,7 +2,7 @@
 jest.mock('fs');
 
 import fs from 'fs';
-import { readFile, readFileSync } from './../read-file';
+import { readFile, readFileSync } from '../read-file';
 
 describe('common/utils/read-file', function () {
     const MOCK_FILE_INFO = {
@@ -15,17 +15,14 @@ describe('common/utils/read-file', function () {
     });
 
     it('should read a file async', function () {
-        return readFile('/path/to/file1.js').then(function (result) {
-            return expect(result).toEqual(MOCK_FILE_INFO['/path/to/file1.js']);
-        }).catch(function (reason) {
-            expect(reason).not.toBeDefined();
-        });
+        const filePath = '/path/to/file1.js';
+        expect.assertions(1);
+        return expect(readFile(filePath)).resolves.toBe(MOCK_FILE_INFO[filePath]);
     });
-    it('should read no file async if file does not exist', function () {
-        return readFile('/wrong/path/to/file1.js').then(function (result) {
-            return expect(result).not.toBeDefined();
-        }).catch(function (reason) {
+    it('should read no file async if file does not exist', function (done) {
+        return readFile('/wrong/path/to/file1.js').then(jest.fn()).catch(function (reason) {
             expect(reason).toBeDefined();
+            done(); // eslint-diable-line promise/no-callback-in-promise
         });
     });
     it('should read a file sync', function () {

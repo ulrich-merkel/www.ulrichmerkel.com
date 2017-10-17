@@ -3,8 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import SectionFeatured from './../featured';
+import mockedStore from '../../__mocks__/store';
+import SectionFeatured from '../featured';
 
 describe('common/component/section/featured', function () {
     it('should render correctly', function () {

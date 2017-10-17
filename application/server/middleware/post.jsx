@@ -26,10 +26,10 @@
 import nodemailer from 'nodemailer';
 import assert from 'assert-plus';
 
-import configApplication, { url } from './../../common/config/application';
-import logger from './../../common/utils/logger';
-import xor from './../../common/utils/xor';
-import { isValid } from './../../common/state/contact/utils';
+import configApplication, { url } from '../../common/config/application';
+import logger from '../../common/utils/logger';
+import xor from '../../common/utils/xor';
+import { isValid } from '../../common/state/contact/utils';
 
 const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;
@@ -96,7 +96,6 @@ function middlewarePost(req, res) {
     assert.object(req, 'req');
     assert.object(res, 'res');
 
-    const transporter = nodemailer.createTransport();
     let postData = req.body; // eslint-disable-line immutable/no-let
 
     if (!postData) {
@@ -116,12 +115,17 @@ function middlewarePost(req, res) {
         return sendError(req, res, 'Data not valid');
     }
 
+    const transporter = nodemailer.createTransport({
+        sendmail: true
+    });
     return transporter.sendMail({
         from: postData.email,
         to: configApplication.email,
         subject: postData.subject,
         text: `${postData.name}\n ${postData.message}`
     }, function handleResponse(error, info) {
+        transporter.close();
+
         if (error) {
             logger.warn(error);
             return sendError(req, res, error);

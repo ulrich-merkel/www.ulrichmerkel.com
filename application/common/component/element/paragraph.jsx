@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a p html tag.
  *
  * @file
  * @module
@@ -13,6 +10,7 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
@@ -29,7 +27,8 @@
  * // Paragraph text content lorem ipsum dolor
  * // </p>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -37,15 +36,18 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
+ * @param {string} [props.htmlElement='p'] - The component element type used for React.createElement
+ * @param {boolean} [props.isCentered=false] - Whether the component should be centered via css or not
+ * @returns {ReactElement} React component markup
  */
 function ElementParagraph(props) {
-
     const {
-        htmlElement,
         className,
-        isCentered,
         hasColumns2,
+        htmlElement,
+        isCentered,
         ...otherProps
     } = props;
 
@@ -62,7 +64,6 @@ function ElementParagraph(props) {
     return (
         <ComponentType className={componentClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -70,16 +71,12 @@ function ElementParagraph(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='p'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [isCentered=false] - Whether the component should be centered via css or not
- * @property {boolean} [hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
  */
 ElementParagraph.propTypes = {
-    htmlElement: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isCentered: PropTypes.bool,
-    hasColumns2: PropTypes.bool
+    hasColumns2: PropTypes.bool,
+    htmlElement: PropTypes.string,
+    isCentered: PropTypes.bool
 };
 
 /**
@@ -87,12 +84,11 @@ ElementParagraph.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementParagraph.propTypes
  */
 ElementParagraph.defaultProps = {
+    hasColumns2: false,
     htmlElement: 'p',
-    isCentered: false,
-    hasColumns2: false
+    isCentered: false
 };
 
 export default ElementParagraph;

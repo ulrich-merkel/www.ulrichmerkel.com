@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleServiceItem from './../item';
+import ModuleServiceItem from '../item';
 
 describe('common/component/module/service/item', function () {
     const defaultProps = {

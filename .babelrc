@@ -14,15 +14,15 @@
     ],
     "ignore": [
         "**/__jest__/",
-        "**/__mocks__/"
+        "**/__mocks__/",
+        "**/__tests__/",
     ],
     "sourceMaps": true,
     "env": {
         "production": {
             "plugins": [
                 "transform-decorators-legacy",
-                "transform-react-remove-prop-types",
-                "transform-react-router-optimize"
+                "transform-react-remove-prop-types"
             ]
         }
     }

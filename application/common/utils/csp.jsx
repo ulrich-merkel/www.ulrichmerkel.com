@@ -39,7 +39,6 @@ import { isEmpty } from 'lodash';
  * Generate unique strings to be used as nonce
  * (means number only used once)
  *
- * @function
  * @private
  * @param {number} length - The generated number length
  * @returns {string}
@@ -59,7 +58,6 @@ function getNonce(length = 40) {
  * Generate nonce config for inline styles
  * and scripts.
  *
- * @function
  * @returns {Object}
  */
 function getNonceConfig() {
@@ -83,7 +81,6 @@ function getNonceConfig() {
  *
  * @see {@link http://stackoverflow.com/questions/32788355/csp-nonce-ignored-by-safari}
  *
- * @function
  * @param {Object} nonceConfig - The output from a getNonceConfig call
  * @returns {string}
  */

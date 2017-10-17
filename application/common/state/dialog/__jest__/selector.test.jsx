@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { selectStateDialogVisible, selectStateDialogPage } from './../selector';
+import { selectStateDialogVisible, selectStateDialogPage } from '../selector';
 
 describe('common/state/dialog/selector', function () {
     describe('selectStateDialogVisible', function () {

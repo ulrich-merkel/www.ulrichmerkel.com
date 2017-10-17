@@ -12,26 +12,28 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/a
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import A from './../../element/a';
+import A from '../../element/a';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element|null} React component markup
+ * @param {Object} [props.content={}] - The link content's text
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextLink(props) {
-
     const {
         content
     } = props;
@@ -63,7 +65,6 @@ function ModuleTextLink(props) {
             </A>
         </div>
     );
-
 }
 
 /**
@@ -71,7 +72,6 @@ function ModuleTextLink(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [content={}] - The link content's text
  */
 ModuleTextLink.propTypes = {
     content: PropTypes.shape({
@@ -86,7 +86,6 @@ ModuleTextLink.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextLink.propTypes
  */
 ModuleTextLink.defaultProps = {
     content: {}

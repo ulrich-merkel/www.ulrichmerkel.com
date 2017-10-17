@@ -12,13 +12,15 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.2 Moved to stateless function
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -26,13 +28,16 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.className] - The addition css classNames
+ * @param {number|string} [props.cols=12] - The grid column cols
+ * @param {string} [props.htmlElement='div'] - The component element type used for React.createElement
+ * @returns {ReactElement} React component markup
  */
 function GridCol(props) {
     const {
-        htmlElement,
-        cols,
         className,
+        cols,
+        htmlElement,
         ...otherProps
     } = props;
 
@@ -52,17 +57,14 @@ function GridCol(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='div'] - The component element type used for React.createElement
- * @property {string} [className] - The addition css classNames
- * @property {number|string} [cols=12] - The grid column cols
  */
 GridCol.propTypes = {
-    htmlElement: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     cols: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
-    ])
+    ]),
+    htmlElement: PropTypes.string
 };
 
 /**
@@ -70,11 +72,10 @@ GridCol.propTypes = {
  *
  * @static
  * @type {Object}
- * @see GridCol.propTypes
  */
 GridCol.defaultProps = {
-    htmlElement: 'div',
-    cols: 12
+    cols: 12,
+    htmlElement: 'div'
 };
 
 export default GridCol;

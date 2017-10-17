@@ -4,8 +4,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedWindowEvents from './../../../__mocks__/window-events';
-import ModuleKeyVisualPicture from './../picture';
+import mockedWindowEvents from '../../../__mocks__/window-events';
+import ModuleKeyVisualPicture from '../picture';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {
@@ -43,7 +43,8 @@ describe('common/component/layout/body', function () {
         );
 
         mockedWindowEvents.resize();
-        expect(wrapper.find('.m-key-visual__image[style]').length).toEqual(1);
+        // @TODO: Adjust expect for enzyme@16
+        expect(wrapper.find('.m-key-visual__image[style]').first().length).toEqual(1);
         expect(onResize.called).toBeTruthy();
         wrapper.unmount();
     });

@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { STATE_DIALOG_VISIBLE_CHANGE, STATE_DIALOG_PAGE_BROADCAST } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { STATE_DIALOG_VISIBLE_CHANGE, STATE_DIALOG_PAGE_BROADCAST } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/dialog/reducer', function () {
     it('should return the initial state', function () {

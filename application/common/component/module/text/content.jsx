@@ -12,33 +12,39 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
+ * @requires shortid
  * @requires common/component/element/paragraph
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import shortid from 'shortid';
 
-import P from './../../element/paragraph';
+import P from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element|null} React component markup
+ * @param {Array<string>} [props.content] - The content's text
+ * @param {boolean} [props.hasColumns2=false] - Whether the component text should be clusted in columns via css or not
+ * @param {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
+ * @returns {ReactElement|null} React component markup
  */
 function ModuleTextContent(props) {
-
     const {
         content,
         hasColumns2,
         isCentered
     } = props;
 
-    if (!content || !content.length) {
+    if (!Array.isArray(content) || !content.length) {
         return null;
     }
 
@@ -52,10 +58,13 @@ function ModuleTextContent(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            <P dangerouslySetInnerHTML={{ __html: content }} />
+            {content.map(function (html) {
+                return (
+                    <P key={shortid.generate()} dangerouslySetInnerHTML={{ __html: html }} />
+                );
+            })}
         </div>
     );
-
 }
 
 /**
@@ -63,12 +72,9 @@ function ModuleTextContent(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content] - The content's text
- * @property {boolean} [hasColumns2=false] - Whether the component text should be clusted in columns via css or not
- * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
  */
 ModuleTextContent.propTypes = {
-    content: PropTypes.node, // eslint-disable-line react/require-default-props
+    content: PropTypes.arrayOf(PropTypes.string), // eslint-disable-line react/require-default-props
     hasColumns2: PropTypes.bool,
     isCentered: PropTypes.bool
 };
@@ -78,7 +84,6 @@ ModuleTextContent.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextContent.propTypes
  */
 ModuleTextContent.defaultProps = {
     hasColumns2: false,

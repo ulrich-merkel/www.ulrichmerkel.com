@@ -1,9 +1,6 @@
 /* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a input component with a wrapper to be used within a form.
  *
  * @file
  * @module
@@ -12,6 +9,7 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires common/component/element/input
  * @requires common/component/element/label
@@ -21,7 +19,8 @@
  * - 0.0.2 Add isLabelVisuallyHidden and placeholder to props
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Input from './input';
@@ -36,6 +35,18 @@ import Icon from './icon';
  *
  * @class
  * @extends React.Component
+ * @property {string} props.id - The input id attribute
+ * @property {string} props.name - The input name attribute
+ * @property {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [props.isLabelVisuallyHidden] - Whether the label legend is visually hidden or not
+ * @property {boolean} [props.isPristine=false] - Whether the input has a user given value or not
+ * @property {boolean} [props.isValid=true] - Whether the input has a valid value or not
+ * @property {string} [props.itemProp] - The itemProp input attribute
+ * @property {string} [props.label=''] - The current label string
+ * @property {Function} [props.onBlur=Function.prototype] - The input blur handler
+ * @property {Function} [props.onChange=Function.prototype] - The input change handler
+ * @property {string} [props.type='text'] - The input type attribute
+ * @property {string} [props.value=''] - The default input value
  */
 class ElementInputGroup extends Component {
 
@@ -43,22 +54,22 @@ class ElementInputGroup extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
             id,
-            itemProp,
-            name,
-            onChange,
-            onBlur,
-            label,
-            type,
             isLabelVisuallyHidden,
-            placeholder,
-            value,
-            isValid,
             isPristine,
+            isValid,
+            itemProp,
+            label,
+            name,
+            onBlur,
+            onChange,
+            placeholder,
+            type,
+            value,
             ...otherProps
         } = this.props;
 
@@ -103,32 +114,20 @@ class ElementInputGroup extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id - The input id attribute
- * @property {string} name - The input name attribute
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [isPristine=false] - Whether the input has a user given value or not
- * @property {boolean} [isValid=true] - Whether the input has a valid value or not
- * @property {string} [isValid=true] - Whether the input has a valid value or not
- * @property {string} [itemProp] - The itemProp input attribute
- * @property {string} [type='text'] - The input type attribute
- * @property {boolean} [isLabelVisuallyHidden] - Whether the label legend is visually hidden or not
- * @property {Function} [onBlur=Function.prototype] - The input blur handler
- * @property {Function} [onChange=Function.prototype] - The input change handler
- * @property {string} [value=''] - The default input value
  */
 ElementInputGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
+    isLabelVisuallyHidden: PropTypes.bool,
     isPristine: PropTypes.bool,
     isValid: PropTypes.bool,
     itemProp: PropTypes.string,  // eslint-disable-line react/require-default-props
     label: PropTypes.string,
-    type: PropTypes.string,
-    isLabelVisuallyHidden: PropTypes.bool,
-    placeholder: PropTypes.string, // eslint-disable-line react/require-default-props
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
+    placeholder: PropTypes.string, // eslint-disable-line react/require-default-props
+    type: PropTypes.string,
     value: PropTypes.string
 };
 
@@ -137,16 +136,15 @@ ElementInputGroup.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementButtonGroup.propTypes
  */
 ElementInputGroup.defaultProps = {
+    isLabelVisuallyHidden: false,
     isPristine: false,
     isValid: true,
     label: '',
-    type: 'text',
-    isLabelVisuallyHidden: false,
     onBlur: Function.prototype,
     onChange: Function.prototype,
+    type: 'text',
     value: ''
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleCornerstone from './../cornerstone';
+import ModuleCornerstone from '../cornerstone';
 
 describe('common/component/module/cornerstone', function () {
     const defaultProps = {

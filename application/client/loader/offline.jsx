@@ -19,10 +19,10 @@
  * - 0.0.2 Improve code style
  * - 0.0.1 Basic functions and structure
  */
-import { debug } from './../../common/config/application';
-import logger from './../../common/utils/logger';
-import { isBrowser } from './../../common/utils/environment';
-import { setDomNodeAttribute, setDomNodeClassName } from './../utils/dom';
+import { debug } from '../../common/config/application';
+import logger from '../../common/utils/logger';
+import { isBrowser } from '../../common/utils/environment';
+import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
 
 const hasWidthClasses = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function mapNumbers(number) {
     return `has-width--${number * 10}`;

@@ -12,24 +12,26 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires common/component/element/headline
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Headline from './../../element/headline';
+import Headline from '../../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.text=''] - The headline text
+ * @returns {ReactElement} React component markup
  */
 function ModuleTextHeadline(props) {
-
     const {
         text
     } = props;
@@ -43,7 +45,6 @@ function ModuleTextHeadline(props) {
             {text}
         </Headline>
     );
-
 }
 
 /**
@@ -51,7 +52,6 @@ function ModuleTextHeadline(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [text=''] - The headline text
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
@@ -62,7 +62,6 @@ ModuleTextHeadline.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleTextHeadline.propTypes
  */
 ModuleTextHeadline.defaultProps = {
     text: ''

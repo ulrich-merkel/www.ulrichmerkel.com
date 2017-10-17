@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
-import ModuleArticleButton from './../button';
+import ModuleArticleButton from '../button';
 
 describe('common/component/module/article/button', function () {
     const defaultProps = {
@@ -13,28 +14,34 @@ describe('common/component/module/article/button', function () {
 
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ModuleArticleButton
-                {...defaultProps}
-            />
+            <MemoryRouter>
+                <ModuleArticleButton
+                    {...defaultProps}
+                />
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render btnLabel if btnTitle is empty', function () {
         const tree = renderer.create(
-            <ModuleArticleButton
-                {...defaultProps}
-                btnTitle={null}
-            />
+            <MemoryRouter>
+                <ModuleArticleButton
+                    {...defaultProps}
+                    btnTitle={null}
+                />
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content is empty', function () {
         const tree = renderer.create(
-            <ModuleArticleButton
-                {...defaultProps}
-                btnTo={null}
-                btnLabel={null}
-            />
+            <MemoryRouter>
+                <ModuleArticleButton
+                    {...defaultProps}
+                    btnTo={null}
+                    btnLabel={null}
+                />
+            </MemoryRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

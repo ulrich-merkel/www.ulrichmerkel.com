@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { selectStateIntlLocale, selectStateIntlAvailableLocales } from './../selector';
-import { defaultState } from './../reducer';
+import { selectStateIntlLocale, selectStateIntlAvailableLocales } from '../selector';
+import { defaultState } from '../reducer';
 
 describe('common/state/intl/selector', function () {
     describe('selectStateIntlLocale', function () {

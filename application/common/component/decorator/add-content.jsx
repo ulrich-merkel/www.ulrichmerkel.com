@@ -1,7 +1,5 @@
 /**
  * Es6 module for handling translation data.
- * Higher-Order Components (HOCs) and decorators are JavaScript functions
- * which add functionality to existing component classes.
  *
  * @file
  * @module
@@ -12,6 +10,7 @@
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires lodash
  * @requires common/utils/content
@@ -23,17 +22,17 @@
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 
-import { getTranslatedContent } from './../../utils/content';
-import { selectStateConfig, selectStateIntlLocale } from './../../state/selectors';
+import { getTranslatedContent } from '../../utils/content';
+import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
 
 /**
  * Higher order function to get translation data.
  *
- * @function
  * @param {string} configKey - The object key to be found in translation config
  * @returns {Function}
  */
@@ -42,21 +41,20 @@ function addContent(configKey) {
     /**
      * The react higher order function for passing data to props.
      *
-     * @function
-     * @param {React.Element} SourceComponent - The react component to be decorated
-     * @returns {React.Element}
+     * @param {ReactElement} SourceComponent - The react component to be decorated
+     * @returns {ReactElement}
      */
     return function sourceComponent(SourceComponent) {
 
         /**
          * Wrapper component to get redux state.
          *
-         * @function
-         * @param {Object} [props] - The current component props
-         * @returns {React.Element} React component markup
+         * @param {Object} props - The current component props
+         * @param {Object} props.config - The content configuration
+         * @param {string} props.locale - The current locale string
+         * @returns {ReactElement} React component markup
          */
         function ReturnedComponent(props) {
-
             const { locale, config } = props;
             const content = getTranslatedContent(locale, config, configKey);
 
@@ -65,7 +63,6 @@ function addContent(configKey) {
             }
 
             return <SourceComponent content={content} {...props} />;
-
         }
 
         /**
@@ -73,12 +70,10 @@ function addContent(configKey) {
          *
          * @static
          * @type {Object}
-         * @property {string} locale - The current locale string
-         * @property {Object} config - The content configuration
          */
         ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
-            locale: PropTypes.string.isRequired,
-            config: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+            config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+            locale: PropTypes.string.isRequired
         };
 
         /**
@@ -86,7 +81,6 @@ function addContent(configKey) {
          * mapStateToProps will be called, Its result must be a plain object,
          * and it will be merged into the component’s props.
          *
-         * @function
          * @private
          * @param {Object.<*>} state - The redux store state
          * @param {Object.<*>} [ownProps] - The current component props
@@ -94,8 +88,8 @@ function addContent(configKey) {
          */
         function mapStateToProps(state, ownProps) {
             return {
-                locale: selectStateIntlLocale(state) || get(ownProps, 'locale'),
-                config: selectStateConfig(state) || get(ownProps, 'config')
+                config: selectStateConfig(state) || get(ownProps, 'config'),
+                locale: selectStateIntlLocale(state) || get(ownProps, 'locale')
             };
         }
 

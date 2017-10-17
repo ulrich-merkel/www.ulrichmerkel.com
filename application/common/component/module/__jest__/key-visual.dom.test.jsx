@@ -4,7 +4,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import ModuleKeyVisual from './../key-visual';
+import ModuleKeyVisual from '../key-visual';
+
+global.window.scrollTo = function () {}; // eslint-disable-line immutable/no-mutation
 
 describe('common/component/module/key-visual', function () {
     const defaultProps = {
@@ -35,7 +37,8 @@ describe('common/component/module/key-visual', function () {
             </ModuleKeyVisual>
         );
 
-        wrapper.find('.m-key-visual__button--down').simulate('click');
+        // @TODO: Adjust expect for enzyme@16
+        wrapper.find('.m-key-visual__button--down').first().simulate('click');
         expect(onClickBtn.calledOnce).toBeTruthy();
     });
 });

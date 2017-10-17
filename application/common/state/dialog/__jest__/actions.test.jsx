@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { STATE_DIALOG_VISIBLE_CHANGE, STATE_DIALOG_PAGE_BROADCAST, STATE_DIALOG_PAGE_SEARCH } from './../constants';
-import { changeDialogVisible, changeDialogVisibleBroadcast, changeDialogVisibleSearch } from './../actions';
+import { STATE_DIALOG_VISIBLE_CHANGE, STATE_DIALOG_PAGE_BROADCAST, STATE_DIALOG_PAGE_SEARCH } from '../constants';
+import { changeDialogVisible, changeDialogVisibleBroadcast, changeDialogVisibleSearch } from '../actions';
 
 describe('common/state/dialog/actions', function () {
     describe('changeDialogVisible', function () {

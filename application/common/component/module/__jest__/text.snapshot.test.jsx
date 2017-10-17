@@ -3,10 +3,11 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import ModuleTextContainer from './../text';
+import mockedStore from '../../__mocks__/store';
+import ModuleTextContainer from '../text';
 
 describe('common/component/module/text', function () {
     const defaultProps = {
@@ -37,11 +38,13 @@ describe('common/component/module/text', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <ModuleTextContainer
-                    {...defaultProps}
-                >
-                    Module text children
-                </ModuleTextContainer>
+                <MemoryRouter>
+                    <ModuleTextContainer
+                        {...defaultProps}
+                    >
+                        Module text children
+                    </ModuleTextContainer>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();
@@ -49,14 +52,16 @@ describe('common/component/module/text', function () {
     it('should return null if no content is given', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <ModuleTextContainer
-                    {...defaultProps}
-                    content={{
-                        text: null
-                    }}
-                >
-                    Module text children not rendered
-                </ModuleTextContainer>
+                <MemoryRouter>
+                    <ModuleTextContainer
+                        {...defaultProps}
+                        content={{
+                            text: null
+                        }}
+                    >
+                        Module text children not rendered
+                    </ModuleTextContainer>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();
@@ -64,12 +69,14 @@ describe('common/component/module/text', function () {
     it('should render no itemType if unset', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <ModuleTextContainer
-                    {...defaultProps}
-                    itemType={null}
-                >
-                    Module text children
-                </ModuleTextContainer>
+                <MemoryRouter>
+                    <ModuleTextContainer
+                        {...defaultProps}
+                        itemType={null}
+                    >
+                        Module text children
+                    </ModuleTextContainer>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

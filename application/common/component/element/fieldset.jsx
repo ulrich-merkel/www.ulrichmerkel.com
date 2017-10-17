@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a fieldset html element.
  *
  * @file
  * @module
@@ -13,12 +10,14 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -26,10 +25,10 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @returns {ReactElement} React component markup
  */
 function ElementFieldset(props) {
-
     const {
         className,
         ...otherProps
@@ -43,7 +42,6 @@ function ElementFieldset(props) {
     return (
         <fieldset className={componentClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -51,7 +49,6 @@ function ElementFieldset(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [className] - The component css class names - will be merged into component default classNames
  */
 ElementFieldset.propTypes = {
     className: PropTypes.string // eslint-disable-line react/require-default-props

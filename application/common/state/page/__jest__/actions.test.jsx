@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { PAGE_INCREASE_VIEWS } from './../constants';
-import { addPageView } from './../actions';
+import { PAGE_INCREASE_VIEWS } from '../constants';
+import { addPageView } from '../actions';
 
 describe('common/state/page/actions', function () {
     describe('addPageView', function () {

@@ -12,44 +12,50 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
- * @requires common/component/decorator/add-page-tracking
  * @requires common/component/decorator/add-content
+ * @requires common/component/decorator/add-page-tracking
  * @requires common/utils/content
  * @requires common/component/layout/main
- * @requires common/component/section/text
  * @requires common/component/section/cornerstone
- * @requires common/component/section/service
  * @requires common/component/section/language
  * @requires common/component/section/reading
+ * @requires common/component/section/service
+ * @requires common/component/section/text
  *
  * @changelog
  + - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import addPageTracking from './../decorator/add-page-tracking';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import LayoutMain from './../layout/main';
-import SectionText from './../section/text';
-import SectionCornerstone from './../section/cornerstone';
-import SectionService from './../section/service';
-import SectionLanguage from './../section/language';
-import SectionReading from './../section/reading';
+import {
+    addContent,
+    addPageTracking
+} from '../decorator';
+import { getContentSection } from '../../utils/content';
+import LayoutMain from '../layout/main';
+import {
+    SectionCornerstone,
+    SectionLanguage,
+    SectionReading,
+    SectionService,
+    SectionText
+} from '../section';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} [props.content={}] - The component translation config
+ * @returns {ReactElement} React component markup
  */
 function PagePersona(props) {
-
     const contentSection = getContentSection(props.content);
 
     return (
@@ -62,7 +68,6 @@ function PagePersona(props) {
             <SectionReading content={contentSection('section5')} />
         </LayoutMain>
     );
-
 }
 
 /**
@@ -70,7 +75,6 @@ function PagePersona(props) {
  *
  * @static
  * @type {Object}
- * @property {Object} [content={}] - The component translation config
  */
 PagePersona.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -86,7 +90,6 @@ PagePersona.propTypes = {
  *
  * @static
  * @type {Object}
- * @see PagePersona.propTypes
  */
 PagePersona.defaultProps = {
     content: {}

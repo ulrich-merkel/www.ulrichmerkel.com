@@ -2,14 +2,15 @@
 import 'jsdom-global/register';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import LayoutHeader from './../header';
+import mockedStore from '../../__mocks__/store';
+import LayoutHeader from '../header';
 
 describe('common/component/layout/header', function () {
-    it('should trigger shouldComponentUpdate', function () {
+    it('should render correctly', function () {
         const defaultProps = {
             handleIntlChangeLocale: sinon.spy(),
             content: {
@@ -20,18 +21,22 @@ describe('common/component/layout/header', function () {
 
         const wrapper = mount(
             <Provider store={mockedStore}>
-                <LayoutHeader {...defaultProps}>
-                    Header Children
-                </LayoutHeader>
+                <MemoryRouter>
+                    <LayoutHeader {...defaultProps}>
+                        Header Children
+                    </LayoutHeader>
+                </MemoryRouter>
             </Provider>
         );
 
-        const btnLanguage = wrapper.find('.m-menu--aside .m-menu__item--en');
+        // @TODO: Adjust expect for enzyme@16
+        const btnLanguage = wrapper.find('.m-menu--aside .m-menu__item--en').first();
         if (btnLanguage.length) {
             btnLanguage.simulate('click');
         }
 
-        const btnSearch = wrapper.find('.m-menu--aside .m-menu__item--search');
+        // @TODO: Adjust expect for enzyme@16
+        const btnSearch = wrapper.find('.m-menu--aside .m-menu__item--search').first();
         if (btnSearch.length) {
             btnSearch.simulate('click');
         }

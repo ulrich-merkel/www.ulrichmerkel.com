@@ -1,9 +1,7 @@
 /* eslint-disable immutable/no-this */
 /* global picturefill */
 /**
- * Es6 module for handling translation data.
- * Higher-Order Components (HOCs) and decorators are JavaScript functions
- * which add functionality to existing component classes.
+ * Es6 module for handling responsive images.
  *
  * @file
  * @module
@@ -26,13 +24,11 @@ import React, { Component } from 'react';
  *
  * @see {@link http://scottjehl.github.io/picturefill/}
  *
- * @function
  * @private
  * @returns {void}
  */
 function initPicturefill() {
-
-    // could be undefined e.g. in test files
+    // Could be undefined e.g. in test files
     if (typeof picturefill === 'undefined') {
         return;
     }
@@ -49,15 +45,14 @@ function initPicturefill() {
     setTimeout(() => {
         picturefill();
     });
-
 }
 
 /**
  * The pictureFill higher order function handling responsive images.
  *
  * @function
- * @param {React.Element} SourceComponent - The react component to be decorated
- * @returns {React.Element}
+ * @param {ReactElement} SourceComponent - The react component to be decorated
+ * @returns {ReactElement}
  */
 function pictureFill(SourceComponent) {
 
@@ -73,7 +68,6 @@ function pictureFill(SourceComponent) {
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentDidMount() {
@@ -84,7 +78,6 @@ function pictureFill(SourceComponent) {
          * Invoked immediately after the component's updates are flushed to the DOM.
          * This method is not called for the initial render.
          *
-         * @function
          * @returns {void}
          */
         componentDidUpdate() {
@@ -94,8 +87,7 @@ function pictureFill(SourceComponent) {
         /**
          * The required render function to return a single react child element.
          *
-         * @function
-         * @returns {React.Element} React component markup
+         * @returns {ReactElement} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;

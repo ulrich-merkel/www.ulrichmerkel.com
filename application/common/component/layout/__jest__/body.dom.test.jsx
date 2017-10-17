@@ -2,11 +2,12 @@
 import 'jsdom-global/register';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import mockedStore from './../../__mocks__/store';
-import { LayoutBody } from './../body';
+import mockedStore from '../../__mocks__/store';
+import { LayoutBody } from '../body';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {
@@ -15,14 +16,28 @@ describe('common/component/layout/body', function () {
         }
     };
 
+    it('should render correctly', function () {
+        const wrapper = mount(
+            <Provider store={mockedStore}>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        <div className='test'>Body Children</div>
+                    </LayoutBody>
+                </MemoryRouter>
+            </Provider>
+        );
+        expect(wrapper.find('.test').length).toEqual(1);
+    });
     it('should trigger shouldComponentUpdate', function () {
         const shouldComponentUpdate = sinon.spy(LayoutBody.prototype, 'shouldComponentUpdate');
 
         const wrapper = mount(
             <Provider store={mockedStore}>
-                <LayoutBody {...defaultProps}>
-                    Body Children
-                </LayoutBody>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        <div className='test'>Body Children</div>
+                    </LayoutBody>
+                </MemoryRouter>
             </Provider>
         );
 
@@ -39,15 +54,18 @@ describe('common/component/layout/body', function () {
 
         const wrapper = mount(
             <Provider store={mockedStore}>
-                <LayoutBody {...defaultProps}>
-                    Body Children
-                </LayoutBody>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        <div className='test'>Body Children</div>
+                    </LayoutBody>
+                </MemoryRouter>
             </Provider>
         );
 
         const footerButton = wrapper.find('.l-footer__button--up');
         expect(handleScrollTop.calledOnce).toBeFalsy();
-        footerButton.simulate('click');
+        // @TODO: Adjust expect for enzyme@16
+        footerButton.first().simulate('click');
         expect(handleScrollTop.calledOnce).toBeTruthy();
     });
 });

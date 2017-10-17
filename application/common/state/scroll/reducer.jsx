@@ -22,7 +22,7 @@ import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './constants';
  * @type {Object}
  */
 const defaultState = {
-    headerFixed: false,
+    headerFixed: true,
     headerVisible: true
 };
 
@@ -47,18 +47,15 @@ function reducer(state = defaultState, action) {
         const headerFixed = action.headerFixed !== undefined
             ? !!action.headerFixed
             : defaultState.headerFixed;
-
         return {
             ...state,
             headerFixed
         };
-
     }
     case SCROLL_HEADER_VISIBLE: {
         const headerVisible = action.headerVisible !== undefined
             ? !!action.headerVisible
             : defaultState.headerVisible;
-
         return {
             ...state,
             headerVisible

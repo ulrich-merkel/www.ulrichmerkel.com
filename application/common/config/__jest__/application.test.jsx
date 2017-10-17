@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
 import { isNumber, isString } from 'lodash';
-import configApplication, { port, host, sessionSecret, url } from './../application';
+import configApplication, { port, host, sessionSecret, url } from '../application';
 
 describe('common/config/application', function () {
     it('should have valid port and host', function () {

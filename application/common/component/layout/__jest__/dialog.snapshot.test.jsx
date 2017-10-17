@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { LayoutDialog } from './../dialog';
+import { LayoutDialog } from '../dialog';
 
 describe('common/component/layout/dialog', function () {
     const defaultProps = {

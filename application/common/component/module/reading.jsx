@@ -12,6 +12,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires shortid
  * @requires common/component/module/reading/item
@@ -24,7 +25,8 @@
  *
  * @example <caption>Example usage (jsx)</caption>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
@@ -35,7 +37,7 @@ import ModuleReadingItem from './reading/item';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleReading(props) {
 

@@ -3,7 +3,6 @@
 exports[`component/layout/loader Snapshot should render correctly 1`] = `
 <dialog
   className="l-dialog--loading"
-  role="dialog"
 >
   <div
     className="l-dialog__content"

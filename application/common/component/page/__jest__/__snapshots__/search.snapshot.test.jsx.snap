@@ -98,7 +98,9 @@ exports[`common/component/page/search should render correctly 1`] = `
                 </form>
                 <h3
                   className="is-centered c-type--h3"
-                />
+                >
+                  Found 0 search results
+                </h3>
               </div>
             </article>
           </div>
@@ -202,7 +204,9 @@ exports[`common/component/page/search should render correctly as dialog 1`] = `
               </form>
               <h3
                 className="is-centered c-type--h3"
-              />
+              >
+                Found 0 search results
+              </h3>
             </div>
           </article>
         </div>

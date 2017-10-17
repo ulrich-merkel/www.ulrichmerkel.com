@@ -18,7 +18,7 @@
 import { createSelector } from 'reselect';
 
 /**
- * Select dialog state from redux store.
+ * Select dialog visible state from redux store.
  *
  * @function
  * @param {Object} state - The current redux state
@@ -36,6 +36,13 @@ const selectStateDialogVisible = createSelector(
     }
 );
 
+/**
+ * Select dialog page state from redux store.
+ *
+ * @function
+ * @param {Object} state - The current redux state
+ * @returns {boolean} The dialog visiblity state
+ */
 const selectStateDialogPage = createSelector(
     [
         (state) => state.dialog

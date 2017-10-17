@@ -14,8 +14,13 @@
  */
 import hasTouchEvents from './touch-events';
 
+/**
+ * Initialize feature detection for browsers and add
+ * css classnames to html.
+ *
+ * @returns {void}
+ */
 function featureDetect() {
-
     if (typeof window === 'undefined') {
         return;
     }
@@ -30,7 +35,6 @@ function featureDetect() {
 
     const touchEventsPrefix = hasTouchEvents() ? '' : 'no-';
     html.classList.add(`${touchEventsPrefix}touchevents`);
-
 }
 
 export default featureDetect;

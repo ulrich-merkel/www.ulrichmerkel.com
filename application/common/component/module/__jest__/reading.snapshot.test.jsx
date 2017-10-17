@@ -3,7 +3,7 @@
 // @see https://github.com/facebook/jest/issues/1353
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ModuleReading from './../reading';
+import ModuleReading from '../reading';
 
 describe('component/module/reading', function () {
     const defaultProps = {

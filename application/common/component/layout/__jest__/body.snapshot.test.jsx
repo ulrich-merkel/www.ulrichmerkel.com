@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, import/first */
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import { LayoutBody } from './../body';
+import mockedStore from '../../__mocks__/store';
+import { LayoutBody } from '../body';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {
@@ -15,9 +16,11 @@ describe('common/component/layout/body', function () {
     it('should render correctly', function () {
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <LayoutBody {...defaultProps}>
-                    Body Children
-                </LayoutBody>
+                <MemoryRouter>
+                    <LayoutBody {...defaultProps}>
+                        Body Children
+                    </LayoutBody>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();

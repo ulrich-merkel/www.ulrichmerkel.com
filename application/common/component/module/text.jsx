@@ -11,6 +11,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires react-redux
  * @requires shortid
@@ -28,13 +29,14 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisibleBroadcast } from './../../state/dialog/actions';
-import { isBrowser } from './../../utils/environment';
+import { changeDialogVisibleBroadcast } from '../../state/dialog/actions';
+import { isBrowser } from '../../utils/environment';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
 import ModuleTextPerson from './text/person';
@@ -46,6 +48,14 @@ import ModuleTextLink from './text/link';
  *
  * @class
  * @extends React.Component
+ * @property {function} [props.handleChangeDialogVisible=Function.prototype] - The redux action for handling the dialog
+ * @property {string} [props.componentType='div'] - The component element type used for React.createElement
+ * @property {string} [props.className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
+ * @property {boolean} [props.hasColumns2=true] - Whether the component text should be clusted in columns via css or not
+ * @property {string} [props.itemType=''] - The schema.org itemtype url attribute
+ * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [props.content={}] - The component translation config
  */
 class ModuleText extends Component {
 
@@ -152,17 +162,17 @@ class ModuleText extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
-            componentType,
+            children,
             className,
-            itemType,
-            isCentered,
-            hasColumns2,
+            componentType,
             content,
-            children
+            hasColumns2,
+            isCentered,
+            itemType
         } = this.props;
 
         if (!content.text || !content.text.length) {
@@ -222,23 +232,11 @@ class ModuleText extends Component {
  *
  * @static
  * @type {Object}
- * @property {function} [handleChangeDialogVisible=Function.prototype] - The redux action for handling the dialog
- * @property {string} [componentType='div'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [isCentered=false] - Whether the component text should be centered via css or not
- * @property {boolean} [hasColumns2=true] - Whether the component text should be clusted in columns via css or not
- * @property {string} [itemType=''] - The schema.org itemtype url attribute
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The component translation config
  */
 ModuleText.propTypes = {
-    handleChangeDialogVisible: PropTypes.func,
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isCentered: PropTypes.bool,
-    hasColumns2: PropTypes.bool,
-    itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    componentType: PropTypes.string,
     /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
         text: PropTypes.arrayOf(
@@ -259,8 +257,12 @@ ModuleText.propTypes = {
         btnTo: PropTypes.string,
         btnTitle: PropTypes.string,
         btnLabel: PropTypes.string
-    })
+    }),
     /* eslint-enable react/no-unused-prop-types */
+    handleChangeDialogVisible: PropTypes.func,
+    hasColumns2: PropTypes.bool,
+    isCentered: PropTypes.bool,
+    itemType: PropTypes.string
 };
 
 /**
@@ -268,15 +270,14 @@ ModuleText.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ModuleText.propTypes
  */
 ModuleText.defaultProps = {
-    handleChangeDialogVisible: Function.prototype,
     componentType: 'div',
-    isCentered: false,
+    content: {},
+    handleChangeDialogVisible: Function.prototype,
     hasColumns2: true,
-    itemType: '',
-    content: {}
+    isCentered: false,
+    itemType: ''
 };
 
 /**

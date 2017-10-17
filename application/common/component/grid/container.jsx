@@ -12,13 +12,15 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.2 Moved to stateless function
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -26,13 +28,14 @@ import classnames from 'classnames';
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {string} [props.className] - The addition css classNames
+ * @param {string} [props.htmlElement='section'] - The component element type used for React.createElement
+ * @returns {ReactElement} React component markup
  */
 function GridContainer(props) {
-
     const {
-        htmlElement,
         className,
+        htmlElement,
         ...otherProps
     } = props;
 
@@ -42,7 +45,6 @@ function GridContainer(props) {
     return (
         <ComponentType className={componentClassName} {...otherProps} />
     );
-
 }
 
 /**
@@ -50,12 +52,10 @@ function GridContainer(props) {
  *
  * @static
  * @type {Object}
- * @property {string} [htmlElement='section'] - The component element type used for React.createElement
- * @property {string} [className] - The addition css classNames
  */
 GridContainer.propTypes = {
-    htmlElement: PropTypes.string,
-    className: PropTypes.string // eslint-disable-line react/require-default-props
+    className: PropTypes.string, // eslint-disable-line react/require-default-props
+    htmlElement: PropTypes.string
 };
 
 /**
@@ -63,7 +63,6 @@ GridContainer.propTypes = {
  *
  * @static
  * @type {Object}
- * @see GridContainer.propTypes
  */
 GridContainer.defaultProps = {
     htmlElement: 'section'

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementImage from './../image';
+import ElementImage from '../image';
 
 describe('common/component/element/image', function () {
     it('should render correctly', function () {

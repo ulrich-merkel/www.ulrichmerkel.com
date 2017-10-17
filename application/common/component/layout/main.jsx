@@ -12,20 +12,23 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  *
  * @changelog
  * - 0.0.3 Moved to stateless function
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Array|string} [props.children] - The component react children
+ * @returns {ReactElement} React component markup
  */
 function LayoutMain(props) {
     return (
@@ -40,7 +43,6 @@ function LayoutMain(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component react children
  */
 LayoutMain.propTypes = {
     children: PropTypes.node // eslint-disable-line react/require-default-props

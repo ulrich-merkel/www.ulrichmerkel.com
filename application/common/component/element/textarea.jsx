@@ -1,9 +1,6 @@
 /* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a textarea html tag.
  *
  * @file
  * @module
@@ -12,12 +9,14 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
@@ -28,6 +27,16 @@ import classnames from 'classnames';
  *
  * @class
  * @extends React.Component
+ * @property {string} props.id - The input id attribute
+ * @property {string} props.name - The input name attribute
+ * @property {string} [props.className] - The textarea css class names - will be merged into component default classNames
+ * @property {boolean} [props.required=false] - The textarea required attribute
+ * @property {string} [props.placeholder=''] - The textarea placeholder attribute
+ * @property {string} [props.cols='50'] - The textarea cols attribute
+ * @property {string} [props.rows='4'] - The textarea rows attribute
+ * @property {string} [props.value] - The textarea value attribute
+ * @property {Function} [props.onBlur=Function.prototype] - The textarea onBlur handler
+ * @property {Function} [props.onChange=Function.prototype] - The textarea onChange handler
  */
 class ElementTextarea extends Component {
 
@@ -35,7 +44,7 @@ class ElementTextarea extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
 
@@ -67,28 +76,18 @@ class ElementTextarea extends Component {
  *
  * @static
  * @type {Object}
- * @property {string} id - The input id attribute
- * @property {string} name - The input name attribute
- * @property {string} [className] - The textarea css class names - will be merged into component default classNames
- * @property {boolean} [required=false] - The textarea required attribute
- * @property {string} [placeholder=''] - The textarea placeholder attribute
- * @property {string} [cols='50'] - The textarea cols attribute
- * @property {string} [rows='4'] - The textarea rows attribute
- * @property {string} [value] - The textarea value attribute
- * @property {Function} [onBlur=Function.prototype] - The textarea onBlur handler
- * @property {Function} [onChange=Function.prototype] - The textarea onChange handler
  */
 ElementTextarea.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    required: PropTypes.bool,
-    placeholder: PropTypes.string,
     cols: PropTypes.string,
-    rows: PropTypes.string,
-    value: PropTypes.string, // eslint-disable-line react/require-default-props
     onBlur: PropTypes.func,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    rows: PropTypes.string,
+    value: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 /**
@@ -99,12 +98,12 @@ ElementTextarea.propTypes = {
  * @see ElementTextarea.propTypes
  */
 ElementTextarea.defaultProps = {
-    required: false,
-    placeholder: '',
     cols: '50',
-    rows: '4',
     onBlur: Function.prototype,
-    onChange: Function.prototype
+    onChange: Function.prototype,
+    placeholder: '',
+    required: false,
+    rows: '4'
 };
 
 export default ElementTextarea;

@@ -1,41 +1,49 @@
 /* eslint-disable immutable/no-this, immutable/no-mutation */
 /* global window, document */
 /**
- * Es6 module for handling translation data.
- * Higher-Order Components (HOCs) and decorators are JavaScript functions
- * which add functionality to existing component classes.
+ * Es6 module for handling browser scrolling actions.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
+ * @requires react-router
  * @requires lodash
  * @requires common/state/scroll/actions
+ * @requires common/utils/environment
  * @requires common/utils/scroll-to
  *
  * @changelog
+ * - 0.0.3 Added scrollTop after change to react-router@4
  * - 0.0.2 Improved scroll handling
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from './../../state/scroll/actions';
-import { getPageOffset } from './../../utils/scroll-to';
+import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { isBrowser } from '../../utils/environment';
+import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+
+// @TODO: Should be computed from actual css declaration
+const HEADER_HEIGHT = 61;
 
 /**
  * The scroller higher order function handling window scrolling.
  *
  * @function
- * @param {React.Element} SourceComponent - The react component to be decorated
- * @returns {React.Element}
+ * @param {ReactElement} SourceComponent - The react component to be decorated
+ * @returns {ReactElement}
  */
 function scroller(SourceComponent) {
 
@@ -44,6 +52,9 @@ function scroller(SourceComponent) {
      *
      * @class
      * @extends React.Component
+     * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
+     * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
+     * @property {Object} props.location - Current router location properties
      */
     class Scroller extends Component {
 
@@ -89,19 +100,30 @@ function scroller(SourceComponent) {
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
          *
-         * @function
          * @returns {void}
          */
         componentDidMount() {
-            window.addEventListener('scroll', this.onScroll);
+            isBrowser() && window.addEventListener('scroll', this.onScroll);
             this.onScroll();
+        }
+
+        /**
+         * Invoked before a mounted component receives new props. React only calls
+         * this method if some of component's props may update.
+         *
+         * @param {Object} [nextProps] - The new class properties
+         * @returns {void}
+         */
+        componentWillReceiveProps (nextProps) {
+            if (this.props.location !== nextProps.location) {
+                this.scrollTop();
+            }
         }
 
         /**
          * Invoked immediately after the component's updates are flushed to
          * the DOM. This method is not called for the initial render.
          *
-         * @function
          * @returns {void}
          */
         componentDidUpdate() {
@@ -111,22 +133,18 @@ function scroller(SourceComponent) {
         /**
          * Invoked immediately before a component is unmounted from the DOM.
          *
-         * @function
          * @returns {void}
          */
         componentWillUnmount() {
-            window.removeEventListener('scroll', this.onScroll);
+            isBrowser() && window.removeEventListener('scroll', this.onScroll);
         }
 
         /**
          * Handle window scrolling to calculate header offset.
          *
-         * @function
          * @returns {void}
          */
         onScroll() {
-
-            const headerHeight = 61;
             const {
                 handleScrollChangeHeaderFixed,
                 handleScrollChangeHeaderVisible
@@ -150,20 +168,33 @@ function scroller(SourceComponent) {
             /**
              * User is scrolling down, so hide header.
              */
-            if (this.previousScrollY < currentScrollY && this.headerVisible && headerHeight < currentScrollY) {
+            if (this.previousScrollY < currentScrollY && this.headerVisible && HEADER_HEIGHT < currentScrollY) {
                 this.headerVisible = false;
                 handleScrollChangeHeaderVisible(this.headerVisible);
             }
 
             this.previousScrollY = currentScrollY;
+        }
 
+        /**
+         * Scroll to top, make sure the page is already scrolled.
+         *
+         * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
+         *
+         * @returns {void}
+         */
+        scrollTop() {
+            if (getPageOffset()) {
+                scrollTo({
+                    top: 0
+                });
+            }
         }
 
         /**
          * The required render function to return a single react child element.
          *
-         * @function
-         * @returns {React.Element} React component markup
+         * @returns {ReactElement} React component markup
          */
         render() {
             return <SourceComponent {...this.props} />;
@@ -175,12 +206,17 @@ function scroller(SourceComponent) {
      *
      * @static
      * @type {Object}
-     * @property {Function} handleScrollChangeHeaderFixed - Callback action for updating redux
-     * @property {Function} handleScrollChangeHeaderVisible - Callback action for updating redux
      */
     Scroller.propTypes = {
         handleScrollChangeHeaderFixed: PropTypes.func.isRequired,
-        handleScrollChangeHeaderVisible: PropTypes.func.isRequired
+        handleScrollChangeHeaderVisible: PropTypes.func.isRequired,
+        location: PropTypes.shape({
+            hash: PropTypes.string,
+            key: PropTypes.string,
+            pathname: PropTypes.string,
+            search: PropTypes.string,
+            state: PropTypes.object
+        }).isRequired
     };
 
     /**
@@ -195,7 +231,7 @@ function scroller(SourceComponent) {
             handleScrollChangeHeaderFixed: changeHeaderFixed,
             handleScrollChangeHeaderVisible: changeHeaderVisible
         }
-    )(Scroller);
+    )(withRouter(Scroller));
 
     return ScrollerContainer;
 

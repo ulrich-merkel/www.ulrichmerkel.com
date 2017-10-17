@@ -1,9 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 /**
- * Es6 module for React Component.
- * Component element React classes are small parts of the page,
- * like buttons and headlines. They often correspond to native
- * html elements and are wrapped for easier maintaning.
+ * Rendering a single html img tag.
  *
  * @file
  * @module
@@ -13,23 +10,27 @@
  * @version 0.0.1
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} props - The current component props
+ * @param {string} props.src - The current image location
+ * @param {string} [props.alt=''] - The image alt attribute
+ * @param {string} [props.className] - The component css class names, will be merged into component default classNames
+ * @returns {ReactElement} React component markup
  */
 function ElementImage(props) {
-
     const {
         className,
         alt,
@@ -50,7 +51,6 @@ function ElementImage(props) {
             {...otherProps}
         />
     );
-
 }
 
 /**
@@ -58,9 +58,6 @@ function ElementImage(props) {
  *
  * @static
  * @type {Object}
- * @property {string} src - The current image location
- * @property {string} [alt=''] - The image alt attribute
- * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
 ElementImage.propTypes = {
     src: PropTypes.string.isRequired,
@@ -73,7 +70,6 @@ ElementImage.propTypes = {
  *
  * @static
  * @type {Object}
- * @see ElementImage.propTypes
  */
 ElementImage.defaultProps = {
     alt: ''

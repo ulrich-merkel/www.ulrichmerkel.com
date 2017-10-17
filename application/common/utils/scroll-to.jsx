@@ -28,7 +28,6 @@ import { isBrowser } from './environment';
  *
  * @see https://gist.github.com/gre/1650294
  *
- * @function
  * @private
  * @param {number} t - The current animation process running from 0 to 1
  * @returns {number} The next process value
@@ -52,7 +51,6 @@ function easeInOutQuad(t) {
  * @returns {number} The current timestamp
  */
 let getTime = function getTimeLazyLoaded() {
-
     if (typeof performance !== 'undefined' && isFunction(performance.now)) {
         getTime = function getTimeFn() {
             return performance.now();
@@ -64,7 +62,6 @@ let getTime = function getTimeLazyLoaded() {
     }
 
     return getTime();
-
 };
 
 /**
@@ -76,7 +73,6 @@ let getTime = function getTimeLazyLoaded() {
  *
  * @see {@link https://github.com/yuanyan/react-image/blob/master/src/Image.js}
  *
- * @function
  * @private
  * @returns {number} The current scrolling y offset value
  */
@@ -98,7 +94,6 @@ function getPageOffset() {
  *
  * @see https://github.com/gre/bezier-easing
  *
- * @function
  * @private
  * @param {Object} [options] - The scrolling options
  * @param {number} [options.top] - The window scroll top position
@@ -108,7 +103,6 @@ function getPageOffset() {
  * @returns {void}
  */
 function animate(options) {
-
     const { render, duration, easing, callback } = options;
     const requestAnimationFrame = window.requestAnimationFrame;
     const cancelAnimationFrame = window.cancelAnimationFrame;
@@ -118,16 +112,12 @@ function animate(options) {
     let requestId;
 
     (function loop() {
-
         const p = (getTime() - start) / duration;
 
         if (p >= 1) {
-
             render(1);
             callback();
-
         } else {
-
             if (hasRequestAnimationFrame) {
                 requestId = requestAnimationFrame(loop);
             } else {
@@ -135,17 +125,13 @@ function animate(options) {
             }
 
             render(easing(p), requestId);
-
         }
-
     }());
-
 }
 
 /**
  * Animate window scroll position.
  *
- * @function
  * @param {Object} [opts={}] - The scrolling options
  * @param {number} [opts.top=0] - The window scroll top position
  * @param {number} [opts.duration=300] - The scrolling animation time
@@ -154,7 +140,6 @@ function animate(options) {
  * @returns {void}
  */
 function scrollTo(opts = {}) {
-
     const options = Object.assign({}, {
         top: 0,
         duration: 300,
@@ -166,9 +151,10 @@ function scrollTo(opts = {}) {
         options.callback.call(null, options);
         return;
     }
+    const hasWindowScrollTo = isFunction(window.scrollTo);
 
     if (!options.duration) {
-        window.scrollTo(0, options.top);
+        hasWindowScrollTo && window.scrollTo(0, options.top);
         options.callback.call(null, options);
         return;
     }
@@ -176,13 +162,13 @@ function scrollTo(opts = {}) {
     const scrollTopCurrent = getPageOffset();
     animate({
         render: function stepFunction(time) {
-            window.scrollTo(0, Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time)));
+            const top = Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time));
+            hasWindowScrollTo && window.scrollTo(0, top);
         },
         duration: options.duration,
         easing: options.easing,
         callback: options.callback.bind(null, options)
     });
-
 }
 
 export default scrollTo;

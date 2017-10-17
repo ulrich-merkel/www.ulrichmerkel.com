@@ -1,0 +1,10 @@
+export { default as SectionContact } from './contact';
+export { default as SectionCornerstone } from './cornerstone';
+export { default as SectionFeatured } from './featured';
+export { default as SectionKeyVisual } from './key-visual';
+export { default as SectionLanguage } from './language';
+export { default as SectionList } from './list';
+export { default as SectionReading } from './reading';
+export { default as SectionSearch } from './search';
+export { default as SectionService } from './service';
+export { default as SectionText } from './text';

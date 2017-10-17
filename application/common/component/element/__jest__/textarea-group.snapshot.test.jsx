@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ElementTextareaGroup from './../textarea-group';
+import ElementTextareaGroup from '../textarea-group';
 
 describe('common/component/element/textarea-group', function () {
     it('should render correctly', function () {

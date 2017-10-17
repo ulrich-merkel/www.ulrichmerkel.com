@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './../constants';
-import reducer, { defaultState } from './../reducer';
+import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from '../constants';
+import reducer, { defaultState } from '../reducer';
 
 describe('common/state/scroll/reducer', function () {
     it('should return the initial state', function () {

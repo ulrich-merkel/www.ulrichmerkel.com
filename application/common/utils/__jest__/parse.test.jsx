@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { toBoolean } from './../parse';
+import { toBoolean } from '../parse';
 
 describe('common/utils/parse', function () {
     describe('toBoolean', function () {

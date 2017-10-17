@@ -11,6 +11,7 @@
  * @version 0.0.4
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  * @requires classnames
  * @requires lodash
@@ -32,27 +33,31 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from './../../state/selectors';
-import { changeDialogVisible } from './../../state/actions';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import { isBrowser } from './../../utils/environment';
+import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
+import { changeDialogVisible } from '../../state/actions';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import { isBrowser } from '../../utils/environment';
 
-import GridSpaced from './../grid/spaced';
-import GridRow from './../grid/row';
-import GridCol from './../grid/col';
-import Button from './../element/button';
+import GridSpaced from '../grid/spaced';
+import GridRow from '../grid/row';
+import GridCol from '../grid/col';
+import Button from '../element/button';
 
 /**
  * Class representing a component.
  *
  * @class
  * @extends React.Component
+ * @property {Function} [props.handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
+ * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
+ * @property {Object} [props.content={}] - The component content config
  */
 class LayoutDialog extends Component {
 
@@ -155,7 +160,7 @@ class LayoutDialog extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
@@ -224,9 +229,6 @@ class LayoutDialog extends Component {
  *
  * @static
  * @type {Object}
- * @property {Function} [handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
- * @property {boolean} [dialogVisible=false] - Redux state whether this dialog is visible or not
- * @property {Object} [content={}] - The component content config
  */
 LayoutDialog.propTypes = {
     handleChangeDialogVisible: PropTypes.func,
@@ -250,7 +252,6 @@ LayoutDialog.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutDialog.propTypes
  */
 LayoutDialog.defaultProps = {
     handleChangeDialogVisible: Function.prototype,

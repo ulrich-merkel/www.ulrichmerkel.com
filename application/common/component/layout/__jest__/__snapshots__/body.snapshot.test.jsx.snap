@@ -6,7 +6,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
 >
   <dialog
     className="l-dialog--loading"
-    role="dialog"
   >
     <div
       className="l-dialog__content"
@@ -16,10 +15,14 @@ exports[`common/component/layout/body should render correctly 1`] = `
       >
         <div
           className="c-flip__front"
-        />
+        >
+          Now
+        </div>
         <div
           className="c-flip__back"
-        />
+        >
+          Loading
+        </div>
       </div>
     </div>
     <div
@@ -27,7 +30,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
     />
   </dialog>
   <header
-    className="l-header is-visible"
+    className="l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -57,11 +60,93 @@ exports[`common/component/layout/body should render correctly 1`] = `
             className="l-grid__col--12"
           >
             <input
-              aria-label={undefined}
+              aria-label="Menu"
               className="m-nav__toggle c-font-icon--menu"
-              data-label={undefined}
+              data-label="Menu"
               type="checkbox"
             />
+            <ul
+              className="m-menu m-menu--main m-nav__toggle-target"
+              itemScope={true}
+              itemType="https://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current="true"
+                  className="c-link m-menu__item is-active"
+                  href="/"
+                  itemProp="url"
+                  onClick={[Function]}
+                  role="menuitem"
+                  style={Object {}}
+                  tabIndex="0"
+                  title="Show some work"
+                >
+                  <span
+                    className="m-menu__label"
+                    itemProp="name"
+                  >
+                    Work
+                  </span>
+                </a>
+              </li>
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current={false}
+                  className="c-link m-menu__item"
+                  href="/persona"
+                  itemProp="url"
+                  onClick={[Function]}
+                  role="menuitem"
+                  style={undefined}
+                  tabIndex="0"
+                  title="Show information about my persona"
+                >
+                  <span
+                    className="m-menu__label"
+                    itemProp="name"
+                  >
+                    Persona
+                  </span>
+                </a>
+              </li>
+              <li
+                className="m-menu__list-item"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current={false}
+                  className="c-link m-menu__item"
+                  href="/contact"
+                  itemProp="url"
+                  onClick={[Function]}
+                  role="menuitem"
+                  style={undefined}
+                  tabIndex="0"
+                  title="Get in touch"
+                >
+                  <span
+                    className="m-menu__label"
+                    itemProp="name"
+                  >
+                    Contact
+                  </span>
+                </a>
+              </li>
+            </ul>
             <ul
               className="m-menu--aside m-nav__toggle-target m-nav__aside"
               itemScope={true}
@@ -79,13 +164,15 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   data-locale="en-EN"
                   onClick={[Function]}
                   role="button"
-                  title=""
+                  title="Switch to english"
                   to={undefined}
                   type="button"
                 >
                   <span
                     className="c-btn__label"
-                  />
+                  >
+                    en
+                  </span>
                 </button>
               </li>
               <li
@@ -99,13 +186,15 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   data-locale="de-DE"
                   onClick={[Function]}
                   role="button"
-                  title=""
+                  title="Sprache in deutsch ändern"
                   to={undefined}
                   type="button"
                 >
                   <span
                     className="c-btn__label"
-                  />
+                  >
+                    de
+                  </span>
                 </button>
               </li>
               <li
@@ -115,9 +204,11 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
+                  aria-current={false}
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  href="/search"
                   onClick={[Function]}
-                  style={Object {}}
+                  style={undefined}
                   tabIndex="0"
                   title="Suche"
                 >
@@ -148,13 +239,15 @@ exports[`common/component/layout/body should render correctly 1`] = `
       className="c-btn l-footer__button--up c-font-icon--chevron-up"
       onClick={[Function]}
       role="button"
-      title=""
+      title="Scroll to top"
       to={undefined}
       type="button"
     >
       <span
         className="c-btn__label is-visually-hidden"
-      />
+      >
+        Scroll to top
+      </span>
     </button>
     <nav
       className="m-nav"
@@ -171,14 +264,233 @@ exports[`common/component/layout/body should render correctly 1`] = `
           >
             <div
               className="l-grid__col--12"
-            />
+            >
+              <ul
+                className="m-menu m-menu--imprint"
+                itemScope={true}
+                itemType="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    aria-current={false}
+                    className="c-link m-menu__item"
+                    href="/disclaimer"
+                    itemProp="url"
+                    onClick={[Function]}
+                    role="menuitem"
+                    style={undefined}
+                    tabIndex="0"
+                    title="Disclaimer"
+                  >
+                    <span
+                      className="m-menu__label"
+                      itemProp="name"
+                    >
+                      Disclaimer
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    aria-current={false}
+                    className="c-link m-menu__item"
+                    href="/imprint"
+                    itemProp="url"
+                    onClick={[Function]}
+                    role="menuitem"
+                    style={undefined}
+                    tabIndex="0"
+                    title="Imprint"
+                  >
+                    <span
+                      className="m-menu__label"
+                      itemProp="name"
+                    >
+                      Imprint
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    aria-current={false}
+                    className="c-link m-menu__item"
+                    href="/privacy"
+                    itemProp="url"
+                    onClick={[Function]}
+                    role="menuitem"
+                    style={undefined}
+                    tabIndex="0"
+                    title="Privacy"
+                  >
+                    <span
+                      className="m-menu__label"
+                      itemProp="name"
+                    >
+                      Privacy
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div
             className="l-grid__row"
           >
             <div
               className="l-grid__col--12"
-            />
+            >
+              <ul
+                className="m-menu m-menu--social"
+                itemScope={true}
+                itemType="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://schema.org/Organization"
+                >
+                  <a
+                    className="c-link m-menu__item"
+                    href="https://www.xing.com/profile/Ulrich_Merkel4"
+                    itemProp="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabIndex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Xing"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--xing m-menu__icon"
+                    />
+                    <span
+                      className="is-visually-hidden m-menu__label"
+                      itemProp="name"
+                    >
+                      Xing
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemProp="url"
+                  />
+                </li>
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://schema.org/Organization"
+                >
+                  <a
+                    className="c-link m-menu__item"
+                    href="https://www.facebook.com/ulrich.merkel"
+                    itemProp="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabIndex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Facebook"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--facebook m-menu__icon"
+                    />
+                    <span
+                      className="is-visually-hidden m-menu__label"
+                      itemProp="name"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemProp="url"
+                  />
+                </li>
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://schema.org/Organization"
+                >
+                  <a
+                    className="c-link m-menu__item"
+                    href="https://github.com/ulrich-merkel"
+                    itemProp="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabIndex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ GitHub"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--github m-menu__icon"
+                    />
+                    <span
+                      className="is-visually-hidden m-menu__label"
+                      itemProp="name"
+                    >
+                      GitHub
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemProp="url"
+                  />
+                </li>
+                <li
+                  className="m-menu__list-item"
+                  itemProp="itemListElement"
+                  itemScope={true}
+                  itemType="http://schema.org/Organization"
+                >
+                  <a
+                    className="c-link m-menu__item"
+                    href="https://delicious.com/ulrichmerkel"
+                    itemProp="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabIndex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Delicious"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--delicious m-menu__icon"
+                    />
+                    <span
+                      className="is-visually-hidden m-menu__label"
+                      itemProp="name"
+                    >
+                      Delicious
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemProp="url"
+                  />
+                </li>
+              </ul>
+            </div>
           </div>
           <div
             className="l-grid__row"
@@ -190,8 +502,11 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 className="c-type--small"
               >
                 © 
-                <strong />
+                <strong>
+                  Ulrich Merkel
+                </strong>
                  
+                2017
               </small>
             </div>
           </div>

@@ -10,21 +10,25 @@
  * @version 0.0.2
  *
  * @requires react
+ * @requires prop-types
  * @requires react-redux
  *
  * @changelog
  * - 0.0.2 Moved redux store initialization to server files
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 
 /**
  * Function representing the react redux root.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @param {Object} props - The current component props
+ * @param {Array|string} props.children - Required due to Provider
+ * @param {Object} props.store - Complete redux store state
+ * @returns {ReactElement} React component markup
  */
 function Root(props) {
     const { children, store } = props;
@@ -41,8 +45,6 @@ function Root(props) {
  *
  * @static
  * @type {Object}
- * @property {Array|string} children - Required due to Provider
- * @property {Object} store - Redux store state
  */
 Root.propTypes = {
     children: PropTypes.node.isRequired,

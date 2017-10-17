@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires classnames
  * @requires shortid
  * @requires common/component/element/headline
@@ -21,18 +22,19 @@
  *
  * @example <caption>Example usage (jsx)</caption>
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import Headline from './../element/headline';
+import Headline from '../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function ModuleList(props) {
 

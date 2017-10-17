@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
  * @requires common/component/decorator/add-page-tracking
  * @requires common/component/decorator/add-content
@@ -25,22 +26,24 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 
-import addPageTracking from './../decorator/add-page-tracking';
-import addContent from './../decorator/add-content';
-import { getContentSection } from './../../utils/content';
-import LayoutMain from './../layout/main';
-import SectionContact from './../section/contact';
-import ModuleFormContact from './../module/form/contact'; // eslint-disable-line import/no-named-as-default
+import addPageTracking from '../decorator/add-page-tracking';
+import addContent from '../decorator/add-content';
+import { getContentSection } from '../../utils/content';
+import LayoutMain from '../layout/main';
+import SectionContact from '../section/contact';
+import ModuleFormContact from '../module/form/contact'; // eslint-disable-line import/no-named-as-default
 
 /**
  * Function representing a component to return a single react child element.
  *
  * @function
  * @param {Object} [props] - The current component props
- * @returns {React.Element} React component markup
+ * @returns {ReactElement} React component markup
  */
 function PageContact(props) {
 
@@ -93,4 +96,4 @@ PageContact.defaultProps = {
     params: {}
 };
 
-export default addPageTracking(addContent('PageContact')(PageContact));
+export default addPageTracking(withRouter(addContent('PageContact')(PageContact)));

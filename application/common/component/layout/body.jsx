@@ -1,5 +1,5 @@
+/** global picturefill */
 /* eslint-disable immutable/no-mutation, immutable/no-this */
-/* global picturefill */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -12,6 +12,7 @@
  * @version 0.0.3
  *
  * @requires react
+ * @requires prop-types
  * @requires react-helmet
  * @requires classnames
  * @requires common/component/decorator/picturefill
@@ -31,7 +32,8 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import classnames from 'classnames';
 
@@ -39,26 +41,30 @@ import {
     pictureFill,
     scroller,
     addContent
-} from './../decorator/';
-import scrollTo, { getPageOffset } from './../../utils/scroll-to';
+} from '../decorator/';
+import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
     STATE_DIALOG_PAGE_SEARCH
-} from './../../state/constants';
+} from '../../state/constants';
 import {
     LayoutHeader,
     LayoutFooter,
     LayoutLoader,
     LayoutDialog
 } from './index';
-import PageBroadcast from './../page/broadcast';
-import PageSearch from './../page/search';
+import {
+    PageBroadcast,
+    PageSearch
+} from '../page';
 
 /**
  * Class representing a component.
  *
  * @class
  * @extends React.Component
+ * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {Object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
 
@@ -122,7 +128,7 @@ class LayoutBody extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {React.Element} React component markup
+     * @returns {ReactElement} React component markup
      */
     render() {
         const {
@@ -164,8 +170,6 @@ class LayoutBody extends Component {
  *
  * @static
  * @type {Object}
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content={}] - The component content config
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -182,7 +186,6 @@ LayoutBody.propTypes = {
  *
  * @static
  * @type {Object}
- * @see LayoutBody.propTypes
  */
 LayoutBody.defaultProps = {
     content: {}
@@ -192,7 +195,7 @@ LayoutBody.defaultProps = {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  *
- * @type {React.Element}
+ * @type {ReactElement}
  */
 const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
 

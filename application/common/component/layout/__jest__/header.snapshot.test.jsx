@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
 
-import mockedStore from './../../__mocks__/store';
-import LayoutHeaderContainer from './../header';
+import mockedStore from '../../__mocks__/store';
+import LayoutHeaderContainer from '../header';
 
 describe('common/component/layout/header', function () {
     it('should render correctly', function () {
@@ -18,11 +19,13 @@ describe('common/component/layout/header', function () {
 
         const tree = renderer.create(
             <Provider store={mockedStore}>
-                <LayoutHeaderContainer
-                    {...defaultProps}
-                >
-                    Header Children
-                </LayoutHeaderContainer>
+                <MemoryRouter>
+                    <LayoutHeaderContainer
+                        {...defaultProps}
+                    >
+                        Header Children
+                    </LayoutHeaderContainer>
+                </MemoryRouter>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot();
