@@ -1,3 +1,4 @@
+/* global navigator */
 /**
  * Handle client side file loading and take
  * care for performance due to async loading.
@@ -6,13 +7,14 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @requires loader/offline
  * @requires loader/async
  *
  * @changelog
- * - 0.0.1 basic functions and structure
+ * - 0.0.2 Added service workers
+ * - 0.0.1 Basic functions and structure
  */
 import configApplication from './../common/config/application';
 import './loader/offline';
@@ -22,22 +24,20 @@ import logger from './../common/utils/logger';
 loaderAsync.css('/css/app.css');
 loaderAsync.js('/js/client.bundle.js');
 
-// register the service worker if available
+// Register the service worker if available
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
-    // checking live cycle
-    // use req.unregister() or req.update() to handle upates
-    navigator.serviceWorker.register('./service-worker.js')
+    navigator.serviceWorker.register('./service-worker.bundle.js')
         .then(function (reg) {
             if (reg.installing) {
-                // req.addEventListener('updatefound') reg.installing has changed
-                logger.log('Service worker installing');
-            } else if (reg.waiting) {
-                logger.log('Service worker installed');
-            } else if (reg.active) {
-                logger.log('Service worker active');
-            } else {
-                logger.log('Successfully registered service worker', reg);
+                return logger.log('Service worker installing');
             }
+            if (reg.waiting) {
+                return logger.log('Service worker installed');
+            }
+            if (reg.active) {
+                return logger.log('Service worker active');
+            }
+            return logger.log('Successfully registered service worker');
         })
         .catch(function (err) {
             logger.warn('Error whilst registering service worker', err);
