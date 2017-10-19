@@ -13,19 +13,24 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import { isBoolean, isString } from 'lodash';
+import { isBoolean, isString, isUndefined } from 'lodash';
 
 /**
  * Parse boolean values from string.
  *
  * @function
  * @param {string|boolean} [value=''] - The value to be checked
+ * @param {boolean} [fallback] - The fallback if value is not parsable
  * @returns {boolean|undefined} The parsed value or undefined
  */
-function toBoolean(value = '') {
+function toBoolean(value = '', fallback) {
     if (isBoolean(value)) {
         return value;
     }
+
+    const fallbackReturn = !isUndefined(fallback) && isBoolean(fallback)
+        ? fallback
+        : undefined;
 
     if (isString(value)) {
         switch (value.toLowerCase()) {
@@ -36,11 +41,11 @@ function toBoolean(value = '') {
         case '0':
             return false;
         default:
-            return undefined;
+            return fallbackReturn;
         }
     }
 
-    return undefined;
+    return fallbackReturn;
 }
 
 export {
