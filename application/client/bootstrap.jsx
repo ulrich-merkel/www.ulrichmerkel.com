@@ -25,7 +25,7 @@ import loaderAsync from './loader/async';
 
 // Register the service worker if available
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
-    navigator.serviceWorker.register('./service-worker.bundle.js')
+    navigator.serviceWorker.register('/service-worker.bundle.js')
         .then(function (reg) {
             if (reg.installing) {
                 return logger.log('Service worker installing');
