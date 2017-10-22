@@ -68,10 +68,10 @@ function fromCache(request) {
  *
  * @private
  * @param {Object} request - The event's request
- * @param {number} [timeout=400] - Maximum time after the fetch should fail
+ * @param {number} [timeout=1000] - Maximum time after the fetch should fail
  * @returns {Promise}
  */
-function fromNetwork(request, timeout = 400) {
+function fromNetwork(request, timeout = 1000) {
     return new Promise(function (resolve, reject) {
         const timeoutId = setTimeout(reject, timeout);
 
