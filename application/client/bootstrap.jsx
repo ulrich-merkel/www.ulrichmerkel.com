@@ -9,20 +9,19 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
- * @requires loader/offline
- * @requires loader/async
+ * @requires client/loader/offline
+ * @requires client/loader/async
+ * @requires common/config/application
+ * @requires common/utils/logger
  *
  * @changelog
  * - 0.0.2 Added service workers
  * - 0.0.1 Basic functions and structure
  */
 import configApplication from './../common/config/application';
+import logger from './../common/utils/logger';
 import './loader/offline';
 import loaderAsync from './loader/async';
-import logger from './../common/utils/logger';
-
-loaderAsync.css('/css/app.css');
-loaderAsync.js('/js/client.bundle.js');
 
 // Register the service worker if available
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
@@ -43,3 +42,7 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
             logger.warn('Error whilst registering service worker', err);
         });
 }
+
+// Load assets async to improve performance
+loaderAsync.css('/css/app.css');
+loaderAsync.js('/js/client.bundle.js');
