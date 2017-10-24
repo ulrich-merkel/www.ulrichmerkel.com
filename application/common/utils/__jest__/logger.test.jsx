@@ -2,8 +2,6 @@
 import { stub } from 'sinon';
 import logger from '../logger';
 
-// global.console = {};
-
 describe('common/utils/logger', function () {
     logger.enable(true);
 
@@ -11,25 +9,25 @@ describe('common/utils/logger', function () {
         const spyCall = stub(logger, '_log');
         logger.log('log', 'message');
         expect(spyCall.calledOnce).toBeTruthy();
-        spyCall.restore(); // eslint-disable-line no-console
+        spyCall.restore();
     });
     it('should call basic info functions', function () {
         const spyCall = stub(logger, '_info');
         logger.info('info', 'message', 'foo');
         expect(spyCall.calledOnce).toBeTruthy();
-        spyCall.restore(); // eslint-disable-line no-console
+        spyCall.restore();
     });
     it('should call basic warn functions', function () {
         const spyCall = stub(logger, '_warn');
         logger.warn('warn', 'message', 'bar');
         expect(spyCall.calledOnce).toBeTruthy();
-        spyCall.restore(); // eslint-disable-line no-console
+        spyCall.restore();
     });
     it('should call basic error functions', function () {
         const spyCall = stub(logger, '_error');
         logger.error('warn', 'message', 'bar');
         expect(spyCall.calledOnce).toBeTruthy();
-        spyCall.restore(); // eslint-disable-line no-console
+        spyCall.restore();
     });
     it('should be able to set a name', function () {
         logger.setName('test');
@@ -52,6 +50,6 @@ describe('common/utils/logger', function () {
         logger.log('log', 'message');
         expect(spyCall.calledOnce).toBeTruthy();
         expect(spyCall.calledWith('log', 'message'));
-        spyCall.restore(); // eslint-disable-line no-console
+        spyCall.restore();
     });
 });

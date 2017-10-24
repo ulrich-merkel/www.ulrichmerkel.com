@@ -59,7 +59,6 @@ function traverseObject(source, callback) {
  * @returns {*}
  */
 function traverse(source, callback) {
-
     if (isArray(source)) {
         return traverseArray(source, callback);
     }
@@ -70,7 +69,6 @@ function traverse(source, callback) {
         return callback.apply(this, [source]);
     }
     return source;
-
 }
 
 /**
