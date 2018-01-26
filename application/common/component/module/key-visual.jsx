@@ -78,21 +78,17 @@ class ModuleKeyVisual extends Component {
      * @returns {void}
      */
     onClickBtn() {
-
         const keyVisual = this.keyVisual;
 
         if (keyVisual) {
-
             const innerHeight = keyVisual.clientHeight;
-            const boundingClientRectTop = keyVisual.getBoundingClientRect().top;
+            const boundingClientRectTop = Math.abs(keyVisual.getBoundingClientRect().top);
             const offsetTop = document.body.scrollTop;
 
             scrollTo({
                 top: innerHeight + boundingClientRectTop + offsetTop
             });
-
         }
-
     }
 
     /**

@@ -39,15 +39,16 @@ if (isProduction) {
 }
 
 module.exports = {
-    devtool: isProduction ? 'source-map' : 'inline-source-map',
+    devtool: isProduction ? false : 'inline-source-map',
     stats: true,
     context: sourcePath,
     entry: {
-        client: './client/client.jsx',
-        bootstrap: './client/bootstrap.jsx'
+        'js/client': './client/client.jsx',
+        'js/bootstrap': './client/bootstrap.jsx',
+        'service-worker': './client/service-worker.jsx'
     },
     output: {
-        path: __dirname + '/../build/public/js',
+        path: __dirname + '/../build/public/',
         filename: '[name].bundle.js'
     },
     resolve: {

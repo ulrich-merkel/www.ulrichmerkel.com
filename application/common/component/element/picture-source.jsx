@@ -6,18 +6,37 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @version 0.0.2
+ *
+ * @see {@link https://css-tricks.com/using-webp-images/}
  *
  * @requires react
  * @requires prop-types
  * @requires classnames
  *
  * @changelog
+ * - 0.0.2 Adding WeP support
  * - 0.0.1 Basic functions and structure
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
+/**
+ * Small helper to get correct type attribute.
+ *
+ * @private
+ * @param {string} ext - The file extension
+ * @returns {string} The source element's type description
+ */
+function getType(ext) {
+    switch(ext) {
+    case 'jpg':
+        return 'image/jpeg';
+    default:
+        return `image/${ext}`;
+    }
+}
 
 /**
  * Function representing a component to return a single react child element.
@@ -49,12 +68,25 @@ function ElementPictureSource(props) {
         className
     );
 
-    const srcSet = `${path}${name}@${width}x${height}.${ext}`;
+    const srcSet = `${path}${name}@${width}x${height}`;
     const media = `(min-width: ${minWidth}px)`;
 
-    return (
-        <source className={composedClassName} {...{ srcSet, media }} />
-    );
+    return [
+        <source
+            className={composedClassName}
+            key={`${srcSet}.webp`}
+            media={media}
+            srcSet={`${srcSet}.webp`}
+            type={getType('webp')}
+        />,
+        <source
+            className={composedClassName}
+            key={`${srcSet}.${ext}`}
+            media={media}
+            srcSet={`${srcSet}.${ext}`}
+            type={getType(ext)}
+        />
+    ];
 }
 
 /**

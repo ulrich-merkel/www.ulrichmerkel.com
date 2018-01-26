@@ -292,6 +292,18 @@ const configPictures = {
             {
                 width: 192,
                 height: 192
+            },
+            {
+                width: 256,
+                height: 256
+            },
+            {
+                width: 384,
+                height: 384
+            },
+            {
+                width: 512,
+                height: 512
             }
         ]
     }

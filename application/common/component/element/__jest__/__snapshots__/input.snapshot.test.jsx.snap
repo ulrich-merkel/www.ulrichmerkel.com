@@ -6,8 +6,8 @@ exports[`common/component/element/input should call passed callbacks 1`] = `
   id="input-callbacks"
   itemProp={undefined}
   name="input-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
   placeholder=""
   type="text"
   value={undefined}
@@ -20,8 +20,14 @@ exports[`common/component/element/input should call passed callbacks 2`] = `
   id="input-callbacks"
   itemProp={undefined}
   name="input-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
+  onChange={[MockFunction]}
   placeholder=""
   type="text"
   value={undefined}
@@ -34,8 +40,20 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
   id="input-callbacks"
   itemProp={undefined}
   name="input-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
   placeholder=""
   type="text"
   value={undefined}
