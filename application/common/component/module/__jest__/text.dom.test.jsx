@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, func-names */
+/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, func-names, react/jsx-no-bind */
 import 'jsdom-global/register';
 import React from 'react';
 import { MemoryRouter, Route } from 'react-router';

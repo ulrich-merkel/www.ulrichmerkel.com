@@ -6,8 +6,8 @@ exports[`common/component/element/textarea should call passed callbacks 1`] = `
   cols="50"
   id="textarea-callbacks"
   name="textarea-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
   placeholder=""
   rows="4"
 />
@@ -19,8 +19,14 @@ exports[`common/component/element/textarea should call passed callbacks 2`] = `
   cols="50"
   id="textarea-callbacks"
   name="textarea-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
+  onChange={[MockFunction]}
   placeholder=""
   rows="4"
 />
@@ -32,8 +38,20 @@ exports[`common/component/element/textarea should call passed callbacks 3`] = `
   cols="50"
   id="textarea-callbacks"
   name="textarea-callbacks"
-  onBlur={[Function]}
-  onChange={[Function]}
+  onBlur={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
   placeholder=""
   rows="4"
 />
