@@ -83,7 +83,7 @@ const configApplication = Object.assign({}, {
         use: toBoolean(process.env.SERVICEWORKER) || true
     },
     applicationCache: {
-        use: toBoolean(process.env.APPCACHE) || true,
+        use: toBoolean(process.env.APPCACHE) || false,
         timeStamp: '2017-10-22'
     },
     transition: {
