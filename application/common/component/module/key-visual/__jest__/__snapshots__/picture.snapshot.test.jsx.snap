@@ -10,17 +10,38 @@ exports[`common/component/module/key-visual/picture should render correctly 1`] 
   <source
     className="c-picture__source"
     media="(min-width: 2560px)"
+    srcSet="/img/content/home/keyvisual@2560x1600.webp"
+    type="image/webp"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 2560px)"
     srcSet="/img/content/home/keyvisual@2560x1600.jpg"
+    type="image/jpeg"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1680px)"
+    srcSet="/img/content/home/keyvisual@1680x1050.webp"
+    type="image/webp"
   />
   <source
     className="c-picture__source"
     media="(min-width: 1680px)"
     srcSet="/img/content/home/keyvisual@1680x1050.jpg"
+    type="image/jpeg"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1440px)"
+    srcSet="/img/content/home/keyvisual@1440x960.webp"
+    type="image/webp"
   />
   <source
     className="c-picture__source"
     media="(min-width: 1440px)"
     srcSet="/img/content/home/keyvisual@1440x960.jpg"
+    type="image/jpeg"
   />
   <img
     alt="foo"
@@ -44,17 +65,38 @@ exports[`common/component/module/key-visual/picture should render type and isCov
   <source
     className="c-picture__source"
     media="(min-width: 2560px)"
+    srcSet="/img/content/home/keyvisual@2560x1600.webp"
+    type="image/webp"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 2560px)"
     srcSet="/img/content/home/keyvisual@2560x1600.jpg"
+    type="image/jpeg"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1680px)"
+    srcSet="/img/content/home/keyvisual@1680x1050.webp"
+    type="image/webp"
   />
   <source
     className="c-picture__source"
     media="(min-width: 1680px)"
     srcSet="/img/content/home/keyvisual@1680x1050.jpg"
+    type="image/jpeg"
+  />
+  <source
+    className="c-picture__source"
+    media="(min-width: 1440px)"
+    srcSet="/img/content/home/keyvisual@1440x960.webp"
+    type="image/webp"
   />
   <source
     className="c-picture__source"
     media="(min-width: 1440px)"
     srcSet="/img/content/home/keyvisual@1440x960.jpg"
+    type="image/jpeg"
   />
   <img
     alt="foo"

@@ -95,7 +95,7 @@ function getCspRules(nonceConfig) {
     rules.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.bootstrap}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
     rules.push(`style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`);
     rules.push(`img-src 'self' www.ulrichmerkel.com data:;`);
-    rules.push(`child-src 'none';`);
+    rules.push(`child-src 'self';`);
     rules.push(`object-src 'none';`);
     /* eslint-enable quotes */
 

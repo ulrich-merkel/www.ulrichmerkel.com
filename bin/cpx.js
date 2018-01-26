@@ -35,7 +35,7 @@ const argvFiles = argv.f || [
     { source: './public/js/**/*', dest: `${argvDest}/public/js` },
     { source: './public/img/**/*', dest: `${argvDest}/public/img` },
     { source: './public/font/**/*', dest: `${argvDest}/public/font` },
-    { source: './public/*.{txt,json,xml,manifest}', dest: `${argvDest}/public/` },
+    { source: './public/*.{txt,json,xml,manifest,js}', dest: `${argvDest}/public/` },
     { source: './public/img/share/favicon.ico', dest: `${argvDest}/public/` }
 ];
 

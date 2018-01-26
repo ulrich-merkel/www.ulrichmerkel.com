@@ -205,7 +205,7 @@ function resize(src, dest, width, height, degrees = 0) {
     // @see {@link https://github.com/nodesecurity/eslint-plugin-security/issues/13}
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (!fs.existsSync(src)) {
-        return void console.error(chalk.red(`File ${src} not found`));
+        return void console.error(chalk.red(`Image file ${src} not found`));
     }
 
     sharp(src)
@@ -216,7 +216,7 @@ function resize(src, dest, width, height, degrees = 0) {
             if (error) {
                 return void console.error(chalk.red(error));
             }
-            return void console.log(chalk.green(`File written: ${dest}`));
+            return void console.log(chalk.green(`Image file written: ${dest}`));
         });
 }
 
@@ -237,11 +237,11 @@ function run(config) {
     }
 
     if (!srcFolder) {
-        return void console.log(chalk.grey('No source folder provided for resizing'));
+        return void console.log(chalk.grey('No images source folder provided for resizing'));
     }
 
     if (!destFolder) {
-        return void console.log(chalk.grey('No destination folder provided for resizing'));
+        return void console.log(chalk.grey('No images destination folder provided for resizing'));
     }
 
     console.log(chalk.grey(`Start resizing for ${images.length} images`));
@@ -261,9 +261,12 @@ function run(config) {
             const height = size.height;
             const degrees = size.degrees;
             const source = `${srcFolder}${path}${name}.${ext}`;
-            const destination = `${destFolder}${path}${name}${separator}${width}x${height}.${ext}`;
+            const destination = `${destFolder}${path}${name}${separator}${width}x${height}`;
 
-            resize(source, destination, width, height, degrees);
+            // Creating original file extension and webp for browsers which
+            // supports these format
+            resize(source, `${destination}.${ext}`, width, height, degrees);
+            resize(source, `${destination}.webp`, width, height, degrees);
         });
     });
 }
