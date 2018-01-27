@@ -1,3 +1,4 @@
+/* eslint-disable promise/avoid-new, lodash/prefer-startswith, lodash/prefer-includes */
 /* global caches, self */
 /**
  * Handle service worker proxy for caching assets.
@@ -35,7 +36,7 @@ const STATIC_FILES = [
 var BLACKLIST_URLS = [
     '/panel/'
 ];
-self.CACHE = 'CACHE';
+self.CACHE = 'CACHE'; // eslint-disable-line immutable/no-mutation
 
 /**
  * Handle promise errors and simply log the reason.
@@ -57,6 +58,7 @@ function handleError(reason) {
  * @returns {Promise}
  */
 function preCache() {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     return caches.open(self.CACHE).then(function handleOpen(cache) {
         if (!cache.addAll) {
             return Promise.resolve();
@@ -79,7 +81,9 @@ function fromCache(request) {
         if (!request) {
             return reject();
         }
-        caches.open(self.CACHE).then(function handleOpen() {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        return caches.open(self.CACHE).then(function handleOpen() {
+            // eslint-disable-next-line promise/no-nesting
             return caches.match(request).then(function (response) {
                 if (response) {
                     return resolve(response);
@@ -133,7 +137,7 @@ function fromNetwork(request, timeout = 20000, options) {
 
         return fetch(requestObject).then(function handleFetch(response) {
             clearTimeout(timeoutId);
-            resolve(response);
+            return resolve(response);
         }, reject);
     });
 }
@@ -147,10 +151,11 @@ function fromNetwork(request, timeout = 20000, options) {
  */
 function fetchAndCache(request) {
     return fromNetwork(request).then(function handleFromNetwork(response) {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         return caches.open(self.CACHE).then(function handleCacheOpen(cache) {
             // Because the response is a stream and can just be consumed
             // once we need to clone it here to add it to the cache
-            cache.put(request, response.clone());
+            cache.put(request, response.clone()); // eslint-disable-line promise/no-nesting
             return response;
         });
     });
@@ -189,6 +194,7 @@ function isHandledByServiceWorker(request) {
 
     // Prevent caching for blacklisted urls
     const blackListLength = BLACKLIST_URLS.length;
+    // eslint-disable-next-line immutable/no-let
     for (let i = 0; i < blackListLength; ++i) {
         // eslint-disable-next-line security/detect-non-literal-regexp
         if (new RegExp(BLACKLIST_URLS[i]).test(request.url)) {
@@ -262,6 +268,7 @@ function onMessage(event) {
     if (event && event.data) {
         const data = JSON.parse(event.data);
         if (data.modified) {
+            // eslint-disable-next-line immutable/no-mutation
             self.CACHE = `CACHE-${data.modified}`;
         }
     }
