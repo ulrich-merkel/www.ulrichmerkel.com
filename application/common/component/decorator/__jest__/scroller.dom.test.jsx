@@ -37,7 +37,7 @@ describe('common/component/decorator/scroller', function () {
         expect(wrapper.find('.test').length).toEqual(1);
 
         wrapper.setProps({
-            foo: 'bar'
+            location: 'bar'
         });
         mockedWindowEvents.scroll();
         expect(wrapper.find('.page').length).toEqual(1);
