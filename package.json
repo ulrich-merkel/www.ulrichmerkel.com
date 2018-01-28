@@ -245,7 +245,7 @@
     "sinon": "4.2.2",
     "stylelint": "8.4.0",
     "tldrlegal": "1.0.6",
-    "uglify-js": "3.3.8",
+    "uglify-js": "3.3.9",
     "webpack": "3.10.0"
   },
   "snyk": true
