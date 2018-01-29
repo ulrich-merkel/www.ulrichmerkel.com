@@ -1,5 +1,7 @@
 # www.ulrichmerkel.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ulrich-merkel/www.ulrichmerkel.com.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com)
 [![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
 [![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
