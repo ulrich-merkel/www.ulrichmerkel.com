@@ -14,12 +14,10 @@ cache:
     - $HOME/.npm
     - $HOME/.yarn-cache
 before_install:
-# package-lock.json was introduced in npm@5
-- '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-- npm install -g greenkeeper-lockfile@1
+  - npm install -g yarn@1.0.2
+  - yarn global add greenkeeper-lockfile@1
 install:
-  - "npm install -g yarn@1.0.2"
-  - "yarn --pure-lockfile"
+  - yarn --pure-lockfile
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 script: npm run travis
