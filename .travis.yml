@@ -27,4 +27,5 @@ branches:
     - master
     - develop
     - feature
+    - /^greenkeeper/.*$/
 sudo: false
