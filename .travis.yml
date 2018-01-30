@@ -19,8 +19,8 @@ before_install:
 install:
   - yarn --pure-lockfile
 before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
 script: npm run travis
+after_script: greenkeeper-lockfile-upload
 after_success: npm run coverage
 branches:
   only:
