@@ -29,6 +29,7 @@ const configApplicationCache = configApplication.applicationCache;
 /**
  * Get cache timestamp to ease updates.
  *
+ * @private
  * @returns {string} The timestamp to be used
  */
 function getTimeStamp() {

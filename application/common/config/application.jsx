@@ -80,11 +80,12 @@ const configApplication = Object.assign({}, {
         use: toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER) || true
+        use: toBoolean(process.env.SERVICEWORKER) || true,
+        timeStamp: '2018-01-30'
     },
     applicationCache: {
         use: toBoolean(process.env.APPCACHE) || false,
-        timeStamp: '2017-10-22'
+        timeStamp: '2018-01-30'
     },
     transition: {
         transitionName: 'animate',

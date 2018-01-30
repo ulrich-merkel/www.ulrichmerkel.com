@@ -28,15 +28,34 @@
  * - 0.0.1 Basic functions and structure
  */
 import logger from '../common/utils/logger';
+import configApplication from '../common/config/application';
+import { getDateNow } from '../common/utils/date';
 
+const configApplicationCache = configApplication.applicationCache;
 const STATIC_FILES = [
     './css/app.css',
     './js/client.bundle.js'
 ];
-var BLACKLIST_URLS = [
+const BLACKLIST_URLS = [
     '/panel/'
 ];
-self.CACHE = 'CACHE'; // eslint-disable-line immutable/no-mutation
+const PREFER_FETCH = [
+    'text/html'
+];
+
+/**
+ * Get cache timestamp to ease updates.
+ *
+ * @private
+ * @returns {string} The timestamp to be used
+ */
+function getTimeStamp() {
+    if (configApplicationCache.timeStamp) {
+        return configApplicationCache.timeStamp;
+    }
+    return getDateNow();
+}
+self.CACHE = `CACHE-${getTimeStamp()}`; // eslint-disable-line immutable/no-mutation
 
 /**
  * Handle promise errors and simply log the reason.
@@ -195,7 +214,7 @@ function isHandledByServiceWorker(request) {
     // Prevent caching for blacklisted urls
     const blackListLength = BLACKLIST_URLS.length;
     // eslint-disable-next-line immutable/no-let
-    for (let i = 0; i < blackListLength; ++i) {
+    for (let i = 0; i < blackListLength; i = i + 1) {
         // eslint-disable-next-line security/detect-non-literal-regexp
         if (new RegExp(BLACKLIST_URLS[i]).test(request.url)) {
             return false;
@@ -218,7 +237,7 @@ function onFetch(event) {
 
     if (isHandledByServiceWorker(request)) {
         // Try to always serve html from server
-        if (acceptHeader.indexOf('text/html') !== -1) {
+        if (PREFER_FETCH.includes(acceptHeader)) {
             return fetchAndCache(request).catch(function catchFromCache() {
                 return fromCache(request);
             });
@@ -267,9 +286,11 @@ function onActivate(event) {
 function onMessage(event) {
     if (event && event.data) {
         const data = JSON.parse(event.data);
-        if (data.modified) {
+        const modified = data.modified || null;
+
+        if (modified) {
             // eslint-disable-next-line immutable/no-mutation
-            self.CACHE = `CACHE-${data.modified}`;
+            self.CACHE = `CACHE-${modified}`;
         }
     }
 }

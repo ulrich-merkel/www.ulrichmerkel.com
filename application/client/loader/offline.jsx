@@ -5,28 +5,25 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
+ * @version 0.0.3
  *
  * @requires common/config/application
  * @requires common/utils/logger
  * @requires common/utils/environment
- * @requires client/utils/dom
+ * @requires client/loader/progress-bar
  *
  * @see {@link http://www.bennadel.com/blog/2029-using-html5-offline-application-cache-events-in-javascript.htm}
  * @see {@link http://www.html5rocks.com/de/tutorials/appcache/beginner/}
  *
  * @changelog
+ * - 0.0.3 Move progress bar helpers to own file
  * - 0.0.2 Improve code style
  * - 0.0.1 Basic functions and structure
  */
 import { debug } from '../../common/config/application';
 import logger from '../../common/utils/logger';
 import { isBrowser } from '../../common/utils/environment';
-import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
-
-const hasWidthClasses = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function mapNumbers(number) {
-    return `has-width--${number * 10}`;
-});
+import { displayProgress, displayZeroLoaded, displayAllLoaded } from './progress-bar';
 
 /**
 * Get application cache api.
@@ -36,38 +33,6 @@ const hasWidthClasses = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function mapNumbe
 */
 function getApi() {
     return (isBrowser() && window.applicationCache) || null;
-}
-
-/**
- * Set progress bar values.
- *
- * @private
- * @param {string} value - The progress value to be set
- * @returns {void}
- */
-function displayProgress(value) {
-    setDomNodeAttribute('m-progress', 'value', value);
-    setDomNodeClassName('m-progress__fallback', [`has-width--${Math.round(value / 10) * 10}`], hasWidthClasses);
-}
-
-/**
- * Set progress bar values to zero.
- *
- * @private
- * @returns {void}
- */
-function displayZeroLoaded() {
-    displayProgress(0);
-}
-
-/**
- * Set progress bar values to 100%.
- *
- * @private
- * @returns {void}
- */
-function displayAllLoaded() {
-    displayProgress(100);
 }
 
 /**
