@@ -217,7 +217,7 @@
     "imagemin-pngquant": "5.0.1",
     "jest-cli": "22.1.4",
     "jsdoc": "3.5.5",
-    "jsdom": "11.6.1",
+    "jsdom": "11.6.2",
     "jsdom-global": "3.0.2",
     "ngrok": "2.2.25",
     "nightwatch": "0.9.19",
