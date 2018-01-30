@@ -178,7 +178,6 @@ exports[`common/component/page/home should render correctly 1`] = `
               >
                 <div
                   className="m-text"
-                  role="list"
                 >
                   <div
                     className="m-text__block"

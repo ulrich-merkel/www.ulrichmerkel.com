@@ -146,10 +146,11 @@ function LayoutHeader(props) {
                                     <Button
                                         className={buttonEnClassName}
                                         data-locale={INTL_LOCALE_EN_EN}
-                                        title={contentSection('menu.language.list[0].title')}
-                                        onClick={handleIntlChangeLocale}
-                                        isSmall
                                         isClear
+                                        isSmall
+                                        onClick={handleIntlChangeLocale}
+                                        role={'menuitem'}
+                                        title={contentSection('menu.language.list[0].title')}
                                     >
                                         {contentSection('menu.language.list[0].label')}
                                     </Button>
@@ -162,6 +163,7 @@ function LayoutHeader(props) {
                                         onClick={handleIntlChangeLocale}
                                         isSmall
                                         isClear
+                                        role={'menuitem'}
                                     >
                                         {contentSection('menu.language.list[1].label')}
                                     </Button>
@@ -174,6 +176,7 @@ function LayoutHeader(props) {
                                             e.preventDefault();
                                             handleChangeDialogVisibleSearch();
                                         }}
+                                        role={'menuitem'}
                                         title={'Suche'}
                                     >
                                         <span className='c-btn__label'>

@@ -238,15 +238,19 @@ function onFetch(event) {
     if (isHandledByServiceWorker(request)) {
         // Try to always serve html from server
         if (PREFER_FETCH.includes(acceptHeader)) {
-            return fetchAndCache(request).catch(function catchFromCache() {
-                return fromCache(request);
-            });
+            return event.respondWith(
+                fetchAndCache(request).catch(function catchFromCache() {
+                    return fromCache(request);
+                })
+            );
         }
 
         // Try to serve from cache first
-        return event.respondWith(fromCache(request).catch(function catchFromCache() {
-            return fetchAndCache(request);
-        }));
+        return event.respondWith(
+            fromCache(request).catch(function catchFromCache() {
+                return fetchAndCache(request);
+            })
+        );
     }
 }
 

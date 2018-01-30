@@ -5,7 +5,6 @@ exports[`common/component/module/text should render correctly 1`] = `
   className="m-text module-text"
   itemScope={true}
   itemType="foo"
-  role="list"
 >
   <div
     className="m-text__block"
@@ -51,7 +50,6 @@ exports[`common/component/module/text should render correctly 1`] = `
 exports[`common/component/module/text should render no itemType if unset 1`] = `
 <div
   className="m-text module-text"
-  role="list"
 >
   <div
     className="m-text__block"
