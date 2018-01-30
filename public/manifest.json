@@ -1,6 +1,8 @@
 {
     "name": "Ulrich Merkel",
     "short_name": "Merkel",
+    "start_url": "https://www.ulrichmerkel.com/",
+    "homepage_url": "https://www.ulrichmerkel.com/",
     "manifest_version": 2,
     "version": "2.0",
     "default_locale": "en",
@@ -62,8 +64,6 @@
     "background": {
         "persistent": false
     },
-    "homepage_url": "https://www.ulrichmerkel.com/",
-    "start_url": "https://www.ulrichmerkel.com/",
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#14b9d6",
