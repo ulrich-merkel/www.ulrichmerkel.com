@@ -156,7 +156,7 @@
     "minimist": "1.2.0",
     "morgan": "1.9.0",
     "nodemailer": "4.4.2",
-    "nodemon": "1.14.11",
+    "nodemon": "1.14.12",
     "object-assign": "4.1.1",
     "path": "0.12.7",
     "picturefill": "3.0.2",
