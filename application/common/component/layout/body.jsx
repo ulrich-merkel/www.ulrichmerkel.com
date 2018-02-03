@@ -9,12 +9,11 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires prop-types
  * @requires react-helmet
- * @requires classnames
  * @requires common/component/decorator/picturefill
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
@@ -28,6 +27,7 @@
  * @requires common/component/page/search
  *
  * @changelog
+ * - 0.0.4 Use fragments for rendering
  * - 0.0.3 Remove connect and state handling, improve dialog handling
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -35,7 +35,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import classnames from 'classnames';
 
 import {
     pictureFill,
@@ -136,10 +135,8 @@ class LayoutBody extends Component {
             content
         } = this.props;
 
-        const componentClassName = classnames('l-react__body');
-
         return (
-            <div className={componentClassName}>
+            <React.Fragment>
                 <Helmet {...content} />
                 <LayoutLoader />
                 <LayoutHeader />
@@ -159,7 +156,7 @@ class LayoutBody extends Component {
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialog>
-            </div>
+            </React.Fragment>
         );
     }
 
