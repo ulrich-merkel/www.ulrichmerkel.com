@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`common/component/layout/body should render correctly 1`] = `
-<div
-  className="l-react__body"
->
+Array [
   <dialog
     className="l-dialog--loading"
   >
@@ -28,7 +26,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
     <div
       className="l-dialog__background"
     />
-  </dialog>
+  </dialog>,
   <header
     className="l-header is-fixed is-visible"
     itemScope={true}
@@ -228,8 +226,8 @@ exports[`common/component/layout/body should render correctly 1`] = `
         </div>
       </section>
     </nav>
-  </header>
-  Body Children
+  </header>,
+  "Body Children",
   <footer
     className="l-footer"
     itemScope={true}
@@ -514,6 +512,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
         </div>
       </section>
     </nav>
-  </footer>
-</div>
+  </footer>,
+]
 `;

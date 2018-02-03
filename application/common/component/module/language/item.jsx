@@ -91,7 +91,8 @@ function ModuleLanguageItem(props) {
             itemProp='itemListElement'
             itemScope
             itemType='https://schema.org/Language'
-            role='listitem'>
+            role='listitem'
+        >
             <div className='c-box'>
                 <Headline className='c-box__header' htmlElement='h3'>
                     {headline}
