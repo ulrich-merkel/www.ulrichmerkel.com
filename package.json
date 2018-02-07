@@ -215,7 +215,7 @@
     "imagemin-cli": "3.0.0",
     "imagemin-jpegtran": "5.0.2",
     "imagemin-pngquant": "5.0.1",
-    "jest-cli": "22.1.4",
+    "jest-cli": "22.2.0",
     "jsdoc": "3.5.5",
     "jsdom": "11.6.1",
     "jsdom-global": "3.0.2",
