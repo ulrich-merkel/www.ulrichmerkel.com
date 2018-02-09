@@ -179,7 +179,7 @@
     "winston": "2.4.0"
   },
   "devDependencies": {
-    "autoprefixer": "7.2.5",
+    "autoprefixer": "7.2.6",
     "babel-cli": "6.26.0",
     "babel-eslint": "8.2.1",
     "babel-jest": "22.1.0",
