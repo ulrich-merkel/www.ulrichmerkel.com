@@ -199,7 +199,7 @@
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.16.0",
     "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-flowtype": "2.42.0",
+    "eslint-plugin-flowtype": "2.43.0",
     "eslint-plugin-immutable": "1.0.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsdoc": "3.3.1",
