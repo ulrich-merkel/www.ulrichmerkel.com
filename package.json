@@ -219,7 +219,7 @@
     "jsdoc": "3.5.5",
     "jsdom": "11.6.1",
     "jsdom-global": "3.0.2",
-    "ngrok": "2.2.25",
+    "ngrok": "2.2.26",
     "nightwatch": "0.9.19",
     "nock": "9.1.6",
     "node-mocks-http": "1.6.6",
