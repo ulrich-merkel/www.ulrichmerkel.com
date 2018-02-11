@@ -137,7 +137,7 @@
     "babel-polyfill": "6.26.0",
     "body-parser": "1.18.2",
     "buffer": "5.0.8",
-    "chalk": "2.3.0",
+    "chalk": "2.3.1",
     "classnames": "2.2.5",
     "compression": "1.7.1",
     "cookie-parser": "1.4.3",
