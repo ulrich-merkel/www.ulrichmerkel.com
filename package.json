@@ -226,7 +226,7 @@
     "node-sass": "4.7.2",
     "npm-package-json-lint": "2.11.1",
     "npm-run-all": "4.1.2",
-    "nsp": "3.1.0",
+    "nsp": "3.2.0",
     "opn-cli": "3.1.0",
     "postcss-cli": "4.1.1",
     "postcss-cssnext": "3.1.0",
