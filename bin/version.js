@@ -32,7 +32,6 @@ const silent = !!argv.silent || false;
  * Get specified version number listed in the engines section
  * in the package.json file.
  *
- * @function
  * @private
  * @param {boolean} isNpm - If the npm cli option is passed or not
  * @param {boolean} isNode - If the node cli option is passed or not
@@ -55,7 +54,6 @@ function getPackageVersion(isNpm, isNode) {
 /**
  * Get installed version number.
  *
- * @function
  * @private
  * @param {string} version - The passed cli version option
  * @returns {string} - The parsed installed version number
@@ -74,18 +72,34 @@ function getInstalledVersion(version) {
     return version.charAt(0) === 'v' ? version.substr(1) : version;
 }
 
-const plattform = checkNpm ? 'npm' : (checkNode ? 'node' : ''); // eslint-disable-line no-nested-ternary
-const installedVersion = getInstalledVersion(argv.version);
-const packageVersion = getPackageVersion(checkNpm, checkNode);
+/**
+ * Validate installed version.
+ *
+ * @param {string} version - The version to be checked
+ * @param {boolean} isNpm - Whether to check npm
+ * @param {boolean} isNode - Whether to check node
+ * @param {boolean} swallow - Do force break or not
+ * @returns {void}
+ */
+function main(version, isNpm, isNode, swallow) {
+    const plattform = isNpm
+        ? 'npm'
+        : (isNode ? 'node' : ''); // eslint-disable-line no-nested-ternary
+    const installedVersion = getInstalledVersion(version);
+    const packageVersion = getPackageVersion(isNpm, isNode);
 
-if (packageVersion !== installedVersion) {
-    console.error(chalk.red(
-        `${plattform} version: Installed version ${installedVersion} and requested package.json version ${packageVersion} don't match!`
+    if (packageVersion !== installedVersion) {
+        console.error(chalk.red(
+            `${plattform} version: Installed version ${installedVersion} and requested package.json version ${packageVersion} don't match!`
+        ));
+        process.exit(swallow ? 0 : 1);
+    }
+
+    console.log(chalk.green(
+        `${plattform} version: Installed version ${installedVersion}`
     ));
-    process.exit(silent ? 0 : 1);
+    process.exit(0);
 }
 
-console.log(chalk.green(
-    `${plattform} version: Installed version ${installedVersion}`
-));
-process.exit(0);
+// Start routine
+main(argv.version, checkNpm, checkNode, silent);

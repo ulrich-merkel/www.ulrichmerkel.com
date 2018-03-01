@@ -41,7 +41,6 @@ const runMethod = argv.run || 'test';
 /**
  * Check if transpiled server file is avialable.
  *
- * @function
  * @private
  * @returns {Object} - The ready-to-use server
  */
@@ -77,13 +76,12 @@ class Backstop {
      * @returns {void}
      */
     constructor(configFile, options, method) {
-        return this.init(configFile, options, method);
+        return this.main(configFile, options, method);
     }
 
     /**
      * Check if server needs to be handled (started or stopped).
      *
-     * @function
      * @private
      * @returns {boolean}
      */
@@ -94,7 +92,6 @@ class Backstop {
     /**
      * Start express server if necessary to run application.
      *
-     * @function
      * @private
      * @returns {Promise}
      */
@@ -121,7 +118,6 @@ class Backstop {
     /**
      * Stop express server if necessary to clear all running instances.
      *
-     * @function
      * @private
      * @returns {Promise}
      */
@@ -148,7 +144,6 @@ class Backstop {
     /**
      * Configure backstop helper and start server.
      *
-     * @function
      * @private
      * @param {string} configFile - The backstop config json
      * @param {Object} options - The cli options
@@ -175,7 +170,6 @@ class Backstop {
     /**
      * Helper function to call backstopJS cli.
      *
-     * @function
      * @private
      * @param {string} method - The cli function to be called
      * @returns {Promise}
@@ -194,7 +188,6 @@ class Backstop {
     /**
      * Helper function to check for current method.
      *
-     * @function
      * @private
      * @param {string} method - The cli function to be called
      * @returns {boolean}
@@ -208,7 +201,6 @@ class Backstop {
     /**
      * Run backstopJS reference task.
      *
-     * @function
      * @private
      * @returns {Promise|this}
      */
@@ -222,7 +214,6 @@ class Backstop {
     /**
      * Run backstopJS testing task.
      *
-     * @function
      * @private
      * @returns {Promise|this}
      */
@@ -236,7 +227,6 @@ class Backstop {
     /**
      * Run backstopJS open task to view comparison in default browser.
      *
-     * @function
      * @private
      * @returns {Promise|this}
      */
@@ -250,7 +240,6 @@ class Backstop {
     /**
      * Handle backstopJS success and close running server.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -267,7 +256,6 @@ class Backstop {
      * Handle backstopJS failure and close running server. Try to open
      * the current comparison in default browser.
      *
-     * @function
      * @private
      * @param {Object} reason - The error message
      * @returns {void}
@@ -287,14 +275,13 @@ class Backstop {
     /**
      * Init backstopJS service.
      *
-     * @function
      * @private
      * @param {string} configFile - The backstop config json
      * @param {Object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {void}
      */
-    init(configFile, options, method) {
+    main(configFile, options, method) {
         return new Promise((resolve) => {
             return this.configure(configFile, options, method)
                 .then(this.reference.bind(this))
@@ -310,7 +297,7 @@ class Backstop {
 
 }
 
-// listen to cli
+// Listen to cli
 const backstop = new Backstop(backstopConfigFile, {}, runMethod);
 
 module.exports = backstop;

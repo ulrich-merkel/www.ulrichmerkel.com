@@ -223,11 +223,10 @@ function resize(src, dest, width, height, degrees = 0) {
 /**
  * Run resize helper for all given image files.
  *
- * @private
  * @param {Object} config - The resize config
  * @returns {void}
  */
-function run(config) {
+function main(config) {
     const images = config.images;
     const srcFolder = config.srcFolder;
     const destFolder = config.destFolder;
@@ -271,4 +270,5 @@ function run(config) {
     });
 }
 
-run(getConfig(pictures, argvSrcFolder, argvDestFolder, argvImageFolder));
+// Start routine
+main(getConfig(pictures, argvSrcFolder, argvDestFolder, argvImageFolder));

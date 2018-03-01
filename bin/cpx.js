@@ -42,7 +42,6 @@ const argvFiles = argv.f || [
 /**
  * Ready callback when copy is successful.
  *
- * @function
  * @private
  * @param {Object} file - The copied file config
  * @returns {void}
@@ -55,12 +54,10 @@ function fileCopied(file) {
 /**
  * Toggle through config and copy each file.
  *
- * @function
- * @private
  * @param {Array<Object>} files - The files config to be copied
  * @returns {void}
  */
-function run(files) {
+function main(files) {
     assert.optionalArrayOfObject(files, 'files');
 
     const filesLength = files.length;
@@ -80,4 +77,5 @@ function run(files) {
     });
 }
 
-run(argvFiles);
+// Start routine
+main(argvFiles);
