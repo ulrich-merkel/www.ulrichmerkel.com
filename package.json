@@ -206,7 +206,7 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-lodash": "2.5.1",
     "eslint-plugin-new-with-error": "1.1.0",
-    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-promise": "3.7.0",
     "eslint-plugin-react": "7.6.1",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-xss": "0.1.9",
