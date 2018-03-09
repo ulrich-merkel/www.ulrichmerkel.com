@@ -176,7 +176,7 @@
     "shortid": "2.2.8",
     "snyk": "1.69.5",
     "url": "0.11.0",
-    "winston": "2.4.0"
+    "winston": "2.4.1"
   },
   "devDependencies": {
     "autoprefixer": "7.2.5",
