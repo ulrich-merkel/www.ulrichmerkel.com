@@ -61,7 +61,6 @@ const { aboveTheFold } = configApplication;
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
  * @see {@link https://github.com/ReactTraining/react-router/issues/902}
  *
- * @function
  * @private
  * @param {string} url - The router path url
  * @param {Object} store - The created redux store
@@ -99,7 +98,8 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
 /**
  * Read language which is given in the url locale parameter or via
  * express middleware and store the selection in redux.
- * 
+ *
+ * @private
  * @param {Object} req - The current request object
  * @param {Object} store - The complete redux store
  * @returns {string} The currently accepted locale
@@ -110,7 +110,10 @@ function getLocale(req, store) {
 
     // @TODO: Read locale from router params
     const urlLocale = get({}, 'router.params.locale', '');
-    store.dispatch(changeLocale([urlLocale, urlLocale.toUpperCase()].join('-'), req.language));
+    store.dispatch(changeLocale([
+        urlLocale,
+        urlLocale.toUpperCase()
+    ].join('-'), req.language));
     const acceptedLocale = get(store.getState(), 'intl.locale');
 
     return acceptedLocale;
@@ -119,7 +122,8 @@ function getLocale(req, store) {
 /**
  * Load all required data async via promises to
  * improve the overall node performance.
- * 
+ *
+ * @private
  * @param {Object} req - The current request object
  * @param {Object} store - The complete redux store
  * @param {string} acceptedLocale - The currently accepted locale
@@ -129,13 +133,14 @@ function loadData(req, store, acceptedLocale) {
     assert.object(req, 'req');
     assert.object(store, 'store');
     assert.string(acceptedLocale, 'acceptedLocale');
+    const { dispatch } = store;
 
     return Promise.all([
         readFile(aboveTheFold.cssBase),
         readFile(aboveTheFold.scriptBootstrap),
-        store.dispatch(fetchConfigContentIfNeeded()),
-        store.dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
-        store.dispatch(addToken(req.csrfToken && req.csrfToken()))
+        dispatch(fetchConfigContentIfNeeded()),
+        dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
+        dispatch(addToken(req.csrfToken && req.csrfToken()))
     ]);
 }
 

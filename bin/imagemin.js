@@ -54,7 +54,6 @@ const argvPlugins = argv.p || [
 /**
  * Ready callback when images are successfully minified.
  *
- * @function
  * @private
  * @param {Array} files - The minified images
  * @returns {void}
@@ -69,14 +68,13 @@ function imagesMinified(files) {
 /**
  * Toggle through folder config and minify each file.
  *
- * @function
  * @private
  * @param {Array<string>} folders - The folders for locating images
  * @param {string} dest - The destination path
  * @param {Array} [plugins=[]] - The optional imagemin plugins
  * @returns {void}
  */
-function run(folders, dest, plugins = []) {
+function main(folders, dest, plugins = []) {
     assert.optionalArrayOfString(folders, 'folders');
     assert.optionalString(dest, 'dest');
     assert.optionalArray(plugins, 'plugins');
@@ -105,4 +103,5 @@ function run(folders, dest, plugins = []) {
     });
 }
 
-run(argvFolders, argvDest, argvPlugins);
+// Start routine
+main(argvFolders, argvDest, argvPlugins);

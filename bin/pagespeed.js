@@ -48,7 +48,6 @@ process.stdin.setEncoding('utf8');
 /**
  * Helper function to check if file exists.
  *
- * @function
  * @private
  * @param {string} filePath - The file name
  * @returns {boolean} Whether the file exists or not
@@ -62,7 +61,6 @@ function existsSync(filePath) {
  *
  * @todo: Check if file exists
  *
- * @function
  * @private
  * @param {string} serverPath - The ready-to-use server file path
  * @returns {void}
@@ -79,7 +77,6 @@ function getServer(serverPath) {
 /**
  * Run page speed cli tool.
  *
- * @function
  * @private
  * @param {string} url - The tunneled url to be tested
  * @returns {void}
@@ -101,17 +98,15 @@ function runPageSpeedInsights(url) {
 }
 
 /**
- * Open tunneling because page speed refers needs a public url for
+ * Open/start tunneling because page speed refers needs a public url for
  * running their speed analytics.
  *
- * @function
- * @private
  * @param {string} serverPath - The file path for the ready-to-use server
  * @param {string} serverPort - The server port to be started
  * @param {Function} callback - The handler after ngrok connects
  * @returns {void}
  */
-function startTunnel(serverPath, serverPort, callback) {
+function main(serverPath, serverPort, callback) {
     assert.string(serverPath, 'serverPath');
     assert.string(serverPort, 'directory');
     assert.func(callback, 'callback');
@@ -124,6 +119,24 @@ function startTunnel(serverPath, serverPort, callback) {
         return;
     }
 
+    /**
+     * Handle async callback when ngrok opened the server.
+     *
+     * @private
+     * @param {Object} error - Tunnel error
+     * @param {string} url - The url to be opened
+     * @returns {void}
+     */
+    function ngrokConnected(error, url) {
+        if (error) {
+            console.error(chalk.red(error));
+            return void process.exit(1);
+        }
+
+        console.log(chalk.grey(`Serving tunnel from: ${url}`));
+        return void callback(url);
+    }
+
     console.log(chalk.grey('Starting ngrok tunnel'));
     runningServer = server.default({}, function serverStarted(serverError) {
         if (serverError) {
@@ -131,17 +144,10 @@ function startTunnel(serverPath, serverPort, callback) {
             process.exit(1);
             return;
         }
-        ngrok.connect(argvPort, function ngrokConnected(error, url) {
-            if (error) {
-                console.error(chalk.red(error));
-                return void process.exit(1);
-            }
-
-            console.log(chalk.grey(`Serving tunnel from: ${url}`));
-            return void callback(url);
-        });
+        ngrok.connect(argvPort, ngrokConnected);
     });
 
 }
 
-startTunnel(argvServerPath, argvPort, runPageSpeedInsights);
+// Start routine
+main(argvServerPath, argvPort, runPageSpeedInsights);
