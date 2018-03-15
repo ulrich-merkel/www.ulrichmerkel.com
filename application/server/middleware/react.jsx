@@ -133,7 +133,7 @@ function loadData(req, store, acceptedLocale) {
     assert.object(req, 'req');
     assert.object(store, 'store');
     assert.string(acceptedLocale, 'acceptedLocale');
-    const { dispatch } = store
+    const { dispatch } = store;
 
     return Promise.all([
         readFile(aboveTheFold.cssBase),
