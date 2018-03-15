@@ -94,7 +94,7 @@ function configureStore(preloadedState = {}) {
         middlewares.push(loggerMiddleware);
     }
 
-    // create store with cached data
+    // Create store with cached data
     const store = createStore(
         reducers,
         Object.assign(
@@ -105,13 +105,13 @@ function configureStore(preloadedState = {}) {
         applyMiddleware(...middlewares)
     );
 
-    // listen to changes to save state in cache
+    // Listen to changes to save state in cache
     store.subscribe(() => {
         const stateToSave = omit(store.getState(), ['csrf', 'page']);
         saveState(stateToSave);
     });
 
-    // fetch inital data if not already passed as preloadedState
+    // Fetch inital data if not already passed as preloadedState
     store.dispatch(fetchConfigContentIfNeeded());
     store.dispatch(fetchConfigTranslationIfNeeded(get(store.getState(), 'intl.locale')));
 

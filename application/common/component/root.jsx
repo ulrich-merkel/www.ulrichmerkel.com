@@ -24,7 +24,6 @@ import { Provider } from 'react-redux';
 /**
  * Function representing the react redux root.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {Array|string} props.children - Required due to Provider
  * @param {Object} props.store - Complete redux store state
