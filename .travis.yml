@@ -14,7 +14,7 @@ cache:
     - $HOME/.npm
     - $HOME/.yarn-cache
 before_install:
-  - npm install -g yarn@1.0.2
+  - npm install -g yarn@1.5.1
   - yarn global add greenkeeper-lockfile@1
 install:
   - yarn --pure-lockfile
