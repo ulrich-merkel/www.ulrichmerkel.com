@@ -14,7 +14,6 @@
  * @requires react
  * @requires prop-types
  * @requires react-helmet
- * @requires classnames
  * @requires common/component/decorator/picturefill
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
@@ -32,10 +31,9 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import classnames from 'classnames';
 
 import {
     pictureFill,
@@ -136,10 +134,8 @@ class LayoutBody extends Component {
             content
         } = this.props;
 
-        const componentClassName = classnames('l-react__body');
-
         return (
-            <div className={componentClassName}>
+            <Fragment>
                 <Helmet {...content} />
                 <LayoutLoader />
                 <LayoutHeader />
@@ -159,7 +155,7 @@ class LayoutBody extends Component {
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialog>
-            </div>
+            </Fragment>
         );
     }
 
