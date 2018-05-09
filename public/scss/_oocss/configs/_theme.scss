@@ -60,8 +60,52 @@ $theme-default: (
     --theme-base-type-cite-color: $config-color-concrete,
     --theme-base-type-cite-before-content:  '\2014 \0020',
 
-    // Viewport
-    --theme-base-viewport-width: $config-grid--viewport-width
+    // Base viewport
+    --theme-base-viewport-width: $config-grid--viewport-width,
+
+    // Component btn
+    --theme-component-btn-font-weight: $config-font-weight-bold,
+    --theme-component-btn-color: $config-color-white,
+    --theme-component-btn-color-hover: $config-color-white,
+    --theme-component-btn-color-visited: $config-color-white,
+    --theme-component-btn-color-active: $config-color-white,
+    --theme-component-btn-letter-spacing: 1px,
+    --theme-component-btn-background: $config-color-java,
+    --theme-component-btn-background-hover: $config-color-pickled-bluewood,
+    --theme-component-btn-opacity-disabled: 0.4,
+    --theme-component-btn-label-after-border-top: 1px solid $config-color-white,
+    --theme-component-btn-secondary-font-size: 90%,
+    --theme-component-btn-secondary-color: $config-font-color,
+    --theme-component-btn-secondary-background: $config-color-concrete,
+    --theme-component-btn-submit-border: 1px solid transparent,
+    --theme-component-btn-submit-is-pending-border: 4px solid $config-color-concrete,
+    --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-java,
+
+    // Component flip
+    --theme-component-flip-color: $config-color-white,
+    --theme-component-flip-front-background-color: $config-color-cinnabar,
+    --theme-component-flip-back-background-color: $config-color-java,
+
+    // Component pie
+    --theme-component-pie-circle-background-color: $config-color-concrete,
+    --theme-component-pie-circle-before-background-color: $config-color-white,
+    --theme-component-pie-circle-after-font-weight: $config-font-weight-bold,
+    --theme-component-pie-mask-background-color: $config-color-cinnabar,
+
+    // Component reading
+    --theme-component-reading-font-weight: $config-font-weight-light,
+
+    // Component time
+    --theme-component-time-font-weight: $config-font-weight-light,
+
+    // Component type
+    --theme-component-type-h-font-family: $config-type-font-family,
+    --theme-component-type-h-font-weight: $config-font-weight-normal,
+    --theme-component-type-h-color: $config-color-pickled-bluewood,
+    --theme-component-type-h-line-height: 1.4,
+    --theme-component-type-h-small-font-size: $config-font-small-size,
+    --theme-component-type-h-has-border-border-top: 1px solid $config-color-black,
+    --theme-component-type-p-font-weight: $config-font-weight-light
 );
 
 // Modules

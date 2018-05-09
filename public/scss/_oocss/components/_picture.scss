@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}c-picture';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -20,10 +20,6 @@ $block: '#{$config-ns}c-picture';
     .#{$block}__source {
         display: none;
     }
-
-    // .#{$block}__img {
-    //     display: block;
-    // }
 
     .#{$block}--full-width {
         .#{$block}__img {

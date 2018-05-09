@@ -5,12 +5,12 @@
 /// @author Ulrich Merkel
 ////
 
-// http://jsfiddle.net/xq72dcxm/
-// http://codepen.io/tcmulder/pen/qHIJp
+// @see http://jsfiddle.net/xq72dcxm/
+// @see http://codepen.io/tcmulder/pen/qHIJp
 
 $block: '#{$config-ns}c-pie';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
     .#{$block} {
@@ -24,7 +24,7 @@ $block: '#{$config-ns}c-pie';
         height: 200px;
         margin: 0;
         overflow: hidden;
-        background-color: $config-color-concrete;
+        @include var(background-color, --theme-component-pie-circle-background-color);
         border-radius: 50%;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
@@ -52,9 +52,9 @@ $block: '#{$config-ns}c-pie';
         display: block;
         width: 100%;
         height: 100%;
-        background-color: $config-color-cinnabar;
+        @include var(background-color, --theme-component-pie-mask-background-color);
 
-        // be careful, this produces buggy output
+        // Be careful, this produces buggy output
         // will-change: transform;
         // transition: transform $config-transition-arguments;
 
@@ -100,16 +100,15 @@ $block: '#{$config-ns}c-pie';
             width: 75%;
             height: 75%;
             content: ' ';
-            background-color: $config-color-white;
+            @include var(background-color, --theme-component-pie-circle-before-background-color);
         }
     }
 
     .#{$block}__circle {
         &::after {
             z-index: 2;
-            font-family: Arial, sans-serif;
             font-size: rem-calc(18);
-            font-weight: $config-font-weight-bold;
+            @include var(font-weight, --theme-component-pie-circle-after-font-weight);
             text-align: center;
             content: attr(data-text);
         }
