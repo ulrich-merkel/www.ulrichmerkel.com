@@ -73,7 +73,7 @@ $block: '#{$config-ns}c-flip';
 
     .#{$block}__back {
         z-index: 1;
-        background-color: $config-color-blue--1;
+        background-color: $config-color-java;
         transform: rotateX(180deg);
         animation: move-two 1s infinite ease 0.1s;
     }

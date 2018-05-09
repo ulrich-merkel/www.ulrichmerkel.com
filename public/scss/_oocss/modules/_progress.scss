@@ -25,19 +25,19 @@ $block: '#{$config-ns}m-progress';
         &[value] {
             margin: 0;
             appearance: none;
-            background: $config-color-blue--2;
+            background: $config-color-pickled-bluewood;
             border: 0;
 
             &::-webkit-progress-bar {
-                background: $config-color-blue--2;
+                background: $config-color-pickled-bluewood;
             }
 
             &::-webkit-progress-value {
-                background: $config-color-blue--1;
+                background: $config-color-java;
             }
 
             &::-moz-progress-bar {
-                background: $config-color-blue--1;
+                background: $config-color-java;
             }
         }
 
@@ -61,7 +61,7 @@ $block: '#{$config-ns}m-progress';
         display: block;
         width: 0%;
         height: 6px;
-        background: $config-color-blue--1;
+        background: $config-color-java;
 
         will-change: width;
         transition: width $config-transition-arguments;

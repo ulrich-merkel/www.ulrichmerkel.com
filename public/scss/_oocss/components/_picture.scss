@@ -21,9 +21,9 @@ $block: '#{$config-ns}c-picture';
         display: none;
     }
 
-    .#{$block}__img {
-        display: block;
-    }
+    // .#{$block}__img {
+    //     display: block;
+    // }
 
     .#{$block}--full-width {
         .#{$block}__img {

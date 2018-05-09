@@ -14,9 +14,9 @@ $block: '#{$config-ns}l-footer';
         position: relative;
         margin: 0;
         padding: rem-calc($config-grid--gutter * 2) 0 rem-calc($config-grid--gutter * 3);
-        color: $config-color-grey--4;
+        color: $config-color-alto;
         text-align: left;
-        background: $config-color-blue--2;
+        background: $config-color-pickled-bluewood;
 
         small {
             font-size: 80%;
@@ -42,7 +42,7 @@ $block: '#{$config-ns}l-footer';
         color: $config-color-white;
         text-align: center;
         letter-spacing: normal;
-        background: $config-color-blue--1;
+        background: $config-color-java;
         opacity: 0;
 
         &:focus {

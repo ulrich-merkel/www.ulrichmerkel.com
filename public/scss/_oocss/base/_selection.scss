@@ -5,11 +5,11 @@
 /// @author Ulrich Merkel
 ////
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
     ::selection {
-        color: $config-color-white;
+        @include var(color, --theme-base-selection-color);
         text-shadow: none;
-        background: $config-color-cinnabar;
+        @include var(background, --theme-base-selection-background);
     }
 }

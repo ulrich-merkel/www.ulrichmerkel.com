@@ -1,3 +1,4 @@
+/* stylelint-disable value-list-max-empty-lines, function-max-empty-lines */
 ////
 /// Theming scss variables
 ///
@@ -5,13 +6,66 @@
 /// @author Ulrich Merkel
 ////
 
-// Base styles
-$theme-base-img-missing-background: $config-color-concrete;
-$theme-base-img-missing-border: 2px dotted $config-color-grey--3;
-$theme-base-img-missing-border-radius: 5px;
-$theme-base-img-missing-color: $config-color-grey--6;
+$theme-default: (
+    // Base button
+    --theme-base-button-color: $config-color-link,
+    --theme-base-button-color-hover: $config-color-link-hover,
+    --theme-base-button-color-focus: $config-color-link-focus,
+    --theme-base-button-color-active: $config-color-link-active,
+    --theme-base-button-color-visited: $config-color-link-visited,
+    --theme-base-button-outline-focus: $config-color-link-focus,
+
+    // Base link
+    --theme-base-link-color: $config-color-link,
+    --theme-base-link-color-hover: $config-color-link-hover,
+    --theme-base-link-color-focus: $config-color-link-focus,
+    --theme-base-link-color-active: $config-color-link-active,
+    --theme-base-link-color-visited: $config-color-link-visited,
+    --theme-base-link-outline-focus: $config-color-link-focus,
+    --theme-base-link-attr-tel-color: $config-color-link,
+    --theme-base-link-attr-tel-color-hover: $config-color-link-hover,
+
+    // Base img
+    --theme-base-img-missing-font-family: $config-type-font-family,
+    --theme-base-img-missing-font-weight: $config-font-weight-light,
+    --theme-base-img-missing-background: $config-color-concrete,
+    --theme-base-img-missing-before-content: 'Image could not be loaded',
+    --theme-base-img-missing-after-font-family: fonticons,
+    --theme-base-img-missing-after-content: '\ea07 ' attr(alt),
+    --theme-base-img-missing-border: 2px dotted $config-color-silver,
+    --theme-base-img-missing-border-radius: 5px,
+    --theme-base-img-missing-color: $config-color-dove-grey,
+
+    // Base selection
+    --theme-base-selection-color: $config-color-white,
+    --theme-base-selection-background: $config-color-cinnabar,
+
+    // Base touch
+    --theme-base-touch-tap-highlight-color: rgba(63, 154, 201, 0.3),
+
+    // Base type
+    --theme-base-type-font-family: $config-type-font-family,
+    --theme-base-type-color: $config-font-color,
+    --theme-base-type-font-weight: $config-font-weight-normal,
+    --theme-base-type-line-height: 1.375,
+    --theme-base-type-abbr-border-bottom: 1px dotted $config-color-dove-grey,
+    --theme-base-type-strong-font-weight: $config-font-weight-bold,
+    --theme-base-type-small-font-size: $config-font-small-size,
+    --theme-base-type-sup-sub-font-size: 75%,
+    --theme-base-type-sup-top: -0.5em,
+    --theme-base-type-sub-bottom: -0.25em,
+    --theme-base-type-blockquote-border-left: 1px solid $config-color-concrete,
+    --theme-base-type-blockquote-text-line-height: 1.6,
+    --theme-base-type-blockquote-text-color: $config-color-grey,
+    --theme-base-type-cite-color: $config-color-concrete,
+    --theme-base-type-cite-before-content:  '\2014 \0020',
+
+    // Viewport
+    --theme-base-viewport-width: $config-grid--viewport-width
+);
 
 // Modules
+
 $theme-module-cornerstone-highlight-background: $config-color-concrete;
 $theme-module-cornerstone-border-center: 1px solid $config-color-black;
 $theme-module-cornerstone-bubble-background: $config-color-black;
@@ -25,7 +79,7 @@ $theme-module-key-visual-headline-background: $config-color-concrete;
 $theme-module-key-visual-headline-color: $config-font-color;
 $theme-module-key-visual-text-background: $config-color-concrete;
 $theme-module-key-visual-button-color: $config-color-white;
-$theme-module-key-visual-button-background: $config-color-blue--1;
+$theme-module-key-visual-button-background: $config-color-java;
 $theme-module-key-visual-work-background: $config-color-concrete;
 $theme-module-key-visual-gradient: #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%;
 
@@ -34,16 +88,16 @@ $theme-module-work-headline-color: $config-font-color;
 $theme-module-work-headline-background: $config-color-concrete;
 
 $theme-module-form-control-border-bottom: 1px solid $config-color-concrete;
-$theme-module-form-control-border-color-focus: $config-color-blue--1;
+$theme-module-form-control-border-color-focus: $config-color-java;
 $theme-module-form-control-border-color-invalid: $config-color-cinnabar;
-$theme-module-form-control-color-label-focus: $config-color-grey--4;
+$theme-module-form-control-color-label-focus: $config-color-alto;
 $theme-module-form-control-color: $config-font-color;
 $theme-module-form-invalid-border-color: $config-color-cinnabar;
 $theme-module-form-invalid-color: $config-color-cinnabar;
 $theme-module-form-isvalid-border-color: $config-color-mountain-meadow;
 $theme-module-form-isvalid-color: $config-color-mountain-meadow;
-$theme-module-form-label-color-focus: $config-color-grey--4;
-$theme-module-form-label-color: $config-color-blue--1;
+$theme-module-form-label-color-focus: $config-color-alto;
+$theme-module-form-label-color: $config-color-java;
 
 $theme-module-section-featured-hover-background: rgba(0, 0, 0, 0.75);
 
@@ -54,3 +108,15 @@ $theme-layout-print-text-visited-color: $config-color-concrete;
 $theme-layout-print-quote-border: 1px solid $config-color-concrete;
 
 $theme-layout-header-height: 61px;
+
+// Programmatically generate fallback :root variables from the default theme
+// Above the fold css, visible without scrolling
+@if ($config-critical-css) {
+    @supports ((--a: 0)) {
+        :root {
+            @each $name, $value in $theme-default {
+                #{$name}: #{$value};
+            }
+        }
+    }
+}

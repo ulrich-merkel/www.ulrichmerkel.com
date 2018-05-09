@@ -5,27 +5,26 @@
 /// @author Ulrich Merkel
 ////
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
-    // @see:
-    // - http://mattstow.com/responsive-design-in-ie10-on-windows-phone-8.html
-    // - http://css-tricks.com/snippets/javascript/fix-ie-10-on-windows-phone-8-viewport/
-    // - http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+    // @see http://mattstow.com/responsive-design-in-ie10-on-windows-phone-8.html
+    // @see http://css-tricks.com/snippets/javascript/fix-ie-10-on-windows-phone-8-viewport/
+    // @see http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
     @if ($config-support-prefix-ms) {
         @-ms-viewport {
-            width: $config-grid--viewport-width;
+            @include var(width, --theme-base-viewport-width);
         }
     }
 
     @if ($config-support-prefix-o) {
         @-o-viewport {
-            width: $config-grid--viewport-width;
+            @include var(width, --theme-base-viewport-width);
         }
     }
 
     @viewport {
-        width: $config-grid--viewport-width;
+        @include var(width, --theme-base-viewport-width);
     }
 
 }

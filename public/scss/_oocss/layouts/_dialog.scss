@@ -59,7 +59,7 @@ $block: '#{$config-ns}l-dialog';
         z-index: 9;
         width: 100%;
         height: 100%;
-        background: $config-color-blue--2;
+        background: $config-color-pickled-bluewood;
         opacity: 0.95;
     }
 
@@ -80,7 +80,7 @@ $block: '#{$config-ns}l-dialog';
         color: $config-color-white;
         text-align: center;
         letter-spacing: normal;
-        background: $config-color-blue--1;
+        background: $config-color-java;
 
         &:focus {
             color: $config-color-white;
@@ -220,7 +220,7 @@ $block: '#{$config-ns}l-dialog';
     .#{$block}--search {
         .m-form__control--text {
             color: $config-color-white;
-            background: $config-color-blue--2;
+            background: $config-color-pickled-bluewood;
         }
         .c-type--h3 {
             color: $config-color-white;

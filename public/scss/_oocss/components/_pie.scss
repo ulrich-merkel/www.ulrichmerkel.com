@@ -24,7 +24,7 @@ $block: '#{$config-ns}c-pie';
         height: 200px;
         margin: 0;
         overflow: hidden;
-        background-color: $config-color-grey--2;
+        background-color: $config-color-concrete;
         border-radius: 50%;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
