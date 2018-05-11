@@ -55,7 +55,7 @@ $block: '#{$config-ns}c-btn';
         // @see http://css-tricks.com/snippets/css/link-pseudo-classes-in-order/
 
         &:visited {
-            @include var(background, --theme-component-btn-color-visited);
+            @include var(color, --theme-component-btn-color-visited);
         }
 
         // Just show hover for non-touch devices

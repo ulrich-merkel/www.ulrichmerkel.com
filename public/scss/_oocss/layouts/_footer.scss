@@ -7,20 +7,16 @@
 
 $block: '#{$config-ns}l-footer';
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     .#{$block} {
         position: relative;
         margin: 0;
         padding: rem-calc($config-grid--gutter * 2) 0 rem-calc($config-grid--gutter * 3);
-        color: $config-color-alto;
+        @include var(color, --theme-layout-footer-color);
         text-align: left;
-        background: $config-color-pickled-bluewood;
-
-        small {
-            font-size: 80%;
-        }
+        @include var(background, --theme-layout-footer-background);
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;
@@ -39,18 +35,18 @@ $block: '#{$config-ns}l-footer';
         padding: 0;
         font-size: 130%;
         line-height: 2.5;
-        color: $config-color-white;
+        @include var(color, --theme-layout-footer-button-up-color);
         text-align: center;
         letter-spacing: normal;
-        background: $config-color-java;
+        @include var(background, --theme-layout-footer-button-up-background);
         opacity: 0;
 
         &:focus {
-            color: $config-color-white;
+            @include var(color, --theme-layout-footer-button-up-color-focus);
         }
 
         &:visited {
-            color: $config-color-white;
+            @include var(color, --theme-layout-footer-button-up-color-visited);
         }
 
         .js & {

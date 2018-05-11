@@ -105,7 +105,29 @@ $theme-default: (
     --theme-component-type-h-line-height: 1.4,
     --theme-component-type-h-small-font-size: $config-font-small-size,
     --theme-component-type-h-has-border-border-top: 1px solid $config-color-black,
-    --theme-component-type-p-font-weight: $config-font-weight-light
+    --theme-component-type-p-font-weight: $config-font-weight-light,
+
+    // Layout dialog
+    --theme-layout-dialog-text-color: $config-color-white,
+    --theme-layout-dialog-background-background: $config-color-pickled-bluewood,
+    --theme-layout-dialog-background-opacity: 0.95,
+    --theme-layout-dialog-button-close-background: $config-color-java,
+    --theme-layout-dialog-button-close-background-hover: $config-color-java,
+    --theme-layout-dialog-button-close-color: $config-color-white,
+    --theme-layout-dialog-button-close-color-focus: $config-color-white,
+    --theme-layout-dialog-button-close-color-visited: $config-color-white,
+    --theme-layout-dialog-search-input-background: $config-color-pickled-bluewood,
+
+    // Layout footer
+    --theme-layout-footer-color: $config-color-alto,
+    --theme-layout-footer-background: $config-color-pickled-bluewood,
+    --theme-layout-footer-button-up-color: $config-color-white,
+    --theme-layout-footer-button-up-color-focus: $config-color-white,
+    --theme-layout-footer-button-up-color-visited: $config-color-white,
+    --theme-layout-footer-button-up-background: $config-color-java,
+
+    // Layout header
+    --theme-layout-header-background: $config-color-pickled-bluewood
 );
 
 // Modules

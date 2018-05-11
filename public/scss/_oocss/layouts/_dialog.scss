@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}l-dialog';
 
-// below the fold css, could be lazy loaded
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
     .#{$block},
@@ -45,7 +45,7 @@ $block: '#{$config-ns}l-dialog';
         .m-article__alt-headline,
         .m-article__lead,
         .m-article__text {
-            color: $config-color-white;
+            @include var(color, --theme-layout-dialog-text-color);
         }
 
     }
@@ -59,8 +59,8 @@ $block: '#{$config-ns}l-dialog';
         z-index: 9;
         width: 100%;
         height: 100%;
-        background: $config-color-pickled-bluewood;
-        opacity: 0.95;
+        @include var(background, --theme-layout-dialog-background-background);
+        @include var(opacity, --theme-layout-dialog-background-opacity);
     }
 
     .#{$block}__button--close {
@@ -70,24 +70,34 @@ $block: '#{$config-ns}l-dialog';
         top: 0;
         right: 0;
         z-index: 12;
-        width: 61px; // rem-calc($config-grid--gutter * 3);
-        height: 61px; // rem-calc($config-grid--gutter * 3);
+        width: 61px;
+        height: 61px;
         // stylelint-disable declaration-no-important
         padding: 13px 0 0 5px !important;
         // stylelint-enable declaration-no-important
         font-size: 130%;
         line-height: 2.5;
-        color: $config-color-white;
+        @include var(color, --theme-layout-dialog-button-close-color);
         text-align: center;
         letter-spacing: normal;
-        background: $config-color-java;
-
-        &:focus {
-            color: $config-color-white;
-        }
+        @include var(background, --theme-layout-dialog-button-close-background);
 
         &:visited {
-            color: $config-color-white;
+            @include var(color, --theme-layout-dialog-button-close-color-visited);
+        }
+
+        // Just show hover for non-touch devices
+        @if ($config-support-hovers) {
+            .no-touch &:hover,
+            .no-touchevents &:hover,
+            .no-js &:hover {
+                @include var(background, --theme-layout-dialog-button-close-background-hover);
+
+            }
+        }
+
+        &:focus {
+            @include var(color, --theme-layout-dialog-button-close-color-focus);
         }
 
         &::before {
@@ -121,7 +131,7 @@ $block: '#{$config-ns}l-dialog';
 
 }
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     @keyframes anim-open {
@@ -204,47 +214,52 @@ $block: '#{$config-ns}l-dialog';
                     .no-js & {
                         a {
                             &:hover {
-                                color: $config-color-white;
+                                @include var(color, --theme-layout-dialog-text-color);
                             }
                         }
                     }
                 }
 
             }
+
             .m-list__alt-headline {
-                color: $config-color-white;
+                @include var(color, --theme-layout-dialog-text-color);
             }
         }
     }
 
     .#{$block}--search {
         .m-form__control--text {
-            color: $config-color-white;
-            background: $config-color-pickled-bluewood;
+            @include var(color, --theme-layout-dialog-text-color);
+            @include var(background, --theme-layout-dialog-search-input-background);
         }
+
         .c-type--h3 {
-            color: $config-color-white;
+            @include var(color, --theme-layout-dialog-text-color);
         }
+
         .m-menu__item {
-            // just show hover for non-touch devices
+            // Just show hover for non-touch devices
             @if ($config-support-hovers) {
                 .no-touch &,
                 .no-touchevents &,
                 .no-js & {
                     &:hover {
-                        color: $config-color-white;
+                        @include var(color, --theme-layout-dialog-text-color);
                     }
                 }
             }
         }
+
         .c-btn {
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 display: block;
                 margin: 0 auto;
             }
         }
+
         .m-menu__description {
-            color: $config-color-white;
+            @include var(color, --theme-layout-dialog-text-color);
         }
     }
 }

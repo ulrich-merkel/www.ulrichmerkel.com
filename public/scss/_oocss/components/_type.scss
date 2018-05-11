@@ -53,7 +53,7 @@ $block: '#{$config-ns}c-type';
     margin-bottom: rem-calc($config-type-scale-1);
 }
 
-// Above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     h1,
