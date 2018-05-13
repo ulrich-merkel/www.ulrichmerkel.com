@@ -55,7 +55,6 @@ function getTimeStamp() {
     }
     return getDateNow();
 }
-self.CACHE = `CACHE-${getTimeStamp()}`; // eslint-disable-line immutable/no-mutation
 
 /**
  * Handle promise errors and simply log the reason.
@@ -295,6 +294,7 @@ function onMessage(event) {
     }
 }
 
+self.CACHE = `CACHE-${getTimeStamp()}`; // eslint-disable-line immutable/no-mutation
 self.addEventListener('install', onInstall);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('activate', onActivate);

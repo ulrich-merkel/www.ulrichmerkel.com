@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}m-service';
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     .#{$block} {
@@ -53,9 +53,9 @@ $block: '#{$config-ns}m-service';
         width: 50px;
         height: 50px;
         margin-right: rem-calc($config-grid--gutter);
-        color: $config-color-white;
+        @include var(color, --theme-module-service-icon-color);
         text-align: center;
-        background: $config-color-cinnabar;
+        @include var(background, --theme-module-service-icon-background);
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             margin-right: 0;
@@ -65,7 +65,7 @@ $block: '#{$config-ns}m-service';
     .#{$block}__icon-font {
         @include font-size($config-type-scale-12);
         position: relative;
-        top: 13px;
+        top: 10px;
         display: block;
 
         &::before {
@@ -79,7 +79,7 @@ $block: '#{$config-ns}m-service';
         &.c-font-icon--skill-javascript,
         &.c-font-icon--skill-php {
             @include font-size(30);
-            top: 10px;
+            top: 6px;
         }
     }
 
@@ -88,7 +88,7 @@ $block: '#{$config-ns}m-service';
     }
 
     .#{$block}__text {
-        font-size: 90%;
+        @include var(font-size, --theme-module-service-text-font-size);
     }
 
     .#{$block}__item--right {

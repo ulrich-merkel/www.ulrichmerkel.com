@@ -51,7 +51,7 @@
     html,
     body {
         @include var(font-family, --theme-base-type-font-family);
-        @include font-size($config-type-scale-9);
+        font-size: $config-type-scale-9 + 0px;
         font-style: normal;
         @include var(font-weight, --theme-base-type-font-weight);
         @include var(line-height, --theme-base-type-line-height);

@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}m-list';
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -35,7 +35,7 @@ $block: '#{$config-ns}m-list';
 
         .#{$block}__item {
 
-            // just show hover for non-touch devices
+            // Just show hover for non-touch devices
             @if ($config-support-hovers) {
                 .no-touch &,
                 .no-touchevents &,
@@ -68,7 +68,7 @@ $block: '#{$config-ns}m-list';
     .#{$block}--search {
         .m-menu__item {
             margin-bottom: rem-calc($config-grid--gutter * 0.5);
-            color: $config-color-java;
+            @include var(color, --theme-module-list-search-color);
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 text-align: center;

@@ -8,88 +8,88 @@
 
 $theme-default: (
     // Base button
-    --theme-base-button-color: $config-color-link,
-    --theme-base-button-color-hover: $config-color-link-hover,
-    --theme-base-button-color-focus: $config-color-link-focus,
     --theme-base-button-color-active: $config-color-link-active,
+    --theme-base-button-color-focus: $config-color-link-focus,
+    --theme-base-button-color-hover: $config-color-link-hover,
     --theme-base-button-color-visited: $config-color-link-visited,
+    --theme-base-button-color: $config-color-link,
     --theme-base-button-outline-focus: $config-color-link-focus,
 
     // Base link
-    --theme-base-link-color: $config-color-link,
-    --theme-base-link-color-hover: $config-color-link-hover,
-    --theme-base-link-color-focus: $config-color-link-focus,
-    --theme-base-link-color-active: $config-color-link-active,
-    --theme-base-link-color-visited: $config-color-link-visited,
-    --theme-base-link-outline-focus: $config-color-link-focus,
-    --theme-base-link-attr-tel-color: $config-color-link,
     --theme-base-link-attr-tel-color-hover: $config-color-link-hover,
+    --theme-base-link-attr-tel-color: $config-color-link,
+    --theme-base-link-color-active: $config-color-link-active,
+    --theme-base-link-color-focus: $config-color-link-focus,
+    --theme-base-link-color-hover: $config-color-link-hover,
+    --theme-base-link-color-visited: $config-color-link-visited,
+    --theme-base-link-color: $config-color-link,
+    --theme-base-link-outline-focus: $config-color-link-focus,
 
     // Base img
-    --theme-base-img-missing-font-family: $config-type-font-family,
-    --theme-base-img-missing-font-weight: $config-font-weight-light,
+    --theme-base-img-missing-after-content: '\ea07 ' attr(alt),
+    --theme-base-img-missing-after-font-family: fonticons,
     --theme-base-img-missing-background: $config-color-concrete,
     --theme-base-img-missing-before-content: 'Image could not be loaded',
-    --theme-base-img-missing-after-font-family: fonticons,
-    --theme-base-img-missing-after-content: '\ea07 ' attr(alt),
-    --theme-base-img-missing-border: 2px dotted $config-color-silver,
     --theme-base-img-missing-border-radius: 5px,
+    --theme-base-img-missing-border: 2px dotted $config-color-silver,
     --theme-base-img-missing-color: $config-color-dove-grey,
+    --theme-base-img-missing-font-family: $config-type-font-family,
+    --theme-base-img-missing-font-weight: $config-font-weight-light,
 
     // Base selection
-    --theme-base-selection-color: $config-color-white,
     --theme-base-selection-background: $config-color-cinnabar,
+    --theme-base-selection-color: $config-color-white,
 
     // Base touch
     --theme-base-touch-tap-highlight-color: rgba(63, 154, 201, 0.3),
 
     // Base type
-    --theme-base-type-font-family: $config-type-font-family,
+    --theme-base-type-abbr-border-bottom: 1px dotted $config-color-dove-grey,
+    --theme-base-type-blockquote-border-left: 1px solid $config-color-concrete,
+    --theme-base-type-blockquote-text-color: $config-color-grey,
+    --theme-base-type-blockquote-text-line-height: 1.6,
+    --theme-base-type-cite-before-content:  '\2014 \0020',
+    --theme-base-type-cite-color: $config-color-concrete,
     --theme-base-type-color: $config-font-color,
+    --theme-base-type-font-family: $config-type-font-family,
     --theme-base-type-font-weight: $config-font-weight-normal,
     --theme-base-type-line-height: 1.375,
-    --theme-base-type-abbr-border-bottom: 1px dotted $config-color-dove-grey,
-    --theme-base-type-strong-font-weight: $config-font-weight-bold,
     --theme-base-type-small-font-size: $config-font-small-size,
+    --theme-base-type-strong-font-weight: $config-font-weight-bold,
+    --theme-base-type-sub-bottom: -0.25em,
     --theme-base-type-sup-sub-font-size: 75%,
     --theme-base-type-sup-top: -0.5em,
-    --theme-base-type-sub-bottom: -0.25em,
-    --theme-base-type-blockquote-border-left: 1px solid $config-color-concrete,
-    --theme-base-type-blockquote-text-line-height: 1.6,
-    --theme-base-type-blockquote-text-color: $config-color-grey,
-    --theme-base-type-cite-color: $config-color-concrete,
-    --theme-base-type-cite-before-content:  '\2014 \0020',
 
     // Base viewport
     --theme-base-viewport-width: $config-grid--viewport-width,
 
     // Component btn
-    --theme-component-btn-font-weight: $config-font-weight-bold,
-    --theme-component-btn-color: $config-color-white,
+    --theme-component-btn-background-hover: $config-color-pickled-bluewood,
+    --theme-component-btn-background: $config-color-java,
+    --theme-component-btn-color-active: $config-color-white,
     --theme-component-btn-color-hover: $config-color-white,
     --theme-component-btn-color-visited: $config-color-white,
-    --theme-component-btn-color-active: $config-color-white,
-    --theme-component-btn-letter-spacing: 1px,
-    --theme-component-btn-background: $config-color-java,
-    --theme-component-btn-background-hover: $config-color-pickled-bluewood,
-    --theme-component-btn-opacity-disabled: 0.4,
+    --theme-component-btn-color: $config-color-white,
+    --theme-component-btn-font-weight: $config-font-weight-bold,
     --theme-component-btn-label-after-border-top: 1px solid $config-color-white,
-    --theme-component-btn-secondary-font-size: 90%,
-    --theme-component-btn-secondary-color: $config-font-color,
+    --theme-component-btn-letter-spacing: 1px,
+    --theme-component-btn-opacity-disabled: 0.4,
     --theme-component-btn-secondary-background: $config-color-concrete,
+    --theme-component-btn-secondary-color: $config-font-color,
+    --theme-component-btn-secondary-font-size: 90%,
     --theme-component-btn-submit-border: 1px solid transparent,
-    --theme-component-btn-submit-is-pending-border: 4px solid $config-color-concrete,
     --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-java,
+    --theme-component-btn-submit-is-pending-border: 4px solid $config-color-concrete,
 
     // Component flip
+    --theme-component-flip-back-background-color: $config-color-java,
     --theme-component-flip-color: $config-color-white,
     --theme-component-flip-front-background-color: $config-color-cinnabar,
-    --theme-component-flip-back-background-color: $config-color-java,
 
     // Component pie
+    --theme-component-pie-circle-after-font-weight: $config-font-weight-bold,
     --theme-component-pie-circle-background-color: $config-color-concrete,
     --theme-component-pie-circle-before-background-color: $config-color-white,
-    --theme-component-pie-circle-after-font-weight: $config-font-weight-bold,
     --theme-component-pie-mask-background-color: $config-color-cinnabar,
 
     // Component reading
@@ -99,73 +99,114 @@ $theme-default: (
     --theme-component-time-font-weight: $config-font-weight-light,
 
     // Component type
+    --theme-component-type-h-color: $config-color-pickled-bluewood,
     --theme-component-type-h-font-family: $config-type-font-family,
     --theme-component-type-h-font-weight: $config-font-weight-normal,
-    --theme-component-type-h-color: $config-color-pickled-bluewood,
+    --theme-component-type-h-has-border-border-top: 1px solid $config-color-black,
     --theme-component-type-h-line-height: 1.4,
     --theme-component-type-h-small-font-size: $config-font-small-size,
-    --theme-component-type-h-has-border-border-top: 1px solid $config-color-black,
     --theme-component-type-p-font-weight: $config-font-weight-light,
 
     // Layout dialog
-    --theme-layout-dialog-text-color: $config-color-white,
     --theme-layout-dialog-background-background: $config-color-pickled-bluewood,
     --theme-layout-dialog-background-opacity: 0.95,
-    --theme-layout-dialog-button-close-background: $config-color-java,
     --theme-layout-dialog-button-close-background-hover: $config-color-java,
-    --theme-layout-dialog-button-close-color: $config-color-white,
+    --theme-layout-dialog-button-close-background: $config-color-java,
     --theme-layout-dialog-button-close-color-focus: $config-color-white,
     --theme-layout-dialog-button-close-color-visited: $config-color-white,
+    --theme-layout-dialog-button-close-color: $config-color-white,
     --theme-layout-dialog-search-input-background: $config-color-pickled-bluewood,
+    --theme-layout-dialog-text-color: $config-color-white,
 
     // Layout footer
-    --theme-layout-footer-color: $config-color-alto,
     --theme-layout-footer-background: $config-color-pickled-bluewood,
-    --theme-layout-footer-button-up-color: $config-color-white,
+    --theme-layout-footer-button-up-background: $config-color-java,
     --theme-layout-footer-button-up-color-focus: $config-color-white,
     --theme-layout-footer-button-up-color-visited: $config-color-white,
-    --theme-layout-footer-button-up-background: $config-color-java,
+    --theme-layout-footer-button-up-color: $config-color-white,
+    --theme-layout-footer-color: $config-color-alto,
 
     // Layout header
-    --theme-layout-header-background: $config-color-pickled-bluewood
+    --theme-layout-header-background: $config-color-pickled-bluewood,
+
+    // Module broadcast
+    --theme-module-broadcast-list-item-color-hover: $config-color-white,
+
+    // Module cornerstone
+    --theme-module-cornerstone-after-border-right: 1px solid $config-color-black,
+    --theme-module-cornerstone-bubble-background: $config-color-black,
+    --theme-module-cornerstone-bubble-border: 2px solid $config-color-white,
+    --theme-module-cornerstone-bubble-hover-background: $config-color-cinnabar,
+    --theme-module-cornerstone-bubble-intro-background: $config-color-black,
+    --theme-module-cornerstone-bubble-intro-border: 2px solid $config-color-white,
+    --theme-module-cornerstone-bubble-intro-color: $config-color-white,
+    --theme-module-cornerstone-highlight-background: $config-color-concrete,
+    --theme-module-cornerstone-item-hover-bubble-background: $config-color-cinnabar,
+    --theme-module-cornerstone-item-hover-description-content-background: $config-color-concrete,
+
+    // Module featured
+    --theme-module-featured-hover-background: rgba(0, 0, 0, 0.75),
+    --theme-module-featured-text-border: 1px solid $config-color-white,
+    --theme-module-featured-text-color: $config-color-white,
+
+    // Module form
+    --theme-module-form-control-border-bottom: 1px solid $config-color-concrete,
+    --theme-module-form-control-border-color-focus: $config-color-java,
+    --theme-module-form-control-border-color-invalid: $config-color-cinnabar,
+    --theme-module-form-control-color-label-focus: $config-color-alto,
+    --theme-module-form-control-color: $config-font-color,
+    --theme-module-form-invalid-border-color: $config-color-cinnabar,
+    --theme-module-form-invalid-color: $config-color-cinnabar,
+    --theme-module-form-isvalid-border-color: $config-color-mountain-meadow,
+    --theme-module-form-isvalid-color: $config-color-mountain-meadow,
+    --theme-module-form-label-color-focus: $config-color-alto,
+    --theme-module-form-label-color: $config-color-java,
+
+    // Module key-visual
+    --theme-module-key-visual-button-background: $config-color-java,
+    --theme-module-key-visual-button-color: $config-color-white,
+    --theme-module-key-visual-gradient: (#fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%),
+    --theme-module-key-visual-headline-background: $config-color-concrete,
+    --theme-module-key-visual-headline-color: $config-font-color,
+    --theme-module-key-visual-text-background: $config-color-concrete,
+    --theme-module-key-visual-work-background: $config-color-concrete,
+
+    // Module list
+    --theme-module-list-search-color: $config-color-java,
+
+    // Module menu
+    --theme-module-menu-aside-item-search-active-color: $config-color-white,
+    --theme-module-menu-aside-item-search-color: $config-color-white,
+    --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-java,
+    --theme-module-menu-footer-item-active-color: $config-color-java,
+    --theme-module-menu-footer-item-color: $config-color-alto,
+    --theme-module-menu-footer-item-font-size: 90%,
+    --theme-module-menu-footer-social-item-font-size: 150%,
+    --theme-module-menu-main-item-active-background:$config-color-java,
+    --theme-module-menu-main-item-active-color: $config-color-white,
+    --theme-module-menu-main-item-background: $config-color-pickled-bluewood,
+    --theme-module-menu-main-item-color: $config-color-white,
+
+    // Module nav
+    --theme-module-nav-toggle-before-content-checked: '\f00d',
+    --theme-module-nav-toggle-color-checked: $config-color-white,
+    --theme-module-nav-toggle-color: $config-color-java,
+    --theme-module-nav-toggle-font-size: 180%,
+
+    // Module progress
+    --theme-module-progess-background: $config-color-pickled-bluewood,
+    --theme-module-progess-value-background: $config-color-java,
+
+    // Module service
+    --theme-module-service-icon-background: $config-color-cinnabar,
+    --theme-module-service-icon-color: $config-color-white,
+    --theme-module-service-text-font-size: 90%,
+
+    // Module work
+    --theme-module-work-headline-background: $config-color-concrete,
+    --theme-module-work-headline-color: $config-font-color,
+    --theme-module-work-text-background: $config-color-concrete
 );
-
-// Modules
-
-$theme-module-cornerstone-highlight-background: $config-color-concrete;
-$theme-module-cornerstone-border-center: 1px solid $config-color-black;
-$theme-module-cornerstone-bubble-background: $config-color-black;
-$theme-module-cornerstone-bubble-border: 2px solid $config-color-white;
-$theme-module-cornerstone-bubble-hover-background: $config-color-cinnabar;
-$theme-module-cornerstone-bubble-intro-background: $config-color-black;
-$theme-module-cornerstone-bubble-intro-color: $config-color-white;
-$theme-module-cornerstone-bubble-intro-border: 2px solid $config-color-white;
-
-$theme-module-key-visual-headline-background: $config-color-concrete;
-$theme-module-key-visual-headline-color: $config-font-color;
-$theme-module-key-visual-text-background: $config-color-concrete;
-$theme-module-key-visual-button-color: $config-color-white;
-$theme-module-key-visual-button-background: $config-color-java;
-$theme-module-key-visual-work-background: $config-color-concrete;
-$theme-module-key-visual-gradient: #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%;
-
-$theme-module-work-text-background: $config-color-concrete;
-$theme-module-work-headline-color: $config-font-color;
-$theme-module-work-headline-background: $config-color-concrete;
-
-$theme-module-form-control-border-bottom: 1px solid $config-color-concrete;
-$theme-module-form-control-border-color-focus: $config-color-java;
-$theme-module-form-control-border-color-invalid: $config-color-cinnabar;
-$theme-module-form-control-color-label-focus: $config-color-alto;
-$theme-module-form-control-color: $config-font-color;
-$theme-module-form-invalid-border-color: $config-color-cinnabar;
-$theme-module-form-invalid-color: $config-color-cinnabar;
-$theme-module-form-isvalid-border-color: $config-color-mountain-meadow;
-$theme-module-form-isvalid-color: $config-color-mountain-meadow;
-$theme-module-form-label-color-focus: $config-color-alto;
-$theme-module-form-label-color: $config-color-java;
-
-$theme-module-section-featured-hover-background: rgba(0, 0, 0, 0.75);
 
 // Layouts
 $theme-layout-print-default-color: $config-color-black;

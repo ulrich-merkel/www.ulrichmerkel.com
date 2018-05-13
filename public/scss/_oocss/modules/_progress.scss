@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}m-progress';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
     progress {
@@ -25,19 +25,19 @@ $block: '#{$config-ns}m-progress';
         &[value] {
             margin: 0;
             appearance: none;
-            background: $config-color-pickled-bluewood;
+            @include var(background, --theme-module-progess-background);
             border: 0;
 
             &::-webkit-progress-bar {
-                background: $config-color-pickled-bluewood;
+                @include var(background, --theme-module-progess-background);
             }
 
             &::-webkit-progress-value {
-                background: $config-color-java;
+                @include var(background, --theme-module-progess-value-background);
             }
 
             &::-moz-progress-bar {
-                background: $config-color-java;
+                @include var(background, --theme-module-progess-value-background);
             }
         }
 
@@ -61,11 +61,12 @@ $block: '#{$config-ns}m-progress';
         display: block;
         width: 0%;
         height: 6px;
-        background: $config-color-java;
+        @include var(background, --theme-module-progess-value-background);
 
         will-change: width;
         transition: width $config-transition-arguments;
 
+        // Generate fallback width animation classnames
         @for $i from 1 through 10 {
             &.has-width--#{$i} {
                 width: 10px * $i;

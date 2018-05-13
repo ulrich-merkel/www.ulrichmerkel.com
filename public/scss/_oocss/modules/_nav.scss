@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}m-nav';
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -27,9 +27,9 @@ $block: '#{$config-ns}m-nav';
             -webkit-appearance: none;
         }
         appearance: none;
-        font-size: 180%;
+        @include var(font-size, --theme-module-nav-toggle-font-size);
         line-height: 1;
-        color: $config-color-java;
+        @include var(color, --theme-module-nav-toggle-color);
         cursor: pointer;
         background: transparent;
         border: 0;
@@ -57,11 +57,11 @@ $block: '#{$config-ns}m-nav';
         }
 
         &:checked {
-            color: $config-color-white;
+            @include var(color, --theme-module-nav-toggle-color-checked);
 
-            // switch to close icon
+            // Switch to close icon
             &::before {
-                content: '\f00d';
+                @include var(content, --theme-module-nav-toggle-before-content-checked);
             }
 
             + .#{$block}__toggle-target {

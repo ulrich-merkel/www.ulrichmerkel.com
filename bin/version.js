@@ -69,7 +69,9 @@ function getInstalledVersion(version) {
      * node --version is returning something like v6.5.0 while
      * npm --version will return 3.10.3
      */
-    return version.charAt(0) === 'v' ? version.substr(1) : version;
+    return version.charAt(0) === 'v'
+        ? version.substr(1)
+        : version;
 }
 
 /**
