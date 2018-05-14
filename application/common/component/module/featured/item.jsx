@@ -80,7 +80,7 @@ function ModuleFeaturedItem(props) {
                     path={img.path}
                     alt={img.alt}
                     sizes={img.sizes}
-                    className={'m-featured__image'}
+                    className={'m-featured__picture'}
                 />
 
                 {children}

@@ -73,13 +73,19 @@ $block: '#{$config-ns}m-featured';
                     opacity: 1;
                 }
 
-                @supports (transform: scale(1.05)) {
-                    .#{$block}__image {
-                        transform: scale(1.05);
+                @supports (filter: grayscale(0.5)) {
+                    .#{$block}__picture .c-picture__img {
+                        filter: grayscale(0.8);
+                    }
+                }
+
+                @supports (transform: scale(1.02)) {
+                    .#{$block}__picture {
+                        transform: scale(1.02);
                     }
                 }
                 @supports (mix-blend-mode: overlay) {
-                    .#{$block}__image {
+                    .#{$block}__picture {
                         mix-blend-mode: overlay;
                     }
                 }
@@ -89,7 +95,7 @@ $block: '#{$config-ns}m-featured';
 
     }
 
-    .#{$block}__image {
+    .#{$block}__picture {
         position: relative;
         z-index: 1;
         display: block;
@@ -98,9 +104,11 @@ $block: '#{$config-ns}m-featured';
         will-change: transform;
         transition: transform $config-transition-arguments;
 
-        .no-touch &,
-        .no-touchevents & {
-            transform: scale(1);
+        @supports (transform: scale(1)) {
+            .no-touch &,
+            .no-touchevents & {
+                transform: scale(1);
+            }
         }
     }
 

@@ -740,7 +740,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -889,7 +889,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1038,7 +1038,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1187,7 +1187,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1336,7 +1336,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1485,7 +1485,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1634,7 +1634,7 @@ Array [
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >

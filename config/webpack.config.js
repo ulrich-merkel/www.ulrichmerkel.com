@@ -39,7 +39,9 @@ if (isProduction) {
 }
 
 module.exports = {
-    devtool: isProduction ? false : 'inline-source-map',
+    devtool: isProduction
+        ? false
+        : 'inline-source-map',
     stats: true,
     context: sourcePath,
     entry: {
