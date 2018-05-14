@@ -169,11 +169,11 @@ function fromNetwork(request, timeout = 20000, options) {
  */
 function fetchAndCache(request) {
     return fromNetwork(request).then(function handleFromNetwork(response) {
-        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        // eslint-disable-next-line security/detect-non-literal-fs-filename, promise/no-nesting
         return caches.open(self.CACHE).then(function handleCacheOpen(cache) {
             // Because the response is a stream and can just be consumed
             // once we need to clone it here to add it to the cache
-            cache.put(request, response.clone()); // eslint-disable-line promise/no-nesting
+            cache.put(request, response.clone());
             return response;
         });
     });

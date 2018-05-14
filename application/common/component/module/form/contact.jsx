@@ -84,8 +84,9 @@ const defaultState = {
     browser: false
 };
 
-const xorUse = configApplication.xor.use;
-const xorKey = configApplication.xor.key;
+const configApplicationXor = configApplication.xor;
+const xorUse = configApplicationXor.use;
+const xorKey = configApplicationXor.key;
 
 /**
  * Scroll to text message, usually for smaller screens after submitting.
@@ -143,7 +144,9 @@ function send(data, csrfToken = '') {
  * @returns {*}
  */
 function getState(key, storeState) {
-    return storeState && storeState[key] !== undefined ? storeState[key] : defaultState[key];
+    return storeState && storeState[key] !== undefined
+        ? storeState[key]
+        : defaultState[key];
 }
 
 /**
