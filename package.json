@@ -69,7 +69,7 @@
     "transpile:server": "babel $npm_package_directories_source_application -d $npm_package_directories_build_application",
     "transpile:client": "webpack --display-error-details --config $npm_package_directories_config/webpack.config.js",
     "test": "npm-run-all test:*",
-    "test:dependencies": "npm list; exit 0",
+    "test:dependencies": "if which yarn ; then yarn list ; else npm list ; fi; exit 0;",
     "test:npm-version": "node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:node-version": "node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
     "test:eslint": "eslint --config $npm_package_directories_config/eslint.config.js --ignore-path .eslintignore --ext .js,.jsx --cache --cache-location $npm_package_directories_report/.eslintcache $npm_package_directories_source_root",
