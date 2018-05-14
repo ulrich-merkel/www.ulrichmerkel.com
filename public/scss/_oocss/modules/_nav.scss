@@ -61,7 +61,7 @@ $block: '#{$config-ns}m-nav';
 
             // Switch to close icon
             &::before {
-                @include var(content, --theme-module-nav-toggle-before-content-checked);
+                content: '\f00d';
             }
 
             + .#{$block}__toggle-target {

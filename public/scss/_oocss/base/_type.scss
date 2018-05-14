@@ -51,7 +51,9 @@
     html,
     body {
         @include var(font-family, --theme-base-type-font-family);
+        /* stylelint-disable length-zero-no-unit */
         font-size: $config-type-scale-9 + 0px;
+        /* stylelint-enable length-zero-no-unit */
         font-style: normal;
         @include var(font-weight, --theme-base-type-font-weight);
         @include var(line-height, --theme-base-type-line-height);

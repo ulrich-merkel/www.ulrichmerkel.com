@@ -66,19 +66,26 @@ $block: '#{$config-ns}m-list';
     }
 
     .#{$block}--search {
-        .m-menu__item {
+        .#{$block}__item {
+            display: block;
             margin-bottom: rem-calc($config-grid--gutter * 0.5);
             @include var(color, --theme-module-list-search-color);
 
-            @include breakpoint($config-grid--breakpoint-xsmall) {
-                text-align: center;
+            // Just show hover for non-touch devices
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover {
+                    @include var(color, --theme-module-broadcast-list-item-color-hover);
+                }
             }
+
         }
-        .m-menu__label,
-        .m-menu__description {
+        .#{$block}__label,
+        .#{$block}__description {
             display: block;
         }
-        .m-menu__description {
+        .#{$block}__description {
             font-style: normal;
         }
     }
