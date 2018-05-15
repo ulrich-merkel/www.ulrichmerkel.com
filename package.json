@@ -82,7 +82,7 @@
     "test:retire": "retire --ignorefile $npm_package_directories_config/retireignore.json; exit 0;",
     "test:package": "pjl-cli --rules-file $npm_package_directories_config/.npmpackagejsonlintrc.json",
     "test:license": "license; exit 0;",
-    "test:legal": "tldrlegal",
+    "test:legal": "tldrlegal; exit 0;",
     "test:optional:flow": "flow check; test $? -eq 0 -o $? -eq 2",
     "test:optional:e2e": "nightwatch -c $npm_package_directories_config/nightwatch/nightwatch.config.js",
     "staged": "npm-run-all staged:*",
