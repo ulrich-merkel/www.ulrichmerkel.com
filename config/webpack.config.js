@@ -1,44 +1,46 @@
 /* eslint-disable immutable/no-mutation */
+/**
+ * Configuration file for webpack, which is a static module bundler for modern
+ * JavaScript applications.
+ *
+ * 
+ * Standard and additional production plugins are added with built-in optimizations 
+ * accordingly when NODE_ENV is set.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2018
+ * @version 0.0.1
+ *
+ * @see {@link https://webpack.js.org/}
+ *
+ * @requires webpack
+ * @requires path
+ *
+ * @changelog
+ * - 0.0.1 Basic function and structure
+ */
 'use strict';
 
 const webpack = require('webpack');
 const path = require('path');
 
-const nodeEnv = process.env.NODE_ENV || 'development';
-const isProduction = nodeEnv === 'production';
-const sourcePath = path.join(__dirname, '/../application');
-
-const plugins = [
-    new webpack.DefinePlugin({
-        'process.env': {
-            NODE_ENV: JSON.stringify(nodeEnv)
-        }
-    })
-];
-
-if (isProduction) {
-    plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                screw_ie8: true,
-                conditionals: true,
-                unused: true,
-                comparisons: true,
-                sequences: true,
-                dead_code: true,
-                evaluate: true,
-                if_return: true,
-                join_vars: true
-            },
-            output: {
-                comments: false
-            }
-        })
-    );
+function resolve(dir) {
+    return path.join(__dirname, dir);
 }
 
+const nodeEnv = process.env.NODE_ENV || 'development';
+const isProduction = nodeEnv === 'production';
+const sourcePath = resolve('/../application');
+
+/**
+ * Webpack configuration.
+ *
+ * @type {Object}
+ */
 module.exports = {
+    mode: nodeEnv,
     devtool: isProduction
         ? false
         : 'inline-source-map',
@@ -54,7 +56,11 @@ module.exports = {
         filename: '[name].bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json']
+        extensions: [
+            '.js',
+            '.json',
+            '.jsx'
+        ]
     },
     module: {
         rules: [
@@ -63,13 +69,12 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader',
                     options: { presets: [
-                        'stage-0',
+                        'es2015',
                         'react',
-                        'es2015'
+                        'stage-0'
                     ] }
                 }]
             }
         ]
-    },
-    plugins
+    }
 };
