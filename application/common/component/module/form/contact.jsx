@@ -53,7 +53,7 @@ import scrollTo from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
-import { validate, isValid } from '../../../state/contact/utils';
+import { canSendForm, isValid, validate } from '../../../state/contact/utils';
 import {
     GridCol,
     GridRow
@@ -73,6 +73,7 @@ const defaultState = {
     email: '',
     subject: '',
     message: '',
+    pristine: false,
     namePristine: false,
     emailPristine: false,
     websitePristine: false,
@@ -241,7 +242,8 @@ class ModuleFormContact extends Component {
         this.setState(
             {
                 [stateName]: stateValue,
-                [`${stateName}Pristine`]: true
+                [`${stateName}Pristine`]: true,
+                pristine: true
             },
             this.handleContactChange
         );
@@ -313,6 +315,11 @@ class ModuleFormContact extends Component {
     send() {
         const { csrfToken } = this.props;
         const state = this.state;
+
+        if (!canSendForm(state)) {
+            return;
+        }
+
         const data = {
             name: String(state.name),
             email: String(state.email),
@@ -506,7 +513,7 @@ class ModuleFormContact extends Component {
                                 className={'m-form__group--submit hide-on-print'}
                                 btnClassName={'c-btn--submit'}
                                 isPrimary
-                                isDisabled={!state.pending && !isValid(state) && state.browser}
+                                isDisabled={!canSendForm(state)}
                                 isPending={state.pending}
                             />
                         </GridCol>

@@ -18,6 +18,7 @@
  * - 0.0.1 Basic functions and structure
  */
 import { required, email } from '../../utils/validation';
+import { isBrowser } from '../../utils/environment';
 
 /**
  * Validation helper to check all inputs.
@@ -50,7 +51,17 @@ function isValid(state) {
     });
 }
 
+function canSendForm(state) {
+    const isStateValid = isValid(state)
+
+    return isStateValid &&
+        state.pristine &&
+        !state.pending &&
+        isBrowser(state)
+}
+
 export {
-    validate,
-    isValid
+    canSendForm,
+    isValid,
+    validate
 };
