@@ -180,5 +180,8 @@ $block: '#{$config-ns}c-font-icon';
     .#{$block}--minus::before {
         content: '\f068';
     }
+    .#{$block}--paint-format::before {
+        content: '\e90c';
+      }
 
 }

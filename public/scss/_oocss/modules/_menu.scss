@@ -93,7 +93,9 @@ $block: '#{$config-ns}m-menu';
             position: relative;
         }
 
-        .#{$block}__item--search {
+        [class^='#{$block}__item'],
+        [class*=' #{$block}__item'] {
+            // @TODO: use same box model as main menu to improve click targets
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
             @include var(color, --theme-module-menu-aside-item-search-color);
 
