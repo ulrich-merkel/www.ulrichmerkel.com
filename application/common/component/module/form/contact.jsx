@@ -53,7 +53,7 @@ import scrollTo from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
-import { canSendForm, isValid, validate } from '../../../state/contact/utils';
+import { canSendForm, validate } from '../../../state/contact/utils';
 import {
     GridCol,
     GridRow

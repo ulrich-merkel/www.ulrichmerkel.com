@@ -11,16 +11,28 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.1
  *
- * @requires common/state/search/constants
+ * @requires common/state/dialog/constants
  *
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
+import {
+    STATE_THEME_SELECTED_CHANGE
+} from './constants';
 
 /**
- * @type {string}
+ * Handle theme switch state change.
+ *
+ * @param {string} selected - The new selected theme state
+ * @returns {Object} The redux action playload
  */
-export const STATE_DIALOG_VISIBLE_CHANGE = 'STATE_DIALOG_VISIBLE_CHANGE';
-export const STATE_DIALOG_PAGE_BROADCAST = 'STATE_DIALOG_PAGE_BROADCAST';
-export const STATE_DIALOG_PAGE_SEARCH = 'STATE_DIALOG_PAGE_SEARCH';
-export const STATE_DIALOG_PAGE_THEME = 'STATE_DIALOG_PAGE_THEME';
+function changeThemeSelected(selected) {
+    return {
+        type: STATE_THEME_SELECTED_CHANGE,
+        selected
+    };
+}
+
+export {
+    changeThemeSelected
+};

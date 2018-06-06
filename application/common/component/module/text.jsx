@@ -76,7 +76,6 @@ class ModuleText extends Component {
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
      *
-     * @function
      * @returns {void}
      */
     componentDidMount() {
@@ -87,7 +86,6 @@ class ModuleText extends Component {
      * Invoked immediately after the component's updates are flushed to
      * the DOM. This method is not called for the initial render.
      *
-     * @function
      * @returns {void}
      */
     componentDidUpdate() {
@@ -98,7 +96,6 @@ class ModuleText extends Component {
     /**
      * Invoked immediately before a component is unmounted from the DOM.
      *
-     * @function
      * @returns {void}
      */
     componentWillUnmount() {
@@ -108,7 +105,6 @@ class ModuleText extends Component {
     /**
      * Bind click event handlers to links in text content.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -128,7 +124,6 @@ class ModuleText extends Component {
     /**
      * Remove event listeners from text links.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -148,7 +143,6 @@ class ModuleText extends Component {
     /**
      * Open broadcast dialog.
      *
-     * @function
      * @private
      * @param {Object} event - Synthetic react event
      * @returns {void}
@@ -161,7 +155,6 @@ class ModuleText extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {

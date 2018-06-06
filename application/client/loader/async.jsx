@@ -75,7 +75,7 @@ function css(options, callback = noop) {
         id,
         media: 'only x',
         rel: 'stylesheet',
-        type: 'text/css',
+        type: 'text/css'
     });
     if (!styleDomNode) {
         return callFn(callback, false);

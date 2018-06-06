@@ -15,7 +15,6 @@
  *
  * @see {@link https://webpack.js.org/}
  *
- * @requires webpack
  * @requires path
  *
  * @changelog
@@ -23,9 +22,13 @@
  */
 'use strict';
 
-const webpack = require('webpack');
 const path = require('path');
 
+/**
+ * @private
+ * @param {string} dir - The directory to be resolved
+ * @returns {string} The correct directory path
+ */
 function resolve(dir) {
     return path.join(__dirname, dir);
 }

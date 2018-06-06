@@ -268,7 +268,6 @@ LayoutDialog.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @param {Object.<*>} [ownProps] - The current component props
@@ -281,14 +280,14 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-const LayoutDialogContainer = connect(
+const LayoutDialogConnected = connect(
     mapStateToProps,
     {
         handleChangeDialogVisible: changeDialogVisible
     }
 )(addContent('LayoutDialog')(LayoutDialog));
 
-export default LayoutDialogContainer;
+export default LayoutDialogConnected;
 export {
     LayoutDialog
 };

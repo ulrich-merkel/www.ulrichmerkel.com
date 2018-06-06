@@ -16,11 +16,10 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
+import { AVAILABLE_THEMES } from '../../constants/theme'
 
-/**
- * @type {string}
- */
-export const STATE_DIALOG_VISIBLE_CHANGE = 'STATE_DIALOG_VISIBLE_CHANGE';
-export const STATE_DIALOG_PAGE_BROADCAST = 'STATE_DIALOG_PAGE_BROADCAST';
-export const STATE_DIALOG_PAGE_SEARCH = 'STATE_DIALOG_PAGE_SEARCH';
-export const STATE_DIALOG_PAGE_THEME = 'STATE_DIALOG_PAGE_THEME';
+export const STATE_THEME_RESOURCE_NAME = 'theme';
+export const STATE_THEME_SELECTED_CHANGE = 'STATE_THEME_SELECTED_CHANGE';
+export const STATE_THEME_DEFAULT_STATE = {
+    selected:  AVAILABLE_THEMES.DEFAULT
+};

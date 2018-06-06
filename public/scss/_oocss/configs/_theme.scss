@@ -8,22 +8,22 @@
 
 $theme-default: (
     // Base button
-    --theme-base-button-color-active: $config-color-link-active,
-    --theme-base-button-color-focus: $config-color-link-focus,
-    --theme-base-button-color-hover: $config-color-link-hover,
-    --theme-base-button-color-visited: $config-color-link-visited,
-    --theme-base-button-color: $config-color-link,
-    --theme-base-button-outline-focus: $config-color-link-focus,
+    --theme-base-button-color-active: $config-color-pickled-bluewood,
+    --theme-base-button-color-focus: $config-color-pickled-bluewood,
+    --theme-base-button-color-hover: $config-color-pickled-bluewood,
+    --theme-base-button-color-visited: $config-color-java,
+    --theme-base-button-color: $config-color-java,
+    --theme-base-button-outline-focus: $config-color-pickled-bluewood,
 
     // Base link
-    --theme-base-link-attr-tel-color-hover: $config-color-link-hover,
-    --theme-base-link-attr-tel-color: $config-color-link,
-    --theme-base-link-color-active: $config-color-link-active,
-    --theme-base-link-color-focus: $config-color-link-focus,
-    --theme-base-link-color-hover: $config-color-link-hover,
-    --theme-base-link-color-visited: $config-color-link-visited,
-    --theme-base-link-color: $config-color-link,
-    --theme-base-link-outline-focus: $config-color-link-focus,
+    --theme-base-link-attr-tel-color-hover: $config-color-pickled-bluewood,
+    --theme-base-link-attr-tel-color: $config-color-java,
+    --theme-base-link-color-active: $config-color-pickled-bluewood,
+    --theme-base-link-color-focus: $config-color-pickled-bluewood,
+    --theme-base-link-color-hover: $config-color-pickled-bluewood,
+    --theme-base-link-color-visited: $config-color-java,
+    --theme-base-link-color: $config-color-java,
+    --theme-base-link-outline-focus: $config-color-pickled-bluewood,
 
     // Base img
     --theme-base-img-missing-after-content: '\ea07 ' attr(alt),
@@ -205,6 +205,12 @@ $theme-default: (
     --theme-module-work-headline-background: $config-color-concrete,
     --theme-module-work-headline-color: $config-font-color,
     --theme-module-work-text-background: $config-color-concrete
+);
+
+$theme-grey: (
+     // Component btn
+     --theme-component-btn-background-hover: $config-color-grey,
+     --theme-component-btn-background: $config-color-dove-grey,
 );
 
 // Layouts

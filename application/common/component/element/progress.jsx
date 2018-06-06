@@ -58,7 +58,8 @@ function ElementProgress(props) {
         <ComponentType
             className={composedClassName}
             {...{ id, max, value }}
-            {...otherProps}>
+            {...otherProps}
+        >
             <span className={composedFallbackClassName} id={`${id}__fallback`} />
         </ComponentType>
     );
@@ -86,6 +87,8 @@ ElementProgress.propTypes = {
  * @type {Object}
  */
 ElementProgress.defaultProps = {
+    className: '',
+    fallbackClassName: '',
     htmlElement: 'progress',
     id: 'm-progress',
     max: '100',

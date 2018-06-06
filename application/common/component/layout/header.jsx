@@ -41,6 +41,7 @@ import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
+import hasCssCustomProperties from '../../../client/feature-detect/css-custom-properties';
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import {
@@ -51,7 +52,8 @@ import {
 } from '../../state/selectors';
 import {
     changeLocale,
-    changeDialogVisibleSearch
+    changeDialogVisibleSearch,
+    changeDialogVisibleTheme
 } from '../../state/actions';
 import {
     INTL_LOCALE_EN_EN,
@@ -92,6 +94,7 @@ function LayoutHeader(props) {
         className,
         content,
         handleChangeDialogVisibleSearch,
+        handleChangeDialogVisibleTheme,
         handleIntlChangeLocale,
         headerFixed,
         headerVisible,
@@ -127,7 +130,8 @@ function LayoutHeader(props) {
             className={componentClassName}
             itemScope
             itemType='http://schema.org/WPHeader'
-            role='banner'>
+            role='banner'
+        >
             <Progress />
             <Nav className='m-nav--main'>
                 <GridContainer>
@@ -149,12 +153,14 @@ function LayoutHeader(props) {
                                 className={menuAsideClassName}
                                 role='menu'
                                 itemScope
-                                itemType='http://schema.org/ItemList' >
+                                itemType='http://schema.org/ItemList'
+                            >
                                 <li
                                     className='m-menu__list-item'
                                     itemProp='itemListElement'
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'>
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <Button
                                         className={buttonEnClassName}
                                         data-locale={INTL_LOCALE_EN_EN}
@@ -170,7 +176,8 @@ function LayoutHeader(props) {
                                     className='m-menu__list-item'
                                     itemProp='itemListElement'
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'>
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <Button
                                         className={buttonDeClassName}
                                         data-locale={INTL_LOCALE_DE_DE}
@@ -186,7 +193,8 @@ function LayoutHeader(props) {
                                     className='m-menu__list-item'
                                     itemProp='itemListElement'
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'>
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <A
                                         className='m-menu__item--search c-btn--small c-btn--clear'
                                         to='/search'
@@ -198,22 +206,24 @@ function LayoutHeader(props) {
                                         </span>
                                     </A>
                                 </li>
+                                {hasCssCustomProperties() &&
                                 <li
                                     className='m-menu__list-item'
                                     itemProp='itemListElement'
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'>
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <A
                                         className='m-menu__item--theme c-btn--small c-btn--clear'
                                         to='/theme'
-                                        onClick={handleChangeDialogVisibleSearch}
+                                        onClick={handleChangeDialogVisibleTheme}
                                         title={''}
                                     >
                                         <span className='c-btn__label'>
                                             <Icon className='c-btn__icon' icon='paint-format' />
                                         </span>
                                     </A>
-                                </li>
+                                </li>}
                             </ul>
                         </GridCol>
                     </GridRow>
@@ -232,6 +242,7 @@ function LayoutHeader(props) {
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
     handleChangeDialogVisibleSearch: PropTypes.func.isRequired,
+    handleChangeDialogVisibleTheme: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
     intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
     headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
@@ -292,6 +303,10 @@ function mapDispatchToProps(dispatch) {
         handleChangeDialogVisibleSearch: (e) => {
             e.preventDefault();
             dispatch(changeDialogVisibleSearch(true));
+        },
+        handleChangeDialogVisibleTheme: (e) => {
+            e.preventDefault();
+            dispatch(changeDialogVisibleTheme(true));
         }
     };
 }
@@ -300,12 +315,12 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderContainer = withRouter(connect(
+const LayoutHeaderConnected = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('LayoutHeader')(LayoutHeader)));
 
-export default LayoutHeaderContainer;
+export default LayoutHeaderConnected;
 export {
     LayoutHeader
 };

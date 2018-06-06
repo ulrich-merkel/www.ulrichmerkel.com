@@ -9,7 +9,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @version 0.0.4
  *
  * @requires react
  * @requires prop-types
@@ -25,13 +25,15 @@
  * @requires common/component/layout/dialog
  * @requires common/component/page/broadcast
  * @requires common/component/page/search
+ * @requires common/component/page/theme
  *
  * @changelog
+ * - 0.0.4 Add theming
  * - 0.0.3 Remove connect and state handling, improve dialog handling
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
@@ -43,18 +45,17 @@ import {
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH
+    STATE_DIALOG_PAGE_SEARCH,
+    STATE_DIALOG_PAGE_THEME
 } from '../../state/constants';
-import {
-    LayoutHeader,
-    LayoutFooter,
-    LayoutLoader,
-    LayoutDialog
-} from './index';
-import {
-    PageBroadcast,
-    PageSearch
-} from '../page';
+import LayoutHeaderConnected from './header';
+import LayoutFooter from './footer';
+import LayoutTheme from './theme';
+import LayoutLoader from './loader';
+import LayoutDialogConnected from './dialog';
+import PageBroadcast from '../page/broadcast';
+import PageSearch from '../page/search';
+import PageTheme from '../page/theme';
 
 /**
  * Class representing a component.
@@ -135,27 +136,33 @@ class LayoutBody extends Component {
         } = this.props;
 
         return (
-            <Fragment>
+            <LayoutTheme>
                 <Helmet {...content} />
                 <LayoutLoader />
-                <LayoutHeader />
+                <LayoutHeaderConnected />
                 {children}
                 <LayoutFooter
                     handleScrollTop={this.handleScrollTop}
                 />
-                <LayoutDialog
+                <LayoutDialogConnected
                     page={STATE_DIALOG_PAGE_SEARCH}
                     isSearch
                 >
                     <PageSearch isDialog />
-                </LayoutDialog>
-                <LayoutDialog
+                </LayoutDialogConnected>
+                <LayoutDialogConnected
                     page={STATE_DIALOG_PAGE_BROADCAST}
                     isBroadcast
                 >
                     <PageBroadcast isDialog />
-                </LayoutDialog>
-            </Fragment>
+                </LayoutDialogConnected>
+                <LayoutDialogConnected
+                    page={STATE_DIALOG_PAGE_THEME}
+                    isBroadcast
+                >
+                    <PageTheme isDialog />
+                </LayoutDialogConnected>
+            </LayoutTheme>
         );
     }
 
@@ -193,7 +200,9 @@ LayoutBody.defaultProps = {
  *
  * @type {ReactElement}
  */
-const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
+const LayoutBodyContainer = scroller(
+    pictureFill(addContent('Head')(LayoutBody))
+);
 
 export default LayoutBodyContainer;
 export {

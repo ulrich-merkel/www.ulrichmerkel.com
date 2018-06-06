@@ -16,7 +16,6 @@
  *
  * @see {@link http://flexslider.woothemes.com/}
  *
- * @function
  * @returns {boolean} Whether this device has touch display or not
  */
 function hasTouchEvents() {

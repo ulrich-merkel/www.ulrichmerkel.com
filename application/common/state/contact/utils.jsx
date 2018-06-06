@@ -52,12 +52,12 @@ function isValid(state) {
 }
 
 function canSendForm(state) {
-    const isStateValid = isValid(state)
+    const isStateValid = isValid(state);
 
     return isStateValid &&
         state.pristine &&
         !state.pending &&
-        isBrowser(state)
+        isBrowser(state);
 }
 
 export {

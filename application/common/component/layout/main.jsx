@@ -32,7 +32,11 @@ import PropTypes from 'prop-types';
  */
 function LayoutMain(props) {
     return (
-        <main className='l-main' itemProp='mainContentOfPage' role='main'>
+        <main
+            className='l-main'
+            itemProp='mainContentOfPage'
+            role='main'
+        >
             {props.children}
         </main>
     );
