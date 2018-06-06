@@ -128,10 +128,14 @@ function createDomNode(name, attributes) {
 
     const domNode = doc.createElement(name);
 
-    // Check for attributes to set
+    // Check for attributes to be set
     if (attributes) {
         Object.keys(attributes).forEach(function handleKey(key) {
-            domNode.setAttribute(key, attributes[key]);
+            const value = attributes[key];
+
+            if (key && value) {
+                domNode.setAttribute(key, value);
+            }
         });
     }
 
