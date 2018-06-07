@@ -26,6 +26,7 @@ import { connect } from 'react-redux';
 import loaderAsync from '../../../client/loader/async';
 import { AVAILABLE_THEMES } from '../../constants/theme';
 import { selectStateThemeSelected } from '../../state/theme/selector';
+import { isBrowser } from '../../utils/environment';
 
 const availableThemes = Object.values(AVAILABLE_THEMES);
 
@@ -37,7 +38,7 @@ const availableThemes = Object.values(AVAILABLE_THEMES);
  * @returns {void}
  */
 function applyTheme(themeSelected) {
-    if (!availableThemes.includes(themeSelected)) {
+    if (!isBrowser() || !availableThemes.includes(themeSelected)) {
         return;
     }
 

@@ -16,10 +16,10 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import { AVAILABLE_THEMES } from '../../constants/theme'
+import { AVAILABLE_THEMES } from '../../constants/theme';
 
 export const STATE_THEME_RESOURCE_NAME = 'theme';
 export const STATE_THEME_SELECTED_CHANGE = 'STATE_THEME_SELECTED_CHANGE';
 export const STATE_THEME_DEFAULT_STATE = {
-    selected:  AVAILABLE_THEMES.DEFAULT
+    selected: AVAILABLE_THEMES.DEFAULT
 };

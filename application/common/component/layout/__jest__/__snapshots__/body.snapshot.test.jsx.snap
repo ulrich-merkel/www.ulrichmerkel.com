@@ -3,7 +3,9 @@
 exports[`common/component/layout/body should render correctly 1`] = `
 Array [
   <dialog
+    aria-live="assertive"
     className="l-dialog--loading"
+    role="alert"
   >
     <div
       className="l-dialog__content"
@@ -28,7 +30,7 @@ Array [
     />
   </dialog>,
   <header
-    className="l-header is-fixed is-visible"
+    className="c-header l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -196,7 +198,7 @@ Array [
                 </button>
               </li>
               <li
-                className="m-menu__list-item"
+                className="m-menu__list-item always-float"
                 itemProp="itemListElement"
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement"
@@ -208,7 +210,7 @@ Array [
                   onClick={[Function]}
                   style={undefined}
                   tabIndex="0"
-                  title="Suche"
+                  title="Search"
                 >
                   <span
                     className="c-btn__label"

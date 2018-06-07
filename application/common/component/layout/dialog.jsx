@@ -251,9 +251,9 @@ function mapDispatchToProps(dispatch) {
     return {
         onClose: function (event) {
             event && event.preventDefault(); // eslint-disable-line no-unused-expressions
-            dispatch(changeDialogVisible(false))
+            dispatch(changeDialogVisible(false));
         }
-    }
+    };
 }
 const LayoutDialogConnected = connect(
     mapStateToProps,

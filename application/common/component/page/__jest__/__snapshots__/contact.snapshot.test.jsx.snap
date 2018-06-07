@@ -251,7 +251,8 @@ exports[`common/component/page/contact should render correctly 1`] = `
                           className="m-form__group m-form__group--submit hide-on-print"
                         >
                           <button
-                            className="c-btn m-form__btn c-btn--submit c-btn--primary"
+                            className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+                            disabled="disabled"
                             id="submit"
                             name="submit"
                             role="button"

@@ -1,15 +1,18 @@
 /* eslint-disable func-names */
-import { selectStateDialogVisible, selectStateDialogPage } from '../selector';
+import {
+    STATE_THEME_DEFAULT_STATE
+} from '../constants';
+import { selectStateThemeSelected } from '../selector';
 
-describe('common/state/dialog/selector', function () {
-    describe('selectStateDialogVisible', function () {
+describe('common/state/theme/selector', function () {
+    describe('selectStateThemeSelected', function () {
         it('should return the correct state', function () {
             const state = Object.assign({}, {
-                dialog: {
-                    visible: true
+                theme: {
+                    selected: 'foo'
                 }
             });
-            expect(selectStateDialogVisible(state)).toEqual(state.dialog.visible);
+            expect(selectStateThemeSelected(state)).toEqual(state.theme.selected);
         });
         it('should return false if state isn\'t found', function () {
             const state = Object.assign({}, {
@@ -17,25 +20,7 @@ describe('common/state/dialog/selector', function () {
                     thing: 'lorem'
                 }
             });
-            expect(selectStateDialogVisible(state)).toEqual(false);
-        });
-    });
-    describe('selectStateDialogPage', function () {
-        it('should return the correct state', function () {
-            const state = Object.assign({}, {
-                dialog: {
-                    page: 'foo'
-                }
-            });
-            expect(selectStateDialogPage(state)).toEqual(state.dialog.page);
-        });
-        it('should return false if state isn\'t found', function () {
-            const state = Object.assign({}, {
-                some: {
-                    thing: 'lorem'
-                }
-            });
-            expect(selectStateDialogPage(state)).toEqual(false);
+            expect(selectStateThemeSelected(state)).toEqual(STATE_THEME_DEFAULT_STATE.selected);
         });
     });
 });
