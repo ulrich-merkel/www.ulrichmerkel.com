@@ -190,7 +190,7 @@ function LayoutHeader(props) {
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item'
+                                    className='m-menu__list-item always-float'
                                     itemProp='itemListElement'
                                     itemScope
                                     itemType='http://www.schema.org/SiteNavigationElement'
@@ -208,7 +208,7 @@ function LayoutHeader(props) {
                                 </li>
                                 {hasCssCustomProperties() &&
                                 <li
-                                    className='m-menu__list-item'
+                                    className='m-menu__list-item always-float'
                                     itemProp='itemListElement'
                                     itemScope
                                     itemType='http://www.schema.org/SiteNavigationElement'

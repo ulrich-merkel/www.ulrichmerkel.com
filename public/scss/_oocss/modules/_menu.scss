@@ -35,14 +35,31 @@ $block: '#{$config-ns}m-menu';
         @include breakpoint($config-grid--breakpoint-xsmall) {
             float: left;
         }
+
+        &.always-float {
+            float: left;
+        }
     }
 
-    .#{$block}__item {
+    .#{$block}__item,
+    [class^='#{$block}__item--'],
+    [class*=' #{$block}__item--'], {
         display: block;
         text-align: left;
 
         &.is-hidden {
             display: none;
+        }
+
+        &.c-btn--small {
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    @include var(background, --theme-module-menu-main-item-background);
+                }
+            }
         }
     }
 

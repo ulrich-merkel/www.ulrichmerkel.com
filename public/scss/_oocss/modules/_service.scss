@@ -57,6 +57,10 @@ $block: '#{$config-ns}m-service';
         text-align: center;
         @include var(background, --theme-module-service-icon-background);
 
+        will-change: background;
+        transition: background $config-transition-arguments;
+
+
         @include breakpoint($config-grid--breakpoint-xsmall) {
             margin-right: 0;
         }

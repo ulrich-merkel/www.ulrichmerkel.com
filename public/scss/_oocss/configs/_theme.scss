@@ -110,20 +110,11 @@ $theme-default: (
     // Layout dialog
     --theme-layout-dialog-background-background: $config-color-pickled-bluewood,
     --theme-layout-dialog-background-opacity: 0.95,
-    --theme-layout-dialog-button-close-background-hover: $config-color-java,
-    --theme-layout-dialog-button-close-background: $config-color-java,
-    --theme-layout-dialog-button-close-color-focus: $config-color-white,
-    --theme-layout-dialog-button-close-color-visited: $config-color-white,
-    --theme-layout-dialog-button-close-color: $config-color-white,
     --theme-layout-dialog-search-input-background: $config-color-pickled-bluewood,
     --theme-layout-dialog-text-color: $config-color-white,
 
     // Layout footer
     --theme-layout-footer-background: $config-color-pickled-bluewood,
-    --theme-layout-footer-button-up-background: $config-color-java,
-    --theme-layout-footer-button-up-color-focus: $config-color-white,
-    --theme-layout-footer-button-up-color-visited: $config-color-white,
-    --theme-layout-footer-button-up-color: $config-color-white,
     --theme-layout-footer-color: $config-color-alto,
 
     // Layout header
@@ -163,8 +154,6 @@ $theme-default: (
     --theme-module-form-label-color: $config-color-java,
 
     // Module key-visual
-    --theme-module-key-visual-button-background: $config-color-java,
-    --theme-module-key-visual-button-color: $config-color-white,
     --theme-module-key-visual-gradient: (#fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%),
     --theme-module-key-visual-headline-background: $config-color-concrete,
     --theme-module-key-visual-headline-color: $config-font-color,
@@ -182,7 +171,7 @@ $theme-default: (
     --theme-module-menu-footer-item-color: $config-color-alto,
     --theme-module-menu-footer-item-font-size: 90%,
     --theme-module-menu-footer-social-item-font-size: 150%,
-    --theme-module-menu-main-item-active-background:$config-color-java,
+    --theme-module-menu-main-item-active-background: $config-color-java,
     --theme-module-menu-main-item-active-color: $config-color-white,
     --theme-module-menu-main-item-background: $config-color-pickled-bluewood,
     --theme-module-menu-main-item-color: $config-color-white,
@@ -208,9 +197,41 @@ $theme-default: (
 );
 
 $theme-grey: (
-     // Component btn
-     --theme-component-btn-background-hover: $config-color-grey,
-     --theme-component-btn-background: $config-color-dove-grey,
+    // Base link
+    --theme-base-link-attr-tel-color-hover: $config-color-shark,
+    --theme-base-link-attr-tel-color: $config-color-grey,
+    --theme-base-link-color-active: $config-color-shark,
+    --theme-base-link-color-focus: $config-color-shark,
+    --theme-base-link-color-hover: $config-color-shark,
+    --theme-base-link-color-visited: $config-color-grey,
+    --theme-base-link-color: $config-color-grey,
+    --theme-base-link-outline-focus: $config-color-dove-grey,
+    // Component btn
+    --theme-component-btn-background-hover: $config-color-grey,
+    --theme-component-btn-background: $config-color-dove-grey,
+
+    // Layout dialog
+    --theme-layout-dialog-background-background: $config-color-shark,
+
+    // Layout header
+    --theme-layout-header-background: $config-color-shark,
+
+    // Layout footer
+     --theme-layout-footer-background: $config-color-shark,
+    
+     // Module menu
+    --theme-module-menu-main-item-active-background: $config-color-dove-grey,
+    --theme-module-menu-main-item-background: $config-color-shark,
+    
+    // Module nav
+    --theme-module-nav-toggle-color: $config-color-dove-grey,
+
+    // Module progress
+    --theme-module-progess-background: $config-color-shark,
+    --theme-module-progess-value-background: $config-color-dove-grey,
+
+    // Module service
+    --theme-module-service-icon-background: $config-color-shark
 );
 
 // Layouts

@@ -35,19 +35,9 @@ $block: '#{$config-ns}l-footer';
         padding: 0;
         font-size: 130%;
         line-height: 2.5;
-        @include var(color, --theme-layout-footer-button-up-color);
         text-align: center;
         letter-spacing: normal;
-        @include var(background, --theme-layout-footer-button-up-background);
         opacity: 0;
-
-        &:focus {
-            @include var(color, --theme-layout-footer-button-up-color-focus);
-        }
-
-        &:visited {
-            @include var(color, --theme-layout-footer-button-up-color-visited);
-        }
 
         .js & {
             display: block;

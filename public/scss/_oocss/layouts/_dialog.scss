@@ -77,28 +77,7 @@ $block: '#{$config-ns}l-dialog';
         // stylelint-enable declaration-no-important
         font-size: 130%;
         line-height: 2.5;
-        @include var(color, --theme-layout-dialog-button-close-color);
-        text-align: center;
         letter-spacing: normal;
-        @include var(background, --theme-layout-dialog-button-close-background);
-
-        &:visited {
-            @include var(color, --theme-layout-dialog-button-close-color-visited);
-        }
-
-        // Just show hover for non-touch devices
-        @if ($config-support-hovers) {
-            .no-touch &:hover,
-            .no-touchevents &:hover,
-            .no-js &:hover {
-                @include var(background, --theme-layout-dialog-button-close-background-hover);
-
-            }
-        }
-
-        &:focus {
-            @include var(color, --theme-layout-dialog-button-close-color-focus);
-        }
 
         &::before {
             position: relative;

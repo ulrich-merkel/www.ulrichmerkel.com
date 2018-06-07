@@ -55,7 +55,7 @@ import Button from '../element/button';
  *
  * @class
  * @extends React.Component
- * @property {Function} [props.handleChangeDialogVisible=Function.prototype] - Redux action callback to control dialog visibility
+ * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
  * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
  * @property {Object} [props.content={}] - The component content config
  */
@@ -64,10 +64,6 @@ class LayoutDialog extends Component {
     /**
      * The actual class constructor.
      *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(props) for us.
-     * We do this just because of completeness.
-     *
      * @constructs
      * @param {Object} [props] - The initial class properties
      * @returns {void}
@@ -75,20 +71,6 @@ class LayoutDialog extends Component {
     constructor(props) {
         super(props);
 
-        /**
-         * A bind call or arrow function in a JSX prop will create a brand new
-         * function on every single render. This is bad for performance, as it
-         * will result in the garbage collector being invoked way more than is necessary.
-         *
-         * Unfortunately React ES6 classes do not autobind their methods like components created
-         * with the older React.createClass syntax. There are several approaches to binding methods
-         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
-         *
-         * We also throttle the scroll function here to avoid unnecessary function calls while scrolling.
-         *
-         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-         */
-        this.onClose = this.onClose.bind(this);
         this.onKeyDown = throttle(this.onKeyDown.bind(this), 100);
     }
 
@@ -132,46 +114,32 @@ class LayoutDialog extends Component {
     /**
      * Esc key press.
      *
-     * @function
      * @private
      * @param {Object} event - Synthetic react event
      * @returns {void}
      */
     onKeyDown(event) {
         if (event && event.keyCode === 27) {
-            this.onClose();
+            this.props.onClose();
         }
-    }
-
-    /**
-     * Handle button click.
-     *
-     * @function
-     * @private
-     * @param {Object} event - Synthetic react event
-     * @returns {void}
-     */
-    onClose(event) {
-        event && event.preventDefault(); // eslint-disable-line no-unused-expressions
-        this.props.handleChangeDialogVisible(false);
     }
 
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
         const {
-            dialogVisible,
+            children,
+            className,
+            content,
             dialogPage,
+            dialogVisible,
             isBroadcast,
             isSearch,
-            content,
-            page,
-            className,
-            children
+            onClose,
+            page
         } = this.props;
 
         if (!dialogVisible || !page || dialogPage !== page) {
@@ -196,7 +164,7 @@ class LayoutDialog extends Component {
                             <GridCol>
                                 <Button
                                     title={contentSectionNav.btnCloseTitle}
-                                    onClick={this.onClose}
+                                    onClick={onClose}
                                 >
                                     {contentSectionNav.btnCloseLabel}
                                 </Button>
@@ -208,8 +176,7 @@ class LayoutDialog extends Component {
                         className='l-dialog__button--close c-font-icon--close'
                         classNameLabel='is-visually-hidden'
                         title={contentSectionNav.btnCloseTitle}
-                        onClick={this.onClose}
-                        isSmall
+                        onClick={onClose}
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
@@ -231,7 +198,7 @@ class LayoutDialog extends Component {
  * @type {Object}
  */
 LayoutDialog.propTypes = {
-    handleChangeDialogVisible: PropTypes.func,
+    onClose: PropTypes.func,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
@@ -254,7 +221,7 @@ LayoutDialog.propTypes = {
  * @type {Object}
  */
 LayoutDialog.defaultProps = {
-    handleChangeDialogVisible: Function.prototype,
+    onClose: Function.prototype,
     dialogPage: '',
     dialogVisible: false,
     isBroadcast: false,
@@ -280,11 +247,17 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        onClose: function (event) {
+            event && event.preventDefault(); // eslint-disable-line no-unused-expressions
+            dispatch(changeDialogVisible(false))
+        }
+    }
+}
 const LayoutDialogConnected = connect(
     mapStateToProps,
-    {
-        handleChangeDialogVisible: changeDialogVisible
-    }
+    mapDispatchToProps
 )(addContent('LayoutDialog')(LayoutDialog));
 
 export default LayoutDialogConnected;
