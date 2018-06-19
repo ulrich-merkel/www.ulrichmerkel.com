@@ -180,6 +180,7 @@
     "winston": "2.4.1"
   },
   "devDependencies": {
+    "@shutter/core": "0.1.0",
     "@shutter/react": "0.1.0",
     "autoprefixer": "8.1.0",
     "babel-cli": "6.26.0",

@@ -13,6 +13,7 @@ selenium-debug.log
 .env
 .eslintcache
 .coveralls.yml
+.shutterrc
 .htaccess
 google*.html
 TODO.md

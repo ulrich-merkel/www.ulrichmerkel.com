@@ -95,7 +95,7 @@
     mime-types "^2.1.18"
     superagent "^3.8.3"
 
-"@shutter/core@^0.1.0":
+"@shutter/core@0.1.0", "@shutter/core@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@shutter/core/-/core-0.1.0.tgz#6d8cbbb68d03e0d282ed4cddc06627977faeb2e4"
   dependencies:
