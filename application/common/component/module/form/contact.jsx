@@ -54,6 +54,7 @@ import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
 import { canSendForm, validate } from '../../../state/contact/utils';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridCol,
     GridRow
@@ -254,13 +255,11 @@ class ModuleFormContact extends Component {
      *
      * @function
      * @private
-     * @param {Object} e - The current event object
+     * @param {Object} event - The current event object
      * @returns {void}
      */
-    onSubmit(e) {
-        if (e && isFunction(e.preventDefault)) {
-            e.preventDefault();
-        }
+    onSubmit(event) {
+        eventPreventDefault(event);
         this.send();
     }
 

@@ -11,7 +11,6 @@
  * @requires react
  * @requires prop-types
  * @requires react-redux
- * @requires lodash
  * @requires common/constants/theme
  * @requires common/state/selectors
  * @requires common/state/actions
@@ -28,7 +27,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { isFunction } from 'lodash';
 
 import { AVAILABLE_THEMES } from '../../../constants/theme';
 import {
@@ -36,6 +34,7 @@ import {
     selectStateThemeSelected
 } from '../../../state/selectors';
 import { changeThemeSelected } from '../../../state/actions';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridRow,
     GridCol
@@ -48,20 +47,6 @@ import {
 } from '../../element';
 
 const noop = Function.prototype;
-
-/**
- * Handle form submit event.
- *
- * @function
- * @private
- * @param {Object} event - The current event object
- * @returns {void}
- */
-function preventDefault(event) {
-    if (event && isFunction(event.preventDefault)) {
-        event.preventDefault();
-    }
-}
 
 /**
  * Function representing a component to return a single react child element.
@@ -98,7 +83,7 @@ function ModuleFormTheme(props) {
             itemProp='potentialAction'
             itemScope
             itemType='http://schema.org/Action'
-            onSubmit={preventDefault}
+            onSubmit={eventPreventDefault}
         >
             <Fieldset>
 
@@ -194,11 +179,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         onchangeThemeSelectedDefault: (event) => {
-            preventDefault(event);
+            eventPreventDefault(event);
             dispatch(changeThemeSelected('default'));
         },
         onchangeThemeSelectedGrey: (event) => {
-            preventDefault(event);
+            eventPreventDefault(event);
             dispatch(changeThemeSelected('grey'));
         }
     };
