@@ -112,7 +112,7 @@ function LayoutHtml(props) {
                 </noscript>
             </head>
             <body itemScope itemType='http://schema.org/WebPage'>
-                <div id='l-react'>
+                <div id='l-react' className='l-react'>
                     {props.children}
                 </div>
                 <script

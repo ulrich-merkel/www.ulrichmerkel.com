@@ -41,7 +41,6 @@ import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
-import hasCssCustomProperties from '../../../client/feature-detect/css-custom-properties';
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import {
@@ -190,7 +189,7 @@ function LayoutHeader(props) {
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item always-float'
+                                    className='m-menu__list-item--search always-float'
                                     itemProp='itemListElement'
                                     itemScope
                                     itemType='http://www.schema.org/SiteNavigationElement'
@@ -206,9 +205,8 @@ function LayoutHeader(props) {
                                         </span>
                                     </A>
                                 </li>
-                                {hasCssCustomProperties() &&
                                 <li
-                                    className='m-menu__list-item always-float'
+                                    className='m-menu__list-item--theme always-float'
                                     itemProp='itemListElement'
                                     itemScope
                                     itemType='http://www.schema.org/SiteNavigationElement'
@@ -223,7 +221,7 @@ function LayoutHeader(props) {
                                             <Icon className='c-btn__icon' icon='paint-format' />
                                         </span>
                                     </A>
-                                </li>}
+                                </li>
                             </ul>
                         </GridCol>
                     </GridRow>

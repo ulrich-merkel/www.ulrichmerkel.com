@@ -24,7 +24,9 @@ $block: '#{$config-ns}m-menu';
         list-style: none;
     }
 
-    .#{$block}__list-item {
+    .#{$block}__list-item,
+    [class^='#{$block}__list-item--'],
+    [class*=' #{$block}__list-item--'] {
         margin: 0;
         padding: 0;
 
@@ -43,7 +45,7 @@ $block: '#{$config-ns}m-menu';
 
     .#{$block}__item,
     [class^='#{$block}__item--'],
-    [class*=' #{$block}__item--'], {
+    [class*=' #{$block}__item--'] {
         display: block;
         text-align: left;
 
@@ -106,12 +108,15 @@ $block: '#{$config-ns}m-menu';
     .#{$block}--aside {
         margin-bottom: 0;
 
-        .#{$block}__list-item {
+        .#{$block}__list-item,
+        [class^='#{$block}__list-item--'],
+        [class*=' #{$block}__list-item--'] {
             position: relative;
         }
 
-        [class^='#{$block}__item'],
-        [class*=' #{$block}__item'] {
+        .#{$block}__item,
+        [class^='#{$block}__item--'],
+        [class*=' #{$block}__item--'] {
             // @TODO: use same box model as main menu to improve click targets
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
             @include var(color, --theme-module-menu-aside-item-search-color);
@@ -125,6 +130,13 @@ $block: '#{$config-ns}m-menu';
 
         }
 
+        .#{$block}__list-item--theme {
+            display: none;
+        }
+
+        .customproperties & .#{$block}__list-item--theme {
+            display: block;
+        }
     }
 
     // Menu footer
@@ -153,7 +165,7 @@ $block: '#{$config-ns}m-menu';
             text-align: left;
 
             &.is-active {
-                @include var(color, --theme-module-menu-footer-item-active-color);
+                @include var(color, --theme-module-menu-footer-item-color-active);
             }
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
@@ -166,7 +178,7 @@ $block: '#{$config-ns}m-menu';
                 .no-touchevents &:hover,
                 .no-js &:hover,
                 &:focus {
-                    @include var(color, --theme-module-menu-footer-item-active-color);
+                    @include var(color, --theme-module-menu-footer-item-color-active);
                 }
             }
         }

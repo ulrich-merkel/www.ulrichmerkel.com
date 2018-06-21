@@ -148,6 +148,7 @@ $block: '#{$config-ns}m-form';
         width: 100%;
         padding: 12px 10px 12px 0;
         font-size: inherit;
+        @include var(background, --theme-module-form-control-background);
         @include var(color, --theme-module-form-control-color);
         border: 0;
         @include var(border-bottom, --theme-module-form-control-border-bottom);

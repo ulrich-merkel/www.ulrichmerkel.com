@@ -16,10 +16,12 @@
 import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
 
 /**
+ * Generate an array from [0, 1, ..., 10] and add css className strings.
+ *
  * @private
  * @type {Array<string>}
  */
-const hasWidthClasses = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function mapNumbers(number) {
+const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(number) {
     return `has-width--${number * 10}`;
 });
 

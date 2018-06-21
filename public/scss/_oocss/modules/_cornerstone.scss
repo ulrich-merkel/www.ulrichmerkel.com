@@ -157,6 +157,7 @@ $block: 'm-cornerstone';
             display: inline-block;
             padding: rem-calc($config-type-scale-3);
             @include var(background, --theme-module-cornerstone-highlight-background);
+            @include var(color, --theme-module-cornerstone-highlight-color);
         }
     }
 

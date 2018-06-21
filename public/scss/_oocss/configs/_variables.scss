@@ -44,6 +44,13 @@ $config-color-cinnabar: #e74c3c;
 $config-color-mountain-meadow: #1abc9c;
 $config-color-shark: #333538;
 
+// @see {@link https://coolors.co/b80c09-6b2b06-e5e7e6-b7b5b3-0d0d01}
+$config-color-milano-red: #b80c09;
+$color-color-brown-bramble: #6b2b06;
+$color-color-black-haze: #e5e7e6;
+$color-color-cotton-seed: #b7b5b3;
+$color-color-pine-tree: #0D0D01;
+
 $config-color-key-visual-gradient: #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%;
 
 //---------------------------------------------
@@ -80,7 +87,6 @@ $config-font-weight-bold: 700;
 
 $config-font-size: $config-type-scale-9;
 $config-font-line-height: 1.4;
-$config-font-color: #2c3e50;
 
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be a different size and not have it effect grid size too,
