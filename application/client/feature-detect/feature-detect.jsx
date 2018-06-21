@@ -12,6 +12,7 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
+import hasCssCustomProperties from './css-custom-properties';
 import hasTouchEvents from './touch-events';
 
 /**
@@ -33,8 +34,15 @@ function featureDetect() {
     html.classList.remove('no-js');
     html.classList.add('js');
 
-    const touchEventsPrefix = hasTouchEvents() ? '' : 'no-';
-    html.classList.add(`${touchEventsPrefix}touchevents`);
+    const cssCustomPropertiesClassName = hasCssCustomProperties()
+        ? 'customproperties'
+        : 'no-customproperties';
+    html.classList.add(cssCustomPropertiesClassName);
+
+    const touchEventsClassName = hasTouchEvents()
+        ? 'touchevents'
+        : 'no-touchevents';
+    html.classList.add(touchEventsClassName);
 }
 
 export default featureDetect;
