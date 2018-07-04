@@ -75,6 +75,7 @@ function ModuleFormTheme(props) {
             value: AVAILABLE_THEMES.GREY
         }
     ];
+
     return (
         <Form
             action='/theme/'
