@@ -42,7 +42,7 @@ import {
     selectStateCsrfToken
 } from '../../../state/selectors';
 import { changeSearchTerm } from '../../../state/actions';
-import { eventPreventDefault } from '../../../utils/event';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridRow,
     GridCol

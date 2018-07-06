@@ -34,7 +34,7 @@ import {
     selectStateThemeSelected
 } from '../../../state/selectors';
 import { changeThemeSelected } from '../../../state/actions';
-import { eventPreventDefault } from '../../../utils/event';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridRow,
     GridCol

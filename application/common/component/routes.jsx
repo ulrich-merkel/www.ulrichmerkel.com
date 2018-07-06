@@ -33,7 +33,7 @@ import {
     PagePrivacy,
     PageSearch,
     PageTheme,
-    PageWork,
+    PageWork
 } from '../component/page/';
 
 /**
