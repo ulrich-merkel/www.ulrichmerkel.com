@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-let */
 /**
  * Detect client side features and add css classes to html element.
  *
@@ -12,6 +13,7 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
+import { isBrowser } from  '../../common/utils/environment';
 import hasCssCustomProperties from './css-custom-properties';
 import hasTouchEvents from './touch-events';
 
@@ -22,27 +24,32 @@ import hasTouchEvents from './touch-events';
  * @returns {void}
  */
 function featureDetect() {
-    if (typeof window === 'undefined') {
-        return;
+    if (!isBrowser()) {
+        return false;
+    }
+
+    let classNamesToAdd = ['js'],
+        classNamesToRemove = ['no-js'];
+
+    if (hasCssCustomProperties()) {
+        classNamesToAdd.push('customproperties');
+        classNamesToRemove.push('no-customproperties');
+    } else {
+        classNamesToAdd.push('no-customproperties');
+        classNamesToRemove.push('customproperties');
+    }
+
+    if (hasTouchEvents()) {
+        classNamesToAdd.push('touchevents');
+        classNamesToRemove.push('no-touchevents');
+    } else {
+        classNamesToAdd.push('no-touchevents');
+        classNamesToRemove.push('touchevents');
     }
 
     const html = document.getElementsByTagName('html')[0];
-    if (!html) {
-        return;
-    }
-
-    html.classList.remove('no-js');
-    html.classList.add('js');
-
-    const cssCustomPropertiesClassName = hasCssCustomProperties()
-        ? 'customproperties'
-        : 'no-customproperties';
-    html.classList.add(cssCustomPropertiesClassName);
-
-    const touchEventsClassName = hasTouchEvents()
-        ? 'touchevents'
-        : 'no-touchevents';
-    html.classList.add(touchEventsClassName);
+    html.classList.remove(...classNamesToRemove);
+    html.classList.add(...classNamesToAdd);
 }
 
 export default featureDetect;
