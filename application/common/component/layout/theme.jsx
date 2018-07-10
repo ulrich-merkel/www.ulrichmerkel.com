@@ -5,64 +5,28 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2018
- * @version 0.0.1
+ * @version 0.0.2
  *
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  *
  * @requires react
  * @requires prop-types
  * @requires react-redux
- * @requires client/loader/async
+ * @requires pubsub-js
  * @requires common/constants/theme
  * @requires common/state/theme/selector
  *
  * @changelog
+ * - 0.0.2 Use pubsub for decoupling
  * - 0.0.1 Basic functions and structure
  */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
+import PubSub from 'pubsub-js';
 
-import loaderAsync from '../../../client/loader/async';
-import { AVAILABLE_THEMES } from '../../constants/theme';
+import { AVAILABLE_THEMES, THEME_CHANGE_MESSAGE } from '../../constants/theme';
 import { selectStateThemeSelected } from '../../state/theme/selector';
-import { isBrowser } from '../../utils/environment';
-
-const availableThemes = Object.values(AVAILABLE_THEMES);
-
-/**
- * Load new theme if necessary and remove old ones.
- *
- * @private
- * @param {string} themeSelected - The theme to be applied
- * @returns {void}
- */
-function applyTheme(themeSelected) {
-    if (!isBrowser() || !availableThemes.includes(themeSelected)) {
-        return;
-    }
-
-    // Check if we should load a new theming css file
-    const selector = `theme-${themeSelected}`;
-    const alreadyLoaded = themeSelected === AVAILABLE_THEMES.DEFAULT || document.getElementById(selector);
-    if (!alreadyLoaded) {
-        loaderAsync.css({
-            src: `/css/${selector}.css`,
-            id: selector,
-            className: selector
-        });
-    }
-
-    // Remove other theming css files
-    availableThemes.filter(function (theme) {
-        return theme !== themeSelected;
-    }).map(function (theme) {
-        const themeToRemove = document.getElementById(`theme-${theme}`);
-        if (themeToRemove) {
-            themeToRemove.parentNode.removeChild(themeToRemove);
-        }
-    });
-}
 
 /**
  * Apply theming by added or removed custom css files.
@@ -78,7 +42,7 @@ class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        applyTheme(this.props.themeSelected);
+        PubSub.publish(THEME_CHANGE_MESSAGE, this.props.themeSelected);
     }
 
     /**
@@ -92,7 +56,7 @@ class LayoutTheme extends Component {
         const themeSelected = this.props.themeSelected;
 
         if (themeSelected !== prevProps.themeSelected) {
-            applyTheme(themeSelected);
+            PubSub.publish(THEME_CHANGE_MESSAGE, themeSelected);
         }
     }
 
