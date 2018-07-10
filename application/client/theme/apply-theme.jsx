@@ -19,7 +19,7 @@
 import { AVAILABLE_THEMES } from '../../common/constants/theme';
 import { isBrowser } from  '../../common/utils/environment';
 import loaderAsync from '../loader/async';
-import { deleteDomNode } from '../utils/dom'
+import { deleteDomNode } from '../utils/dom';
 
 const availableThemes = Object.values(AVAILABLE_THEMES);
 

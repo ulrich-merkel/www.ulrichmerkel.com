@@ -6,7 +6,6 @@ import { shallow } from 'enzyme';
 
 import mockedStore from '../../__mocks__/store';
 import LayoutTheme from '../theme';
-import PubSub from 'pubsub-js';
 
 jest.mock('pubsub-js', () => ({
     publish: jest.fn(),
@@ -37,7 +36,5 @@ describe('common/component/layout/theme', function () {
             themeSelected: 'bar'
         });
         expect(wrapper.html()).toMatchSnapshot();
-
-        //expect(PubSub.publish).toHaveBeenCalledTimes(2)
     });
 });
