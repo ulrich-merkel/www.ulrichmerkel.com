@@ -21,7 +21,9 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
+                        <div className='test'>
+Body Children
+                        </div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>
@@ -35,7 +37,9 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
+                        <div className='test'>
+Body Children
+                        </div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>
@@ -56,7 +60,9 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
+                        <div className='test'>
+Body Children
+                        </div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>

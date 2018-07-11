@@ -56,7 +56,8 @@ import {
  * @returns {ReactElement} React component markup
  */
 function PagePersona(props) {
-    const contentSection = getContentSection(props.content);
+    const { content } = props;
+    const contentSection = getContentSection(content);
 
     return (
         <LayoutMain>

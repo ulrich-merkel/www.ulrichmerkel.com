@@ -34,7 +34,6 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
  * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement

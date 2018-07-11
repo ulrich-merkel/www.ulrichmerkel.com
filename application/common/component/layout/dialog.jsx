@@ -78,7 +78,6 @@ class LayoutDialog extends Component {
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
      *
-     * @function
      * @returns {void}
      */
     componentDidMount() {
@@ -91,7 +90,6 @@ class LayoutDialog extends Component {
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
      *
-     * @function
      * @param {Object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
@@ -102,7 +100,6 @@ class LayoutDialog extends Component {
     /**
      * Invoked immediately before a component is unmounted from the DOM.
      *
-     * @function
      * @returns {void}
      */
     componentWillUnmount() {
@@ -120,6 +117,7 @@ class LayoutDialog extends Component {
      */
     onKeyDown(event) {
         if (event && event.keyCode === 27) {
+            // eslint-disable-next-line react/destructuring-assignment
             this.props.onClose();
         }
     }

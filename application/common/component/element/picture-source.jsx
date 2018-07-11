@@ -41,7 +41,6 @@ function getType(ext) {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {string} props.ext - The image extension (jpg, png)
  * @param {string} props.name - The image name

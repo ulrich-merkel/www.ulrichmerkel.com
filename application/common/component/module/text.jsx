@@ -149,6 +149,7 @@ class ModuleText extends Component {
      */
     openDialog(event) {
         event.preventDefault();
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.handleChangeDialogVisible(true);
     }
 

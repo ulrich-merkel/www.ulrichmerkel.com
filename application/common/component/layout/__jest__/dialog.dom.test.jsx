@@ -24,7 +24,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -34,7 +36,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps} dialogVisible={false}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -46,7 +50,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -65,7 +71,9 @@ describe('common/component/layout/body', function () {
 
         const wrapper = mount(
             <LayoutDialog {...defaultProps} onClose={onClose}>
-                <div className='test'>Dialog Children</div>
+                <div className='test'>
+                    Dialog Children
+                </div>
             </LayoutDialog>
         );
 
@@ -80,7 +88,9 @@ describe('common/component/layout/body', function () {
 
         const wrapper = mount(
             <LayoutDialog {...defaultProps} onClose={onClose}>
-                <div className='test'>Dialog Children</div>
+                <div className='test'>
+                    Dialog Children
+                </div>
             </LayoutDialog>
         );
 

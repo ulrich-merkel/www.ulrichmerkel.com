@@ -32,7 +32,6 @@ import P from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
@@ -63,10 +62,22 @@ function ModuleCornerstoneItemEducation(props) {
                         {headline}
                     </Headline>
                     <P className='m-cornerstone__company' itemProp='alternateName'>
-                        <strong>{lead}</strong>
+                        <strong>
+                            {lead}
+                        </strong>
                     </P>
                     <P className='m-cornerstone__time'>
-                        (<time className='c-time' itemProp='startDate'>{timeStart}</time> - <time className='c-time' itemProp='endDate'>{timeEnd}</time>)
+                        (
+                        <time className='c-time' itemProp='startDate'>
+                            {timeStart}
+                        </time>
+                        {' '}
+- 
+                        {' '}
+                        <time className='c-time' itemProp='endDate'>
+                            {timeEnd}
+                        </time>
+)
                     </P>
                     {description.map((text) => {
                         /**

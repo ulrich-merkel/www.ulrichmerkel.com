@@ -43,8 +43,8 @@ import SectionText from '../section/text';
  * @returns {ReactElement} React component markup
  */
 function PageNotFound(props) {
-
-    const contentSection = getContentSection(props.content);
+    const { content } = props;
+    const contentSection = getContentSection(content);
 
     return (
         <LayoutMain>
@@ -52,7 +52,6 @@ function PageNotFound(props) {
             <SectionText content={contentSection('section1')} isMain />
         </LayoutMain>
     );
-
 }
 
 /**

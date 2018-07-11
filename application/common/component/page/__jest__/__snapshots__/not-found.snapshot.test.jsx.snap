@@ -67,8 +67,6 @@ exports[`common/component/page/not-found should render correctly 1`] = `
               <meta
                 content="Oops - Page not found"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>

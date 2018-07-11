@@ -40,7 +40,7 @@ import {
     GridSpaced,
     GridRow,
     GridCol
-} from '../../grid/';
+} from '../../grid';
 
 /**
  * Function representing a component to return a single react child element.

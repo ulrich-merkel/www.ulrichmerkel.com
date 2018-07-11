@@ -49,7 +49,7 @@ function SectionCornerstone(props) {
 
     return (
         <SectionCommonGridSpaced>
-            <ModuleArticle itemType={'https://schema.org/Article'} {...{ content }} >
+            <ModuleArticle itemType={'https://schema.org/Article'} {...{ content }}>
                 <ModuleCornerstone {...{ content }} {...moduleProps}>
                     {children}
                 </ModuleCornerstone>

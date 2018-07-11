@@ -10,7 +10,6 @@ exports[`common/component/module/article/button should render btnLabel if btnTit
     href="/index"
     onClick={[Function]}
     role="button"
-    style={undefined}
     title="Button label"
     type={null}
   >
@@ -33,7 +32,6 @@ exports[`common/component/module/article/button should render correctly 1`] = `
     href="/index"
     onClick={[Function]}
     role="button"
-    style={undefined}
     title="Button title"
     type={null}
   >

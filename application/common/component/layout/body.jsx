@@ -41,7 +41,7 @@ import {
     pictureFill,
     scroller,
     addContent
-} from '../decorator/';
+} from '../decorator';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
@@ -99,7 +99,6 @@ class LayoutBody extends Component {
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
      *
-     * @function
      * @param {Object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
@@ -110,7 +109,6 @@ class LayoutBody extends Component {
     /**
      * Scroll to top animation helper.
      *
-     * @function
      * @param {Object} e - The synthetic react event
      * @returns {void}
      */
@@ -126,7 +124,6 @@ class LayoutBody extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {

@@ -76,7 +76,6 @@ import {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
  * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
@@ -266,7 +265,6 @@ LayoutHeader.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @param {Object.<*>} [ownProps] - The current component props
@@ -288,7 +286,6 @@ function mapStateToProps(state, ownProps) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}
  */
