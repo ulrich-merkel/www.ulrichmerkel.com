@@ -5,25 +5,25 @@
 /// @author Ulrich Merkel
 ////
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
     @media print {
 
         // ----------------------------
-        // basic print setup
+        // Basic print setup
         // ----------------------------
         @page {
             margin: 0.5cm;
         }
 
         * {
-            // Black prints faster: sanbeiji.com/archives/953
+            // Black prints faster
+            // @see {@link sanbeiji.com/archives/953}
             // stylelint-disable declaration-no-important
             color: $theme-layout-print-default-color !important;
             text-shadow: none !important;
             background: transparent !important;
-            -ms-filter: none !important;
             filter: none !important;
             border-color: $theme-layout-print-default-border-color !important;
             border-radius: 0;
@@ -44,7 +44,7 @@
             }
         }
 
-        // print title attributes
+        // Print title attributes
         abbr {
             &[title] {
                 &::after {
@@ -55,7 +55,7 @@
             }
         }
 
-        // don't show links for images, or javascript/internal links
+        // Don't show links for images, or javascript/internal links
         .ir a,
         [href^='javascript:'],
         [href^='#'] {
@@ -70,7 +70,7 @@
             page-break-inside: avoid;
         }
 
-        // css-discuss.incutio.com/wiki/Printing_Tables
+        // @see {@link css-discuss.incutio.com/wiki/Printing_Tables}
         thead {
             display: table-header-group;
         }
@@ -98,7 +98,7 @@
         }
 
         // ----------------------------
-        // page setup
+        // Page setup
         // ----------------------------
         body {
             width: 900px;

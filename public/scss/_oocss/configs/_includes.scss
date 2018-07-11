@@ -12,6 +12,7 @@
 @import '../mixins/is-visually-hidden';
 @import '../mixins/strip-unit';
 @import '../mixins/rem-calc';
+@import '../mixins/var';
 @import '../mixins/vertical-center';
 
 // Base styles
@@ -60,5 +61,5 @@
 @import '../layouts/header';
 @import '../layouts/main';
 @import '../layouts/footer';
-@import '../layouts/search';
 @import '../layouts/print';
+@import '../layouts/react';

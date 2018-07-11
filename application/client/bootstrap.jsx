@@ -50,5 +50,9 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
 }
 
 // Load assets async to improve performance
-loaderAsync.css('/css/app.css');
-loaderAsync.js('/js/client.bundle.js');
+loaderAsync.css({
+    src: '/css/app.css'
+});
+loaderAsync.js({
+    src: '/js/client.bundle.js'
+});

@@ -12,16 +12,16 @@ $block: '#{$config-ns}c-type';
 @mixin c-type--h {
     @include hyphens(auto);
     margin-top: 0;
-    font-family: $config-type-font-family;
+    @include var(font-family, --theme-component-type-h-font-family);
     font-style: normal;
-    font-weight: $config-font-weight-normal;
-    line-height: 1.4;
-    color: $config-color-blue--2;
+    @include var(font-weight, --theme-component-type-h-font-weight);
+    @include var(line-height, --theme-component-type-h-line-height);
+    @include var(color, --theme-component-type-h-color);
     text-rendering: optimizeLegibility;
 
     small {
         display: block;
-        font-size: $config-font-small-size;
+        @include var(font-size, --theme-component-type-h-small-font-size);
         color: inherit;
     }
 }
@@ -53,7 +53,7 @@ $block: '#{$config-ns}c-type';
     margin-bottom: rem-calc($config-type-scale-1);
 }
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     h1,
@@ -108,7 +108,7 @@ $block: '#{$config-ns}c-type';
                 height: 0;
                 margin: 0;
                 content: ' ';
-                border-top: 1px solid $config-color-black;
+                @include var(border-top, --theme-component-type-h-has-border-border-top);
             }
 
             &.is-centered {
@@ -145,22 +145,22 @@ $block: '#{$config-ns}c-type';
     [class^='#{$block}--p--'],
     [class*=' #{$block}--p--'],
     .#{$block}--address {
-        // clearfix for floating images within paragraphs
+        // Clearfix for floating images within paragraphs
         @include clearfix;
         display: block;
         float: none;
         clear: both;
 
         margin: 0 auto rem-calc($config-grid--gutter);
-        font-weight: $config-font-weight-light;
+        @include var(font-weight, --theme-component-type-p-font-weight);
 
-        // floating images within paragraphs (via rte)
+        // Floating images within paragraphs (via rte)
         img {
             float: left;
             margin: 0 rem-calc($config-grid--gutter) 0 0;
         }
 
-        // underline text links for better ux
+        // Underline text links for better ux
         a {
             .no-touch &:hover,
             .no-touchevents &:hover,

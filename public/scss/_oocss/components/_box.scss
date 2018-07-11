@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}c-box';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -40,10 +40,6 @@ $block: '#{$config-ns}c-box';
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;
-        }
-
-        object {
-            max-width: 120px;
         }
     }
 

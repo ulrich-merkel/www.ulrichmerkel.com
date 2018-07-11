@@ -51,7 +51,8 @@ import {
 } from '../../state/selectors';
 import {
     changeLocale,
-    changeDialogVisibleSearch
+    changeDialogVisibleSearch,
+    changeDialogVisibleTheme
 } from '../../state/actions';
 import {
     INTL_LOCALE_EN_EN,
@@ -65,9 +66,11 @@ import {
 } from '../grid';
 import {
     A,
-    Nav,
     Button,
-    Icon
+    Header,
+    Icon,
+    Nav,
+    Progress
 } from '../element';
 
 /**
@@ -90,6 +93,7 @@ function LayoutHeader(props) {
         className,
         content,
         handleChangeDialogVisibleSearch,
+        handleChangeDialogVisibleTheme,
         handleIntlChangeLocale,
         headerFixed,
         headerVisible,
@@ -121,10 +125,13 @@ function LayoutHeader(props) {
     );
 
     return (
-        <header className={componentClassName} itemScope itemType='http://schema.org/WPHeader' role='banner'>
-            <progress className='m-progress' id='m-progress' max='100' value='0'>
-                <span className='m-progress__fallback' id='m-progress__fallback' />
-            </progress>
+        <Header
+            className={componentClassName}
+            itemScope
+            itemType='http://schema.org/WPHeader'
+            role='banner'
+        >
+            <Progress />
             <Nav className='m-nav--main'>
                 <GridContainer>
                     <GridRow>
@@ -141,8 +148,18 @@ function LayoutHeader(props) {
                             />
 
                             {/* @TODO: should be separated into own component, extend component menu, map available locales */}
-                            <ul className={menuAsideClassName} role='menu' itemScope itemType='http://schema.org/ItemList' >
-                                <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
+                            <ul
+                                className={menuAsideClassName}
+                                role='menu'
+                                itemScope
+                                itemType='http://schema.org/ItemList'
+                            >
+                                <li
+                                    className='m-menu__list-item'
+                                    itemProp='itemListElement'
+                                    itemScope
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <Button
                                         className={buttonEnClassName}
                                         data-locale={INTL_LOCALE_EN_EN}
@@ -154,7 +171,12 @@ function LayoutHeader(props) {
                                         {contentSection('menu.language.list[0].label')}
                                     </Button>
                                 </li>
-                                <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
+                                <li
+                                    className='m-menu__list-item'
+                                    itemProp='itemListElement'
+                                    itemScope
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <Button
                                         className={buttonDeClassName}
                                         data-locale={INTL_LOCALE_DE_DE}
@@ -166,18 +188,37 @@ function LayoutHeader(props) {
                                         {contentSection('menu.language.list[1].label')}
                                     </Button>
                                 </li>
-                                <li className='m-menu__list-item' itemProp='itemListElement' itemScope itemType='http://www.schema.org/SiteNavigationElement'>
+                                <li
+                                    className='m-menu__list-item--search always-float'
+                                    itemProp='itemListElement'
+                                    itemScope
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
                                     <A
                                         className='m-menu__item--search c-btn--small c-btn--clear'
                                         to='/search'
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleChangeDialogVisibleSearch();
-                                        }}
-                                        title={'Suche'}
+                                        onClick={handleChangeDialogVisibleSearch}
+                                        title={'Search'}
                                     >
                                         <span className='c-btn__label'>
                                             <Icon className='c-btn__icon' icon='search' />
+                                        </span>
+                                    </A>
+                                </li>
+                                <li
+                                    className='m-menu__list-item--theme always-float'
+                                    itemProp='itemListElement'
+                                    itemScope
+                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                >
+                                    <A
+                                        className='m-menu__item--theme c-btn--small c-btn--clear'
+                                        to='/theme'
+                                        onClick={handleChangeDialogVisibleTheme}
+                                        title={''}
+                                    >
+                                        <span className='c-btn__label'>
+                                            <Icon className='c-btn__icon' icon='paint-format' />
                                         </span>
                                     </A>
                                 </li>
@@ -186,7 +227,7 @@ function LayoutHeader(props) {
                     </GridRow>
                 </GridContainer>
             </Nav>
-        </header>
+        </Header>
     );
 }
 
@@ -199,6 +240,7 @@ function LayoutHeader(props) {
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
     handleChangeDialogVisibleSearch: PropTypes.func.isRequired,
+    handleChangeDialogVisibleTheme: PropTypes.func.isRequired,
     intlLocale: PropTypes.string.isRequired,
     intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
     headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
@@ -253,10 +295,16 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale: (e) => {
+            e.preventDefault();
             dispatch(changeLocale(get(e, 'target.dataset.locale')));
         },
-        handleChangeDialogVisibleSearch: () => {
+        handleChangeDialogVisibleSearch: (e) => {
+            e.preventDefault();
             dispatch(changeDialogVisibleSearch(true));
+        },
+        handleChangeDialogVisibleTheme: (e) => {
+            e.preventDefault();
+            dispatch(changeDialogVisibleTheme(true));
         }
     };
 }
@@ -265,12 +313,12 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderContainer = withRouter(connect(
+const LayoutHeaderConnected = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('LayoutHeader')(LayoutHeader)));
 
-export default LayoutHeaderContainer;
+export default LayoutHeaderConnected;
 export {
     LayoutHeader
 };

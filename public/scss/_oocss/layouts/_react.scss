@@ -7,15 +7,9 @@
 
 $block: '#{$config-ns}l-react';
 
-// below the fold css, could be lazy loaded
-@if ($config-non-critical-css) {
-
-    .#{$block}__body {
-        &.has-header-fixed {
-            @include breakpoint($config-grid--breakpoint-xsmall) {
-                padding-top: $theme-layout-header-height;
-            }
-        }
+// Above the fold css, visible without scrolling
+@if ($config-critical-css) {
+    .#{$block} {
+        @include var(background, --theme-layout-react-background);
     }
-
 }
