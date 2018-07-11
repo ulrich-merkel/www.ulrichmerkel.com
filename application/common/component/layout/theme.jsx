@@ -102,8 +102,8 @@ LayoutTheme.defaultProps = { // eslint-disable-line immutable/no-mutation
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object<string, *} state - The current redux store state
- * @returns {Object<string, *} The mapped state properties
+ * @param {Object<string, *>} state - The current redux store state
+ * @returns {Object<string, *>} The mapped state properties
  */
 function mapStateToProps(state) {
     return {

@@ -1,3 +1,17 @@
+/**
+ * Es6 module for handling event helpers.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @requires lodash
+ *
+ * @changelog
+ * - 0.0.1 Basic function and structure
+ */
 import { isFunction } from 'lodash';
 
 /**
