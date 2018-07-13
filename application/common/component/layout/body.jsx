@@ -39,7 +39,7 @@ import Helmet from 'react-helmet';
 
 import pictureFill from '../decorator/picturefill';
 import scroller from '../decorator/scroller';
-import addContent from '../decorator/add-content'
+import addContent from '../decorator/add-content';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
