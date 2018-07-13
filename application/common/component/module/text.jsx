@@ -17,6 +17,7 @@
  * @requires shortid
  * @requires common/state/dialog/actions
  * @requires common/utils/environment
+ * @requires common/utils/event
  * @requires component/module/text/headline
  * @requires component/module/text/content
  * @requires component/module/text/person
@@ -37,6 +38,7 @@ import shortid from 'shortid';
 
 import { changeDialogVisibleBroadcast } from '../../state/dialog/actions';
 import { isBrowser } from '../../utils/environment';
+import { eventPreventDefault } from '../../utils/event';
 import ModuleTextHeadline from './text/headline';
 import ModuleTextContent from './text/content';
 import ModuleTextPerson from './text/person';
@@ -148,7 +150,7 @@ class ModuleText extends Component {
      * @returns {void}
      */
     openDialog(event) {
-        event.preventDefault();
+        eventPreventDefault(event);
         // eslint-disable-next-line react/destructuring-assignment
         this.props.handleChangeDialogVisible(true);
     }

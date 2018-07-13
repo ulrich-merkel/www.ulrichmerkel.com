@@ -19,6 +19,7 @@
  * @requires lodash
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
+ * @requires common/utils/event
  * @requires common/state/selectors
  * @requires common/state/intl/actions
  * @requires common/state/intl/constants
@@ -43,6 +44,7 @@ import { get } from 'lodash';
 
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
+import { eventPreventDefault } from '../../utils/event';
 import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
@@ -291,16 +293,16 @@ function mapStateToProps(state, ownProps) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        handleIntlChangeLocale: (e) => {
-            e.preventDefault();
-            dispatch(changeLocale(get(e, 'target.dataset.locale')));
+        handleIntlChangeLocale: function (event) {
+            eventPreventDefault(event);
+            dispatch(changeLocale(get(event, 'target.dataset.locale')));
         },
-        handleChangeDialogVisibleSearch: (e) => {
-            e.preventDefault();
+        handleChangeDialogVisibleSearch: function (event) {
+            eventPreventDefault(event);
             dispatch(changeDialogVisibleSearch(true));
         },
-        handleChangeDialogVisibleTheme: (e) => {
-            e.preventDefault();
+        handleChangeDialogVisibleTheme: function (event) {
+            eventPreventDefault(event);
             dispatch(changeDialogVisibleTheme(true));
         }
     };

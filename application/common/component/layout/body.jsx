@@ -17,6 +17,7 @@
  * @requires common/component/decorator/picturefill
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
+ * @requires common/utils/event
  * @requires common/utils/scroll-to
  * @requires common/state/constants
  * @requires common/component/layout/header
@@ -41,6 +42,7 @@ import pictureFill from '../decorator/picturefill';
 import scroller from '../decorator/scroller';
 import addContent from '../decorator/add-content';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { eventPreventDefault } from '../../utils/event';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
     STATE_DIALOG_PAGE_SEARCH,
@@ -56,6 +58,22 @@ import PageSearch from '../page/search';
 import PageTheme from '../page/theme';
 
 /**
+ * Scroll to top animation helper.
+ *
+ * @private
+ * @param {Object} event - The synthetic react event
+ * @returns {void}
+ */
+function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
+    eventPreventDefault(event);
+    if (getPageOffset()) {
+        scrollTo({
+            top: 0
+        });
+    }
+}
+
+/**
  * Class representing a component.
  *
  * @class
@@ -64,35 +82,6 @@ import PageTheme from '../page/theme';
  * @property {Object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
-
-    /**
-     * The actual class constructor.
-     *
-     * @constructs
-     * @param {Object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
-
-        /**
-         * Bind manually because React class components don't auto-bind.
-         *
-         * A bind call or arrow function in a JSX prop will create a brand new
-         * function on every single render. This is bad for performance, as it
-         * will result in the garbage collector being invoked way more than is necessary.
-         *
-         * Unfortunately React ES6 classes do not autobind their methods like components created
-         * with the older React.createClass syntax. There are several approaches to binding methods
-         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor.
-         *
-         * @see {@link http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding}
-         * @see {@link http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479}
-         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-         */
-        this.handleScrollTop = this.handleScrollTop.bind(this);
-    }
-
     /**
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
@@ -102,21 +91,6 @@ class LayoutBody extends Component {
      */
     shouldComponentUpdate(nextProps) {
         return this.props !== nextProps;
-    }
-
-    /**
-     * Scroll to top animation helper.
-     *
-     * @param {Object} e - The synthetic react event
-     * @returns {void}
-     */
-    handleScrollTop(e) { // eslint-disable-line class-methods-use-this
-        e.preventDefault();
-        if (getPageOffset()) {
-            scrollTo({
-                top: 0
-            });
-        }
     }
 
     /**
@@ -137,7 +111,7 @@ class LayoutBody extends Component {
                 <LayoutHeaderConnected />
                 {children}
                 <LayoutFooter
-                    handleScrollTop={this.handleScrollTop}
+                    handleScrollTop={handleScrollTop}
                 />
                 <LayoutDialogConnected
                     page={STATE_DIALOG_PAGE_SEARCH}

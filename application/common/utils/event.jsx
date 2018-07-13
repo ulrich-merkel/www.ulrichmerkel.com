@@ -14,6 +14,9 @@
  */
 import { isFunction } from 'lodash';
 
+const PREVENT_DEFAULT = 'preventDefault';
+const EVENT_STOP_PROPAGATION = 'eventStopPropagation';
+
 /**
  * Check if we have a valid browser event object
  * with the function needed to be called.
@@ -30,26 +33,24 @@ function isValidEvent(event, functionToCall) {
 /**
  * Handle form submit event.
  *
- * @function
  * @param {Object} event - The current event object
  * @returns {void}
  */
 function eventPreventDefault(event) {
-    if (isValidEvent(event, 'preventDefault')) {
-        event.preventDefault();
+    if (isValidEvent(event, PREVENT_DEFAULT)) {
+        event[PREVENT_DEFAULT]();
     }
 }
 
 /**
  * Handle form submit event.
  *
- * @function
  * @param {Object} event - The current event object
  * @returns {void}
  */
 function eventStopPropagation(event) {
-    if (isValidEvent(event, 'eventStopPropagation')) {
-        event.eventStopPropagation();
+    if (isValidEvent(event, EVENT_STOP_PROPAGATION)) {
+        event[EVENT_STOP_PROPAGATION]();
     }
 }
 

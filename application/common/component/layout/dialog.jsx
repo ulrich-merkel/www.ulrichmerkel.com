@@ -20,6 +20,7 @@
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
  * @requires common/utils/environment
+ * @requires common/utils/event
  * @requires common/component/module/article
  * @requires common/component/module/list
  * @requires common/component/grid/spaced
@@ -43,6 +44,7 @@ import { selectStateDialogVisible, selectStateDialogPage } from '../../state/sel
 import { changeDialogVisible } from '../../state/actions';
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
+import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
 
 import GridSpaced from '../grid/spaced';
@@ -248,7 +250,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         onClose: function (event) {
-            event && event.preventDefault(); // eslint-disable-line no-unused-expressions
+            eventPreventDefault(event);
             dispatch(changeDialogVisible(false));
         }
     };
