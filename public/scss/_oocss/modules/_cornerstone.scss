@@ -7,7 +7,7 @@
 
 $block: 'm-cornerstone';
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     .#{$block} {
@@ -28,7 +28,7 @@ $block: 'm-cornerstone';
             width: 0;
             height: 100%;
             content: ' ';
-            border-right: $theme-module-cornerstone-border-center;
+            @include var(border-right, --theme-module-cornerstone-after-border-right);
         }
     }
 
@@ -68,11 +68,11 @@ $block: 'm-cornerstone';
         @include breakpoint($config-grid--breakpoint-xsmall) {
             &:hover {
                 .#{$block}__description-content {
-                    background: $theme-module-cornerstone-highlight-background;
+                    @include var(background, --theme-module-cornerstone-item-hover-description-content-background);
                 }
 
                 .#{$block}__bubble {
-                    background: $theme-module-cornerstone-bubble-hover-background;
+                    @include var(background, --theme-module-cornerstone-item-hover-bubble-background);
                 }
             }
         }
@@ -139,9 +139,9 @@ $block: 'm-cornerstone';
             height: rem-calc($config-type-scale-11);
             margin-left: rem-calc($config-type-scale-11 * -1);
             padding: rem-calc($config-type-scale-5);
-            color: $theme-module-cornerstone-bubble-intro-color;
-            background: $theme-module-cornerstone-bubble-intro-background;
-            border: $theme-module-cornerstone-bubble-intro-border;
+            @include var(color, --theme-module-cornerstone-bubble-intro-color);
+            @include var(background, --theme-module-cornerstone-bubble-intro-background);
+            @include var(border, --theme-module-cornerstone-bubble-intro-border);
             border-radius: 50%;
         }
 
@@ -156,7 +156,8 @@ $block: 'm-cornerstone';
         .#{$block}__headline {
             display: inline-block;
             padding: rem-calc($config-type-scale-3);
-            background: $theme-module-cornerstone-highlight-background;
+            @include var(background, --theme-module-cornerstone-highlight-background);
+            @include var(color, --theme-module-cornerstone-highlight-color);
         }
     }
 
@@ -169,7 +170,7 @@ $block: 'm-cornerstone';
         position: relative;
         display: block;
         padding: rem-calc($config-type-scale-5);
-        background: $theme-module-cornerstone-highlight-background;
+        @include var(background, --theme-module-cornerstone-highlight-background);
 
         will-change: background, color;
         transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -213,8 +214,8 @@ $block: 'm-cornerstone';
         display: none;
         width: rem-calc($config-type-scale-6);
         height: rem-calc($config-type-scale-6);
-        background: $theme-module-cornerstone-bubble-background;
-        border: $theme-module-cornerstone-bubble-border;
+        @include var(background, --theme-module-cornerstone-bubble-background);
+        @include var(border, --theme-module-cornerstone-bubble-border);
         border-radius: 50%;
 
         will-change: background, color;

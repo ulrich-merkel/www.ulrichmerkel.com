@@ -40,31 +40,31 @@ const configApplication = Object.assign({}, {
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
     debug: toBoolean(process.env.DEBUG) || false,
     url: {
-        home: '/',
-        persona: '/persona',
-        work: '/work',
-        workOptikLudewig: '/optik-ludewig',
-        workSummerInspiration: '/summer-inspiration',
-        workMomentariness: '/momentariness',
-        workLebensweltSchule: '/lebenswelt-schule',
-        workRevolution: '/revolution',
-        workVerlegeserviceBunge: '/verlegeservice-bunge',
-        workGedankenKollektiv: '/gedanken-kollektiv',
-        broadcast: '/broadcast',
-        search: '/search',
-        contact: '/contact',
-        contactSuccess: '/contact/success',
-        contactError: '/contact/error',
-        imprint: '/imprint',
-        disclaimer: '/disclaimer',
-        privacy: '/privacy',
-        notFound: '/not-found',
         api: '/api',
         apiConfig: '/config',
         apiConfigContent: '/config/content',
-        apiConfigEnEn: '/config/en-en',
         apiConfigDeDe: '/config/de-de',
-        cacheManifest: '/cache.manifest'
+        apiConfigEnEn: '/config/en-en',
+        broadcast: '/broadcast',
+        cacheManifest: '/cache.manifest',
+        contact: '/contact',
+        contactError: '/contact/error',
+        contactSuccess: '/contact/success',
+        disclaimer: '/disclaimer',
+        home: '/',
+        imprint: '/imprint',
+        notFound: '/not-found',
+        persona: '/persona',
+        privacy: '/privacy',
+        search: '/search',
+        work: '/work',
+        workGedankenKollektiv: '/gedanken-kollektiv',
+        workLebensweltSchule: '/lebenswelt-schule',
+        workMomentariness: '/momentariness',
+        workOptikLudewig: '/optik-ludewig',
+        workRevolution: '/revolution',
+        workSummerInspiration: '/summer-inspiration',
+        workVerlegeserviceBunge: '/verlegeservice-bunge'
     },
     isProduction: true,
     aboveTheFold: {
@@ -80,11 +80,12 @@ const configApplication = Object.assign({}, {
         use: toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER) || true
+        use: toBoolean(process.env.SERVICEWORKER) || true,
+        timeStamp: '2018-01-30'
     },
     applicationCache: {
         use: toBoolean(process.env.APPCACHE) || false,
-        timeStamp: '2017-10-22'
+        timeStamp: '2018-01-30'
     },
     transition: {
         transitionName: 'animate',

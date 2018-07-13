@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}m-text';
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -36,7 +36,7 @@ $block: '#{$config-ns}m-text';
     .#{$block}__link {
         margin-bottom: rem-calc($config-grid--gutter * 2);
 
-        // underline text links for better ux
+        // Underline text links for better ux
         a {
             .no-touch &:hover,
             .no-touchevents &:hover,

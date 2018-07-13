@@ -1,5 +1,6 @@
 # www.ulrichmerkel.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ulrich-merkel/www.ulrichmerkel.com.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com)
 [![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
 [![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
@@ -40,13 +41,32 @@ Using next generation JavaScript today
 * [BackstopJS](https://garris.github.io/BackstopJS/) - An easy way for CSS regression tests
 * [PageSpeed Insights](https://github.com/addyosmani/psi) - Google pagespeed insights with reporting
 * [Travis CI](https://travis-ci.org/) - Test and Deploy with Confidence
+* [Codeclimate](https://codeclimate.com/) - Code Climate empowers organizations to take control of their code quality
+* [Coveralls](https://coveralls.io/) - Help you deliver code confidently by showing which parts of your code aren’t covered by your test suite
+* [Greenkeeper](https://greenkeeper.io/) - Get safety & consistency with real-time monitoring and automatic updates for npm dependencies
 
 ### Documentation
 
 * [JSDoc](https://github.com/jsdoc3/jsdoc) - An API documentation generator for JavaScript
 * [SassDoc](https://github.com/SassDoc/sassdoc) - A SCSS documentation system to build pretty docs
 
-## Basic NPM script commands
+## Developing
+
+### Prerequisites
+
+This is needed to set up the dev environment:
+
+* [Node](https://nodejs.org) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine
+* [NPM](https://www.npmjs.com/) - npm is the package manager for JavaScript and the world’s largest software registry
+* [Yarn](https://yarnpkg.com/) - Fast, reliable and secure dependency management
+
+### Setting up Dev
+
+This project is loads environment variables from [.env](https://github.com/motdotla/dotenv) files for nodejs projects. To keep private credentials secret i don't add these files to git. Adjust the given `.env.sample` file and save it as `.env`.
+
+If you're using [Coveralls](https://coveralls.io/) adjust the `coveralls.sample.yml` config file to fit your needs and save it as `coveralls.yml`.
+
+### Basic NPM script commands
 
 ```Shell
 $ npm run watch

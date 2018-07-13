@@ -5,18 +5,18 @@
 /// @author Ulrich Merkel
 ////
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
     // ----------------------------
-    // default basic styling
+    // Default basic styling, mainly reset styles
     // ----------------------------
     button {
         display: block;
         margin: 0;
         padding: 0;
         line-height: inherit;
-        color: $config-color-link;
+        @include var(color, --theme-base-button-color);
         text-align: center;
         text-decoration: none;
         text-transform: none;
@@ -26,11 +26,11 @@
         appearance: none;
 
         will-change: background, color;
-        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+        transition: background $config-transition-arguments ease-in-out, color $config-transition-arguments ease-in-out;
     }
 
     @if ($config-support-prefix-moz) {
-        // remove extra padding around button text in ff (since ff13)
+        // Remove extra padding around button text in ff (since ff13)
         button::-moz-focus-inner {
             padding: 0;
             border: 0;
@@ -39,17 +39,17 @@
 
 }
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
-    // just show hover for non-touch devices
+    // Just show hover for non-touch devices
     @if ($config-support-hovers) {
         .no-touch,
         .no-touchevents,
         .no-js {
             button {
                 &:hover {
-                    color: $config-color-link-hover;
+                    @include var(color, --theme-base-button-color-hover);
                 }
             }
         }
@@ -57,16 +57,16 @@
 
     button {
         &:focus {
-            color: $config-color-link-focus;
-            outline: $config-color-link-focus;
+            @include var(color, --theme-base-button-color-focus);
+            @include var(outline, --theme-base-button-color-focus);
         }
 
         &:active {
-            color: $config-color-link-active;
+            @include var(color, --theme-base-button-color-active);
         }
 
         &:visited {
-            color: $config-color-link-visited;
+            @include var(color, --theme-base-button-color-visited);
         }
     }
 

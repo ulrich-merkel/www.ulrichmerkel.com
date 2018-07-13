@@ -46,6 +46,7 @@ import intl from './intl/reducer';
 import page from './page/reducer';
 import scroll from './scroll/reducer';
 import search from './search/reducer';
+import theme from './theme/reducer';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
@@ -72,7 +73,8 @@ const reducers = combineReducers({
     intl,
     page,
     scroll,
-    search
+    search,
+    theme
 });
 
 // neat middleware that logs actions
@@ -94,7 +96,7 @@ function configureStore(preloadedState = {}) {
         middlewares.push(loggerMiddleware);
     }
 
-    // create store with cached data
+    // Create store with cached data
     const store = createStore(
         reducers,
         Object.assign(
@@ -105,13 +107,13 @@ function configureStore(preloadedState = {}) {
         applyMiddleware(...middlewares)
     );
 
-    // listen to changes to save state in cache
+    // Listen to changes to save state in cache
     store.subscribe(() => {
         const stateToSave = omit(store.getState(), ['csrf', 'page']);
         saveState(stateToSave);
     });
 
-    // fetch inital data if not already passed as preloadedState
+    // Fetch inital data if not already passed as preloadedState
     store.dispatch(fetchConfigContentIfNeeded());
     store.dispatch(fetchConfigTranslationIfNeeded(get(store.getState(), 'intl.locale')));
 

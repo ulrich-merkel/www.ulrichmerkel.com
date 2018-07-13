@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}m-work';
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     .#{$block},
@@ -21,7 +21,7 @@ $block: '#{$config-ns}m-work';
         position: relative;
         z-index: 2;
         padding: rem-calc($config-grid--gutter);
-        background: $theme-module-work-text-background;
+        @include var(background, --theme-module-work-text-background);
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             position: absolute;
@@ -59,10 +59,10 @@ $block: '#{$config-ns}m-work';
         span {
             display: inline-block;
             padding: 1px 3px;
-            color: $theme-module-work-headline-color;
+            @include var(color, --theme-module-work-headline-color);
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
-                background: $theme-module-work-headline-background;
+                @include var(background, --theme-module-work-headline-background);
             }
         }
     }

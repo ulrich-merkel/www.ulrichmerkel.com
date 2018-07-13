@@ -1,11 +1,12 @@
 ////
 /// Mixin typographic
 ///
-/// @group mixin
+/// @group mixins
 /// @author Ulrich Merkel
 ////
 
 /// Font size mixin to include px and rem
+///
 /// @param {string|number} $size
 @mixin font-size($size) {
     $size: if(unitless($size), $size, $size / 1px);
@@ -15,6 +16,7 @@
 }
 
 /// Hide text mixin
+///
 /// @see https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 @mixin hide-text {
     font: 0/0 a;
@@ -73,6 +75,7 @@
 }
 
 /// User select for selecting text on the page
+///
 /// @param {string} $select
 @mixin user-select($select) {
     @if ($config-support-prefix-webkit) {
@@ -103,6 +106,7 @@
 }
 
 /// Include css3 hyphens
+///
 /// @param {string} $value
 @mixin hyphens($value) {
     @if ($config-support-prefix-webkit) {

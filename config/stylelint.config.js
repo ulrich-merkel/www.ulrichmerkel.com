@@ -8,10 +8,11 @@ module.exports = {
         'at-rule-no-unknown': [ true, {
             'ignoreAtRules': [
                 'content',
-                'if',
-                'include',
+                'each',
                 'for',
                 'function',
+                'if',
+                'include',
                 'mixin',
                 'return'
             ]

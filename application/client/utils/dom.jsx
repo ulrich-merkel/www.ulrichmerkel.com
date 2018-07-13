@@ -14,7 +14,7 @@
 /**
  * Get basic window document dom node.
  *
- * @function
+ * @private
  * @returns {Object|null} The current document or null (in isomorph environments)
  */
 function getDocumentDomNode() {
@@ -27,7 +27,7 @@ function getDocumentDomNode() {
 /**
  * Get dom node element by id.
  *
- * @function
+ * @private
  * @param {string} id - The elements tag name
  * @returns {Object|null} The current element or null
  */
@@ -39,7 +39,6 @@ function getDomNodeById(id) {
 /**
  * Get dom node element by tag name.
  *
- * @function
  * @param {string} name - The elements tag name
  * @returns {Object|null} The current element or null
  */
@@ -51,7 +50,6 @@ function getDomNodeByTagName(name) {
 /**
  * Get first dom node element by tag name.
  *
- * @function
  * @param {string} name - The elements tag name
  * @returns {Object|null} The current element or null
  */
@@ -63,7 +61,6 @@ function getFirstDomNodeByTagName(name) {
 /**
  * Convenient helper to get head dom node.
  *
- * @function
  * @returns {Object|null} The current head dom element or null
  */
 function getHeadDomNode() {
@@ -73,7 +70,6 @@ function getHeadDomNode() {
 /**
  * Set dom node attribute.
  *
- * @function
  * @param {string} id - The elements id
  * @param {string} name - The elements attribute name to be set
  * @param {string} value - The elements attribute value to be set
@@ -90,7 +86,6 @@ function setDomNodeAttribute(id, name, value) {
 /**
  * Set dom node className.
  *
- * @function
  * @param {string} id - The elements id
  * @param {Array<string>} add - The elements classNames to be set
  * @param {Array<string>} remove - The elements classNames to be removed
@@ -115,7 +110,6 @@ function setDomNodeClassName(id, add, remove) {
 /**
  * Create dom node element.
  *
- * @function
  * @param {string} name - The node element name type
  * @param {Object} attributes - Name/value mapping of the element attributes
  * @returns {Object|null} The created html object
@@ -128,10 +122,14 @@ function createDomNode(name, attributes) {
 
     const domNode = doc.createElement(name);
 
-    // Check for attributes to set
+    // Check for attributes to be set
     if (attributes) {
         Object.keys(attributes).forEach(function handleKey(key) {
-            domNode.setAttribute(key, attributes[key]);
+            const value = attributes[key];
+
+            if (key && value) {
+                domNode.setAttribute(key, value);
+            }
         });
     }
 
@@ -139,13 +137,29 @@ function createDomNode(name, attributes) {
     return domNode;
 }
 
+/**
+ * Delte dom node element.
+ *
+ * @param {string} id - The elements id
+ * @returns {void}
+ */
+function deleteDomNode(id) {
+    const domNode = getDomNodeById(id);
+    if (!domNode) {
+        return;
+    }
+
+    domNode.parentNode.removeChild(domNode);
+}
+
 export {
+    createDomNode,
+    deleteDomNode,
     getDocumentDomNode,
     getDomNodeById,
     getDomNodeByTagName,
     getFirstDomNodeByTagName,
     getHeadDomNode,
-    createDomNode,
     setDomNodeAttribute,
     setDomNodeClassName
 };

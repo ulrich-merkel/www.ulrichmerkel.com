@@ -139,9 +139,20 @@ function createFolders(folders) {
     });
 }
 
-// Start routine
-checkBuildDirectory(argvDestFolder, function checkDirectoryFn() {
-    emptyFolders(config, function emptyFoldersFn() {
-        createFolders(config);
+/**
+ * Start checking directories and create folders if necessary.
+ *
+ * @param {string} destFolder - The directory name
+ * @param {Object} cfg - The folders to be checked
+ * @returns {void}
+ */
+function main(destFolder, cfg) {
+    checkBuildDirectory(destFolder, function checkDirectoryFn() {
+        emptyFolders(cfg, function emptyFoldersFn() {
+            createFolders(cfg);
+        });
     });
-});
+}
+
+// Start routine
+main(argvDestFolder, config);

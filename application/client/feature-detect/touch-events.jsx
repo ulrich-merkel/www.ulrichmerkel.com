@@ -10,18 +10,25 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
+import { isBrowser } from  '../../common/utils/environment';
 
 /**
  * Test if browser is touch device.
  *
  * @see {@link http://flexslider.woothemes.com/}
  *
- * @function
  * @returns {boolean} Whether this device has touch display or not
  */
 function hasTouchEvents() {
+    if (!isBrowser()) {
+        return false;
+    }
+
     const touchstart = 'ontouchstart' in window;
-    const touchPoints = navigator && (navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
+    const windowNavigator = window.navigator;
+    const touchPoints = windowNavigator && (
+        windowNavigator.maxTouchPoints > 0 || windowNavigator.msMaxTouchPoints > 0
+    );
 
     return touchstart || touchPoints;
 }

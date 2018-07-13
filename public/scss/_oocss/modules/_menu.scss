@@ -7,10 +7,10 @@
 
 $block: '#{$config-ns}m-menu';
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'],
@@ -24,7 +24,9 @@ $block: '#{$config-ns}m-menu';
         list-style: none;
     }
 
-    .#{$block}__list-item {
+    .#{$block}__list-item,
+    [class^='#{$block}__list-item--'],
+    [class*=' #{$block}__list-item--'] {
         margin: 0;
         padding: 0;
 
@@ -35,14 +37,31 @@ $block: '#{$config-ns}m-menu';
         @include breakpoint($config-grid--breakpoint-xsmall) {
             float: left;
         }
+
+        &.always-float {
+            float: left;
+        }
     }
 
-    .#{$block}__item {
+    .#{$block}__item,
+    [class^='#{$block}__item--'],
+    [class*=' #{$block}__item--'] {
         display: block;
         text-align: left;
 
         &.is-hidden {
             display: none;
+        }
+
+        &.c-btn--small {
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    @include var(background, --theme-module-menu-main-item-background);
+                }
+            }
         }
     }
 
@@ -52,7 +71,7 @@ $block: '#{$config-ns}m-menu';
         }
     }
 
-    // menu main
+    // Menu main
     .#{$block}--main {
         @include clearfix;
         margin-bottom: 0;
@@ -63,12 +82,12 @@ $block: '#{$config-ns}m-menu';
 
         .#{$block}__item {
             padding: rem-calc($config-type-scale-11) rem-calc($config-type-scale-12) rem-calc($config-type-scale-10);
-            color: $config-color-white;
-            background: $config-color-blue--2;
+            @include var(color, --theme-module-menu-main-item-color);
+            @include var(background, --theme-module-menu-main-item-background);
 
             &.is-active {
-                color: $config-color-white;
-                background: $config-color-blue--1;
+                @include var(color, --theme-module-menu-main-item-active-color);
+                @include var(background, --theme-module-menu-main-item-active-background);
             }
 
             @if ($config-support-hovers) {
@@ -76,8 +95,8 @@ $block: '#{$config-ns}m-menu';
                 .no-touchevents &:hover,
                 .no-js &:hover,
                 &:focus {
-                    color: $config-color-white;
-                    background: $config-color-blue--1;
+                    @include var(color, --theme-module-menu-main-item-active-color);
+                    @include var(background, --theme-module-menu-main-item-active-background);
                 }
             }
 
@@ -85,30 +104,42 @@ $block: '#{$config-ns}m-menu';
 
     }
 
-    // menu header aside
+    // Menu header aside
     .#{$block}--aside {
         margin-bottom: 0;
 
-        .#{$block}__list-item {
+        .#{$block}__list-item,
+        [class^='#{$block}__list-item--'],
+        [class*=' #{$block}__list-item--'] {
             position: relative;
         }
 
-        .#{$block}__item--search {
+        .#{$block}__item,
+        [class^='#{$block}__item--'],
+        [class*=' #{$block}__item--'] {
+            // @TODO: use same box model as main menu to improve click targets
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
-            color: $config-color-white;
+            @include var(color, --theme-module-menu-aside-item-search-color);
 
             will-change: color;
             transition: color $config-transition-arguments;
 
             &.is-active {
-                color: $config-color-white;
+                @include var(color, --theme-module-menu-aside-item-search-active-color);
             }
 
         }
 
+        .#{$block}__list-item--theme {
+            display: none;
+        }
+
+        .customproperties & .#{$block}__list-item--theme {
+            display: block;
+        }
     }
 
-    // menu footer
+    // Menu footer
     .#{$block}--imprint,
     .#{$block}--social {
         text-align: left;
@@ -129,12 +160,12 @@ $block: '#{$config-ns}m-menu';
 
         .#{$block}__item {
             padding: rem-calc($config-type-scale-4) rem-calc($config-type-scale-10) rem-calc($config-type-scale-4) 0;
-            font-size: 90%;
-            color: $config-color-grey--4;
+            @include var(font-size, --theme-module-menu-footer-item-font-size);
+            @include var(color, --theme-module-menu-footer-item-color);
             text-align: left;
 
             &.is-active {
-                color: $config-color-blue--1;
+                @include var(color, --theme-module-menu-footer-item-color-active);
             }
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
@@ -147,7 +178,7 @@ $block: '#{$config-ns}m-menu';
                 .no-touchevents &:hover,
                 .no-js &:hover,
                 &:focus {
-                    color: $config-color-blue--1;
+                    @include var(color, --theme-module-menu-footer-item-color-active);
                 }
             }
         }
@@ -166,7 +197,7 @@ $block: '#{$config-ns}m-menu';
                     height: 0;
                     margin: 0 auto;
                     content: ' ';
-                    border-top: 1px solid $config-color-blue--1;
+                    @include var(border-top, --theme-module-menu-footer-imprint-item-border-top);
 
                     will-change: width;
                     transition: width $config-transition-arguments;
@@ -198,7 +229,7 @@ $block: '#{$config-ns}m-menu';
         .#{$block}__item {
             position: relative;
             padding: rem-calc($config-type-scale-8) 0 0;
-            font-size: 150%;
+            @include var(font-size, --theme-module-menu-footer-social-item-font-size);
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 padding: rem-calc($config-type-scale-1) rem-calc($config-grid--gutter);

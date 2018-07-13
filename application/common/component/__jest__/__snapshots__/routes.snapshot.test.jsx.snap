@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`common/component/routes should render correctly 1`] = `
-<div
-  className="l-react__body"
->
+Array [
   <dialog
+    aria-live="assertive"
     className="l-dialog--loading"
+    role="alert"
   >
     <div
       className="l-dialog__content"
@@ -28,9 +28,9 @@ exports[`common/component/routes should render correctly 1`] = `
     <div
       className="l-dialog__background"
     />
-  </dialog>
+  </dialog>,
   <header
-    className="l-header is-fixed is-visible"
+    className="c-header l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -198,7 +198,7 @@ exports[`common/component/routes should render correctly 1`] = `
                 </button>
               </li>
               <li
-                className="m-menu__list-item"
+                className="m-menu__list-item--search always-float"
                 itemProp="itemListElement"
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement"
@@ -210,7 +210,7 @@ exports[`common/component/routes should render correctly 1`] = `
                   onClick={[Function]}
                   style={undefined}
                   tabIndex="0"
-                  title="Suche"
+                  title="Search"
                 >
                   <span
                     className="c-btn__label"
@@ -222,12 +222,37 @@ exports[`common/component/routes should render correctly 1`] = `
                   </span>
                 </a>
               </li>
+              <li
+                className="m-menu__list-item--theme always-float"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current={false}
+                  className="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  href="/theme"
+                  onClick={[Function]}
+                  style={undefined}
+                  tabIndex="0"
+                  title=""
+                >
+                  <span
+                    className="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--paint-format c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </section>
     </nav>
-  </header>
+  </header>,
   <main
     className="l-main"
     itemProp="mainContentOfPage"
@@ -742,7 +767,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -891,7 +916,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1040,7 +1065,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1189,7 +1214,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1338,7 +1363,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1487,7 +1512,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1636,7 +1661,7 @@ exports[`common/component/routes should render correctly 1`] = `
                         </span>
                       </span>
                       <picture
-                        className="c-picture m-featured__image"
+                        className="c-picture m-featured__picture"
                         itemScope={true}
                         itemType="http://schema.org/ImageObject"
                       >
@@ -1763,7 +1788,7 @@ exports[`common/component/routes should render correctly 1`] = `
         </div>
       </section>
     </div>
-  </main>
+  </main>,
   <footer
     className="l-footer"
     itemScope={true}
@@ -2048,6 +2073,6 @@ exports[`common/component/routes should render correctly 1`] = `
         </div>
       </section>
     </nav>
-  </footer>
-</div>
+  </footer>,
+]
 `;

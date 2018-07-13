@@ -5,30 +5,99 @@
 /// @author Ulrich Merkel
 ////
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
-    /* stylelint-disable selector-list-comma-newline-after */
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed, dialog,
-    figure, figcaption, footer, header, hgroup, main,
-    menu, nav, output, picture, ruby, section, summary,
-    time, mark, audio, video {
+    a,
+    abbr,
+    acronym,
+    address,
+    applet,
+    article,
+    aside,
+    audio,
+    b,
+    big,
+    blockquote,
+    body,
+    canvas,
+    caption,
+    center,
+    cite,
+    code,
+    dd,
+    del,
+    details,
+    dfn,
+    dialog,
+    div,
+    dl,
+    dt,
+    em,
+    embed,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    html,
+    i,
+    iframe,
+    img,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    main,
+    mark,
+    menu,
+    nav,
+    object,
+    ol,
+    output,
+    p,
+    picture,
+    pre,
+    q,
+    ruby,
+    s,
+    samp,
+    section,
+    small,
+    span,
+    strike,
+    strong,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    tt,
+    u,
+    ul,
+    var,
+    video {
         margin: 0;
         padding: 0;
         font: inherit;
         vertical-align: baseline;
         border: 0;
     }
-    /* stylelint-enable selector-list-comma-newline-after */
 
     body,
     html {
@@ -90,16 +159,6 @@
     // ----------------------------
     // Embedded content
     // ----------------------------
-
-    // Remove border when inside `a` element in IE 8/9/10.
-    img {
-        display: inline-block;
-        max-width: 100%;
-        height: auto;
-        -ms-interpolation-mode: bicubic;
-        vertical-align: middle;
-        border: 0;
-    }
 
     // Correct overflow not hidden in IE 9/10/11.
     svg:not(:root) {
