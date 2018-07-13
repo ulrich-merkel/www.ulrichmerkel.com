@@ -18,10 +18,23 @@ describe('client/feature-detect/touch-events', function () {
 
         expect(hasTouchEvents()).toBeTruthy();
     });
+    it('should return false for non navigator and non touch events', function () {
+        global.window = {};
+
+        expect(hasTouchEvents()).toBeFalsy();
+    });
     it('should check for correct navigator browser features', function () {
         global.window = {
             navigator: {
-                maxTouchPoints: 10,
+                maxTouchPoints: 10
+            }
+        };
+
+        expect(hasTouchEvents()).toBeTruthy();
+    });
+    it('should check for correct navigator ms browser features', function () {
+        global.window = {
+            navigator: {
                 msMaxTouchPoints: 10
             }
         };
