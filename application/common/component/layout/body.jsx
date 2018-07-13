@@ -37,11 +37,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import {
-    pictureFill,
-    scroller,
-    addContent
-} from '../decorator';
+import pictureFill from '../decorator/picturefill';
+import scroller from '../decorator/scroller';
+import addContent from '../decorator/add-content'
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
