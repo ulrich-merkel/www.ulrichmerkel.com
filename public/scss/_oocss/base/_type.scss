@@ -5,18 +5,18 @@
 /// @author Ulrich Merkel
 ////
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
     html {
         font-size: 100%;
 
         //
-        // mobile text sizes
+        // Mobile text sizes
         //
-        // ie phone note: if the viewport is set using <meta> element, the value
+        // IE phone note: If the viewport is set using <meta> element, the value
         // of the CSS text-size-adjust property is ignored.
         //
-        // webkit note: if -webkit-text-size-adjust is explicitely set to none,
+        // Webkit note: If -webkit-text-size-adjust is explicitely set to none,
         // webkit-based desktop browsers will prevent the user to zoom in or out
         // the web page
         //
@@ -33,7 +33,7 @@
     }
 
     body {
-        // better font rendering
+        // Better font rendering
         @if ($config-support-prefix-webkit) {
             -webkit-font-smoothing: antialiased;
         }
@@ -45,16 +45,18 @@
             -o-font-smoothing: antialiased;
         }
         font-smooth: auto; // stylelint-disable-line property-no-unknown
-        color: $config-font-color;
+        @include var(color, --theme-base-type-color);
     }
 
     html,
     body {
-        font-family: $config-type-font-family;
-        font-size: rem-calc($config-type-scale-9);
+        @include var(font-family, --theme-base-type-font-family);
+        /* stylelint-disable length-zero-no-unit */
+        font-size: $config-type-scale-9 + 0px;
+        /* stylelint-enable length-zero-no-unit */
         font-style: normal;
-        font-weight: $config-font-weight-normal;
-        line-height: 1.375;
+        @include var(font-weight, --theme-base-type-font-weight);
+        @include var(line-height, --theme-base-type-line-height);
     }
 
     p {
@@ -72,63 +74,64 @@
 
     strong,
     b {
-        font-weight: $config-font-weight-bold;
+        @include var(font-weight, --theme-base-type-strong-font-weight);
         line-height: inherit;
     }
 
     small {
-        font-size: $config-font-small-size;
+        @include var(font-size, --theme-base-type-small-font-size);
         line-height: inherit;
     }
 
     sub,
     sup {
         position: relative;
-        font-size: 75%;
+        @include var(font-size, --theme-base-type-sup-sub-font-size);
         line-height: 0;
         vertical-align: baseline;
     }
 
     sup {
-        top: -0.5em;
+        @include var(top, --theme-base-type-sup-top);
     }
 
     sub {
-        bottom: -0.25em;
+        @include var(bottom, --theme-base-type-sub-bottom);
     }
 
     abbr[title] {
-        color: $config-font-color;
+        @include var(color, --theme-base-type-color);
 
         .no-touch &,
         .no-touchevents &,
         .no-js & {
             cursor: help;
-            border-bottom: 1px dotted $config-color-grey--5;
             text-decoration: none;
+            @include var(border-bottom, --theme-base-type-abbr-border-bottom);
         }
+
     }
 
     blockquote {
         margin: 0 0 rem-calc($config-type-scale-9);
         padding: rem-calc($config-type-scale-1) rem-calc($config-type-scale-10) 0 rem-calc($config-type-scale-12);
-        border-left: 1px solid $config-color-grey--2;
+        @include var(border-left, --theme-base-type-blockquote-border-left);
     }
 
     blockquote,
     blockquote p {
-        line-height: 1.6;
-        color: $config-color-grey--7;
+        @include var(line-height, --theme-base-type-blockquote-text-line-height);
+        @include var(color, --theme-base-type-blockquote-text-color);
     }
 
     cite {
         display: block;
-        font-size: rem-calc($config-type-scale-7);
-        color: $config-color-grey--2;
+        @include font-size($config-type-scale-7);
+        @include var(color, --theme-base-type-cite-color);
     }
 
     cite::before {
-        content: '\2014 \0020';
+        @include var(content, --theme-base-type-cite-before-content);
     }
 
 }

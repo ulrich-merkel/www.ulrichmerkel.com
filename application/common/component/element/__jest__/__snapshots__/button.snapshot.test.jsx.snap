@@ -8,7 +8,6 @@ exports[`common/component/element/button should render correctly 1`] = `
   name="button"
   role="button"
   title="Test button title"
-  to={undefined}
   type="submit"
 >
   <span

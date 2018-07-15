@@ -9,7 +9,6 @@ exports[`common/component/module/text/link should render correctly 1`] = `
     className="c-link"
     href="/foo"
     onClick={[Function]}
-    style={undefined}
     tabIndex="0"
     title="Module text link title"
   >

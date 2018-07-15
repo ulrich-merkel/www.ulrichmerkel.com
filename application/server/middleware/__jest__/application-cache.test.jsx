@@ -5,7 +5,7 @@ import httpMocks from 'node-mocks-http';
 import config from '../../../common/config/application';
 import middleware from '../application-cache';
 
-Date.now = jest.genMockFunction().mockReturnValue(1234567890);
+Date.now = jest.fn().mockReturnValue(1234567890);
 
 describe('server/middleware/application-cache', function () {
     let req,

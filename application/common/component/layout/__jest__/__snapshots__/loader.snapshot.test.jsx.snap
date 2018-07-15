@@ -2,7 +2,9 @@
 
 exports[`component/layout/loader Snapshot should render correctly 1`] = `
 <dialog
+  aria-live="assertive"
   className="l-dialog--loading"
+  role="alert"
 >
   <div
     className="l-dialog__content"

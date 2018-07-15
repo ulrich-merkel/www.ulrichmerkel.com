@@ -1,0 +1,14 @@
+@import '_oocss/configs/variables';
+@import '_oocss/configs/theme';
+
+// Programmatically generate fallback :root variables from the default theme
+// Above the fold css, visible without scrolling
+@if ($config-critical-css) {
+    @supports ((--a: 0)) {
+        :root {
+            @each $name, $value in $theme-grey {
+                #{$name}: #{$value};
+            }
+        }
+    }
+}

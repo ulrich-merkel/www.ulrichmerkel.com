@@ -10,7 +10,7 @@
 $fonticons: '#{$config-base-url-fonts}icomoon/icomoon';
 $block: '#{$config-ns}c-font-icon';
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     /* stylelint-disable declaration-colon-newline-after */
@@ -35,10 +35,10 @@ $block: '#{$config-ns}c-font-icon';
         font-style: normal;
         font-weight: $config-font-weight-normal;
 
-        // for safety - reset parent styles, that can break glyph codes
+        // For safety - reset parent styles, that can break glyph codes
         font-variant: normal;
 
-        // fix buttons height, for twitter bootstrap
+        // Fix buttons height, for twitter bootstrap
         line-height: 1em;
 
         text-align: center;
@@ -179,6 +179,9 @@ $block: '#{$config-ns}c-font-icon';
     }
     .#{$block}--minus::before {
         content: '\f068';
+    }
+    .#{$block}--paint-format::before {
+        content: '\e90c';
     }
 
 }

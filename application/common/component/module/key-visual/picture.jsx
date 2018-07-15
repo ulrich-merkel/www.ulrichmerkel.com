@@ -142,11 +142,11 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             img,
             type
         } = this.props;
+        const { pictureStyle } = this.state;
 
         if (!img.name || !img.ext || !img.path) {
             return null;
@@ -156,7 +156,7 @@ class ModuleKeyVisualPicture extends Component {
             'm-key-visual__image',
             type ? `m-key-visual__image--${type}` : ''
         );
-        const componentPictureStyle = this.state.pictureStyle;
+        const componentPictureStyle = pictureStyle;
 
         return (
             <Picture

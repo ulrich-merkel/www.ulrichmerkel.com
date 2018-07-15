@@ -7,4 +7,5 @@ export { default as PageNotFound } from './not-found';
 export { default as PagePersona } from './persona';
 export { default as PagePrivacy } from './privacy';
 export { default as PageSearch } from './search';
+export { default as PageTheme } from './theme';
 export { default as PageWork } from './work';

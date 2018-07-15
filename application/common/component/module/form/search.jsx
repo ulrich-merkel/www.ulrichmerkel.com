@@ -35,13 +35,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { isFunction, get } from 'lodash';
+import { get } from 'lodash';
 
 import {
     selectStateSearchTerm,
     selectStateCsrfToken
 } from '../../../state/selectors';
 import { changeSearchTerm } from '../../../state/actions';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridRow,
     GridCol
@@ -52,20 +53,6 @@ import {
     Legend,
     InputGroup
 } from '../../element';
-
-/**
- * Handle form submit event.
- *
- * @function
- * @private
- * @param {Object} e - The current event object
- * @returns {void}
- */
-function onSubmit(e) {
-    if (e && isFunction(e.preventDefault)) {
-        e.preventDefault();
-    }
-}
 
 /**
  * Function representing a component to return a single react child element.
@@ -90,7 +77,7 @@ function ModuleFormSearch(props) {
             itemProp='potentialAction'
             itemScope
             itemType='http://schema.org/SearchAction'
-            onSubmit={onSubmit}
+            onSubmit={eventPreventDefault}
             role='search'
         >
             <Fieldset>

@@ -11,6 +11,8 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.3
  *
+ * @see {@link https://codeburst.io/how-to-create-a-simple-css-loading-spinner-make-it-accessible-e5c83c2e464c}
+ *
  * @requires react
  * @requires prop-types
  * @requires common/component/decorator/add-content
@@ -30,7 +32,6 @@ import { getContentSection } from '../../utils/content';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {Object} [props.content={}] - The component content config
  * @returns {ReactElement} React component markup
@@ -43,11 +44,15 @@ function LayoutLoader(props) {
     const contentSection = getContentSection(content);
 
     return (
-        <dialog className='l-dialog--loading'>
+        <dialog className='l-dialog--loading' role='alert' aria-live='assertive'>
             <div className='l-dialog__content'>
                 <div className='c-flip'>
-                    <div className='c-flip__front'>{contentSection('headline')}</div>
-                    <div className='c-flip__back'>{contentSection('lead')}</div>
+                    <div className='c-flip__front'>
+                        {contentSection('headline')}
+                    </div>
+                    <div className='c-flip__back'>
+                        {contentSection('lead')}
+                    </div>
                 </div>
             </div>
             <div className='l-dialog__background' />

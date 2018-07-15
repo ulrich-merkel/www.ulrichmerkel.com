@@ -124,7 +124,6 @@ exports[`common/component/page/home should render correctly 1`] = `
               onClick={[Function]}
               role="button"
               title="Scroll down"
-              to={undefined}
               type="button"
             >
               <span
@@ -216,7 +215,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                   href="persona"
                   onClick={[Function]}
                   role="button"
-                  style={undefined}
                   title="See my resume"
                   type={null}
                 >
@@ -230,14 +228,10 @@ exports[`common/component/page/home should render correctly 1`] = `
               <meta
                 content="What i do"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
               <meta
                 content="2017-10-7"
                 itemProp="datePublished"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>
@@ -438,8 +432,6 @@ exports[`common/component/page/home should render correctly 1`] = `
               <meta
                 content="Services"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>
@@ -491,7 +483,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/optik-ludewig"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Optik Ludewig"
                   >
@@ -515,7 +506,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -640,7 +631,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/summer-inspiration"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Summer Inspiration"
                   >
@@ -664,7 +654,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -789,7 +779,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/momentariness"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Momentariness"
                   >
@@ -813,7 +802,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -938,7 +927,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/lebenswelt-schule"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Lebenswelt Schule"
                   >
@@ -962,7 +950,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -1087,7 +1075,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/revolution"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Revolution"
                   >
@@ -1111,7 +1098,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -1236,7 +1223,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/verlegeservice-bunge"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Verlegeservice Bunge"
                   >
@@ -1260,7 +1246,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -1385,7 +1371,6 @@ exports[`common/component/page/home should render correctly 1`] = `
                     className="c-link m-featured__item"
                     href="/work/gedanken-kollektiv"
                     onClick={[Function]}
-                    style={undefined}
                     tabIndex="0"
                     title="Gedanken Kollektiv"
                   >
@@ -1409,7 +1394,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                       </span>
                     </span>
                     <picture
-                      className="c-picture m-featured__image"
+                      className="c-picture m-featured__picture"
                       itemScope={true}
                       itemType="http://schema.org/ImageObject"
                     >
@@ -1528,8 +1513,6 @@ exports[`common/component/page/home should render correctly 1`] = `
             <meta
               content="Featured Work"
               itemProp="name"
-              name={undefined}
-              property={undefined}
             />
           </article>
         </div>

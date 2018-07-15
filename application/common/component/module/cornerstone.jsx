@@ -37,7 +37,6 @@ import ModuleCornerstoneItemEducation from './cornerstone/item-education';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */

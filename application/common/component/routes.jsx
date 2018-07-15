@@ -21,19 +21,20 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
-import { LayoutBody } from '../component/layout';
+import { LayoutBody } from './layout';
 import {
-    PageHome,
-    PageWork,
-    PagePersona,
+    PageBroadcast,
     PageContact,
     PageDisclaimer,
-    PagePrivacy,
+    PageHome,
     PageImprint,
-    PageBroadcast,
+    PageNotFound,
+    PagePersona,
+    PagePrivacy,
     PageSearch,
-    PageNotFound
-} from '../component/page/';
+    PageTheme,
+    PageWork
+} from './page';
 
 /**
  * Handling routes and wrap content in a layout.
@@ -54,6 +55,7 @@ function Routes() {
                 <Route path={url.imprint} component={PageImprint} />
                 <Route path={url.broadcast} component={PageBroadcast} />
                 <Route path={url.search} component={PageSearch} />
+                <Route path={url.theme} component={PageTheme} />
                 <Route component={PageNotFound} />
             </Switch>
         </LayoutBody>

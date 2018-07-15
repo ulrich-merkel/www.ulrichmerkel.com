@@ -5,11 +5,11 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.6
+ * @version 0.0.7
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
- * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17
+ * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
  * @see {@link http://www.nearform.com/nodecrunch/self-detect-memory-leak-node/}
  * @see {@link http://expressjs.com/en/advanced/best-practice-performance.html#use-gzip-compression}
  * @see {@link http://ricostacruz.com/cheatsheets/express.html}
@@ -33,6 +33,7 @@
  * @requires morgan
  * @requires ip
  * @requires assert-plus
+ * @requires host-validation
  *
  * @requires common/config/application
  * @requires common/utils/logger
@@ -44,6 +45,7 @@
  * @requires server/middleware/application-cache
  *
  * @changelog
+ * - 0.0.7 Add host-validation to avoid DNS rebinding
  * - 0.0.6 Add assert-plus as function parameter checker
  * - 0.0.5 Refactoring, removed minimist due to dotenv
  * - 0.0.4 Remove http.createServer in favour for server.listen, added logger and minimist
@@ -65,6 +67,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import ip from 'ip';
 import assert from 'assert-plus';
+import hostValidation from 'host-validation';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import logger from '../common/utils/logger';
@@ -119,6 +122,7 @@ function create(config = {}, callback = Function.prototype) {
         },
         config
     );
+    const serverPort = options.port;
 
     // Create new express service
     const app = express();
@@ -169,6 +173,20 @@ function create(config = {}, callback = Function.prototype) {
     // Prevent HTTP query parameter pollution
     app.use(hpp());
 
+    // Prevent DNS rebinding (bypass the browser's Same-Origin Policy).
+    // Allow development hosts, a domain name, and a regex for all subdomains.
+    // Any requests that don't supply a whitelisted Host will be rejected
+    // with a 403 HTTP status code.
+    // @see {@link https://github.com/brannondorsey/host-validation}
+    app.use(hostValidation({
+        hosts: [
+            `127.0.0.1:${serverPort}`,
+            `localhost:${serverPort}`,
+            'ulrichmerkel.com', 
+            /.*\.ulrichmerkel\.com$/
+        ]
+    }));
+
     // Enable compression, using advanced response compression using a async zopfli/brotli combination
     // @see {@link https://github.com/aickin/shrink-ray}
     // @TODO: app.use(shrinkRay()); can't be used until now because the target system is not supported
@@ -197,13 +215,13 @@ function create(config = {}, callback = Function.prototype) {
      * @function
      * @listens app~event:listen
      */
-    return app.listen(options.port, function serverStarted(error) {
+    return app.listen(serverPort, function serverStarted(error) {
         if (error) {
             logger.error(error.message);
             callback(error);
             return;
         }
-        logServerStarted(options.port);
+        logServerStarted(serverPort);
         callback();
     });
 

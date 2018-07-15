@@ -6,7 +6,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @version 0.0.5
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
@@ -20,19 +20,23 @@
  * @requires react-router-dom
  * @requires fastclick
  * @requires picturefill
+ * @requires pubsub-js
  * @requires common/vendor/polyfill/base64
  * @requires common/vendor/polyfill/classList
  * @requires common/vendor/polyfill/console
  * @requires common/vendor/polyfill/CustomEvent
  * @requires common/vendor/polyfill/requestAnimationFrame
  * @requires common/vendor/standalone
- * @requires common/config/application
  * @requires common/component/root
  * @requires common/component/routes
  * @requires common/state/configure-store
+ * @requires common/config/application
+ * @requires common/constants/theme
  * @requires client/feature-detect/feature-detect
+ * @requires client/theme/apply-theme
  *
  * @changelog
+ * - 0.0.5 Add PubSub due to decoupling
  * - 0.0.4 Switching to react-router@4
  * - 0.0.3 Adding history to get basename
  * - 0.0.2 Rewritten for es2015
@@ -50,16 +54,20 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import PubSub from 'pubsub-js';
 import attachFastClick from 'fastclick';
 import 'picturefill';
 
-import { debug } from '../common/config/application';
 import Root from '../common/component/root';
 import Routes from '../common/component/routes';
 import configureStore from '../common/state/configure-store';
+import { debug } from '../common/config/application';
+import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
+import { THEME_CHANGE_MESSAGE } from '../common/constants/theme';
 import featureDetect from './feature-detect/feature-detect';
+import applyTheme from './theme/apply-theme';
 
-const mountNode = document.getElementById('l-react');
+const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID);
 const store = configureStore(window.__PRELOADED_STATE__); // eslint-disable-line no-underscore-dangle
 
 if (debug) {
@@ -84,6 +92,15 @@ featureDetect();
 document.addEventListener('DOMContentLoaded', function handleEvent() {
     attachFastClick(document.body);
 }, false);
+
+/**
+ * Add pubsub messaging to decouple common and client code for add theming
+ * 
+ * @see {@link https://github.com/mroderick/PubSubJS}.
+ */
+PubSub.subscribe(THEME_CHANGE_MESSAGE, function (message, theme) {
+    applyTheme(theme);
+});
 
 /**
  * Helper functionto be able to pass props to the children page component.

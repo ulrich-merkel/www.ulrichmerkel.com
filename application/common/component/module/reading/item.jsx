@@ -56,8 +56,12 @@ function ModuleReadingItem(props) {
                     {lead}
                 </P>
                 <Small className='c-reading__source' itemProp='creator'>
-                    <span className='c-reading__source-creator'>{creator}</span>
-                    <em className='c-reading__source-publisher'>{publisher}</em>
+                    <span className='c-reading__source-creator'>
+                        {creator}
+                    </span>
+                    <em className='c-reading__source-publisher'>
+                        {publisher}
+                    </em>
                 </Small>
             </div>
         </li>

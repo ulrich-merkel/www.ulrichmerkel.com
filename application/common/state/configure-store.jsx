@@ -46,10 +46,11 @@ import intl from './intl/reducer';
 import page from './page/reducer';
 import scroll from './scroll/reducer';
 import search from './search/reducer';
+import theme from './theme/reducer';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
-} from '../state/config/actions';
+} from './config/actions';
 
 /**
  * Creating the single application store.
@@ -72,7 +73,8 @@ const reducers = combineReducers({
     intl,
     page,
     scroll,
-    search
+    search,
+    theme
 });
 
 // neat middleware that logs actions

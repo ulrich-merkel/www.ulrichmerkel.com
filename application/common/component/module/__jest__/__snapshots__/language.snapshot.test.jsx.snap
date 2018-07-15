@@ -52,8 +52,6 @@ exports[`common/component/module/language should render correctly 1`] = `
       <meta
         content="foo1"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>
@@ -102,8 +100,6 @@ exports[`common/component/module/language should render correctly 1`] = `
       <meta
         content="foo2"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>
@@ -152,8 +148,6 @@ exports[`common/component/module/language should render correctly 1`] = `
       <meta
         content="foo3"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>
@@ -211,8 +205,6 @@ exports[`common/component/module/language should render no itemType if unset 1`]
       <meta
         content="foo1"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>
@@ -261,8 +253,6 @@ exports[`common/component/module/language should render no itemType if unset 1`]
       <meta
         content="foo2"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>
@@ -311,8 +301,6 @@ exports[`common/component/module/language should render no itemType if unset 1`]
       <meta
         content="foo3"
         itemProp="name"
-        name={undefined}
-        property={undefined}
       />
     </div>
   </div>

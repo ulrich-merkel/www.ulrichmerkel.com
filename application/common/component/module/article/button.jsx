@@ -37,7 +37,6 @@ import {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.btnLabel=''] - The button label
  * @param {string} [props.btnTitle=''] - The button title

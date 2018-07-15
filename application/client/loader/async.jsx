@@ -25,6 +25,7 @@ import {
 } from '../utils/dom';
 
 const classNameLoaded = constants.IS_LAZY_LOADED;
+const noop = Function.prototype;
 
 /**
  * Check if param is a callable function and invoke it.
@@ -46,12 +47,14 @@ function callFn(callback, result) {
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
  * @see {@link https://github.com/filamentgroup/loadCSS}
  *
- * @function
- * @param {string} src - The css path to be loaded
- * @param {Function} [callback] - The success/error handler for async loading
+ * @param {Object} options - The loading options
+ * @param {string} options.src - The css path to be loaded
+ * @param {string} [options.className] - Additional className for the link element
+ * @param {Function} [callback=noop] - The success/error handler for async loading
  * @returns {void}
  */
-function css(src, callback = Function.prototype) {
+function css(options, callback = noop) {
+    const { className, id, src } = options;
     const headDomNode = getHeadDomNode();
 
     if (!src || !headDomNode) {
@@ -63,12 +66,16 @@ function css(src, callback = Function.prototype) {
      * it'll fetch without blocking render
      */
     const styleDomNode = createDomNode('link', {
-        rel: 'stylesheet',
-        type: 'text/css',
-        className: classNameLoaded,
+        className: [].concat(
+            classNameLoaded,
+            className
+        ).filter(Boolean).join(' '),
+        disabled: 'disabled',
         href: src,
+        id,
         media: 'only x',
-        disabled: 'disabled'
+        rel: 'stylesheet',
+        type: 'text/css'
     });
     if (!styleDomNode) {
         return callFn(callback, false);
@@ -93,12 +100,14 @@ function css(src, callback = Function.prototype) {
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
  * @see {@link https://github.com/filamentgroup/loadJS}
  *
- * @function
- * @param {string} src - The css path to be loaded
- * @param {Function} [callback] - The success/error handler for async loading
+ * @param {Object} options - The loading options
+ * @param {string} options.src - The javaScript path to be loaded
+ * @param {string} [options.className] - Additional className for the script element
+ * @param {Function} [callback=noop] - The success/error handler for async loading
  * @returns {void}
  */
-function js(src, callback = Function.prototype) {
+function js(options, callback = noop) {
+    const { className, src } = options;
     const headDomNode = getHeadDomNode();
     const refDomNode = getFirstDomNodeByTagName('script');
 
@@ -113,7 +122,10 @@ function js(src, callback = Function.prototype) {
      */
     const scriptDomNode = createDomNode('script', {
         async: 'true',
-        className: classNameLoaded,
+        className: [].concat(
+            classNameLoaded,
+            className
+        ).filter(Boolean).join(' '),
         src
     });
     if (!scriptDomNode) {
@@ -125,7 +137,7 @@ function js(src, callback = Function.prototype) {
     scriptDomNode.onreadystatechange = scriptDomNode.onload = function handleEvent() {
         if (!this.readyState || this.readyState === 'complete' || this.readyState === 'loaded') {
 
-            // avoid memory leaks in ie
+            // Avoid memory leaks in ie
             this.onreadystatechange = this.onload = this.onerror = null;
             callFn(callback, true);
 
@@ -137,7 +149,7 @@ function js(src, callback = Function.prototype) {
     /* eslint-disable immutable/no-mutation, immutable/no-this */
     scriptDomNode.onerror = function handleEvent() {
 
-        // avoid memory leaks in ie
+        // Avoid memory leaks in ie
         this.onreadystatechange = this.onload = this.onerror = null;
         callFn(callback, false);
 

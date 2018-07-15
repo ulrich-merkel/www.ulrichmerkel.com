@@ -38,7 +38,6 @@ import Picture from '../../element/picture';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
@@ -80,7 +79,7 @@ function ModuleFeaturedItem(props) {
                     path={img.path}
                     alt={img.alt}
                     sizes={img.sizes}
-                    className={'m-featured__image'}
+                    className={'m-featured__picture'}
                 />
 
                 {children}
