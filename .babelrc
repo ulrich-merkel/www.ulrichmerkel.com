@@ -19,8 +19,10 @@
     ],
     "sourceMaps": true,
     "env": {
+        "modules": false,
         "production": {
             "plugins": [
+                "lodash",
                 "transform-decorators-legacy",
                 "transform-react-remove-prop-types"
             ]
