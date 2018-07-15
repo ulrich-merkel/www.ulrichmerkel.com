@@ -49,7 +49,7 @@ import configApplication, { url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
 import xor from '../../../utils/xor';
 import logger from '../../../utils/logger';
-import scrollTo from '../../../utils/scroll-to';
+import { scrollToElement } from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
@@ -88,25 +88,6 @@ const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;
 
 /**
- * Scroll to text message, usually for smaller screens after submitting.
- * More or less a work around until Element.scrollIntoView() is fully
- * supported.
- *
- * @function
- * @private
- * @param {Object} textMessage - The text message dom node
- * @returns {void}
- */
-function scrollToTextMessage(textMessage) {
-    if (textMessage) {
-        const boundingClientRectTop = Math.abs(textMessage.getBoundingClientRect().top);
-        scrollTo({
-            top: boundingClientRectTop
-        });
-    }
-}
-
-/**
  * Helper function to send post request.
  *
  * @function
@@ -143,7 +124,9 @@ function send(data, csrfToken = '') {
  * @returns {*}
  */
 function getState(key, storeState) {
-    return storeState && storeState[key] !== undefined ? storeState[key] : defaultState[key];
+    return storeState && storeState[key] !== undefined
+        ? storeState[key]
+        : defaultState[key];
 }
 
 /**
@@ -338,7 +321,7 @@ class ModuleFormContact extends Component {
                 )
                 .then(
                     () => {
-                        return scrollToTextMessage(this.textMessage);
+                        return scrollToElement(this.textMessage);
                     }
                 )
                 .catch(
