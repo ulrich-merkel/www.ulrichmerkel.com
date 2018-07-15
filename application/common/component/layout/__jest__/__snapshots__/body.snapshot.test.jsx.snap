@@ -109,7 +109,6 @@ Array [
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Show information about my persona"
                 >
@@ -134,7 +133,6 @@ Array [
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Get in touch"
                 >
@@ -165,7 +163,6 @@ Array [
                   onClick={[Function]}
                   role="button"
                   title="Switch to english"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -187,7 +184,6 @@ Array [
                   onClick={[Function]}
                   role="button"
                   title="Sprache in deutsch ändern"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -208,7 +204,6 @@ Array [
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
                   href="/search"
                   onClick={[Function]}
-                  style={undefined}
                   tabIndex="0"
                   title="Search"
                 >
@@ -233,7 +228,6 @@ Array [
                   className="c-link m-menu__item--theme c-btn--small c-btn--clear"
                   href="/theme"
                   onClick={[Function]}
-                  style={undefined}
                   tabIndex="0"
                   title=""
                 >
@@ -265,7 +259,6 @@ Array [
       onClick={[Function]}
       role="button"
       title="Scroll to top"
-      to={undefined}
       type="button"
     >
       <span
@@ -309,7 +302,6 @@ Array [
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Disclaimer"
                   >
@@ -334,7 +326,6 @@ Array [
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Imprint"
                   >
@@ -359,7 +350,6 @@ Array [
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Privacy"
                   >
@@ -526,7 +516,8 @@ Array [
               <small
                 className="c-type--small"
               >
-                © 
+                ©
+                 
                 <strong>
                   Ulrich Merkel
                 </strong>

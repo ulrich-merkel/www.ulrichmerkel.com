@@ -7,7 +7,17 @@ import hasTouchEvents from '../touch-events';
 jest.mock('../css-custom-properties');
 jest.mock('../touch-events');
 
+const globalWindow = global.window;
+
 describe('client/feature-detect/feature-detect', function () {
+    afterEach(function () {
+        global.window = globalWindow;
+    });
+
+    it('should return false in non browser environments', function () {
+        global.window = undefined;
+        expect(featureDetect()).toBeFalsy();
+    });
     it('should add feature detect css classNames', function () {
         featureDetect();
 

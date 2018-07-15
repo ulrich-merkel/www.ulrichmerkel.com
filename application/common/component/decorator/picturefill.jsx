@@ -50,7 +50,6 @@ function initPicturefill() {
 /**
  * The pictureFill higher order function handling responsive images.
  *
- * @function
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */

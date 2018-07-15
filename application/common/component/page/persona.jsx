@@ -33,10 +33,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import {
-    addContent,
-    addPageTracking
-} from '../decorator';
+import addContent from '../decorator/add-content';
+import addPageTracking from '../decorator/add-page-tracking';
 import { getContentSection } from '../../utils/content';
 import LayoutMain from '../layout/main';
 import {
@@ -56,7 +54,8 @@ import {
  * @returns {ReactElement} React component markup
  */
 function PagePersona(props) {
-    const contentSection = getContentSection(props.content);
+    const { content } = props;
+    const contentSection = getContentSection(content);
 
     return (
         <LayoutMain>

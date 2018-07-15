@@ -49,7 +49,6 @@ exports[`common/component/element/a should handle correct link to relative page 
   href="/persona"
   lang="de"
   onClick={[Function]}
-  style={undefined}
   tabIndex="0"
   title="Link title"
 >

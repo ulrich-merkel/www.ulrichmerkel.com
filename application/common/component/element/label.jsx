@@ -24,7 +24,6 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.htmlFor] - The label for attribute
  * @param {string} [props.className] - The label css class names, will be merged into component default classNames

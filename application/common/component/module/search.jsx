@@ -79,7 +79,9 @@ function ModuleSearch(props) {
     const matches = findMatches(searchTerm, intlLocale, config);
     if (!matches || !matches.length) {
         return (
-            <Headline htmlElement='h3'>{contentSection('PageSearch.section1.noResults')}</Headline>
+            <Headline htmlElement='h3'>
+                {contentSection('PageSearch.section1.noResults')}
+            </Headline>
         );
     }
 

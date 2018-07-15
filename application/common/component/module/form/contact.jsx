@@ -95,7 +95,6 @@ const xorKey = configApplicationXor.key;
  * More or less a work around until Element.scrollIntoView() is fully
  * supported.
  *
- * @function
  * @private
  * @param {Object} textMessage - The text message dom node
  * @returns {void}
@@ -112,7 +111,6 @@ function scrollToTextMessage(textMessage) {
 /**
  * Helper function to send post request.
  *
- * @function
  * @private
  * @param {Object} data - The post data to be send
  * @param {Object} [csrfToken=''] - The csrf token string to be validated
@@ -139,7 +137,6 @@ function send(data, csrfToken = '') {
 /**
  * Return current stored state value or default
  *
- * @function
  * @private
  * @param {string} key - The state's key
  * @param {Object} storeState - The redux contact state
@@ -215,7 +212,6 @@ class ModuleFormContact extends Component {
     /**
      * Handle input value change.
      *
-     * @function
      * @private
      * @param {Object} e - The current sytheticEvent object
      * @returns {void}
@@ -253,7 +249,6 @@ class ModuleFormContact extends Component {
     /**
      * Handle form submit event.
      *
-     * @function
      * @private
      * @param {Object} event - The current event object
      * @returns {void}
@@ -266,7 +261,6 @@ class ModuleFormContact extends Component {
     /**
      * Handle form reset event.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -280,9 +274,8 @@ class ModuleFormContact extends Component {
     /**
      * Helper function to render message.
      *
-     * @todo Should be done in article module component
+     * @todo: Should be done in article module component
      *
-     * @function
      * @private
      * @param {string} headline - The message headline
      * @param {string} text - The message text body
@@ -301,13 +294,13 @@ class ModuleFormContact extends Component {
     }
 
     handleContactChange() {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.handleContactChange(this.state);
     }
 
     /**
      * Send state/form data as json to server.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -367,7 +360,6 @@ class ModuleFormContact extends Component {
     /**
      * Render success message.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -385,7 +377,6 @@ class ModuleFormContact extends Component {
     /**
      * Render error message.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -403,7 +394,6 @@ class ModuleFormContact extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
@@ -598,7 +588,6 @@ ModuleFormContact.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @returns {Object}
@@ -617,7 +606,6 @@ function mapStateToProps(state) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}

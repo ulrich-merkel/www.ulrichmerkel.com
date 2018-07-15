@@ -570,8 +570,6 @@ exports[`common/component/page/broadcast should render correctly 1`] = `
               <meta
                 content="Some broadcast experiences"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>

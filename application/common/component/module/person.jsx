@@ -67,35 +67,59 @@ function ModulePerson(props) {
             className={componentClassName}
             {...componentSchema}
         >
-            {content.name &&
-            <P className='m-person__name'>
-                <strong>{content.name}</strong>
-            </P>}
-            {content.streetAddress && content.postalCode && content.locality &&
-            <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
-                <span className='m-person__street-address' itemProp='street-address'>
-                    {content.streetAddress}
-                </span>
-                <span className='m-person__postal-code' itemProp='postal-code'>
-                    {content.postalCode}
-                </span>
-                <span className='m-person__locality' itemProp='locality'>
-                    {content.locality}
-                </span>
-            </address>
-            }
-            {content.email &&
-            <P className='m-person__email'>
-                <abbr title='E-Mail address'>E.</abbr> <a href={`mailto:${content.email}`} itemProp='email'>{content.email}</a>
-            </P>}
-            {content.phoneNumbers && content.phone &&
-            <P className='m-person__phone'>
-                <abbr title='Phonenumber'>P.</abbr> <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>{content.phone}</a>
-            </P>}
-            {content.website &&
-            <P className='m-person__website'>
-                <abbr title='Website'>W.</abbr> <a href={`${content.website}`}>{content.website}</a>
-            </P>}
+            {content.name && (
+                <P className='m-person__name'>
+                    <strong>
+                        {content.name}
+                    </strong>
+                </P>
+            )}
+            {content.streetAddress && content.postalCode && content.locality && (
+                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
+                    <span className='m-person__street-address' itemProp='street-address'>
+                        {content.streetAddress}
+                    </span>
+                    <span className='m-person__postal-code' itemProp='postal-code'>
+                        {content.postalCode}
+                    </span>
+                    <span className='m-person__locality' itemProp='locality'>
+                        {content.locality}
+                    </span>
+                </address>
+            )}
+            {content.email && (
+                <P className='m-person__email'>
+                    <abbr title='E-Mail address'>
+E.
+                    </abbr> 
+                    {' '}
+                    <a href={`mailto:${content.email}`} itemProp='email'>
+                        {content.email}
+                    </a>
+                </P>
+            )}
+            {content.phoneNumbers && content.phone && (
+                <P className='m-person__phone'>
+                    <abbr title='Phonenumber'>
+P.
+                    </abbr> 
+                    {' '}
+                    <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>
+                        {content.phone}
+                    </a>
+                </P>
+            )}
+            {content.website && (
+                <P className='m-person__website'>
+                    <abbr title='Website'>
+W.
+                    </abbr> 
+                    {' '}
+                    <a href={`${content.website}`}>
+                        {content.website}
+                    </a>
+                </P>
+            )}
             {children}
         </ComponentType>
     );
