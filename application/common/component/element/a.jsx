@@ -39,7 +39,6 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {string} props.to - The link target/react-router path
  * @param {string} [props.activeClassName='is-active'] - The default is active state css class name

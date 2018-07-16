@@ -12,7 +12,6 @@ exports[`common/component/layout/footer should render correctly 1`] = `
     onClick={[MockFunction]}
     role="button"
     title=""
-    to={undefined}
     type="button"
   >
     <span
@@ -52,7 +51,8 @@ exports[`common/component/layout/footer should render correctly 1`] = `
             <small
               className="c-type--small"
             >
-              © 
+              ©
+               
               <strong />
                
             </small>

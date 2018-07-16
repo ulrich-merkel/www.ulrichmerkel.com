@@ -79,7 +79,6 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             aria-required={true}
                             className="m-form__control--text"
                             id="name"
-                            itemProp={undefined}
                             name="name"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -114,7 +113,6 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             aria-required={true}
                             className="m-form__control--text"
                             id="email"
-                            itemProp={undefined}
                             name="email"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -153,7 +151,6 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             aria-required={true}
                             className="m-form__control--text"
                             id="subject"
-                            itemProp={undefined}
                             name="subject"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -233,7 +230,6 @@ exports[`common/component/page/contact should render correctly 1`] = `
                             name="reset"
                             role="button"
                             title="Reset form"
-                            to={undefined}
                             type="reset"
                           >
                             <span
@@ -251,12 +247,12 @@ exports[`common/component/page/contact should render correctly 1`] = `
                           className="m-form__group m-form__group--submit hide-on-print"
                         >
                           <button
-                            className="c-btn m-form__btn c-btn--submit c-btn--primary"
+                            className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+                            disabled="disabled"
                             id="submit"
                             name="submit"
                             role="button"
                             title="Send message"
-                            to={undefined}
                             type="submit"
                           >
                             <span
@@ -279,8 +275,6 @@ exports[`common/component/page/contact should render correctly 1`] = `
               <meta
                 content="Send me a message"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>

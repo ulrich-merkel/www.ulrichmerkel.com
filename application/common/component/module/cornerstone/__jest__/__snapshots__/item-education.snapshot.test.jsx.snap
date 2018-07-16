@@ -37,7 +37,9 @@ exports[`common/component/module/cornerstone/item-education should render correc
         >
           20161212
         </time>
-         - 
+         
+        -
+         
         <time
           className="c-time"
           itemProp="endDate"
@@ -76,7 +78,6 @@ exports[`common/component/module/cornerstone/item-education should render correc
     itemType="https://schema.org/Place"
   >
     <meta
-      content={undefined}
       itemProp="name"
     />
     <div
@@ -85,15 +86,12 @@ exports[`common/component/module/cornerstone/item-education should render correc
       itemType="http://schema.org/PostalAddress"
     >
       <meta
-        content={undefined}
         itemProp="streetAddress"
       />
       <meta
-        content={undefined}
         itemProp="addressLocality"
       />
       <meta
-        content={undefined}
         itemProp="sameAs"
       />
     </div>
@@ -138,7 +136,9 @@ exports[`common/component/module/cornerstone/item-education should render cssMod
         >
           20161212
         </time>
-         - 
+         
+        -
+         
         <time
           className="c-time"
           itemProp="endDate"
@@ -177,7 +177,6 @@ exports[`common/component/module/cornerstone/item-education should render cssMod
     itemType="https://schema.org/Place"
   >
     <meta
-      content={undefined}
       itemProp="name"
     />
     <div
@@ -186,15 +185,12 @@ exports[`common/component/module/cornerstone/item-education should render cssMod
       itemType="http://schema.org/PostalAddress"
     >
       <meta
-        content={undefined}
         itemProp="streetAddress"
       />
       <meta
-        content={undefined}
         itemProp="addressLocality"
       />
       <meta
-        content={undefined}
         itemProp="sameAs"
       />
     </div>

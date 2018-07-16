@@ -33,7 +33,6 @@ import P from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
@@ -52,7 +51,9 @@ function ModuleArticleLead(props) {
 
     return (
         <P className={composedClassName} isCentered itemProp='alternativeHeadline'>
-            <strong>{text}</strong>
+            <strong>
+                {text}
+            </strong>
         </P>
     );
 

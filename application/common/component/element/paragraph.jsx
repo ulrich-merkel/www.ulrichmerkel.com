@@ -34,7 +34,6 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not

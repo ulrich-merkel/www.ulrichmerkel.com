@@ -13,3 +13,4 @@
 export * from './dialog/actions';
 export * from './intl/actions';
 export * from './search/actions';
+export * from './theme/actions';

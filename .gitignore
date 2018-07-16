@@ -12,6 +12,7 @@ selenium-debug.log
 .idea
 .env
 .eslintcache
+.shutterrc
 .coveralls.yml
 .shutterrc
 .htaccess

@@ -206,14 +206,10 @@ exports[`common/component/page/disclaimer should render correctly 1`] = `
               <meta
                 content="Disclaimer"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
               <meta
                 content="2017-10-7"
                 itemProp="datePublished"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>

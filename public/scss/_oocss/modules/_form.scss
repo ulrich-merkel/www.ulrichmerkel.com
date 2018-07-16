@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}m-form';
 
-// error animation
+// Error animation
 @mixin shake {
     @keyframes shake {
         0%,
@@ -27,12 +27,12 @@ $block: '#{$config-ns}m-form';
     }
 }
 
-// above the fold css, visible without scrolling
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     @include shake;
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -96,7 +96,7 @@ $block: '#{$config-ns}m-form';
         margin-bottom: rem-calc($config-type-scale-13);
     }
 
-    // honeypot field
+    // Honeypot field
     .#{$block}__group--website {
         display: none;
     }
@@ -118,7 +118,7 @@ $block: '#{$config-ns}m-form';
         top: rem-calc($config-type-scale-7);
         left: 0;
         width: 100%;
-        color: $theme-module-form-label-color;
+        @include var(color, --theme-module-form-label-color);
         cursor: pointer;
 
         will-change: top, color;
@@ -126,7 +126,7 @@ $block: '#{$config-ns}m-form';
 
         &:focus {
             top: rem-calc($config-type-scale-7 * -1);
-            color: $theme-module-form-label-color-focus;
+            @include var(color, --theme-module-form-label-color-focus);
         }
 
     }
@@ -148,9 +148,10 @@ $block: '#{$config-ns}m-form';
         width: 100%;
         padding: 12px 10px 12px 0;
         font-size: inherit;
-        color: $theme-module-form-control-color;
+        @include var(background, --theme-module-form-control-background);
+        @include var(color, --theme-module-form-control-color);
         border: 0;
-        border-bottom: $theme-module-form-control-border-bottom;
+        @include var(border-bottom, --theme-module-form-control-border-bottom);
 
         will-change: border, color;
         transition: border $config-transition-arguments, color $config-transition-arguments;
@@ -160,17 +161,17 @@ $block: '#{$config-ns}m-form';
         &:valid {
             + .#{$block}__label {
                 top: rem-calc($config-type-scale-7 * -1);
-                color: $theme-module-form-control-color-label-focus;
+                @include var(color, --theme-module-form-control-color-label-focus);
             }
         }
 
         &:focus {
-            border-color: $theme-module-form-control-border-color-focus;
+            @include var(border-color, --theme-module-form-control-border-color-focus);
             outline: none;
         }
 
         &.#{$config-ns}is-invalid {
-            border-color: $theme-module-form-control-border-color-invalid;
+            @include var(border-color, --theme-module-form-control-border-color-invalid);
             animation: shake 0.3s;
         }
     }
@@ -179,7 +180,7 @@ $block: '#{$config-ns}m-form';
         border-radius: 0;
         appearance: none;
 
-        // remove extra padding around input text in ff (since ff13)
+        // Remove extra padding around input text in ff (since ff13)
         @if ($config-support-prefix-moz) {
             &::-moz-focus-inner {
                 padding: 0;
@@ -208,12 +209,13 @@ $block: '#{$config-ns}m-form';
     }
 
     // ----------------------------
-    // modifiers
+    // Modifiers
     // ----------------------------
 
     .#{$block}--search {
         .#{$block}__control--text {
             padding-left: 10px;
+
             @include breakpoint($config-grid--breakpoint-xsmall) {
                 text-align: center;
             }
@@ -221,7 +223,7 @@ $block: '#{$config-ns}m-form';
     }
 
     // ----------------------------
-    // success feedback
+    // Success feedback
     // ----------------------------
 
     .#{$config-ns}is-valid {
@@ -238,17 +240,17 @@ $block: '#{$config-ns}m-form';
         .#{$block}__control--text,
         .#{$block}__control--select,
         .#{$block}__control--textarea {
-            border-color: $theme-module-form-isvalid-border-color;
+            @include var(border-color, --theme-module-form-isvalid-border-color);
         }
 
         .#{$block}__label {
-            color: $theme-module-form-isvalid-color;
+            @include var(color, --theme-module-form-isvalid-color);
         }
 
     }
 
     // ----------------------------
-    // error feedback
+    // Error feedback
     // ----------------------------
 
     .#{$config-ns}has-error {
@@ -265,16 +267,27 @@ $block: '#{$config-ns}m-form';
         .#{$block}__control--text,
         .#{$block}__control--select,
         .#{$block}__control--textarea {
-            border-color: $theme-module-form-invalid-border-color;
+            @include var(border-color, --theme-module-form-invalid-border-color);
             animation: shake 0.3s;
         }
 
         .#{$block}__label__icon--error,
         .#{$block}__label {
-            // important due to css pristine floating labels
-            color: $theme-module-form-invalid-color;
+            // Important due to css pristine floating labels
+            @include var(color, --theme-module-form-invalid-color);
         }
 
     }
 
+    .#{$block}--theme {
+        .c-btn {
+            width: 100%;
+            height: 200px;
+
+            &.is-active {
+                // pointer-events: none;
+                opacity: 0.5;
+            }
+        }
+    }
 }

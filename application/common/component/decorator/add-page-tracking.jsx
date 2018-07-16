@@ -47,6 +47,7 @@ function addPageTracking(SourceComponent) {
          * @returns {void}
          */
         componentWillMount() {
+            // eslint-disable-next-line react/destructuring-assignment
             this.props.handleAddPageView();
         }
 

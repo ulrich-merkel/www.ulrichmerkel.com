@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`common/component/layout/body should render correctly 1`] = `
-<div
-  className="l-react__body"
->
+Array [
   <dialog
+    aria-live="assertive"
     className="l-dialog--loading"
+    role="alert"
   >
     <div
       className="l-dialog__content"
@@ -28,9 +28,9 @@ exports[`common/component/layout/body should render correctly 1`] = `
     <div
       className="l-dialog__background"
     />
-  </dialog>
+  </dialog>,
   <header
-    className="l-header is-fixed is-visible"
+    className="c-header l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -109,7 +109,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Show information about my persona"
                 >
@@ -134,7 +133,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Get in touch"
                 >
@@ -165,7 +163,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   onClick={[Function]}
                   role="button"
                   title="Switch to english"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -187,7 +184,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   onClick={[Function]}
                   role="button"
                   title="Sprache in deutsch ändern"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -198,7 +194,7 @@ exports[`common/component/layout/body should render correctly 1`] = `
                 </button>
               </li>
               <li
-                className="m-menu__list-item"
+                className="m-menu__list-item--search always-float"
                 itemProp="itemListElement"
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement"
@@ -208,9 +204,8 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
                   href="/search"
                   onClick={[Function]}
-                  style={undefined}
                   tabIndex="0"
-                  title="Suche"
+                  title="Search"
                 >
                   <span
                     className="c-btn__label"
@@ -222,13 +217,37 @@ exports[`common/component/layout/body should render correctly 1`] = `
                   </span>
                 </a>
               </li>
+              <li
+                className="m-menu__list-item--theme always-float"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current={false}
+                  className="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  href="/theme"
+                  onClick={[Function]}
+                  tabIndex="0"
+                  title=""
+                >
+                  <span
+                    className="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--paint-format c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </section>
     </nav>
-  </header>
-  Body Children
+  </header>,
+  "Body Children",
   <footer
     className="l-footer"
     itemScope={true}
@@ -240,7 +259,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
       onClick={[Function]}
       role="button"
       title="Scroll to top"
-      to={undefined}
       type="button"
     >
       <span
@@ -284,7 +302,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Disclaimer"
                   >
@@ -309,7 +326,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Imprint"
                   >
@@ -334,7 +350,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Privacy"
                   >
@@ -501,7 +516,8 @@ exports[`common/component/layout/body should render correctly 1`] = `
               <small
                 className="c-type--small"
               >
-                © 
+                ©
+                 
                 <strong>
                   Ulrich Merkel
                 </strong>
@@ -513,6 +529,6 @@ exports[`common/component/layout/body should render correctly 1`] = `
         </div>
       </section>
     </nav>
-  </footer>
-</div>
+  </footer>,
+]
 `;

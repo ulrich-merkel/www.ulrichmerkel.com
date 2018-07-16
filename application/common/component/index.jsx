@@ -1,7 +1,6 @@
 export { default as Root } from './root';
 export { default as Routes } from './routes';
 
-export * from './decorator';
 export * from './element';
 export * from './grid';
 export * from './layout';

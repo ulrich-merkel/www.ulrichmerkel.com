@@ -43,7 +43,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { isFunction, has } from 'lodash';
+import { has } from 'lodash';
 
 import configApplication, { url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
@@ -53,7 +53,8 @@ import scrollTo from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
-import { validate, isValid } from '../../../state/contact/utils';
+import { canSendForm, validate } from '../../../state/contact/utils';
+import { eventPreventDefault } from '../../../utils/event';
 import {
     GridCol,
     GridRow
@@ -73,6 +74,7 @@ const defaultState = {
     email: '',
     subject: '',
     message: '',
+    pristine: false,
     namePristine: false,
     emailPristine: false,
     websitePristine: false,
@@ -84,15 +86,15 @@ const defaultState = {
     browser: false
 };
 
-const xorUse = configApplication.xor.use;
-const xorKey = configApplication.xor.key;
+const configApplicationXor = configApplication.xor;
+const xorUse = configApplicationXor.use;
+const xorKey = configApplicationXor.key;
 
 /**
  * Scroll to text message, usually for smaller screens after submitting.
  * More or less a work around until Element.scrollIntoView() is fully
  * supported.
  *
- * @function
  * @private
  * @param {Object} textMessage - The text message dom node
  * @returns {void}
@@ -109,7 +111,6 @@ function scrollToTextMessage(textMessage) {
 /**
  * Helper function to send post request.
  *
- * @function
  * @private
  * @param {Object} data - The post data to be send
  * @param {Object} [csrfToken=''] - The csrf token string to be validated
@@ -136,14 +137,15 @@ function send(data, csrfToken = '') {
 /**
  * Return current stored state value or default
  *
- * @function
  * @private
  * @param {string} key - The state's key
  * @param {Object} storeState - The redux contact state
  * @returns {*}
  */
 function getState(key, storeState) {
-    return storeState && storeState[key] !== undefined ? storeState[key] : defaultState[key];
+    return storeState && storeState[key] !== undefined
+        ? storeState[key]
+        : defaultState[key];
 }
 
 /**
@@ -210,7 +212,6 @@ class ModuleFormContact extends Component {
     /**
      * Handle input value change.
      *
-     * @function
      * @private
      * @param {Object} e - The current sytheticEvent object
      * @returns {void}
@@ -238,7 +239,8 @@ class ModuleFormContact extends Component {
         this.setState(
             {
                 [stateName]: stateValue,
-                [`${stateName}Pristine`]: true
+                [`${stateName}Pristine`]: true,
+                pristine: true
             },
             this.handleContactChange
         );
@@ -247,22 +249,18 @@ class ModuleFormContact extends Component {
     /**
      * Handle form submit event.
      *
-     * @function
      * @private
-     * @param {Object} e - The current event object
+     * @param {Object} event - The current event object
      * @returns {void}
      */
-    onSubmit(e) {
-        if (e && isFunction(e.preventDefault)) {
-            e.preventDefault();
-        }
+    onSubmit(event) {
+        eventPreventDefault(event);
         this.send();
     }
 
     /**
      * Handle form reset event.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -276,9 +274,8 @@ class ModuleFormContact extends Component {
     /**
      * Helper function to render message.
      *
-     * @todo Should be done in article module component
+     * @todo: Should be done in article module component
      *
-     * @function
      * @private
      * @param {string} headline - The message headline
      * @param {string} text - The message text body
@@ -297,19 +294,24 @@ class ModuleFormContact extends Component {
     }
 
     handleContactChange() {
+        // eslint-disable-next-line react/destructuring-assignment
         this.props.handleContactChange(this.state);
     }
 
     /**
      * Send state/form data as json to server.
      *
-     * @function
      * @private
      * @returns {void}
      */
     send() {
         const { csrfToken } = this.props;
         const state = this.state;
+
+        if (!canSendForm(state)) {
+            return;
+        }
+
         const data = {
             name: String(state.name),
             email: String(state.email),
@@ -358,7 +360,6 @@ class ModuleFormContact extends Component {
     /**
      * Render success message.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -376,7 +377,6 @@ class ModuleFormContact extends Component {
     /**
      * Render error message.
      *
-     * @function
      * @private
      * @returns {void}
      */
@@ -394,7 +394,6 @@ class ModuleFormContact extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
@@ -503,7 +502,7 @@ class ModuleFormContact extends Component {
                                 className={'m-form__group--submit hide-on-print'}
                                 btnClassName={'c-btn--submit'}
                                 isPrimary
-                                isDisabled={!state.pending && !isValid(state) && state.browser}
+                                isDisabled={!canSendForm(state)}
                                 isPending={state.pending}
                             />
                         </GridCol>
@@ -589,7 +588,6 @@ ModuleFormContact.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @returns {Object}
@@ -608,7 +606,6 @@ function mapStateToProps(state) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}

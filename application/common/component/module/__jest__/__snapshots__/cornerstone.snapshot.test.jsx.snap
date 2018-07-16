@@ -52,7 +52,9 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
           >
             20161212
           </time>
-           - 
+           
+          -
+           
           <time
             className="c-time"
           >
@@ -129,7 +131,9 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
           >
             20161212
           </time>
-           - 
+           
+          -
+           
           <time
             className="c-time"
             itemProp="endDate"
@@ -168,7 +172,6 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
       itemType="https://schema.org/Place"
     >
       <meta
-        content={undefined}
         itemProp="name"
       />
       <div
@@ -177,15 +180,12 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
         itemType="http://schema.org/PostalAddress"
       >
         <meta
-          content={undefined}
           itemProp="streetAddress"
         />
         <meta
-          content={undefined}
           itemProp="addressLocality"
         />
         <meta
-          content={undefined}
           itemProp="sameAs"
         />
       </div>
@@ -252,7 +252,9 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
           >
             20161212
           </time>
-           - 
+           
+          -
+           
           <time
             className="c-time"
           >
@@ -329,7 +331,9 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
           >
             20161212
           </time>
-           - 
+           
+          -
+           
           <time
             className="c-time"
             itemProp="endDate"
@@ -368,7 +372,6 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
       itemType="https://schema.org/Place"
     >
       <meta
-        content={undefined}
         itemProp="name"
       />
       <div
@@ -377,15 +380,12 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
         itemType="http://schema.org/PostalAddress"
       >
         <meta
-          content={undefined}
           itemProp="streetAddress"
         />
         <meta
-          content={undefined}
           itemProp="addressLocality"
         />
         <meta
-          content={undefined}
           itemProp="sameAs"
         />
       </div>

@@ -24,7 +24,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -34,7 +36,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps} dialogVisible={false}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -46,7 +50,9 @@ describe('common/component/layout/body', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <LayoutDialogContainer {...defaultProps}>
-                    <div className='test'>Dialog Children</div>
+                    <div className='test'>
+                        Dialog Children
+                    </div>
                 </LayoutDialogContainer>
             </Provider>
         );
@@ -61,27 +67,30 @@ describe('common/component/layout/body', function () {
     });
     it('should handle onKeyDown events correctly', function () {
         const onKeyDown = sinon.spy(LayoutDialog.prototype, 'onKeyDown');
-        const handleChangeDialogVisible = sinon.spy();
+        const onClose = sinon.spy();
 
         const wrapper = mount(
-            <LayoutDialog {...defaultProps} handleChangeDialogVisible={handleChangeDialogVisible}>
-                <div className='test'>Dialog Children</div>
+            <LayoutDialog {...defaultProps} onClose={onClose}>
+                <div className='test'>
+                    Dialog Children
+                </div>
             </LayoutDialog>
         );
 
         mockedWindowEvents.keydown({ keyCode: 27 });
         expect(onKeyDown.calledOnce).toBeTruthy();
-        expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
+        expect(onClose.calledOnce).toBeTruthy();
         wrapper.unmount();
         expect(onKeyDown.calledTwice).toBeFalsy();
     });
     it('should handle onClose click events correctly', function () {
-        const onClose = sinon.spy(LayoutDialog.prototype, 'onClose');
-        const handleChangeDialogVisible = sinon.spy();
+        const onClose = sinon.spy();
 
         const wrapper = mount(
-            <LayoutDialog {...defaultProps} handleChangeDialogVisible={handleChangeDialogVisible}>
-                <div className='test'>Dialog Children</div>
+            <LayoutDialog {...defaultProps} onClose={onClose}>
+                <div className='test'>
+                    Dialog Children
+                </div>
             </LayoutDialog>
         );
 
@@ -93,7 +102,6 @@ describe('common/component/layout/body', function () {
             // @TODO: Adjust expect for enzyme@16
             buttonClose.first().simulate('click');
             expect(onClose.calledOnce).toBeTruthy();
-            expect(handleChangeDialogVisible.calledOnce).toBeTruthy();
         }
 
         wrapper.setProps({
@@ -104,7 +112,6 @@ describe('common/component/layout/body', function () {
             // @TODO: Adjust expect for enzyme@16
             buttonBroadcast.first().simulate('click');
             expect(onClose.calledTwice).toBeTruthy();
-            expect(handleChangeDialogVisible.calledTwice).toBeTruthy();
         }
     });
 });

@@ -4,10 +4,10 @@
  */
 const map = {};
 
-window.addEventListener = jest.genMockFn().mockImplementation((event, cb) => {
+window.addEventListener = jest.fn().mockImplementation((event, cb) => {
     map[event] = cb;
 });
-window.removeEventListener = jest.genMockFn().mockImplementation((event) => {
+window.removeEventListener = jest.fn().mockImplementation((event) => {
     map[event] = null;
 });
 

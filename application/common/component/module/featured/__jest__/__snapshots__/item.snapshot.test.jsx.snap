@@ -12,7 +12,6 @@ exports[`common/component/module/featured/item should render correctly 1`] = `
     className="c-link m-featured__item"
     href="/work//work/test"
     onClick={[Function]}
-    style={undefined}
     tabIndex="0"
     title="Featured item work headline"
   >

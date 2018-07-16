@@ -23,7 +23,6 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
