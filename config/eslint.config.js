@@ -33,8 +33,9 @@ module.exports = {
         'lodash',
         'new-with-error',
         'promise',
-        'security',
         'react',
+        'security',
+        'tree-shaking',
         'xss'
     ],
     'rules': {

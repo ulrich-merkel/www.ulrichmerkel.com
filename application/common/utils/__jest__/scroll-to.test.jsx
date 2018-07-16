@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import scrollTo, { easeInOutQuad } from '../scroll-to';
+import scrollTo, { easeInOutQuad, scrollToElement } from '../scroll-to';
 
 const defaults = {
     top: 0,
@@ -9,26 +9,33 @@ const defaults = {
 };
 
 describe('common/utils/scroll-to', function () {
-    it('should call scrollTo with default options', function () {
-        const callback = jest.fn();
-        scrollTo({
-            callback
+    describe('scrollTo', function () {
+        it('should call scrollTo with default options', function () {
+            const callback = jest.fn();
+            scrollTo({
+                callback
+            });
+            expect(callback).toBeCalled();
+            expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
+                callback
+            }));
         });
-        expect(callback).toBeCalled();
-        expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
-            callback
-        }));
+        it('should call callback', function () {
+            const callback = jest.fn();
+            scrollTo({
+                top: 100,
+                callback
+            });
+            expect(callback).toBeCalled();
+            expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
+                top: 100,
+                callback
+            }));
+        });
     });
-    it('should call callback', function () {
-        const callback = jest.fn();
-        scrollTo({
-            top: 100,
-            callback
+    describe('scrollToElement', function () {
+        it('should call scrollToElement', function () {
+            expect(scrollToElement).toBeDefined();
         });
-        expect(callback).toBeCalled();
-        expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
-            top: 100,
-            callback
-        }));
     });
 });
