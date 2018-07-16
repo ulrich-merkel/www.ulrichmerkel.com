@@ -21,7 +21,6 @@ describe('common/component/element/button', function () {
     const shutter = createReactShutter(__dirname,  { render });
 
     afterAll(async function () {
-        // Collect and evaluate results once we are done
         await shutter.finish();
     });
 
