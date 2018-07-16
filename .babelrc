@@ -15,7 +15,7 @@
     "ignore": [
         "**/__jest__/",
         "**/__mocks__/",
-        "**/__tests__/",
+        "**/__tests__/"
     ],
     "sourceMaps": true,
     "env": {

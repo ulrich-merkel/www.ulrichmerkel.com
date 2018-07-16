@@ -213,6 +213,7 @@
     "eslint-plugin-promise": "3.8.0",
     "eslint-plugin-react": "7.10.0",
     "eslint-plugin-security": "1.4.0",
+    "eslint-plugin-tree-shaking": "1.7.3",
     "eslint-plugin-xss": "0.1.9",
     "flow-bin": "0.76.0",
     "imagemin": "5.3.1",
