@@ -2,9 +2,9 @@
 import React, { Fragment } from 'react';
 import createReactShutter from '@shutter/react';
 import { getAppStyle, getBaseStyle } from '../../__data__/css';
-import Button from '../button';
+import ElementProgress from '../progress';
 
-describe('common/component/element/button', function () {
+describe('common/component/element/progress', function () {
     const base = getBaseStyle();
     const app = getAppStyle();
 
@@ -26,13 +26,7 @@ describe('common/component/element/button', function () {
 
     it('matches visual snapshot', async function () {
         await shutter.snapshot('Button default', (
-            <Button>Click me</Button>
-        ));
-    });
-
-    it('with primary style matches visual snapshot', async function () {
-        await shutter.snapshot('Button primary', (
-            <Button isPrimary>Click me</Button>
+            <ElementProgress value={'50'} />
         ));
     });
 });
