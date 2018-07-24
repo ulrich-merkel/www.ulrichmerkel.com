@@ -1,10 +1,10 @@
-/* eslint-disable func-names */
+/* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import createReactShutter from '@shutter/react';
 import { render } from '../../__mocks__/shutter';
-import ElementProgress from '../progress';
+import Header from '../header';
 
-describe('common/component/element/progress', function () {
+describe('common/component/element/header', function () {
     const shutter = createReactShutter(__dirname, { render });
 
     afterAll(async function () {
@@ -12,8 +12,10 @@ describe('common/component/element/progress', function () {
     });
 
     it('matches visual snapshot', async function () {
-        await shutter.snapshot('Button default', (
-            <ElementProgress value={'50'} />
+        await shutter.snapshot('Fieldset default', (
+            <Header>
+                Header content
+            </Header>
         ));
     });
 });
