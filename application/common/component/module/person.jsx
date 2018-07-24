@@ -90,7 +90,7 @@ function ModulePerson(props) {
             {content.email && (
                 <P className='m-person__email'>
                     <abbr title='E-Mail address'>
-E.
+                        E.
                     </abbr> 
                     {' '}
                     <a href={`mailto:${content.email}`} itemProp='email'>
@@ -101,7 +101,7 @@ E.
             {content.phoneNumbers && content.phone && (
                 <P className='m-person__phone'>
                     <abbr title='Phonenumber'>
-P.
+                        P.
                     </abbr> 
                     {' '}
                     <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>
@@ -112,7 +112,7 @@ P.
             {content.website && (
                 <P className='m-person__website'>
                     <abbr title='Website'>
-W.
+                        W.
                     </abbr> 
                     {' '}
                     <a href={`${content.website}`}>

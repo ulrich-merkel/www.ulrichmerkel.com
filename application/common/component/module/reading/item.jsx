@@ -38,7 +38,6 @@ import Small from '../../element/small';
  * @returns {ReactElement} React component markup
  */
 function ModuleReadingItem(props) {
-
     const {
         headline,
         lead,
@@ -66,7 +65,6 @@ function ModuleReadingItem(props) {
             </div>
         </li>
     );
-
 }
 
 /**
