@@ -11,6 +11,7 @@ module.exports = {
     'setupFiles': [
         '<rootDir>/config/jest/jest.setup.js'
     ],
+    'setupTestFrameworkScriptFile': '<rootDir>/config/jest/jest.each-test-setup.js',
     'transform': {
         '^.+\\.jsx$': '<rootDir>/config/jest/jest.transform.js'
     },
