@@ -240,7 +240,6 @@
     "postcss-epub": "3.0.1",
     "promise": "8.0.1",
     "psi": "3.1.0",
-    "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.4.1",
     "redux-mock-store": "1.5.3",
     "retire": "1.6.2",
