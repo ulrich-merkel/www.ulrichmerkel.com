@@ -25,6 +25,7 @@ module.exports = {
         'sourceType': 'module'
     },
     'plugins': [
+        'compat',
         'flowtype',
         'immutable',
         'import',
