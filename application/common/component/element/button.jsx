@@ -97,9 +97,15 @@ function ElementButton(props) {
         }
     );
 
-    const HtmlElement = to ? NavLink : htmlElement;
-    const htmlElementType = !to ? type : null;
-    const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
+    const HtmlElement = to
+        ? NavLink
+        : htmlElement;
+    const htmlElementType = !to
+        ? type
+        : null;
+    const disabledAttr = isDisabled
+        ? { disabled: 'disabled' }
+        : null;
 
     return (
         <HtmlElement
