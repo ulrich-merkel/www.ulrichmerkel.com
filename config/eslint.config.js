@@ -29,6 +29,7 @@ module.exports = {
         'flowtype',
         'immutable',
         'import',
+        'jest',
         'jsdoc',
         'jsx-a11y',
         'lodash',
@@ -49,6 +50,9 @@ module.exports = {
             'error',
             4
         ],
+        'jest/no-large-snapshots': ['warn', {
+            'maxSize': 12
+        }],
         'jsdoc/check-param-names': 1,
         'jsdoc/check-tag-names': 1,
         'jsdoc/check-types': 1,

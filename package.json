@@ -208,6 +208,7 @@
     "eslint-plugin-flowtype": "2.50.0",
     "eslint-plugin-immutable": "1.0.0",
     "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jest": "21.18.0",
     "eslint-plugin-jsdoc": "3.7.1",
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-lodash": "2.7.0",
