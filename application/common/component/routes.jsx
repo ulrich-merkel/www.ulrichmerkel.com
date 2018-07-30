@@ -21,7 +21,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
-import { LayoutBody } from '../component/layout';
+import { LayoutBody } from './layout';
 import {
     PageBroadcast,
     PageContact,
@@ -34,7 +34,7 @@ import {
     PageSearch,
     PageTheme,
     PageWork
-} from '../component/page/';
+} from './page';
 
 /**
  * Handling routes and wrap content in a layout.

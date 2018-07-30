@@ -11,7 +11,6 @@ exports[`common/component/element/button-group should render correctly 1`] = `
     name="button"
     role="button"
     title=""
-    to={undefined}
     type="submit"
   >
     <span

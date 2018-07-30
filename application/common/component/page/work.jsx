@@ -146,7 +146,7 @@ class PageWork extends Component {
      * The required render function to return a single react child element.
      *
      * @function
-     * @returns {ReactElement} React component markup
+     * @returns {ReactElement|null} React component markup
      */
     render() {
         const { locale, config } = this.props;

@@ -33,7 +33,6 @@ exports[`common/component/module/key-visual should render correctly 1`] = `
     onClick={[Function]}
     role="button"
     title="btnTitle"
-    to={undefined}
     type="button"
   >
     <span
@@ -78,7 +77,6 @@ exports[`common/component/module/key-visual should render isWork and isCovered c
     onClick={[Function]}
     role="button"
     title="btnTitle"
-    to={undefined}
     type="button"
   >
     <span

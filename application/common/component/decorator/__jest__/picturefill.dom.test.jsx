@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
+/* eslint-disable react/destructuring-assignment, import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 import 'jsdom-global/register';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -14,7 +14,9 @@ jest.useFakeTimers();
 describe('common/component/decorator/picturefill', function () {
     const Page = function (props) {
         return (
-            <h1 className='page'>{props.children}</h1>
+            <h1 className='page'>
+                {props.children}
+            </h1>
         );
     };
     Page.propTypes = {
@@ -31,7 +33,9 @@ describe('common/component/decorator/picturefill', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <Container>
-                    <div className='test'>Picturefill children</div>
+                    <div className='test'>
+Picturefill children
+                    </div>
                 </Container>
             </Provider>
         );
@@ -43,7 +47,9 @@ describe('common/component/decorator/picturefill', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <Container>
-                    <div className='test'>Picturefill children</div>
+                    <div className='test'>
+Picturefill children
+                    </div>
                 </Container>
             </Provider>
         );
@@ -63,7 +69,9 @@ describe('common/component/decorator/picturefill', function () {
         const wrapper = mount(
             <Provider store={mockedStore}>
                 <Container>
-                    <div className='test'>Picturefill children</div>
+                    <div className='test'>
+Picturefill children
+                    </div>
                 </Container>
             </Provider>
         );

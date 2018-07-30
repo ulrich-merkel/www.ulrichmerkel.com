@@ -25,19 +25,20 @@ import PropTypes from 'prop-types';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {Array|string} [props.children] - The component react children
  * @returns {ReactElement} React component markup
  */
 function LayoutMain(props) {
+    const { children } = props;
+
     return (
         <main
             className='l-main'
             itemProp='mainContentOfPage'
             role='main'
         >
-            {props.children}
+            {children}
         </main>
     );
 }

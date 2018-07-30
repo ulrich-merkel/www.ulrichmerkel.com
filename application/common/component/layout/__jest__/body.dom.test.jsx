@@ -21,7 +21,9 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
+                        <div className='test'>
+                            Body Children
+                        </div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>
@@ -35,7 +37,9 @@ describe('common/component/layout/body', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
+                        <div className='test'>
+                            Body Children
+                        </div>
                     </LayoutBody>
                 </MemoryRouter>
             </Provider>
@@ -48,24 +52,5 @@ describe('common/component/layout/body', function () {
             }
         });
         expect(shouldComponentUpdate.calledOnce).toBeTruthy();
-    });
-    it('should trigger handleScrollTop callback', function () {
-        const handleScrollTop = sinon.spy(LayoutBody.prototype, 'handleScrollTop');
-
-        const wrapper = mount(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <LayoutBody {...defaultProps}>
-                        <div className='test'>Body Children</div>
-                    </LayoutBody>
-                </MemoryRouter>
-            </Provider>
-        );
-
-        const footerButton = wrapper.find('.l-footer__button--up');
-        expect(handleScrollTop.calledOnce).toBeFalsy();
-        // @TODO: Adjust expect for enzyme@16
-        footerButton.first().simulate('click');
-        expect(handleScrollTop.calledOnce).toBeTruthy();
     });
 });

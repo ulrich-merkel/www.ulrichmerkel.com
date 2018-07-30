@@ -19,6 +19,7 @@
  * @requires lodash
  * @requires common/component/decorator/add-content
  * @requires common/utils/content
+ * @requires common/utils/event
  * @requires common/state/selectors
  * @requires common/state/intl/actions
  * @requires common/state/intl/constants
@@ -43,6 +44,7 @@ import { get } from 'lodash';
 
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
+import { eventPreventDefault } from '../../utils/event';
 import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
@@ -76,7 +78,6 @@ import {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
  * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
@@ -266,7 +267,6 @@ LayoutHeader.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {Object.<*>} state - The redux store state
  * @param {Object.<*>} [ownProps] - The current component props
@@ -288,22 +288,21 @@ function mapStateToProps(state, ownProps) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {Object}
  */
 function mapDispatchToProps(dispatch) {
     return {
-        handleIntlChangeLocale: (e) => {
-            e.preventDefault();
-            dispatch(changeLocale(get(e, 'target.dataset.locale')));
+        handleIntlChangeLocale: function (event) {
+            eventPreventDefault(event);
+            dispatch(changeLocale(get(event, 'target.dataset.locale')));
         },
-        handleChangeDialogVisibleSearch: (e) => {
-            e.preventDefault();
+        handleChangeDialogVisibleSearch: function (event) {
+            eventPreventDefault(event);
             dispatch(changeDialogVisibleSearch(true));
         },
-        handleChangeDialogVisibleTheme: (e) => {
-            e.preventDefault();
+        handleChangeDialogVisibleTheme: function (event) {
+            eventPreventDefault(event);
             dispatch(changeDialogVisibleTheme(true));
         }
     };

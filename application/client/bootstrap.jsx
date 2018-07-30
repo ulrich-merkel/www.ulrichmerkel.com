@@ -20,8 +20,8 @@
  * - 0.0.2 Added service workers
  * - 0.0.1 Basic functions and structure
  */
-import configApplication from './../common/config/application';
-import logger from './../common/utils/logger';
+import configApplication from '../common/config/application';
+import logger from '../common/utils/logger';
 import './loader/offline';
 import loaderAsync from './loader/async';
 import { displayAllLoaded } from './loader/progress-bar';

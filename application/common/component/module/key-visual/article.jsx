@@ -51,10 +51,14 @@ function ModuleKeyVisualArticle(props) {
     return (
         <article className={componentArticleClassName}>
             <Headline className='m-key-visual__headline' itemProp='headline' htmlElement='h3'>
-                <span className='m-key-visual__boxed'>{headline}</span>
+                <span className='m-key-visual__boxed'>
+                    {headline}
+                </span>
             </Headline>
             <P className='m-key-visual__lead' itemProp='description'>
-                <span className='m-key-visual__boxed'>{lead}</span>
+                <span className='m-key-visual__boxed'>
+                    {lead}
+                </span>
             </P>
         </article>
     );

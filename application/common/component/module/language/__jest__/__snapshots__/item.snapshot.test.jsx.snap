@@ -46,8 +46,6 @@ exports[`common/component/module/language/item should render correctly 1`] = `
     <meta
       content="Headline language"
       itemProp="name"
-      name={undefined}
-      property={undefined}
     />
   </div>
 </div>

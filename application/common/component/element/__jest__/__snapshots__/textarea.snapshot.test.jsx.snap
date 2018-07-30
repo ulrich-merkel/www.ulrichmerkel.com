@@ -24,6 +24,12 @@ exports[`common/component/element/textarea should call passed callbacks 2`] = `
       "calls": Array [
         Array [],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   onChange={[MockFunction]}
@@ -43,12 +49,24 @@ exports[`common/component/element/textarea should call passed callbacks 3`] = `
       "calls": Array [
         Array [],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   onChange={
     [MockFunction] {
       "calls": Array [
         Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
       ],
     }
   }

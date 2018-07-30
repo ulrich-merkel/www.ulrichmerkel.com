@@ -32,7 +32,6 @@ import { getContentSection } from '../../utils/content';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {Object} [props.content={}] - The component content config
  * @returns {ReactElement} React component markup
@@ -48,8 +47,12 @@ function LayoutLoader(props) {
         <dialog className='l-dialog--loading' role='alert' aria-live='assertive'>
             <div className='l-dialog__content'>
                 <div className='c-flip'>
-                    <div className='c-flip__front'>{contentSection('headline')}</div>
-                    <div className='c-flip__back'>{contentSection('lead')}</div>
+                    <div className='c-flip__front'>
+                        {contentSection('headline')}
+                    </div>
+                    <div className='c-flip__back'>
+                        {contentSection('lead')}
+                    </div>
                 </div>
             </div>
             <div className='l-dialog__background' />

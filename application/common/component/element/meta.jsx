@@ -21,7 +21,6 @@ import PropTypes from 'prop-types';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {Object} [props] - The current component props
  * @param {string} [props.content=''] - The meta tag content attribute
  * @param {string} [props.itemProp] - The meta tag itemProp attribute

@@ -112,9 +112,9 @@ function animate(options) {
     let requestId;
 
     (function loop() {
-        const p = (getTime() - start) / duration;
+        const progress = (getTime() - start) / duration;
 
-        if (p >= 1) {
+        if (progress >= 1) {
             render(1);
             callback();
         } else {
@@ -124,7 +124,7 @@ function animate(options) {
                 requestId = setTimeout(loop, 1000 / 60);
             }
 
-            render(easing(p), requestId);
+            render(easing(progress), requestId);
         }
     }());
 }
@@ -171,8 +171,25 @@ function scrollTo(opts = {}) {
     });
 }
 
+/**
+ * Scroll animation to element if available.
+ *
+ * @param {Object} element - The text message dom node
+ * @returns {void}
+ */
+function scrollToElement(element) {
+    if (element && isFunction(element.getBoundingClientRect)) {
+        const boundingClientRectTop = Math.abs(element.getBoundingClientRect().top);
+
+        scrollTo({
+            top: boundingClientRectTop
+        });
+    }
+}
+
 export default scrollTo;
 export {
     getPageOffset,
-    easeInOutQuad
+    easeInOutQuad,
+    scrollToElement
 };

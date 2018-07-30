@@ -50,7 +50,7 @@ import theme from './theme/reducer';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
-} from '../state/config/actions';
+} from './config/actions';
 
 /**
  * Creating the single application store.

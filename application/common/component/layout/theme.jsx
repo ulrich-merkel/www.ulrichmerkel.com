@@ -42,6 +42,7 @@ class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidMount() {
+        // eslint-disable-next-line react/destructuring-assignment
         PubSub.publish(THEME_CHANGE_MESSAGE, this.props.themeSelected);
     }
 
@@ -53,7 +54,7 @@ class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidUpdate(prevProps) {
-        const themeSelected = this.props.themeSelected;
+        const { themeSelected } = this.props;
 
         if (themeSelected !== prevProps.themeSelected) {
             PubSub.publish(THEME_CHANGE_MESSAGE, themeSelected);
@@ -66,9 +67,11 @@ class LayoutTheme extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
+        const { children } = this.props;
+
         return (
             <Fragment>
-                {this.props.children}
+                {children}
             </Fragment>
         );
     }

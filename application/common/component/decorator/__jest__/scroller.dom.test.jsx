@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
+/* eslint-disable react/destructuring-assignment, import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 import 'jsdom-global/register';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -13,7 +13,9 @@ import scroller from '../scroller';
 describe('common/component/decorator/scroller', function () {
     const Page = function (props) {
         return (
-            <h1 className='page'>{props.children}</h1>
+            <h1 className='page'>
+                {props.children}
+            </h1>
         );
     };
     Page.propTypes = {
@@ -27,7 +29,9 @@ describe('common/component/decorator/scroller', function () {
             <Provider store={mockedStore}>
                 <MemoryRouter>
                     <Container>
-                        <div className='test'>Scroller children</div>
+                        <div className='test'>
+Scroller children
+                        </div>
                     </Container>
                 </MemoryRouter>
             </Provider>

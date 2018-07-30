@@ -96,7 +96,13 @@ function LayoutFooter(props) {
                         <GridRow>
                             <GridCol>
                                 <Small>
-                                    &copy; <strong>{contentSection('copy.name')}</strong> {contentSection('copy.date')}
+                                    &copy; 
+                                    {' '}
+                                    <strong>
+                                        {contentSection('copy.name')}
+                                    </strong> 
+                                    {' '}
+                                    {contentSection('copy.date')}
                                 </Small>
                             </GridCol>
                         </GridRow>
