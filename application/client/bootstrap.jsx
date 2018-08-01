@@ -13,7 +13,6 @@
  * @requires client/loader/async
  * @requires client/loader/progress-bar
  * @requires common/config/application
- * @requires common/utils/logger
  *
  * @changelog
  * - 0.0.3 Improve progress-bar value setting
@@ -21,7 +20,6 @@
  * - 0.0.1 Basic functions and structure
  */
 import configApplication from '../common/config/application';
-import logger from '../common/utils/logger';
 import './loader/offline';
 import loaderAsync from './loader/async';
 import { displayAllLoaded } from './loader/progress-bar';
@@ -30,7 +28,7 @@ import { displayAllLoaded } from './loader/progress-bar';
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
     navigator.serviceWorker.register('/service-worker.bundle.js')
         .then(function (reg) {
-            const log = logger.log;
+            const log = console.log;
             displayAllLoaded();
 
             if (reg.waiting) {
@@ -45,7 +43,7 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
             return log('Successfully registered service worker');
         })
         .catch(function (err) {
-            logger.warn('Error whilst registering service worker', err);
+            console.warn('Error whilst registering service worker', err);
         });
 }
 
