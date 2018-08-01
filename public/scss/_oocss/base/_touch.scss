@@ -5,16 +5,15 @@
 /// @author Ulrich Merkel
 ////
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     html {
 
-        // remove click delay on touch devices for mobile ie
+        // Remove click delay on touch devices for mobile ie
         //
-        // @see:
-        // - http://www.smashingmagazine.com/2014/10/21/providing-a-native-experience-with-web-technologies/
-        // - https://github.com/ftlabs/fastclick
+        // @see http://www.smashingmagazine.com/2014/10/21/providing-a-native-experience-with-web-technologies/
+        // @see https://github.com/ftlabs/fastclick
         @if ($config-support-prefix-ms) {
             -ms-touch-action: manipulation; // IE 10
         }
@@ -26,12 +25,8 @@
 
         @if ($config-support-prefix-webkit) {
 
-            // mobile touch tab color
-            -webkit-tap-highlight-color: rgba(63, 154, 201, 0.3);
-
-            .no-rgba & {
-                -webkit-tap-highlight-color: #3f9ac9;
-            }
+            // Mobile touch tab color for iOS
+            @include var(-webkit-tap-highlight-color, --theme-base-touch-tap-highlight-color);
 
         }
     }

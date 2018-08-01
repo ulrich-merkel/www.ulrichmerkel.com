@@ -14,13 +14,12 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="foo"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="bar"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -47,13 +46,12 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -72,13 +70,12 @@ exports[`common/component/module/menu should render correctly 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -106,13 +103,12 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="foo"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="bar"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -139,13 +135,12 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >
@@ -164,13 +159,12 @@ exports[`common/component/module/menu should render no itemType if unset 1`] = `
     itemType="http://www.schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-menu__item"
       href="/foo"
       itemProp="url"
       onClick={[Function]}
       role="menuitem"
-      style={undefined}
       tabIndex="0"
       title="title"
     >

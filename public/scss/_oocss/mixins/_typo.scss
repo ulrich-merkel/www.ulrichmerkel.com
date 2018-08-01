@@ -1,11 +1,12 @@
 ////
 /// Mixin typographic
 ///
-/// @group mixin
+/// @group mixins
 /// @author Ulrich Merkel
 ////
 
-/// Font size mixin to include px and rem
+/// Font size mixin to include px and rem.
+///
 /// @param {string|number} $size
 @mixin font-size($size) {
     $size: if(unitless($size), $size, $size / 1px);
@@ -14,7 +15,8 @@
     font-size: rem-calc($size);
 }
 
-/// Hide text mixin
+/// Hide text mixin.
+///
 /// @see https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 @mixin hide-text {
     font: 0/0 a;
@@ -24,8 +26,8 @@
     border: 0;
 }
 
-/// Enable text overflow with dots
-/// Requires inline-block or block for proper styling
+/// Enable text overflow with dots,
+/// requires inline-block or block for proper styling.
 @mixin text-overflow {
     overflow: hidden;
     @if ($config-support-prefix-ms) {
@@ -35,7 +37,7 @@
     white-space: nowrap;
 }
 
-/// Enable word wrapping for long words
+/// Enable word wrapping for long words.
 @mixin word-wrap {
     @if ($config-support-prefix-webkit) {
         -webkit-hyphens: auto;
@@ -53,7 +55,7 @@
     word-break: break-word;
 }
 
-/// Disable word wrapping, useful if words can't be breaked
+/// Disable word wrapping, useful if words can't be breaked.
 @mixin no-wrap {
     // prevent css3 hyphens
     @if ($config-support-prefix-webkit) {
@@ -72,7 +74,8 @@
     white-space: nowrap;
 }
 
-/// User select for selecting text on the page
+/// User select for selecting text on the page.
+///
 /// @param {string} $select
 @mixin user-select($select) {
     @if ($config-support-prefix-webkit) {
@@ -93,7 +96,7 @@
     user-select: $select;
 }
 
-/// Disable user select
+/// Disable user select.
 @mixin no-user-select {
     @include user-select(none);
     @if ($config-support-prefix-webkit) {
@@ -102,7 +105,8 @@
     }
 }
 
-/// Include css3 hyphens
+/// Include css3 hyphens.
+///
 /// @param {string} $value
 @mixin hyphens($value) {
     @if ($config-support-prefix-webkit) {

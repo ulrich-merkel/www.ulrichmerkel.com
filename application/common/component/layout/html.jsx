@@ -52,7 +52,7 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
  * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
-    const { locale, store, cssBase, scriptBootstrap } = props;
+    const { children, locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
         ? url.cacheManifest
         : null;
@@ -112,8 +112,8 @@ function LayoutHtml(props) {
                 </noscript>
             </head>
             <body itemScope itemType='http://schema.org/WebPage'>
-                <div id='l-react'>
-                    {props.children}
+                <div id='l-react' className='l-react'>
+                    {children}
                 </div>
                 <script
                     nonce={get(nonceConfig, 'script.bootstrap')}
@@ -121,12 +121,14 @@ function LayoutHtml(props) {
                         __html: scriptBootstrap
                     }}
                 />
-                {store && <script
-                    nonce={get(nonceConfig, 'script.config')}
-                    dangerouslySetInnerHTML={{
-                        __html: `__PRELOADED_STATE__=${serialize(preloadedState, { isJSON: true })};`
-                    }}
-                />}
+                {store && (
+                    <script
+                        nonce={get(nonceConfig, 'script.config')}
+                        dangerouslySetInnerHTML={{
+                            __html: `__PRELOADED_STATE__=${serialize(preloadedState, { isJSON: true })};`
+                        }}
+                    />
+                )}
                 {helmet.script.toComponent()}
             </body>
         </html>

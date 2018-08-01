@@ -47,7 +47,9 @@ function loadState() {
      */
     try {
         return JSON.parse(
-            xorUse ? xor.decrypt(serializedState, xorKey) : serializedState
+            xorUse
+                ? xor.decrypt(serializedState, xorKey)
+                : serializedState
         );
     } catch (reason) {
         logger.warn(reason);

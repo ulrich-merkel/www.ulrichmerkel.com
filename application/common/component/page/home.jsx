@@ -50,8 +50,8 @@ import SectionFeatured from '../section/featured';
  * @returns {ReactElement} React component markup
  */
 function PageHome(props) {
-
-    const contentSection = getContentSection(props.content);
+    const { content } = props;
+    const contentSection = getContentSection(content);
 
     return (
         <LayoutMain>
@@ -62,7 +62,6 @@ function PageHome(props) {
             <SectionFeatured content={contentSection('section4')} />
         </LayoutMain>
     );
-
 }
 
 /**

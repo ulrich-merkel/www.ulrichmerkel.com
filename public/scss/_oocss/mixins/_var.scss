@@ -1,0 +1,17 @@
+////
+/// Mixin var
+///
+/// @group mixins
+/// @author Ulrich Merkel
+////
+
+/// Grab the fallback value from the default theme to add
+/// support for css custom properties fallbacks.
+///
+/// @see https://blog.mariano.io/stateful-theming-css-custom-properties-3b30b40669d9
+/// @param {string} $property
+/// @param {string|number} $variable
+@mixin var($property, $variable) {
+    #{$property}: map-get($theme-default, $variable);
+    #{$property}: var($variable);
+}

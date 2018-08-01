@@ -9,7 +9,6 @@ import { isUndefined } from 'lodash';
 /**
  * Create a new fake dom for testing.
  *
- * @function
  * @returns {Object} The new or exisiting dom
  */
 function createDOM() {

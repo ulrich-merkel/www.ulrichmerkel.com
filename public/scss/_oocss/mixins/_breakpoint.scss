@@ -1,11 +1,12 @@
 ////
 /// Breakpoint mixins.
 ///
-/// @group mixin
+/// @group mixins
 /// @author Ulrich Merkel
 ////
 
-/// Default mobile first breakpoint
+/// Default mobile first breakpoint.
+///
 /// @param {string} $value - The min-width breakpoint
 @mixin breakpoint($value) {
     @media screen and (min-width: $value) {
@@ -14,7 +15,7 @@
 }
 
 /// Helper mixin to get the default mobile first breakpoint
-/// for small screens
+/// for small screens.
 @mixin breakpoint-small {
     @media screen and (min-width: $config-grid--breakpoint-xsmall) {
         @content;

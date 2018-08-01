@@ -3,7 +3,9 @@
 exports[`common/component/layout/body should render correctly 1`] = `
 Array [
   <dialog
+    aria-live="assertive"
     className="l-dialog--loading"
+    role="alert"
   >
     <div
       className="l-dialog__content"
@@ -28,7 +30,7 @@ Array [
     />
   </dialog>,
   <header
-    className="l-header is-fixed is-visible"
+    className="c-header l-header is-fixed is-visible"
     itemScope={true}
     itemType="http://schema.org/WPHeader"
     role="banner"
@@ -76,7 +78,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current="true"
+                  aria-current="page"
                   className="c-link m-menu__item is-active"
                   href="/"
                   itemProp="url"
@@ -101,13 +103,12 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item"
                   href="/persona"
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Show information about my persona"
                 >
@@ -126,13 +127,12 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item"
                   href="/contact"
                   itemProp="url"
                   onClick={[Function]}
                   role="menuitem"
-                  style={undefined}
                   tabIndex="0"
                   title="Get in touch"
                 >
@@ -161,9 +161,8 @@ Array [
                   className="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
                   onClick={[Function]}
-                  role="menuitem"
+                  role="button"
                   title="Switch to english"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -183,9 +182,8 @@ Array [
                   className="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
                   onClick={[Function]}
-                  role="menuitem"
+                  role="button"
                   title="Sprache in deutsch ändern"
-                  to={undefined}
                   type="button"
                 >
                   <span
@@ -196,20 +194,18 @@ Array [
                 </button>
               </li>
               <li
-                className="m-menu__list-item"
+                className="m-menu__list-item--search always-float"
                 itemProp="itemListElement"
                 itemScope={true}
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
                   href="/search"
                   onClick={[Function]}
-                  role="menuitem"
-                  style={undefined}
                   tabIndex="0"
-                  title="Suche"
+                  title="Search"
                 >
                   <span
                     className="c-btn__label"
@@ -217,6 +213,30 @@ Array [
                     <i
                       aria-hidden="true"
                       className="c-font-icon--search c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                className="m-menu__list-item--theme always-float"
+                itemProp="itemListElement"
+                itemScope={true}
+                itemType="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current={null}
+                  className="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  href="/theme"
+                  onClick={[Function]}
+                  tabIndex="0"
+                  title=""
+                >
+                  <span
+                    className="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="c-font-icon--paint-format c-btn__icon"
                     />
                   </span>
                 </a>
@@ -239,7 +259,6 @@ Array [
       onClick={[Function]}
       role="button"
       title="Scroll to top"
-      to={undefined}
       type="button"
     >
       <span
@@ -277,13 +296,12 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/disclaimer"
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Disclaimer"
                   >
@@ -302,13 +320,12 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/imprint"
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Imprint"
                   >
@@ -327,13 +344,12 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/privacy"
                     itemProp="url"
                     onClick={[Function]}
                     role="menuitem"
-                    style={undefined}
                     tabIndex="0"
                     title="Privacy"
                   >
@@ -500,7 +516,8 @@ Array [
               <small
                 className="c-type--small"
               >
-                © 
+                ©
+                 
                 <strong>
                   Ulrich Merkel
                 </strong>

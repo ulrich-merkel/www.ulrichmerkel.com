@@ -5,24 +5,28 @@
 /// @author Ulrich Merkel
 ////
 
-// below the fold css, could be lazy loaded
+// Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
 
     img {
+        // Add wrapper for missing image styling
         position: relative;
         display: block;
         width: 100%;
+        max-width: 100%;
         height: auto;
-        font-family: $config-type-font-family;
-        font-weight: $config-font-weight-light;
         line-height: 2;
         text-align: center;
-    }
+        -ms-interpolation-mode: bicubic;
 
-    // ----------------------------
-    // missing image styling
-    // ----------------------------
-    img {
+        // Remove border when inside `a` element in IE 8/9/10
+        border: 0;
+
+        @include var(font-family, --theme-base-img-missing-font-family);
+        @include var(font-weight, --theme-base-img-missing-font-weight);
+
+        // Missing image styling with pseudo elements
+        // @see https://bitsofco.de/styling-broken-images/
         &::before {
             position: absolute;
             top: -10px;
@@ -30,10 +34,11 @@
             display: block;
             width: 100%;
             height: calc(100% + 10px);
-            content: ' ';
-            background-color: $theme-base-img-missing-background;
-            border: $theme-base-img-missing-border;
-            border-radius: $theme-base-img-missing-border-radius;
+
+            @include var(content, --theme-base-img-missing-before-content);
+            @include var(background-color, --theme-base-img-missing-background);
+            @include var(border, --theme-base-img-missing-border);
+            @include var(border-radius, --theme-base-img-missing-border-radiu);
         }
 
         &::after {
@@ -42,12 +47,13 @@
             left: 0;
             display: block;
             width: 100%;
-            font-family: fonticons;
-            @include font-size($config-type-scale-9);
             font-style: normal;
-            color: $theme-base-img-missing-color;
             text-align: center;
-            content: '\ea07 ' attr(alt) ' Image could not be loaded';
+
+            @include var(font-family, --theme-base-img-missing-after-font-family);
+            @include var(content, --theme-base-img-missing-after-content);
+            @include font-size($config-type-scale-9);
+            @include var(color, --theme-base-img-missing-color);
         }
     }
 

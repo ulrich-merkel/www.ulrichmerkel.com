@@ -22,8 +22,8 @@
             location = document.location,
             stop = /^(a|html)$/i;
 
-        document.addEventListener('click', function handleClick(e) {
-            curnode = e.target;
+        document.addEventListener('click', function handleClick(event) {
+            curnode = event.target;
 
             while (!(stop).test(curnode.nodeName)) {
                 curnode = curnode.parentNode;
@@ -32,10 +32,14 @@
             // Condidions to do this only on links to your own app
             // if you want all links, use if('href' in curnode) instead.
             if ('href' in curnode && (curnode.href.indexOf('http') || ~curnode.href.indexOf(location.host))) {
-                e.preventDefault();
+                event.preventDefault();
                 location.href = curnode.href;
             }
 
         }, false);
     }
-}(typeof window !== 'undefined' ? window : {}));
+}(
+    typeof window !== 'undefined'
+        ? window
+        : {}
+));

@@ -1,11 +1,11 @@
 ////
 /// Mixin centering
 ///
-/// @group mixin
+/// @group mixins
 /// @author Ulrich Merkel
 ////
 
-/// Vertical centering
+/// Vertical centering via css3.
 @mixin vertical-center {
     position: relative;
     top: 50%;

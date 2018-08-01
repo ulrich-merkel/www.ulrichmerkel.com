@@ -41,7 +41,6 @@ const HEADER_HEIGHT = 61;
 /**
  * The scroller higher order function handling window scrolling.
  *
- * @function
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
@@ -115,6 +114,7 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentWillReceiveProps (nextProps) {
+            // eslint-disable-next-line react/destructuring-assignment
             if (this.props.location !== nextProps.location) {
                 this.scrollTop();
             }

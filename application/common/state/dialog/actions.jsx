@@ -20,7 +20,8 @@
 import {
     STATE_DIALOG_VISIBLE_CHANGE,
     STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH
+    STATE_DIALOG_PAGE_SEARCH,
+    STATE_DIALOG_PAGE_THEME
 } from './constants';
 
 /**
@@ -67,8 +68,24 @@ function changeDialogVisibleSearch(visible) {
     };
 }
 
+/**
+ * Handle dialog visibility state change.
+ *
+ * @function
+ * @param {boolean} visible - The new visible state
+ * @returns {Object} The redux action playload
+ */
+function changeDialogVisibleTheme(visible) {
+    return {
+        type: STATE_DIALOG_VISIBLE_CHANGE,
+        page: STATE_DIALOG_PAGE_THEME,
+        visible
+    };
+}
+
 export {
     changeDialogVisible,
     changeDialogVisibleBroadcast,
-    changeDialogVisibleSearch
+    changeDialogVisibleSearch,
+    changeDialogVisibleTheme
 };

@@ -7,13 +7,13 @@
 
 $block: '#{$config-ns}l-header';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-critical-css) {
 
     .#{$block} {
         position: relative;
         z-index: 2;
-        background: $config-color-blue--2;
+        @include var(background, --theme-layout-header-background);
 
         &.is-fixed {
             @include breakpoint($config-grid--breakpoint-xsmall) {

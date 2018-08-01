@@ -17,6 +17,7 @@
  * @requires common/component/decorator/picturefill
  * @requires common/component/decorator/scroller
  * @requires common/component/decorator/add-content
+ * @requires common/utils/event
  * @requires common/utils/scroll-to
  * @requires common/state/constants
  * @requires common/component/layout/header
@@ -25,9 +26,10 @@
  * @requires common/component/layout/dialog
  * @requires common/component/page/broadcast
  * @requires common/component/page/search
+ * @requires common/component/page/theme
  *
  * @changelog
- * - 0.0.4 Use fragments for rendering
+ * - 0.0.4 Add theming
  * - 0.0.3 Remove connect and state handling, improve dialog handling
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
@@ -36,26 +38,40 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import {
-    pictureFill,
-    scroller,
-    addContent
-} from '../decorator/';
+import pictureFill from '../decorator/picturefill';
+import scroller from '../decorator/scroller';
+import addContent from '../decorator/add-content';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { eventPreventDefault } from '../../utils/event';
 import {
     STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH
+    STATE_DIALOG_PAGE_SEARCH,
+    STATE_DIALOG_PAGE_THEME
 } from '../../state/constants';
-import {
-    LayoutHeader,
-    LayoutFooter,
-    LayoutLoader,
-    LayoutDialog
-} from './index';
-import {
-    PageBroadcast,
-    PageSearch
-} from '../page';
+import LayoutHeaderConnected from './header';
+import LayoutFooter from './footer';
+import LayoutTheme from './theme';
+import LayoutLoader from './loader';
+import LayoutDialogConnected from './dialog';
+import PageBroadcast from '../page/broadcast';
+import PageSearch from '../page/search';
+import PageTheme from '../page/theme';
+
+/**
+ * Scroll to top animation helper.
+ *
+ * @private
+ * @param {Object} event - The synthetic react event
+ * @returns {void}
+ */
+function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
+    eventPreventDefault(event);
+    if (getPageOffset()) {
+        scrollTo({
+            top: 0
+        });
+    }
+}
 
 /**
  * Class representing a component.
@@ -66,40 +82,10 @@ import {
  * @property {Object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
-
-    /**
-     * The actual class constructor.
-     *
-     * @constructs
-     * @param {Object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
-
-        /**
-         * Bind manually because React class components don't auto-bind.
-         *
-         * A bind call or arrow function in a JSX prop will create a brand new
-         * function on every single render. This is bad for performance, as it
-         * will result in the garbage collector being invoked way more than is necessary.
-         *
-         * Unfortunately React ES6 classes do not autobind their methods like components created
-         * with the older React.createClass syntax. There are several approaches to binding methods
-         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor.
-         *
-         * @see {@link http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding}
-         * @see {@link http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479}
-         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-         */
-        this.handleScrollTop = this.handleScrollTop.bind(this);
-    }
-
     /**
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
      *
-     * @function
      * @param {Object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
@@ -108,25 +94,8 @@ class LayoutBody extends Component {
     }
 
     /**
-     * Scroll to top animation helper.
-     *
-     * @function
-     * @param {Object} e - The synthetic react event
-     * @returns {void}
-     */
-    handleScrollTop(e) { // eslint-disable-line class-methods-use-this
-        e.preventDefault();
-        if (getPageOffset()) {
-            scrollTo({
-                top: 0
-            });
-        }
-    }
-
-    /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
@@ -136,27 +105,33 @@ class LayoutBody extends Component {
         } = this.props;
 
         return (
-            <React.Fragment>
+            <LayoutTheme>
                 <Helmet {...content} />
                 <LayoutLoader />
-                <LayoutHeader />
+                <LayoutHeaderConnected />
                 {children}
                 <LayoutFooter
-                    handleScrollTop={this.handleScrollTop}
+                    handleScrollTop={handleScrollTop}
                 />
-                <LayoutDialog
+                <LayoutDialogConnected
                     page={STATE_DIALOG_PAGE_SEARCH}
                     isSearch
                 >
                     <PageSearch isDialog />
-                </LayoutDialog>
-                <LayoutDialog
+                </LayoutDialogConnected>
+                <LayoutDialogConnected
                     page={STATE_DIALOG_PAGE_BROADCAST}
                     isBroadcast
                 >
                     <PageBroadcast isDialog />
-                </LayoutDialog>
-            </React.Fragment>
+                </LayoutDialogConnected>
+                <LayoutDialogConnected
+                    page={STATE_DIALOG_PAGE_THEME}
+                    isBroadcast
+                >
+                    <PageTheme isDialog />
+                </LayoutDialogConnected>
+            </LayoutTheme>
         );
     }
 
@@ -194,7 +169,9 @@ LayoutBody.defaultProps = {
  *
  * @type {ReactElement}
  */
-const LayoutBodyContainer = scroller(pictureFill(addContent('Head')(LayoutBody)));
+const LayoutBodyContainer = scroller(
+    pictureFill(addContent('Head')(LayoutBody))
+);
 
 export default LayoutBodyContainer;
 export {

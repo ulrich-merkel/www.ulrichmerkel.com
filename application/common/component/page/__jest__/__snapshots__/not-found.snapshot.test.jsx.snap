@@ -48,7 +48,7 @@ exports[`common/component/page/not-found should render correctly 1`] = `
                 className="is-centered c-type--p m-article__button hide-on-print"
               >
                 <a
-                  aria-current="true"
+                  aria-current="page"
                   className="c-btn active"
                   href="/"
                   onClick={[Function]}
@@ -67,8 +67,6 @@ exports[`common/component/page/not-found should render correctly 1`] = `
               <meta
                 content="Oops - Page not found"
                 itemProp="name"
-                name={undefined}
-                property={undefined}
               />
             </article>
           </div>

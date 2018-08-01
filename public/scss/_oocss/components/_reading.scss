@@ -7,14 +7,14 @@
 
 $block: '#{$config-ns}c-reading';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
-    // defaults
+    // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
-        font-weight: $config-font-weight-light;
+        @include var(font-weight, --theme-component-reading-font-weight);
     }
 
     .#{$block}__name,

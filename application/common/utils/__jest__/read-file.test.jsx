@@ -22,7 +22,7 @@ describe('common/utils/read-file', function () {
     it('should read no file async if file does not exist', function (done) {
         return readFile('/wrong/path/to/file1.js').then(jest.fn()).catch(function (reason) {
             expect(reason).toBeDefined();
-            done(); // eslint-diable-line promise/no-callback-in-promise
+            done(); // eslint-disable-line promise/no-callback-in-promise
         });
     });
     it('should read a file sync', function () {

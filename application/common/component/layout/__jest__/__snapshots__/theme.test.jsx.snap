@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`common/component/layout/theme should render correctly 1`] = `"Theme Children"`;
+
+exports[`common/component/layout/theme should render correctly 2`] = `"Theme Children"`;

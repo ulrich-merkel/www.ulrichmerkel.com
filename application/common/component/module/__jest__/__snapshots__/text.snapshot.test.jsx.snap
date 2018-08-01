@@ -28,11 +28,10 @@ exports[`common/component/module/text should render correctly 1`] = `
     className="m-text__link is-centered"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link"
       href="/bar"
       onClick={[Function]}
-      style={undefined}
       tabIndex="0"
       title="Link title"
     >
@@ -73,11 +72,10 @@ exports[`common/component/module/text should render no itemType if unset 1`] = `
     className="m-text__link is-centered"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link"
       href="/bar"
       onClick={[Function]}
-      style={undefined}
       tabIndex="0"
       title="Link title"
     >

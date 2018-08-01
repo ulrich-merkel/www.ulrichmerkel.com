@@ -4,13 +4,11 @@ exports[`common/component/element/input should call passed callbacks 1`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
-  itemProp={undefined}
   name="input-callbacks"
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
   placeholder=""
   type="text"
-  value={undefined}
 />
 `;
 
@@ -18,19 +16,23 @@ exports[`common/component/element/input should call passed callbacks 2`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
-  itemProp={undefined}
   name="input-callbacks"
   onBlur={
     [MockFunction] {
       "calls": Array [
         Array [],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   onChange={[MockFunction]}
   placeholder=""
   type="text"
-  value={undefined}
 />
 `;
 
@@ -38,12 +40,17 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
 <input
   className="m-form__control--text"
   id="input-callbacks"
-  itemProp={undefined}
   name="input-callbacks"
   onBlur={
     [MockFunction] {
       "calls": Array [
         Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
       ],
     }
   }
@@ -52,11 +59,16 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
       "calls": Array [
         Array [],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   placeholder=""
   type="text"
-  value={undefined}
 />
 `;
 
@@ -66,7 +78,6 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
-  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
@@ -83,7 +94,6 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
-  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}
@@ -100,7 +110,6 @@ exports[`common/component/element/input should render correctly with default cal
   className="m-form__control--text input"
   classNameLabel="input-label"
   id="input"
-  itemProp={undefined}
   name="input"
   onBlur={[Function]}
   onChange={[Function]}

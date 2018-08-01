@@ -21,7 +21,7 @@ import {
 } from '../actions';
 
 // const mockStore = configureMockStore([thunk]);
-Date.now = jest.genMockFunction().mockReturnValue(1234567890);
+Date.now = jest.fn().mockReturnValue(1234567890);
 
 describe('common/state/config/actions', function () {
     describe('addConfigContent', function () {

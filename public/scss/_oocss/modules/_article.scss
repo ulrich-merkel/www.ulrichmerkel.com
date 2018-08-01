@@ -7,7 +7,7 @@
 
 $block: '#{$config-ns}m-article';
 
-// above the fold css, visible without scrolling
+// Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
 
     // defaults

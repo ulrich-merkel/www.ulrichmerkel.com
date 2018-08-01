@@ -20,12 +20,11 @@ exports[`common/component/module/form/contact should render a success message 1`
       className="c-type--p"
     >
       <a
-        aria-current={false}
+        aria-current={null}
         className="c-btn is-centered c-btn--large"
         href="/contact"
         onClick={[Function]}
         role="button"
-        style={undefined}
         title="btnRenewTitle"
         type={null}
       >
@@ -60,12 +59,11 @@ exports[`common/component/module/form/contact should render an error message 1`]
       className="c-type--p"
     >
       <a
-        aria-current={false}
+        aria-current={null}
         className="c-btn is-centered c-btn--large"
         href="/contact"
         onClick={[Function]}
         role="button"
-        style={undefined}
         title=""
         type={null}
       >
@@ -114,7 +112,6 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             aria-required={true}
             className="m-form__control--text"
             id="name"
-            itemProp={undefined}
             name="name"
             onBlur={[Function]}
             onChange={[Function]}
@@ -149,7 +146,6 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             aria-required={true}
             className="m-form__control--text"
             id="email"
-            itemProp={undefined}
             name="email"
             onBlur={[Function]}
             onChange={[Function]}
@@ -188,7 +184,6 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             aria-required={true}
             className="m-form__control--text"
             id="subject"
-            itemProp={undefined}
             name="subject"
             onBlur={[Function]}
             onChange={[Function]}
@@ -268,7 +263,6 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
             name="reset"
             role="button"
             title="btnResetTitle"
-            to={undefined}
             type="reset"
           >
             <span
@@ -286,12 +280,12 @@ exports[`common/component/module/form/contact should render correctly 1`] = `
           className="m-form__group m-form__group--submit hide-on-print"
         >
           <button
-            className="c-btn m-form__btn c-btn--submit c-btn--primary"
+            className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+            disabled="disabled"
             id="submit"
             name="submit"
             role="button"
             title="btnSubmitTitle"
-            to={undefined}
             type="submit"
           >
             <span
@@ -348,7 +342,6 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             aria-required={true}
             className="m-form__control--text"
             id="name"
-            itemProp={undefined}
             name="name"
             onBlur={[Function]}
             onChange={[Function]}
@@ -383,7 +376,6 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             aria-required={true}
             className="m-form__control--text"
             id="email"
-            itemProp={undefined}
             name="email"
             onBlur={[Function]}
             onChange={[Function]}
@@ -422,7 +414,6 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
             aria-required={true}
             className="m-form__control--text"
             id="subject"
-            itemProp={undefined}
             name="subject"
             onBlur={[Function]}
             onChange={[Function]}
@@ -497,13 +488,11 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
           className="m-form__group m-form__group--reset hide-on-print"
         >
           <button
-            className="c-btn m-form__btn c-btn--secondary is-disabled"
-            disabled="disabled"
+            className="c-btn m-form__btn c-btn--secondary"
             id="reset"
             name="reset"
             role="button"
             title="btnResetTitle"
-            to={undefined}
             type="reset"
           >
             <span
@@ -521,12 +510,12 @@ exports[`common/component/module/form/contact should render correctly 2`] = `
           className="m-form__group m-form__group--submit hide-on-print"
         >
           <button
-            className="c-btn is-pending m-form__btn c-btn--submit c-btn--primary"
+            className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+            disabled="disabled"
             id="submit"
             name="submit"
             role="button"
             title="btnSubmitTitle"
-            to={undefined}
             type="submit"
           >
             <span

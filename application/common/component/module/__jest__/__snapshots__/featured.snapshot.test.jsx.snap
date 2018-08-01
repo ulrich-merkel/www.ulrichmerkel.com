@@ -14,11 +14,10 @@ exports[`common/component/module/featured should render correctly 1`] = `
     itemType="http://schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-featured__item"
       href="/work/path/"
       onClick={[Function]}
-      style={undefined}
       tabIndex="0"
       title="headline"
     >
@@ -63,11 +62,10 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
     itemType="http://schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={false}
+      aria-current={null}
       className="c-link m-featured__item"
       href="/work/path/"
       onClick={[Function]}
-      style={undefined}
       tabIndex="0"
       title="headline"
     >
