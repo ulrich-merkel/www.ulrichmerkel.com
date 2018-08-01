@@ -96,6 +96,7 @@
     "test:node-version": "node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
     "test:npm-version": "node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:nsp": "nsp check; exit 0;",
+    "test:optional:jest": "cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/jest.config-shutter.js --maxWorkers=4",
     "test:optional:audit": "npm audit; exit 0;",
     "test:optional:e2e": "nightwatch -c $npm_package_directories_config/nightwatch/nightwatch.config.js",
     "test:optional:flow": "flow check; test $? -eq 0 -o $? -eq 2",
