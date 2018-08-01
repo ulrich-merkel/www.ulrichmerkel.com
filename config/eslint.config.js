@@ -13,7 +13,6 @@ module.exports = {
     'extends': [
         'airbnb',
         'eslint:recommended',
-        'plugin:fp/recommended',
         'plugin:lodash/recommended',
         'plugin:react/recommended'
     ],
@@ -28,7 +27,6 @@ module.exports = {
     'plugins': [
         'compat',
         'flowtype',
-        'fp',
         'immutable',
         'import',
         'jest',
