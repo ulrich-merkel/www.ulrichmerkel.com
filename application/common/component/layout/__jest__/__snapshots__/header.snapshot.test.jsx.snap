@@ -86,7 +86,7 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemType="http://www.schema.org/SiteNavigationElement"
             >
               <a
-                aria-current={false}
+                aria-current={null}
                 className="c-link m-menu__item--search c-btn--small c-btn--clear"
                 href="/search"
                 onClick={[Function]}
@@ -110,7 +110,7 @@ exports[`common/component/layout/header should render correctly 1`] = `
               itemType="http://www.schema.org/SiteNavigationElement"
             >
               <a
-                aria-current={false}
+                aria-current={null}
                 className="c-link m-menu__item--theme c-btn--small c-btn--clear"
                 href="/theme"
                 onClick={[Function]}

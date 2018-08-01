@@ -20,7 +20,7 @@ exports[`common/component/module/form/contact should render a success message 1`
       className="c-type--p"
     >
       <a
-        aria-current={false}
+        aria-current={null}
         className="c-btn is-centered c-btn--large"
         href="/contact"
         onClick={[Function]}
@@ -59,7 +59,7 @@ exports[`common/component/module/form/contact should render an error message 1`]
       className="c-type--p"
     >
       <a
-        aria-current={false}
+        aria-current={null}
         className="c-btn is-centered c-btn--large"
         href="/contact"
         onClick={[Function]}
