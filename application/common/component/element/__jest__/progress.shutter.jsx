@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import createReactShutter from '@shutter/react';
 import { render } from '../../__mocks__/shutter';
