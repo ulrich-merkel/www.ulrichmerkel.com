@@ -9,7 +9,8 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
- * @requires common/utils/logger
+ * @requires common/config/application
+ * @requires common/utils/date
  *
  * @see {@link https://serviceworke.rs/strategy-cache-and-update_service-worker_doc.html}
  * @see {@link https://classroom.udacity.com/courses/ud899}
@@ -27,7 +28,6 @@
  * - 0.0.2 Improve bypass handling
  * - 0.0.1 Basic functions and structure
  */
-import logger from '../common/utils/logger';
 import configApplication from '../common/config/application';
 import { getDateNow } from '../common/utils/date';
 
@@ -64,7 +64,7 @@ function getTimeStamp() {
  * @returns {void}
  */
 function handleError(reason) {
-    logger.warn(reason); // eslint-disable-line no-console
+    console.warn(reason); // eslint-disable-line no-console
 }
 
 /**
@@ -237,15 +237,19 @@ function onFetch(event) {
     if (isHandledByServiceWorker(request)) {
         // Try to always serve html from server
         if (PREFER_FETCH.includes(acceptHeader)) {
-            return fetchAndCache(request).catch(function catchFromCache() {
-                return fromCache(request);
-            });
+            return event.respondWith(
+                fetchAndCache(request).catch(function catchFromCache() {
+                    return fromCache(request);
+                })
+            );
         }
 
         // Try to serve from cache first
-        return event.respondWith(fromCache(request).catch(function catchFromCache() {
-            return fetchAndCache(request);
-        }));
+        return event.respondWith(
+            fromCache(request).catch(function catchFromCache() {
+                return fetchAndCache(request);
+            })
+        );
     }
 }
 

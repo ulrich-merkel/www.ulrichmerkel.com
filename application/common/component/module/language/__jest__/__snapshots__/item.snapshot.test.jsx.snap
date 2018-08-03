@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`common/component/module/language/item should render correctly 1`] = `
-<div
+<li
   className="l-grid__col--4"
   itemProp="itemListElement"
   itemScope={true}
   itemType="https://schema.org/Language"
+  role="listitem"
 >
   <div
     className="c-box"
@@ -48,5 +49,5 @@ exports[`common/component/module/language/item should render correctly 1`] = `
       itemProp="name"
     />
   </div>
-</div>
+</li>
 `;

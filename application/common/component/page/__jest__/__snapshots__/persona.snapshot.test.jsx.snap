@@ -46,7 +46,6 @@ exports[`common/component/page/persona should render correctly 1`] = `
               >
                 <div
                   className="m-text"
-                  role="list"
                 >
                   <div
                     className="m-text__block"
@@ -1200,11 +1199,12 @@ exports[`common/component/page/persona should render correctly 1`] = `
                   itemType="https://schema.org/ItemList"
                   role="list"
                 >
-                  <div
+                  <li
                     className="l-grid__col--4"
                     itemProp="itemListElement"
                     itemScope={true}
                     itemType="https://schema.org/Language"
+                    role="listitem"
                   >
                     <div
                       className="c-box"
@@ -1247,12 +1247,13 @@ exports[`common/component/page/persona should render correctly 1`] = `
                         itemProp="name"
                       />
                     </div>
-                  </div>
-                  <div
+                  </li>
+                  <li
                     className="l-grid__col--4"
                     itemProp="itemListElement"
                     itemScope={true}
                     itemType="https://schema.org/Language"
+                    role="listitem"
                   >
                     <div
                       className="c-box"
@@ -1295,12 +1296,13 @@ exports[`common/component/page/persona should render correctly 1`] = `
                         itemProp="name"
                       />
                     </div>
-                  </div>
-                  <div
+                  </li>
+                  <li
                     className="l-grid__col--4"
                     itemProp="itemListElement"
                     itemScope={true}
                     itemType="https://schema.org/Language"
+                    role="listitem"
                   >
                     <div
                       className="c-box"
@@ -1343,7 +1345,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                         itemProp="name"
                       />
                     </div>
-                  </div>
+                  </li>
                 </ul>
               </div>
               <meta

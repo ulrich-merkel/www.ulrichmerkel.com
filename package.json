@@ -247,6 +247,7 @@
     "rimraf": "2.6.2",
     "sassdoc": "2.5.0",
     "selenium-server": "3.13.0",
+    "service-worker-mock": "1.9.2",
     "sharp": "0.20.5",
     "shutter": "0.2.1",
     "sinon": "6.1.3",

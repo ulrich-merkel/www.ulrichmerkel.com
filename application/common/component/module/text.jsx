@@ -188,7 +188,6 @@ class ModuleText extends Component {
         return (
             <ComponentType
                 className={componentClassName}
-                role='list'
                 {...componentSchema}
             >
                 {content.text.map((value) => {
