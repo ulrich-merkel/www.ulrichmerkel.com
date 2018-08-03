@@ -78,7 +78,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current="true"
+                  aria-current="page"
                   className="c-link m-menu__item is-active"
                   href="/"
                   itemProp="url"
@@ -103,7 +103,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item"
                   href="/persona"
                   itemProp="url"
@@ -127,7 +127,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item"
                   href="/contact"
                   itemProp="url"
@@ -200,7 +200,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
                   href="/search"
                   onClick={[Function]}
@@ -224,7 +224,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={false}
+                  aria-current={null}
                   className="c-link m-menu__item--theme c-btn--small c-btn--clear"
                   href="/theme"
                   onClick={[Function]}
@@ -455,9 +455,9 @@ Array [
                   className="is-centered c-type--p m-article__button hide-on-print"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-btn"
-                    href="persona"
+                    href="/persona"
                     onClick={[Function]}
                     role="button"
                     title="See my resume"
@@ -724,7 +724,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/optik-ludewig"
                       onClick={[Function]}
@@ -872,7 +872,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/summer-inspiration"
                       onClick={[Function]}
@@ -1020,7 +1020,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/momentariness"
                       onClick={[Function]}
@@ -1168,7 +1168,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/lebenswelt-schule"
                       onClick={[Function]}
@@ -1316,7 +1316,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/revolution"
                       onClick={[Function]}
@@ -1464,7 +1464,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/verlegeservice-bunge"
                       onClick={[Function]}
@@ -1612,7 +1612,7 @@ Array [
                     itemType="http://schema.org/SiteNavigationElement"
                   >
                     <a
-                      aria-current={false}
+                      aria-current={null}
                       className="c-link m-featured__item"
                       href="/work/gedanken-kollektiv"
                       onClick={[Function]}
@@ -1813,7 +1813,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/disclaimer"
                     itemProp="url"
@@ -1837,7 +1837,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/imprint"
                     itemProp="url"
@@ -1861,7 +1861,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={false}
+                    aria-current={null}
                     className="c-link m-menu__item"
                     href="/privacy"
                     itemProp="url"

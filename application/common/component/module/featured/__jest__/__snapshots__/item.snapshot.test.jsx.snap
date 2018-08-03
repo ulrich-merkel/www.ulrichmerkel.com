@@ -8,7 +8,7 @@ exports[`common/component/module/featured/item should render correctly 1`] = `
   itemType="http://schema.org/SiteNavigationElement"
 >
   <a
-    aria-current={false}
+    aria-current={null}
     className="c-link m-featured__item"
     href="/work//work/test"
     onClick={[Function]}
