@@ -14,7 +14,7 @@ exports[`common/component/module/featured should render correctly 1`] = `
     itemType="http://schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={null}
+      aria-current={false}
       className="c-link m-featured__item"
       href="/work/path/"
       onClick={[Function]}
@@ -62,7 +62,7 @@ exports[`common/component/module/featured should render no itemType if unset 1`]
     itemType="http://schema.org/SiteNavigationElement"
   >
     <a
-      aria-current={null}
+      aria-current={false}
       className="c-link m-featured__item"
       href="/work/path/"
       onClick={[Function]}

@@ -78,7 +78,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current="page"
+                  aria-current="true"
                   className="c-link m-menu__item is-active"
                   href="/"
                   itemProp="url"
@@ -103,7 +103,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={null}
+                  aria-current={false}
                   className="c-link m-menu__item"
                   href="/persona"
                   itemProp="url"
@@ -127,7 +127,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={null}
+                  aria-current={false}
                   className="c-link m-menu__item"
                   href="/contact"
                   itemProp="url"
@@ -200,7 +200,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={null}
+                  aria-current={false}
                   className="c-link m-menu__item--search c-btn--small c-btn--clear"
                   href="/search"
                   onClick={[Function]}
@@ -224,7 +224,7 @@ Array [
                 itemType="http://www.schema.org/SiteNavigationElement"
               >
                 <a
-                  aria-current={null}
+                  aria-current={false}
                   className="c-link m-menu__item--theme c-btn--small c-btn--clear"
                   href="/theme"
                   onClick={[Function]}
@@ -296,7 +296,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-menu__item"
                     href="/disclaimer"
                     itemProp="url"
@@ -320,7 +320,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-menu__item"
                     href="/imprint"
                     itemProp="url"
@@ -344,7 +344,7 @@ Array [
                   itemType="http://www.schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-menu__item"
                     href="/privacy"
                     itemProp="url"
