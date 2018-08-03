@@ -4,7 +4,7 @@ import createReactShutter from '@shutter/react';
 import { render } from '../../__mocks__/shutter';
 import Headline from '../headline';
 
-describe('common/component/element/form', function () {
+describe('common/component/element/headline', function () {
     const shutter = createReactShutter(__dirname, { render });
 
     afterAll(async function () {
