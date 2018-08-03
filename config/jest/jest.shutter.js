@@ -4,7 +4,7 @@
 module.exports = {
     'rootDir': '../../',
     'bail': true,
-    'testRegex': '(/__jest__/.*|(\\.|/)(.shutter))\\.jsx?$',
+    'testRegex': '(/__shutter__/.*|(\\.|/)(test|spec))\\.jsx?$',
     'testPathIgnorePatterns': [
         '<rootDir>/(build|docs|node_modules)/'
     ],
