@@ -209,9 +209,9 @@ exports[`common/component/page/home should render correctly 1`] = `
                 className="is-centered c-type--p m-article__button hide-on-print"
               >
                 <a
-                  aria-current={null}
+                  aria-current={false}
                   className="c-btn"
-                  href="/persona"
+                  href="persona"
                   onClick={[Function]}
                   role="button"
                   title="See my resume"
@@ -478,7 +478,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/optik-ludewig"
                     onClick={[Function]}
@@ -626,7 +626,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/summer-inspiration"
                     onClick={[Function]}
@@ -774,7 +774,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/momentariness"
                     onClick={[Function]}
@@ -922,7 +922,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/lebenswelt-schule"
                     onClick={[Function]}
@@ -1070,7 +1070,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/revolution"
                     onClick={[Function]}
@@ -1218,7 +1218,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/verlegeservice-bunge"
                     onClick={[Function]}
@@ -1366,7 +1366,7 @@ exports[`common/component/page/home should render correctly 1`] = `
                   itemType="http://schema.org/SiteNavigationElement"
                 >
                   <a
-                    aria-current={null}
+                    aria-current={false}
                     className="c-link m-featured__item"
                     href="/work/gedanken-kollektiv"
                     onClick={[Function]}
