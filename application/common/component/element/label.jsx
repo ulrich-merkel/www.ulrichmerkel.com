@@ -47,7 +47,7 @@ function ElementLabel(props) {
     );
 
     return (
-        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} /> // eslint-disable-line jsx-a11y/label-has-for
+        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} /> // eslint-disable-line jsx-a11y/label-has-for,  jsx-a11y/label-has-associated-control
     );
 }
 
