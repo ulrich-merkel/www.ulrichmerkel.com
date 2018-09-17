@@ -114,20 +114,20 @@ class LayoutBody extends Component {
                     handleScrollTop={handleScrollTop}
                 />
                 <LayoutDialogConnected
+                    className='l-dialog--search'
                     page={STATE_DIALOG_PAGE_SEARCH}
-                    isSearch
                 >
                     <PageSearch isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
+                    className='l-dialog--broadcast'
                     page={STATE_DIALOG_PAGE_BROADCAST}
-                    isBroadcast
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
+                    className='l-dialog--theme'
                     page={STATE_DIALOG_PAGE_THEME}
-                    isBroadcast
                 >
                     <PageTheme isDialog />
                 </LayoutDialogConnected>

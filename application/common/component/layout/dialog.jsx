@@ -118,9 +118,10 @@ class LayoutDialog extends Component {
      * @returns {void}
      */
     onKeyDown(event) {
+        const { onClose } = this.props;
+
         if (event && event.keyCode === 27) {
-            // eslint-disable-next-line react/destructuring-assignment
-            this.props.onClose();
+            onClose();
         }
     }
 
@@ -136,8 +137,6 @@ class LayoutDialog extends Component {
             content,
             dialogPage,
             dialogVisible,
-            isBroadcast,
-            isSearch,
             onClose,
             page
         } = this.props;
@@ -148,10 +147,7 @@ class LayoutDialog extends Component {
 
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
-        const composedClassName = classnames('l-dialog', className, {
-            'l-dialog--broadcast': isBroadcast,
-            'l-dialog--search': isSearch
-        });
+        const composedClassName = classnames('l-dialog', className);
 
         return (
             <dialog className={composedClassName} role='presentation'>
@@ -203,8 +199,6 @@ LayoutDialog.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
-    isBroadcast: PropTypes.bool,
-    isSearch: PropTypes.bool,
     content: PropTypes.objectOf(PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
@@ -224,8 +218,6 @@ LayoutDialog.defaultProps = {
     onClose: Function.prototype,
     dialogPage: '',
     dialogVisible: false,
-    isBroadcast: false,
-    isSearch: false,
     content: {},
     page: ''
 };
