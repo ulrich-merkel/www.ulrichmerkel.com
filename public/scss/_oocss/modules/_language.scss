@@ -15,6 +15,7 @@ $block: '#{$config-ns}m-language';
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
         overflow: hidden;
+        list-style: none;
     }
 
 }

@@ -1,31 +1,32 @@
-/**
- * "transform-react-inline-elements" is not possible due to ie11
- * "transform-react-constant-elements" produces errors while NODE_ENV=production in npm script
- */
 {
     "presets": [
-        "stage-0",
-        "es2015",
-        "react"
+        "@babel/preset-env",
+        "@babel/preset-react"
     ],
     "plugins": [
-        "transform-object-assign",
-        "transform-flow-strip-types"
+        ["@babel/plugin-proposal-class-properties"],
+        ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": false }],
+        ["@babel/plugin-proposal-do-expressions"],
+        ["@babel/plugin-proposal-export-default-from"],
+        ["@babel/plugin-proposal-export-namespace-from"],
+        ["@babel/plugin-proposal-function-bind"],
+        ["@babel/plugin-proposal-function-sent"],
+        ["@babel/plugin-proposal-json-strings"],
+        ["@babel/plugin-proposal-logical-assignment-operators"],
+        ["@babel/plugin-proposal-nullish-coalescing-operator"],
+        ["@babel/plugin-proposal-numeric-separator"],
+        ["@babel/plugin-proposal-optional-chaining"],
+        ["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }],
+        ["@babel/plugin-proposal-throw-expressions"],
+        ["@babel/plugin-syntax-dynamic-import"],
+        ["@babel/plugin-syntax-import-meta"],
+        ["@babel/plugin-transform-flow-strip-types"],
+        ["@babel/plugin-transform-object-assign"]
     ],
     "ignore": [
         "**/__jest__/",
         "**/__mocks__/",
         "**/__tests__/"
     ],
-    "sourceMaps": true,
-    "env": {
-        "modules": false,
-        "production": {
-            "plugins": [
-                "lodash",
-                "transform-decorators-legacy",
-                "transform-react-remove-prop-types"
-            ]
-        }
-    }
+    "sourceMaps": true
 }
