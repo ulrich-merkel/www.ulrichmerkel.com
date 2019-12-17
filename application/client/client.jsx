@@ -42,7 +42,7 @@
  * - 0.0.2 Rewritten for es2015
  * - 0.0.1 Basic functions and structure
  */
-import 'babel-polyfill';
+import '@babel/polyfill';
 import '../common/vendor/polyfill/console';
 import '../common/vendor/polyfill/requestAnimationFrame';
 import '../common/vendor/polyfill/CustomEvent';
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function handleEvent() {
 }, false);
 
 /**
- * Add pubsub messaging to decouple common and client code for add theming
+ * Add pubsub messaging to decouple common and client code for adding theming.
  * 
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
@@ -115,7 +115,9 @@ PubSub.subscribe(THEME_CHANGE_MESSAGE, function (message, theme) {
  * @returns {ReactElement} React component markup
  */
 function createElement(Component, props) {
-    return <Component {...props} />;
+    return (
+        <Component {...props} />
+    );
 }
 
 /**
