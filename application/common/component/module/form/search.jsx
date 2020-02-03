@@ -58,7 +58,7 @@ import {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleFormSearch(props) {
@@ -111,18 +111,18 @@ function ModuleFormSearch(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [content....] - Translated string for element legend
- * @property {Object} [storeState={}] - The redux contact state
+ * @property {object} [storeState={}] - The redux contact state
  * @property {Function} [handleContactChange=Function.prototype] - Action handler for redux contact state
  * @property {string} [routerState] - The current router params
  * @property {string} [csrfToken=''] - The csrf token for validation
  */
 ModuleFormSearch.propTypes = {
-    /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
+        inputTerm: PropTypes.string,
+        legend: PropTypes.string
     }),
-    /* eslint-enable react/no-unused-prop-types */
     searchTerm: PropTypes.string,
     handleSearchChangeTerm: PropTypes.func,
     csrfToken: PropTypes.string
@@ -132,7 +132,7 @@ ModuleFormSearch.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleFormContact.propTypes
  */
 ModuleFormSearch.defaultProps = {
@@ -149,9 +149,9 @@ ModuleFormSearch.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} ownProps - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} ownProps - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {
@@ -170,7 +170,7 @@ function mapStateToProps(state, ownProps) {
  * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
- * @returns {Object}
+ * @returns {object}
  */
 function mapDispatchToProps(dispatch) {
     return {

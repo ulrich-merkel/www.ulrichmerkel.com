@@ -22,7 +22,7 @@ const EVENT_STOP_PROPAGATION = 'eventStopPropagation';
  * with the function needed to be called.
  *
  * @private
- * @param {Object} event - The current event object
+ * @param {object} event - The current event object
  * @param {Function} functionToCall - The event function to be checked
  * @returns {boolean} Whether this is a valid event
  */
@@ -33,7 +33,7 @@ function isValidEvent(event, functionToCall) {
 /**
  * Handle form submit event.
  *
- * @param {Object} event - The current event object
+ * @param {object} event - The current event object
  * @returns {void}
  */
 function eventPreventDefault(event) {
@@ -45,7 +45,7 @@ function eventPreventDefault(event) {
 /**
  * Handle form submit event.
  *
- * @param {Object} event - The current event object
+ * @param {object} event - The current event object
  * @returns {void}
  */
 function eventStopPropagation(event) {

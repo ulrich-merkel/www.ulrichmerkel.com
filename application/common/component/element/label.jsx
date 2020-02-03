@@ -24,7 +24,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.htmlFor] - The label for attribute
  * @param {string} [props.className] - The label css class names, will be merged into component default classNames
  * @param {boolean} [props.isVisuallyHidden] - Whether the label is visually hidden or not
@@ -47,7 +47,8 @@ function ElementLabel(props) {
     );
 
     return (
-        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} /> // eslint-disable-line jsx-a11y/label-has-for,  jsx-a11y/label-has-associated-control
+        // eslint-disable-next-line react/jsx-props-no-spreading, jsx-a11y/label-has-for,  jsx-a11y/label-has-associated-control
+        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} />
     );
 }
 
@@ -55,7 +56,7 @@ function ElementLabel(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementLabel.propTypes = {
     htmlFor: PropTypes.string.isRequired,
@@ -67,7 +68,7 @@ ElementLabel.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementLabel.defaultProps = {
     isVisuallyHidden: false

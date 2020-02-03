@@ -82,7 +82,7 @@ const childRoutes = [
  * We use this type of notation to allow locale based routing (e.g. contact/ and
  * de/contact/) ro improve SEO, so a new locale could be easily added here.
  *
- * @type {Object}
+ * @type {object}
  */
 const configRoutes = {
     path: `${url.home}`,

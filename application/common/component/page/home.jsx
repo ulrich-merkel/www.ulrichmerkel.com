@@ -46,7 +46,7 @@ import SectionFeatured from '../section/featured';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PageHome(props) {
@@ -68,8 +68,8 @@ function PageHome(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
- * @property {Object} [content={}] - The component translation config
+ * @type {object}
+ * @property {object} [content={}] - The component translation config
  */
 PageHome.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -84,7 +84,7 @@ PageHome.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see PageHome.propTypes
  */
 PageHome.defaultProps = {

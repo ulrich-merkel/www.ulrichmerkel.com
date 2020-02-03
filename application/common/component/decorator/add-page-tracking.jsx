@@ -35,7 +35,7 @@ function addPageTracking(SourceComponent) {
     /**
      * Wrapper class to connect to redux and handle tracking action.
      *
-     * @extends React.Component
+     * @augments React.Component
      * @property {Function} props.handleAddPageView - Trigger page view increment
      */
     class AddPageTracking extends Component {
@@ -57,6 +57,7 @@ function addPageTracking(SourceComponent) {
          * @returns {ReactElement} React component markup
          */
         render() {
+            // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
 
@@ -66,7 +67,7 @@ function addPageTracking(SourceComponent) {
      * Validate props via React.PropTypes helpers.
      *
      * @static
-     * @type {Object}
+     * @type {object}
      */
     AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired

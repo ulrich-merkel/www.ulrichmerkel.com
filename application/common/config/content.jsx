@@ -15,12 +15,14 @@
  */
 import pictureSizes from './pictures';
 
-const { sizes: {
-    keyvisual: pictureSizesKeyvisual,
-    keyvisualWork: pictureSizesKeyvisualWork,
-    keyvisualWorkPrint: pictureSizesKeyvisualWorkPrint,
-    featured: pictureSizesFeatured
-} } = pictureSizes;
+const {
+    sizes: {
+        keyvisual: pictureSizesKeyvisual,
+        keyvisualWork: pictureSizesKeyvisualWork,
+        keyvisualWorkPrint: pictureSizesKeyvisualWorkPrint,
+        featured: pictureSizesFeatured
+    }
+} = pictureSizes;
 
 
 const AUTHOR = 'Ulrich Merkel';
@@ -117,7 +119,7 @@ const configFeatured = {
 };
 
 /**
- * @TODO: Improve broadcast string code, restructure/rename config entries:
+ * @TODO Improve broadcast string code, restructure/rename config entries:
  * {
  *    pages: {
  *        index: {},
@@ -279,7 +281,9 @@ const configContent = {
             // chrome pinned sites
             { rel: 'icon', sizes: '196x196', href: `${IMG_SHARE}icon@196x196.png` },
             // chrome for android
-            { rel: 'icon', sizes: '192x192', href: `${IMG_SHARE}icon@192x192.png`, type: 'image/png' },
+            {
+                rel: 'icon', sizes: '192x192', href: `${IMG_SHARE}icon@192x192.png`, type: 'image/png'
+            },
             // favicon
             { rel: 'shortcut icon', href: `${IMG_SHARE}favicon.ico`, type: 'image/x-icon' },
             // social microformats

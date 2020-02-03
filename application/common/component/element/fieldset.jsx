@@ -23,7 +23,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
@@ -39,6 +39,7 @@ function ElementFieldset(props) {
     );
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <fieldset className={componentClassName} {...otherProps} />
     );
 }
@@ -47,7 +48,7 @@ function ElementFieldset(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementFieldset.propTypes = {
     className: PropTypes.string // eslint-disable-line react/require-default-props

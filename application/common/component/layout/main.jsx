@@ -25,7 +25,7 @@ import PropTypes from 'prop-types';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component react children
  * @returns {ReactElement} React component markup
  */
@@ -47,7 +47,7 @@ function LayoutMain(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutMain.propTypes = {
     children: PropTypes.node // eslint-disable-line react/require-default-props

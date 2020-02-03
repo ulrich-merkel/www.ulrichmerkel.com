@@ -30,7 +30,7 @@ import classnames from 'classnames';
  * @returns {string} The source element's type description
  */
 function getType(ext) {
-    switch(ext) {
+    switch (ext) {
     case 'jpg':
         return 'image/jpeg';
     default:
@@ -41,7 +41,7 @@ function getType(ext) {
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {string} props.ext - The image extension (jpg, png)
  * @param {string} props.name - The image name
  * @param {string} props.path - The image path (folder)
@@ -92,7 +92,7 @@ function ElementPictureSource(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementPictureSource.propTypes = {
     ext: PropTypes.oneOf([

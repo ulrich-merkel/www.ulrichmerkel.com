@@ -44,9 +44,9 @@ import {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs (usally an array of components), if there is only a single child it's a string
- * @param {Object} [props.page] - The redux page state
+ * @param {object} [props.page] - The redux page state
  * @returns {ReactElement} React component markup
  */
 function SectionCommonGrid(props) {
@@ -72,7 +72,7 @@ function SectionCommonGrid(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 SectionCommonGrid.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -85,8 +85,8 @@ SectionCommonGrid.propTypes = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @returns {object}
  */
 function mapStateToProps(state) {
     return {

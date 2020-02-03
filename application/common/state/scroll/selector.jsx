@@ -26,7 +26,7 @@ import { defaultState } from './reducer';
  * Select scroll headerFixed state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
 const selectStateScrollHeaderFixed = createSelector(
@@ -42,7 +42,7 @@ const selectStateScrollHeaderFixed = createSelector(
  * Select scroll headerVisible state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
 const selectStateScrollHeaderVisible = createSelector(

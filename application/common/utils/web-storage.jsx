@@ -1,5 +1,4 @@
 /* eslint-disable immutable/no-mutation */
-/* global localStorage */
 /**
  * Es6 module for helper component.
  *

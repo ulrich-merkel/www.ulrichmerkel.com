@@ -21,7 +21,7 @@ import { createSelector } from 'reselect';
  * Select csrf state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {string} The csrf token if found or en empty string
  */
 const selectStateCsrfToken = createSelector(

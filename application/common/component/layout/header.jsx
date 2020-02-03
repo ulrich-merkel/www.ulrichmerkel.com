@@ -78,13 +78,13 @@ import {
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
  * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
  * @param {Array.<string>} props.intlAvailableLocales - All available locale strings
  * @param {string} props.intlLocale - The current locale string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
- * @param {Object} [props.content={}] - The component content config
+ * @param {object} [props.content={}] - The component content config
  * @param {boolean} [props.headerFixed] - Whether the navigation bar is sticky/ficked or not
  * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @returns {ReactElement} React component markup
@@ -148,7 +148,7 @@ function LayoutHeader(props) {
                                 content={contentSection('menu.main')}
                             />
 
-                            {/* @TODO: should be separated into own component, extend component menu, map available locales */}
+                            {/* @TODO should be separated into own component, extend component menu, map available locales */}
                             <ul
                                 className={menuAsideClassName}
                                 role='menu'
@@ -236,7 +236,7 @@ function LayoutHeader(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
@@ -256,7 +256,7 @@ LayoutHeader.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHeader.defaultProps = {
     content: {}
@@ -268,9 +268,9 @@ LayoutHeader.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} [ownProps] - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {
@@ -289,19 +289,19 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @param {Function} dispatch - The redux store dispatch function
- * @returns {Object}
+ * @returns {object}
  */
 function mapDispatchToProps(dispatch) {
     return {
-        handleIntlChangeLocale: function (event) {
+        handleIntlChangeLocale(event) {
             eventPreventDefault(event);
             dispatch(changeLocale(get(event, 'target.dataset.locale')));
         },
-        handleChangeDialogVisibleSearch: function (event) {
+        handleChangeDialogVisibleSearch(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisibleSearch(true));
         },
-        handleChangeDialogVisibleTheme: function (event) {
+        handleChangeDialogVisibleTheme(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisibleTheme(true));
         }

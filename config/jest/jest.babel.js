@@ -1,15 +1,15 @@
 /* eslint-disable immutable/no-mutation */
-'use strict';
+
 
 module.exports = {
     // Don't try to find .babelrc because we want to force this configuration.
-    'babelrc': false,
-    'presets': [
+    babelrc: false,
+    presets: [
         'stage-0',
         'es2015',
         'react'
     ],
-    'plugins': [
+    plugins: [
         'transform-object-assign'
     ]
 };

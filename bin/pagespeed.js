@@ -59,7 +59,7 @@ function existsSync(filePath) {
 /**
  * Get builded server entry.
  *
- * @todo: Check if file exists
+ * @TODO Check if file exists
  *
  * @private
  * @param {string} serverPath - The ready-to-use server file path
@@ -85,7 +85,7 @@ function runPageSpeedInsights(url) {
     assert.string(url, 'url');
     console.log(chalk.grey('Start PageSpeed Insights'));
 
-    // @TODO: Check if psi.output could be used again (removed due to non resolving promise)
+    // @TODO Check if psi.output could be used again (removed due to non resolving promise)
     return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
         console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
         console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);
@@ -123,7 +123,7 @@ function main(serverPath, serverPort, callback) {
      * Handle async callback when ngrok opened the server.
      *
      * @private
-     * @param {Object} error - Tunnel error
+     * @param {object} error - Tunnel error
      * @param {string} url - The url to be opened
      * @returns {void}
      */

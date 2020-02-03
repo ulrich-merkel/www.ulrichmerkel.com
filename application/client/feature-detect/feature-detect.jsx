@@ -13,7 +13,7 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import { isBrowser } from  '../../common/utils/environment';
+import { isBrowser } from '../../common/utils/environment';
 import hasCssCustomProperties from './css-custom-properties';
 import hasTouchEvents from './touch-events';
 
@@ -25,11 +25,11 @@ import hasTouchEvents from './touch-events';
  */
 function featureDetect() {
     if (!isBrowser()) {
-        return false;
+        return;
     }
 
-    let classNamesToAdd = ['js'],
-        classNamesToRemove = ['no-js'];
+    const classNamesToAdd = ['js'];
+    const classNamesToRemove = ['no-js'];
 
     if (hasCssCustomProperties()) {
         classNamesToAdd.push('customproperties');

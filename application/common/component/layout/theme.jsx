@@ -21,7 +21,7 @@
  * - 0.0.1 Basic functions and structure
  */
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
@@ -31,7 +31,7 @@ import { selectStateThemeSelected } from '../../state/theme/selector';
 /**
  * Apply theming by added or removed custom css files.
  *
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.themeSelected - Current selected theme
  */
 class LayoutTheme extends Component {
@@ -50,7 +50,7 @@ class LayoutTheme extends Component {
      * Invoked immediately after the component's updates are flushed to
      * the DOM. This method is not called for the initial render.
      *
-     * @param {Object} prevProps - The old component properties
+     * @param {object} prevProps - The old component properties
      * @returns {void}
      */
     componentDidUpdate(prevProps) {
@@ -82,7 +82,7 @@ class LayoutTheme extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutTheme.propTypes = { // eslint-disable-line immutable/no-mutation
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -93,7 +93,7 @@ LayoutTheme.propTypes = { // eslint-disable-line immutable/no-mutation
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutTheme.defaultProps = { // eslint-disable-line immutable/no-mutation
     themeSelected: AVAILABLE_THEMES.DEFAULT
@@ -105,8 +105,8 @@ LayoutTheme.defaultProps = { // eslint-disable-line immutable/no-mutation
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object<string, *>} state - The current redux store state
- * @returns {Object<string, *>} The mapped state properties
+ * @param {object<string, *>} state - The current redux store state
+ * @returns {object<string, *>} The mapped state properties
  */
 function mapStateToProps(state) {
     return {
@@ -121,4 +121,3 @@ function mapStateToProps(state) {
 export default connect(
     mapStateToProps
 )(LayoutTheme);
-

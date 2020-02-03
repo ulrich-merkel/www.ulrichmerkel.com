@@ -40,7 +40,7 @@ import ModuleFormTheme from '../module/form/theme'; // eslint-disable-line impor
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PageTheme(props) {
@@ -70,9 +70,9 @@ function PageTheme(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {boolean} children
- * @property {Object} [content={}] - The component translation config
+ * @property {object} [content={}] - The component translation config
  * @property {boolean} isDialog
  */
 PageTheme.propTypes = {
@@ -90,7 +90,7 @@ PageTheme.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see PageSearch.propTypes
  */
 PageTheme.defaultProps = {

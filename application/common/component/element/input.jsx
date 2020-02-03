@@ -26,7 +26,7 @@ import classnames from 'classnames';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
  * @property {string} [props.className] - The input css class names - will be merged into component default classNames
@@ -84,6 +84,7 @@ class ElementInput extends Component {
                     placeholder
                 }}
                 {...requiredAttr}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...other}
             />
         );
@@ -95,7 +96,7 @@ class ElementInput extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementInput.propTypes = {
     id: PropTypes.string.isRequired,
@@ -114,7 +115,7 @@ ElementInput.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementInput.defaultProps = {
     onBlur: Function.prototype,

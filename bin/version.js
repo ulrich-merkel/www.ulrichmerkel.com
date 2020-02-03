@@ -9,7 +9,7 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  * @version 0.0.2
  *
- * @TODO: Use process.version, use more functions
+ * @TODO Use process.version, use more functions
  *
  * @requires minimist
  * @requires chalk
@@ -84,9 +84,10 @@ function getInstalledVersion(version) {
  * @returns {void}
  */
 function main(version, isNpm, isNode, swallow) {
+    // eslint-disable-next-line no-nested-ternary
     const plattform = isNpm
         ? 'npm'
-        : (isNode ? 'node' : ''); // eslint-disable-line no-nested-ternary
+        : (isNode ? 'node' : '');
     const installedVersion = getInstalledVersion(version);
     const packageVersion = getPackageVersion(isNpm, isNode);
 

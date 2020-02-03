@@ -21,7 +21,7 @@ import { isUndefined } from 'lodash';
 import { ADD_CSRF_TOKEN } from './constants';
 
 /**
- * @type {Object}
+ * @type {object}
  */
 export const defaultState = {
     token: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
@@ -32,9 +32,9 @@ export const defaultState = {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state=defaultState] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
 
@@ -45,7 +45,7 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case ADD_CSRF_TOKEN: {
-        const token = action.token;
+        const { token } = action;
         if (isUndefined(token)) {
             return state;
         }

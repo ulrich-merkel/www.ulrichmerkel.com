@@ -1,3 +1,4 @@
+// eslint-disable react/jsx-props-no-spreading
 /**
  * Es6 module for react server middleware.
  *
@@ -63,7 +64,7 @@ const { aboveTheFold } = configApplication;
  *
  * @private
  * @param {string} url - The router path url
- * @param {Object} store - The created redux store
+ * @param {object} store - The created redux store
  * @param {string} [cssBase=''] - The file contents from base.css
  * @param {string} [scriptBootstrap=''] - The file contents from loader.js
  * @returns {string} The rendered html string
@@ -80,8 +81,8 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
 
     return {
         html: renderToStaticMarkup(
-            <Root store={store}>
-                <LayoutHtml {... { store, cssBase, scriptBootstrap }}>
+            <Root {...{ store }}>
+                <LayoutHtml {...{ store, cssBase, scriptBootstrap }}>
                     <StaticRouter
                         context={context}
                         location={url}
@@ -91,7 +92,7 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
                 </LayoutHtml>
             </Root>
         ),
-        context: context
+        context
     };
 }
 
@@ -100,15 +101,15 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
  * express middleware and store the selection in redux.
  *
  * @private
- * @param {Object} req - The current request object
- * @param {Object} store - The complete redux store
+ * @param {object} req - The current request object
+ * @param {object} store - The complete redux store
  * @returns {string} The currently accepted locale
  */
 function getLocale(req, store) {
     assert.object(req, 'req');
     assert.object(store, 'store');
 
-    // @TODO: Read locale from router params
+    // @TODO Read locale from router params
     const urlLocale = get({}, 'router.params.locale', '');
     store.dispatch(changeLocale([
         urlLocale,
@@ -124,8 +125,8 @@ function getLocale(req, store) {
  * improve the overall node performance.
  *
  * @private
- * @param {Object} req - The current request object
- * @param {Object} store - The complete redux store
+ * @param {object} req - The current request object
+ * @param {object} store - The complete redux store
  * @param {string} acceptedLocale - The currently accepted locale
  * @returns {Promise} Async state when initial data is loaded
  */
@@ -147,8 +148,8 @@ function loadData(req, store, acceptedLocale) {
 /**
  * Handle react server rendering and react routering.
  *
- * @param {Object} req - The current request object
- * @param {Object} res - The result object
+ * @param {object} req - The current request object
+ * @param {object} res - The result object
  * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */

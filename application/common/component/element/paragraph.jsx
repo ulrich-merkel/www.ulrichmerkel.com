@@ -34,7 +34,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
  * @param {string} [props.htmlElement='p'] - The component element type used for React.createElement
@@ -61,6 +61,7 @@ function ElementParagraph(props) {
     );
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ComponentType className={componentClassName} {...otherProps} />
     );
 }
@@ -69,7 +70,7 @@ function ElementParagraph(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementParagraph.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -82,7 +83,7 @@ ElementParagraph.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementParagraph.defaultProps = {
     hasColumns2: false,

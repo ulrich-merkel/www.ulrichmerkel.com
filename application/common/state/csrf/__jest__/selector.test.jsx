@@ -4,15 +4,15 @@ import { selectStateCsrfToken } from '../selector';
 describe('common/state/contact/selector', function () {
     describe('selectStateCsrfToken', function () {
         it('should return the correct state', function () {
-            const state = Object.assign({}, {
+            const state = {
                 csrf: {
                     token: 'alsdkjaskh12i3uzhqwjk'
                 }
-            });
+            };
             expect(selectStateCsrfToken(state)).toEqual(state.csrf.token);
         });
         it('should return an empty string if state isn\'t found', function () {
-            const state = Object.assign({}, {
+            const state = {
                 foo: {
                     bar: 'lorem'
                 },
@@ -22,7 +22,7 @@ describe('common/state/contact/selector', function () {
                 csrf: {
                     foobar: 'test'
                 }
-            });
+            };
             expect(selectStateCsrfToken(state)).toEqual('');
         });
     });

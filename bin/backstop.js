@@ -42,7 +42,7 @@ const runMethod = argv.run || 'test';
  * Check if transpiled server file is avialable.
  *
  * @private
- * @returns {Object} - The ready-to-use server
+ * @returns {object} - The ready-to-use server
  */
 function getTranspiledServer() {
     if (!fs.existsSync(path.resolve(__dirname, serverFile))) { // eslint-disable-line security/detect-non-literal-fs-filename
@@ -71,7 +71,7 @@ class Backstop {
     /**
      * @constructs
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {void}
      */
@@ -102,7 +102,7 @@ class Backstop {
                 return;
             }
             if (this.runningServer) {
-                reject('Backstop server already running!');
+                reject(new Error('Backstop server already running!'));
                 return;
             }
             this.runningServer = getTranspiledServer()({}, (error) => {
@@ -128,7 +128,7 @@ class Backstop {
                 return;
             }
             if (!this.runningServer) {
-                reject('No backstop server running');
+                reject(new Error('No backstop server running'));
                 return;
             }
             this.runningServer.close(() => {
@@ -146,7 +146,7 @@ class Backstop {
      *
      * @private
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {Promise}
      */
@@ -158,10 +158,10 @@ class Backstop {
         if (METHODS[method]) {
             this.method = METHODS[method];
         }
-        this.options = Object.assign(
-            {},
-            options
-        );
+        this.options = {
+
+            ...options
+        };
         this.configFile = configFile;
 
         return this.startServer();
@@ -177,7 +177,7 @@ class Backstop {
     backstop(method) {
         assert.string(method, 'method');
 
-        const configFile = this.configFile;
+        const { configFile } = this;
         return new Promise((resolve, reject) => {
             backstopjs(method, { config: configFile })
                 .then(resolve)
@@ -257,7 +257,7 @@ class Backstop {
      * the current comparison in default browser.
      *
      * @private
-     * @param {Object} reason - The error message
+     * @param {object} reason - The error message
      * @returns {void}
      */
     fail(reason) {
@@ -277,7 +277,7 @@ class Backstop {
      *
      * @private
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {void}
      */

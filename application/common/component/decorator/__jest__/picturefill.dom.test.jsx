@@ -59,7 +59,7 @@ Picturefill children
         expect(global.picturefill).toHaveBeenCalled();
         expect(global.picturefill.mock.calls.length).toBe(1);
 
-        wrapper.setProps({bar: 'foo'});
+        wrapper.setProps({ bar: 'foo' });
         jest.runAllTimers();
         expect(global.picturefill).toHaveBeenCalled();
     });

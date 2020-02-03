@@ -32,7 +32,7 @@ const stateKey = 'state';
  * application default state.
  *
  * @function
- * @returns {Object|undefined}
+ * @returns {object|undefined}
  */
 function loadState() {
     const serializedState = webStorage.read(stateKey);
@@ -62,7 +62,7 @@ function loadState() {
  * Save the given application state.
  *
  * @function
- * @param {Object} state - The state object to be saved
+ * @param {object} state - The state object to be saved
  * @returns {void}
  */
 function saveState(state) {

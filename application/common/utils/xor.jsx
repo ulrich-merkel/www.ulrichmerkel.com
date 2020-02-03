@@ -46,7 +46,7 @@ function utf8ToBase64(data) {
     if (data instanceof Buffer) {
         buffer = data;
     } else {
-        buffer = new Buffer(data.toString(), 'binary');
+        buffer = Buffer.from(data.toString(), 'binary');
     }
 
     return buffer.toString('base64');
@@ -69,7 +69,7 @@ function base64ToUtf8(data) {
         return decodeURIComponent(escape(window.atob(data)));
     }
 
-    return new Buffer(data, 'base64').toString('binary');
+    return Buffer.from(data, 'base64').toString('binary');
 
 }
 

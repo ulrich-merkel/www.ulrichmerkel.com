@@ -50,7 +50,7 @@ describe('common/component/module/form/contact', function () {
     //     expect(onChange.calledOnce).toBeFalsy();
     //     expect(handleContactChange.calledOnce).toBeFalsy();
 
-    //     // @TODO: Adjust expect for enzyme@16
+    //     // @TODO Adjust expect for enzyme@16
     //     // wrapper.find('#name').simulate('keydown', { which: 'a' }).simulate('change');
     //     // expect(onChange.callCount).toEqual(1);
     //     // expect(handleContactChange.callCount).toEqual(1);

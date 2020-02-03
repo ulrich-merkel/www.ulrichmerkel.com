@@ -31,9 +31,9 @@ import ModuleArticle from '../module/article';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @param {Object} [props.content={}] - The content config input
+ * @param {object} [props.content={}] - The content config input
  * @param {boolean} [props.isDialog=false] - Whether the component text should be displayed in a dialog or not
  * @param {boolean} [props.isMain=false] - Whether the component text should be displayed as main article or not
  * @returns {ReactElement} React component markup
@@ -59,7 +59,7 @@ function SectionSearch(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 SectionSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -77,7 +77,7 @@ SectionSearch.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 SectionSearch.defaultProps = {
     content: {},

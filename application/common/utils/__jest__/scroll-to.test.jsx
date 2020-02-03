@@ -16,9 +16,7 @@ describe('common/utils/scroll-to', function () {
                 callback
             });
             expect(callback).toBeCalled();
-            expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
-                callback
-            }));
+            expect(callback).toHaveBeenCalledWith({ ...defaults, callback });
         });
         it('should call callback', function () {
             const callback = jest.fn();
@@ -27,10 +25,11 @@ describe('common/utils/scroll-to', function () {
                 callback
             });
             expect(callback).toBeCalled();
-            expect(callback).toHaveBeenCalledWith(Object.assign({}, defaults, {
+            expect(callback).toHaveBeenCalledWith({
+                ...defaults,
                 top: 100,
                 callback
-            }));
+            });
         });
     });
     describe('scrollToElement', function () {

@@ -8,7 +8,7 @@
 * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
 * @version 0.0.1
 *
-* @TODO: find good solution for universal logging - use async logging in
+* @TODO find good solution for universal logging - use async logging in
 * node to improve performance
 *
 * @see {@link https://strongloop.com/strongblog/compare-node-js-logging-winston-bunyan/?_ga=1.268359950.1276058548.1473272867}
@@ -34,7 +34,7 @@ const noop = Function.prototype;
  *
  * @function
  * @private
- * @returns {Object} The winston logger options
+ * @returns {object} The winston logger options
  */
 function getLogOptions() {
     return {
@@ -48,7 +48,7 @@ function getLogOptions() {
  *
  * @function
  * @param {string} name - The prefix to be used for messages
- * @returns {Object} The current instance
+ * @returns {object} The current instance
  */
 function Logger(name) {
     this.name = name;
@@ -91,8 +91,8 @@ Logger.prototype = {
      */
     enable: function enableFn(shouldBeEnabled) {
         if (!shouldBeEnabled) {
-            // @TODO: return noop implementations if logger is not enabled
-            return undefined;
+            // @TODO return noop implementations if logger is not enabled
+            return;
         }
 
         if (console === undefined) {
@@ -117,8 +117,8 @@ Logger.prototype = {
      * Write messages to console functions.
      *
      * @private
-     * @param {Object} output - The implemented console log function (log, error, etc...)
-     * @param {Object} args - The messages to be logged
+     * @param {object} output - The implemented console log function (log, error, etc...)
+     * @param {object} args - The messages to be logged
      * @returns {void}
      */
     write: function writeFn(output, args) {
@@ -135,7 +135,7 @@ Logger.prototype = {
     /**
      * Write messages to standard log.
      *
-     * @returns {Object} The current logger instance
+     * @returns {object} The current logger instance
      */
     log: function logFn() {
         return this.write(this._log, arguments); // eslint-disable-line prefer-rest-params
@@ -144,7 +144,7 @@ Logger.prototype = {
     /**
      * Write messages to info log.
      *
-     * @returns {Object} The current logger instance
+     * @returns {object} The current logger instance
      */
     info: function infoFn() {
         return this.write(this._info, arguments); // eslint-disable-line prefer-rest-params
@@ -153,7 +153,7 @@ Logger.prototype = {
     /**
      * Write messages to warn log.
      *
-     * @returns {Object} The current logger instance
+     * @returns {object} The current logger instance
      */
     warn: function warnFn() {
         return this.write(this._warn, arguments); // eslint-disable-line prefer-rest-params
@@ -162,7 +162,7 @@ Logger.prototype = {
     /**
      * Write messages to error log.
      *
-     * @returns {Object} The current logger instance
+     * @returns {object} The current logger instance
      */
     error: function errorFn() {
         return this.write(this._error, arguments); // eslint-disable-line prefer-rest-params

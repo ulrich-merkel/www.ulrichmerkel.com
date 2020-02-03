@@ -21,7 +21,7 @@ import {
 } from './constants';
 
 /**
- * @type {Object}
+ * @type {object}
  */
 const defaultState = {
     visible: false,
@@ -33,9 +33,9 @@ const defaultState = {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state=defaultState] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
 
@@ -46,9 +46,9 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case STATE_DIALOG_VISIBLE_CHANGE: {
-        const visible = action.visible;
-        // @TODO: Rename to action.content
-        const page = action.page;
+        const { visible } = action;
+        // @TODO Rename to action.content
+        const { page } = action;
 
         if (visible === undefined) {
             return state;

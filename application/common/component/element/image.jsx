@@ -23,7 +23,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {string} props.src - The current image location
  * @param {string} [props.alt=''] - The image alt attribute
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
@@ -47,6 +47,7 @@ function ElementImage(props) {
             alt={alt}
             className={componentClassName}
             src={src}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         />
     );
@@ -56,7 +57,7 @@ function ElementImage(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementImage.propTypes = {
     src: PropTypes.string.isRequired,
@@ -68,7 +69,7 @@ ElementImage.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementImage.defaultProps = {
     alt: ''

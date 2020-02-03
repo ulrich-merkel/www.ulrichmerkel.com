@@ -37,7 +37,7 @@ describe('common/component/module/key-visual', function () {
             </ModuleKeyVisual>
         );
 
-        // @TODO: Adjust expect for enzyme@16
+        // @TODO Adjust expect for enzyme@16
         wrapper.find('.m-key-visual__button--down').first().simulate('click');
         expect(onClickBtn.calledOnce).toBeTruthy();
     });

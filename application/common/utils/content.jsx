@@ -14,7 +14,9 @@
  * @changelog
  * - 0.0.1 basic function and structure
  */
-import { get, isArray, isObject, isString } from 'lodash';
+import {
+    get, isArray, isObject, isString
+} from 'lodash';
 
 import { AVAILABLE_LOCALES } from '../state/intl/constants';
 
@@ -36,9 +38,9 @@ function traverseArray(source, callback) {
  * Walk through object
  *
  * @private
- * @param {Object} source - The source content
+ * @param {object} source - The source content
  * @param {Function} callback - The ready callback
- * @returns {Object}
+ * @returns {object}
  */
 function traverseObject(source, callback) {
     const result = {};
@@ -51,10 +53,10 @@ function traverseObject(source, callback) {
 /**
  * Walk through config
  *
- * @TODO: Use functional style, immutable
+ * @TODO Use functional style, immutable
  *
  * @private
- * @param {Object|Array|string} source - The source content
+ * @param {object|Array|string} source - The source content
  * @param {Function} callback - The ready callback
  * @returns {*}
  */
@@ -72,12 +74,12 @@ function traverse(source, callback) {
 }
 
 /**
- * @TODO: Use functional style, immutable
+ * @TODO Use functional style, immutable
  *
  * @private
- * @param {Object} configContent - The complete content config
+ * @param {object} configContent - The complete content config
  * @param {string} configTranslation - The complete content translation
- * @returns {Object}
+ * @returns {object}
  */
 function translateContent(configContent, configTranslation) {
     if (!configTranslation) {
@@ -94,7 +96,7 @@ function translateContent(configContent, configTranslation) {
 }
 
 /**
- * @param {Object} config - The translated config
+ * @param {object} config - The translated config
  * @returns {Function}
  */
 function getContentSection(config) {
@@ -104,12 +106,12 @@ function getContentSection(config) {
 }
 
 /**
- * @TODO: use memoize https://addyosmani.com/blog/faster-javascript-memoization/
+ * @TODO use memoize https://addyosmani.com/blog/faster-javascript-memoization/
  *
  * @param {string} [locale=defaultLocale] - The current locale
- * @param {Object} config - The translation config
+ * @param {object} config - The translation config
  * @param {string} configKey - The config key
- * @returns {Object}
+ * @returns {object}
  */
 function getTranslatedContent(locale = AVAILABLE_LOCALES[0], config, configKey) {
     const configContent = get(config, 'content.data');

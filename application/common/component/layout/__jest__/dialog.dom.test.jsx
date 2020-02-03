@@ -99,7 +99,7 @@ describe('common/component/layout/body', function () {
         });
         const buttonClose = wrapper.find('.l-dialog__button--close');
         if (buttonClose.length) {
-            // @TODO: Adjust expect for enzyme@16
+            // @TODO Adjust expect for enzyme@16
             buttonClose.first().simulate('click');
             expect(onClose.calledOnce).toBeTruthy();
         }
@@ -109,7 +109,7 @@ describe('common/component/layout/body', function () {
         });
         const buttonBroadcast = wrapper.find('.m-article--broadcast button');
         if (buttonBroadcast.length) {
-            // @TODO: Adjust expect for enzyme@16
+            // @TODO Adjust expect for enzyme@16
             buttonBroadcast.first().simulate('click');
             expect(onClose.calledTwice).toBeTruthy();
         }

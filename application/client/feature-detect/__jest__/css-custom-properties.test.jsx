@@ -14,7 +14,7 @@ describe('client/feature-detect/css-custom-properties', function () {
             writable: false,
             value: {
                 CSS: {
-                    supports: function () {
+                    supports() {
                         return true;
                     }
                 }

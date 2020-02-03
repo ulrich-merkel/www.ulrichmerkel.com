@@ -1,5 +1,4 @@
 /* eslint-disable immutable/no-this, immutable/no-mutation */
-/* global window, document */
 /**
  * Es6 module for handling browser scrolling actions.
  *
@@ -35,8 +34,24 @@ import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actio
 import { isBrowser } from '../../utils/environment';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 
-// @TODO: Should be computed from actual css declaration
+// @TODO Should be computed from actual css declaration
 const HEADER_HEIGHT = 61;
+
+/**
+ * Scroll to top, make sure the page is already scrolled.
+ *
+ * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
+ *
+ * @private
+ * @returns {void}
+ */
+function scrollTop() {
+    if (getPageOffset()) {
+        scrollTo({
+            top: 0
+        });
+    }
+}
 
 /**
  * The scroller higher order function handling window scrolling.
@@ -50,10 +65,10 @@ function scroller(SourceComponent) {
      * Class representing a component.
      *
      * @class
-     * @extends React.Component
+     * @augments React.Component
      * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
      * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
-     * @property {Object} props.location - Current router location properties
+     * @property {object} props.location - Current router location properties
      */
     class Scroller extends Component {
 
@@ -65,7 +80,7 @@ function scroller(SourceComponent) {
          * We do this just because of completeness.
          *
          * @constructs
-         * @param {Object} [props] - The initial class properties
+         * @param {object} [props] - The initial class properties
          * @returns {void}
          */
         constructor(props) {
@@ -102,7 +117,9 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentDidMount() {
-            isBrowser() && window.addEventListener('scroll', this.onScroll);
+            if (isBrowser()) {
+                window.addEventListener('scroll', this.onScroll);
+            }
             this.onScroll();
         }
 
@@ -110,13 +127,14 @@ function scroller(SourceComponent) {
          * Invoked before a mounted component receives new props. React only calls
          * this method if some of component's props may update.
          *
-         * @param {Object} [nextProps] - The new class properties
+         * @param {object} [nextProps] - The new class properties
          * @returns {void}
          */
-        componentWillReceiveProps (nextProps) {
-            // eslint-disable-next-line react/destructuring-assignment
-            if (this.props.location !== nextProps.location) {
-                this.scrollTop();
+        componentWillReceiveProps(nextProps) {
+            const { location } = this.props;
+
+            if (location !== nextProps.location) {
+                scrollTop();
             }
         }
 
@@ -136,7 +154,9 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentWillUnmount() {
-            isBrowser() && window.removeEventListener('scroll', this.onScroll);
+            if (isBrowser()) {
+                window.removeEventListener('scroll', this.onScroll);
+            }
         }
 
         /**
@@ -158,8 +178,8 @@ function scroller(SourceComponent) {
              * Also checking if initial scroll position is used.
              */
             if (
-                (this.previousScrollY > currentScrollY && !this.headerVisible) ||
-                (this.previousScrollY === 0 && currentScrollY === 0)
+                (this.previousScrollY > currentScrollY && !this.headerVisible)
+                || (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
                 handleScrollChangeHeaderVisible(this.headerVisible);
@@ -177,26 +197,12 @@ function scroller(SourceComponent) {
         }
 
         /**
-         * Scroll to top, make sure the page is already scrolled.
-         *
-         * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
-         *
-         * @returns {void}
-         */
-        scrollTop() {
-            if (getPageOffset()) {
-                scrollTo({
-                    top: 0
-                });
-            }
-        }
-
-        /**
          * The required render function to return a single react child element.
          *
          * @returns {ReactElement} React component markup
          */
         render() {
+            // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
     }
@@ -205,7 +211,7 @@ function scroller(SourceComponent) {
      * Validate props via React.PropTypes helpers.
      *
      * @static
-     * @type {Object}
+     * @type {object}
      */
     Scroller.propTypes = {
         handleScrollChangeHeaderFixed: PropTypes.func.isRequired,

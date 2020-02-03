@@ -23,7 +23,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.htmlElement='i'] - The component element type used for React.createElement
  * @param {string} [props.icon=''] - The icon name taken for the web font
@@ -45,6 +45,7 @@ function ElementIcon(props) {
     const componentClassName = classnames(`c-font-icon--${icon}`, className);
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
     );
 }
@@ -53,7 +54,7 @@ function ElementIcon(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementIcon.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -65,7 +66,7 @@ ElementIcon.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementIcon.defaultProps = {
     htmlElement: 'i',

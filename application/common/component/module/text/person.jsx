@@ -31,8 +31,8 @@ import ModulePerson from '../person';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @param {Object} [props.content={}] - The person content's text
+ * @param {object} [props] - The current component props
+ * @param {object} [props.content={}] - The person content's text
  * @param {boolean} [props.hasColumns2=false] - Whether the component text should be clusted in columns via css or not
  * @param {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
  * @returns {ReactElement} React component markup
@@ -65,7 +65,7 @@ function ModuleTextPerson(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextPerson.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -82,7 +82,7 @@ ModuleTextPerson.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextPerson.defaultProps = {
     content: {},

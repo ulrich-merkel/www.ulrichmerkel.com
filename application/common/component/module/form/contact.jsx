@@ -10,7 +10,7 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  *
- * @TODO: Add classname and htmlElement to props, add honeypot again
+ * @TODO Add classname and htmlElement to props, add honeypot again
  *
  * @requires react
  * @requires prop-types
@@ -96,7 +96,7 @@ const xorKey = configApplicationXor.key;
  * supported.
  *
  * @private
- * @param {Object} textMessage - The text message dom node
+ * @param {object} textMessage - The text message dom node
  * @returns {void}
  */
 function scrollToTextMessage(textMessage) {
@@ -112,8 +112,8 @@ function scrollToTextMessage(textMessage) {
  * Helper function to send post request.
  *
  * @private
- * @param {Object} data - The post data to be send
- * @param {Object} [csrfToken=''] - The csrf token string to be validated
+ * @param {object} data - The post data to be send
+ * @param {object} [csrfToken=''] - The csrf token string to be validated
  * @returns {Future}
  */
 function send(data, csrfToken = '') {
@@ -122,7 +122,7 @@ function send(data, csrfToken = '') {
         : JSON.stringify(data);
 
     const xhrData = {
-        headers: Object.assign({}, XHR_DEFAULT_HEADERS, { 'X-CSRF-Token': csrfToken }),
+        headers: { ...XHR_DEFAULT_HEADERS, 'X-CSRF-Token': csrfToken },
         body: JSON.stringify({
             _csrf: csrfToken,
             data: bodyData
@@ -139,7 +139,7 @@ function send(data, csrfToken = '') {
  *
  * @private
  * @param {string} key - The state's key
- * @param {Object} storeState - The redux contact state
+ * @param {object} storeState - The redux contact state
  * @returns {*}
  */
 function getState(key, storeState) {
@@ -152,7 +152,7 @@ function getState(key, storeState) {
  * Class representing a component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  */
 class ModuleFormContact extends Component {
 
@@ -160,7 +160,7 @@ class ModuleFormContact extends Component {
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -179,7 +179,7 @@ class ModuleFormContact extends Component {
          *
          * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
          */
-        // @TODO: Use throttle for onChange, this.onChange = throttle(this.onChange.bind(this), 100);
+        // @TODO Use throttle for onChange, this.onChange = throttle(this.onChange.bind(this), 100);
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -213,7 +213,7 @@ class ModuleFormContact extends Component {
      * Handle input value change.
      *
      * @private
-     * @param {Object} e - The current sytheticEvent object
+     * @param {object} e - The current sytheticEvent object
      * @returns {void}
      */
     onChange(e) {
@@ -221,7 +221,7 @@ class ModuleFormContact extends Component {
             return;
         }
 
-        const target = e.target;
+        const { target } = e;
         const stateValue = target.value;
         const stateName = target.name;
 
@@ -250,7 +250,7 @@ class ModuleFormContact extends Component {
      * Handle form submit event.
      *
      * @private
-     * @param {Object} event - The current event object
+     * @param {object} event - The current event object
      * @returns {void}
      */
     onSubmit(event) {
@@ -274,7 +274,7 @@ class ModuleFormContact extends Component {
     /**
      * Helper function to render message.
      *
-     * @todo: Should be done in article module component
+     * @TODO Should be done in article module component
      *
      * @private
      * @param {string} headline - The message headline
@@ -288,7 +288,9 @@ class ModuleFormContact extends Component {
             <ModuleFormContactMessage
                 onReset={this.onReset}
                 resetUrl={url.contact}
-                {...{ headline, text, btnTitle, btnLabel }}
+                {...{
+                    headline, text, btnTitle, btnLabel
+                }}
             />
         );
     }
@@ -306,7 +308,7 @@ class ModuleFormContact extends Component {
      */
     send() {
         const { csrfToken } = this.props;
-        const state = this.state;
+        const { state } = this;
 
         if (!canSendForm(state)) {
             return;
@@ -402,7 +404,7 @@ class ModuleFormContact extends Component {
             csrfToken
         } = this.props;
 
-        const state = this.state;
+        const { state } = this;
 
         if (state.success) {
             return this.renderSuccess();
@@ -518,7 +520,7 @@ class ModuleFormContact extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [content.legend] - Translated string for element legend
  * @property {string} [content.inputName] - Translated string for name input
  * @property {string} [content.inputEmail] - Translated string for email input
@@ -536,7 +538,7 @@ class ModuleFormContact extends Component {
  * @property {string} [content.errorText] - Translated string for error message
  * @property {string} [content.btnTryAgainTitle] - Translated string for retry button title
  * @property {string} [content.btnTryAgainLabel] - Translated string for retry button label
- * @property {Object} [storeState={}] - The redux contact state
+ * @property {object} [storeState={}] - The redux contact state
  * @property {Function} [handleContactChange=Function.prototype] - Action handler for redux contact state
  * @property {string} [routerState] - The current router params
  * @property {string} [csrfToken=''] - The csrf token for validation
@@ -560,7 +562,9 @@ ModuleFormContact.propTypes = {
         errorHeadline: PropTypes.string,
         errorText: PropTypes.string,
         btnTryAgainTitle: PropTypes.string,
-        btnTryAgainLabel: PropTypes.string
+        btnTryAgainLabel: PropTypes.string,
+        thankYouHeadline: PropTypes.string,
+        thankYouText: PropTypes.string
     }),
     /* eslint-enable react/no-unused-prop-types */
     storeState: PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -573,7 +577,7 @@ ModuleFormContact.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleFormContact.propTypes
  */
 ModuleFormContact.defaultProps = {
@@ -589,8 +593,8 @@ ModuleFormContact.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @returns {object}
  */
 function mapStateToProps(state) {
     return {
@@ -608,7 +612,7 @@ function mapStateToProps(state) {
  *
  * @private
  * @param {Function} dispatch - The redux store dispatch function
- * @returns {Object}
+ * @returns {object}
  */
 function mapDispatchToProps(dispatch) {
     return {

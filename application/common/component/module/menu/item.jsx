@@ -33,7 +33,7 @@ import {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
  * @param {boolean} [props.isLabelHidden=false] - Whether the label is hidden or not
@@ -86,7 +86,7 @@ function ModuleMenuItem(props) {
  * Valiate props via React.PropTypes helpers.
 
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenuItem.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -103,7 +103,7 @@ ModuleMenuItem.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenuItem.defaultProps = {
     icon: '',

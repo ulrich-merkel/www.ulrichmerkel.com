@@ -27,7 +27,7 @@ import Headline from '../../element/headline';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.text=''] - The headline text
  * @returns {ReactElement} React component markup
  */
@@ -51,7 +51,7 @@ function ModuleTextHeadline(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
@@ -61,7 +61,7 @@ ModuleTextHeadline.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextHeadline.defaultProps = {
     text: ''

@@ -61,7 +61,7 @@ import PageTheme from '../page/theme';
  * Scroll to top animation helper.
  *
  * @private
- * @param {Object} event - The synthetic react event
+ * @param {object} event - The synthetic react event
  * @returns {void}
  */
 function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
@@ -77,16 +77,16 @@ function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
  * Class representing a component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [props.content={}] - The component content config
+ * @property {object} [props.content={}] - The component content config
  */
 class LayoutBody extends Component {
     /**
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
      *
-     * @param {Object} nextProps - The news props to be rendered
+     * @param {object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
     shouldComponentUpdate(nextProps) {
@@ -141,7 +141,7 @@ class LayoutBody extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -157,7 +157,7 @@ LayoutBody.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutBody.defaultProps = {
     content: {}

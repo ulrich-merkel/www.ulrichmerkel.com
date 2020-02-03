@@ -44,7 +44,7 @@ import {
  *
  * @function
  * @private
- * @param {Object} state - The current redux store object
+ * @param {object} state - The current redux store object
  * @param {string} stateKey - The state key as input for lodash's get
  * @returns {boolean}
  */
@@ -65,7 +65,7 @@ function shouldFetch(state, stateKey) {
  *
  * @function
  * @private
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function requestConfigContent() {
     return {
@@ -79,7 +79,7 @@ function requestConfigContent() {
  * @function
  * @private
  * @param {string} locale - The current language locale
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function requestConfigTranslation(locale) {
     return {
@@ -93,8 +93,8 @@ function requestConfigTranslation(locale) {
  *
  * @function
  * @private
- * @param {Object} data - The api json data
- * @returns {Object} Redux action
+ * @param {object} data - The api json data
+ * @returns {object} Redux action
  */
 function receiveConfigContent(data) {
     return {
@@ -109,9 +109,9 @@ function receiveConfigContent(data) {
  *
  * @function
  * @private
- * @param {Object} data - The api json data
+ * @param {object} data - The api json data
  * @param {string} locale - The current language locale
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function receiveConfigTranslation(data, locale) {
     return {
@@ -127,7 +127,7 @@ function receiveConfigTranslation(data, locale) {
  *
  * @function
  * @private
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function failedConfigContent() {
     return {
@@ -141,7 +141,7 @@ function failedConfigContent() {
  * @function
  * @private
  * @param {string} locale - The current language locale
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function failedConfigTranslation(locale) {
     return {
@@ -154,8 +154,8 @@ function failedConfigTranslation(locale) {
  * Add config content object directly.
  *
  * @function
- * @param {Object} data - The api json data
- * @returns {Object} Redux action
+ * @param {object} data - The api json data
+ * @returns {object} Redux action
  */
 function addConfigContent(data) {
     return {
@@ -169,9 +169,9 @@ function addConfigContent(data) {
  * Add config content object directly.
  *
  * @function
- * @param {Object} data - The api json data
+ * @param {object} data - The api json data
  * @param {string} locale - The current language locale
- * @returns {Object} Redux action
+ * @returns {object} Redux action
  */
 function addConfigTranslation(data, locale) {
     return {

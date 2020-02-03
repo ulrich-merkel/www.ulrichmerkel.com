@@ -32,7 +32,7 @@ import P from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleCornerstoneItemEmployee(props) {
@@ -71,7 +71,7 @@ function ModuleCornerstoneItemEmployee(props) {
                             {timeStart}
                         </time>
                         {' '}
-- 
+-
                         {' '}
                         <time className='c-time'>
                             {timeEnd}
@@ -107,7 +107,7 @@ function ModuleCornerstoneItemEmployee(props) {
  * Valiate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline] - The item headline
  * @property {string} [lead] - The item subline
  * @property {string} [timeStart] - The item start time
@@ -130,7 +130,7 @@ ModuleCornerstoneItemEmployee.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleCornerstoneItemEmployee.propTypes
  */
 ModuleCornerstoneItemEmployee.defaultProps = {

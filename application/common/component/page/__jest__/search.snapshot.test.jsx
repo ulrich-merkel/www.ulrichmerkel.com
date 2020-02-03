@@ -30,7 +30,7 @@ describe('common/component/page/search', function () {
     });
     it('should render correctly as dialog', function () {
         const tree = renderer.create(
-            <Provider store={mockedStore}>  
+            <Provider store={mockedStore}>
                 <MemoryRouter>
                     <PageSearch {...props} isDialog>
                         Page search children as dialog

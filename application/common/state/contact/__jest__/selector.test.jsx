@@ -4,7 +4,7 @@ import { selectStateContact } from '../selector';
 describe('common/state/contact/selector', function () {
     describe('selectStateContact', function () {
         it('should return the correct state', function () {
-            const state = Object.assign({}, {
+            const state = {
                 contact: {
                     name: 'name',
                     email: 'email',
@@ -19,18 +19,18 @@ describe('common/state/contact/selector', function () {
                     success: false,
                     error: false
                 }
-            });
+            };
             expect(selectStateContact(state)).toEqual(state.contact);
         });
         it('should return an empty object if state isn\'t found', function () {
-            const state = Object.assign({}, {
+            const state = {
                 foo: {
                     bar: 'lorem'
                 },
                 bar: {
                     foo: 'ipsum'
                 }
-            });
+            };
             expect(selectStateContact(state)).toEqual({});
         });
     });

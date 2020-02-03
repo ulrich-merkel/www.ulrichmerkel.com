@@ -1,4 +1,3 @@
-/* global navigator */
 /**
  * Handle client side file loading and take
  * care for performance due to async loading.
@@ -27,8 +26,8 @@ import { displayAllLoaded } from './loader/progress-bar';
 // Register the service worker if available
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
     navigator.serviceWorker.register('/service-worker.bundle.js')
-        .then(function (reg) {
-            const log = console.log; // eslint-disable-line no-console
+        .then(function registerServiceWorker(reg) {
+            const { log } = console; // eslint-disable-line no-console
             displayAllLoaded();
 
             if (reg.waiting) {
@@ -42,7 +41,7 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
             }
             return log('Successfully registered service worker');
         })
-        .catch(function (err) {
+        .catch(function catchRegisterServiceWorker(err) {
             console.warn('Error whilst registering service worker', err); // eslint-disable-line no-console
         });
 }

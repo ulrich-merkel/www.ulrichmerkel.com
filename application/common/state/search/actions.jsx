@@ -23,7 +23,7 @@ import { SEARCH_CHANGE_TERM } from './constants';
  *
  * @function
  * @param {string} term - The search input value
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function changeSearchTerm(term) {
     return {

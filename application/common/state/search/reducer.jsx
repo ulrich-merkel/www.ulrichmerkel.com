@@ -19,7 +19,7 @@
 import { SEARCH_CHANGE_TERM } from './constants';
 
 /**
- * @type {Object}
+ * @type {object}
  */
 const defaultState = {
     term: ''
@@ -30,9 +30,9 @@ const defaultState = {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state={}] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state={}] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
 
@@ -43,7 +43,7 @@ function reducer(state = defaultState, action) {
      */
     switch (action.type) {
     case SEARCH_CHANGE_TERM: {
-        const term = action.term;
+        const { term } = action;
         return {
             ...state,
             term

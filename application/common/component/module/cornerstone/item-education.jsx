@@ -32,7 +32,7 @@ import P from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleCornerstoneItemEducation(props) {
@@ -72,7 +72,7 @@ function ModuleCornerstoneItemEducation(props) {
                             {timeStart}
                         </time>
                         {' '}
-- 
+-
                         {' '}
                         <time className='c-time' itemProp='endDate'>
                             {timeEnd}
@@ -115,13 +115,13 @@ function ModuleCornerstoneItemEducation(props) {
  * Valiate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline] - The item headline
  * @property {string} [lead] - The item subline
  * @property {string} [timeStart] - The item start time
  * @property {string} [timeEnd] - The item end time
  * @property {Array} [description=[]] - The items description
- * @property {Object} [place={}] - The items place description
+ * @property {object} [place={}] - The items place description
  * @property {string} [cssModifier] - The bem css modifier
  * @property {string} [offset] - The css top offset to display items nice
  */
@@ -143,7 +143,7 @@ ModuleCornerstoneItemEducation.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleCornerstoneItemEducation.propTypes
  */
 ModuleCornerstoneItemEducation.defaultProps = {

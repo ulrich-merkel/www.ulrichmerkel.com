@@ -49,8 +49,8 @@ function addContent(configKey) {
         /**
          * Wrapper component to get redux state.
          *
-         * @param {Object} props - The current component props
-         * @param {Object} props.config - The content configuration
+         * @param {object} props - The current component props
+         * @param {object} props.config - The content configuration
          * @param {string} props.locale - The current locale string
          * @returns {ReactElement} React component markup
          */
@@ -59,9 +59,11 @@ function addContent(configKey) {
             const content = getTranslatedContent(locale, config, configKey);
 
             if (!content) {
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 return <SourceComponent {...props} />;
             }
 
+            // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent content={content} {...props} />;
         }
 
@@ -69,7 +71,7 @@ function addContent(configKey) {
          * Validate props via React.PropTypes helpers.
          *
          * @static
-         * @type {Object}
+         * @type {object}
          */
         ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
             config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
@@ -82,9 +84,9 @@ function addContent(configKey) {
          * and it will be merged into the component’s props.
          *
          * @private
-         * @param {Object.<*>} state - The redux store state
-         * @param {Object.<*>} [ownProps] - The current component props
-         * @returns {Object} The state properties to be passed as component props
+         * @param {object.<*>} state - The redux store state
+         * @param {object.<*>} [ownProps] - The current component props
+         * @returns {object} The state properties to be passed as component props
          */
         function mapStateToProps(state, ownProps) {
             return {

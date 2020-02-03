@@ -1,12 +1,12 @@
 /* eslint-disable immutable/no-mutation */
-'use strict';
+
 
 module.exports = {
-    'rules': {
+    rules: {
         'at-rule-name-case': 'lower',
         'at-rule-name-space-after': 'always-single-line',
-        'at-rule-no-unknown': [ true, {
-            'ignoreAtRules': [
+        'at-rule-no-unknown': [true, {
+            ignoreAtRules: [
                 'content',
                 'each',
                 'for',
@@ -29,7 +29,7 @@ module.exports = {
         'color-hex-length': 'short',
         'color-named': 'never',
         'color-no-invalid-hex': true,
-        'comment-empty-line-before': [ 'always', {
+        'comment-empty-line-before': ['always', {
             except: [
                 'first-nested'
             ],
@@ -39,7 +39,7 @@ module.exports = {
         }],
         'comment-no-empty': true,
         'comment-whitespace-inside': 'always',
-        'custom-property-empty-line-before': [ 'always', {
+        'custom-property-empty-line-before': ['always', {
             except: [
                 'after-custom-property',
                 'first-nested'
@@ -51,7 +51,7 @@ module.exports = {
         }],
         'declaration-bang-space-after': 'never',
         'declaration-bang-space-before': 'always',
-        'declaration-block-no-duplicate-properties': [ true, {
+        'declaration-block-no-duplicate-properties': [true, {
             ignore: ['consecutive-duplicates-with-different-values']
         }],
         'declaration-block-no-redundant-longhand-properties': true,
@@ -76,7 +76,7 @@ module.exports = {
         'function-parentheses-newline-inside': 'always-multi-line',
         'function-parentheses-space-inside': 'never-single-line',
         'function-whitespace-after': 'always',
-        'indentation': 4,
+        indentation: 4,
         'keyframe-declaration-no-important': true,
         'length-zero-no-unit': true,
         'max-empty-lines': 1,

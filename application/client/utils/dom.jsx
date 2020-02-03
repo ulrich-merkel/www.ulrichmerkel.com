@@ -15,7 +15,7 @@
  * Get basic window document dom node.
  *
  * @private
- * @returns {Object|null} The current document or null (in isomorph environments)
+ * @returns {object|null} The current document or null (in isomorph environments)
  */
 function getDocumentDomNode() {
     if (typeof window === 'undefined') {
@@ -29,7 +29,7 @@ function getDocumentDomNode() {
  *
  * @private
  * @param {string} id - The elements tag name
- * @returns {Object|null} The current element or null
+ * @returns {object|null} The current element or null
  */
 function getDomNodeById(id) {
     const doc = getDocumentDomNode();
@@ -40,7 +40,7 @@ function getDomNodeById(id) {
  * Get dom node element by tag name.
  *
  * @param {string} name - The elements tag name
- * @returns {Object|null} The current element or null
+ * @returns {object|null} The current element or null
  */
 function getDomNodeByTagName(name) {
     const doc = getDocumentDomNode();
@@ -51,7 +51,7 @@ function getDomNodeByTagName(name) {
  * Get first dom node element by tag name.
  *
  * @param {string} name - The elements tag name
- * @returns {Object|null} The current element or null
+ * @returns {object|null} The current element or null
  */
 function getFirstDomNodeByTagName(name) {
     const domNode = getDomNodeByTagName(name);
@@ -61,7 +61,7 @@ function getFirstDomNodeByTagName(name) {
 /**
  * Convenient helper to get head dom node.
  *
- * @returns {Object|null} The current head dom element or null
+ * @returns {object|null} The current head dom element or null
  */
 function getHeadDomNode() {
     return getFirstDomNodeByTagName('head');
@@ -97,7 +97,7 @@ function setDomNodeClassName(id, add, remove) {
         return;
     }
 
-    const classList = domNode.classList;
+    const { classList } = domNode;
     const containsClassNames = add.every(function someClassName(className) {
         return classList.contains(className);
     });
@@ -111,8 +111,8 @@ function setDomNodeClassName(id, add, remove) {
  * Create dom node element.
  *
  * @param {string} name - The node element name type
- * @param {Object} attributes - Name/value mapping of the element attributes
- * @returns {Object|null} The created html object
+ * @param {object} attributes - Name/value mapping of the element attributes
+ * @returns {object|null} The created html object
  */
 function createDomNode(name, attributes) {
     const doc = getDocumentDomNode();

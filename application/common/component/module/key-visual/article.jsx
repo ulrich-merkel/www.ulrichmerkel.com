@@ -32,7 +32,7 @@ import P from '../../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleKeyVisualArticle(props) {
@@ -69,7 +69,7 @@ function ModuleKeyVisualArticle(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline=''] - The article headline content
  * @property {string} [lead=''] - The article lead content
  */
@@ -82,7 +82,7 @@ ModuleKeyVisualArticle.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleKeyVisualArticle.propTypes
  */
 ModuleKeyVisualArticle.defaultProps = {

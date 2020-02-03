@@ -37,7 +37,7 @@ import {
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.btnLabel=''] - The button label
  * @param {string} [props.btnTitle=''] - The button title
  * @param {string} [props.btnTo=''] - The button link target
@@ -73,7 +73,7 @@ function ModuleArticleButton(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleArticleButton.propTypes = {
     btnLabel: PropTypes.string,
@@ -87,7 +87,7 @@ ModuleArticleButton.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleArticleButton.defaultProps = {
     btnLabel: '',

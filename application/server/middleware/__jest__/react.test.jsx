@@ -19,7 +19,7 @@ describe('server/middleware/react', function () {
         expect(res.statusCode).toEqual(200);
     });
 
-    // @TODO: This test should return 404, but 200 is received
+    // @TODO This test should return 404, but 200 is received
     // it('should handle error request', function () {
     //     req = httpMocks.createRequest({
     //         method: 'GET',

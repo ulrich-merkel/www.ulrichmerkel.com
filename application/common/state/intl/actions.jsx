@@ -24,7 +24,7 @@ import { INTL_CHANGE_LOCALE } from './constants';
  * @function
  * @param {string} locale - The new locale
  * @param {string} fallback - The fallback locale if new locale is not available
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function changeLocale(locale, fallback) {
     return {

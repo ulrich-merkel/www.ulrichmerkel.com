@@ -1,5 +1,4 @@
 /* eslint-disable immutable/no-let */
-/* global performance, requestAnimationFrame*/
 /**
  * Es6 module for helper component.
  *
@@ -95,7 +94,7 @@ function getPageOffset() {
  * @see https://github.com/gre/bezier-easing
  *
  * @private
- * @param {Object} [options] - The scrolling options
+ * @param {object} [options] - The scrolling options
  * @param {number} [options.top] - The window scroll top position
  * @param {number} [options.duration] - The scrolling animation time
  * @param {Function} [options.easing] - The animation easing function
@@ -103,9 +102,11 @@ function getPageOffset() {
  * @returns {void}
  */
 function animate(options) {
-    const { render, duration, easing, callback } = options;
-    const requestAnimationFrame = window.requestAnimationFrame;
-    const cancelAnimationFrame = window.cancelAnimationFrame;
+    const {
+        render, duration, easing, callback
+    } = options;
+    const { requestAnimationFrame } = window;
+    const { cancelAnimationFrame } = window;
     const hasRequestAnimationFrame = !!(requestAnimationFrame && cancelAnimationFrame);
     const start = getTime();
 
@@ -132,7 +133,7 @@ function animate(options) {
 /**
  * Animate window scroll position.
  *
- * @param {Object} [opts={}] - The scrolling options
+ * @param {object} [opts={}] - The scrolling options
  * @param {number} [opts.top=0] - The window scroll top position
  * @param {number} [opts.duration=300] - The scrolling animation time
  * @param {Function} [opts.easing=easeInOutQuad] - The animation easing function
@@ -140,12 +141,13 @@ function animate(options) {
  * @returns {void}
  */
 function scrollTo(opts = {}) {
-    const options = Object.assign({}, {
+    const options = {
         top: 0,
         duration: 300,
         easing: easeInOutQuad,
-        callback: Function.prototype
-    }, opts);
+        callback: Function.prototype,
+        ...opts
+    };
 
     if (!isBrowser()) {
         options.callback.call(null, options);
@@ -154,7 +156,9 @@ function scrollTo(opts = {}) {
     const hasWindowScrollTo = isFunction(window.scrollTo);
 
     if (!options.duration) {
-        hasWindowScrollTo && window.scrollTo(0, options.top);
+        if (hasWindowScrollTo) {
+            window.scrollTo(0, options.top);
+        }
         options.callback.call(null, options);
         return;
     }
@@ -163,7 +167,9 @@ function scrollTo(opts = {}) {
     animate({
         render: function stepFunction(time) {
             const top = Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time));
-            hasWindowScrollTo && window.scrollTo(0, top);
+            if (hasWindowScrollTo) {
+                window.scrollTo(0, top);
+            }
         },
         duration: options.duration,
         easing: options.easing,
@@ -174,7 +180,7 @@ function scrollTo(opts = {}) {
 /**
  * Scroll animation to element if available.
  *
- * @param {Object} element - The text message dom node
+ * @param {object} element - The text message dom node
  * @returns {void}
  */
 function scrollToElement(element) {

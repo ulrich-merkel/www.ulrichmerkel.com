@@ -1,4 +1,3 @@
-'use strict';
 
 const rootUrl = `http://localhost:${process.env.PORT}`;
 const scenarioDefaults = {
@@ -34,35 +33,42 @@ module.exports = { // eslint-disable-line immutable/no-mutation
         }
     ],
     scenarios: [
-        Object.assign({}, scenarioDefaults, {
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Home',
             url: `${rootUrl}/`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Persona',
             url: `${rootUrl}/persona`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Contact',
             url: `${rootUrl}/contact`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Disclaimer',
             url: `${rootUrl}/disclaimer`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Imprint',
             url: `${rootUrl}/imprint`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Privacy',
             url: `${rootUrl}/privacy`
-        }),
-        Object.assign({}, scenarioDefaults, {
+        },
+        {
+            ...scenarioDefaults,
             label: 'Ulrich Merkel - Work',
             url: `${rootUrl}/work/optik-ludewig`,
             misMatchThreshold: 0.2
-        })
+        }
     ],
     paths: {
         bitmaps_reference: 'config/backstop/reference',

@@ -26,7 +26,7 @@ import { defaultState } from './reducer';
  * Select intl locale state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {string} The intl locale state
  */
 const selectStateIntlLocale = createSelector(
@@ -42,7 +42,7 @@ const selectStateIntlLocale = createSelector(
  * Select intl availableLocales state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {Array<string>} The intl availableLocales state
  */
 const selectStateIntlAvailableLocales = createSelector(

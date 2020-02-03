@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export,  no-use-before-define */
-import { get, isArray, isObject, isString, isEmpty } from 'lodash';
+import {
+    get, isArray, isObject, isString, isEmpty
+} from 'lodash';
 import { url } from '../config/application';
 import logger from './logger';
 
@@ -21,16 +23,16 @@ const PAGES = {
 };
 const CACHE = {};
 
-const values = Object.values;
-const keys = Object.keys;
-const assign = Object.assign;
+const { values } = Object;
+const { keys } = Object;
+const { assign } = Object;
 
 /**
  * Helper function for recursiv array reduce.
  *
  * @private
  * @param {Array} array - The reducer target
- * @param {Array|Object|string|number} val - The current reduce iteration value
+ * @param {Array|object|string|number} val - The current reduce iteration value
  * @returns {Array} The newly filled target
  */
 function reducer(array, val) {
@@ -51,7 +53,7 @@ function reducer(array, val) {
  * Helper function to get Object values and reduce them.
  *
  * @private
- * @param {Object} object - The source object
+ * @param {object} object - The source object
  * @param {Array} [initialValue=[]] - The reducer target
  * @returns {Array} The object reduced values
  */
@@ -64,7 +66,7 @@ function objectReduce(object = {}, initialValue = []) {
  *
  * @private
  * @param {string} locale - The current locale
- * @param {Object} config - The current untranslated content config
+ * @param {object} config - The current untranslated content config
  * @returns {Array<string>} Array containing all search keys
  */
 function createIndex(locale, config) {
@@ -91,7 +93,7 @@ function createIndex(locale, config) {
  *
  * @private
  * @param {string} locale - The current locale
- * @param {Object} config - The current untranslated content config
+ * @param {object} config - The current untranslated content config
  * @param {Array<string>} index - The per page search intl strings
  * @returns {Array<string>} Array containing all translated search keys
  */
@@ -123,7 +125,7 @@ function translateIndex(locale, config, index) {
  *
  * @private
  * @param {string} locale - The current locale
- * @param {Object} config - The current untranslated content config
+ * @param {object} config - The current untranslated content config
  * @returns {Array<string>} The cached (or created) index
  */
 function getCachedIndex(locale, config) {
@@ -140,12 +142,12 @@ function getCachedIndex(locale, config) {
 /**
  * Find search matches by terms.
  *
- * @TODO: Set url query param for sharing
+ * @TODO Set url query param for sharing
  *
  * @param {string} searchTerm - The term to be searched for
  * @param {string} locale - The selected locale
- * @param {Object} config - The (untranslated) redux config state
- * @returns {Array<Object>} The search results to be displayed
+ * @param {object} config - The (untranslated) redux config state
+ * @returns {Array<object>} The search results to be displayed
  */
 function findMatches(searchTerm, locale, config = {}) {
     const escapedInput = isString(searchTerm) && searchTerm.trim().toLowerCase();

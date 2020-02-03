@@ -34,7 +34,7 @@ import Icon from './icon';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
  * @property {string} [props.className] - The component css class names - will be merged into component default classNames
@@ -82,6 +82,7 @@ class ElementInputGroup extends Component {
         });
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Input
                     required
@@ -112,7 +113,7 @@ class ElementInputGroup extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementInputGroup.propTypes = {
     id: PropTypes.string.isRequired,
@@ -121,7 +122,7 @@ ElementInputGroup.propTypes = {
     isLabelVisuallyHidden: PropTypes.bool,
     isPristine: PropTypes.bool,
     isValid: PropTypes.bool,
-    itemProp: PropTypes.string,  // eslint-disable-line react/require-default-props
+    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
     label: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -134,7 +135,7 @@ ElementInputGroup.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementInputGroup.defaultProps = {
     isLabelVisuallyHidden: false,

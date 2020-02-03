@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies, func-names, immutable/no-mutation, immutable/no-let */
+/* eslint-disable func-names, import/no-extraneous-dependencies, func-names, immutable/no-mutation, immutable/no-let */
 // import http from 'http';
 
 // import server from '../server';

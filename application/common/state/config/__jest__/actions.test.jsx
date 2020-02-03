@@ -45,7 +45,7 @@ describe('common/state/config/actions', function () {
         });
     });
 
-    // @TODO: Check response after jest and nock update
+    // @TODO Check response after jest and nock update
     // describe('fetchConfigContentIfNeeded', function () {
     //     afterEach(function () {
     //         nock.cleanAll();

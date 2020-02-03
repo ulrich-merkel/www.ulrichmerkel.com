@@ -73,10 +73,10 @@ function getWorkContentKey(routerPath, config) {
  * Class representing a component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.locale - The redux intl locale state
- * @property {Object} props.match - The react router params
- * @property {Object} [props.content={}] - The component translation config
+ * @property {object} props.match - The react router params
+ * @property {object} [props.content={}] - The component translation config
  */
 class PageWork extends Component {
 
@@ -84,7 +84,7 @@ class PageWork extends Component {
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -111,7 +111,7 @@ class PageWork extends Component {
      * this method if some of component's props may update.
      *
      * @function
-     * @param {Object} [nextProps] - The new class properties
+     * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
     componentWillReceiveProps(nextProps) {
@@ -123,7 +123,7 @@ class PageWork extends Component {
      *
      * @function
      * @private
-     * @param {Object} props - The current component props with router match
+     * @param {object} props - The current component props with router match
      * @returns {void}
      */
     handleRouterParams(props) {
@@ -132,9 +132,10 @@ class PageWork extends Component {
 
         // Set redirect state if route couldn't be found
         if (!work) {
-            return this.setState({
+            this.setState({
                 work: NOT_FOUND
             });
+            return;
         }
 
         this.setState({
@@ -188,7 +189,7 @@ class PageWork extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
@@ -205,7 +206,7 @@ PageWork.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 PageWork.defaultProps = {
     config: {}
@@ -218,8 +219,8 @@ PageWork.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state - The redux store state
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @returns {object}
  */
 function mapStateToProps(state) {
     return {

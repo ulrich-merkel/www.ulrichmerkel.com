@@ -13,8 +13,8 @@
  */
 import enEn from './en-EN';
 
-export default Object.assign({}, enEn, {
-    // Page Index
+export default ({
+    ...enEn, // Page Index
     'intl-page-index-head-title': 'Frontend Web Developer',
     'intl-page-index-head-description': 'Ich liebe Programmierung und Design welches die Grenzen des machbaren auslotet',
     'intl-page-index-section1-headline': 'Hallo, mein Name ist Ulrich Merkel',

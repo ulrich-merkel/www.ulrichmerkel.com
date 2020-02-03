@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { isBrowser, isNode, isWebWorker } from '../environment';
+import { isBrowser, isNode } from '../environment';
 
 describe('common/utils/environment', function () {
     it('should call isBrowser', function () {
@@ -7,8 +7,5 @@ describe('common/utils/environment', function () {
     });
     it('should call isNode', function () {
         expect(isNode()).toBeDefined();
-    });
-    it('should call isWebWorker', function () {
-        expect(isWebWorker()).toBeDefined();
     });
 });

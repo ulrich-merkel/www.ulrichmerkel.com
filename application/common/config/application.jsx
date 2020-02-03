@@ -34,7 +34,7 @@ const configEnvironment = {
     }
 }[process.env.NODE_ENV || 'development'];
 
-const configApplication = Object.assign({}, {
+const configApplication = {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
@@ -95,13 +95,14 @@ const configApplication = Object.assign({}, {
         transitionAppearTimeout: 0,
         component: 'div',
         className: 'l-main__transition'
-    }
-}, configEnvironment);
+    },
+    ...configEnvironment
+};
 
 export default configApplication;
-export const debug = configApplication.debug;
-export const url = configApplication.url;
-export const host = configApplication.host;
-export const port = configApplication.port;
-export const csp = configApplication.csp;
-export const sessionSecret = configApplication.sessionSecret;
+export const { debug } = configApplication;
+export const { url } = configApplication;
+export const { host } = configApplication;
+export const { port } = configApplication;
+export const { csp } = configApplication;
+export const { sessionSecret } = configApplication;

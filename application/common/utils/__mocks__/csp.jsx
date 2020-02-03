@@ -1,5 +1,5 @@
 /**
- * @TODO: This is a bit verbose - find a stable solution
+ * @TODO This is a bit verbose - find a stable solution
  * for reusing existing functions. We jest need to mock
  * getNonce here...
  */

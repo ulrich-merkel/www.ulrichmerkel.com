@@ -47,7 +47,7 @@ function callFn(callback, result) {
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
  * @see {@link https://github.com/filamentgroup/loadCSS}
  *
- * @param {Object} options - The loading options
+ * @param {object} options - The loading options
  * @param {string} options.src - The css path to be loaded
  * @param {string} [options.className] - Additional className for the link element
  * @param {Function} [callback=noop] - The success/error handler for async loading
@@ -100,7 +100,7 @@ function css(options, callback = noop) {
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
  * @see {@link https://github.com/filamentgroup/loadJS}
  *
- * @param {Object} options - The loading options
+ * @param {object} options - The loading options
  * @param {string} options.src - The javaScript path to be loaded
  * @param {string} [options.className] - Additional className for the script element
  * @param {Function} [callback=noop] - The success/error handler for async loading

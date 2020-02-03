@@ -24,7 +24,7 @@ import {
  * Handle theme switch state change.
  *
  * @param {string} selected - The new selected theme state
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function changeThemeSelected(selected) {
     return {

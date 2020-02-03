@@ -26,7 +26,7 @@ import classnames from 'classnames';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
  * @property {string} [props.className] - The textarea css class names - will be merged into component default classNames
@@ -42,7 +42,7 @@ class ElementTextarea extends Component {
 
     /**
      * The required render function to return a single react child element.
-     * 
+     *
      * @returns {ReactElement} React component markup
      */
     render() {
@@ -64,6 +64,7 @@ class ElementTextarea extends Component {
         } : null;
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <textarea className={composedClassName} {...requiredAttributes} {...other} />
         );
     }
@@ -74,7 +75,7 @@ class ElementTextarea extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementTextarea.propTypes = {
     id: PropTypes.string.isRequired,
@@ -93,7 +94,7 @@ ElementTextarea.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ElementTextarea.propTypes
  */
 ElementTextarea.defaultProps = {

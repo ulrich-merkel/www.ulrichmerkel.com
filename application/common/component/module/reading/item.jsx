@@ -34,7 +34,7 @@ import Small from '../../element/small';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleReadingItem(props) {
@@ -71,7 +71,7 @@ function ModuleReadingItem(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline=''] - The component element headline text
  * @property {string} [lead=''] - The component element lead text
  * @property {string} [creator=''] - The component element author name
@@ -88,7 +88,7 @@ ModuleReadingItem.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleReadingItem.propTypes
  */
 ModuleReadingItem.defaultProps = {

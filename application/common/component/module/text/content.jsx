@@ -31,7 +31,7 @@ import P from '../../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array<string>} [props.content] - The content's text
  * @param {boolean} [props.hasColumns2=false] - Whether the component text should be clusted in columns via css or not
  * @param {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
@@ -58,7 +58,7 @@ function ModuleTextContent(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            {content.map(function (html) {
+            {content.map(function mapContent(html) {
                 return (
                     <P key={shortid.generate()} dangerouslySetInnerHTML={{ __html: html }} />
                 );
@@ -71,7 +71,7 @@ function ModuleTextContent(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextContent.propTypes = {
     content: PropTypes.arrayOf(PropTypes.string), // eslint-disable-line react/require-default-props
@@ -83,7 +83,7 @@ ModuleTextContent.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextContent.defaultProps = {
     hasColumns2: false,

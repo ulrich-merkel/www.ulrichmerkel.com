@@ -31,11 +31,11 @@ import ModuleMenuItem from './menu/item';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {string} [props.componentType='ul'] - The component element type used for React.createElement
- * @param {Object} [props.content={}] - The component translation config
+ * @param {object} [props.content={}] - The component translation config
  * @param {string} [props.itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @returns {ReactElement|null} React component markup
  */
@@ -93,7 +93,7 @@ function ModuleMenu(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenu.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -121,7 +121,7 @@ ModuleMenu.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenu.defaultProps = {
     componentType: 'ul',

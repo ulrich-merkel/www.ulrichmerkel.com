@@ -38,7 +38,7 @@ import Meta from '../../element/meta';
  * @function
  * @private
  * @param {string|number} percent - The percent value to be calculated in degrees
- * @returns {Object} The classNames config for left and right circle
+ * @returns {object} The classNames config for left and right circle
  */
 function getCssTransformRotate(percent) {
 
@@ -71,7 +71,7 @@ function getCssTransformRotate(percent) {
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleLanguageItem(props) {
@@ -119,7 +119,7 @@ function ModuleLanguageItem(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline=''] - The language item headline
  * @property {string} [lead=''] - The language item lead text
  * @property {string|number} [percent=0] - The language capability in percent
@@ -137,7 +137,7 @@ ModuleLanguageItem.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleLanguageItem.propTypes
  */
 ModuleLanguageItem.defaultProps = {

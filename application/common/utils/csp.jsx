@@ -58,7 +58,7 @@ function getNonce(length = 40) {
  * Generate nonce config for inline styles
  * and scripts.
  *
- * @returns {Object}
+ * @returns {object}
  */
 function getNonceConfig() {
     return {
@@ -81,7 +81,7 @@ function getNonceConfig() {
  *
  * @see {@link http://stackoverflow.com/questions/32788355/csp-nonce-ignored-by-safari}
  *
- * @param {Object} nonceConfig - The output from a getNonceConfig call
+ * @param {object} nonceConfig - The output from a getNonceConfig call
  * @returns {string}
  */
 function getCspRules(nonceConfig) {
