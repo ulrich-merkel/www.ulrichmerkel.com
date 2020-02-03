@@ -27,7 +27,7 @@ describe('common/component/decorator/add-page-tracking', function () {
             <Provider store={mockedStore}>
                 <Container>
                     <div className='test'>
-Add page tracking children
+                        Add page tracking children
                     </div>
                 </Container>
             </Provider>

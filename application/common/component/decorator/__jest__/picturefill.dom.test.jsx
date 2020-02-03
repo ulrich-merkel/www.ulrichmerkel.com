@@ -34,7 +34,7 @@ describe('common/component/decorator/picturefill', function () {
             <Provider store={mockedStore}>
                 <Container>
                     <div className='test'>
-Picturefill children
+                        Picturefill children
                     </div>
                 </Container>
             </Provider>
@@ -48,7 +48,7 @@ Picturefill children
             <Provider store={mockedStore}>
                 <Container>
                     <div className='test'>
-Picturefill children
+                        Picturefill children
                     </div>
                 </Container>
             </Provider>
@@ -70,7 +70,7 @@ Picturefill children
             <Provider store={mockedStore}>
                 <Container>
                     <div className='test'>
-Picturefill children
+                        Picturefill children
                     </div>
                 </Container>
             </Provider>

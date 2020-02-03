@@ -1,3 +1,4 @@
+
 /* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
@@ -58,7 +59,7 @@ function ModuleTextTime(props) {
             )}
             {timeStart && timeEnd && (
                 <span className='c-time--separator'>
--
+                    -
                 </span>
             )}
             {timeEnd && (

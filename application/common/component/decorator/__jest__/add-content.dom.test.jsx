@@ -39,7 +39,7 @@ describe('common/component/decorator/add-content', function () {
             <Provider store={mockedStore}>
                 <Container>
                     <div className='test'>
-Add content children
+                        Add content children
                     </div>
                 </Container>
             </Provider>
@@ -53,7 +53,7 @@ Add content children
             <Provider store={mockedStoreWithoutContent}>
                 <Container>
                     <div className='test'>
-Add content children
+                        Add content children
                     </div>
                 </Container>
             </Provider>
@@ -67,7 +67,7 @@ Add content children
             <Provider store={mockedStoreWithoutContent}>
                 <Container config={{}} locale={'en-EN'}>
                     <div className='test'>
-Add content children
+                        Add content children
                     </div>
                 </Container>
             </Provider>
