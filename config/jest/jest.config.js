@@ -1,6 +1,5 @@
 /* eslint-disable immutable/no-mutation */
 
-
 module.exports = {
     rootDir: '../../',
     bail: true,
@@ -8,13 +7,7 @@ module.exports = {
     testPathIgnorePatterns: [
         '<rootDir>/(build|docs|node_modules)/'
     ],
-    setupFiles: [
-        '<rootDir>/config/jest/jest.setup.js'
-    ],
     setupTestFrameworkScriptFile: '<rootDir>/config/jest/jest.each-test-setup.js',
-    transform: {
-        '^.+\\.jsx$': '<rootDir>/config/jest/jest.transform.js'
-    },
     verbose: true,
     moduleFileExtensions: [
         'js',

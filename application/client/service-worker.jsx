@@ -78,7 +78,7 @@ function preCache() {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     return caches.open(self.CACHE).then(function handleOpen(cache) {
         if (!cache.addAll) {
-            return Promise.resolve();
+            return true;
         }
         return cache.addAll(STATIC_FILES);
     }).catch(handleError);

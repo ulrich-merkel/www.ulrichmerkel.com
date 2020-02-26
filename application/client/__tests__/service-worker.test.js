@@ -4,6 +4,7 @@
  * @see {@link https://hackernoon.com/service-worker-testing-made-easy-9a2d8e9aa50}
  */
 const makeServiceWorkerEnv = require('service-worker-mock');
+
 const Response = () => ({ clone: jest.fn() });
 const Request = (url = '/test') => ({ url });
 const SERVICE_WORKER_PATH = '../service-worker';

@@ -1,0 +1,18 @@
+{
+    "presets": [
+        [
+            "@babel/preset-react",
+            {
+                "useSpread": true
+            }
+        ],
+        [
+            "@babel/preset-env"
+        ]
+    ],
+    "ignore": [
+        "**/__jest__/",
+        "**/__mocks__/",
+        "**/__tests__/"
+    ]
+}
