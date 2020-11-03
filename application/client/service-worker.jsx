@@ -208,6 +208,12 @@ function isHandledByServiceWorker(request) {
         return false;
     }
 
+    // Browser extensions could make requests which can cause the service worker to
+    // break because it's no http request (like chrome-extension://xyz.)
+    if (!request.url.includes('http')) {
+        return false;
+    }
+
     // Prevent caching for blacklisted urls
     const blackListLength = BLACKLIST_URLS.length;
     // eslint-disable-next-line immutable/no-let

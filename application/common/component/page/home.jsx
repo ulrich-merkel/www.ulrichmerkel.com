@@ -40,7 +40,7 @@ import LayoutMain from '../layout/main';
 import SectionKeyVisual from '../section/key-visual';
 import SectionText from '../section/text';
 import SectionService from '../section/service';
-import SectionFeatured from '../section/featured';
+// import SectionFeatured from '../section/featured';
 
 /**
  * Function representing a component to return a single react child element.
@@ -59,7 +59,6 @@ function PageHome(props) {
             <SectionKeyVisual content={contentSection('section1')} className='hide-on-print' isCovered />
             <SectionText content={contentSection('section2')} isMain />
             <SectionService content={contentSection('section3')} />
-            <SectionFeatured content={contentSection('section4')} />
         </LayoutMain>
     );
 }

@@ -90,11 +90,11 @@ featureDetect();
  * @see {@link https://github.com/reactjs/react-router/issues/714}
  */
 document.addEventListener('DOMContentLoaded', function handleEvent() {
-    attachFastClick(document.body);
+    attachFastClick.attach(document.body);
 }, false);
 
 /**
- * Add pubsub messaging to decouple common and client code for add theming
+ * Add pubsub messaging to decouple common and client code for add theming.
  *
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
@@ -126,7 +126,7 @@ hydrate(
     <Root store={store}>
         <BrowserRouter
             basename='/'
-            createElement={createElement}
+            {...{ createElement }}
         >
             <Routes />
         </BrowserRouter>

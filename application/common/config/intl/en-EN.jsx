@@ -76,7 +76,7 @@ export default {
     'intl-page-persona-section2-headline': 'Personal Timeline',
     'intl-page-persona-section2-lead': 'Things i did in my live',
     'intl-page-persona-section2-professional-experience': 'Professional Experience',
-    'intl-page-persona-section2-professional-experience-list-1-headline': 'Software Engineer Frontend',
+    'intl-page-persona-section2-professional-experience-list-1-headline': 'Senior Software Engineer Frontend',
     'intl-page-persona-section2-professional-experience-list-1-description': `Design, implement and maintain
         web applications for <a href='http://www.tomtom.com/' target='_blank' title='TomTom website' rel='noopener noreferrer'>TomTom Telematics</a>
         with strong focus on code quality and continuously improving the technology stack with new ideas.`,
@@ -315,9 +315,9 @@ export default {
     'intl-page-imprint-section1-text-1-content-2': `Ust. (VAT) - Idnr. DE  235 248 02155<br />
         Amtsgericht Borna`,
     'intl-page-imprint-section1-address-name': 'Ulrich Merkel',
-    'intl-page-imprint-section1-address-street-address': 'Pegauer Straße 51',
-    'intl-page-imprint-section1-address-locality': 'Zwenkau, Germany',
-    'intl-page-imprint-section1-address-postal-code': '04442',
+    'intl-page-imprint-section1-address-street-address': 'Neuer Weg 4B',
+    'intl-page-imprint-section1-address-locality': 'Groitzsch, Germany',
+    'intl-page-imprint-section1-address-postal-code': '04539',
     'intl-page-imprint-section1-address-email': 'hello@ulrichmerkel.com',
     'intl-page-imprint-section1-address-phone': '+49 (0) 178 300 4282',
     'intl-page-imprint-section1-address-phone-numbers': '+491783004282',

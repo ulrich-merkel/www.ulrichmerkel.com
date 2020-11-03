@@ -209,11 +209,10 @@ function resize(src, dest, width, height, degrees = 0) {
     }
 
     return void sharp(src)
-        .resize(width, height)
-        .rotate(degrees)
-        .background({
-            r: 255, g: 255, b: 255, alpha: 1
+        .resize(width, height, {
+            background: { r: 255, g: 255, b: 255, alpha: 1 }
         })
+        .rotate(degrees)
         .toFile(dest, function handleWriteFile(error) {
             if (error) {
                 return void console.error(chalk.red(error));

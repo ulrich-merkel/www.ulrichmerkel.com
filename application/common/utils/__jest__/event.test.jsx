@@ -18,11 +18,11 @@ describe('common/utils/event', function () {
     describe('eventStopPropagation', function () {
         it('should call event functions', function () {
             const event = {
-                eventStopPropagation: jest.fn()
+                stopPropagation: jest.fn()
             };
             eventStopPropagation(event);
 
-            expect(event.eventStopPropagation).toHaveBeenCalled();
+            expect(event.stopPropagation).toHaveBeenCalled();
         });
     });
 });

@@ -15,7 +15,7 @@
 import { isFunction } from 'lodash';
 
 const PREVENT_DEFAULT = 'preventDefault';
-const EVENT_STOP_PROPAGATION = 'eventStopPropagation';
+const STOP_PROPAGATION = 'stopPropagation';
 
 /**
  * Check if we have a valid browser event object
@@ -49,8 +49,8 @@ function eventPreventDefault(event) {
  * @returns {void}
  */
 function eventStopPropagation(event) {
-    if (isValidEvent(event, EVENT_STOP_PROPAGATION)) {
-        event[EVENT_STOP_PROPAGATION]();
+    if (isValidEvent(event, STOP_PROPAGATION)) {
+        event[STOP_PROPAGATION]();
     }
 }
 
