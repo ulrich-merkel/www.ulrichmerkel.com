@@ -54,5 +54,4 @@ ElementFieldset.propTypes = {
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
-
 export default ElementFieldset;

@@ -102,7 +102,7 @@ class PageWork extends Component {
      * @function
      * @returns {void}
      */
-    componentWillMount() {
+    UNSAFE_componentWillMount() { // eslint-disable-line camelcase
         this.handleRouterParams(this.props);
     }
 
@@ -114,7 +114,7 @@ class PageWork extends Component {
      * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
         this.handleRouterParams(nextProps);
     }
 

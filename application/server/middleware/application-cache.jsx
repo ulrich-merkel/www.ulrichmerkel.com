@@ -39,7 +39,6 @@ function getTimeStamp() {
     return getDateNow();
 }
 
-
 /**
  * Helper function to get dynamic picture sizes as valid cache url.
  *

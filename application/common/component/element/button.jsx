@@ -123,7 +123,6 @@ function ElementButton(props) {
     );
 }
 
-
 /**
  * Validate props via React.PropTypes helpers.
  *

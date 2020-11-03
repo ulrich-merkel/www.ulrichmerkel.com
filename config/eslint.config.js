@@ -1,6 +1,5 @@
 /* eslint-disable immutable/no-mutation */
 
-
 module.exports = {
     env: {
         browser: true,

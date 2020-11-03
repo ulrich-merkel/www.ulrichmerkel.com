@@ -24,7 +24,6 @@ const {
     }
 } = pictureSizes;
 
-
 const AUTHOR = 'Ulrich Merkel';
 const HOMEPAGE_URL = '//www.ulrichmerkel.com';
 const IMG = '/img/';

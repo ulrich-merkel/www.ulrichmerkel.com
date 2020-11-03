@@ -20,9 +20,9 @@
  * @changelog
  * - 0.0.1 Basic function and structure
  */
-
-
+const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
 
 /**
  * @private
@@ -36,6 +36,14 @@ function resolve(dir) {
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 const sourcePath = resolve('/../application');
+
+const plugins = [
+    new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
+        }
+    })
+];
 
 /**
  * Webpack configuration.
@@ -59,6 +67,10 @@ module.exports = {
         filename: '[name].bundle.js'
     },
     resolve: {
+        alias: {
+            // @see {@link https://medium.com/@sanchit3b/how-to-polyfill-node-core-modules-in-webpack-5-905c1f5504a0}
+            process: 'process/browser'
+        },
         extensions: [
             '.js',
             '.json',
@@ -72,11 +84,12 @@ module.exports = {
                 exclude: [
                     /node_modules/,
                     `${__dirname}/../build/`
-                ]
+                ],
                 use: [{
                     loader: 'babel-loader'
                 }]
             }
         ]
-    }
+    },
+    plugins: plugins
 };

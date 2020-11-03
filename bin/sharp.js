@@ -33,7 +33,7 @@ const sharp = require('sharp');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const assert = require('assert-plus');
-const pictures = require('./../application/common/config/pictures');
+const pictures = require('../application/common/config/pictures');
 
 const argv = minimist(process.argv.slice(2));
 const argvSrcFolder = argv.s || './';
@@ -210,7 +210,9 @@ function resize(src, dest, width, height, degrees = 0) {
 
     return void sharp(src)
         .resize(width, height, {
-            background: { r: 255, g: 255, b: 255, alpha: 1 }
+            background: {
+                r: 255, g: 255, b: 255, alpha: 1
+            }
         })
         .rotate(degrees)
         .toFile(dest, function handleWriteFile(error) {

@@ -145,7 +145,6 @@ class ModuleKeyVisual extends Component {
 
 }
 
-
 /**
  * Validate props via React.PropTypes helpers.
  *

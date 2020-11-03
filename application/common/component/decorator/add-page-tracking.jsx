@@ -46,7 +46,7 @@ function addPageTracking(SourceComponent) {
          *
          * @returns {void}
          */
-        componentWillMount() {
+        UNSAFE_componentWillMount() { // eslint-disable-line camelcase
             // eslint-disable-next-line react/destructuring-assignment
             this.props.handleAddPageView();
         }

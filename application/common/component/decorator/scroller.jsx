@@ -130,7 +130,7 @@ function scroller(SourceComponent) {
          * @param {object} [nextProps] - The new class properties
          * @returns {void}
          */
-        componentWillReceiveProps(nextProps) {
+        UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
             const { location } = this.props;
 
             if (location !== nextProps.location) {

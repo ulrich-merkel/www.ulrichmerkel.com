@@ -470,7 +470,6 @@ export default {
     'intl-btn-close-dialog-label': 'Close dialog',
     'intl-btn-open-dialog-title': 'Close dialog',
 
-
     'intl-now': 'Now',
     'intl-today': 'Today',
     'intl-loading': 'Loading',

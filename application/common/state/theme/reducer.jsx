@@ -21,7 +21,6 @@ import {
     STATE_THEME_SELECTED_CHANGE
 } from './constants';
 
-
 /**
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.

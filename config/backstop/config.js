@@ -1,4 +1,3 @@
-
 const rootUrl = `http://localhost:${process.env.PORT}`;
 const scenarioDefaults = {
     selectors: [
