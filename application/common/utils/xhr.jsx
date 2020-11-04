@@ -62,7 +62,6 @@ function xhr(url, options = {}) {
         method: 'POST',
         mode: 'same-origin',
         headers: XHR_DEFAULT_HEADERS,
-        body: {},
         ...options
     };
 
