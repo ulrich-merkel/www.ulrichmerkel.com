@@ -33,14 +33,14 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const nodeEnv = process.env.NODE_ENV || 'development';
+const nodeEnv = process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 const sourcePath = resolve('/../application');
 
 const plugins = [
     new webpack.DefinePlugin({
         'process.env': {
-            NODE_ENV: JSON.stringify(dotenv.config().parsed) // it will automatically pick up key values from .env file
+            NODE_ENV: JSON.stringify(nodeEnv) // it will automatically pick up key values from .env file
         }
     })
 ];
