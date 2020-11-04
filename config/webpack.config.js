@@ -33,7 +33,7 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const nodeEnv = process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
+const nodeEnv = process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 const sourcePath = resolve('/../application');
 

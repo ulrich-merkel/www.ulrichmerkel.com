@@ -11,7 +11,7 @@
 describe('common/component/module/key-visual', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const defaultProps = {
     //     componentType: 'nav',
     //     className: 'key-visual-dom',

@@ -11,7 +11,7 @@
 describe('common/component/module/text', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const defaultProps = {
     //     componentType: 'div',
     //     className: 'module-text',

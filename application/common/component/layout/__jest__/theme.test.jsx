@@ -15,7 +15,7 @@
 describe('common/component/layout/theme', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // it('should render correctly', function () {
     //     const defaultProps = {
     //         themeSelected: 'foo'

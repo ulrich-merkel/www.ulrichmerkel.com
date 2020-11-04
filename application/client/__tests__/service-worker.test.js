@@ -15,7 +15,7 @@
 describe('Service worker', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // beforeEach(function () {
     //     Object.assign(global, makeServiceWorkerEnv());
     //     jest.resetModules();

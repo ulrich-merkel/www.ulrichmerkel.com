@@ -15,7 +15,7 @@
 describe('common/component/module/search', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const handleChangeDialogVisibleSearch = sinon.spy();
     // const defaultProps = {
     //     content: {},

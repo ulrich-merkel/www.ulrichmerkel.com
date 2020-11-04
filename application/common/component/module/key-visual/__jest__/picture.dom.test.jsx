@@ -10,7 +10,7 @@
 describe('common/component/layout/body', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const defaultProps = {
     //     img: {
     //         name: 'keyvisual',

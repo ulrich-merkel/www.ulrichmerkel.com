@@ -11,7 +11,7 @@
 describe('common/component/decorator/add-page-tracking', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const Page = function (props) {
     //     return (
     //         <h1 className='page'>

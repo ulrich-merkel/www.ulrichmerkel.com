@@ -13,7 +13,7 @@
 describe('common/component/decorator/scroller', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const Page = function (props) {
     //     return (
     //         <h1 className='page'>

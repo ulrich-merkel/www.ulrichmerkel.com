@@ -12,7 +12,7 @@
 describe('common/component/layout/header', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // it('should render correctly', function () {
     //     const defaultProps = {
     //         handleIntlChangeLocale: sinon.spy(),

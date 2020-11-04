@@ -15,7 +15,7 @@
 describe('common/component/decorator/add-content', function () {
     it('should BE FIXED', function () {
         expect(true).toBeTruthy();
-    })
+    });
     // const Page = function (props) {
     //     return (
     //         <h1 className='page'>
