@@ -29,7 +29,7 @@ import loaderAsync from './loader/async';
 //         .then(function registerServiceWorker(reg) {
 //             const { log } = console; // eslint-disable-line no-console
 //             displayAllLoaded();
-
+//
 //             if (reg.waiting) {
 //                 return log('Service worker installed');
 //             }
