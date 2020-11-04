@@ -41,11 +41,7 @@ import ModuleReading from '../module/reading';
  * @returns {ReactElement} React component markup
  */
 function SectionReading(props) {
-    const {
-        children,
-        content,
-        ...moduleProps
-    } = props;
+    const { children, content, ...moduleProps } = props;
 
     return (
         <SectionCommonGridSpaced>
@@ -66,12 +62,14 @@ function SectionReading(props) {
  */
 SectionReading.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

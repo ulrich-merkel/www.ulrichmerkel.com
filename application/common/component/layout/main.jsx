@@ -33,11 +33,7 @@ function LayoutMain(props) {
     const { children } = props;
 
     return (
-        <main
-            className='l-main'
-            itemProp='mainContentOfPage'
-            role='main'
-        >
+        <main className="l-main" itemProp="mainContentOfPage" role="main">
             {children}
         </main>
     );

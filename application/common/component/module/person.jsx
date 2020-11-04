@@ -63,61 +63,59 @@ function ModulePerson(props) {
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <ComponentType
-            className={componentClassName}
-            {...componentSchema}
-        >
+        <ComponentType className={componentClassName} {...componentSchema}>
             {content.name && (
-                <P className='m-person__name'>
-                    <strong>
-                        {content.name}
-                    </strong>
+                <P className="m-person__name">
+                    <strong>{content.name}</strong>
                 </P>
             )}
             {content.streetAddress && content.postalCode && content.locality && (
-                <address className='m-person__address c-type--address' itemProp='address' itemScope itemType='http://schema.org/Address'>
-                    <span className='m-person__street-address' itemProp='street-address'>
+                <address
+                    className="m-person__address c-type--address"
+                    itemProp="address"
+                    itemScope
+                    itemType="http://schema.org/Address"
+                >
+                    <span
+                        className="m-person__street-address"
+                        itemProp="street-address"
+                    >
                         {content.streetAddress}
                     </span>
-                    <span className='m-person__postal-code' itemProp='postal-code'>
+                    <span
+                        className="m-person__postal-code"
+                        itemProp="postal-code"
+                    >
                         {content.postalCode}
                     </span>
-                    <span className='m-person__locality' itemProp='locality'>
+                    <span className="m-person__locality" itemProp="locality">
                         {content.locality}
                     </span>
                 </address>
             )}
             {content.email && (
-                <P className='m-person__email'>
-                    <abbr title='E-Mail address'>
-                        E.
-                    </abbr>
-                    {' '}
-                    <a href={`mailto:${content.email}`} itemProp='email'>
+                <P className="m-person__email">
+                    <abbr title="E-Mail address">E.</abbr>{' '}
+                    <a href={`mailto:${content.email}`} itemProp="email">
                         {content.email}
                     </a>
                 </P>
             )}
             {content.phoneNumbers && content.phone && (
-                <P className='m-person__phone'>
-                    <abbr title='Phonenumber'>
-                        P.
-                    </abbr>
-                    {' '}
-                    <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>
+                <P className="m-person__phone">
+                    <abbr title="Phonenumber">P.</abbr>{' '}
+                    <a
+                        href={`tel:${content.phoneNumbers}`}
+                        itemProp="telephone"
+                    >
                         {content.phone}
                     </a>
                 </P>
             )}
             {content.website && (
-                <P className='m-person__website'>
-                    <abbr title='Website'>
-                        W.
-                    </abbr>
-                    {' '}
-                    <a href={`${content.website}`}>
-                        {content.website}
-                    </a>
+                <P className="m-person__website">
+                    <abbr title="Website">W.</abbr>{' '}
+                    <a href={`${content.website}`}>{content.website}</a>
                 </P>
             )}
             {children}
@@ -126,17 +124,17 @@ function ModulePerson(props) {
 }
 
 /**
-* Validate props via React.PropTypes helpers.
-*
-* @static
-* @type {object}
-* @property {string} [componentType='div'] - The component element type used for React.createElement
-* @property {string} [className] - The component css class names - will be merged into component default classNames
-* @property {boolean} [isCentered=true] - Whether the component text should be centered via css or not
-* @property {string} [itemType='http://schema.org/Person'] - The schema.org itemtype url attribute
-* @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {object} [content={}] - The component translation config
-*/
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {object}
+ * @property {string} [componentType='div'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names - will be merged into component default classNames
+ * @property {boolean} [isCentered=true] - Whether the component text should be centered via css or not
+ * @property {string} [itemType='http://schema.org/Person'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
+ * @property {object} [content={}] - The component translation config
+ */
 ModulePerson.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props

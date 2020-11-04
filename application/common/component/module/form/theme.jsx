@@ -35,16 +35,8 @@ import {
 } from '../../../state/selectors';
 import { changeThemeSelected } from '../../../state/actions';
 import { eventPreventDefault } from '../../../utils/event';
-import {
-    GridRow,
-    GridCol
-} from '../../grid';
-import {
-    Form,
-    Fieldset,
-    Legend,
-    Button
-} from '../../element';
+import { GridRow, GridCol } from '../../grid';
+import { Form, Fieldset, Legend, Button } from '../../element';
 
 const noop = Function.prototype;
 
@@ -78,28 +70,27 @@ function ModuleFormTheme(props) {
 
     return (
         <Form
-            action='/theme/'
-            className='m-form--theme'
-            id='m-form--theme'
-            itemProp='potentialAction'
+            action="/theme/"
+            className="m-form--theme"
+            id="m-form--theme"
+            itemProp="potentialAction"
             itemScope
-            itemType='http://schema.org/Action'
+            itemType="http://schema.org/Action"
             onSubmit={eventPreventDefault}
         >
             <Fieldset>
-
-                <Legend isVisuallyHidden>
-                    {content.legend}
-                </Legend>
+                <Legend isVisuallyHidden>{content.legend}</Legend>
 
                 <GridRow>
                     {items.map(function mapItems(item) {
-                        const className = themeSelected === item.value
-                            ? 'is-active'
-                            : '';
+                        const className =
+                            themeSelected === item.value ? 'is-active' : '';
 
                         return (
-                            <GridCol key={`button-theme-switch-${item.value}`} cols={'6'}>
+                            <GridCol
+                                key={`button-theme-switch-${item.value}`}
+                                cols={'6'}
+                            >
                                 <Button
                                     onClick={item.onClick}
                                     {...{ className }}
@@ -110,7 +101,7 @@ function ModuleFormTheme(props) {
                         );
                     })}
                 </GridRow>
-                <input type='hidden' name='_csrf' value={csrfToken} />
+                <input type="hidden" name="_csrf" value={csrfToken} />
             </Fieldset>
         </Form>
     );
@@ -190,15 +181,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 /**
-* Connects a React component to a Redux store. It does not modify the
-* component class passed to it. Instead, it returns a new, connected component class.
-*/
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
 const ModuleFormThemeContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormTheme);
 
 export default ModuleFormThemeContainer;
-export {
-    ModuleFormTheme
-};
+export { ModuleFormTheme };

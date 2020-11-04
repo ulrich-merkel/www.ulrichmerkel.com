@@ -62,12 +62,14 @@ function PageNotFound(props) {
  * @property {object} [content={}] - The component translation config
  */
 PageNotFound.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

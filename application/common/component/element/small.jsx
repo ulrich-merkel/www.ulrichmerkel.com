@@ -29,16 +29,9 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementSmall(props) {
-    const {
-        htmlElement: ComponentType,
-        className,
-        ...otherProps
-    } = props;
+    const { htmlElement: ComponentType, className, ...otherProps } = props;
 
-    const composedClassName = classnames(
-        'c-type--small',
-        className
-    );
+    const composedClassName = classnames('c-type--small', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading

@@ -32,18 +32,12 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function GridRow(props) {
-    const {
-        className,
-        htmlElement,
-        ...otherProps
-    } = props;
+    const { className, htmlElement, ...otherProps } = props;
 
     const ComponentType = htmlElement;
     const componentClassName = classnames('l-grid__row', className);
 
-    return (
-        <ComponentType className={componentClassName} {...otherProps} />
-    );
+    return <ComponentType className={componentClassName} {...otherProps} />;
 }
 
 /**

@@ -51,5 +51,4 @@ describe('common/utils/xor', function () {
             expect(xor.decrypt(data, '')).toEqual(data);
         });
     });
-
 });

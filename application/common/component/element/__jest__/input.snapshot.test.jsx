@@ -7,13 +7,13 @@ describe('common/component/element/input', function () {
     it('should render correctly with default callbacks', function () {
         const component = renderer.create(
             <ElementInput
-                className='input'
-                classNameLabel='input-label'
-                id='input'
-                name='input'
-                placeholder='Test input placeholder'
-                type='text'
-                value='4'
+                className="input"
+                classNameLabel="input-label"
+                id="input"
+                name="input"
+                placeholder="Test input placeholder"
+                type="text"
+                value="4"
                 required
             />
         );
@@ -33,8 +33,8 @@ describe('common/component/element/input', function () {
         const onChange = jest.fn();
         const component = renderer.create(
             <ElementInput
-                id='input-callbacks'
-                name='input-callbacks'
+                id="input-callbacks"
+                name="input-callbacks"
                 onBlur={onBlur}
                 onChange={onChange}
             />

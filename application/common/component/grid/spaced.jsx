@@ -25,9 +25,7 @@ import * as React from 'react';
  * @returns {ReactElement} React component markup
  */
 function GridSpaced(props) {
-    return (
-        <div className='l-grid__spaced--small' {...props} />
-    );
+    return <div className="l-grid__spaced--small" {...props} />;
 }
 
 export default GridSpaced;

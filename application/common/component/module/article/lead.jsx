@@ -37,11 +37,7 @@ import P from '../../element/paragraph';
  * @returns {ReactElement} React component markup
  */
 function ModuleArticleLead(props) {
-
-    const {
-        text,
-        className
-    } = props;
+    const { text, className } = props;
 
     if (!text) {
         return null;
@@ -50,13 +46,14 @@ function ModuleArticleLead(props) {
     const composedClassName = classnames(className);
 
     return (
-        <P className={composedClassName} isCentered itemProp='alternativeHeadline'>
-            <strong>
-                {text}
-            </strong>
+        <P
+            className={composedClassName}
+            isCentered
+            itemProp="alternativeHeadline"
+        >
+            <strong>{text}</strong>
         </P>
     );
-
 }
 
 /**

@@ -17,8 +17,12 @@ describe('common/utils/csp', function () {
         const rulesToEqual = [];
         /* eslint-disable quotes */
         rulesToEqual.push(`default-src 'self' www.ulrichmerkel.com;`);
-        rulesToEqual.push(`script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.bootstrap}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`);
-        rulesToEqual.push(`style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`);
+        rulesToEqual.push(
+            `script-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.script.bootstrap}' 'nonce-${nonceConfig.script.config}' 'unsafe-inline';`
+        );
+        rulesToEqual.push(
+            `style-src 'self' www.ulrichmerkel.com 'nonce-${nonceConfig.style.base}' 'unsafe-inline';`
+        );
         rulesToEqual.push(`img-src 'self' www.ulrichmerkel.com data:;`);
         rulesToEqual.push(`child-src 'self';`);
         rulesToEqual.push(`object-src 'none';`);

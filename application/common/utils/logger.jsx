@@ -1,29 +1,29 @@
 /* eslint-disable no-underscore-dangle, no-console, immutable/no-mutation */
 /**
-* Handle node js logging to improve performance.
-*
-* @file
-* @module
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.1
-*
-* @TODO find good solution for universal logging - use async logging in
-* node to improve performance
-*
-* @see {@link https://strongloop.com/strongblog/compare-node-js-logging-winston-bunyan/?_ga=1.268359950.1276058548.1473272867}
-* @see {@link http://expressjs.com/en/advanced/best-practice-performance}
-* @see {@link https://github.com/mxstbr/react-boilerplate}
-* @see {@link https://github.com/winstonjs/winston/issues/101}
-* @see {@link https://github.com/pimterry/loglevel/blob/master/lib/loglevel.js}
-* @see {@link https://github.com/cwebbdesign/isomorphic-logger/blob/master/index.js}
-* @see {@link https://github.com/aurajs/aura/blob/master/lib/logger.js}
-*
-* @requires common/config/application
-*
-* @changelog
-* - 0.0.1 basic functions and structure
-*/
+ * Handle node js logging to improve performance.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @TODO find good solution for universal logging - use async logging in
+ * node to improve performance
+ *
+ * @see {@link https://strongloop.com/strongblog/compare-node-js-logging-winston-bunyan/?_ga=1.268359950.1276058548.1473272867}
+ * @see {@link http://expressjs.com/en/advanced/best-practice-performance}
+ * @see {@link https://github.com/mxstbr/react-boilerplate}
+ * @see {@link https://github.com/winstonjs/winston/issues/101}
+ * @see {@link https://github.com/pimterry/loglevel/blob/master/lib/loglevel.js}
+ * @see {@link https://github.com/cwebbdesign/isomorphic-logger/blob/master/index.js}
+ * @see {@link https://github.com/aurajs/aura/blob/master/lib/logger.js}
+ *
+ * @requires common/config/application
+ *
+ * @changelog
+ * - 0.0.1 basic functions and structure
+ */
 import { debug } from '../config/application';
 import { getDateNow } from './date';
 
@@ -61,7 +61,6 @@ function Logger(name) {
 }
 
 Logger.prototype = {
-
     /**
      * Set prefix for messages.
      *
@@ -105,9 +104,7 @@ Logger.prototype = {
         this._error = console.error || this._log;
         this._enabled = true;
 
-        const logFunctions = [
-            'log', 'info', 'warn', 'error'
-        ];
+        const logFunctions = ['log', 'info', 'warn', 'error'];
         logFunctions.forEach(function forEachFn(val) {
             console[val] = Function.prototype.call.bind(console[val], console);
         });

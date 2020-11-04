@@ -26,9 +26,10 @@ function hasTouchEvents() {
 
     const touchstart = 'ontouchstart' in window;
     const windowNavigator = window.navigator;
-    const touchPoints = windowNavigator && (
-        windowNavigator.maxTouchPoints > 0 || windowNavigator.msMaxTouchPoints > 0
-    );
+    const touchPoints =
+        windowNavigator &&
+        (windowNavigator.maxTouchPoints > 0 ||
+            windowNavigator.msMaxTouchPoints > 0);
 
     return touchstart || touchPoints;
 }

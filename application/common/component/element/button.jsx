@@ -76,36 +76,22 @@ function ElementButton(props) {
         ...otherProps
     } = props;
 
-    const componentLabelClassName = classnames(
-        'c-btn__label',
-        classNameLabel,
-        {
-            'is-visually-hidden': isLabelHidden
-        }
-    );
+    const componentLabelClassName = classnames('c-btn__label', classNameLabel, {
+        'is-visually-hidden': isLabelHidden
+    });
 
-    const componentClassName = classnames(
-        'c-btn',
-        className,
-        {
-            'c-btn--primary': isPrimary,
-            'c-btn--secondary': isSecondary,
-            'c-btn--large': isLarge,
-            'c-btn--small': isSmall,
-            'c-btn--clear': isClear,
-            'is-disabled': isDisabled
-        }
-    );
+    const componentClassName = classnames('c-btn', className, {
+        'c-btn--primary': isPrimary,
+        'c-btn--secondary': isSecondary,
+        'c-btn--large': isLarge,
+        'c-btn--small': isSmall,
+        'c-btn--clear': isClear,
+        'is-disabled': isDisabled
+    });
 
-    const HtmlElement = to
-        ? NavLink
-        : htmlElement;
-    const htmlElementType = !to
-        ? type
-        : null;
-    const disabledAttr = isDisabled
-        ? { disabled: 'disabled' }
-        : null;
+    const HtmlElement = to ? NavLink : htmlElement;
+    const htmlElementType = !to ? type : null;
+    const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -116,9 +102,7 @@ function ElementButton(props) {
             {...disabledAttr}
             {...otherProps}
         >
-            <span className={componentLabelClassName}>
-                {children}
-            </span>
+            <span className={componentLabelClassName}>{children}</span>
         </HtmlElement>
     );
 }

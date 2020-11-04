@@ -31,25 +31,23 @@ import {
  * @returns {object} The new state for this store
  */
 function reducer(state = STATE_THEME_DEFAULT_STATE, action) {
-
     /**
      * The reason is that the lexical declaration is visible in the entire switch block but it only gets initialized
      * when it is assigned, which will only happen if the case where it is defined is reached.
      * To ensure that the lexical declaration only applies to the current case clause wrap your clauses in blocks.
      */
     switch (action.type) {
-    case STATE_THEME_SELECTED_CHANGE: {
-        const { selected } = action;
-        return {
-            ...state,
-            selected
-        };
+        case STATE_THEME_SELECTED_CHANGE: {
+            const { selected } = action;
+            return {
+                ...state,
+                selected
+            };
+        }
+        default: {
+            return state;
+        }
     }
-    default: {
-        return state;
-    }
-    }
-
 }
 
 export default reducer;

@@ -24,20 +24,17 @@ import configApplication from '../config/application';
  * @returns {object} The ReactCSSTransitionGroup config
  */
 function getSectionTransition(page) {
-
     const viewsAfterReload = get(page, 'viewsAfterReload', 1);
     const { transition } = configApplication;
 
     if (viewsAfterReload === 1) {
         return {
-
             ...transition,
             transitionAppear: false
         };
     }
 
     return transition;
-
 }
 
 export default getSectionTransition;

@@ -69,9 +69,7 @@ import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
 
-import {
-    url, port, sessionSecret, debug
-} from '../common/config/application';
+import { url, port, sessionSecret, debug } from '../common/config/application';
 import logger from '../common/utils/logger';
 import { AVAILABLE_LOCALES } from '../common/state/intl/constants';
 import middlewarePost from './middleware/post';
@@ -114,7 +112,6 @@ function create(config = {}, callback = Function.prototype) {
 
     // Merge defaults with config
     const options = {
-
         url,
         port,
         sessionSecret,
@@ -138,11 +135,15 @@ function create(config = {}, callback = Function.prototype) {
     if (debug) {
         // TODO: Check if morganLogPath file and dir exists otherwise create it
         const morganLogPath = path.resolve(__dirname, options.morganLogPath);
-        app.use(morgan('combined', {
-            stream: fs.createWriteStream( // eslint-disable-line security/detect-non-literal-fs-filename
-                morganLogPath, { flags: 'a' }
-            )
-        }));
+        app.use(
+            morgan('combined', {
+                stream: fs.createWriteStream(
+                    // eslint-disable-line security/detect-non-literal-fs-filename
+                    morganLogPath,
+                    { flags: 'a' }
+                )
+            })
+        );
     }
 
     // We need this because "cookie" is true in csrfProtection
@@ -150,9 +151,11 @@ function create(config = {}, callback = Function.prototype) {
     app.use(cookieParser(options.sessionSecret));
 
     // Get available languages by parsing Accept-Language header
-    app.use(requestLanguage({
-        languages: AVAILABLE_LOCALES
-    }));
+    app.use(
+        requestLanguage({
+            languages: AVAILABLE_LOCALES
+        })
+    );
 
     // Setup json api middleware, needs to be defined BEFORE bodyParser to
     // avoid 'socket hang up' errors
@@ -160,9 +163,11 @@ function create(config = {}, callback = Function.prototype) {
     app.use(url.api, middlewareApi);
 
     // Parse incoming req bodies as application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+    app.use(
+        bodyParser.urlencoded({
+            extended: true
+        })
+    );
 
     // Parse incoming req bodies as application/json
     app.use(bodyParser.json());
@@ -178,14 +183,16 @@ function create(config = {}, callback = Function.prototype) {
     // Any requests that don't supply a whitelisted Host will be rejected
     // with a 403 HTTP status code.
     // @see {@link https://github.com/brannondorsey/host-validation}
-    app.use(hostValidation({
-        hosts: [
-            `127.0.0.1:${serverPort}`,
-            `localhost:${serverPort}`,
-            'ulrichmerkel.com',
-            /.*\.ulrichmerkel\.com$/
-        ]
-    }));
+    app.use(
+        hostValidation({
+            hosts: [
+                `127.0.0.1:${serverPort}`,
+                `localhost:${serverPort}`,
+                'ulrichmerkel.com',
+                /.*\.ulrichmerkel\.com$/
+            ]
+        })
+    );
 
     // Enable compression, using advanced response compression using a async zopfli/brotli combination
     // @see {@link https://github.com/aickin/shrink-ray}
@@ -193,9 +200,11 @@ function create(config = {}, callback = Function.prototype) {
     app.use(compression());
 
     // Serve static files
-    app.use(express.static(path.resolve(__dirname, options.staticPath), {
-        index: false
-    }));
+    app.use(
+        express.static(path.resolve(__dirname, options.staticPath), {
+            index: false
+        })
+    );
 
     // Handle request for application cache config
     app.get(url.cacheManifest, middlewareApplicationCache);
@@ -224,7 +233,6 @@ function create(config = {}, callback = Function.prototype) {
         logServerStarted(serverPort);
         callback();
     });
-
 }
 
 /**

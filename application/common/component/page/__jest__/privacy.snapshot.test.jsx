@@ -9,13 +9,15 @@ import PagePrivacy from '../privacy';
 
 describe('common/component/page/privacy', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PagePrivacy />
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PagePrivacy />
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

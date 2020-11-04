@@ -31,24 +31,19 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementLabel(props) {
-    const {
-        className,
-        htmlFor,
-        isVisuallyHidden,
-        ...otherProps
-    } = props;
+    const { className, htmlFor, isVisuallyHidden, ...otherProps } = props;
 
-    const composedClassName = classnames(
-        'm-form__label',
-        className,
-        {
-            'is-visually-hidden': isVisuallyHidden
-        }
-    );
+    const composedClassName = classnames('m-form__label', className, {
+        'is-visually-hidden': isVisuallyHidden
+    });
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading, jsx-a11y/label-has-for,  jsx-a11y/label-has-associated-control
-        <label className={composedClassName} htmlFor={htmlFor} {...otherProps} />
+        <label
+            className={composedClassName}
+            htmlFor={htmlFor}
+            {...otherProps}
+        />
     );
 }
 

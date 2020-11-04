@@ -36,7 +36,9 @@ function applyTheme(themeSelected) {
 
     // Check if we should load a new theming css file
     const selector = `theme-${themeSelected}`;
-    const alreadyLoaded = themeSelected === AVAILABLE_THEMES.DEFAULT || document.getElementById(selector);
+    const alreadyLoaded =
+        themeSelected === AVAILABLE_THEMES.DEFAULT ||
+        document.getElementById(selector);
     if (!alreadyLoaded) {
         loaderAsync.css({
             src: `/css/${selector}.css`,
@@ -46,11 +48,13 @@ function applyTheme(themeSelected) {
     }
 
     // Remove other theming css files
-    availableThemes.filter(function filterAvailableThemes(theme) {
-        return theme !== themeSelected;
-    }).forEach(function mapAvailableThemes(theme) {
-        deleteDomNode(`theme-${theme}`);
-    });
+    availableThemes
+        .filter(function filterAvailableThemes(theme) {
+            return theme !== themeSelected;
+        })
+        .forEach(function mapAvailableThemes(theme) {
+            deleteDomNode(`theme-${theme}`);
+        });
 }
 
 export default applyTheme;

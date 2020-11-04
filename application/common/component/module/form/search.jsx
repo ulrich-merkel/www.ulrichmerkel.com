@@ -43,16 +43,8 @@ import {
 } from '../../../state/selectors';
 import { changeSearchTerm } from '../../../state/actions';
 import { eventPreventDefault } from '../../../utils/event';
-import {
-    GridRow,
-    GridCol
-} from '../../grid';
-import {
-    Form,
-    Fieldset,
-    Legend,
-    InputGroup
-} from '../../element';
+import { GridRow, GridCol } from '../../grid';
+import { Form, Fieldset, Legend, InputGroup } from '../../element';
 
 /**
  * Function representing a component to return a single react child element.
@@ -62,46 +54,38 @@ import {
  * @returns {ReactElement} React component markup
  */
 function ModuleFormSearch(props) {
-    const {
-        content,
-        csrfToken,
-        searchTerm,
-        handleSearchChangeTerm
-    } = props;
+    const { content, csrfToken, searchTerm, handleSearchChangeTerm } = props;
 
     return (
         <Form
-            action='/search/'
-            className='m-form--search'
-            id='m-form--search'
-            itemProp='potentialAction'
+            action="/search/"
+            className="m-form--search"
+            id="m-form--search"
+            itemProp="potentialAction"
             itemScope
-            itemType='http://schema.org/SearchAction'
+            itemType="http://schema.org/SearchAction"
             onSubmit={eventPreventDefault}
-            role='search'
+            role="search"
         >
             <Fieldset>
-
-                <Legend isVisuallyHidden>
-                    {content.legend}
-                </Legend>
+                <Legend isVisuallyHidden>{content.legend}</Legend>
 
                 <GridRow>
                     <GridCol cols={'12'}>
                         <InputGroup
                             id={'name'}
                             isLabelVisuallyHidden
-                            itemProp='query-input'
+                            itemProp="query-input"
                             label={content.inputTerm}
                             name={'name'}
                             onChange={handleSearchChangeTerm}
                             placeholder={content.inputTerm}
-                            type='search'
+                            type="search"
                             value={searchTerm}
                         />
                     </GridCol>
                 </GridRow>
-                <input type='hidden' name='_csrf' value={csrfToken} />
+                <input type="hidden" name="_csrf" value={csrfToken} />
             </Fieldset>
         </Form>
     );
@@ -181,15 +165,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 /**
-* Connects a React component to a Redux store. It does not modify the
-* component class passed to it. Instead, it returns a new, connected component class.
-*/
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
 const ModuleFormSearchContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormSearch);
 
 export default ModuleFormSearchContainer;
-export {
-    ModuleFormSearch
-};
+export { ModuleFormSearch };

@@ -52,9 +52,7 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
  * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
-    const {
-        children, locale, store, cssBase, scriptBootstrap
-    } = props;
+    const { children, locale, store, cssBase, scriptBootstrap } = props;
     const manifest = configApplication.applicationCache.use
         ? url.cacheManifest
         : null;
@@ -94,14 +92,19 @@ function LayoutHtml(props) {
     const lang = locale.split('-')[0];
 
     return (
-        <html className='no-js' dir='ltr' lang={lang} manifest={manifest}>
+        <html className="no-js" dir="ltr" lang={lang} manifest={manifest}>
             <head>
-                <meta charSet='utf-8' />
-                <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-                <meta name='viewport' content='width=device-width' />
-                {csp.use && <meta httpEquiv='Content-Security-Policy' content={getCspRules(nonceConfig)} />}
-                <link rel='preload' href='/css/app.css' as='style' />
-                <link rel='preload' href='/js/client.bundle.js' as='script' />
+                <meta charSet="utf-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width" />
+                {csp.use && (
+                    <meta
+                        httpEquiv="Content-Security-Policy"
+                        content={getCspRules(nonceConfig)}
+                    />
+                )}
+                <link rel="preload" href="/css/app.css" as="style" />
+                <link rel="preload" href="/js/client.bundle.js" as="script" />
                 {helmet.meta.toComponent()}
                 {helmet.title.toComponent()}
                 {helmet.link.toComponent()}
@@ -111,11 +114,16 @@ function LayoutHtml(props) {
                 />
                 {helmet.style.toComponent()}
                 <noscript>
-                    <link rel='stylesheet' href='/css/app.css' type='text/css' media='all' />
+                    <link
+                        rel="stylesheet"
+                        href="/css/app.css"
+                        type="text/css"
+                        media="all"
+                    />
                 </noscript>
             </head>
-            <body itemScope itemType='http://schema.org/WebPage'>
-                <div id='l-react' className='l-react'>
+            <body itemScope itemType="http://schema.org/WebPage">
+                <div id="l-react" className="l-react">
                     {children}
                 </div>
                 <script
@@ -128,7 +136,10 @@ function LayoutHtml(props) {
                     <script
                         nonce={get(nonceConfig, 'script.config')}
                         dangerouslySetInnerHTML={{
-                            __html: `__PRELOADED_STATE__=${serialize(preloadedState, { isJSON: true })};`
+                            __html: `__PRELOADED_STATE__=${serialize(
+                                preloadedState,
+                                { isJSON: true }
+                            )};`
                         }}
                     />
                 )}
@@ -183,8 +194,6 @@ function mapStateToProps(state, ownProps) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHtmlContainer = connect(
-    mapStateToProps
-)(LayoutHtml);
+const LayoutHtmlContainer = connect(mapStateToProps)(LayoutHtml);
 
 export default LayoutHtmlContainer;

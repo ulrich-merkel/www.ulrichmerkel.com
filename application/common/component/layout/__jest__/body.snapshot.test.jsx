@@ -9,20 +9,19 @@ import { LayoutBody } from '../body';
 
 describe('common/component/layout/body', function () {
     const defaultProps = {
-        content: {
-        }
+        content: {}
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <LayoutBody {...defaultProps}>
-                        Body Children
-                    </LayoutBody>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <LayoutBody {...defaultProps}>Body Children</LayoutBody>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

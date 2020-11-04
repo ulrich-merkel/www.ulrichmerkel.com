@@ -54,7 +54,4 @@ function eventStopPropagation(event) {
     }
 }
 
-export {
-    eventPreventDefault,
-    eventStopPropagation
-};
+export { eventPreventDefault, eventStopPropagation };

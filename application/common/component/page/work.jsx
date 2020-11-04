@@ -42,14 +42,13 @@ import { get } from 'lodash';
 import { url } from '../../config/application';
 import configWork from '../../config/work';
 import addPageTracking from '../decorator/add-page-tracking';
-import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
+import {
+    selectStateConfig,
+    selectStateIntlLocale
+} from '../../state/selectors';
 import { getContentSection, getTranslatedContent } from '../../utils/content';
 import LayoutMain from '../layout/main';
-import {
-    SectionFeatured,
-    SectionKeyVisual,
-    SectionText
-} from '../section';
+import { SectionFeatured, SectionKeyVisual, SectionText } from '../section';
 
 const NOT_FOUND = 'not-found';
 
@@ -62,11 +61,14 @@ const NOT_FOUND = 'not-found';
  * @returns {string} The first found entry by name
  */
 function getWorkContentKey(routerPath, config) {
-    return config.filter((entry) => {
-        return entry.routerPath.substr(1) === routerPath;
-    }).map((entry) => {
-        return entry.intlKey;
-    }).shift();
+    return config
+        .filter((entry) => {
+            return entry.routerPath.substr(1) === routerPath;
+        })
+        .map((entry) => {
+            return entry.intlKey;
+        })
+        .shift();
 }
 
 /**
@@ -79,7 +81,6 @@ function getWorkContentKey(routerPath, config) {
  * @property {object} [props.content={}] - The component translation config
  */
 class PageWork extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -102,7 +103,8 @@ class PageWork extends Component {
      * @function
      * @returns {void}
      */
-    UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+    UNSAFE_componentWillMount() {
+        // eslint-disable-line camelcase
         this.handleRouterParams(this.props);
     }
 
@@ -114,7 +116,8 @@ class PageWork extends Component {
      * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
-    UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        // eslint-disable-line camelcase
         this.handleRouterParams(nextProps);
     }
 
@@ -163,21 +166,20 @@ class PageWork extends Component {
             return <Redirect to={url.notFound} />;
         }
 
-        const contentSection = getContentSection(getTranslatedContent(locale, config, work));
+        const contentSection = getContentSection(
+            getTranslatedContent(locale, config, work)
+        );
 
         return (
             <LayoutMain>
                 <Helmet {...contentSection('head')} />
-                <SectionKeyVisual
-                    content={contentSection('section1')}
-                    isWork
-                />
+                <SectionKeyVisual content={contentSection('section1')} isWork />
                 <SectionText
                     content={contentSection('section2')}
                     isMain
                     isCentered
                     hasColumns2={false}
-                    itemType='https://schema.org/CreativeWork'
+                    itemType="https://schema.org/CreativeWork"
                 />
                 <SectionFeatured content={contentSection('section3')} />
             </LayoutMain>
@@ -194,12 +196,14 @@ class PageWork extends Component {
 PageWork.propTypes = {
     locale: PropTypes.string.isRequired,
     match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    config: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object // eslint-disable-line react/forbid-prop-types
-    ]))
+    config: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object // eslint-disable-line react/forbid-prop-types
+        ])
+    )
 };
 
 /**
@@ -233,11 +237,9 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const PageWorkContainer = connect(
-    mapStateToProps
-)(withRouter(addPageTracking(PageWork)));
+const PageWorkContainer = connect(mapStateToProps)(
+    withRouter(addPageTracking(PageWork))
+);
 
 export default PageWorkContainer;
-export {
-    PageWork
-};
+export { PageWork };

@@ -1,15 +1,15 @@
 /**
-* Es6 module for helper component.
-*
-* @file
-* @module
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.1
-*
-* @changelog
-* - 0.0.1 basic function and structure
-*/
+ * Es6 module for helper component.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
+ * @version 0.0.1
+ *
+ * @changelog
+ * - 0.0.1 basic function and structure
+ */
 
 /**
  * Get basic window document dom node.

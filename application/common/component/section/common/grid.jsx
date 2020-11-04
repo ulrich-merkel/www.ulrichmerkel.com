@@ -34,11 +34,7 @@ import { connect } from 'react-redux';
 
 import getSectionTransition from '../../../utils/transition';
 import { selectStatePage } from '../../../state/selectors';
-import {
-    GridSection,
-    GridRow,
-    GridCol
-} from '../../grid';
+import { GridSection, GridRow, GridCol } from '../../grid';
 
 /**
  * Function representing a component to return a single react child element.
@@ -50,18 +46,13 @@ import {
  * @returns {ReactElement} React component markup
  */
 function SectionCommonGrid(props) {
-    const {
-        children,
-        page
-    } = props;
+    const { children, page } = props;
 
     return (
         <ReactCSSTransitionGroup {...getSectionTransition(page)}>
             <GridSection>
                 <GridRow>
-                    <GridCol>
-                        {children}
-                    </GridCol>
+                    <GridCol>{children}</GridCol>
                 </GridRow>
             </GridSection>
         </ReactCSSTransitionGroup>
@@ -98,8 +89,6 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const SectionCommonGridContainer = connect(
-    mapStateToProps
-)(SectionCommonGrid);
+const SectionCommonGridContainer = connect(mapStateToProps)(SectionCommonGrid);
 
 export default SectionCommonGridContainer;

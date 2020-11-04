@@ -5,18 +5,13 @@ import ModuleKeyVisualArticle from '../article';
 
 describe('common/component/module/key-visual/article', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisualArticle
-                headline='headline'
-                lead='lead'
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleKeyVisualArticle headline="headline" lead="lead" />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render null if no content is provided', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisualArticle />
-        ).toJSON();
+        const tree = renderer.create(<ModuleKeyVisualArticle />).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

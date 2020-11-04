@@ -17,27 +17,29 @@ describe('common/component/page/broadcast', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PageBroadcast>
-                        Page broadcast children
-                    </PageBroadcast>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PageBroadcast>Page broadcast children</PageBroadcast>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render correctly as dialog', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PageBroadcast {...props} isDialog>
-                        Page broadcast children as dialog
-                    </PageBroadcast>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PageBroadcast {...props} isDialog>
+                            Page broadcast children as dialog
+                        </PageBroadcast>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

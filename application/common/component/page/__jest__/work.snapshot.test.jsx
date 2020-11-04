@@ -35,30 +35,34 @@ describe('common/component/page/privacy', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PageWork {...defaultProps} />
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PageWork {...defaultProps} />
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no work param is given', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PageWork
-                        {...defaultProps}
-                        match={{
-                            params: {
-                                work: ''
-                            }
-                        }}
-                    />
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PageWork
+                            {...defaultProps}
+                            match={{
+                                params: {
+                                    work: ''
+                                }
+                            }}
+                        />
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

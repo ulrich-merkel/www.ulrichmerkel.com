@@ -30,9 +30,7 @@ import { defaultState } from './reducer';
  * @returns {string} The intl locale state
  */
 const selectStateIntlLocale = createSelector(
-    [
-        (state) => state.intl
-    ],
+    [(state) => state.intl],
     (intl) => {
         return get(intl, 'locale', defaultState.locale);
     }
@@ -46,15 +44,10 @@ const selectStateIntlLocale = createSelector(
  * @returns {Array<string>} The intl availableLocales state
  */
 const selectStateIntlAvailableLocales = createSelector(
-    [
-        (state) => state.intl
-    ],
+    [(state) => state.intl],
     (intl) => {
         return get(intl, 'availableLocales', defaultState.availableLocales);
     }
 );
 
-export {
-    selectStateIntlLocale,
-    selectStateIntlAvailableLocales
-};
+export { selectStateIntlLocale, selectStateIntlAvailableLocales };

@@ -73,38 +73,43 @@ function getAsyncStateObject(action) {
  * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
-
     switch (action.type) {
-    case CONFIG_CONTENT_ADD:
-        return updateStateObject(state, { content: getAsyncStateObject(action) });
-    case FETCH_CONFIG_CONTENT_REQUEST:
-        return updateStateObject(state, {
-            content: {
-                ...state.content,
-                isFetching: true,
-                didInvalidate: false
-            }
-        });
-    case FETCH_CONFIG_CONTENT_SUCCESS:
-        return updateStateObject(state, { content: getAsyncStateObject(action) });
-    case CONFIG_TRANSLATION_ADD:
-        return updateStateObject(state, { [action.locale]: getAsyncStateObject(action) });
-    case FETCH_CONFIG_TRANSLATION_REQUEST:
-        return updateStateObject(state, {
-            [action.locale]: {
-                ...state[action.locale],
-                isFetching: true,
-                didInvalidate: false
-            }
-        });
-    case FETCH_CONFIG_TRANSLATION_SUCCESS:
-        return updateStateObject(state, { [action.locale]: getAsyncStateObject(action) });
-    default:
-        return state;
+        case CONFIG_CONTENT_ADD:
+            return updateStateObject(state, {
+                content: getAsyncStateObject(action)
+            });
+        case FETCH_CONFIG_CONTENT_REQUEST:
+            return updateStateObject(state, {
+                content: {
+                    ...state.content,
+                    isFetching: true,
+                    didInvalidate: false
+                }
+            });
+        case FETCH_CONFIG_CONTENT_SUCCESS:
+            return updateStateObject(state, {
+                content: getAsyncStateObject(action)
+            });
+        case CONFIG_TRANSLATION_ADD:
+            return updateStateObject(state, {
+                [action.locale]: getAsyncStateObject(action)
+            });
+        case FETCH_CONFIG_TRANSLATION_REQUEST:
+            return updateStateObject(state, {
+                [action.locale]: {
+                    ...state[action.locale],
+                    isFetching: true,
+                    didInvalidate: false
+                }
+            });
+        case FETCH_CONFIG_TRANSLATION_SUCCESS:
+            return updateStateObject(state, {
+                [action.locale]: getAsyncStateObject(action)
+            });
+        default:
+            return state;
     }
 }
 
 export default reducer;
-export {
-    defaultState
-};
+export { defaultState };

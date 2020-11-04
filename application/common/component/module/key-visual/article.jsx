@@ -36,11 +36,7 @@ import P from '../../element/paragraph';
  * @returns {ReactElement} React component markup
  */
 function ModuleKeyVisualArticle(props) {
-
-    const {
-        headline,
-        lead
-    } = props;
+    const { headline, lead } = props;
 
     if (!headline || !lead) {
         return null;
@@ -50,19 +46,18 @@ function ModuleKeyVisualArticle(props) {
 
     return (
         <article className={componentArticleClassName}>
-            <Headline className='m-key-visual__headline' itemProp='headline' htmlElement='h3'>
-                <span className='m-key-visual__boxed'>
-                    {headline}
-                </span>
+            <Headline
+                className="m-key-visual__headline"
+                itemProp="headline"
+                htmlElement="h3"
+            >
+                <span className="m-key-visual__boxed">{headline}</span>
             </Headline>
-            <P className='m-key-visual__lead' itemProp='description'>
-                <span className='m-key-visual__boxed'>
-                    {lead}
-                </span>
+            <P className="m-key-visual__lead" itemProp="description">
+                <span className="m-key-visual__boxed">{lead}</span>
             </P>
         </article>
     );
-
 }
 
 /**

@@ -56,7 +56,7 @@ let getTime = function getTimeLazyLoaded() {
         };
     } else {
         getTime = function getTimeFn() {
-            return (new Date()).getTime();
+            return new Date().getTime();
         };
     }
 
@@ -79,7 +79,11 @@ function getPageOffset() {
     if (!isBrowser()) {
         return 0;
     }
-    const currentScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
+    const currentScrollY =
+        window.pageYOffset ||
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        0;
 
     /**
      * Could be negative while bouncing, so we restrict the value
@@ -102,12 +106,12 @@ function getPageOffset() {
  * @returns {void}
  */
 function animate(options) {
-    const {
-        render, duration, easing, callback
-    } = options;
+    const { render, duration, easing, callback } = options;
     const { requestAnimationFrame } = window;
     const { cancelAnimationFrame } = window;
-    const hasRequestAnimationFrame = !!(requestAnimationFrame && cancelAnimationFrame);
+    const hasRequestAnimationFrame = !!(
+        requestAnimationFrame && cancelAnimationFrame
+    );
     const start = getTime();
 
     let requestId;
@@ -127,7 +131,7 @@ function animate(options) {
 
             render(easing(progress), requestId);
         }
-    }());
+    })();
 }
 
 /**
@@ -166,7 +170,9 @@ function scrollTo(opts = {}) {
     const scrollTopCurrent = getPageOffset();
     animate({
         render: function stepFunction(time) {
-            const top = Math.floor(scrollTopCurrent + ((options.top - scrollTopCurrent) * time));
+            const top = Math.floor(
+                scrollTopCurrent + (options.top - scrollTopCurrent) * time
+            );
             if (hasWindowScrollTo) {
                 window.scrollTo(0, top);
             }
@@ -185,7 +191,9 @@ function scrollTo(opts = {}) {
  */
 function scrollToElement(element) {
     if (element && isFunction(element.getBoundingClientRect)) {
-        const boundingClientRectTop = Math.abs(element.getBoundingClientRect().top);
+        const boundingClientRectTop = Math.abs(
+            element.getBoundingClientRect().top
+        );
 
         scrollTo({
             top: boundingClientRectTop
@@ -194,8 +202,4 @@ function scrollToElement(element) {
 }
 
 export default scrollTo;
-export {
-    getPageOffset,
-    easeInOutQuad,
-    scrollToElement
-};
+export { getPageOffset, easeInOutQuad, scrollToElement };

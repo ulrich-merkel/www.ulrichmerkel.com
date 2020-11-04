@@ -9,13 +9,15 @@ import PageDisclaimer from '../disclaimer';
 
 describe('common/component/page/disclaimer', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <PageDisclaimer />
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <PageDisclaimer />
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

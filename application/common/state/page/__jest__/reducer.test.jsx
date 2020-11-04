@@ -7,9 +7,11 @@ describe('common/state/page/reducer', function () {
         expect(reducer(undefined, {})).toEqual(defaultState);
     });
     it(`should react to an action with the type ${PAGE_INCREASE_VIEWS} and should increase viewsAfterReload on call`, function () {
-        expect(reducer(defaultState, {
-            type: PAGE_INCREASE_VIEWS
-        })).toEqual({
+        expect(
+            reducer(defaultState, {
+                type: PAGE_INCREASE_VIEWS
+            })
+        ).toEqual({
             viewsAfterReload: 1
         });
     });

@@ -1,8 +1,11 @@
 /* eslint-disable func-names */
-import { selectStateScrollHeaderFixed, selectStateScrollHeaderVisible } from '../selector';
+import {
+    selectStateScrollIsHeaderFixed,
+    selectStateScrollIsHeaderVisible
+} from '../selector';
 import { initialState, SCROLL_RESOURCE_NAME } from '../duck';
 
-describe('selectStateScrollHeaderFixed', function () {
+describe('selectStateScrollIsHeaderFixed', function () {
     it('should return the correct state', function () {
         const state = {
             [SCROLL_RESOURCE_NAME]: {
@@ -11,19 +14,23 @@ describe('selectStateScrollHeaderFixed', function () {
                 }
             }
         };
-        expect(selectStateScrollHeaderFixed(state)).toEqual(state.scroll.payload.headerFixed);
+        expect(selectStateScrollIsHeaderFixed(state)).toEqual(
+            state.scroll.payload.headerFixed
+        );
     });
-    it('should return a boolean if state isn\'t found', function () {
+    it("should return a boolean if state isn't found", function () {
         const state = {
             super: {
                 dummy: 'ipsum'
             }
         };
-        expect(selectStateScrollHeaderFixed(state)).toEqual(initialState.payload.headerFixed);
+        expect(selectStateScrollIsHeaderFixed(state)).toEqual(
+            initialState.payload.headerFixed
+        );
     });
 });
 
-describe('selectStateScrollHeaderVisible', function () {
+describe('selectStateScrollIsHeaderVisible', function () {
     it('should return the correct state', function () {
         const state = {
             [SCROLL_RESOURCE_NAME]: {
@@ -32,14 +39,18 @@ describe('selectStateScrollHeaderVisible', function () {
                 }
             }
         };
-        expect(selectStateScrollHeaderVisible(state)).toEqual(state.scroll.payload.headerVisible);
+        expect(selectStateScrollIsHeaderVisible(state)).toEqual(
+            state.scroll.payload.headerVisible
+        );
     });
-    it('should return a boolean if state isn\'t found', function () {
+    it("should return a boolean if state isn't found", function () {
         const state = {
             dummy: {
                 test: 'ipsum'
             }
         };
-        expect(selectStateScrollHeaderVisible(state)).toEqual(initialState.payload.headerVisible);
+        expect(selectStateScrollIsHeaderVisible(state)).toEqual(
+            initialState.payload.headerVisible
+        );
     });
 });

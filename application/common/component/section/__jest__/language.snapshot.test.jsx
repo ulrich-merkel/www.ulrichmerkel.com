@@ -8,15 +8,15 @@ import SectionLanguage from '../language';
 
 describe('common/component/section/language', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionLanguage
-                    content={{}}
-                >
-                    Section language children
-                </SectionLanguage>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionLanguage content={{}}>
+                        Section language children
+                    </SectionLanguage>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

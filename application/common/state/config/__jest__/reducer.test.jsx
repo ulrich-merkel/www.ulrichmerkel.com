@@ -26,11 +26,13 @@ describe('common/state/config/reducer', function () {
                 isFetching: false,
                 lastUpdated: dateNow
             };
-            expect(reducer(undefined, {
-                type: CONFIG_CONTENT_ADD,
-                data,
-                receivedAt: dateNow
-            })).toEqual({
+            expect(
+                reducer(undefined, {
+                    type: CONFIG_CONTENT_ADD,
+                    data,
+                    receivedAt: dateNow
+                })
+            ).toEqual({
                 content
             });
         });
@@ -39,9 +41,11 @@ describe('common/state/config/reducer', function () {
                 didInvalidate: false,
                 isFetching: true
             };
-            expect(reducer(undefined, {
-                type: FETCH_CONFIG_CONTENT_REQUEST
-            })).toEqual({
+            expect(
+                reducer(undefined, {
+                    type: FETCH_CONFIG_CONTENT_REQUEST
+                })
+            ).toEqual({
                 content
             });
         });
@@ -55,11 +59,13 @@ describe('common/state/config/reducer', function () {
                 isFetching: false,
                 lastUpdated: dateNow
             };
-            expect(reducer(undefined, {
-                type: FETCH_CONFIG_CONTENT_SUCCESS,
-                data,
-                receivedAt: dateNow
-            })).toEqual({
+            expect(
+                reducer(undefined, {
+                    type: FETCH_CONFIG_CONTENT_SUCCESS,
+                    data,
+                    receivedAt: dateNow
+                })
+            ).toEqual({
                 content
             });
         });
@@ -77,22 +83,26 @@ describe('common/state/config/reducer', function () {
                 isFetching: false,
                 lastUpdated: dateNow
             };
-            expect(reducer(undefined, {
-                type: CONFIG_TRANSLATION_ADD,
-                data,
-                receivedAt: dateNow,
-                locale
-            })).toEqual({ ...defaultState, [locale]: actionData });
+            expect(
+                reducer(undefined, {
+                    type: CONFIG_TRANSLATION_ADD,
+                    data,
+                    receivedAt: dateNow,
+                    locale
+                })
+            ).toEqual({ ...defaultState, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_REQUEST}`, function () {
             const actionData = {
                 didInvalidate: false,
                 isFetching: true
             };
-            expect(reducer(undefined, {
-                type: FETCH_CONFIG_TRANSLATION_REQUEST,
-                locale
-            })).toEqual({ ...defaultState, [locale]: actionData });
+            expect(
+                reducer(undefined, {
+                    type: FETCH_CONFIG_TRANSLATION_REQUEST,
+                    locale
+                })
+            ).toEqual({ ...defaultState, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_SUCCESS}`, function () {
             const data = {
@@ -104,12 +114,14 @@ describe('common/state/config/reducer', function () {
                 isFetching: false,
                 lastUpdated: dateNow
             };
-            expect(reducer(undefined, {
-                type: FETCH_CONFIG_TRANSLATION_SUCCESS,
-                data,
-                receivedAt: dateNow,
-                locale
-            })).toEqual({ ...defaultState, [locale]: actionData });
+            expect(
+                reducer(undefined, {
+                    type: FETCH_CONFIG_TRANSLATION_SUCCESS,
+                    data,
+                    receivedAt: dateNow,
+                    locale
+                })
+            ).toEqual({ ...defaultState, [locale]: actionData });
         });
     });
 });

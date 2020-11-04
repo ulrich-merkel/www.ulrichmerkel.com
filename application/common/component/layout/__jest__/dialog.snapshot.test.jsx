@@ -14,9 +14,7 @@ describe('common/component/layout/dialog', function () {
 
     it('should render correctly', function () {
         const tree = shallow(
-            <LayoutDialog {...defaultProps}>
-                Dialog Children
-            </LayoutDialog>
+            <LayoutDialog {...defaultProps}>Dialog Children</LayoutDialog>
         );
         expect(tree.html()).toMatchSnapshot();
     });

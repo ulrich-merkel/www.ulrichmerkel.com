@@ -25,9 +25,7 @@ import { createSelector } from 'reselect';
  * @returns {object} The contact state if found or en empty object
  */
 const selectStateContact = createSelector(
-    [
-        (state) => state.contact
-    ],
+    [(state) => state.contact],
     (contact) => {
         if (!contact) {
             return {};
@@ -36,6 +34,4 @@ const selectStateContact = createSelector(
     }
 );
 
-export {
-    selectStateContact
-};
+export { selectStateContact };

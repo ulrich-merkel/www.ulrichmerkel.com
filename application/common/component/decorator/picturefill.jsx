@@ -54,7 +54,6 @@ function initPicturefill() {
  * @returns {ReactElement}
  */
 function pictureFill(SourceComponent) {
-
     /**
      * Wrapper class to call initPicturefill on mount and on updates.
      *
@@ -62,7 +61,6 @@ function pictureFill(SourceComponent) {
      * @augments React.Component
      */
     return class PictureFill extends Component {
-
         /**
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
@@ -92,9 +90,7 @@ function pictureFill(SourceComponent) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
-
     };
-
 }
 
 export default pictureFill;

@@ -37,7 +37,6 @@ import ModuleFeaturedItem from './featured/item';
  * @returns {ReactElement} React component markup
  */
 function ModuleFeatured(props) {
-
     const {
         componentType,
         className,
@@ -52,16 +51,13 @@ function ModuleFeatured(props) {
     }
 
     const ComponentType = componentType;
-    const componentClassName = classnames(
-        'm-featured',
-        className
-    );
+    const componentClassName = classnames('m-featured', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
             className={componentClassName}
-            role='list'
+            role="list"
             {...componentSchema}
             {...otherProps}
         >
@@ -79,7 +75,6 @@ function ModuleFeatured(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -111,12 +106,12 @@ ModuleFeatured.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {object}
-* @see ModuleFeatured.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ * @see ModuleFeatured.propTypes
+ */
 ModuleFeatured.defaultProps = {
     componentType: 'ul',
     itemType: 'https://schema.org/ItemList',

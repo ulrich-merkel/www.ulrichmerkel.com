@@ -40,7 +40,6 @@ import ModuleKeyVisualButton from './key-visual/button';
  * @augments React.Component
  */
 class ModuleKeyVisual extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -67,7 +66,6 @@ class ModuleKeyVisual extends Component {
          * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
          */
         this.onClickBtn = this.onClickBtn.bind(this);
-
     }
 
     /**
@@ -82,7 +80,9 @@ class ModuleKeyVisual extends Component {
 
         if (keyVisual) {
             const innerHeight = keyVisual.clientHeight;
-            const boundingClientRectTop = Math.abs(keyVisual.getBoundingClientRect().top);
+            const boundingClientRectTop = Math.abs(
+                keyVisual.getBoundingClientRect().top
+            );
             const offsetTop = document.body.scrollTop;
 
             scrollTo({
@@ -98,7 +98,6 @@ class ModuleKeyVisual extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-
         const {
             componentType,
             className,
@@ -121,7 +120,9 @@ class ModuleKeyVisual extends Component {
         return (
             <ComponentType
                 className={componentClassName}
-                ref={(ref) => { this.keyVisual = ref; }}
+                ref={(ref) => {
+                    this.keyVisual = ref;
+                }}
                 {...otherProps}
             >
                 <ModuleKeyVisualPicture
@@ -140,9 +141,7 @@ class ModuleKeyVisual extends Component {
                 />
             </ComponentType>
         );
-
     }
-
 }
 
 /**

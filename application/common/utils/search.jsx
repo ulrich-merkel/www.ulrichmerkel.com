@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export,  no-use-before-define */
-import {
-    get, isArray, isObject, isString, isEmpty
-} from 'lodash';
+import { get, isArray, isObject, isString, isEmpty } from 'lodash';
 import { url } from '../config/application';
 import logger from './logger';
 
@@ -74,17 +72,14 @@ function createIndex(locale, config) {
     const configTranslation = get(config, `${locale}.data`, {});
 
     return keys(PAGES).reduce(function reducePage(result, page) {
-        return assign(
-            result,
-            {
-                [page]: keys(configTranslation).filter(function filterKey(key) {
-                    if (!configContent[page]) {
-                        return false;
-                    }
-                    return objectReduce(configContent[page]).includes(key);
-                })
-            }
-        );
+        return assign(result, {
+            [page]: keys(configTranslation).filter(function filterKey(key) {
+                if (!configContent[page]) {
+                    return false;
+                }
+                return objectReduce(configContent[page]).includes(key);
+            })
+        });
     }, {});
 }
 
@@ -105,18 +100,19 @@ function translateIndex(locale, config, index) {
     }
 
     return keys(index).reduce(function reduceIndexKey(result, indexKey) {
-        return assign(
-            result,
-            {
-                [indexKey]: index[indexKey].reduce(function reduceKey(indexContent, key) {
-                    const content = configTranslation[key];
-                    if (content) {
-                        indexContent.push(content);
-                    }
-                    return indexContent;
-                }, [])
-            }
-        );
+        return assign(result, {
+            [indexKey]: index[indexKey].reduce(function reduceKey(
+                indexContent,
+                key
+            ) {
+                const content = configTranslation[key];
+                if (content) {
+                    indexContent.push(content);
+                }
+                return indexContent;
+            },
+            [])
+        });
     }, {});
 }
 
@@ -131,7 +127,11 @@ function translateIndex(locale, config, index) {
 function getCachedIndex(locale, config) {
     if (!CACHE[locale] || isEmpty(CACHE[locale])) {
         // Just save index to cache if there are valid results returned
-        const translatedIndex = translateIndex(locale, config, createIndex(locale, config));
+        const translatedIndex = translateIndex(
+            locale,
+            config,
+            createIndex(locale, config)
+        );
         if (!isEmpty(translatedIndex)) {
             CACHE[locale] = translatedIndex; // eslint-disable-line immutable/no-mutation
         }
@@ -150,12 +150,14 @@ function getCachedIndex(locale, config) {
  * @returns {Array<object>} The search results to be displayed
  */
 function findMatches(searchTerm, locale, config = {}) {
-    const escapedInput = isString(searchTerm) && searchTerm.trim().toLowerCase();
+    const escapedInput =
+        isString(searchTerm) && searchTerm.trim().toLowerCase();
     if (!escapedInput) {
         return [];
     }
 
-    const index = isString(locale) && getCachedIndex(locale.toLowerCase(), config);
+    const index =
+        isString(locale) && getCachedIndex(locale.toLowerCase(), config);
     if (!index) {
         return [];
     }
@@ -163,10 +165,12 @@ function findMatches(searchTerm, locale, config = {}) {
     const escapedInputs = escapedInput.split(' ');
     return keys(index)
         .filter(function filterKey(key) {
-            return escapedInputs.every(function someNeedle(needle) {
-                const matchRegex = new RegExp(`\\b${needle}`, 'i'); // eslint-disable-line security/detect-non-literal-regexp
-                return matchRegex && matchRegex.test(index[key]);
-            }) || false;
+            return (
+                escapedInputs.every(function someNeedle(needle) {
+                    const matchRegex = new RegExp(`\\b${needle}`, 'i'); // eslint-disable-line security/detect-non-literal-regexp
+                    return matchRegex && matchRegex.test(index[key]);
+                }) || false
+            );
         })
         .map(function mapKey(key) {
             return {
@@ -178,6 +182,4 @@ function findMatches(searchTerm, locale, config = {}) {
         .slice(0, 10);
 }
 
-export {
-    findMatches
-};
+export { findMatches };

@@ -1,23 +1,23 @@
 import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './duck';
 
 export interface HeaderFixedActionType {
-    type: typeof SCROLL_HEADER_FIXED,
-    isHeaderFixed: boolean
+    type: typeof SCROLL_HEADER_FIXED;
+    isHeaderFixed: boolean;
 }
 
 export interface HeaderVisibleActionType {
-    type: typeof SCROLL_HEADER_VISIBLE,
-    isHeaderVisible: boolean
+    type: typeof SCROLL_HEADER_VISIBLE;
+    isHeaderVisible: boolean;
 }
 
-export type ScrollActionTypes = HeaderFixedActionType | HeaderVisibleActionType
+export type ScrollActionTypes = HeaderFixedActionType | HeaderVisibleActionType;
 
 export interface ScrollStateType {
     meta: {
-        isInitial: boolean
-    },
+        isInitial: boolean;
+    };
     payload: {
-        isHeaderFixed: boolean,
-        isHeaderVisible: boolean
-    }
+        isHeaderFixed: boolean;
+        isHeaderVisible: boolean;
+    };
 }

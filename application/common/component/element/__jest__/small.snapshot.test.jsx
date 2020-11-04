@@ -5,11 +5,13 @@ import ElementSmall from '../small';
 
 describe('common/component/element/small', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementSmall htmlElement='span' className='small'>
-                Small Children
-            </ElementSmall>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ElementSmall htmlElement="span" className="small">
+                    Small Children
+                </ElementSmall>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

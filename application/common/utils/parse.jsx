@@ -28,26 +28,23 @@ function toBoolean(value = '', fallback) {
         return value;
     }
 
-    const fallbackReturn = !isUndefined(fallback) && isBoolean(fallback)
-        ? fallback
-        : undefined;
+    const fallbackReturn =
+        !isUndefined(fallback) && isBoolean(fallback) ? fallback : undefined;
 
     if (isString(value)) {
         switch (value.toLowerCase()) {
-        case 'true':
-        case '1':
-            return true;
-        case 'false':
-        case '0':
-            return false;
-        default:
-            return fallbackReturn;
+            case 'true':
+            case '1':
+                return true;
+            case 'false':
+            case '0':
+                return false;
+            default:
+                return fallbackReturn;
         }
     }
 
     return fallbackReturn;
 }
 
-export {
-    toBoolean
-};
+export { toBoolean };

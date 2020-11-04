@@ -64,7 +64,9 @@ function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
 
     sizes.forEach(function handleSize(size) {
         const imageSize = `${size.width}x${size.height}`;
-        response.push(`${path}@${imageSize}.${extension} ${path}@${fallbackSize}.${extension}`);
+        response.push(
+            `${path}@${imageSize}.${extension} ${path}@${fallbackSize}.${extension}`
+        );
     });
 
     return response.join(EOL);
@@ -114,23 +116,120 @@ function getApplicationCacheResponse() {
 
     response.push('FALLBACK:');
 
-    response.push(addPictureSizes('./img/content/home/keyvisual', pictureSizesKeyvisual, '720x480'));
+    response.push(
+        addPictureSizes(
+            './img/content/home/keyvisual',
+            pictureSizesKeyvisual,
+            '720x480'
+        )
+    );
 
-    response.push(addPictureSizes('./img/content/home/featured--optik-ludewig', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--summer-inspiration', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--momentariness', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--lebenswelt-schule', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--revolution', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--verlegeservice-bunge', pictureSizesFeatured, '160x160'));
-    response.push(addPictureSizes('./img/content/home/featured--gedanken-kollektiv', pictureSizesFeatured, '160x160'));
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--optik-ludewig',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--summer-inspiration',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--momentariness',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--lebenswelt-schule',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--revolution',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--verlegeservice-bunge',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/home/featured--gedanken-kollektiv',
+            pictureSizesFeatured,
+            '160x160'
+        )
+    );
 
-    response.push(addPictureSizes('./img/content/work/optik-ludewig/optik-ludewig--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
-    response.push(addPictureSizes('./img/content/work/summer-inspiration/summer-inspiration--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
-    response.push(addPictureSizes('./img/content/work/momentariness/momentariness--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
-    response.push(addPictureSizes('./img/content/work/lebenswelt-schule/lebenswelt-schule--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
-    response.push(addPictureSizes('./img/content/work/revolution/revolution--keyvisual', pictureSizesKeyvisualWorkPrint, '355x479', 'png'));
-    response.push(addPictureSizes('./img/content/work/verlegeservice-bunge/verlegeservice-bunge--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
-    response.push(addPictureSizes('./img/content/work/gedanken-kollektiv/gedanken-kollektiv--keyvisual', pictureSizesKeyvisualWork, '320x173', 'png'));
+    response.push(
+        addPictureSizes(
+            './img/content/work/optik-ludewig/optik-ludewig--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/summer-inspiration/summer-inspiration--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/momentariness/momentariness--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/lebenswelt-schule/lebenswelt-schule--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/revolution/revolution--keyvisual',
+            pictureSizesKeyvisualWorkPrint,
+            '355x479',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/verlegeservice-bunge/verlegeservice-bunge--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
+    response.push(
+        addPictureSizes(
+            './img/content/work/gedanken-kollektiv/gedanken-kollektiv--keyvisual',
+            pictureSizesKeyvisualWork,
+            '320x173',
+            'png'
+        )
+    );
 
     response.push(EOL);
 
@@ -151,9 +250,7 @@ function middlewareApplicationCache(req, res) {
 
     // delete previously store caches by sending 404
     if (!configApplicationCache.use) {
-        return res
-            .status(404)
-            .send('Not found.');
+        return res.status(404).send('Not found.');
     }
 
     // @TODO Adjust caching
@@ -161,7 +258,6 @@ function middlewareApplicationCache(req, res) {
         .status(200)
         .set('Content-Type', 'text/cache-manifest')
         .send(getApplicationCacheResponse());
-
 }
 
 export default middlewareApplicationCache;

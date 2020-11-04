@@ -3,10 +3,7 @@ import httpMocks from 'node-mocks-http';
 import middleware from '../error';
 
 describe('server/middleware/error', function () {
-    let req,
-        res,
-        err,
-        next;
+    let req, res, err, next;
 
     beforeEach(function () {
         err = {};
@@ -35,5 +32,4 @@ describe('server/middleware/error', function () {
         expect(data).toBeDefined();
         expect(data).toEqual('Sorry - not found!');
     });
-
 });

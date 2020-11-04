@@ -34,6 +34,4 @@ function changeLocale(locale, fallback) {
     };
 }
 
-export {
-    changeLocale
-};
+export { changeLocale };

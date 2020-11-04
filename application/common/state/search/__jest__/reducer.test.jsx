@@ -8,10 +8,12 @@ describe('common/state/search/reducer', function () {
     });
     it(`should react to an action with the type ${SEARCH_CHANGE_TERM}`, function () {
         const term = 'lorem';
-        expect(reducer(undefined, {
-            type: SEARCH_CHANGE_TERM,
-            term
-        })).toEqual({
+        expect(
+            reducer(undefined, {
+                type: SEARCH_CHANGE_TERM,
+                term
+            })
+        ).toEqual({
             term
         });
     });

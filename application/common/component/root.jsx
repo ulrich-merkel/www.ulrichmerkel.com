@@ -32,11 +32,7 @@ import { Provider } from 'react-redux';
 function Root(props) {
     const { children, store } = props;
 
-    return (
-        <Provider {...{ store }}>
-            {children}
-        </Provider>
-    );
+    return <Provider {...{ store }}>{children}</Provider>;
 }
 
 /**
@@ -47,10 +43,9 @@ function Root(props) {
  */
 Root.propTypes = {
     children: PropTypes.node.isRequired,
-    store: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.object
-    ])).isRequired
+    store: PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+    ).isRequired
 };
 
 export default Root;

@@ -69,13 +69,8 @@ class LayoutTheme extends Component {
     render() {
         const { children } = this.props;
 
-        return (
-            <Fragment>
-                {children}
-            </Fragment>
-        );
+        return <Fragment>{children}</Fragment>;
     }
-
 }
 
 /**
@@ -84,7 +79,8 @@ class LayoutTheme extends Component {
  * @static
  * @type {object}
  */
-LayoutTheme.propTypes = { // eslint-disable-line immutable/no-mutation
+LayoutTheme.propTypes = {
+    // eslint-disable-line immutable/no-mutation
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     themeSelected: PropTypes.string
 };
@@ -95,7 +91,8 @@ LayoutTheme.propTypes = { // eslint-disable-line immutable/no-mutation
  * @static
  * @type {object}
  */
-LayoutTheme.defaultProps = { // eslint-disable-line immutable/no-mutation
+LayoutTheme.defaultProps = {
+    // eslint-disable-line immutable/no-mutation
     themeSelected: AVAILABLE_THEMES.DEFAULT
 };
 
@@ -118,6 +115,4 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-export default connect(
-    mapStateToProps
-)(LayoutTheme);
+export default connect(mapStateToProps)(LayoutTheme);

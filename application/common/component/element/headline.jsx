@@ -70,14 +70,7 @@ function ElementHeadline(props) {
  */
 ElementHeadline.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    htmlElement: PropTypes.oneOf([
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h6'
-    ]),
+    htmlElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
     isCentered: PropTypes.bool
 };
 

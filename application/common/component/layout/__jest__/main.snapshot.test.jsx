@@ -6,11 +6,9 @@ import ComponentToBeTested from '../main';
 describe('component/layout/main', function () {
     describe('Snapshot', function () {
         it('should render correctly', function () {
-            const tree = renderer.create(
-                <ComponentToBeTested>
-                    Hello
-                </ComponentToBeTested>
-            ).toJSON();
+            const tree = renderer
+                .create(<ComponentToBeTested>Hello</ComponentToBeTested>)
+                .toJSON();
             expect(tree).toMatchSnapshot();
         });
     });

@@ -47,15 +47,12 @@ function loadState() {
      */
     try {
         return JSON.parse(
-            xorUse
-                ? xor.decrypt(serializedState, xorKey)
-                : serializedState
+            xorUse ? xor.decrypt(serializedState, xorKey) : serializedState
         );
     } catch (reason) {
         logger.warn(reason);
         return undefined;
     }
-
 }
 
 /**
@@ -74,8 +71,4 @@ function saveState(state) {
     );
 }
 
-export {
-    loadState,
-    saveState,
-    stateKey
-};
+export { loadState, saveState, stateKey };

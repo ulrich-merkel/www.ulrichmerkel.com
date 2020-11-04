@@ -12,15 +12,15 @@ describe('common/component/module/featured/item', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleFeaturedItem
-                    {...defaultProps}
-                >
-                    Module featured item children
-                </ModuleFeaturedItem>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleFeaturedItem {...defaultProps}>
+                        Module featured item children
+                    </ModuleFeaturedItem>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

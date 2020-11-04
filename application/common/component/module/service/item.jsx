@@ -37,48 +37,39 @@ import Icon from '../../element/icon';
  * @returns {ReactElement} React component markup
  */
 function ModuleServiceItem(props) {
-
-    const {
-        headline,
-        text,
-        index,
-        icon,
-        isClear
-    } = props;
+    const { headline, text, index, icon, isClear } = props;
 
     if (isClear) {
-        return (
-            <li className='m-service__item--clear' aria-hidden='true' />
-        );
+        return <li className="m-service__item--clear" aria-hidden="true" />;
     }
 
     const componentListItemClassName = classnames({
         'm-service__item--right': index % 3 === 1,
         'm-service__item--left': index % 3 === 0
     });
-    const componentListItemIconClassName = classnames(
-        'm-service__icon-font'
-    );
+    const componentListItemIconClassName = classnames('m-service__icon-font');
 
     return (
-        <li className={componentListItemClassName} itemProp='itemListElement'>
-            <div className='m-service__content'>
-                <div className='m-service__icon'>
-                    <Icon className={componentListItemIconClassName} icon={icon} />
+        <li className={componentListItemClassName} itemProp="itemListElement">
+            <div className="m-service__content">
+                <div className="m-service__icon">
+                    <Icon
+                        className={componentListItemIconClassName}
+                        icon={icon}
+                    />
                 </div>
-                <div className='m-service__description'>
-                    <Headline className='m-service__headline' htmlElement='h3'>
+                <div className="m-service__description">
+                    <Headline className="m-service__headline" htmlElement="h3">
                         {headline}
                     </Headline>
                     <P
-                        className='m-service__text'
+                        className="m-service__text"
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
                 </div>
             </div>
         </li>
     );
-
 }
 
 /**

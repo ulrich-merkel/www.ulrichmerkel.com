@@ -38,11 +38,7 @@ import ModulePerson from '../person';
  * @returns {ReactElement} React component markup
  */
 function ModuleTextPerson(props) {
-    const {
-        content,
-        hasColumns2,
-        isCentered
-    } = props;
+    const { content, hasColumns2, isCentered } = props;
 
     if (!content || isEmpty(content)) {
         return null;
@@ -56,9 +52,7 @@ function ModuleTextPerson(props) {
         'm-text__content'
     );
 
-    return (
-        <ModulePerson className={composedClassName} content={content} />
-    );
+    return <ModulePerson className={composedClassName} content={content} />;
 }
 
 /**
@@ -68,12 +62,14 @@ function ModuleTextPerson(props) {
  * @type {object}
  */
 ModuleTextPerson.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     hasColumns2: PropTypes.bool,
     isCentered: PropTypes.bool
 };

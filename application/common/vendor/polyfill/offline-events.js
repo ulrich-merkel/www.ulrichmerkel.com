@@ -1,6 +1,5 @@
 // Working demo: http://jsbin.com/ozusa6/2/
 (function () {
-
     if (typeof window === 'undefined') {
         return;
     }
@@ -29,10 +28,10 @@
     }
 
     var onLine = true,
-    lastOnLineStatus = true;
+        lastOnLineStatus = true;
 
     // note: this doesn't allow us to define a getter in Safari
-    navigator.__defineGetter__("onLine", testConnection);
+    navigator.__defineGetter__('onLine', testConnection);
     testConnection();
 
     if (onLine === false) {
@@ -48,4 +47,4 @@
             lastOnLineStatus = onLine;
         }
     }, 5000); // 5 seconds, made up - can't find docs to suggest interval time
-}());
+})();

@@ -23,14 +23,18 @@
 import { debug } from '../../common/config/application';
 import logger from '../../common/utils/logger';
 import { isBrowser } from '../../common/utils/environment';
-import { displayProgress, displayZeroLoaded, displayAllLoaded } from './progress-bar';
+import {
+    displayProgress,
+    displayZeroLoaded,
+    displayAllLoaded
+} from './progress-bar';
 
 /**
-* Get application cache api.
-*
-* @private
-* @returns {object|null} The api if available
-*/
+ * Get application cache api.
+ *
+ * @private
+ * @returns {object|null} The api if available
+ */
 function getApi() {
     return (isBrowser() && window.applicationCache) || null;
 }
@@ -44,7 +48,7 @@ function getApi() {
  */
 function onProgressEvent(e) {
     if (e && e.lengthComputable) {
-        displayProgress(Math.round(100 * e.loaded / e.total));
+        displayProgress(Math.round((100 * e.loaded) / e.total));
         return;
     }
 
@@ -73,7 +77,6 @@ function onUpdateReadyEvent() {
     // if (confirm('New version available - reload page?')) {
     // window.location.reload(true);
     // }
-
 }
 
 /**
@@ -82,7 +85,6 @@ function onUpdateReadyEvent() {
  * @returns {void}
  */
 const main = (function iife() {
-
     const appCache = getApi();
     if (!appCache) {
         return;
@@ -121,26 +123,25 @@ const main = (function iife() {
      * listeners to test for the events, we check additionally for the current manifest status.
      */
     switch (appCache.status) {
-    case appCache.UNCACHED: // UNCACHED == 0
-        break;
-    case appCache.IDLE: // IDLE == 1
-        displayAllLoaded();
-        break;
-    case appCache.CHECKING: // CHECKING == 2
-        break;
-    case appCache.DOWNLOADING: // DOWNLOADING == 3
-        displayZeroLoaded();
-        break;
-    case appCache.UPDATEREADY: // UPDATEREADY == 4
-        onUpdateReadyEvent();
-        break;
-    case appCache.OBSOLETE: // OBSOLETE == 5
-        displayAllLoaded();
-        break;
-    default:
-        break;
+        case appCache.UNCACHED: // UNCACHED == 0
+            break;
+        case appCache.IDLE: // IDLE == 1
+            displayAllLoaded();
+            break;
+        case appCache.CHECKING: // CHECKING == 2
+            break;
+        case appCache.DOWNLOADING: // DOWNLOADING == 3
+            displayZeroLoaded();
+            break;
+        case appCache.UPDATEREADY: // UPDATEREADY == 4
+            onUpdateReadyEvent();
+            break;
+        case appCache.OBSOLETE: // OBSOLETE == 5
+            displayAllLoaded();
+            break;
+        default:
+            break;
     }
-
-}());
+})();
 
 export default main;

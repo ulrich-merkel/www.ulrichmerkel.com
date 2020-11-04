@@ -32,12 +32,7 @@ import Headline from '../../element/headline';
  * @returns {ReactElement} React component markup
  */
 function ModuleArticleHeadline(props) {
-
-    const {
-        text,
-        isMain,
-        className
-    } = props;
+    const { text, isMain, className } = props;
 
     if (!text) {
         return null;
@@ -47,11 +42,14 @@ function ModuleArticleHeadline(props) {
     const htmlElement = isMain ? 'h1' : 'h2';
 
     return (
-        <Headline className={composedClassName} itemProp='headline' htmlElement={htmlElement}>
+        <Headline
+            className={composedClassName}
+            itemProp="headline"
+            htmlElement={htmlElement}
+        >
             {text}
         </Headline>
     );
-
 }
 
 /**

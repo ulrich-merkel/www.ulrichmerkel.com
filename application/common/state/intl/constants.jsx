@@ -29,6 +29,4 @@ export const INTL_CHANGE_LOCALE = 'INTL_CHANGE_LOCALE';
 /**
  * @type {Array<string>}
  */
-export const AVAILABLE_LOCALES = [
-    INTL_LOCALE_EN_EN
-];
+export const AVAILABLE_LOCALES = [INTL_LOCALE_EN_EN];

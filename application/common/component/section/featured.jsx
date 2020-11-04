@@ -41,12 +41,7 @@ import ModuleFeatured from '../module/featured';
  * @returns {ReactElement} React component markup
  */
 function SectionFeatured(props) {
-
-    const {
-        children,
-        content,
-        ...moduleProps
-    } = props;
+    const { children, content, ...moduleProps } = props;
 
     return (
         <SectionCommonGrid>
@@ -57,7 +52,6 @@ function SectionFeatured(props) {
             </ModuleArticle>
         </SectionCommonGrid>
     );
-
 }
 
 /**
@@ -68,12 +62,14 @@ function SectionFeatured(props) {
  */
 SectionFeatured.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

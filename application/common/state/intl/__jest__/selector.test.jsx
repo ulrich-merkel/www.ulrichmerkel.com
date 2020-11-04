@@ -1,5 +1,8 @@
 /* eslint-disable func-names */
-import { selectStateIntlLocale, selectStateIntlAvailableLocales } from '../selector';
+import {
+    selectStateIntlLocale,
+    selectStateIntlAvailableLocales
+} from '../selector';
 import { defaultState } from '../reducer';
 
 describe('common/state/intl/selector', function () {
@@ -12,7 +15,7 @@ describe('common/state/intl/selector', function () {
             };
             expect(selectStateIntlLocale(state)).toEqual(state.intl.locale);
         });
-        it('should return the default locale if state isn\'t found', function () {
+        it("should return the default locale if state isn't found", function () {
             const state = {
                 foo: {
                     bar: 'lorem'
@@ -28,15 +31,19 @@ describe('common/state/intl/selector', function () {
                     availableLocales: ['en-EN', 'de-DE', 'fr-FR']
                 }
             };
-            expect(selectStateIntlAvailableLocales(state)).toEqual(state.intl.availableLocales);
+            expect(selectStateIntlAvailableLocales(state)).toEqual(
+                state.intl.availableLocales
+            );
         });
-        it('should return the default availableLocales if state isn\'t found', function () {
+        it("should return the default availableLocales if state isn't found", function () {
             const state = {
                 foo: {
                     bar: 'lorem'
                 }
             };
-            expect(selectStateIntlAvailableLocales(state)).toEqual(defaultState.availableLocales);
+            expect(selectStateIntlAvailableLocales(state)).toEqual(
+                defaultState.availableLocales
+            );
         });
     });
 });

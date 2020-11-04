@@ -49,9 +49,7 @@ describe('common/utils/search', function () {
         expect(findMatches('search term', 'en-EN', [])).toEqual([]);
         expect(findMatches('search term', 'en-EN', { foo: 'bar' })).toEqual([]);
 
-        expect(findMatches('lead', 'en-EN', config)).toEqual([
-            PageHome
-        ]);
+        expect(findMatches('lead', 'en-EN', config)).toEqual([PageHome]);
 
         expect(findMatches('lorem', 'en-EN', config)).toEqual([
             PageHome,

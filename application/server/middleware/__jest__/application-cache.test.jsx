@@ -8,8 +8,7 @@ import middleware from '../application-cache';
 Date.now = jest.fn().mockReturnValue(1234567890);
 
 describe('server/middleware/application-cache', function () {
-    let req,
-        res;
+    let req, res;
 
     beforeEach(function () {
         req = httpMocks.createRequest();
@@ -61,5 +60,4 @@ describe('server/middleware/application-cache', function () {
         expect(data).toBeDefined();
         expect(data).toEqual('Not found.');
     });
-
 });

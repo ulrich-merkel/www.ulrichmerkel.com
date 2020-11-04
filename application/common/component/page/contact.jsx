@@ -46,7 +46,6 @@ import ModuleFormContact from '../module/form/contact'; // eslint-disable-line i
  * @returns {ReactElement} React component markup
  */
 function PageContact(props) {
-
     const { content, params } = props;
     const contentSection = getContentSection(content);
     const routerState = params && params.state;
@@ -55,11 +54,13 @@ function PageContact(props) {
         <LayoutMain>
             <Helmet {...contentSection('head')} />
             <SectionContact content={contentSection('section1')} isMain>
-                <ModuleFormContact content={contentSection('formContact')} {...{ routerState }} />
+                <ModuleFormContact
+                    content={contentSection('formContact')}
+                    {...{ routerState }}
+                />
             </SectionContact>
         </LayoutMain>
     );
-
 }
 
 /**
@@ -71,17 +72,21 @@ function PageContact(props) {
  * @property {object} [params={}] - The the router params config
  */
 PageContact.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
-    params: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.string,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
+    params: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.string,
+            PropTypes.object
+        ])
+    )
 };
 
 /**
@@ -96,4 +101,6 @@ PageContact.defaultProps = {
     params: {}
 };
 
-export default addPageTracking(withRouter(addContent('PageContact')(PageContact)));
+export default addPageTracking(
+    withRouter(addContent('PageContact')(PageContact))
+);

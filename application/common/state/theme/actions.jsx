@@ -16,9 +16,7 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import {
-    STATE_THEME_SELECTED_CHANGE
-} from './constants';
+import { STATE_THEME_SELECTED_CHANGE } from './constants';
 
 /**
  * Handle theme switch state change.
@@ -33,6 +31,4 @@ function changeThemeSelected(selected) {
     };
 }
 
-export {
-    changeThemeSelected
-};
+export { changeThemeSelected };

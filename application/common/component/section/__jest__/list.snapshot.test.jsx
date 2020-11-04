@@ -8,16 +8,15 @@ import SectionList from '../list';
 
 describe('common/component/section/list', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionList
-                    content={{}}
-                    isMain
-                >
-                    Section list children
-                </SectionList>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionList content={{}} isMain>
+                        Section list children
+                    </SectionList>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

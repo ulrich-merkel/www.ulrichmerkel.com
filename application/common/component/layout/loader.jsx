@@ -37,25 +37,25 @@ import { getContentSection } from '../../utils/content';
  * @returns {ReactElement} React component markup
  */
 function LayoutLoader(props) {
-    const {
-        content
-    } = props;
+    const { content } = props;
 
     const contentSection = getContentSection(content);
 
     return (
-        <dialog className='l-dialog--loading' role='alert' aria-live='assertive'>
-            <div className='l-dialog__content'>
-                <div className='c-flip'>
-                    <div className='c-flip__front'>
+        <dialog
+            className="l-dialog--loading"
+            role="alert"
+            aria-live="assertive"
+        >
+            <div className="l-dialog__content">
+                <div className="c-flip">
+                    <div className="c-flip__front">
                         {contentSection('headline')}
                     </div>
-                    <div className='c-flip__back'>
-                        {contentSection('lead')}
-                    </div>
+                    <div className="c-flip__back">{contentSection('lead')}</div>
                 </div>
             </div>
-            <div className='l-dialog__background' />
+            <div className="l-dialog__background" />
         </dialog>
     );
 }
@@ -71,7 +71,6 @@ LayoutLoader.propTypes = {
         headline: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
         lead: PropTypes.string // eslint-disable-line react/no-unused-prop-types
     })
-
 };
 
 /**

@@ -23,7 +23,6 @@ import { isFunction } from 'lodash';
  * @class
  */
 class WebStorage {
-
     /**
      * The actual class constructor.
      *
@@ -31,9 +30,11 @@ class WebStorage {
      * @returns {void}
      */
     constructor() {
-
         // additionally for globally checking test for getItem method
-        this.isSupported = typeof localStorage !== 'undefined' && localStorage && isFunction(localStorage.getItem);
+        this.isSupported =
+            typeof localStorage !== 'undefined' &&
+            localStorage &&
+            isFunction(localStorage.getItem);
 
         // try to save item, to make sure it really works
         // could be false in private mode or while storage quota errors
@@ -45,7 +46,6 @@ class WebStorage {
                 this.isSupported = false;
             }
         }
-
     }
 
     /**
@@ -85,7 +85,6 @@ class WebStorage {
             localStorage.removeItem(key);
         }
     }
-
 }
 
 WebStorage.isSupported = false;

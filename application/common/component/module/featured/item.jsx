@@ -42,34 +42,32 @@ import Picture from '../../element/picture';
  * @returns {ReactElement} React component markup
  */
 function ModuleFeaturedItem(props) {
-
-    const {
-        path,
-        headline,
-        img,
-        children
-    } = props;
+    const { path, headline, img, children } = props;
 
     const componentListItemClassName = classnames('m-featured__item');
 
     return (
         <li
-            className='m-featured__list-item'
-            itemProp='itemListElement'
+            className="m-featured__list-item"
+            itemProp="itemListElement"
             itemScope
-            itemType='http://schema.org/SiteNavigationElement'
+            itemType="http://schema.org/SiteNavigationElement"
         >
             <A
                 to={`/work/${path}`}
                 className={componentListItemClassName}
                 title={headline}
             >
-                <span className='m-featured__hover'>
-                    <span className='m-featured__text'>
-                        <span aria-level='3' className='m-featured__headline' role='heading'>
+                <span className="m-featured__hover">
+                    <span className="m-featured__text">
+                        <span
+                            aria-level="3"
+                            className="m-featured__headline"
+                            role="heading"
+                        >
                             {headline}
                         </span>
-                        <Icon className='m-featured__icon' icon='plus' />
+                        <Icon className="m-featured__icon" icon="plus" />
                     </span>
                 </span>
 
@@ -84,11 +82,10 @@ function ModuleFeaturedItem(props) {
 
                 {children}
 
-                <meta itemProp='name' content={headline} />
+                <meta itemProp="name" content={headline} />
             </A>
         </li>
     );
-
 }
 
 /**
@@ -109,12 +106,12 @@ ModuleFeaturedItem.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {object}
-* @see ModuleFeaturedItem.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ * @see ModuleFeaturedItem.propTypes
+ */
 ModuleFeaturedItem.defaultProps = {
     path: '',
     img: {}

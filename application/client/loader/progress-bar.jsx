@@ -21,7 +21,9 @@ import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
  * @private
  * @type {Array<string>}
  */
-const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(number) {
+const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(
+    number
+) {
     return `has-width--${number * 10}`;
 });
 
@@ -33,7 +35,11 @@ const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(num
  */
 function displayProgress(value) {
     setDomNodeAttribute('m-progress', 'value', value);
-    setDomNodeClassName('m-progress__fallback', [`has-width--${Math.round(value / 10) * 10}`], hasWidthClasses);
+    setDomNodeClassName(
+        'm-progress__fallback',
+        [`has-width--${Math.round(value / 10) * 10}`],
+        hasWidthClasses
+    );
 }
 
 /**
@@ -54,8 +60,4 @@ function displayAllLoaded() {
     displayProgress(100);
 }
 
-export {
-    displayProgress,
-    displayZeroLoaded,
-    displayAllLoaded
-};
+export { displayProgress, displayZeroLoaded, displayAllLoaded };

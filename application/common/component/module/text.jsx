@@ -60,7 +60,6 @@ import ModuleTextLink from './text/link';
  * @property {object} [props.content={}] - The component translation config
  */
 class ModuleText extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -115,7 +114,9 @@ class ModuleText extends Component {
             return;
         }
 
-        const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
+        const showDialogNodes = document.getElementsByClassName(
+            'js-show-broadcast'
+        );
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {
                 showDialogNode.addEventListener('click', this.openDialog);
@@ -134,7 +135,9 @@ class ModuleText extends Component {
             return;
         }
 
-        const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
+        const showDialogNodes = document.getElementsByClassName(
+            'js-show-broadcast'
+        );
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {
                 showDialogNode.removeEventListener('click', this.openDialog);
@@ -176,26 +179,19 @@ class ModuleText extends Component {
         }
 
         const ComponentType = componentType;
-        const componentClassName = classnames(
-            'm-text',
-            className
-        );
-        const componentTextBlockClassName = classnames(
-            'm-text__block'
-        );
+        const componentClassName = classnames('m-text', className);
+        const componentTextBlockClassName = classnames('m-text__block');
         const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
         return (
-            <ComponentType
-                className={componentClassName}
-                {...componentSchema}
-            >
+            <ComponentType className={componentClassName} {...componentSchema}>
                 {content.text.map((value) => {
                     return (
-                        <div key={shortid.generate()} className={componentTextBlockClassName}>
-                            <ModuleTextHeadline
-                                text={value.headline}
-                            />
+                        <div
+                            key={shortid.generate()}
+                            className={componentTextBlockClassName}
+                        >
+                            <ModuleTextHeadline text={value.headline} />
                             <ModuleTextContent
                                 content={value.content}
                                 isCentered={isCentered}
@@ -279,14 +275,9 @@ ModuleText.defaultProps = {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleTextContainer = connect(
-    null,
-    {
-        handleChangeDialogVisible: changeDialogVisibleBroadcast
-    }
-)(ModuleText);
+const ModuleTextContainer = connect(null, {
+    handleChangeDialogVisible: changeDialogVisibleBroadcast
+})(ModuleText);
 
 export default ModuleTextContainer;
-export {
-    ModuleText
-};
+export { ModuleText };

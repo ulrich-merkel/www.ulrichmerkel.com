@@ -11,11 +11,9 @@ describe('common/component/module/language/item', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleLanguageItem
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleLanguageItem {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

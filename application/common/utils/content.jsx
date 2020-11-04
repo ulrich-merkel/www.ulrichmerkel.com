@@ -14,9 +14,7 @@
  * @changelog
  * - 0.0.1 basic function and structure
  */
-import {
-    get, isArray, isObject, isString
-} from 'lodash';
+import { get, isArray, isObject, isString } from 'lodash';
 
 import { AVAILABLE_LOCALES } from '../state/intl/constants';
 
@@ -113,7 +111,11 @@ function getContentSection(config) {
  * @param {string} configKey - The config key
  * @returns {object}
  */
-function getTranslatedContent(locale = AVAILABLE_LOCALES[0], config, configKey) {
+function getTranslatedContent(
+    locale = AVAILABLE_LOCALES[0],
+    config,
+    configKey
+) {
     const configContent = get(config, 'content.data');
     const configContentByKey = get(configContent, configKey, configContent);
     const configTranslation = get(config, `${locale.toLowerCase()}.data`);
@@ -121,7 +123,4 @@ function getTranslatedContent(locale = AVAILABLE_LOCALES[0], config, configKey) 
     return translateContent(configContentByKey, configTranslation);
 }
 
-export {
-    getContentSection,
-    getTranslatedContent
-};
+export { getContentSection, getTranslatedContent };

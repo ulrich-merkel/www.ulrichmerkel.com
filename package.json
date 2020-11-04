@@ -111,7 +111,18 @@
     "watch:css": "npm run css -- --watch",
     "watch:server": "npm run transpile:server -- --watch",
     "watch:static": "npm run static -- --watch",
+    "prettier:write": "prettier --write $npm_package_directories_source_application",
+    "prettier:check": "prettier --check $npm_package_directories_source_application",
     "watch": "npm-run-all --parallel watch:*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "prettier --write --ignore-unknown && npm run test:eslint",
+    "*.css": "npm run test:css"
   },
   "main": "application/server/bootstrap.js",
   "browser": "application/client/bootstrap.js",
@@ -209,6 +220,7 @@
     "enzyme-adapter-react-16": "1.15.5",
     "eslint": "7.12.1",
     "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "6.15.0",
     "eslint-import-resolver-typescript": "2.3.0",
     "eslint-plugin-compat": "3.8.0",
     "eslint-plugin-flowtype": "5.2.0",
@@ -219,12 +231,14 @@
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-lodash": "7.1.0",
     "eslint-plugin-new-with-error": "2.0.0",
+    "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-tree-shaking": "1.8.0",
     "eslint-plugin-xss": "0.1.10",
     "flow-bin": "0.137.0",
+    "husky": "4.3.0",
     "imagemin": "7.0.1",
     "imagemin-cli": "6.0.0",
     "imagemin-jpegtran": "7.0.0",
@@ -233,6 +247,7 @@
     "jsdoc": "3.6.6",
     "jsdom": "16.4.0",
     "jsdom-global": "3.0.2",
+    "lint-staged": ">=10",
     "ngrok": "3.3.0",
     "nock": "13.0.4",
     "node-mocks-http": "1.9.0",
@@ -244,6 +259,7 @@
     "postcss-cli": "8.2.0",
     "postcss-cssnext": "3.1.0",
     "postcss-epub": "3.0.1",
+    "prettier": "2.1.2",
     "promise": "8.1.0",
     "psi": "4.0.1",
     "react-test-renderer": "17.0.1",

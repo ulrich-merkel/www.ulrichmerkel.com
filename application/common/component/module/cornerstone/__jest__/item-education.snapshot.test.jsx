@@ -17,21 +17,21 @@ describe('common/component/module/cornerstone/item-education', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleCornerstoneItemEducation
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleCornerstoneItemEducation {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render cssModifier and offset if passed', function () {
-        const tree = renderer.create(
-            <ModuleCornerstoneItemEducation
-                {...defaultProps}
-                cssModifier={'education'}
-                offset={'100'}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleCornerstoneItemEducation
+                    {...defaultProps}
+                    cssModifier={'education'}
+                    offset={'100'}
+                />
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -13,36 +13,37 @@ describe('common/component/module/article/button', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleArticleButton
-                    {...defaultProps}
-                />
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleArticleButton {...defaultProps} />
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render btnLabel if btnTitle is empty', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleArticleButton
-                    {...defaultProps}
-                    btnTitle={null}
-                />
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleArticleButton {...defaultProps} btnTitle={null} />
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content is empty', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleArticleButton
-                    {...defaultProps}
-                    btnTo={null}
-                    btnLabel={null}
-                />
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleArticleButton
+                        {...defaultProps}
+                        btnTo={null}
+                        btnLabel={null}
+                    />
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

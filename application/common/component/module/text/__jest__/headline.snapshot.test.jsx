@@ -9,20 +9,15 @@ describe('common/component/module/text/headline', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleTextHeadline
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextHeadline {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if text is empty', function () {
-        const tree = renderer.create(
-            <ModuleTextHeadline
-                {...defaultProps}
-                text={null}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextHeadline {...defaultProps} text={null} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

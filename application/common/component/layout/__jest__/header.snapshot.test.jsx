@@ -17,17 +17,17 @@ describe('common/component/layout/header', function () {
             className: 'layout-header'
         };
 
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <LayoutHeaderContainer
-                        {...defaultProps}
-                    >
-                        Header Children
-                    </LayoutHeaderContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <LayoutHeaderContainer {...defaultProps}>
+                            Header Children
+                        </LayoutHeaderContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

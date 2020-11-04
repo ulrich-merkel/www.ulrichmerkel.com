@@ -33,7 +33,8 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const nodeEnv = process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
+const nodeEnv =
+    process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 const sourcePath = resolve('/../application');
 
@@ -52,9 +53,7 @@ const plugins = [
  */
 module.exports = {
     mode: nodeEnv,
-    devtool: isProduction
-        ? false
-        : 'inline-source-map',
+    devtool: isProduction ? false : 'inline-source-map',
     stats: true,
     context: sourcePath,
     entry: {
@@ -71,25 +70,18 @@ module.exports = {
             // @see {@link https://medium.com/@sanchit3b/how-to-polyfill-node-core-modules-in-webpack-5-905c1f5504a0}
             process: 'process/browser'
         },
-        extensions: [
-            '.js',
-            '.json',
-            '.jsx',
-            '.ts',
-            '.tsx'
-        ]
+        extensions: ['.js', '.json', '.jsx', '.ts', '.tsx']
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx|ts|tsx)$/,
-                exclude: [
-                    /node_modules/,
-                    `${__dirname}/../build/`
-                ],
-                use: [{
-                    loader: 'babel-loader'
-                }]
+                exclude: [/node_modules/, `${__dirname}/../build/`],
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    }
+                ]
             }
         ]
     },

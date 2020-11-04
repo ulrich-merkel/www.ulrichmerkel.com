@@ -28,15 +28,9 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementFieldset(props) {
-    const {
-        className,
-        ...otherProps
-    } = props;
+    const { className, ...otherProps } = props;
 
-    const componentClassName = classnames(
-        'm-form__fieldset',
-        className
-    );
+    const componentClassName = classnames('m-form__fieldset', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading

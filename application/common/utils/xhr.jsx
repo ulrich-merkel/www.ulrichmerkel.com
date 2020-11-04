@@ -83,6 +83,4 @@ function xhr(url, options = {}) {
 
 export default xhr;
 
-export {
-    XHR_DEFAULT_HEADERS
-};
+export { XHR_DEFAULT_HEADERS };

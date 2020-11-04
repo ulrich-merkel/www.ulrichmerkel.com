@@ -5,9 +5,9 @@ import ElementImage from '../image';
 
 describe('common/component/element/image', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementImage src='span' className='image' alt='foo' />
-        ).toJSON();
+        const tree = renderer
+            .create(<ElementImage src="span" className="image" alt="foo" />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

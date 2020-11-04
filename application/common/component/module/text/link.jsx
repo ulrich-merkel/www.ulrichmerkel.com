@@ -34,19 +34,13 @@ import A from '../../element/a';
  * @returns {ReactElement|null} React component markup
  */
 function ModuleTextLink(props) {
-    const {
-        content
-    } = props;
+    const { content } = props;
 
     if (!content) {
         return null;
     }
 
-    const {
-        linkTo,
-        linkLabel,
-        linkTitle
-    } = content;
+    const { linkTo, linkLabel, linkTitle } = content;
 
     if (!linkTo || !linkLabel) {
         return null;
@@ -60,7 +54,7 @@ function ModuleTextLink(props) {
     return (
         <div className={componentTextContentClassName}>
             <A to={linkTo} title={linkTitle}>
-                <i aria-hidden='true' className='c-font-icon--earth' />
+                <i aria-hidden="true" className="c-font-icon--earth" />
                 {linkLabel}
             </A>
         </div>

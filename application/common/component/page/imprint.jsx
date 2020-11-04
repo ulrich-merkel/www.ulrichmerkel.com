@@ -49,7 +49,12 @@ function PageImprint(props) {
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionText content={contentSection('section1')} isMain isCentered hasColumns2={false} />
+            <SectionText
+                content={contentSection('section1')}
+                isMain
+                isCentered
+                hasColumns2={false}
+            />
         </LayoutMain>
     );
 }
@@ -62,12 +67,14 @@ function PageImprint(props) {
  * @property {object} [content={}] - The component translation config
  */
 PageImprint.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

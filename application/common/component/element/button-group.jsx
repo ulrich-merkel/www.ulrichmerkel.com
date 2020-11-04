@@ -43,7 +43,6 @@ import Button from './button';
  * @property {string} [props.type='button'] - The button type attribute
  */
 class ElementButtonGroup extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -65,14 +64,15 @@ class ElementButtonGroup extends Component {
             ...otherProps
         } = this.props;
 
-        const composedGroupClassName = classnames(
-            'm-form__group',
-            className
-        );
+        const composedGroupClassName = classnames('m-form__group', className);
 
-        const composedButtonClassName = classnames({
-            'is-pending': isPending
-        }, 'm-form__btn', btnClassName);
+        const composedButtonClassName = classnames(
+            {
+                'is-pending': isPending
+            },
+            'm-form__btn',
+            btnClassName
+        );
 
         const isButtonPrimary = isPrimary ? { isPrimary: true } : null;
         const isButtonSecondary = isSecondary ? { isSecondary: true } : null;
@@ -86,7 +86,10 @@ class ElementButtonGroup extends Component {
                     {...isButtonSecondary}
                     {...isButtonDisabled}
                     {...{
-                        id, type, name, title
+                        id,
+                        type,
+                        name,
+                        title
                     }}
                     className={composedButtonClassName}
                 >

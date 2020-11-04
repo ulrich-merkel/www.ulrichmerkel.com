@@ -32,6 +32,4 @@ function changeContact(contact) {
     };
 }
 
-export {
-    changeContact
-};
+export { changeContact };

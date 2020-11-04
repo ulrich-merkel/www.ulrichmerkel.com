@@ -15,10 +15,7 @@ describe('common/component/module/cornerstone', function () {
                     lead: 'lead',
                     timeStart: '20161212',
                     timeEnd: '20161224',
-                    description: [
-                        'description1',
-                        'description2'
-                    ]
+                    description: ['description1', 'description2']
                 }
             ],
             academicEducation: 'academicEducation',
@@ -28,10 +25,7 @@ describe('common/component/module/cornerstone', function () {
                     lead: 'lead',
                     timeStart: '20161212',
                     timeEnd: '20161224',
-                    description: [
-                        'description1',
-                        'description2'
-                    ],
+                    description: ['description1', 'description2'],
                     place: {}
                 }
             ]
@@ -39,35 +33,33 @@ describe('common/component/module/cornerstone', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleCornerstone
-                {...defaultProps}
-            >
-                Module Cornerstone Children
-            </ModuleCornerstone>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleCornerstone {...defaultProps}>
+                    Module Cornerstone Children
+                </ModuleCornerstone>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content is empty', function () {
-        const tree = renderer.create(
-            <ModuleCornerstone
-                {...defaultProps}
-                content={null}
-            >
-                Module cornerstone children not rendered
-            </ModuleCornerstone>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleCornerstone {...defaultProps} content={null}>
+                    Module cornerstone children not rendered
+                </ModuleCornerstone>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <ModuleCornerstone
-                {...defaultProps}
-                itemType={null}
-            >
-                Module cornerstone children
-            </ModuleCornerstone>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleCornerstone {...defaultProps} itemType={null}>
+                    Module cornerstone children
+                </ModuleCornerstone>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

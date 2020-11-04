@@ -36,7 +36,6 @@ import P from '../../element/paragraph';
  * @returns {ReactElement} React component markup
  */
 function ModuleCornerstoneItemEmployee(props) {
-
     const {
         cssModifier,
         offset,
@@ -49,35 +48,40 @@ function ModuleCornerstoneItemEmployee(props) {
     } = props;
 
     const composedListItemClassName = classnames(
-        cssModifier ? `m-cornerstone__item--${cssModifier}` : 'm-cornerstone__item',
+        cssModifier
+            ? `m-cornerstone__item--${cssModifier}`
+            : 'm-cornerstone__item',
         offset ? `has-offset--${offset}` : ''
     );
 
     return (
-        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EmployeeRole' {...otherProps}>
-            <div className='m-cornerstone__description'>
-                <div className='m-cornerstone__description-content'>
-                    <Headline className='m-cornerstone__headline' itemProp='roleName' htmlElement='h4'>
+        <li
+            className={composedListItemClassName}
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/EmployeeRole"
+            {...otherProps}
+        >
+            <div className="m-cornerstone__description">
+                <div className="m-cornerstone__description-content">
+                    <Headline
+                        className="m-cornerstone__headline"
+                        itemProp="roleName"
+                        htmlElement="h4"
+                    >
                         {headline}
                     </Headline>
-                    <P className='m-cornerstone__company'>
-                        <strong>
-                            {lead}
-                        </strong>
+                    <P className="m-cornerstone__company">
+                        <strong>{lead}</strong>
                     </P>
-                    <P className='m-cornerstone__time' itemProp='description'>
+                    <P className="m-cornerstone__time" itemProp="description">
                         (
-                        <time className='c-time' itemProp='startDate'>
+                        <time className="c-time" itemProp="startDate">
                             {timeStart}
-                        </time>
-                        {' '}
--
-                        {' '}
-                        <time className='c-time'>
-                            {timeEnd}
-                        </time>
+                        </time>{' '}
+                        - <time className='c-time'>{timeEnd}</time>
 )
-                    </P>
+</P>
                     {description.map((value) => {
                         /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
@@ -88,19 +92,17 @@ function ModuleCornerstoneItemEmployee(props) {
                         return (
                             <P
                                 key={shortid.generate()}
-                                className='m-cornerstone__text'
-                                itemProp='description'
+                                className="m-cornerstone__text"
+                                itemProp="description"
                                 dangerouslySetInnerHTML={{ __html: value }}
                             />
                         );
-
                     })}
                 </div>
             </div>
-            <div className='m-cornerstone__bubble' />
+            <div className="m-cornerstone__bubble" />
         </li>
     );
-
 }
 
 /**

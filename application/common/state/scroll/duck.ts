@@ -37,7 +37,7 @@ export const initialState: ScrollStateType = {
         isHeaderFixed: true,
         isHeaderVisible: true
     }
-}
+};
 
 /**
  * Handle header fixed state change.
@@ -45,7 +45,9 @@ export const initialState: ScrollStateType = {
  * @param {boolean} isHeaderFixed - Whether the header should be displayed fixed or not
  * @returns {object} The redux action playload
  */
-export function changeScrollHeaderFixed(isHeaderFixed: boolean): ScrollActionTypes {
+export function changeScrollHeaderFixed(
+    isHeaderFixed: boolean
+): ScrollActionTypes {
     return {
         type: SCROLL_HEADER_FIXED,
         isHeaderFixed
@@ -58,7 +60,9 @@ export function changeScrollHeaderFixed(isHeaderFixed: boolean): ScrollActionTyp
  * @param {boolean} isHeaderVisible - Whether the header is visible or not
  * @returns {object} The redux action playload
  */
-export function changeScrollHeaderVisible(isHeaderVisible: boolean): ScrollActionTypes {
+export function changeScrollHeaderVisible(
+    isHeaderVisible: boolean
+): ScrollActionTypes {
     return {
         type: SCROLL_HEADER_VISIBLE,
         isHeaderVisible
@@ -73,43 +77,48 @@ export function changeScrollHeaderVisible(isHeaderVisible: boolean): ScrollActio
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
-export function reducer(state: ScrollStateType = initialState, action: ScrollActionTypes): ScrollStateType {
+export function reducer(
+    state: ScrollStateType = initialState,
+    action: ScrollActionTypes
+): ScrollStateType {
     switch (action.type) {
-    case SCROLL_HEADER_FIXED: {
-        const isHeaderFixed = action.isHeaderFixed !== undefined
-            ? !!action.isHeaderFixed
-            : initialState.payload.isHeaderFixed;
-        return {
-            ...state,
-            meta: {
-                ...state.meta,
-                isInitial: false
-            },
-            payload: {
-                ...state.payload,
-                isHeaderFixed
-            }
-        };
-    }
-    case SCROLL_HEADER_VISIBLE: {
-        const isHeaderVisible = action.isHeaderVisible !== undefined
-            ? !!action.isHeaderVisible
-            : initialState.payload.isHeaderVisible;
-        return {
-            ...state,
-            meta: {
-                ...state.meta,
-                isInitial: false
-            },
-            payload: {
-                ...state.payload,
-                isHeaderVisible
-            }
-        };
-    }
-    default: {
-        return state;
-    }
+        case SCROLL_HEADER_FIXED: {
+            const isHeaderFixed =
+                action.isHeaderFixed !== undefined
+                    ? !!action.isHeaderFixed
+                    : initialState.payload.isHeaderFixed;
+            return {
+                ...state,
+                meta: {
+                    ...state.meta,
+                    isInitial: false
+                },
+                payload: {
+                    ...state.payload,
+                    isHeaderFixed
+                }
+            };
+        }
+        case SCROLL_HEADER_VISIBLE: {
+            const isHeaderVisible =
+                action.isHeaderVisible !== undefined
+                    ? !!action.isHeaderVisible
+                    : initialState.payload.isHeaderVisible;
+            return {
+                ...state,
+                meta: {
+                    ...state.meta,
+                    isInitial: false
+                },
+                payload: {
+                    ...state.payload,
+                    isHeaderVisible
+                }
+            };
+        }
+        default: {
+            return state;
+        }
     }
 }
 

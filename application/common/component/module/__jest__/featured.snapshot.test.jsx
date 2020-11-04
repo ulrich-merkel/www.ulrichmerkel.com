@@ -21,43 +21,44 @@ describe('common/component/module/featured', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleFeatured
-                    {...defaultProps}
-                >
-                    Module Featured Children
-                </ModuleFeatured>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleFeatured {...defaultProps}>
+                        Module Featured Children
+                    </ModuleFeatured>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content is empty', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleFeatured
-                    {...defaultProps}
-                    content={{
-                        list: null
-                    }}
-                >
-                    Module featured children not rendered
-                </ModuleFeatured>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleFeatured
+                        {...defaultProps}
+                        content={{
+                            list: null
+                        }}
+                    >
+                        Module featured children not rendered
+                    </ModuleFeatured>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleFeatured
-                    {...defaultProps}
-                    itemType={null}
-                >
-                    Module featured children
-                </ModuleFeatured>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleFeatured {...defaultProps} itemType={null}>
+                        Module featured children
+                    </ModuleFeatured>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

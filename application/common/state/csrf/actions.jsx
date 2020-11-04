@@ -32,6 +32,4 @@ function addToken(token) {
     };
 }
 
-export {
-    addToken
-};
+export { addToken };

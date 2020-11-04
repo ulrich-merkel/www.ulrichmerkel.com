@@ -38,11 +38,7 @@ import P from '../../element/paragraph';
  * @returns {ReactElement|null} React component markup
  */
 function ModuleTextContent(props) {
-    const {
-        content,
-        hasColumns2,
-        isCentered
-    } = props;
+    const { content, hasColumns2, isCentered } = props;
 
     if (!Array.isArray(content) || !content.length) {
         return null;
@@ -60,7 +56,10 @@ function ModuleTextContent(props) {
         <div className={componentTextContentClassName}>
             {content.map(function mapContent(html) {
                 return (
-                    <P key={shortid.generate()} dangerouslySetInnerHTML={{ __html: html }} />
+                    <P
+                        key={shortid.generate()}
+                        dangerouslySetInnerHTML={{ __html: html }}
+                    />
                 );
             })}
         </div>

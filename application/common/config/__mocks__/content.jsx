@@ -33,9 +33,7 @@ const mockedConfigContent = {
             btnLabel: 'intl-label-2',
             text: [
                 {
-                    content: [
-                        'intl-text-2'
-                    ]
+                    content: ['intl-text-2']
                 }
             ]
         }

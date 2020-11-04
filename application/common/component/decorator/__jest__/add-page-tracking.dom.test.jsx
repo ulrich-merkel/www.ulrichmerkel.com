@@ -38,5 +38,4 @@ describe('common/component/decorator/add-page-tracking', function () {
     //     expect(wrapper.find('.page').length).toEqual(1);
     //     expect(wrapper.find('.test').length).toEqual(1);
     // });
-
 });

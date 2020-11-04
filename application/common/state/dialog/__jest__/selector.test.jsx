@@ -9,9 +9,11 @@ describe('common/state/dialog/selector', function () {
                     visible: true
                 }
             };
-            expect(selectStateDialogVisible(state)).toEqual(state.dialog.visible);
+            expect(selectStateDialogVisible(state)).toEqual(
+                state.dialog.visible
+            );
         });
-        it('should return false if state isn\'t found', function () {
+        it("should return false if state isn't found", function () {
             const state = {
                 some: {
                     thing: 'lorem'
@@ -29,7 +31,7 @@ describe('common/state/dialog/selector', function () {
             };
             expect(selectStateDialogPage(state)).toEqual(state.dialog.page);
         });
-        it('should return false if state isn\'t found', function () {
+        it("should return false if state isn't found", function () {
             const state = {
                 some: {
                     thing: 'lorem'

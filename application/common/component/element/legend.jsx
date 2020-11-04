@@ -30,19 +30,11 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementLegend(props) {
-    const {
-        className,
-        isVisuallyHidden,
-        ...other
-    } = props;
+    const { className, isVisuallyHidden, ...other } = props;
 
-    const composedClassName = classnames(
-        'm-form__legend',
-        className,
-        {
-            'is-visually-hidden': isVisuallyHidden
-        }
-    );
+    const composedClassName = classnames('m-form__legend', className, {
+        'is-visually-hidden': isVisuallyHidden
+    });
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading

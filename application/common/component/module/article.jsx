@@ -41,7 +41,6 @@ import Meta from '../element/meta';
  * @returns {ReactElement} React component markup
  */
 function ModuleArticle(props) {
-
     const {
         componentType,
         className,
@@ -64,9 +63,12 @@ function ModuleArticle(props) {
         'm-article',
         className
     );
-    const composedHeadlineClassName = classnames({
-        'is-spaced': isSpaced
-    }, 'm-article__headline');
+    const composedHeadlineClassName = classnames(
+        {
+            'is-spaced': isSpaced
+        },
+        'm-article__headline'
+    );
 
     return (
         <ComponentType
@@ -80,11 +82,8 @@ function ModuleArticle(props) {
                 text={content.headline}
                 {...{ isMain }}
             />
-            <ArticleLead
-                className={'m-article__lead'}
-                text={content.lead}
-            />
-            <div className='m-article__text' itemProp='text'>
+            <ArticleLead className={'m-article__lead'} text={content.lead} />
+            <div className="m-article__text" itemProp="text">
                 {children}
             </div>
             <ArticleButton
@@ -94,22 +93,15 @@ function ModuleArticle(props) {
                 className={'m-article__button'}
                 {...{ isDialog }}
             />
+            <Meta itemProp="name" content={content.headline} />
             <Meta
-                itemProp='name'
-                content={content.headline}
-            />
-            <Meta
-                itemProp='author'
+                itemProp="author"
                 content={content.author}
-                defaultContent='Ulrich Merkel'
+                defaultContent="Ulrich Merkel"
             />
-            <Meta
-                itemProp='datePublished'
-                content={content.datePublished}
-            />
+            <Meta itemProp="datePublished" content={content.datePublished} />
         </ComponentType>
     );
-
 }
 
 /**

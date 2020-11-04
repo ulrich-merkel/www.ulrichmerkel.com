@@ -25,7 +25,8 @@ import { displayAllLoaded } from './loader/progress-bar';
 
 // Register the service worker if available
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
-    navigator.serviceWorker.register('/service-worker.bundle.js')
+    navigator.serviceWorker
+        .register('/service-worker.bundle.js')
         .then(function registerServiceWorker(reg) {
             const { log } = console; // eslint-disable-line no-console
             displayAllLoaded();

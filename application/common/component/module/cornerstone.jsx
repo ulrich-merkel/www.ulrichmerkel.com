@@ -41,7 +41,6 @@ import ModuleCornerstoneItemEducation from './cornerstone/item-education';
  * @returns {ReactElement} React component markup
  */
 function ModuleCornerstone(props) {
-
     const {
         componentType,
         className,
@@ -51,77 +50,77 @@ function ModuleCornerstone(props) {
         ...otherProps
     } = props;
 
-    if (!content || !content.academicEducationList || !content.professionalExperienceList) {
+    if (
+        !content ||
+        !content.academicEducationList ||
+        !content.professionalExperienceList
+    ) {
         return null;
     }
 
     const ComponentType = componentType;
-    const componentClassName = classnames(
-        'm-cornerstone',
-        className
-    );
+    const componentClassName = classnames('m-cornerstone', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
             className={componentClassName}
-            role='list'
+            role="list"
             {...componentSchema}
             {...otherProps}
         >
-
-            <li className='m-cornerstone__item--center'>
-                <Headline className='m-cornerstone__headline' htmlElement='h3'>
+            <li className="m-cornerstone__item--center">
+                <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.professionalExperience}
                 </Headline>
             </li>
 
-            {content.professionalExperienceList && content.professionalExperienceList.map((value, index) => {
-                return (
-                    <ModuleCornerstoneItemEmployee
-                        key={shortid.generate()}
-                        headline={value.headline}
-                        lead={value.lead}
-                        timeStart={value.timeStart}
-                        timeEnd={value.timeEnd}
-                        description={value.description}
-                        offset={value.offset}
-                        cssModifier={index % 2 === 0 ? 'left' : 'right'}
-                    />
-                );
-            })}
+            {content.professionalExperienceList &&
+                content.professionalExperienceList.map((value, index) => {
+                    return (
+                        <ModuleCornerstoneItemEmployee
+                            key={shortid.generate()}
+                            headline={value.headline}
+                            lead={value.lead}
+                            timeStart={value.timeStart}
+                            timeEnd={value.timeEnd}
+                            description={value.description}
+                            offset={value.offset}
+                            cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                        />
+                    );
+                })}
 
-            <li className='m-cornerstone__item--center'>
-                <Headline className='m-cornerstone__headline' htmlElement='h3'>
+            <li className="m-cornerstone__item--center">
+                <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.academicEducation}
                 </Headline>
             </li>
 
-            {content.academicEducationList && content.academicEducationList.map((value, index) => {
-                return (
-                    <ModuleCornerstoneItemEducation
-                        key={shortid.generate()}
-                        headline={value.headline}
-                        lead={value.lead}
-                        timeStart={value.timeStart}
-                        timeEnd={value.timeEnd}
-                        description={value.description}
-                        place={value.place}
-                        offset={value.offset}
-                        cssModifier={index % 2 === 0 ? 'left' : 'right'}
-                    />
-                );
-            })}
+            {content.academicEducationList &&
+                content.academicEducationList.map((value, index) => {
+                    return (
+                        <ModuleCornerstoneItemEducation
+                            key={shortid.generate()}
+                            headline={value.headline}
+                            lead={value.lead}
+                            timeStart={value.timeStart}
+                            timeEnd={value.timeEnd}
+                            description={value.description}
+                            place={value.place}
+                            offset={value.offset}
+                            cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                        />
+                    );
+                })}
 
-            <li className='m-cornerstone__item--start'>
-                <div className='m-cornerstone__bubble c-font-icon--bookmark2' />
+            <li className="m-cornerstone__item--start">
+                <div className="m-cornerstone__bubble c-font-icon--bookmark2" />
             </li>
 
             {children}
-
         </ComponentType>
     );
-
 }
 
 /**
@@ -166,12 +165,12 @@ ModuleCornerstone.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {object}
-* @see ModuleCornerstone.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ * @see ModuleCornerstone.propTypes
+ */
 ModuleCornerstone.defaultProps = {
     componentType: 'ol',
     itemType: 'https://schema.org/ItemList',

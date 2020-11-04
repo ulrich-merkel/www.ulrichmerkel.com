@@ -17,9 +17,7 @@ describe('common/component/module/form/search', function () {
     it('should render correctly', function () {
         const component = renderer.create(
             <Provider store={mockedStore}>
-                <ModuleFormSearchContainer
-                    {...defaultProps}
-                >
+                <ModuleFormSearchContainer {...defaultProps}>
                     Module form search children
                 </ModuleFormSearchContainer>
             </Provider>

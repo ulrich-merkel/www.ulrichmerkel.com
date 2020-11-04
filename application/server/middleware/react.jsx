@@ -50,7 +50,10 @@ import Routes from '../../common/component/routes';
 import LayoutHtml from '../../common/component/layout/html';
 import configureStore from '../../common/state/configure-store';
 import { changeLocale } from '../../common/state/intl/actions';
-import { fetchConfigContentIfNeeded, fetchConfigTranslationIfNeeded } from '../../common/state/config/actions';
+import {
+    fetchConfigContentIfNeeded,
+    fetchConfigTranslationIfNeeded
+} from '../../common/state/config/actions';
 import { addToken } from '../../common/state/csrf/actions';
 
 const { aboveTheFold } = configApplication;
@@ -83,10 +86,7 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
         html: renderToStaticMarkup(
             <Root {...{ store }}>
                 <LayoutHtml {...{ store, cssBase, scriptBootstrap }}>
-                    <StaticRouter
-                        context={context}
-                        location={url}
-                    >
+                    <StaticRouter context={context} location={url}>
                         <Routes />
                     </StaticRouter>
                 </LayoutHtml>
@@ -111,10 +111,12 @@ function getLocale(req, store) {
 
     // @TODO Read locale from router params
     const urlLocale = get({}, 'router.params.locale', '');
-    store.dispatch(changeLocale([
-        urlLocale,
-        urlLocale.toUpperCase()
-    ].join('-'), req.language));
+    store.dispatch(
+        changeLocale(
+            [urlLocale, urlLocale.toUpperCase()].join('-'),
+            req.language
+        )
+    );
     const acceptedLocale = get(store.getState(), 'intl.locale');
 
     return acceptedLocale;
@@ -169,16 +171,12 @@ function middlewareReact(req, res, next) {
             if (redirectUrl) {
                 return res.redirect(res.status || 302, redirectUrl);
             }
-            return res
-                .status(200)
-                .send(`<!doctype html>${rendered.html}`);
+            return res.status(200).send(`<!doctype html>${rendered.html}`);
         })
         .catch((reason) => {
             logger.warn(reason);
             const rendered = render(req.url, store);
-            return res
-                .status(404)
-                .send(`<!doctype html>${rendered.html}`);
+            return res.status(404).send(`<!doctype html>${rendered.html}`);
         });
 }
 

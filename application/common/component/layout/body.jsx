@@ -64,7 +64,8 @@ import PageTheme from '../page/theme';
  * @param {object} event - The synthetic react event
  * @returns {void}
  */
-function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
+function handleScrollTop(event) {
+    // eslint-disable-line class-methods-use-this
     eventPreventDefault(event);
     if (getPageOffset()) {
         scrollTo({
@@ -99,10 +100,7 @@ class LayoutBody extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            children,
-            content
-        } = this.props;
+        const { children, content } = this.props;
 
         return (
             <LayoutTheme>
@@ -110,23 +108,21 @@ class LayoutBody extends Component {
                 <LayoutLoader />
                 <LayoutHeaderConnected />
                 {children}
-                <LayoutFooter
-                    handleScrollTop={handleScrollTop}
-                />
+                <LayoutFooter handleScrollTop={handleScrollTop} />
                 <LayoutDialogConnected
-                    className='l-dialog--search'
+                    className="l-dialog--search"
                     page={STATE_DIALOG_PAGE_SEARCH}
                 >
                     <PageSearch isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
-                    className='l-dialog--broadcast'
+                    className="l-dialog--broadcast"
                     page={STATE_DIALOG_PAGE_BROADCAST}
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
-                    className='l-dialog--theme'
+                    className="l-dialog--theme"
                     page={STATE_DIALOG_PAGE_THEME}
                 >
                     <PageTheme isDialog />
@@ -134,7 +130,6 @@ class LayoutBody extends Component {
             </LayoutTheme>
         );
     }
-
 }
 
 /**
@@ -145,12 +140,14 @@ class LayoutBody extends Component {
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**
@@ -174,6 +171,4 @@ const LayoutBodyContainer = scroller(
 );
 
 export default LayoutBodyContainer;
-export {
-    LayoutBody
-};
+export { LayoutBody };

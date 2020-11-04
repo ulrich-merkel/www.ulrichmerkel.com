@@ -48,7 +48,6 @@ const noop = Function.prototype;
  * @property {Array.<object>} [props.sizes='[]'] - The responsive sizes config
  */
 class ElementPicture extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -74,45 +73,39 @@ class ElementPicture extends Component {
         }
 
         const ComponentType = htmlElement;
-        const componentClassName = classnames(
-            'c-picture',
-            className
-        );
+        const componentClassName = classnames('c-picture', className);
 
         return (
             <ComponentType
                 className={componentClassName}
                 itemScope
-                itemType='http://schema.org/ImageObject'
+                itemType="http://schema.org/ImageObject"
                 ref={pictureRef}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             >
-                {sizes && sizes.map((value) => {
-                    const {
-                        height,
-                        minWidth,
-                        width
-                    } = value;
+                {sizes &&
+                    sizes.map((value) => {
+                        const { height, minWidth, width } = value;
 
-                    return (
-                        <ElementPictureSource
-                            key={shortid.generate()}
-                            {...{
-                                ext,
-                                height,
-                                minWidth,
-                                name,
-                                path,
-                                width
-                            }}
-                        />
-                    );
-                })}
+                        return (
+                            <ElementPictureSource
+                                key={shortid.generate()}
+                                {...{
+                                    ext,
+                                    height,
+                                    minWidth,
+                                    name,
+                                    path,
+                                    width
+                                }}
+                            />
+                        );
+                    })}
                 <img
                     alt={alt}
-                    className='c-picture__img'
-                    itemProp='contentUrl'
+                    className="c-picture__img"
+                    itemProp="contentUrl"
                     src={placeholder}
                     srcSet={`${path}${name}.${ext}`}
                 />
@@ -120,7 +113,6 @@ class ElementPicture extends Component {
             </ComponentType>
         );
     }
-
 }
 
 /**
@@ -133,11 +125,7 @@ ElementPicture.propTypes = {
     alt: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    ext: PropTypes.oneOf([
-        'jpg',
-        'png',
-        ''
-    ]),
+    ext: PropTypes.oneOf(['jpg', 'png', '']),
     htmlElement: PropTypes.string,
     name: PropTypes.string,
     path: PropTypes.string,
@@ -145,18 +133,9 @@ ElementPicture.propTypes = {
     placeholder: PropTypes.string,
     sizes: PropTypes.arrayOf(
         PropTypes.shape({
-            width: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ]),
-            height: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ]),
-            minWidth: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ])
+            width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         })
     )
 };
@@ -174,7 +153,8 @@ ElementPicture.defaultProps = {
     name: '',
     path: '',
     pictureRef: noop,
-    placeholder: 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+    placeholder:
+        'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
     sizes: []
 };
 

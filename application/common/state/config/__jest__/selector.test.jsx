@@ -11,7 +11,7 @@ describe('common/state/config/selector', function () {
             };
             expect(selectStateConfig(state)).toEqual(state.config);
         });
-        it('should return an empty object if state isn\'t found', function () {
+        it("should return an empty object if state isn't found", function () {
             const state = {
                 foo: {
                     bar: 'test'

@@ -51,10 +51,13 @@ function sendSuccess(req, res, message = '') {
     // assert.optionalString(message, 'message');
 
     if (req.xhr) {
-        return res.status(200).send({
-            status: 200,
-            message
-        }).end();
+        return res
+            .status(200)
+            .send({
+                status: 200,
+                message
+            })
+            .end();
     }
     return res.redirect(301, url.contactSuccess);
 }
@@ -76,10 +79,13 @@ function sendError(req, res, message = '') {
     // assert.optionalString(message, 'message');
 
     if (req.xhr) {
-        return res.status(400).send({
-            status: 400,
-            message
-        }).end();
+        return res
+            .status(400)
+            .send({
+                status: 400,
+                message
+            })
+            .end();
     }
     return res.redirect(301, url.contactError);
 }
@@ -118,22 +124,24 @@ function middlewarePost(req, res) {
     const transporter = nodemailer.createTransport({
         sendmail: true
     });
-    return transporter.sendMail({
-        from: postData.email,
-        to: configApplication.email,
-        subject: postData.subject,
-        text: `${postData.name}\n ${postData.message}`
-    }, function handleResponse(error, info) {
-        transporter.close();
+    return transporter.sendMail(
+        {
+            from: postData.email,
+            to: configApplication.email,
+            subject: postData.subject,
+            text: `${postData.name}\n ${postData.message}`
+        },
+        function handleResponse(error, info) {
+            transporter.close();
 
-        if (error) {
-            logger.warn(error);
-            return sendError(req, res, error);
+            if (error) {
+                logger.warn(error);
+                return sendError(req, res, error);
+            }
+            logger.info(`Message sent: ${info}`);
+            return sendSuccess(req, res, info);
         }
-        logger.info(`Message sent: ${info}`);
-        return sendSuccess(req, res, info);
-    });
-
+    );
 }
 
 export default middlewarePost;

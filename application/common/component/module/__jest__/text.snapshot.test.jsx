@@ -36,49 +36,50 @@ describe('common/component/module/text', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <ModuleTextContainer
-                        {...defaultProps}
-                    >
-                        Module text children
-                    </ModuleTextContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <ModuleTextContainer {...defaultProps}>
+                            Module text children
+                        </ModuleTextContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content is given', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <ModuleTextContainer
-                        {...defaultProps}
-                        content={{
-                            text: null
-                        }}
-                    >
-                        Module text children not rendered
-                    </ModuleTextContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <ModuleTextContainer
+                            {...defaultProps}
+                            content={{
+                                text: null
+                            }}
+                        >
+                            Module text children not rendered
+                        </ModuleTextContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <ModuleTextContainer
-                        {...defaultProps}
-                        itemType={null}
-                    >
-                        Module text children
-                    </ModuleTextContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <ModuleTextContainer {...defaultProps} itemType={null}>
+                            Module text children
+                        </ModuleTextContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

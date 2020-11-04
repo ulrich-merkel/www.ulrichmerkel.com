@@ -51,14 +51,14 @@ import xor from '../../../utils/xor';
 import logger from '../../../utils/logger';
 import scrollTo from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
-import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
+import {
+    selectStateContact,
+    selectStateCsrfToken
+} from '../../../state/selectors';
 import { changeContact } from '../../../state/contact/actions';
 import { canSendForm, validate } from '../../../state/contact/utils';
 import { eventPreventDefault } from '../../../utils/event';
-import {
-    GridCol,
-    GridRow
-} from '../../grid';
+import { GridCol, GridRow } from '../../grid';
 import {
     ButtonGroup,
     Fieldset,
@@ -101,7 +101,9 @@ const xorKey = configApplicationXor.key;
  */
 function scrollToTextMessage(textMessage) {
     if (textMessage) {
-        const boundingClientRectTop = Math.abs(textMessage.getBoundingClientRect().top);
+        const boundingClientRectTop = Math.abs(
+            textMessage.getBoundingClientRect().top
+        );
         scrollTo({
             top: boundingClientRectTop
         });
@@ -155,7 +157,6 @@ function getState(key, storeState) {
  * @augments React.Component
  */
 class ModuleFormContact extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -184,14 +185,10 @@ class ModuleFormContact extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
         this.handleContactChange = this.handleContactChange.bind(this);
-
     }
 
     componentDidMount() {
-        const {
-            storeState,
-            routerState
-        } = this.props;
+        const { storeState, routerState } = this.props;
 
         this.setState({
             name: getState('name', storeState),
@@ -203,7 +200,8 @@ class ModuleFormContact extends Component {
             subjectPristine: getState('subjectPristine', storeState),
             messagePristine: getState('messagePristine', storeState),
             pending: getState('pending', storeState),
-            success: routerState === 'success' || getState('success', storeState),
+            success:
+                routerState === 'success' || getState('success', storeState),
             error: routerState === 'error' || getState('error', storeState),
             browser: isBrowser()
         });
@@ -265,10 +263,7 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     onReset() {
-        this.setState(
-            defaultState,
-            this.handleContactChange
-        );
+        this.setState(defaultState, this.handleContactChange);
     }
 
     /**
@@ -289,7 +284,10 @@ class ModuleFormContact extends Component {
                 onReset={this.onReset}
                 resetUrl={url.contact}
                 {...{
-                    headline, text, btnTitle, btnLabel
+                    headline,
+                    text,
+                    btnTitle,
+                    btnLabel
                 }}
             />
         );
@@ -321,42 +319,46 @@ class ModuleFormContact extends Component {
             message: String(state.message)
         };
 
-        this.setState({
-            pending: true,
-            success: false,
-            error: false
-        }, () => {
-            send(data, csrfToken)
-                .then(
-                    (response) => {
+        this.setState(
+            {
+                pending: true,
+                success: false,
+                error: false
+            },
+            () => {
+                send(data, csrfToken)
+                    .then((response) => {
                         if (!response || !response.ok) {
-                            throw new Error(`Can't send email! ${response.statusText}`);
+                            throw new Error(
+                                `Can't send email! ${response.statusText}`
+                            );
                         }
                         return new Promise((resolve) => {
-                            this.setState({
-                                success: true,
-                                pending: false
-                            }, resolve);
+                            this.setState(
+                                {
+                                    success: true,
+                                    pending: false
+                                },
+                                resolve
+                            );
                         });
-                    }
-                )
-                .then(
-                    () => {
+                    })
+                    .then(() => {
                         return scrollToTextMessage(this.textMessage);
-                    }
-                )
-                .catch(
-                    (reason) => {
-                        this.setState({
-                            error: true,
-                            pending: false
-                        }, () => {
-                            logger.warn(reason);
-                        });
-                    }
-                );
-        });
-
+                    })
+                    .catch((reason) => {
+                        this.setState(
+                            {
+                                error: true,
+                                pending: false
+                            },
+                            () => {
+                                logger.warn(reason);
+                            }
+                        );
+                    });
+            }
+        );
     }
 
     /**
@@ -399,10 +401,7 @@ class ModuleFormContact extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            content,
-            csrfToken
-        } = this.props;
+        const { content, csrfToken } = this.props;
 
         const { state } = this;
 
@@ -416,16 +415,15 @@ class ModuleFormContact extends Component {
 
         return (
             <Form
-                action='/contact/'
-                className='m-form--contact'
-                id='m-form--contact'
-                itemProp='potentialAction'
+                action="/contact/"
+                className="m-form--contact"
+                id="m-form--contact"
+                itemProp="potentialAction"
                 onSubmit={this.onSubmit}
                 onReset={this.onReset}
             >
                 <Fieldset>
-
-                    <Legend className='is-visually-hidden'>
+                    <Legend className="is-visually-hidden">
                         {content.legend}
                     </Legend>
 
@@ -501,7 +499,9 @@ class ModuleFormContact extends Component {
                                 type={'submit'}
                                 title={content.btnSubmitTitle}
                                 label={content.btnSubmitLabel}
-                                className={'m-form__group--submit hide-on-print'}
+                                className={
+                                    'm-form__group--submit hide-on-print'
+                                }
                                 btnClassName={'c-btn--submit'}
                                 isPrimary
                                 isDisabled={!canSendForm(state)}
@@ -509,7 +509,7 @@ class ModuleFormContact extends Component {
                             />
                         </GridCol>
                     </GridRow>
-                    <input type='hidden' name='_csrf' value={csrfToken} />
+                    <input type="hidden" name="_csrf" value={csrfToken} />
                 </Fieldset>
             </Form>
         );
@@ -623,15 +623,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 /**
-* Connects a React component to a Redux store. It does not modify the
-* component class passed to it. Instead, it returns a new, connected component class.
-*/
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
 const ModuleFormContactContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormContact);
 
 export default ModuleFormContactContainer;
-export {
-    ModuleFormContact
-};
+export { ModuleFormContact };

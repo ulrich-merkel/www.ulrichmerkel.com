@@ -30,12 +30,7 @@ import classnames from 'classnames';
  * @returns {ReactElement|null} React component markup
  */
 function ElementIcon(props) {
-    const {
-        htmlElement,
-        className,
-        icon,
-        ...otherProps
-    } = props;
+    const { htmlElement, className, icon, ...otherProps } = props;
 
     if (!icon) {
         return null;
@@ -46,7 +41,11 @@ function ElementIcon(props) {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
+        <ComponentHtmlElement
+            className={componentClassName}
+            aria-hidden="true"
+            {...otherProps}
+        />
     );
 }
 

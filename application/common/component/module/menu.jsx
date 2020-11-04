@@ -64,7 +64,7 @@ function ModuleMenu(props) {
     return (
         <ComponentType
             className={componentClassName}
-            role='menu'
+            role="menu"
             {...componentSchema}
             {...otherProps}
         >
@@ -80,7 +80,9 @@ function ModuleMenu(props) {
                         isLabelHidden={value.isLabelHidden}
                         itemPropA={value.itemPropA}
                     >
-                        {value.metaLinkUrl && <link itemProp='url' href={value.metaLinkUrl} />}
+                        {value.metaLinkUrl && (
+                            <link itemProp="url" href={value.metaLinkUrl} />
+                        )}
                     </ModuleMenuItem>
                 );
             })}

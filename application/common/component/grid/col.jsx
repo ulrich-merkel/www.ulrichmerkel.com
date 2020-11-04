@@ -33,22 +33,12 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function GridCol(props) {
-    const {
-        className,
-        cols,
-        htmlElement,
-        ...otherProps
-    } = props;
+    const { className, cols, htmlElement, ...otherProps } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        `l-grid__col--${cols}`,
-        className
-    );
+    const composedClassName = classnames(`l-grid__col--${cols}`, className);
 
-    return (
-        <ComponentType className={composedClassName} {...otherProps} />
-    );
+    return <ComponentType className={composedClassName} {...otherProps} />;
 }
 
 /**
@@ -59,10 +49,7 @@ function GridCol(props) {
  */
 GridCol.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    cols: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string
-    ]),
+    cols: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     htmlElement: PropTypes.string
 };
 

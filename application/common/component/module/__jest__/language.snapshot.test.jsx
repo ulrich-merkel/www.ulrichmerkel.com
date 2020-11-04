@@ -31,37 +31,38 @@ describe('common/component/module/language', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleLanguage
-                {...defaultProps}
-            >
-                Module language children
-            </ModuleLanguage>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleLanguage {...defaultProps}>
+                    Module language children
+                </ModuleLanguage>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content image is empty', function () {
-        const tree = renderer.create(
-            <ModuleLanguage
-                {...defaultProps}
-                content={{
-                    list: null
-                }}
-            >
-                Module language children not rendered
-            </ModuleLanguage>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleLanguage
+                    {...defaultProps}
+                    content={{
+                        list: null
+                    }}
+                >
+                    Module language children not rendered
+                </ModuleLanguage>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <ModuleLanguage
-                {...defaultProps}
-                itemType={null}
-            >
-                Module language children
-            </ModuleLanguage>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleLanguage {...defaultProps} itemType={null}>
+                    Module language children
+                </ModuleLanguage>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

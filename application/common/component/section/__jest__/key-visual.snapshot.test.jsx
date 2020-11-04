@@ -8,15 +8,15 @@ import SectionKeyVisual from '../key-visual';
 
 describe('common/component/section/key-visual', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionKeyVisual
-                    content={{}}
-                >
-                    Section key-visual children
-                </SectionKeyVisual>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionKeyVisual content={{}}>
+                        Section key-visual children
+                    </SectionKeyVisual>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -5,17 +5,19 @@ import ElementPictureSource from '../picture-source';
 
 describe('common/component/element/picture-source', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementPictureSource
-                path='path'
-                name='name'
-                ext='jpg'
-                width='200'
-                height='100'
-                minWidth='100'
-                className='test'
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ElementPictureSource
+                    path="path"
+                    name="name"
+                    ext="jpg"
+                    width="200"
+                    height="100"
+                    minWidth="100"
+                    className="test"
+                />
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

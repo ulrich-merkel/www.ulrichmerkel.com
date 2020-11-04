@@ -25,9 +25,7 @@ import { createSelector } from 'reselect';
  * @returns {boolean} The dialog visiblity state
  */
 const selectStateDialogVisible = createSelector(
-    [
-        (state) => state.dialog
-    ],
+    [(state) => state.dialog],
     (dialog) => {
         if (!dialog || !dialog.visible) {
             return false;
@@ -44,9 +42,7 @@ const selectStateDialogVisible = createSelector(
  * @returns {boolean} The dialog visiblity state
  */
 const selectStateDialogPage = createSelector(
-    [
-        (state) => state.dialog
-    ],
+    [(state) => state.dialog],
     (dialog) => {
         if (!dialog || !dialog.page) {
             return false;
@@ -55,7 +51,4 @@ const selectStateDialogPage = createSelector(
     }
 );
 
-export {
-    selectStateDialogVisible,
-    selectStateDialogPage
-};
+export { selectStateDialogVisible, selectStateDialogPage };

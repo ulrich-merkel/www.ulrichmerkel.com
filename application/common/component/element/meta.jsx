@@ -29,13 +29,7 @@ import PropTypes from 'prop-types';
  * @returns {ReactElement|null} React component markup
  */
 function ElementMeta(props) {
-    const {
-        content,
-        itemProp,
-        name,
-        property,
-        ...otherProps
-    } = props;
+    const { content, itemProp, name, property, ...otherProps } = props;
 
     if (!content) {
         return null;
@@ -44,7 +38,10 @@ function ElementMeta(props) {
     return (
         <meta
             {...{
-                itemProp, name, property, content
+                itemProp,
+                name,
+                property,
+                content
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}

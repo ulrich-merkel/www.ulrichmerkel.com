@@ -41,7 +41,9 @@ describe('common/state/config/actions', function () {
             const content = 'Lorem ipsum';
             const locale = 'de-DE';
             expect(addConfigTranslation(content, locale).data).toEqual(content);
-            expect(addConfigTranslation(content, locale).locale).toEqual(locale);
+            expect(addConfigTranslation(content, locale).locale).toEqual(
+                locale
+            );
         });
     });
 

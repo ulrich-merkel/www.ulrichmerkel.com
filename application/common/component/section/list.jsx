@@ -40,13 +40,7 @@ import ModuleList from '../module/list';
  * @returns {ReactElement} React component markup
  */
 function SectionList(props) {
-    const {
-        children,
-        content,
-        isDialog,
-        isMain,
-        ...moduleProps
-    } = props;
+    const { children, content, isDialog, isMain, ...moduleProps } = props;
 
     return (
         <SectionCommonGridSpaced>
@@ -67,12 +61,14 @@ function SectionList(props) {
  */
 SectionList.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     isDialog: PropTypes.bool,
     isMain: PropTypes.bool
 };

@@ -31,16 +31,9 @@ import configApplication from '../common/config/application';
 import { getDateNow } from '../common/utils/date';
 
 const configApplicationCache = configApplication.applicationCache;
-const STATIC_FILES = [
-    './css/app.css',
-    './js/client.bundle.js'
-];
-const BLACKLIST_URLS = [
-    '/panel/'
-];
-const PREFER_FETCH = [
-    'text/html'
-];
+const STATIC_FILES = ['./css/app.css', './js/client.bundle.js'];
+const BLACKLIST_URLS = ['/panel/'];
+const PREFER_FETCH = ['text/html'];
 
 /**
  * Get cache timestamp to ease updates.
@@ -76,12 +69,15 @@ function handleError(reason) {
  */
 function preCache() {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
-    return caches.open(self.CACHE).then(function handleOpen(cache) {
-        if (!cache.addAll) {
-            return true;
-        }
-        return cache.addAll(STATIC_FILES);
-    }).catch(handleError);
+    return caches
+        .open(self.CACHE)
+        .then(function handleOpen(cache) {
+            if (!cache.addAll) {
+                return true;
+            }
+            return cache.addAll(STATIC_FILES);
+        })
+        .catch(handleError);
 }
 
 /**
@@ -140,16 +136,14 @@ function fromNetwork(request, timeout = 20000, options) {
          * @private
          * @type {object}
          */
-        const requestObject = new Request(request.url, ({
+        const requestObject = new Request(request.url, {
             method: request.method,
             headers: request.headers,
-            mode: request.mode === 'navigate'
-                ? 'no-cors'
-                : request.mode,
+            mode: request.mode === 'navigate' ? 'no-cors' : request.mode,
             credentials: request.credentials,
             redirect: request.redirect,
             ...options
-        }));
+        });
 
         return fetch(requestObject).then(function handleFetch(response) {
             clearTimeout(timeoutId);
@@ -185,11 +179,15 @@ function fetchAndCache(request) {
  */
 function clearCaches() {
     return caches.keys().then(function (keys) {
-        return Promise.all(keys.filter(function (key) {
-            return key.indexOf(self.CACHE) !== 0;
-        }).map(function (key) {
-            return caches.delete(key);
-        }));
+        return Promise.all(
+            keys
+                .filter(function (key) {
+                    return key.indexOf(self.CACHE) !== 0;
+                })
+                .map(function (key) {
+                    return caches.delete(key);
+                })
+        );
     });
 }
 
@@ -265,9 +263,11 @@ function onFetch(event) {
  * @returns {void}
  */
 function onInstall(event) {
-    return event.waitUntil(preCache().then(function () {
-        return self.skipWaiting();
-    }));
+    return event.waitUntil(
+        preCache().then(function () {
+            return self.skipWaiting();
+        })
+    );
 }
 
 /**

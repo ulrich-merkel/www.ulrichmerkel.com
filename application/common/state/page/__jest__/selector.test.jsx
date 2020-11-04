@@ -11,7 +11,7 @@ describe('common/state/page/selector', function () {
             };
             expect(selectStatePage(state)).toEqual(state.page);
         });
-        it('should return an empty object if state isn\'t found', function () {
+        it("should return an empty object if state isn't found", function () {
             const state = {
                 hello: {
                     kitty: 'lorem'

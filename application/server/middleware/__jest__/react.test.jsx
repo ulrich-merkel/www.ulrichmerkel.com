@@ -3,8 +3,7 @@ import httpMocks from 'node-mocks-http';
 import middleware from '../react';
 
 describe('server/middleware/react', function () {
-    let req,
-        res;
+    let req, res;
 
     beforeEach(function () {
         res = httpMocks.createResponse();
@@ -28,5 +27,4 @@ describe('server/middleware/react', function () {
     //     middleware(req, res);
     //     expect(res.statusCode).toEqual(404);
     // });
-
 });

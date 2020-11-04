@@ -26,38 +26,38 @@ describe('common/component/module/key-visual', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisual
-                {...defaultProps}
-            >
-                Module key-visual children
-            </ModuleKeyVisual>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleKeyVisual {...defaultProps}>
+                    Module key-visual children
+                </ModuleKeyVisual>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content image is empty', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisual
-                {...defaultProps}
-                content={{
-                    img: null
-                }}
-            >
-                Module key-visual children not rendered
-            </ModuleKeyVisual>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleKeyVisual
+                    {...defaultProps}
+                    content={{
+                        img: null
+                    }}
+                >
+                    Module key-visual children not rendered
+                </ModuleKeyVisual>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render isWork and isCovered css className', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisual
-                {...defaultProps}
-                isWork
-                isCovered
-            >
-                Module key-visual children
-            </ModuleKeyVisual>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleKeyVisual {...defaultProps} isWork isCovered>
+                    Module key-visual children
+                </ModuleKeyVisual>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

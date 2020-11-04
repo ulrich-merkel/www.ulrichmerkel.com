@@ -39,20 +39,15 @@ import ModuleKeyVisual from '../module/key-visual';
  * @returns {ReactElement} React component markup
  */
 function SectionKeyVisual(props) {
-
     const { content, children, ...moduleProps } = props;
 
     return (
         <SectionCommonGrid>
-            <ModuleKeyVisual
-                {...{ content }}
-                {...moduleProps}
-            >
+            <ModuleKeyVisual {...{ content }} {...moduleProps}>
                 {children}
             </ModuleKeyVisual>
         </SectionCommonGrid>
     );
-
 }
 
 /**
@@ -63,12 +58,14 @@ function SectionKeyVisual(props) {
  */
 SectionKeyVisual.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

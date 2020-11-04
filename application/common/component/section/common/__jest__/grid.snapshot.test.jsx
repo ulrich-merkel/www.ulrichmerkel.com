@@ -8,17 +8,19 @@ import SectionCommonGrid from '../grid';
 
 describe('common/component/section/common/grid', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionCommonGrid
-                    page={{
-                        viewsAfterReload: 1
-                    }}
-                >
-                    Section common grid children
-                </SectionCommonGrid>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionCommonGrid
+                        page={{
+                            viewsAfterReload: 1
+                        }}
+                    >
+                        Section common grid children
+                    </SectionCommonGrid>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

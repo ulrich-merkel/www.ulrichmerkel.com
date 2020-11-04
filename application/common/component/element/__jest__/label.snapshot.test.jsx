@@ -6,7 +6,7 @@ import ElementLabel from '../label';
 describe('common/component/element/label', function () {
     it('should render correctly', function () {
         const wrapper = shallow(
-            <ElementLabel className='label' htmlFor='foo-bar'>
+            <ElementLabel className="label" htmlFor="foo-bar">
                 Label Children
             </ElementLabel>
         );

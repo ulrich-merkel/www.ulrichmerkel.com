@@ -45,10 +45,11 @@ const runMethod = argv.run || 'test';
  * @returns {object} - The ready-to-use server
  */
 function getTranspiledServer() {
-    if (!fs.existsSync(path.resolve(__dirname, serverFile))) { // eslint-disable-line security/detect-non-literal-fs-filename
-        console.error(chalk.red(
-            'Build this project before running this script!'
-        ));
+    if (!fs.existsSync(path.resolve(__dirname, serverFile))) {
+        // eslint-disable-line security/detect-non-literal-fs-filename
+        console.error(
+            chalk.red('Build this project before running this script!')
+        );
         process.exit(1);
     }
     return require(serverFile).default; // eslint-disable-line global-require, security/detect-non-literal-require
@@ -67,7 +68,6 @@ const METHODS = {
  * @class
  */
 class Backstop {
-
     /**
      * @constructs
      * @param {string} configFile - The backstop config json
@@ -86,7 +86,10 @@ class Backstop {
      * @returns {boolean}
      */
     shouldHandleServer() {
-        return this.method && (this.method === METHODS.reference || this.method === METHODS.test);
+        return (
+            this.method &&
+            (this.method === METHODS.reference || this.method === METHODS.test)
+        );
     }
 
     /**
@@ -132,9 +135,7 @@ class Backstop {
                 return;
             }
             this.runningServer.close(() => {
-                console.log(chalk.green(
-                    'Backstop server successful stopped'
-                ));
+                console.log(chalk.green('Backstop server successful stopped'));
                 resolve();
                 this.runningServer = null;
             });
@@ -159,7 +160,6 @@ class Backstop {
             this.method = METHODS[method];
         }
         this.options = {
-
             ...options
         };
         this.configFile = configFile;
@@ -231,7 +231,8 @@ class Backstop {
      * @returns {Promise|this}
      */
     open() {
-        if (this.isMethod(METHODS.open)) { // eslint-disable-line security/detect-non-literal-fs-filename
+        if (this.isMethod(METHODS.open)) {
+            // eslint-disable-line security/detect-non-literal-fs-filename
             return this.backstop(this.method);
         }
         return this;
@@ -244,9 +245,7 @@ class Backstop {
      * @returns {void}
      */
     done() {
-        console.log(chalk.green(
-            `Backstop ${this.method} successful`
-        ));
+        console.log(chalk.green(`Backstop ${this.method} successful`));
         return this.stopServer().then(() => {
             return process.exit(0);
         });
@@ -263,9 +262,7 @@ class Backstop {
     fail(reason) {
         assert.object(reason, 'reason');
 
-        console.error(chalk.red(
-            reason
-        ));
+        console.error(chalk.red(reason));
         this.backstop(METHODS.open); // eslint-disable-line security/detect-non-literal-fs-filename
         return this.stopServer().then(() => {
             return process.exit(1);
@@ -291,9 +288,7 @@ class Backstop {
                 .catch(this.fail.bind(this))
                 .finally(resolve);
         });
-
     }
-
 }
 
 // Listen to cli

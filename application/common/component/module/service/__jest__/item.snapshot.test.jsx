@@ -12,20 +12,15 @@ describe('common/component/module/service/item', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleServiceItem
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleServiceItem {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render isClear correctly', function () {
-        const tree = renderer.create(
-            <ModuleServiceItem
-                {...defaultProps}
-                isClear
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleServiceItem {...defaultProps} isClear />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -3,8 +3,7 @@ import httpMocks from 'node-mocks-http';
 import middleware from '../post';
 
 describe('server/middleware/post', function () {
-    let req,
-        res;
+    let req, res;
 
     beforeEach(function () {
         req = httpMocks.createRequest();
@@ -12,7 +11,6 @@ describe('server/middleware/post', function () {
     });
 
     describe('post', function () {
-
         it('should handle basic request', function () {
             req = httpMocks.createRequest({
                 method: 'POST',
@@ -66,7 +64,5 @@ describe('server/middleware/post', function () {
             expect(data).toBeDefined();
             expect(data).toEqual('');
         });
-
     });
-
 });

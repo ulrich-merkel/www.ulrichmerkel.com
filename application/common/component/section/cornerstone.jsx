@@ -41,15 +41,14 @@ import ModuleCornerstone from '../module/cornerstone';
  * @returns {ReactElement} React component markup
  */
 function SectionCornerstone(props) {
-    const {
-        children,
-        content,
-        ...moduleProps
-    } = props;
+    const { children, content, ...moduleProps } = props;
 
     return (
         <SectionCommonGridSpaced>
-            <ModuleArticle itemType={'https://schema.org/Article'} {...{ content }}>
+            <ModuleArticle
+                itemType={'https://schema.org/Article'}
+                {...{ content }}
+            >
                 <ModuleCornerstone {...{ content }} {...moduleProps}>
                     {children}
                 </ModuleCornerstone>
@@ -66,12 +65,14 @@ function SectionCornerstone(props) {
  */
 SectionCornerstone.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

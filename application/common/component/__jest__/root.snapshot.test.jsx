@@ -6,11 +6,13 @@ import configureStore from '../../state/configure-store';
 
 describe('common/component/root', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Root store={configureStore()}>
-                <div />
-            </Root>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Root store={configureStore()}>
+                    <div />
+                </Root>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

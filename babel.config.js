@@ -1,8 +1,6 @@
 /* eslint-disable immutable/no-mutation */
 module.exports = {
-    include: [
-        /\.(js|jsx|ts|tsx)$/
-    ],
+    include: [/\.(js|jsx|ts|tsx)$/],
     presets: [
         [
             '@babel/preset-react',
@@ -10,11 +8,7 @@ module.exports = {
                 useSpread: true
             }
         ],
-        [
-            '@babel/preset-typescript'
-        ],
-        [
-            '@babel/preset-env'
-        ]
+        ['@babel/preset-typescript'],
+        ['@babel/preset-env']
     ]
 };

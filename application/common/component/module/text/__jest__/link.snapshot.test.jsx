@@ -14,24 +14,23 @@ describe('common/component/module/text/link', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleTextLink
-                    {...defaultProps}
-                />
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleTextLink {...defaultProps} />
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if text is empty', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ModuleTextLink
-                    {...defaultProps}
-                    content={null}
-                />
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ModuleTextLink {...defaultProps} content={null} />
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -35,7 +35,10 @@ const argvFiles = argv.f || [
     { source: './public/js/**/*', dest: `${argvDest}/public/js` },
     { source: './public/img/**/*', dest: `${argvDest}/public/img` },
     { source: './public/font/**/*', dest: `${argvDest}/public/font` },
-    { source: './public/*.{txt,json,xml,manifest,js}', dest: `${argvDest}/public/` },
+    {
+        source: './public/*.{txt,json,xml,manifest,js}',
+        dest: `${argvDest}/public/`
+    },
     { source: './public/img/share/favicon.ico', dest: `${argvDest}/public/` }
 ];
 
@@ -48,7 +51,9 @@ const argvFiles = argv.f || [
  */
 function fileCopied(file) {
     assert.object(file, 'file');
-    console.log(chalk.green(`Copied file pattern ${file.source} > ${file.dest}`));
+    console.log(
+        chalk.green(`Copied file pattern ${file.source} > ${file.dest}`)
+    );
 }
 
 /**
@@ -68,12 +73,7 @@ function main(files) {
 
     console.log(chalk.gray(`Start copying ${filesLength} file patterns`));
     files.forEach(function forEachFile(file) {
-        cpx.copy(
-            file.source,
-            file.dest,
-            {},
-            fileCopied.bind(null, file)
-        );
+        cpx.copy(file.source, file.dest, {}, fileCopied.bind(null, file));
     });
 }
 

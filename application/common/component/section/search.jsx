@@ -39,12 +39,7 @@ import ModuleArticle from '../module/article';
  * @returns {ReactElement} React component markup
  */
 function SectionSearch(props) {
-    const {
-        children,
-        content,
-        isDialog,
-        isMain
-    } = props;
+    const { children, content, isDialog, isMain } = props;
 
     return (
         <SectionCommonGridSpaced>
@@ -63,12 +58,14 @@ function SectionSearch(props) {
  */
 SectionSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     isDialog: PropTypes.bool,
     isMain: PropTypes.bool
 };

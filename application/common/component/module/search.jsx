@@ -42,9 +42,7 @@ import {
     selectStateSearchTerm,
     selectStateConfig
 } from '../../state/selectors';
-import {
-    changeDialogVisibleSearch
-} from '../../state/actions';
+import { changeDialogVisibleSearch } from '../../state/actions';
 import { getContentSection } from '../../utils/content';
 import { findMatches } from '../../utils/search';
 import addContent from '../decorator/add-content';
@@ -71,42 +69,52 @@ function ModuleSearch(props) {
         searchTerm
     } = props;
 
-    const componentClassName = classnames(
-        'm-list--search',
-        className
-    );
+    const componentClassName = classnames('m-list--search', className);
     const contentSection = getContentSection(content);
     const matches = findMatches(searchTerm, intlLocale, config);
     if (!matches || !matches.length) {
         return (
-            <Headline htmlElement='h3'>
+            <Headline htmlElement="h3">
                 {contentSection('PageSearch.section1.noResults')}
             </Headline>
         );
     }
 
     return (
-        <HtmlElement className={componentClassName} itemScope itemType={itemType} role='list'>
+        <HtmlElement
+            className={componentClassName}
+            itemScope
+            itemType={itemType}
+            role="list"
+        >
             {matches.map((entry) => {
                 return (
                     <li
                         key={shortid.generate()}
-                        className='m-list__list-item'
-                        itemProp='itemListElement'
+                        className="m-list__list-item"
+                        itemProp="itemListElement"
                     >
                         <A
                             to={entry.url}
                             title={entry.title}
-                            className='c-type--h4 m-list__item'
+                            className="c-type--h4 m-list__item"
                             onClick={handleChangeDialogVisibleSearch}
                             itemScope
-                            itemType='http://www.schema.org/SiteNavigationElement'
+                            itemType="http://www.schema.org/SiteNavigationElement"
                         >
-                            <span className='m-menu__label'>
-                                {`${get(content, `${entry.label}.head.title`, '')}`}
+                            <span className="m-menu__label">
+                                {`${get(
+                                    content,
+                                    `${entry.label}.head.title`,
+                                    ''
+                                )}`}
                             </span>
-                            <small className='m-menu__description'>
-                                {`${get(content, `${entry.label}.head.meta[0].content`, '')}`}
+                            <small className="m-menu__description">
+                                {`${get(
+                                    content,
+                                    `${entry.label}.head.meta[0].content`,
+                                    ''
+                                )}`}
                             </small>
                         </A>
                     </li>
@@ -136,12 +144,14 @@ ModuleSearch.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     config: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     handleChangeDialogVisibleSearch: PropTypes.func,
     htmlElement: PropTypes.string,
     intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -204,9 +214,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 /**
-* Connects a React component to a Redux store. It does not modify the
-* component class passed to it. Instead, it returns a new, connected component class.
-*/
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
 export default connect(
     mapStateToProps,
     mapDispatchToProps

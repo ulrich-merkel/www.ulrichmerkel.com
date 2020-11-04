@@ -50,10 +50,7 @@ function middlewareError(err, req, res, next) {
 
     logger.error(error.stack);
 
-    return res
-        .status(error.status || 404)
-        .send('Sorry - not found!');
-
+    return res.status(error.status || 404).send('Sorry - not found!');
 }
 
 export default middlewareError;

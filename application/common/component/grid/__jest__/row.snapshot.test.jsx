@@ -5,11 +5,13 @@ import GridRow from '../row';
 
 describe('common/component/grid/row', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <GridRow htmlElement='span' className='row'>
-                Grid Row Children
-            </GridRow>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <GridRow htmlElement="span" className="row">
+                    Grid Row Children
+                </GridRow>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

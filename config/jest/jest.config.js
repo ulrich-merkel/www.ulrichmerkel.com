@@ -10,20 +10,10 @@ module.exports = {
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
     },
-    setupFiles: [
-        '<rootDir>/config/jest/jest.setup.js'
-    ],
-    setupFilesAfterEnv: [
-        '<rootDir>/config/jest/jest.each-test-setup.js'
-    ],
+    setupFiles: ['<rootDir>/config/jest/jest.setup.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.each-test-setup.js'],
     verbose: true,
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'json',
-        'ts',
-        'tsx'
-    ],
+    moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
     moduleDirectories: [
         'node_modules' // This is required
     ],

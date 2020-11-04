@@ -52,5 +52,4 @@ describe('common/component/decorator/scroller', function () {
 
     //     wrapper.unmount();
     // });
-
 });

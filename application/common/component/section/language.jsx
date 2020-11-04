@@ -41,12 +41,7 @@ import ModuleLanguage from '../module/language';
  * @returns {ReactElement} React component markup
  */
 function SectionLanguage(props) {
-
-    const {
-        children,
-        content,
-        ...moduleProps
-    } = props;
+    const { children, content, ...moduleProps } = props;
 
     return (
         <SectionCommonGridSpaced>
@@ -57,7 +52,6 @@ function SectionLanguage(props) {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-
 }
 
 /**
@@ -68,12 +62,14 @@ function SectionLanguage(props) {
  */
 SectionLanguage.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

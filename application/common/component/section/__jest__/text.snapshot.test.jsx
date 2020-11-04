@@ -8,16 +8,15 @@ import SectionText from '../text';
 
 describe('common/component/section/text', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionText
-                    content={{}}
-                    isMain
-                >
-                    Section text children
-                </SectionText>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionText content={{}} isMain>
+                        Section text children
+                    </SectionText>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -64,7 +64,8 @@ function checkBuildDirectory(directory, callback) {
     assert.string(directory, 'directory');
     assert.func(callback, 'callback');
 
-    fs.stat(directory, function statFn(error) { // eslint-disable-line security/detect-non-literal-fs-filename
+    fs.stat(directory, function statFn(error) {
+        // eslint-disable-line security/detect-non-literal-fs-filename
         if (error && error.code === 'ENOENT') {
             return void fs.mkdir(directory, callback); // eslint-disable-line security/detect-non-literal-fs-filename
         }
@@ -127,10 +128,13 @@ function createFolders(folders) {
     assert.optionalArray(folders, 'folders');
 
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
-        fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) { // eslint-disable-line security/detect-non-literal-fs-filename
+        fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) {
+            // eslint-disable-line security/detect-non-literal-fs-filename
             if (error) {
                 if (error.code === 'EEXIST') {
-                    return void console.log(chalk.grey(`${error.path} already exists`));
+                    return void console.log(
+                        chalk.grey(`${error.path} already exists`)
+                    );
                 }
                 return void console.warn(chalk.red(error));
             }

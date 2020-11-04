@@ -29,21 +29,18 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementHeader(props) {
-    const {
-        htmlElement,
-        className,
-        ...otherProps
-    } = props;
+    const { htmlElement, className, ...otherProps } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        'c-header',
-        className
-    );
+    const composedClassName = classnames('c-header', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType className={composedClassName} role='banner' {...otherProps} />
+        <ComponentType
+            className={composedClassName}
+            role="banner"
+            {...otherProps}
+        />
     );
 }
 

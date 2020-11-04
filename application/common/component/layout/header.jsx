@@ -48,32 +48,18 @@ import { eventPreventDefault } from '../../utils/event';
 import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales,
-    selectStateScrollHeaderFixed,
-    selectStateScrollHeaderVisible
+    selectStateScrollIsHeaderFixed,
+    selectStateScrollIsHeaderVisible
 } from '../../state/selectors';
 import {
     changeLocale,
     changeDialogVisibleSearch,
     changeDialogVisibleTheme
 } from '../../state/actions';
-import {
-    INTL_LOCALE_EN_EN,
-    INTL_LOCALE_DE_DE
-} from '../../state/constants';
+import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from '../../state/constants';
 import ModuleMenu from '../module/menu';
-import {
-    GridContainer,
-    GridRow,
-    GridCol
-} from '../grid';
-import {
-    A,
-    Button,
-    Header,
-    Icon,
-    Nav,
-    Progress
-} from '../element';
+import { GridContainer, GridRow, GridCol } from '../grid';
+import { A, Button, Header, Icon, Nav, Progress } from '../element';
 
 /**
  * Function representing a component to return a single react child element.
@@ -129,97 +115,117 @@ function LayoutHeader(props) {
         <Header
             className={componentClassName}
             itemScope
-            itemType='http://schema.org/WPHeader'
-            role='banner'
+            itemType="http://schema.org/WPHeader"
+            role="banner"
         >
             <Progress />
-            <Nav className='m-nav--main'>
+            <Nav className="m-nav--main">
                 <GridContainer>
                     <GridRow>
                         <GridCol>
                             <input
-                                aria-label={contentSection('button.toggle.label')}
-                                className='m-nav__toggle c-font-icon--menu'
-                                data-label={contentSection('button.toggle.label')}
-                                type='checkbox'
+                                aria-label={contentSection(
+                                    'button.toggle.label'
+                                )}
+                                className="m-nav__toggle c-font-icon--menu"
+                                data-label={contentSection(
+                                    'button.toggle.label'
+                                )}
+                                type="checkbox"
                             />
                             <ModuleMenu
-                                className='m-nav__toggle-target'
+                                className="m-nav__toggle-target"
                                 content={contentSection('menu.main')}
                             />
 
                             {/* @TODO should be separated into own component, extend component menu, map available locales */}
                             <ul
                                 className={menuAsideClassName}
-                                role='menu'
+                                role="menu"
                                 itemScope
-                                itemType='http://schema.org/ItemList'
+                                itemType="http://schema.org/ItemList"
                             >
                                 <li
-                                    className='m-menu__list-item'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <Button
                                         className={buttonEnClassName}
                                         data-locale={INTL_LOCALE_EN_EN}
-                                        title={contentSection('menu.language.list[0].title')}
+                                        title={contentSection(
+                                            'menu.language.list[0].title'
+                                        )}
                                         onClick={handleIntlChangeLocale}
                                         isSmall
                                         isClear
                                     >
-                                        {contentSection('menu.language.list[0].label')}
+                                        {contentSection(
+                                            'menu.language.list[0].label'
+                                        )}
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <Button
                                         className={buttonDeClassName}
                                         data-locale={INTL_LOCALE_DE_DE}
-                                        title={contentSection('menu.language.list[1].title')}
+                                        title={contentSection(
+                                            'menu.language.list[1].title'
+                                        )}
                                         onClick={handleIntlChangeLocale}
                                         isSmall
                                         isClear
                                     >
-                                        {contentSection('menu.language.list[1].label')}
+                                        {contentSection(
+                                            'menu.language.list[1].label'
+                                        )}
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item--search always-float'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item--search always-float"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <A
-                                        className='m-menu__item--search c-btn--small c-btn--clear'
-                                        to='/search'
-                                        onClick={handleChangeDialogVisibleSearch}
+                                        className="m-menu__item--search c-btn--small c-btn--clear"
+                                        to="/search"
+                                        onClick={
+                                            handleChangeDialogVisibleSearch
+                                        }
                                         title={'Search'}
                                     >
-                                        <span className='c-btn__label'>
-                                            <Icon className='c-btn__icon' icon='search' />
+                                        <span className="c-btn__label">
+                                            <Icon
+                                                className="c-btn__icon"
+                                                icon="search"
+                                            />
                                         </span>
                                     </A>
                                 </li>
                                 <li
-                                    className='m-menu__list-item--theme always-float'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item--theme always-float"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <A
-                                        className='m-menu__item--theme c-btn--small c-btn--clear'
-                                        to='/theme'
+                                        className="m-menu__item--theme c-btn--small c-btn--clear"
+                                        to="/theme"
                                         onClick={handleChangeDialogVisibleTheme}
                                         title={''}
                                     >
-                                        <span className='c-btn__label'>
-                                            <Icon className='c-btn__icon' icon='paint-format' />
+                                        <span className="c-btn__label">
+                                            <Icon
+                                                className="c-btn__icon"
+                                                icon="paint-format"
+                                            />
                                         </span>
                                     </A>
                                 </li>
@@ -274,9 +280,13 @@ LayoutHeader.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible,
-        intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
+        headerFixed:
+            selectStateScrollIsHeaderFixed(state) || ownProps.headerFixed,
+        headerVisible:
+            selectStateScrollIsHeaderVisible(state) || ownProps.headerVisible,
+        intlAvailableLocales:
+            selectStateIntlAvailableLocales(state) ||
+            ownProps.intlAvailableLocales,
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale
     };
 }
@@ -312,12 +322,12 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderConnected = withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(addContent('LayoutHeader')(LayoutHeader)));
+const LayoutHeaderConnected = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(addContent('LayoutHeader')(LayoutHeader))
+);
 
 export default LayoutHeaderConnected;
-export {
-    LayoutHeader
-};
+export { LayoutHeader };

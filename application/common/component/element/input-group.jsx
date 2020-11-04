@@ -49,7 +49,6 @@ import Icon from './icon';
  * @property {string} [props.value=''] - The default input value
  */
 class ElementInputGroup extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -72,10 +71,13 @@ class ElementInputGroup extends Component {
             ...otherProps
         } = this.props;
 
-        const composedGroupClassName = classnames({
-            'has-error': !isValid && isPristine,
-            'is-valid': isValid && isPristine
-        }, 'm-form__group');
+        const composedGroupClassName = classnames(
+            {
+                'has-error': !isValid && isPristine,
+                'is-valid': isValid && isPristine
+            },
+            'm-form__group'
+        );
 
         const composedInputClassName = classnames({
             'is-pristine': isPristine
@@ -100,13 +102,15 @@ class ElementInputGroup extends Component {
                 />
                 <Label htmlFor={id} isVisuallyHidden={isLabelVisuallyHidden}>
                     {label}
-                    <Icon className='m-form__label__icon--error' icon='sad' />
-                    <Icon className='m-form__label__icon--success' icon='smile' />
+                    <Icon className="m-form__label__icon--error" icon="sad" />
+                    <Icon
+                        className="m-form__label__icon--success"
+                        icon="smile"
+                    />
                 </Label>
             </div>
         );
     }
-
 }
 
 /**

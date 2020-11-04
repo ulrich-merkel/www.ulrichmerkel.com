@@ -57,25 +57,25 @@ import Small from '../element/small';
  * @returns {ReactElement} React component markup
  */
 function LayoutFooter(props) {
-    const {
-        className,
-        content,
-        handleScrollTop
-    } = props;
+    const { className, content, handleScrollTop } = props;
 
     const contentSection = getContentSection(content);
     const componentClassName = classnames('l-footer', className);
 
     return (
-        <footer className={componentClassName} itemScope itemType='http://schema.org/WPFooter' role='contentinfo'>
-
+        <footer
+            className={componentClassName}
+            itemScope
+            itemType="http://schema.org/WPFooter"
+            role="contentinfo"
+        >
             <Button
-                className='l-footer__button--up c-font-icon--chevron-up'
-                classNameLabel='is-visually-hidden'
+                className="l-footer__button--up c-font-icon--chevron-up"
+                classNameLabel="is-visually-hidden"
                 onClick={handleScrollTop}
                 title={contentSection('btnTitle')}
-                type='button'
-                role='button'
+                type="button"
+                role="button"
             >
                 {contentSection('btnLabel')}
             </Button>
@@ -85,23 +85,25 @@ function LayoutFooter(props) {
                     <GridSpaced>
                         <GridRow>
                             <GridCol>
-                                <ModuleMenu content={contentSection('menu.imprint')} />
+                                <ModuleMenu
+                                    content={contentSection('menu.imprint')}
+                                />
                             </GridCol>
                         </GridRow>
                         <GridRow>
                             <GridCol>
-                                <ModuleMenu content={contentSection('menu.social')} />
+                                <ModuleMenu
+                                    content={contentSection('menu.social')}
+                                />
                             </GridCol>
                         </GridRow>
                         <GridRow>
                             <GridCol>
                                 <Small>
-                                    &copy;
-                                    {' '}
+                                    &copy;{' '}
                                     <strong>
                                         {contentSection('copy.name')}
-                                    </strong>
-                                    {' '}
+                                    </strong>{' '}
                                     {contentSection('copy.date')}
                                 </Small>
                             </GridCol>
@@ -109,7 +111,6 @@ function LayoutFooter(props) {
                     </GridSpaced>
                 </GridContainer>
             </Nav>
-
         </footer>
     );
 }
@@ -122,12 +123,14 @@ function LayoutFooter(props) {
  */
 LayoutFooter.propTypes = {
     className: PropTypes.string, // eslint-disable-line  react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     handleScrollTop: PropTypes.func
 };
 

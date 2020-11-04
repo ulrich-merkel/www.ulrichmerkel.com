@@ -19,8 +19,10 @@
 
     // Try to use browser prefixed version
     for (x = 0; x < vendorsLength && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelRequestAnimationFrame = window[vendors[x] + 'CancelRequestAnimationFrame'];
+        window.requestAnimationFrame =
+            window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelRequestAnimationFrame =
+            window[vendors[x] + 'CancelRequestAnimationFrame'];
     }
 
     // Fall back to standard timers
@@ -28,7 +30,9 @@
         window.requestAnimationFrame = function (callback, element) {
             var currTime = new Date().getTime(),
                 timeToCall = Math.max(0, 16 - (currTime - lastTime)),
-                id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
+                id = window.setTimeout(function () {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
 
             lastTime = currTime + timeToCall;
             return id;
@@ -39,4 +43,4 @@
             clearTimeout(id);
         };
     }
-}(typeof window !== 'undefined' ? window : {}));
+})(typeof window !== 'undefined' ? window : {});

@@ -159,7 +159,10 @@ const configContent = {
             { name: 'dcterms.Contributor', content: `${AUTHOR}` },
             { name: 'dcterms.Date', content: `${yyyy}-${mm}-${dd}` },
             { name: 'dcterms.Subject', content: 'intl-default-keywords' },
-            { name: 'dcterms.Description', content: 'intl-default-description' },
+            {
+                name: 'dcterms.Description',
+                content: 'intl-default-description'
+            },
             // social
             { property: 'og:site_name', content: 'intl-ulrich-merkel' },
             { property: 'og:title', content: 'intl-default-title' },
@@ -175,7 +178,10 @@ const configContent = {
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:url', content: `${HOMEPAGE_URL}` },
             { name: 'twitter:title', content: 'intl-default-title' },
-            { name: 'twitter:description', content: 'intl-default-description' },
+            {
+                name: 'twitter:description',
+                content: 'intl-default-description'
+            },
             { name: 'twitter:image', content: `${IMG_SHARE}twitter.png` },
             // general web app/ mobile setup
             { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -187,15 +193,33 @@ const configContent = {
             { name: 'format-detection', content: 'telephone=no' },
             { name: 'theme-color', content: '#14b9d6' },
             // ms pinned sites
-            { name: 'msapplication-config', content: `${HOMEPAGE_URL}/browserconfig.xml` },
+            {
+                name: 'msapplication-config',
+                content: `${HOMEPAGE_URL}/browserconfig.xml`
+            },
             { name: 'msapplication-TileColor', content: '#14b9d6' },
             { name: 'msapplication-navbutton-color', content: '#14b9d6' },
             { name: 'msapplication-tooltip', content: 'intl-default-title' },
-            { name: 'msapplication-TileImage', content: `${IMG_SHARE}icon@144x144.png` },
-            { name: 'msapplication-square70x70logo', content: `${IMG_SHARE}icon@70x70.png` },
-            { name: 'msapplication-square150x150logo', content: `${IMG_SHARE}icon@150x150.png` },
-            { name: 'msapplication-wide310x150logo', content: `${IMG_SHARE}icon@310x150.png` },
-            { name: 'msapplication-square310x310logo', content: `${IMG_SHARE}icon@310x310.png` }
+            {
+                name: 'msapplication-TileImage',
+                content: `${IMG_SHARE}icon@144x144.png`
+            },
+            {
+                name: 'msapplication-square70x70logo',
+                content: `${IMG_SHARE}icon@70x70.png`
+            },
+            {
+                name: 'msapplication-square150x150logo',
+                content: `${IMG_SHARE}icon@150x150.png`
+            },
+            {
+                name: 'msapplication-wide310x150logo',
+                content: `${IMG_SHARE}icon@310x150.png`
+            },
+            {
+                name: 'msapplication-square310x310logo',
+                content: `${IMG_SHARE}icon@310x310.png`
+            }
         ],
         link: [
             { rel: 'author', type: 'text/plain', href: '/humans.txt' },
@@ -249,12 +273,14 @@ const configContent = {
             {
                 rel: 'apple-touch-startup-image',
                 href: `${IMG_SHARE}apple-touch-startup-image@640x920.png`,
-                media: '(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)'
+                media:
+                    '(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)'
             },
             {
                 rel: 'apple-touch-startup-image',
                 href: `${IMG_SHARE}apple-touch-startup-image@640x1096.png`,
-                media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+                media:
+                    '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
             },
             {
                 rel: 'apple-touch-startup-image',
@@ -267,24 +293,75 @@ const configContent = {
                 media: '(device-width: 414px)'
             },
             // apple touch icons / used for homescreen
-            { rel: 'apple-touch-icon', sizes: '180x180', href: `${IMG_SHARE}apple-touch-icon-180x180.png` },
-            { rel: 'apple-touch-icon', sizes: '152x152', href: `${IMG_SHARE}apple-touch-icon-152x152.png` },
-            { rel: 'apple-touch-icon', sizes: '144x144', href: `${IMG_SHARE}apple-touch-icon-144x144.png` },
-            { rel: 'apple-touch-icon', sizes: '128x128', href: `${IMG_SHARE}apple-touch-icon-128x128.png` },
-            { rel: 'apple-touch-icon', sizes: '120x120', href: `${IMG_SHARE}apple-touch-icon-120x120.png` },
-            { rel: 'apple-touch-icon', sizes: '114x114', href: `${IMG_SHARE}apple-touch-icon-114x114.png` },
-            { rel: 'apple-touch-icon', sizes: '76x76', href: `${IMG_SHARE}apple-touch-icon-76x76.png` },
-            { rel: 'apple-touch-icon', sizes: '72x72', href: `${IMG_SHARE}apple-touch-icon-72x72.png` },
-            { rel: 'apple-touch-icon', sizes: '60x60', href: `${IMG_SHARE}apple-touch-icon-60x60.png` },
-            { rel: 'apple-touch-icon', sizes: '57x57', href: `${IMG_SHARE}apple-touch-icon-57x57.png` },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href: `${IMG_SHARE}apple-touch-icon-180x180.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '152x152',
+                href: `${IMG_SHARE}apple-touch-icon-152x152.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '144x144',
+                href: `${IMG_SHARE}apple-touch-icon-144x144.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '128x128',
+                href: `${IMG_SHARE}apple-touch-icon-128x128.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '120x120',
+                href: `${IMG_SHARE}apple-touch-icon-120x120.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '114x114',
+                href: `${IMG_SHARE}apple-touch-icon-114x114.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '76x76',
+                href: `${IMG_SHARE}apple-touch-icon-76x76.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '72x72',
+                href: `${IMG_SHARE}apple-touch-icon-72x72.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '60x60',
+                href: `${IMG_SHARE}apple-touch-icon-60x60.png`
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '57x57',
+                href: `${IMG_SHARE}apple-touch-icon-57x57.png`
+            },
             // chrome pinned sites
-            { rel: 'icon', sizes: '196x196', href: `${IMG_SHARE}icon@196x196.png` },
+            {
+                rel: 'icon',
+                sizes: '196x196',
+                href: `${IMG_SHARE}icon@196x196.png`
+            },
             // chrome for android
             {
-                rel: 'icon', sizes: '192x192', href: `${IMG_SHARE}icon@192x192.png`, type: 'image/png'
+                rel: 'icon',
+                sizes: '192x192',
+                href: `${IMG_SHARE}icon@192x192.png`,
+                type: 'image/png'
             },
             // favicon
-            { rel: 'shortcut icon', href: `${IMG_SHARE}favicon.ico`, type: 'image/x-icon' },
+            {
+                rel: 'shortcut icon',
+                href: `${IMG_SHARE}favicon.ico`,
+                type: 'image/x-icon'
+            },
             // social microformats
             { rel: 'me', href: 'https://www.xing.com/profile/Ulrich_Merkel4' },
             { rel: 'me', href: 'https://www.facebook.com/ulrich.merkel' },
@@ -336,9 +413,7 @@ const configContent = {
             lead: 'intl-page-index-section2-lead',
             text: [
                 {
-                    content: [
-                        'intl-page-index-section2-text-1-content'
-                    ]
+                    content: ['intl-page-index-section2-text-1-content']
                 }
             ],
             datePublished: `${yyyy}-${mm}-${dd}`,
@@ -453,9 +528,7 @@ const configContent = {
             lead: 'intl-work-optik-ludewig-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-optik-ludewig-description'
-                    ]
+                    content: ['intl-work-optik-ludewig-description']
                 }
             ],
             timeStart: '2015',
@@ -472,11 +545,26 @@ const configContent = {
         head: {
             title: 'intl-work-summer-inspiration-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-summer-inspiration-description' },
-                { property: 'og:description', content: 'intl-work-summer-inspiration-description' },
-                { name: 'twitter:description', content: 'intl-work-summer-inspiration-description' },
-                { name: 'dcterms.Title', content: 'intl-work-summer-inspiration-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-summer-inspiration-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-summer-inspiration-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-summer-inspiration-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-summer-inspiration-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-summer-inspiration-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-summer-inspiration-description'
+                }
             ]
         },
         section1: {
@@ -498,9 +586,7 @@ const configContent = {
             lead: 'intl-work-summer-inspiration-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-summer-inspiration-description'
-                    ]
+                    content: ['intl-work-summer-inspiration-description']
                 }
             ],
             timeStart: '2006',
@@ -518,11 +604,26 @@ const configContent = {
         head: {
             title: 'intl-work-momentariness-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-momentariness-description' },
-                { property: 'og:description', content: 'intl-work-momentariness-description' },
-                { name: 'twitter:description', content: 'intl-work-momentariness-description' },
-                { name: 'dcterms.Title', content: 'intl-work-momentariness-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-momentariness-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-momentariness-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-momentariness-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-momentariness-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-momentariness-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-momentariness-description'
+                }
             ]
         },
         section1: {
@@ -544,9 +645,7 @@ const configContent = {
             lead: 'intl-work-momentariness-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-momentariness-description'
-                    ]
+                    content: ['intl-work-momentariness-description']
                 }
             ],
             timeStart: '2010',
@@ -560,11 +659,26 @@ const configContent = {
         head: {
             title: 'intl-work-lebenswelt-schule-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-lebenswelt-schule-description' },
-                { property: 'og:description', content: 'intl-work-lebenswelt-schule-description' },
-                { name: 'twitter:description', content: 'intl-work-lebenswelt-schule-description' },
-                { name: 'dcterms.Title', content: 'intl-work-lebenswelt-schule-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-lebenswelt-schule-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-lebenswelt-schule-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-lebenswelt-schule-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-lebenswelt-schule-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-lebenswelt-schule-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-lebenswelt-schule-description'
+                }
             ]
         },
         section1: {
@@ -586,9 +700,7 @@ const configContent = {
             lead: 'intl-work-lebenswelt-schule-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-lebenswelt-schule-description'
-                    ]
+                    content: ['intl-work-lebenswelt-schule-description']
                 }
             ],
             timeStart: '2011',
@@ -605,11 +717,26 @@ const configContent = {
         head: {
             title: 'intl-work-revolution-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-revolution-description' },
-                { property: 'og:description', content: 'intl-work-revolution-description' },
-                { name: 'twitter:description', content: 'intl-work-revolution-description' },
-                { name: 'dcterms.Title', content: 'intl-work-revolution-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-revolution-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-revolution-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-revolution-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-revolution-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-revolution-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-revolution-description'
+                }
             ]
         },
         section1: {
@@ -631,9 +758,7 @@ const configContent = {
             lead: 'intl-work-revolution-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-revolution-description'
-                    ]
+                    content: ['intl-work-revolution-description']
                 }
             ],
             timeStart: '2010',
@@ -647,11 +772,26 @@ const configContent = {
         head: {
             title: 'intl-work-verlegeservice-bunge-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-verlegeservice-bunge-description' },
-                { property: 'og:description', content: 'intl-work-verlegeservice-bunge-description' },
-                { name: 'twitter:description', content: 'intl-work-verlegeservice-bunge-description' },
-                { name: 'dcterms.Title', content: 'intl-work-verlegeservice-bunge-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-verlegeservice-bunge-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-verlegeservice-bunge-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-verlegeservice-bunge-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-verlegeservice-bunge-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-verlegeservice-bunge-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-verlegeservice-bunge-description'
+                }
             ]
         },
         section1: {
@@ -673,9 +813,7 @@ const configContent = {
             lead: 'intl-work-verlegeservice-bunge-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-verlegeservice-bunge-description'
-                    ]
+                    content: ['intl-work-verlegeservice-bunge-description']
                 }
             ],
             timeStart: '2008 (small facelift 2011)',
@@ -692,11 +830,26 @@ const configContent = {
         head: {
             title: 'intl-work-gedanken-kollektiv-head-title',
             meta: [
-                { name: 'description', content: 'intl-work-gedanken-kollektiv-description' },
-                { property: 'og:description', content: 'intl-work-gedanken-kollektiv-description' },
-                { name: 'twitter:description', content: 'intl-work-gedanken-kollektiv-description' },
-                { name: 'dcterms.Title', content: 'intl-work-gedanken-kollektiv-head-title' },
-                { name: 'dcterms.Description', content: 'intl-work-gedanken-kollektiv-description' }
+                {
+                    name: 'description',
+                    content: 'intl-work-gedanken-kollektiv-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-work-gedanken-kollektiv-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-work-gedanken-kollektiv-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-work-gedanken-kollektiv-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-work-gedanken-kollektiv-description'
+                }
             ]
         },
         section1: {
@@ -718,9 +871,7 @@ const configContent = {
             lead: 'intl-work-gedanken-kollektiv-lead',
             text: [
                 {
-                    content: [
-                        'intl-work-gedanken-kollektiv-description'
-                    ]
+                    content: ['intl-work-gedanken-kollektiv-description']
                 }
             ],
             timeStart: '2006',
@@ -734,11 +885,26 @@ const configContent = {
         head: {
             title: 'intl-page-persona-head-title',
             meta: [
-                { name: 'description', content: 'intl-page-persona-head-description' },
-                { property: 'og:description', content: 'intl-page-persona-head-description' },
-                { name: 'twitter:description', content: 'intl-page-persona-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-persona-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-persona-head-description' }
+                {
+                    name: 'description',
+                    content: 'intl-page-persona-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-page-persona-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-page-persona-head-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-persona-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-persona-head-description'
+                }
             ]
         },
         section1: {
@@ -746,9 +912,7 @@ const configContent = {
             lead: 'intl-page-persona-section1-lead',
             text: [
                 {
-                    content: [
-                        'intl-page-persona-section1-text-1-content'
-                    ]
+                    content: ['intl-page-persona-section1-text-1-content']
                 }
             ],
             btnTo: '/',
@@ -758,10 +922,12 @@ const configContent = {
         section2: {
             headline: 'intl-page-persona-section2-headline',
             lead: 'intl-page-persona-section2-lead',
-            professionalExperience: 'intl-page-persona-section2-professional-experience',
+            professionalExperience:
+                'intl-page-persona-section2-professional-experience',
             professionalExperienceList: [
                 {
-                    headline: 'intl-page-persona-section2-professional-experience-list-1-headline',
+                    headline:
+                        'intl-page-persona-section2-professional-experience-list-1-headline',
                     lead: 'TomTom Telematics',
                     timeStart: '2016',
                     timeEnd: 'intl-today',
@@ -770,7 +936,8 @@ const configContent = {
                     ]
                 },
                 {
-                    headline: 'intl-page-persona-section2-professional-experience-list-2-headline',
+                    headline:
+                        'intl-page-persona-section2-professional-experience-list-2-headline',
                     lead: 'Pluspol interactive',
                     timeStart: '2011',
                     timeEnd: '2016',
@@ -780,7 +947,8 @@ const configContent = {
                     offset: '100'
                 },
                 {
-                    headline: 'intl-page-persona-section2-professional-experience-list-3-headline',
+                    headline:
+                        'intl-page-persona-section2-professional-experience-list-3-headline',
                     lead: 'Mitteldeutscher Rundfunk',
                     timeStart: '2010',
                     timeEnd: '2012',
@@ -790,7 +958,8 @@ const configContent = {
                     offset: '50'
                 },
                 {
-                    headline: 'intl-page-persona-section2-professional-experience-list-4-headline',
+                    headline:
+                        'intl-page-persona-section2-professional-experience-list-4-headline',
                     lead: 'Swiss Timing Sportservice',
                     timeStart: '2002',
                     timeEnd: '2009',
@@ -802,30 +971,36 @@ const configContent = {
             academicEducation: 'intl-page-persona-section2-academic-education',
             academicEducationList: [
                 {
-                    headline: 'intl-page-persona-section2-academic-education-list-1-headline',
-                    lead: 'intl-page-persona-section2-academic-education-list-1-lead',
+                    headline:
+                        'intl-page-persona-section2-academic-education-list-1-headline',
+                    lead:
+                        'intl-page-persona-section2-academic-education-list-1-lead',
                     timeStart: '2009',
                     timeEnd: '2014',
                     description: [
                         'intl-page-persona-section2-academic-education-list-1-description'
                     ],
                     place: {
-                        name: 'intl-page-persona-section2-academic-education-list-1-place-name',
+                        name:
+                            'intl-page-persona-section2-academic-education-list-1-place-name',
                         streetAddress: 'Karl-Liebknecht-Straße 132',
                         addressLocality: 'Leipzig',
                         sameAs: 'http://www.htwk-leipzig.de/'
                     }
                 },
                 {
-                    headline: 'intl-page-persona-section2-academic-education-list-2-headline',
-                    lead: 'intl-page-persona-section2-academic-education-list-2-lead',
+                    headline:
+                        'intl-page-persona-section2-academic-education-list-2-headline',
+                    lead:
+                        'intl-page-persona-section2-academic-education-list-2-lead',
                     timeStart: '2003',
                     timeEnd: '2006',
                     description: [
                         'intl-page-persona-section2-academic-education-list-2-description'
                     ],
                     place: {
-                        name: 'intl-page-persona-section2-academic-education-list-2-place-name',
+                        name:
+                            'intl-page-persona-section2-academic-education-list-2-place-name',
                         streetAddress: 'Gutenbergplatz 8',
                         addressLocality: 'Leipzig',
                         sameAs: 'http://www.gutenbergschule-leipzig.de/'
@@ -833,7 +1008,8 @@ const configContent = {
                     offset: '100'
                 },
                 {
-                    headline: 'intl-page-persona-section2-academic-education-list-3-headline',
+                    headline:
+                        'intl-page-persona-section2-academic-education-list-3-headline',
                     lead: 'Anna-Magdalena Bach Zeitz',
                     timeStart: '1986',
                     timeEnd: '1999',
@@ -841,31 +1017,38 @@ const configContent = {
                         'intl-page-persona-section2-academic-education-list-3-description'
                     ],
                     place: {
-                        name: 'intl-page-persona-section2-academic-education-list-3-place-name',
+                        name:
+                            'intl-page-persona-section2-academic-education-list-3-place-name',
                         streetAddress: 'Nicolaiplatz',
                         addressLocality: 'Zeitz',
-                        sameAs: 'http://www.kreismusikschule-burgenlandkreis.de/'
+                        sameAs:
+                            'http://www.kreismusikschule-burgenlandkreis.de/'
                     }
                 },
                 {
-                    headline: 'intl-page-persona-section2-academic-education-list-4-headline',
+                    headline:
+                        'intl-page-persona-section2-academic-education-list-4-headline',
                     lead: 'Geschwister-Scholl Zeitz',
                     timeStart: '1992',
                     timeEnd: '1999',
                     place: {
-                        name: 'intl-page-persona-section2-academic-education-list-4-place-name',
+                        name:
+                            'intl-page-persona-section2-academic-education-list-4-place-name',
                         streetAddress: 'Humboldtstraße 7',
                         addressLocality: 'Zeitz',
-                        sameAs: 'http://www.kreismusikschule-burgenlandkreis.de/'
+                        sameAs:
+                            'http://www.kreismusikschule-burgenlandkreis.de/'
                     }
                 },
                 {
-                    headline: 'intl-page-persona-section2-academic-education-list-5-headline',
+                    headline:
+                        'intl-page-persona-section2-academic-education-list-5-headline',
                     lead: 'Frederic-Joliot-Curie Pegau',
                     timeStart: '1987',
                     timeEnd: '1992',
                     place: {
-                        name: 'intl-page-persona-section2-academic-education-list-5-place-name',
+                        name:
+                            'intl-page-persona-section2-academic-education-list-5-place-name',
                         streetAddress: 'Ernst-Reinsdorf-Straße 3',
                         addressLocality: 'Pegau',
                         sameAs: 'http://www.mittelschule-pegau.de/'
@@ -992,11 +1175,26 @@ const configContent = {
         head: {
             title: 'intl-page-contact-head-title',
             meta: [
-                { name: 'description', content: 'intl-page-contact-head-description' },
-                { property: 'og:description', content: 'intl-page-contact-head-description' },
-                { name: 'twitter:description', content: 'intl-page-contact-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-contact-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-contact-head-description' }
+                {
+                    name: 'description',
+                    content: 'intl-page-contact-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-page-contact-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-page-contact-head-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-contact-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-contact-head-description'
+                }
             ]
         },
         section1: {
@@ -1016,12 +1214,15 @@ const configContent = {
             btnSubmitLabel: 'intl-page-contact-section1-form-btn-submit-label',
             btnRenewTitle: 'intl-page-contact-section1-form-btn-renew-title',
             btnRenewLabel: 'intl-page-contact-section1-form-btn-renew-label',
-            thankYouHeadline: 'intl-page-contact-section1-form-thank-you-headline',
+            thankYouHeadline:
+                'intl-page-contact-section1-form-thank-you-headline',
             thankYouText: 'intl-page-contact-section1-form-thank-you-text',
             errorHeadline: 'intl-page-contact-section1-form-error-headline',
             errorText: 'intl-page-contact-section1-form-error-text',
-            btnTryAgainTitle: 'intl-page-contact-section1-form-btn-try-again-title',
-            btnTryAgainLabel: 'intl-page-contact-section1-form-btn-try-again-label'
+            btnTryAgainTitle:
+                'intl-page-contact-section1-form-btn-try-again-title',
+            btnTryAgainLabel:
+                'intl-page-contact-section1-form-btn-try-again-label'
         }
     },
     PageDisclaimer: {
@@ -1040,8 +1241,14 @@ const configContent = {
                     name: 'twitter:description',
                     content: 'intl-page-disclaimer-head-description'
                 },
-                { name: 'dcterms.Title', content: 'intl-page-disclaimer-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-disclaimer-head-description' }
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-disclaimer-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-disclaimer-head-description'
+                }
             ]
         },
         section1: {
@@ -1057,15 +1264,11 @@ const configContent = {
                 },
                 {
                     headline: 'intl-page-disclaimer-section1-text-2-headline',
-                    content: [
-                        'intl-page-disclaimer-section1-text-2-content-1'
-                    ]
+                    content: ['intl-page-disclaimer-section1-text-2-content-1']
                 },
                 {
                     headline: 'intl-page-disclaimer-section1-text-3-headline',
-                    content: [
-                        'intl-page-disclaimer-section1-text-3-content-1'
-                    ]
+                    content: ['intl-page-disclaimer-section1-text-3-content-1']
                 },
                 {
                     headline: 'intl-page-disclaimer-section1-text-4-headline',
@@ -1086,11 +1289,26 @@ const configContent = {
         head: {
             title: 'intl-page-privacy-head-title',
             meta: [
-                { name: 'description', content: 'intl-page-privacy-head-description' },
-                { property: 'og:description', content: 'intl-page-privacy-head-description' },
-                { name: 'twitter:description', content: 'intl-page-privacy-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-privacy-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-privacy-head-description' }
+                {
+                    name: 'description',
+                    content: 'intl-page-privacy-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-page-privacy-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-page-privacy-head-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-privacy-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-privacy-head-description'
+                }
             ]
         },
         section1: {
@@ -1099,9 +1317,7 @@ const configContent = {
             text: [
                 {
                     headline: 'intl-page-privacy-section1-text-1-headline',
-                    content: [
-                        'intl-page-privacy-section1-text-1-content-1'
-                    ]
+                    content: ['intl-page-privacy-section1-text-1-content-1']
                 },
                 {
                     headline: 'intl-page-privacy-section1-text-2-headline',
@@ -1126,9 +1342,7 @@ const configContent = {
                 },
                 {
                     headline: 'intl-page-privacy-section1-text-5-headline',
-                    content: [
-                        'intl-page-privacy-section1-text-5-content-1'
-                    ]
+                    content: ['intl-page-privacy-section1-text-5-content-1']
                 }
             ],
             datePublished: `${yyyy}-${mm}-${dd}`,
@@ -1141,11 +1355,26 @@ const configContent = {
         head: {
             title: 'intl-page-imprint-head-title',
             meta: [
-                { name: 'description', content: 'intl-page-imprint-head-description' },
-                { property: 'og:description', content: 'intl-page-imprint-head-description' },
-                { name: 'twitter:description', content: 'intl-page-imprint-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-imprint-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-imprint-head-description' }
+                {
+                    name: 'description',
+                    content: 'intl-page-imprint-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-page-imprint-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-page-imprint-head-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-imprint-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-imprint-head-description'
+                }
             ]
         },
         section1: {
@@ -1154,34 +1383,29 @@ const configContent = {
             text: [
                 {
                     headline: 'intl-page-imprint-section1-text-1-headline',
-                    content: [
-                        'intl-page-imprint-section1-text-1-content-1'
-                    ],
+                    content: ['intl-page-imprint-section1-text-1-content-1'],
                     person: {
                         name: 'intl-page-imprint-section1-address-name',
-                        streetAddress: 'intl-page-imprint-section1-address-street-address',
+                        streetAddress:
+                            'intl-page-imprint-section1-address-street-address',
                         locality: 'intl-page-imprint-section1-address-locality',
-                        postalCode: 'intl-page-imprint-section1-address-postal-code',
+                        postalCode:
+                            'intl-page-imprint-section1-address-postal-code',
                         email: 'intl-page-imprint-section1-address-email',
                         phone: 'intl-page-imprint-section1-address-phone',
-                        phoneNumber: 'intl-page-imprint-section1-address-phone-numbers',
+                        phoneNumber:
+                            'intl-page-imprint-section1-address-phone-numbers',
                         website: 'intl-page-imprint-section1-address-website'
                     },
-                    small: [
-                        'intl-page-imprint-section1-text-1-content-2'
-                    ]
+                    small: ['intl-page-imprint-section1-text-1-content-2']
                 },
                 {
                     headline: 'intl-page-imprint-section1-text-2-headline',
-                    content: [
-                        'intl-page-imprint-section1-text-2-content-1'
-                    ]
+                    content: ['intl-page-imprint-section1-text-2-content-1']
                 },
                 {
                     headline: 'intl-page-imprint-section1-text-3-headline',
-                    content: [
-                        'intl-page-imprint-section1-text-3-content-1'
-                    ]
+                    content: ['intl-page-imprint-section1-text-3-content-1']
                 }
             ],
             datePublished: `${yyyy}-${mm}-${dd}`,
@@ -1194,11 +1418,23 @@ const configContent = {
         head: {
             title: 'intl-search-section1-headline',
             meta: [
-                { name: 'description', content: 'intl-search-head-description' },
-                { property: 'og:description', content: 'intl-search-head-description' },
-                { name: 'twitter:description', content: 'intl-search-head-description' },
+                {
+                    name: 'description',
+                    content: 'intl-search-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-search-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-search-head-description'
+                },
                 { name: 'dcterms.Title', content: 'intl-search-head-title' },
-                { name: 'dcterms.Description', content: 'intl-search-head-description' }
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-search-head-description'
+                }
             ]
         },
         section1: {
@@ -1215,11 +1451,23 @@ const configContent = {
         head: {
             title: 'intl-broadcast-section1-headline',
             meta: [
-                { name: 'description', content: 'intl-broadcast-head-description' },
-                { property: 'og:description', content: 'intl-broadcast-head-description' },
-                { name: 'twitter:description', content: 'intl-broadcast-head-description' },
+                {
+                    name: 'description',
+                    content: 'intl-broadcast-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-broadcast-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-broadcast-head-description'
+                },
                 { name: 'dcterms.Title', content: 'intl-broadcast-head-title' },
-                { name: 'dcterms.Description', content: 'intl-broadcast-head-description' }
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-broadcast-head-description'
+                }
             ]
         },
         section1: {
@@ -1230,7 +1478,8 @@ const configContent = {
                     headline: '2012',
                     list: [
                         {
-                            name: '<a href=\'http://www.diamondleague.com/\' target=\'_blank\' title=\'Diamant League website\'>Diamant League</a>, track and field athletics',
+                            name:
+                                "<a href='http://www.diamondleague.com/' target='_blank' title='Diamant League website'>Diamant League</a>, track and field athletics",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'USA (New York, Eugene)'
                         }
@@ -1240,12 +1489,14 @@ const configContent = {
                     headline: '2011',
                     list: [
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a>',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.mdr.de/\' target=\'_blank\' title=\'MDR website\'>Mitteldeutscher Rundfunk Leipzig</a>',
+                            name:
+                                "<a href='http://www.mdr.de/' target='_blank' title='MDR website'>Mitteldeutscher Rundfunk Leipzig</a>",
                             job: 'intl-broadcast-tv-graphics',
                             place: 'Germany'
                         }
@@ -1255,22 +1506,26 @@ const configContent = {
                     headline: '2010',
                     list: [
                         {
-                            name: '<a href=\'http://www.iaaf.org/\' target=\'_blank\' title=\'IAAF website\'>IAAF</a> track and field athletics',
+                            name:
+                                "<a href='http://www.iaaf.org/' target='_blank' title='IAAF website'>IAAF</a> track and field athletics",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Croatia (Split)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a>',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.mdr.de/\' target=\'_blank\' title=\'MDR website\'>Mitteldeutscher Rundfunk Leipzig</a>',
+                            name:
+                                "<a href='http://www.mdr.de/' target='_blank' title='MDR website'>Mitteldeutscher Rundfunk Leipzig</a>",
                             job: 'intl-broadcast-tv-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.uka.org.uk/\' target=\'_blank\' title=\'UKA website\'>UKA</a> track and field athletics',
+                            name:
+                                "<a href='http://www.uka.org.uk/' target='_blank' title='UKA website'>UKA</a> track and field athletics",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Great Britain (Birmingham)'
                         }
@@ -1280,12 +1535,14 @@ const configContent = {
                     headline: '2009',
                     list: [
                         {
-                            name: '<a href=\'http://www.del.org/\' target=\'_blank\' title=\'DEL website\'>DEL</a> ice hockey',
+                            name:
+                                "<a href='http://www.del.org/' target='_blank' title='DEL website'>DEL</a> ice hockey",
                             job: 'intl-broadcast-tv-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.swimming.org.au/\' target=\'_blank\' title=\'Australia Swimming Championships website\'>Swimming Australia</a> Championships',
+                            name:
+                                "<a href='http://www.swimming.org.au/' target='_blank' title='Australia Swimming Championships website'>Swimming Australia</a> Championships",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
                             place: 'Australien (Sydney & Hobart)'
                         },
@@ -1295,17 +1552,20 @@ const configContent = {
                             place: 'Germany (Ulm)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.triathlon.org/\' target=\'_blank\' title=\'Triathlon website\'>Triathlon Worldcup</a>',
+                            name:
+                                "<a href='http://www.triathlon.org/' target='_blank' title='Triathlon website'>Triathlon Worldcup</a>",
                             job: 'intl-broadcast-tv-graphics-gps-tracking',
                             place: 'USA (Washington), Spain (Madrid)'
                         },
                         {
-                            name: 'Ski-jump Worldcup & <a href=\'http://www.vierschanzentournee.com/\' target=\'_blank\' title=\'4schanzentournee website\'>4 Schanzentournee</a>',
+                            name:
+                                "Ski-jump Worldcup & <a href='http://www.vierschanzentournee.com/' target='_blank' title='4schanzentournee website'>4 Schanzentournee</a>",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
                             place: 'Germany, Austria, Switzerland, Poland'
                         }
@@ -1315,12 +1575,15 @@ const configContent = {
                     headline: '2008',
                     list: [
                         {
-                            name: 'Olympia <a href=\'http://en.beijing2008.cn/\' target=\'_blank\' title=\'Open website\'>Beijing</a>',
-                            job: 'Teamleader & Virtual Graphics for Swimming championships',
+                            name:
+                                "Olympia <a href='http://en.beijing2008.cn/' target='_blank' title='Open website'>Beijing</a>",
+                            job:
+                                'Teamleader & Virtual Graphics for Swimming championships',
                             place: 'China (Beijing)'
                         },
                         {
-                            name: '<a href=\'http://www.cygpune2008.com/\' target=\'_blank\' title=\'Commenwealth Youth Games\'>Commenwealth Youth Games</a>',
+                            name:
+                                "<a href='http://www.cygpune2008.com/' target='_blank' title='Commenwealth Youth Games'>Commenwealth Youth Games</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'India (Pune)'
                         },
@@ -1335,27 +1598,32 @@ const configContent = {
                             place: 'USA (Omaha)'
                         },
                         {
-                            name: 'World <a href=\'http://m2008.nemisys2.uk.com/default.asp\' target=\'_blank\' title=\'Swimming Championships website\'>Swimming Championships</a>',
+                            name:
+                                "World <a href='http://m2008.nemisys2.uk.com/default.asp' target='_blank' title='Swimming Championships website'>Swimming Championships</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Great Britain (Manchester)'
                         },
                         {
-                            name: 'European <a href=\'http://www.ecswimming2008.nl/\' target=\'_blank\' title=\'Swimming Championships website\'>Swimming Championships</a>',
+                            name:
+                                "European <a href='http://www.ecswimming2008.nl/' target='_blank' title='Swimming Championships website'>Swimming Championships</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Netherlands (Eindhoven)'
                         },
                         {
-                            name: 'Short lane <a href=\'http://www.fina.org/\' target=\'_blank\' title=\'FINA website\'>European Swimming Championship</a>',
+                            name:
+                                "Short lane <a href='http://www.fina.org/' target='_blank' title='FINA website'>European Swimming Championship</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Croatia (Rijeka)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: 'Ski-jump Worldcup & <a href=\'http://www.vierschanzentournee.com/\' target=\'_blank\' title=\'4schanzentournee website\'>4 Schanzentournee</a>',
+                            name:
+                                "Ski-jump Worldcup & <a href='http://www.vierschanzentournee.com/' target='_blank' title='4schanzentournee website'>4 Schanzentournee</a>",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
                             place: 'Norway, Germany, Austria, Poland'
                         }
@@ -1370,27 +1638,32 @@ const configContent = {
                             place: 'Thailand (Bangkog)'
                         },
                         {
-                            name: 'Short lane <a href=\'http://www.fina.org/\' target=\'_blank\' title=\'FINA website\'>Swimming Worldcup</a>',
+                            name:
+                                "Short lane <a href='http://www.fina.org/' target='_blank' title='FINA website'>Swimming Worldcup</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Sweden (Stockholm)'
                         },
                         {
-                            name: '<a href=\'http://www.iaaf.org/\' target=\'_blank\' title=\'IAAF website\'>IAAF</a> track and field athletics',
+                            name:
+                                "<a href='http://www.iaaf.org/' target='_blank' title='IAAF website'>IAAF</a> track and field athletics",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'France, Italy, Switzerland'
                         },
                         {
-                            name: '<a href=\'http://www.swimming.org.au/\' target=\'_blank\' title=\'Australia Swimming Championships website\'>Australia Swimming Championships</a>',
+                            name:
+                                "<a href='http://www.swimming.org.au/' target='_blank' title='Australia Swimming Championships website'>Australia Swimming Championships</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Australia (Sydney & Melbourne)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Great Britain, Germany'
                         },
                         {
-                            name: 'Ski-jump Worldcup & <a href=\'http://www.vierschanzentournee.com/\' target=\'_blank\' title=\'4schanzentournee website\'>4 Schanzentournee</a>',
+                            name:
+                                "Ski-jump Worldcup & <a href='http://www.vierschanzentournee.com/' target='_blank' title='4schanzentournee website'>4 Schanzentournee</a>",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
                             place: 'Norway, Germany, Austria, Switzerland'
                         }
@@ -1400,17 +1673,20 @@ const configContent = {
                     headline: '2006',
                     list: [
                         {
-                            name: 'Asian Games Doha, Swimming & track and field athletics',
+                            name:
+                                'Asian Games Doha, Swimming & track and field athletics',
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Qatar (Doha)'
                         },
                         {
-                            name: '<a href=\'http://www.torino2006.it/\' target=\'_blank\' title=\'Winter Olympics website\'>Winter Olympics</a>',
+                            name:
+                                "<a href='http://www.torino2006.it/' target='_blank' title='Winter Olympics website'>Winter Olympics</a>",
                             job: 'intl-broadcast-timing-support',
                             place: 'Italy (Turino)'
                         },
                         {
-                            name: '<a href=\'http://de.fifa.com/worldcup/archive/germany2006/index.html\' target=\'_blank\' title=\'FIFA website\'>World Soccer Championship</a>',
+                            name:
+                                "<a href='http://de.fifa.com/worldcup/archive/germany2006/index.html' target='_blank' title='FIFA website'>World Soccer Championship</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
@@ -1420,7 +1696,8 @@ const configContent = {
                             place: 'Hungary (Budapest)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Great Britain, Bulgaria, Germany'
                         }
@@ -1430,7 +1707,8 @@ const configContent = {
                     headline: '2005',
                     list: [
                         {
-                            name: '<a href=\'http://www.swimming.org.au/\' target=\'_blank\' title=\'Australia Swimming Championships website\'>Australia Swimming Championships</a>',
+                            name:
+                                "<a href='http://www.swimming.org.au/' target='_blank' title='Australia Swimming Championships website'>Australia Swimming Championships</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Australia (Sydney & Melbourne)'
                         },
@@ -1445,19 +1723,23 @@ const configContent = {
                             place: 'Italy (Turino)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://tvtotal.prosieben.de/events/wok-wm\' target=\'_blank\' title=\'WOK WM website\'>WOK World Championships</a>',
+                            name:
+                                "<a href='http://tvtotal.prosieben.de/events/wok-wm' target='_blank' title='WOK WM website'>WOK World Championships</a>",
                             job: 'intl-broadcast-tv-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: 'Ski-jump Worldcup & <a href=\'http://www.vierschanzentournee.com/\' target=\'_blank\' title=\'4schanzentournee website\'>4 Schanzentournee</a>',
+                            name:
+                                "Ski-jump Worldcup & <a href='http://www.vierschanzentournee.com/' target='_blank' title='4schanzentournee website'>4 Schanzentournee</a>",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
-                            place: 'Norway, Germany, Austria, Switzerland, Slovenia'
+                            place:
+                                'Norway, Germany, Austria, Switzerland, Slovenia'
                         }
                     ]
                 },
@@ -1470,14 +1752,17 @@ const configContent = {
                             place: 'Canada (Montreal)'
                         },
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a> and international soccer matches',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a> and international soccer matches",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: 'Ski-jump Worldcup & <a href=\'http://www.vierschanzentournee.com/\' target=\'_blank\' title=\'4schanzentournee website\'>4 Schanzentournee</a>',
+                            name:
+                                "Ski-jump Worldcup & <a href='http://www.vierschanzentournee.com/' target='_blank' title='4schanzentournee website'>4 Schanzentournee</a>",
                             job: 'intl-broadcast-virtual-graphics-tv-graphics',
-                            place: 'Norway, Germany, Austria, Switzerland, Slovenia, Poland'
+                            place:
+                                'Norway, Germany, Austria, Switzerland, Slovenia, Poland'
                         }
                     ]
                 }
@@ -1491,11 +1776,26 @@ const configContent = {
         head: {
             title: 'intl-page-not-found-head-title',
             meta: [
-                { name: 'description', content: 'intl-page-not-found-head-description' },
-                { property: 'og:description', content: 'intl-page-not-found-head-description' },
-                { name: 'twitter:description', content: 'intl-page-not-found-head-description' },
-                { name: 'dcterms.Title', content: 'intl-page-not-found-head-title' },
-                { name: 'dcterms.Description', content: 'intl-page-not-found-head-description' }
+                {
+                    name: 'description',
+                    content: 'intl-page-not-found-head-description'
+                },
+                {
+                    property: 'og:description',
+                    content: 'intl-page-not-found-head-description'
+                },
+                {
+                    name: 'twitter:description',
+                    content: 'intl-page-not-found-head-description'
+                },
+                {
+                    name: 'dcterms.Title',
+                    content: 'intl-page-not-found-head-title'
+                },
+                {
+                    name: 'dcterms.Description',
+                    content: 'intl-page-not-found-head-description'
+                }
             ]
         },
         section1: {

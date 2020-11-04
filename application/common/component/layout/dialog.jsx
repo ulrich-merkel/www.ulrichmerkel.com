@@ -40,7 +40,10 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { throttle, isEqual, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
+import {
+    selectStateDialogVisible,
+    selectStateDialogPage
+} from '../../state/selectors';
 import { changeDialogVisible } from '../../state/actions';
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
@@ -62,7 +65,6 @@ import Button from '../element/button';
  * @property {object} [props.content={}] - The component content config
  */
 class LayoutDialog extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -150,9 +152,8 @@ class LayoutDialog extends Component {
         const composedClassName = classnames('l-dialog', className);
 
         return (
-            <dialog className={composedClassName} role='presentation'>
-                <div className='l-dialog__content'>
-
+            <dialog className={composedClassName} role="presentation">
+                <div className="l-dialog__content">
                     {children}
 
                     <GridSpaced>
@@ -169,22 +170,19 @@ class LayoutDialog extends Component {
                     </GridSpaced>
 
                     <Button
-                        className='l-dialog__button--close c-font-icon--close'
-                        classNameLabel='is-visually-hidden'
+                        className="l-dialog__button--close c-font-icon--close"
+                        classNameLabel="is-visually-hidden"
                         title={contentSectionNav.btnCloseTitle}
                         onClick={onClose}
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
-
                 </div>
 
-                <div className='l-dialog__background' role='presentation' />
-
+                <div className="l-dialog__background" role="presentation" />
             </dialog>
         );
     }
-
 }
 
 /**
@@ -199,12 +197,14 @@ LayoutDialog.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     page: PropTypes.string
 };
 
@@ -234,7 +234,8 @@ LayoutDialog.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
+        dialogVisible:
+            selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
         dialogPage: selectStateDialogPage(state) || get(ownProps, 'dialogPage')
     };
 }
@@ -253,6 +254,4 @@ const LayoutDialogConnected = connect(
 )(addContent('LayoutDialog')(LayoutDialog));
 
 export default LayoutDialogConnected;
-export {
-    LayoutDialog
-};
+export { LayoutDialog };

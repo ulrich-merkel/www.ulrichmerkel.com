@@ -39,36 +39,35 @@ import classnames from 'classnames';
  * @property {Function} [props.onChange=Function.prototype] - The textarea onChange handler
  */
 class ElementTextarea extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
      * @returns {ReactElement} React component markup
      */
     render() {
-
-        const {
-            className,
-            required,
-            ...other
-        } = this.props;
+        const { className, required, ...other } = this.props;
 
         const composedClassName = classnames(
             'm-form__control--textarea',
             className
         );
 
-        const requiredAttributes = required ? {
-            required: true,
-            'aria-required': true
-        } : null;
+        const requiredAttributes = required
+            ? {
+                  required: true,
+                  'aria-required': true
+              }
+            : null;
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <textarea className={composedClassName} {...requiredAttributes} {...other} />
+            <textarea
+                className={composedClassName}
+                {...requiredAttributes}
+                {...other}
+            />
         );
     }
-
 }
 
 /**

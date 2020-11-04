@@ -193,17 +193,17 @@ function fetchConfigContent() {
     return function reduxThunk(dispatch) {
         dispatch(requestConfigContent());
 
-        return xhr(
-            `${url.api}${url.apiConfigContent}`,
-            { method: 'GET' }
-        ).then((response) => {
-            return response.json();
-        }).then((json) => {
-            return dispatch(receiveConfigContent(json));
-        }).catch((reason) => {
-            dispatch(failedConfigContent());
-            logger.warn(reason);
-        });
+        return xhr(`${url.api}${url.apiConfigContent}`, { method: 'GET' })
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                return dispatch(receiveConfigContent(json));
+            })
+            .catch((reason) => {
+                dispatch(failedConfigContent());
+                logger.warn(reason);
+            });
     };
 }
 
@@ -219,17 +219,17 @@ function fetchConfigTranslation(locale) {
     return function reduxThunk(dispatch) {
         dispatch(requestConfigTranslation(locale));
 
-        return xhr(
-            `${url.api}${url.apiConfig}/${locale}`,
-            { method: 'GET' }
-        ).then((response) => {
-            return response.json();
-        }).then((json) => {
-            return dispatch(receiveConfigTranslation(json, locale));
-        }).catch((reason) => {
-            dispatch(failedConfigTranslation(locale));
-            logger.warn(reason);
-        });
+        return xhr(`${url.api}${url.apiConfig}/${locale}`, { method: 'GET' })
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                return dispatch(receiveConfigTranslation(json, locale));
+            })
+            .catch((reason) => {
+                dispatch(failedConfigTranslation(locale));
+                logger.warn(reason);
+            });
     };
 }
 

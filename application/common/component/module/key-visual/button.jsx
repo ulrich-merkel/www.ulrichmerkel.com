@@ -35,12 +35,7 @@ import Button from '../../element/button';
  * @returns {ReactElement} React component markup
  */
 function ModuleKeyVisualButton(props) {
-
-    const {
-        onClick,
-        label,
-        title
-    } = props;
+    const { onClick, label, title } = props;
 
     if (!label || !title) {
         return null;
@@ -61,7 +56,6 @@ function ModuleKeyVisualButton(props) {
             {label}
         </Button>
     );
-
 }
 
 /**

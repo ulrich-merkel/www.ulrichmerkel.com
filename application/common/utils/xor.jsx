@@ -35,7 +35,6 @@ const IS_BROWSER = isBrowser();
  * @returns {string} A String, representing the base-64 encoded string
  */
 function utf8ToBase64(data) {
-
     let buffer;
 
     if (IS_BROWSER && isFunction(window.btoa)) {
@@ -50,7 +49,6 @@ function utf8ToBase64(data) {
     }
 
     return buffer.toString('base64');
-
 }
 
 /**
@@ -63,14 +61,12 @@ function utf8ToBase64(data) {
  * @returns {string} A String, representing the decoded string
  */
 function base64ToUtf8(data) {
-
     if (IS_BROWSER && isFunction(window.atob)) {
         // Preventing "Character Out Of Range" exceptions
         return decodeURIComponent(escape(window.atob(data)));
     }
 
     return Buffer.from(data, 'base64').toString('binary');
-
 }
 
 /**
@@ -93,9 +89,11 @@ function xorEncode(data, key) {
 
     // Encrypt data string
     for (let i = 0; i < dataLength; i = i + 1) {
-        result = result + String.fromCharCode(
-            xorData.charCodeAt(i) ^ key.charCodeAt(i % keyLength) // eslint-disable-line no-bitwise
-        );
+        result =
+            result +
+            String.fromCharCode(
+                xorData.charCodeAt(i) ^ key.charCodeAt(i % keyLength) // eslint-disable-line no-bitwise
+            );
     }
 
     return result;

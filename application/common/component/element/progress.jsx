@@ -44,10 +44,7 @@ function ElementProgress(props) {
     } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        'm-progress',
-        className
-    );
+    const composedClassName = classnames('m-progress', className);
     const composedFallbackClassName = classnames(
         'm-progress__fallback',
         fallbackClassName
@@ -60,7 +57,10 @@ function ElementProgress(props) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
-            <span className={composedFallbackClassName} id={`${id}__fallback`} />
+            <span
+                className={composedFallbackClassName}
+                id={`${id}__fallback`}
+            />
         </ComponentType>
     );
 }

@@ -29,9 +29,7 @@ import {
  * @returns {boolean} The dialog visiblity state
  */
 const selectStateThemeSelected = createSelector(
-    [
-        (state) => state[STATE_THEME_RESOURCE_NAME]
-    ],
+    [(state) => state[STATE_THEME_RESOURCE_NAME]],
     (theme) => {
         if (!theme) {
             return STATE_THEME_DEFAULT_STATE.selected;
@@ -40,6 +38,4 @@ const selectStateThemeSelected = createSelector(
     }
 );
 
-export {
-    selectStateThemeSelected
-};
+export { selectStateThemeSelected };

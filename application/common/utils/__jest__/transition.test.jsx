@@ -3,21 +3,23 @@ import getSectionTransition from '../transition';
 import configApplication from '../../config/application';
 
 describe('common/utils/transition', function () {
-
     const { transition } = configApplication;
 
     it('should apply no transitionAppear if viewsAfterReload is 1', function () {
-        expect(getSectionTransition({
-            viewsAfterReload: 1
-        })).toEqual({
-
+        expect(
+            getSectionTransition({
+                viewsAfterReload: 1
+            })
+        ).toEqual({
             ...transition,
             transitionAppear: false
         });
     });
     it('should apply default transition if viewsAfterReload is greater than 1', function () {
-        expect(getSectionTransition({
-            viewsAfterReload: 2
-        })).toEqual(transition);
+        expect(
+            getSectionTransition({
+                viewsAfterReload: 2
+            })
+        ).toEqual(transition);
     });
 });

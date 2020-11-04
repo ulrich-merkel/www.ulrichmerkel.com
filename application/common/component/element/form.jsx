@@ -39,7 +39,6 @@ import classnames from 'classnames';
  * @property {Function} [props.onSubmit=Function.prototype] - The form submit handler function
  */
 class ElementForm extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -60,10 +59,7 @@ class ElementForm extends Component {
             ...otherProps
         } = this.props;
 
-        const composedClassName = classnames(
-            'm-form',
-            className
-        );
+        const composedClassName = classnames('m-form', className);
 
         return (
             <form
@@ -86,7 +82,6 @@ class ElementForm extends Component {
             />
         );
     }
-
 }
 
 /**

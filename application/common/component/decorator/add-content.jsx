@@ -28,7 +28,10 @@ import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import { getTranslatedContent } from '../../utils/content';
-import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors';
+import {
+    selectStateConfig,
+    selectStateIntlLocale
+} from '../../state/selectors';
 
 /**
  * Higher order function to get translation data.
@@ -37,7 +40,6 @@ import { selectStateConfig, selectStateIntlLocale } from '../../state/selectors'
  * @returns {Function}
  */
 function addContent(configKey) {
-
     /**
      * The react higher order function for passing data to props.
      *
@@ -45,7 +47,6 @@ function addContent(configKey) {
      * @returns {ReactElement}
      */
     return function sourceComponent(SourceComponent) {
-
         /**
          * Wrapper component to get redux state.
          *
@@ -73,7 +74,8 @@ function addContent(configKey) {
          * @static
          * @type {object}
          */
-        ReturnedComponent.propTypes = { // eslint-disable-line immutable/no-mutation
+        ReturnedComponent.propTypes = {
+            // eslint-disable-line immutable/no-mutation
             config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
             locale: PropTypes.string.isRequired
         };
@@ -96,15 +98,11 @@ function addContent(configKey) {
         }
 
         /**
-        * Connects a React component to a Redux store. It does not modify the
-        * component class passed to it. Instead, it returns a new, connected component class.
-        */
-        return connect(
-            mapStateToProps
-        )(ReturnedComponent);
-
+         * Connects a React component to a Redux store. It does not modify the
+         * component class passed to it. Instead, it returns a new, connected component class.
+         */
+        return connect(mapStateToProps)(ReturnedComponent);
     };
-
 }
 
 export default addContent;

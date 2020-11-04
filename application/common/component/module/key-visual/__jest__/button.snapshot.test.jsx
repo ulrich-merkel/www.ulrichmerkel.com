@@ -7,8 +7,8 @@ describe('common/component/module/key-visual/button', function () {
     it('should render correctly', function () {
         const component = renderer.create(
             <ModuleKeyVisualButton
-                title='title'
-                label='label'
+                title="title"
+                label="label"
                 onClick={() => {}}
             />
         );
@@ -20,9 +20,7 @@ describe('common/component/module/key-visual/button', function () {
         expect(tree).toMatchSnapshot();
     });
     it('should render null if no content is provided', function () {
-        const tree = renderer.create(
-            <ModuleKeyVisualButton />
-        ).toJSON();
+        const tree = renderer.create(<ModuleKeyVisualButton />).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

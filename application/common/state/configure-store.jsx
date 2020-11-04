@@ -89,7 +89,6 @@ const loggerMiddleware = createLogger();
  * @returns {object} The newly created store
  */
 function configureStore(preloadedState = {}) {
-
     // thunkMiddleware let's us dispatch() async functions
     let middlewares = [thunkMiddleware]; // eslint-disable-line prefer-const, immutable/no-let
     if (debug && isBrowser()) {
@@ -100,7 +99,6 @@ function configureStore(preloadedState = {}) {
     const store = createStore(
         reducers,
         {
-
             ...preloadedState,
             ...loadState()
         },
@@ -115,10 +113,11 @@ function configureStore(preloadedState = {}) {
 
     // Fetch inital data if not already passed as preloadedState
     store.dispatch(fetchConfigContentIfNeeded());
-    store.dispatch(fetchConfigTranslationIfNeeded(get(store.getState(), 'intl.locale')));
+    store.dispatch(
+        fetchConfigTranslationIfNeeded(get(store.getState(), 'intl.locale'))
+    );
 
     return store;
-
 }
 
 export default configureStore;

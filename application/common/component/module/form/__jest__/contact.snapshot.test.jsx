@@ -38,9 +38,7 @@ describe('common/component/module/form/contact', function () {
         const component = renderer.create(
             <Provider store={mockedStore}>
                 <MemoryRouter>
-                    <ModuleFormContactContainer
-                        {...defaultProps}
-                    >
+                    <ModuleFormContactContainer {...defaultProps}>
                         Module form contact children
                     </ModuleFormContactContainer>
                 </MemoryRouter>
@@ -54,33 +52,37 @@ describe('common/component/module/form/contact', function () {
         expect(tree).toMatchSnapshot();
     });
     it('should render a success message', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <ModuleFormContactContainer
-                        {...defaultProps}
-                        routerState={'success'}
-                    >
-                        Module form contact success
-                    </ModuleFormContactContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <ModuleFormContactContainer
+                            {...defaultProps}
+                            routerState={'success'}
+                        >
+                            Module form contact success
+                        </ModuleFormContactContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render an error message', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <ModuleFormContactContainer
-                        {...defaultProps}
-                        routerState={'error'}
-                    >
-                        Module form contact error
-                    </ModuleFormContactContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <ModuleFormContactContainer
+                            {...defaultProps}
+                            routerState={'error'}
+                        >
+                            Module form contact error
+                        </ModuleFormContactContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

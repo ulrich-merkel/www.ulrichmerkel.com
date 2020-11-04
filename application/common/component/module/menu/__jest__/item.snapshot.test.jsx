@@ -14,35 +14,33 @@ describe('common/component/module/menu/item', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleMenuItem
-                {...defaultProps}
-            >
-                Module menu item children
-            </ModuleMenuItem>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleMenuItem {...defaultProps}>
+                    Module menu item children
+                </ModuleMenuItem>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no path is given', function () {
-        const tree = renderer.create(
-            <ModuleMenuItem
-                {...defaultProps}
-                path={null}
-            >
-                Module menu item children not rendered
-            </ModuleMenuItem>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleMenuItem {...defaultProps} path={null}>
+                    Module menu item children not rendered
+                </ModuleMenuItem>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should hide label if isLabelHidden is present', function () {
-        const tree = renderer.create(
-            <ModuleMenuItem
-                {...defaultProps}
-                isLabelHidden
-            >
-                Module menu item children
-            </ModuleMenuItem>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleMenuItem {...defaultProps} isLabelHidden>
+                    Module menu item children
+                </ModuleMenuItem>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

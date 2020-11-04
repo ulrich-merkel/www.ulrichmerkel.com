@@ -13,49 +13,57 @@ describe('common/component/element/a', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ElementA {...defaultProps}>
-                    Link Children
-                </ElementA>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ElementA {...defaultProps}>Link Children</ElementA>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should handle correct link to relative page', function () {
-        const tree = renderer.create(
-            <MemoryRouter>
-                <ElementA {...defaultProps} to='/persona'>
-                    Link Children
-                </ElementA>
-            </MemoryRouter>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <MemoryRouter>
+                    <ElementA {...defaultProps} to="/persona">
+                        Link Children
+                    </ElementA>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should handle correct link to external page', function () {
-        const tree1 = renderer.create(
-            <MemoryRouter>
-                <ElementA {...defaultProps} to='http://www.foo.bar'>
-                    Link Children
-                </ElementA>
-            </MemoryRouter>
-        ).toJSON();
+        const tree1 = renderer
+            .create(
+                <MemoryRouter>
+                    <ElementA {...defaultProps} to="http://www.foo.bar">
+                        Link Children
+                    </ElementA>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree1).toMatchSnapshot();
-        const tree2 = renderer.create(
-            <MemoryRouter>
-                <ElementA {...defaultProps} to='http://foo.bar'>
-                    Link Children
-                </ElementA>
-            </MemoryRouter>
-        ).toJSON();
+        const tree2 = renderer
+            .create(
+                <MemoryRouter>
+                    <ElementA {...defaultProps} to="http://foo.bar">
+                        Link Children
+                    </ElementA>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree2).toMatchSnapshot();
-        const tree3 = renderer.create(
-            <MemoryRouter>
-                <ElementA {...defaultProps} to='www.foo.bar'>
-                    Link Children
-                </ElementA>
-            </MemoryRouter>
-        ).toJSON();
+        const tree3 = renderer
+            .create(
+                <MemoryRouter>
+                    <ElementA {...defaultProps} to="www.foo.bar">
+                        Link Children
+                    </ElementA>
+                </MemoryRouter>
+            )
+            .toJSON();
         expect(tree3).toMatchSnapshot();
     });
 });

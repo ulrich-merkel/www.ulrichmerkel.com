@@ -16,21 +16,21 @@ describe('common/component/module/cornerstone/item-employee', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleCornerstoneItemEmployee
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleCornerstoneItemEmployee {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render cssModifier and offset if passed', function () {
-        const tree = renderer.create(
-            <ModuleCornerstoneItemEmployee
-                {...defaultProps}
-                cssModifier={'employee'}
-                offset={'200'}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleCornerstoneItemEmployee
+                    {...defaultProps}
+                    cssModifier={'employee'}
+                    offset={'200'}
+                />
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

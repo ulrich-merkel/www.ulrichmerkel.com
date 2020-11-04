@@ -34,7 +34,4 @@ function isNode() {
     return typeof window === 'undefined' && typeof process !== 'undefined';
 }
 
-export {
-    isBrowser,
-    isNode
-};
+export { isBrowser, isNode };

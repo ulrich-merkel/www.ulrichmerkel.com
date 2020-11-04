@@ -12,20 +12,15 @@ describe('common/component/module/text/time', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleTextTime
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextTime {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if text is empty', function () {
-        const tree = renderer.create(
-            <ModuleTextTime
-                {...defaultProps}
-                content={null}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextTime {...defaultProps} content={null} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

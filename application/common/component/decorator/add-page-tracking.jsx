@@ -31,7 +31,6 @@ import { addPageView } from '../../state/page/actions';
  * @returns {ReactElement}
  */
 function addPageTracking(SourceComponent) {
-
     /**
      * Wrapper class to connect to redux and handle tracking action.
      *
@@ -39,14 +38,14 @@ function addPageTracking(SourceComponent) {
      * @property {Function} props.handleAddPageView - Trigger page view increment
      */
     class AddPageTracking extends Component {
-
         /**
          * Invoked once, both on the client and server,
          * immediately before the initial rendering occurs.
          *
          * @returns {void}
          */
-        UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+        UNSAFE_componentWillMount() {
+            // eslint-disable-line camelcase
             // eslint-disable-next-line react/destructuring-assignment
             this.props.handleAddPageView();
         }
@@ -60,7 +59,6 @@ function addPageTracking(SourceComponent) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
-
     }
 
     /**
@@ -69,7 +67,8 @@ function addPageTracking(SourceComponent) {
      * @static
      * @type {object}
      */
-    AddPageTracking.propTypes = { // eslint-disable-line immutable/no-mutation
+    AddPageTracking.propTypes = {
+        // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired
     };
 
@@ -77,13 +76,9 @@ function addPageTracking(SourceComponent) {
      * Connects a React component to a Redux store. It does not modify the
      * component class passed to it. Instead, it returns a new, connected component class.
      */
-    return connect(
-        null,
-        {
-            handleAddPageView: addPageView
-        }
-    )(AddPageTracking);
-
+    return connect(null, {
+        handleAddPageView: addPageView
+    })(AddPageTracking);
 }
 
 export default addPageTracking;

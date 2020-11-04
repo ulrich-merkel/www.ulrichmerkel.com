@@ -2,33 +2,31 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-    Headline,
-    P,
-    Button
-} from '../../../element';
+import { Headline, P, Button } from '../../../element';
 
 function ModuleFormContactMessage(props) {
-    const {
-        btnLabel,
-        btnTitle,
-        headline,
-        text,
-        onReset,
-        resetUrl
-    } = props;
+    const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (
-        <div className='m-article__text' id='m-form--contact-success' itemProp='text'>
-            <Headline htmlElement='h3'>
-                {headline}
-            </Headline>
-            <div className='m-article__description is-centered' itemProp='description'>
+        <div
+            className="m-article__text"
+            id="m-form--contact-success"
+            itemProp="text"
+        >
+            <Headline htmlElement="h3">{headline}</Headline>
+            <div
+                className="m-article__description is-centered"
+                itemProp="description"
+            >
+                <P>{text}</P>
                 <P>
-                    {text}
-                </P>
-                <P>
-                    <Button isLarge className='is-centered' onClick={onReset} title={btnTitle} to={resetUrl}>
+                    <Button
+                        isLarge
+                        className="is-centered"
+                        onClick={onReset}
+                        title={btnTitle}
+                        to={resetUrl}
+                    >
                         {btnLabel}
                     </Button>
                 </P>

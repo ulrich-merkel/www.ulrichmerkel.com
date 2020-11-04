@@ -5,9 +5,9 @@ import ElementNav from '../nav';
 
 describe('common/component/element/nav', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementNav htmlElement='div' className='nav' />
-        ).toJSON();
+        const tree = renderer
+            .create(<ElementNav htmlElement="div" className="nav" />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

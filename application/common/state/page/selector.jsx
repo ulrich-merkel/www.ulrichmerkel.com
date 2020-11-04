@@ -24,18 +24,11 @@ import { createSelector } from 'reselect';
  * @param {object} state - The current redux state
  * @returns {string} The intl locale state
  */
-const selectStatePage = createSelector(
-    [
-        (state) => state.page
-    ],
-    (page) => {
-        if (!page) {
-            return {};
-        }
-        return page;
+const selectStatePage = createSelector([(state) => state.page], (page) => {
+    if (!page) {
+        return {};
     }
-);
+    return page;
+});
 
-export {
-    selectStatePage
-};
+export { selectStatePage };

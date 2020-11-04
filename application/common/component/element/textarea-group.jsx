@@ -45,7 +45,6 @@ import Icon from './icon';
  * @property {string} [props.value=''] - The default input value
  */
 class ElementTextareaGroup extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -64,10 +63,13 @@ class ElementTextareaGroup extends Component {
             ...otherProps
         } = this.props;
 
-        const composedGroupClassName = classnames({
-            'has-error': !isValid && isPristine,
-            'is-valid': isValid && isPristine
-        }, 'm-form__group');
+        const composedGroupClassName = classnames(
+            {
+                'has-error': !isValid && isPristine,
+                'is-valid': isValid && isPristine
+            },
+            'm-form__group'
+        );
 
         const composedInputClassName = classnames({
             'is-pristine': isPristine
@@ -89,13 +91,15 @@ class ElementTextareaGroup extends Component {
                 />
                 <Label htmlFor={id}>
                     {label}
-                    <Icon className='m-form__label__icon--error' icon='sad' />
-                    <Icon className='m-form__label__icon--success' icon='smile' />
+                    <Icon className="m-form__label__icon--error" icon="sad" />
+                    <Icon
+                        className="m-form__label__icon--success"
+                        icon="smile"
+                    />
                 </Label>
             </div>
         );
     }
-
 }
 
 /**

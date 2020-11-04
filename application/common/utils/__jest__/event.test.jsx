@@ -1,8 +1,5 @@
 /* eslint-disable func-names */
-import {
-    eventPreventDefault,
-    eventStopPropagation
-} from '../event';
+import { eventPreventDefault, eventStopPropagation } from '../event';
 
 describe('common/utils/event', function () {
     describe('eventPreventDefault', function () {

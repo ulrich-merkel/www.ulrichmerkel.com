@@ -46,7 +46,6 @@ function insertClearedListItems(input) {
     const { length } = array;
 
     if (array && length) {
-
         const lengthAfterInsert = length * 1.5;
 
         if (length >= 2) {
@@ -56,7 +55,6 @@ function insertClearedListItems(input) {
                 });
             }
         }
-
     }
 
     return array;
@@ -70,7 +68,6 @@ function insertClearedListItems(input) {
  * @returns {ReactElement} React component markup
  */
 function ModuleService(props) {
-
     const {
         componentType,
         className,
@@ -85,16 +82,13 @@ function ModuleService(props) {
     }
 
     const ComponentType = componentType;
-    const componentClassName = classnames(
-        'm-service',
-        className
-    );
+    const componentClassName = classnames('m-service', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
             className={componentClassName}
-            role='list'
+            role="list"
             {...componentSchema}
             {...otherProps}
         >
@@ -113,20 +107,19 @@ function ModuleService(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
-* Validate props via React.PropTypes helpers.
-*
-* @static
-* @type {React.Component.PropTypes}
-* @property {string} [componentType='ul'] - The component element type used for React.createElement
-* @property {string} [className] - The component css class names, will be merged into component default classNames
-* @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
-* @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
-* @property {object} [content={}] - The component translation config
-*/
+ * Validate props via React.PropTypes helpers.
+ *
+ * @static
+ * @type {React.Component.PropTypes}
+ * @property {string} [componentType='ul'] - The component element type used for React.createElement
+ * @property {string} [className] - The component css class names, will be merged into component default classNames
+ * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
+ * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @property {object} [content={}] - The component translation config
+ */
 ModuleService.propTypes = {
     componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props

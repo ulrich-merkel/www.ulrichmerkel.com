@@ -8,15 +8,15 @@ import SectionCornerstone from '../cornerstone';
 
 describe('common/component/section/cornerstone', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionCornerstone
-                    content={{}}
-                >
-                    Section cornerstone children
-                </SectionCornerstone>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionCornerstone content={{}}>
+                        Section cornerstone children
+                    </SectionCornerstone>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -61,7 +61,8 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
     const pictureSizesKeyvisualWorkPrint = sizesConfig.sizes.keyvisualWorkPrint;
     const pictureSizesFeatured = sizesConfig.sizes.featured;
     const pictureSizesAppleTouchIcon = sizesConfig.sizes.appleTouchIcon;
-    const pictureSizesAppleTouchStartupImage = sizesConfig.sizes.appleTouchStartupImage;
+    const pictureSizesAppleTouchStartupImage =
+        sizesConfig.sizes.appleTouchStartupImage;
     const pictureSizesIcon = sizesConfig.sizes.icon;
 
     const config = {
@@ -211,7 +212,10 @@ function resize(src, dest, width, height, degrees = 0) {
     return void sharp(src)
         .resize(width, height, {
             background: {
-                r: 255, g: 255, b: 255, alpha: 1
+                r: 255,
+                g: 255,
+                b: 255,
+                alpha: 1
             }
         })
         .rotate(degrees)
@@ -239,11 +243,15 @@ function main(config) {
     }
 
     if (!srcFolder) {
-        return void console.log(chalk.grey('No images source folder provided for resizing'));
+        return void console.log(
+            chalk.grey('No images source folder provided for resizing')
+        );
     }
 
     if (!destFolder) {
-        return void console.log(chalk.grey('No images destination folder provided for resizing'));
+        return void console.log(
+            chalk.grey('No images destination folder provided for resizing')
+        );
     }
 
     console.log(chalk.grey(`Start resizing for ${images.length} images`));

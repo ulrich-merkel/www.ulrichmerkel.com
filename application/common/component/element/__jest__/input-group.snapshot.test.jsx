@@ -7,15 +7,14 @@ describe('common/component/element/input-group', function () {
     it('should render correctly', function () {
         const wrapper = shallow(
             <ElementInputGroup
-                id='input-group'
-                name='input'
-                className='input-group'
-                label='input'
-                type='submit'
-                value='2'
+                id="input-group"
+                name="input"
+                className="input-group"
+                label="input"
+                type="submit"
+                value="2"
                 isValid
                 isPristine
-
             >
                 Input Group Children
             </ElementInputGroup>

@@ -5,11 +5,13 @@ import ElementFieldset from '../fieldset';
 
 describe('common/component/element/fieldset', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementFieldset htmlElement='span' className='fieldset'>
-                Fieldset Children
-            </ElementFieldset>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ElementFieldset htmlElement="span" className="fieldset">
+                    Fieldset Children
+                </ElementFieldset>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

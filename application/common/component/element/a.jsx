@@ -71,10 +71,7 @@ function A(props) {
         strict,
         to
     };
-    const componentClassName = classnames(
-        'c-link',
-        className
-    );
+    const componentClassName = classnames('c-link', className);
 
     let ComponentType = componentType,
         attributes = ancorAttributes;
@@ -93,7 +90,13 @@ function A(props) {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType {...attributes} className={componentClassName} tabIndex='0' title={title} {...otherProps}>
+        <ComponentType
+            {...attributes}
+            className={componentClassName}
+            tabIndex="0"
+            title={title}
+            {...otherProps}
+        >
             {children}
         </ComponentType>
     );

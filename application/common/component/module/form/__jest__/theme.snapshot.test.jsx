@@ -18,9 +18,7 @@ describe('common/component/module/form/theme', function () {
     it('should render correctly', function () {
         const component = renderer.create(
             <Provider store={mockedStore}>
-                <ModuleFormThemeContainer
-                    {...defaultProps}
-                >
+                <ModuleFormThemeContainer {...defaultProps}>
                     Module form search children
                 </ModuleFormThemeContainer>
             </Provider>

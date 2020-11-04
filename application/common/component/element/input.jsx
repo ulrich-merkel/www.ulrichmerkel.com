@@ -39,7 +39,6 @@ import classnames from 'classnames';
  * @property {string} [props.value] - The input value attribute
  */
 class ElementInput extends Component {
-
     /**
      * The required render function to return a single react child element.
      *
@@ -65,10 +64,12 @@ class ElementInput extends Component {
             className
         );
 
-        const requiredAttr = required ? {
-            required: true,
-            'aria-required': true
-        } : null;
+        const requiredAttr = required
+            ? {
+                  required: true,
+                  'aria-required': true
+              }
+            : null;
 
         return (
             <input
@@ -89,7 +90,6 @@ class ElementInput extends Component {
             />
         );
     }
-
 }
 
 /**

@@ -13,7 +13,8 @@ describe('common/component/module/list', function () {
                     headline: '2012',
                     list: [
                         {
-                            name: '<a href=\'http://www.diamondleague.com/\' target=\'_blank\' title=\'Diamant League website\'>Diamant League</a>, track and field athletics',
+                            name:
+                                "<a href='http://www.diamondleague.com/' target='_blank' title='Diamant League website'>Diamant League</a>, track and field athletics",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'USA (New York, Eugene)'
                         }
@@ -23,12 +24,14 @@ describe('common/component/module/list', function () {
                     headline: '2011',
                     list: [
                         {
-                            name: '<a href=\'http://www.bundesliga.de/\' target=\'_blank\' title=\'Bundesliga website\'>German Soccer League</a>',
+                            name:
+                                "<a href='http://www.bundesliga.de/' target='_blank' title='Bundesliga website'>German Soccer League</a>",
                             job: 'intl-broadcast-virtual-graphics',
                             place: 'Germany'
                         },
                         {
-                            name: '<a href=\'http://www.mdr.de/\' target=\'_blank\' title=\'MDR website\'>Mitteldeutscher Rundfunk Leipzig</a>',
+                            name:
+                                "<a href='http://www.mdr.de/' target='_blank' title='MDR website'>Mitteldeutscher Rundfunk Leipzig</a>",
                             job: 'intl-broadcast-tv-graphics',
                             place: 'Germany'
                         }
@@ -41,13 +44,11 @@ describe('common/component/module/list', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleList
-                {...defaultProps}
-            >
-                Module list children
-            </ModuleList>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleList {...defaultProps}>Module list children</ModuleList>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

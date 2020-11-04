@@ -24,10 +24,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import {
-    A,
-    Icon
-} from '../../element';
+import { A, Icon } from '../../element';
 
 /**
  * Function representing a component to return a single react child element.
@@ -70,10 +67,23 @@ function ModuleMenuItem(props) {
     );
 
     return (
-        <li className={componentListItemClassName} itemProp='itemListElement' itemScope itemType={itemType} {...otherProps}>
-            <A itemProp={itemPropA} to={path} title={title} className='m-menu__item' role='menuitem' exact>
-                <Icon className='m-menu__icon' icon={icon} />
-                <span className={labelClassName} itemProp='name'>
+        <li
+            className={componentListItemClassName}
+            itemProp="itemListElement"
+            itemScope
+            itemType={itemType}
+            {...otherProps}
+        >
+            <A
+                itemProp={itemPropA}
+                to={path}
+                title={title}
+                className="m-menu__item"
+                role="menuitem"
+                exact
+            >
+                <Icon className="m-menu__icon" icon={icon} />
+                <span className={labelClassName} itemProp="name">
                     {label}
                 </span>
             </A>

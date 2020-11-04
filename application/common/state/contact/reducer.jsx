@@ -30,28 +30,26 @@ export const defaultState = {};
  * @returns {object} The new state for this store
  */
 const reducer = (state = defaultState, action) => {
-
     /**
      * The reason is that the lexical declaration is visible in the entire switch block but it only gets initialized
      * when it is assigned, which will only happen if the case where it is defined is reached.
      * To ensure that the lexical declaration only applies to the current case clause wrap your clauses in blocks.
      */
     switch (action.type) {
-    case CONTACT_CHANGE: {
-        const { contact } = action;
-        if (!contact) {
+        case CONTACT_CHANGE: {
+            const { contact } = action;
+            if (!contact) {
+                return state;
+            }
+            return {
+                ...state,
+                ...contact
+            };
+        }
+        default: {
             return state;
         }
-        return {
-            ...state,
-            ...contact
-        };
     }
-    default: {
-        return state;
-    }
-    }
-
 };
 
 export default reducer;

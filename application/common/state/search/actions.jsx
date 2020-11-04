@@ -32,6 +32,4 @@ function changeSearchTerm(term) {
     };
 }
 
-export {
-    changeSearchTerm
-};
+export { changeSearchTerm };

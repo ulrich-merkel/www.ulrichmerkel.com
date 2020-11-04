@@ -5,11 +5,9 @@ import ElementHeader from '../header';
 
 describe('common/component/element/header', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ElementHeader>
-                Headers Children
-            </ElementHeader>
-        ).toJSON();
+        const tree = renderer
+            .create(<ElementHeader>Headers Children</ElementHeader>)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

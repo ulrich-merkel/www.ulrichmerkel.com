@@ -13,13 +13,15 @@ describe('component/layout/loader', function () {
                 headline: 'Headline',
                 lead: 'Lorem ipsum'
             };
-            const tree = renderer.create(
-                <Provider store={mockedStore}>
-                    <ComponentToBeTested content={content}>
-                        Hello
-                    </ComponentToBeTested>
-                </Provider>
-            ).toJSON();
+            const tree = renderer
+                .create(
+                    <Provider store={mockedStore}>
+                        <ComponentToBeTested content={content}>
+                            Hello
+                        </ComponentToBeTested>
+                    </Provider>
+                )
+                .toJSON();
             expect(tree).toMatchSnapshot();
         });
     });

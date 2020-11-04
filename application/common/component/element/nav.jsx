@@ -29,21 +29,18 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementNav(props) {
-    const {
-        htmlElement,
-        className,
-        ...otherProps
-    } = props;
+    const { htmlElement, className, ...otherProps } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        'm-nav',
-        className
-    );
+    const composedClassName = classnames('m-nav', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType className={composedClassName} role='navigation' {...otherProps} />
+        <ComponentType
+            className={composedClassName}
+            role="navigation"
+            {...otherProps}
+        />
     );
 }
 

@@ -8,16 +8,15 @@ import SectionSearch from '../search';
 
 describe('common/component/section/search', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <SectionSearch
-                    content={{}}
-                    isMain
-                >
-                    Section search children
-                </SectionSearch>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <SectionSearch content={{}} isMain>
+                        Section search children
+                    </SectionSearch>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

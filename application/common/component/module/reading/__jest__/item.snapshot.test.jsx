@@ -12,11 +12,9 @@ describe('common/component/module/reading/item', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleReadingItem
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleReadingItem {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

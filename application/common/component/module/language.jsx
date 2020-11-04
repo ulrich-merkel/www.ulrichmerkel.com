@@ -40,7 +40,6 @@ import ModuleLanguageItem from './language/item';
  * @returns {ReactElement} React component markup
  */
 function ModuleLanguage(props) {
-
     const {
         componentType,
         className,
@@ -55,16 +54,13 @@ function ModuleLanguage(props) {
     }
 
     const ComponentType = componentType;
-    const componentClassName = classnames(
-        'm-language',
-        className
-    );
+    const componentClassName = classnames('m-language', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
             className={componentClassName}
-            role='list'
+            role="list"
             {...componentSchema}
             {...otherProps}
         >
@@ -81,7 +77,6 @@ function ModuleLanguage(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -101,14 +96,16 @@ ModuleLanguage.propTypes = {
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.shape({
-            headline: PropTypes.string,
-            lead: PropTypes.string,
-            percent: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ])
-        }))
+        list: PropTypes.arrayOf(
+            PropTypes.shape({
+                headline: PropTypes.string,
+                lead: PropTypes.string,
+                percent: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number
+                ])
+            })
+        )
     })
 };
 

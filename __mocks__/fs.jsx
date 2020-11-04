@@ -26,7 +26,10 @@ const fs = jest.genMockFromModule('fs');
  */
 let mockFiles = Object.create(null); // eslint-disable-line immutable/no-let
 function __setMockFiles(newMockFiles) {
-    mockFiles = Object.keys(newMockFiles).reduce(function reduceFile(target, file) {
+    mockFiles = Object.keys(newMockFiles).reduce(function reduceFile(
+        target,
+        file
+    ) {
         const dirname = path.dirname(file);
         const basename = path.basename(file);
 
@@ -44,7 +47,8 @@ function __setMockFiles(newMockFiles) {
                 [basename]: newMockFiles[file]
             }
         };
-    }, {});
+    },
+    {});
 }
 
 /**
@@ -71,7 +75,9 @@ function __getMockFile(filePath) {
     const basename = path.basename(filePath);
     const mockedFiles = __getMockFiles();
 
-    return mockedFiles && mockedFiles[dirname] && mockedFiles[dirname][basename];
+    return (
+        mockedFiles && mockedFiles[dirname] && mockedFiles[dirname][basename]
+    );
 }
 
 /**

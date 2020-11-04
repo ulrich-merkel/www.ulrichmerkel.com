@@ -41,7 +41,6 @@ import Meta from '../../element/meta';
  * @returns {object} The classNames config for left and right circle
  */
 function getCssTransformRotate(percent) {
-
     let left = '',
         right = '',
         deg = 0,
@@ -52,11 +51,11 @@ function getCssTransformRotate(percent) {
     }
 
     if (perc <= 50) {
-        deg = Math.round(180 - (perc / 100 * 360));
+        deg = Math.round(180 - (perc / 100) * 360);
         left = 'is-hidden';
         right = `is-rotated-${deg}`;
     } else {
-        deg = Math.round(180 - ((perc - 50) / 100 * 360));
+        deg = Math.round(180 - ((perc - 50) / 100) * 360);
         left = `is-rotated-${deg}`;
     }
 
@@ -64,7 +63,6 @@ function getCssTransformRotate(percent) {
         left,
         right
     };
-
 }
 
 /**
@@ -75,41 +73,50 @@ function getCssTransformRotate(percent) {
  * @returns {ReactElement} React component markup
  */
 function ModuleLanguageItem(props) {
-
-    const {
-        headline,
-        lead,
-        percent
-    } = props;
+    const { headline, lead, percent } = props;
 
     const rotatedCssTransform = getCssTransformRotate(percent);
 
     return (
         <GridCol
             cols={4}
-            htmlElement='li'
-            itemProp='itemListElement'
+            htmlElement="li"
+            itemProp="itemListElement"
             itemScope
-            itemType='https://schema.org/Language'
-            role='listitem'
+            itemType="https://schema.org/Language"
+            role="listitem"
         >
-            <div className='c-box'>
-                <Headline className='c-box__header' htmlElement='h3'>
+            <div className="c-box">
+                <Headline className="c-box__header" htmlElement="h3">
                     {headline}
                 </Headline>
-                <div className='c-box__content'>
-                    <div className='c-pie'>
-                        <div className='c-pie__circle' data-percent={percent} data-text={lead}>
-                            <div className='c-pie__left'>
-                                <span className={classnames('c-pie__mask', rotatedCssTransform.left)} />
+                <div className="c-box__content">
+                    <div className="c-pie">
+                        <div
+                            className="c-pie__circle"
+                            data-percent={percent}
+                            data-text={lead}
+                        >
+                            <div className="c-pie__left">
+                                <span
+                                    className={classnames(
+                                        'c-pie__mask',
+                                        rotatedCssTransform.left
+                                    )}
+                                />
                             </div>
-                            <div className='c-pie__right'>
-                                <span className={classnames('c-pie__mask', rotatedCssTransform.right)} />
+                            <div className="c-pie__right">
+                                <span
+                                    className={classnames(
+                                        'c-pie__mask',
+                                        rotatedCssTransform.right
+                                    )}
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
-                <Meta itemProp='name' content={headline} />
+                <Meta itemProp="name" content={headline} />
             </div>
         </GridCol>
     );
@@ -127,10 +134,7 @@ function ModuleLanguageItem(props) {
 ModuleLanguageItem.propTypes = {
     headline: PropTypes.string,
     lead: PropTypes.string,
-    percent: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ])
+    percent: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 /**

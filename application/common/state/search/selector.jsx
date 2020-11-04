@@ -30,14 +30,10 @@ import { defaultState } from './reducer';
  * @returns {string} The search term state
  */
 const selectStateSearchTerm = createSelector(
-    [
-        (state) => state.search
-    ],
+    [(state) => state.search],
     (search) => {
         return get(search, 'term', defaultState.term);
     }
 );
 
-export {
-    selectStateSearchTerm
-};
+export { selectStateSearchTerm };

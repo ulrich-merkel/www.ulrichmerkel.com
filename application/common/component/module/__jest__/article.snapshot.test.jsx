@@ -5,23 +5,25 @@ import ModuleArticle from '../article';
 
 describe('common/component/module/article', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleArticle
-                componentType='span'
-                className='module-article'
-                isMain
-                noMargin
-                isSpaced
-                content={{
-                    headline: 'Headline Article',
-                    lead: 'Lead Article',
-                    datePublished: '20161212',
-                    author: 'Author'
-                }}
-            >
-                Module article children
-            </ModuleArticle>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleArticle
+                    componentType="span"
+                    className="module-article"
+                    isMain
+                    noMargin
+                    isSpaced
+                    content={{
+                        headline: 'Headline Article',
+                        lead: 'Lead Article',
+                        datePublished: '20161212',
+                        author: 'Author'
+                    }}
+                >
+                    Module article children
+                </ModuleArticle>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

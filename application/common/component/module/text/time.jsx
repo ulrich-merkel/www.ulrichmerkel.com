@@ -31,18 +31,13 @@ import classnames from 'classnames';
  * @returns {ReactElement|null} React component markup
  */
 function ModuleTextTime(props) {
-    const {
-        content
-    } = props;
+    const { content } = props;
 
     if (!content || (!content.timeStart && !content.timeEnd)) {
         return null;
     }
 
-    const {
-        timeStart,
-        timeEnd
-    } = content;
+    const { timeStart, timeEnd } = content;
 
     const componentTextContentClassName = classnames(
         'm-text__time',
@@ -51,21 +46,11 @@ function ModuleTextTime(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            {timeStart && (
-                <time className='c-time'>
-                    {timeStart}
-                </time>
-            )}
+            {timeStart && <time className="c-time">{timeStart}</time>}
             {timeStart && timeEnd && (
-                <span className='c-time--separator'>
-                    -
-                </span>
+                <span className="c-time--separator">-</span>
             )}
-            {timeEnd && (
-                <time className='c-time'>
-                    {timeEnd}
-                </time>
-            )}
+            {timeEnd && <time className="c-time">{timeEnd}</time>}
         </div>
     );
 }

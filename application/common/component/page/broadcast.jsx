@@ -69,12 +69,14 @@ function PageBroadcast(props) {
  * @property {boolean} isDialog
  */
 PageBroadcast.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     isDialog: PropTypes.bool
 };
 

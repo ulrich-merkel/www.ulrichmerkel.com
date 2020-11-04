@@ -5,11 +5,13 @@ import GridContainer from '../container';
 
 describe('common/component/grid/container', function () {
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <GridContainer htmlElement='span' className='foo'>
-                Grid Container Children
-            </GridContainer>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <GridContainer htmlElement="span" className="foo">
+                    Grid Container Children
+                </GridContainer>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

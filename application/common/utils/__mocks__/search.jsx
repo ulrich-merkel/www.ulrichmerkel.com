@@ -14,6 +14,4 @@ function findMatches() {
     ];
 }
 
-export {
-    findMatches
-};
+export { findMatches };

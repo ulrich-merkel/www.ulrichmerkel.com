@@ -42,6 +42,4 @@ let getDateNow = function getDateNowFn() {
     return getDateNow();
 };
 
-export {
-    getDateNow
-};
+export { getDateNow };

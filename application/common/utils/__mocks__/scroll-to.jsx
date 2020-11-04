@@ -8,14 +8,9 @@ function getPageOffset(offset) {
     return offset;
 }
 
-function scrollTo({
-    top, duration, easing, callback
-}) {
+function scrollTo({ top, duration, easing, callback }) {
     callback.call();
 }
 
 export default scrollTo;
-export {
-    getPageOffset,
-    easeInOutQuad
-};
+export { getPageOffset, easeInOutQuad };

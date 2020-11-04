@@ -30,7 +30,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
-import { changeScrollHeaderFixed, changeScrollHeaderVisible } from '../../state/scroll/duck';
+import {
+    changeScrollHeaderFixed,
+    changeScrollHeaderVisible
+} from '../../state/scroll/duck';
 import { isBrowser } from '../../utils/environment';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 
@@ -60,7 +63,6 @@ function scrollTop() {
  * @returns {ReactElement}
  */
 function scroller(SourceComponent) {
-
     /**
      * Class representing a component.
      *
@@ -71,7 +73,6 @@ function scroller(SourceComponent) {
      * @property {object} props.location - Current router location properties
      */
     class Scroller extends Component {
-
         /**
          * The actual class constructor.
          *
@@ -130,7 +131,8 @@ function scroller(SourceComponent) {
          * @param {object} [nextProps] - The new class properties
          * @returns {void}
          */
-        UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+        UNSAFE_componentWillReceiveProps(nextProps) {
+            // eslint-disable-line camelcase
             const { location } = this.props;
 
             if (location !== nextProps.location) {
@@ -178,8 +180,9 @@ function scroller(SourceComponent) {
              * Also checking if initial scroll position is used.
              */
             if (
-                (this.previousScrollY > currentScrollY && !this.headerVisible)
-                || (this.previousScrollY === 0 && currentScrollY === 0)
+                (this.previousScrollY > currentScrollY &&
+                    !this.headerVisible) ||
+                (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
                 handleChangeScrollHeaderVisible(this.headerVisible);
@@ -188,7 +191,11 @@ function scroller(SourceComponent) {
             /**
              * User is scrolling down, so hide header.
              */
-            if (this.previousScrollY < currentScrollY && this.headerVisible && HEADER_HEIGHT < currentScrollY) {
+            if (
+                this.previousScrollY < currentScrollY &&
+                this.headerVisible &&
+                HEADER_HEIGHT < currentScrollY
+            ) {
                 this.headerVisible = false;
                 handleChangeScrollHeaderVisible(this.headerVisible);
             }
@@ -231,16 +238,12 @@ function scroller(SourceComponent) {
      * We also use the shorthand notation for mapDispatchToProps here to save
      * some bytes.
      */
-    const ScrollerContainer = connect(
-        null,
-        {
-            handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
-            handleChangeScrollHeaderVisible: changeScrollHeaderVisible
-        }
-    )(withRouter(Scroller));
+    const ScrollerContainer = connect(null, {
+        handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
+        handleChangeScrollHeaderVisible: changeScrollHeaderVisible
+    })(withRouter(Scroller));
 
     return ScrollerContainer;
-
 }
 
 export default scroller;

@@ -27,9 +27,7 @@ import GridContainer from './container';
  * @returns {ReactElement} React component markup
  */
 function GridSection(props) {
-    return (
-        <GridContainer className={'m-section'} {...props} />
-    );
+    return <GridContainer className={'m-section'} {...props} />;
 }
 
 export default GridSection;

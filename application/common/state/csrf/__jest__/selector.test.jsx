@@ -11,7 +11,7 @@ describe('common/state/contact/selector', function () {
             };
             expect(selectStateCsrfToken(state)).toEqual(state.csrf.token);
         });
-        it('should return an empty string if state isn\'t found', function () {
+        it("should return an empty string if state isn't found", function () {
             const state = {
                 foo: {
                     bar: 'lorem'

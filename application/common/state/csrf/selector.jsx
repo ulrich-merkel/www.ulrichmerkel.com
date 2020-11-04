@@ -24,18 +24,11 @@ import { createSelector } from 'reselect';
  * @param {object} state - The current redux state
  * @returns {string} The csrf token if found or en empty string
  */
-const selectStateCsrfToken = createSelector(
-    [
-        (state) => state.csrf
-    ],
-    (csrf) => {
-        if (!csrf || !csrf.token) {
-            return '';
-        }
-        return csrf.token;
+const selectStateCsrfToken = createSelector([(state) => state.csrf], (csrf) => {
+    if (!csrf || !csrf.token) {
+        return '';
     }
-);
+    return csrf.token;
+});
 
-export {
-    selectStateCsrfToken
-};
+export { selectStateCsrfToken };

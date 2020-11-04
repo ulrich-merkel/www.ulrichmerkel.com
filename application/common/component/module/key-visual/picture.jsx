@@ -38,7 +38,6 @@ import { isBrowser } from '../../../utils/environment';
  * @augments React.Component
  */
 class ModuleKeyVisualPicture extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -71,7 +70,6 @@ class ModuleKeyVisualPicture extends Component {
         this.state = {
             pictureStyle: {}
         };
-
     }
 
     /**
@@ -142,10 +140,7 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            img,
-            type
-        } = this.props;
+        const { img, type } = this.props;
         const { pictureStyle } = this.state;
 
         if (!img.name || !img.ext || !img.path) {
@@ -165,14 +160,14 @@ class ModuleKeyVisualPicture extends Component {
                 path={img.path}
                 alt={img.alt}
                 sizes={img.sizes}
-                pictureRef={(picture) => { this.picture = picture; }}
+                pictureRef={(picture) => {
+                    this.picture = picture;
+                }}
                 className={componentPictureClassName}
                 style={componentPictureStyle}
             />
-
         );
     }
-
 }
 
 /**
@@ -197,12 +192,12 @@ ModuleKeyVisualPicture.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {object}
-* @see ModuleKeyVisualPicture.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ * @see ModuleKeyVisualPicture.propTypes
+ */
 ModuleKeyVisualPicture.defaultProps = {
     img: {},
     type: 'digital',

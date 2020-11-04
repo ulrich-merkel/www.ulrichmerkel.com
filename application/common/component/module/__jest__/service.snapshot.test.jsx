@@ -31,37 +31,38 @@ describe('common/component/module/service', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleService
-                {...defaultProps}
-            >
-                Module service children
-            </ModuleService>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleService {...defaultProps}>
+                    Module service children
+                </ModuleService>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content is given', function () {
-        const tree = renderer.create(
-            <ModuleService
-                {...defaultProps}
-                content={{
-                    list: null
-                }}
-            >
-                Module service children not rendered
-            </ModuleService>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleService
+                    {...defaultProps}
+                    content={{
+                        list: null
+                    }}
+                >
+                    Module service children not rendered
+                </ModuleService>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <ModuleService
-                {...defaultProps}
-                itemType={null}
-            >
-                Module service children
-            </ModuleService>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleService {...defaultProps} itemType={null}>
+                    Module service children
+                </ModuleService>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

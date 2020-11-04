@@ -20,10 +20,7 @@ describe('common/component/module/search', function () {
 
     it('should render correctly', function () {
         const tree = renderer.create(
-            <ModuleSearch
-                store={mockedStore}
-                {...defaultProps}
-            >
+            <ModuleSearch store={mockedStore} {...defaultProps}>
                 Module list children
             </ModuleSearch>
         ).toJSON;

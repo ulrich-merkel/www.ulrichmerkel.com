@@ -11,20 +11,15 @@ describe('common/component/module/text/person', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleTextPerson
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextPerson {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content is empty', function () {
-        const tree = renderer.create(
-            <ModuleTextPerson
-                {...defaultProps}
-                content={null}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextPerson {...defaultProps} content={null} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

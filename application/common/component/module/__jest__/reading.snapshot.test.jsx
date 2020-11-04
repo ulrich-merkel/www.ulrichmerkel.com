@@ -29,37 +29,38 @@ describe('component/module/reading', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleReading
-                {...defaultProps}
-            >
-                Module reading children
-            </ModuleReading>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleReading {...defaultProps}>
+                    Module reading children
+                </ModuleReading>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if no content is given', function () {
-        const tree = renderer.create(
-            <ModuleReading
-                {...defaultProps}
-                content={{
-                    list: null
-                }}
-            >
-                Module reading children not rendered
-            </ModuleReading>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleReading
+                    {...defaultProps}
+                    content={{
+                        list: null
+                    }}
+                >
+                    Module reading children not rendered
+                </ModuleReading>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should render no itemType if unset', function () {
-        const tree = renderer.create(
-            <ModuleReading
-                {...defaultProps}
-                itemType={null}
-            >
-                Module reading children
-            </ModuleReading>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <ModuleReading {...defaultProps} itemType={null}>
+                    Module reading children
+                </ModuleReading>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

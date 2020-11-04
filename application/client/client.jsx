@@ -89,16 +89,23 @@ featureDetect();
  * @see {@link http://stackoverflow.com/questions/24335821/can-i-fastclick-reactjs-running-in-cordova}
  * @see {@link https://github.com/reactjs/react-router/issues/714}
  */
-document.addEventListener('DOMContentLoaded', function handleEvent() {
-    attachFastClick.attach(document.body);
-}, false);
+document.addEventListener(
+    'DOMContentLoaded',
+    function handleEvent() {
+        attachFastClick.attach(document.body);
+    },
+    false
+);
 
 /**
  * Add pubsub messaging to decouple common and client code for adding theming.
  *
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
-PubSub.subscribe(THEME_CHANGE_MESSAGE, function subscribeApplyTheme(message, theme) {
+PubSub.subscribe(THEME_CHANGE_MESSAGE, function subscribeApplyTheme(
+    message,
+    theme
+) {
     applyTheme(theme);
 });
 
@@ -124,10 +131,7 @@ function createElement(Component, props) {
  */
 hydrate(
     <Root store={store}>
-        <BrowserRouter
-            basename='/'
-            {...{ createElement }}
-        >
+        <BrowserRouter basename="/" {...{ createElement }}>
             <Routes />
         </BrowserRouter>
     </Root>,

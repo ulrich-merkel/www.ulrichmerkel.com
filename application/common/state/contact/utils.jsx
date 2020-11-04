@@ -54,14 +54,7 @@ function isValid(state) {
 function canSendForm(state) {
     const isStateValid = isValid(state);
 
-    return isStateValid
-        && state.pristine
-        && !state.pending
-        && isBrowser(state);
+    return isStateValid && state.pristine && !state.pending && isBrowser(state);
 }
 
-export {
-    canSendForm,
-    isValid,
-    validate
-};
+export { canSendForm, isValid, validate };

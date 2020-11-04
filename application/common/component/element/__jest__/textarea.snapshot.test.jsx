@@ -7,10 +7,10 @@ describe('common/component/element/textarea', function () {
     it('should render correctly with default callbacks', function () {
         const component = renderer.create(
             <ElementTextarea
-                className='textarea'
-                id='textarea'
-                name='textarea'
-                placeholder='Test textarea placeholder'
+                className="textarea"
+                id="textarea"
+                name="textarea"
+                placeholder="Test textarea placeholder"
                 required
             />
         );
@@ -30,8 +30,8 @@ describe('common/component/element/textarea', function () {
         const onChange = jest.fn();
         const component = renderer.create(
             <ElementTextarea
-                id='textarea-callbacks'
-                name='textarea-callbacks'
+                id="textarea-callbacks"
+                name="textarea-callbacks"
                 onBlur={onBlur}
                 onChange={onChange}
             />

@@ -32,16 +32,14 @@ import Headline from '../../element/headline';
  * @returns {ReactElement} React component markup
  */
 function ModuleTextHeadline(props) {
-    const {
-        text
-    } = props;
+    const { text } = props;
 
     if (!text) {
         return null;
     }
 
     return (
-        <Headline className='m-text__headline' htmlElement='h3'>
+        <Headline className="m-text__headline" htmlElement="h3">
             {text}
         </Headline>
     );

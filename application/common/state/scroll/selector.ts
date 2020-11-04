@@ -18,10 +18,24 @@
  * - 0.0.1 Basic functions and structure
  */
 import { createSelector } from 'reselect';
-import { get } from 'lodash';
+import { get, isEmpty } from 'lodash';
 
 import { initialState, SCROLL_RESOURCE_NAME } from './duck';
 import { ScrollStateType } from './types';
+
+/**
+ * Select complete scroll state from redux store.
+ *
+ * @function
+ * @param {object} state - The current redux state
+ * @returns {object} The scroll state
+ */
+export const selectStateScroll = createSelector(
+    [(state) => state?.[SCROLL_RESOURCE_NAME]],
+    function (scroll: ScrollStateType): ScrollStateType {
+        return isEmpty(scroll) ? initialState : scroll;
+    }
+);
 
 /**
  * Select scroll isHeaderFixed state from redux store.
@@ -30,12 +44,14 @@ import { ScrollStateType } from './types';
  * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
-export const selectStateScrollHeaderFixed = createSelector(
-    [
-        (state) => state.[SCROLL_RESOURCE_NAME]
-    ],
+export const selectStateScrollIsHeaderFixed = createSelector(
+    [selectStateScroll],
     function (scroll: ScrollStateType): boolean {
-        return get(scroll, 'payload.isHeaderFixed', initialState.payload.isHeaderFixed);
+        return get(
+            scroll,
+            'payload.isHeaderFixed',
+            initialState.payload.isHeaderFixed
+        );
     }
 );
 
@@ -46,11 +62,13 @@ export const selectStateScrollHeaderFixed = createSelector(
  * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
-export const selectStateScrollHeaderVisible = createSelector(
-    [
-        (state) => state.[SCROLL_RESOURCE_NAME]
-    ],
+export const selectStateScrollIsHeaderVisible = createSelector(
+    [selectStateScroll],
     function (scroll: ScrollStateType): boolean {
-        return get(scroll, 'payload.isHeaderVisible', initialState.payload.isHeaderVisible);
+        return get(
+            scroll,
+            'payload.isHeaderVisible',
+            initialState.payload.isHeaderVisible
+        );
     }
 );

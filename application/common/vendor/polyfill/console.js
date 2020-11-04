@@ -14,10 +14,26 @@
     var method,
         noop = function () {},
         methods = [
-            'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-            'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-            'markTimeline', 'profile', 'profileEnd', 'table',
-            'timeStamp', 'trace', 'warn'
+            'assert',
+            'clear',
+            'count',
+            'debug',
+            'dir',
+            'dirxml',
+            'error',
+            'exception',
+            'group',
+            'groupCollapsed',
+            'groupEnd',
+            'info',
+            'log',
+            'markTimeline',
+            'profile',
+            'profileEnd',
+            'table',
+            'timeStamp',
+            'trace',
+            'warn'
         ],
         length = methods.length,
         console = (win.console = win.console || {});
@@ -30,9 +46,13 @@
             console[method] = noop;
         }
     }
-}(typeof window !== 'undefined' ? window : {}));
+})(typeof window !== 'undefined' ? window : {});
 
-if (typeof window !== 'undefined' && window.console && typeof (window.console.time) == 'undefined') {
+if (
+    typeof window !== 'undefined' &&
+    window.console &&
+    typeof window.console.time == 'undefined'
+) {
     console.time = function (name, reset) {
         if (!name) {
             return;
@@ -40,7 +60,7 @@ if (typeof window !== 'undefined' && window.console && typeof (window.console.ti
         var time = new Date().getTime();
         if (!console.timeCounters) {
             console.timeCounters = {};
-        };
+        }
         var key = 'KEY' + name.toString();
         if (!reset && console.timeCounters[key]) {
             return;
@@ -48,7 +68,7 @@ if (typeof window !== 'undefined' && window.console && typeof (window.console.ti
         console.timeCounters[key] = time;
     };
 
-    console.timeEnd = function (name){
+    console.timeEnd = function (name) {
         var time = new Date().getTime();
         if (!console.timeCounters) {
             return;

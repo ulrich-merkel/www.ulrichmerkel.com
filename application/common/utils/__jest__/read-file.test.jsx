@@ -17,13 +17,17 @@ describe('common/utils/read-file', function () {
     it('should read a file async', function () {
         const filePath = '/path/to/file1.js';
         expect.assertions(1);
-        return expect(readFile(filePath)).resolves.toBe(MOCK_FILE_INFO[filePath]);
+        return expect(readFile(filePath)).resolves.toBe(
+            MOCK_FILE_INFO[filePath]
+        );
     });
     it('should read no file async if file does not exist', function (done) {
-        return readFile('/wrong/path/to/file1.js').then(jest.fn()).catch(function (reason) {
-            expect(reason).toBeDefined();
-            done(); // eslint-disable-line promise/no-callback-in-promise
-        });
+        return readFile('/wrong/path/to/file1.js')
+            .then(jest.fn())
+            .catch(function (reason) {
+                expect(reason).toBeDefined();
+                done(); // eslint-disable-line promise/no-callback-in-promise
+            });
     });
     it('should read a file sync', function () {
         const file = readFileSync('/path/to/file2.txt');

@@ -6,11 +6,17 @@ import ElementHeadline from '../headline';
 describe('common/component/element/headline', function () {
     describe('Snapshot', function () {
         it('should render correctly', function () {
-            const tree = renderer.create(
-                <ElementHeadline htmlElement='h3' className='headline' isCentered>
-                    Headline Children
-                </ElementHeadline>
-            ).toJSON();
+            const tree = renderer
+                .create(
+                    <ElementHeadline
+                        htmlElement="h3"
+                        className="headline"
+                        isCentered
+                    >
+                        Headline Children
+                    </ElementHeadline>
+                )
+                .toJSON();
             expect(tree).toMatchSnapshot();
         });
     });

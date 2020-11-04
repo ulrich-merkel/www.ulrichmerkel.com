@@ -30,17 +30,9 @@ import classnames from 'classnames';
  * @returns {ReactElement} React component markup
  */
 function ElementImage(props) {
-    const {
-        className,
-        alt,
-        src,
-        ...otherProps
-    } = props;
+    const { className, alt, src, ...otherProps } = props;
 
-    const componentClassName = classnames(
-        'c-img',
-        className
-    );
+    const componentClassName = classnames('c-img', className);
 
     return (
         <img

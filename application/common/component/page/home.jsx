@@ -56,7 +56,11 @@ function PageHome(props) {
     return (
         <LayoutMain>
             <Helmet {...contentSection('head')} />
-            <SectionKeyVisual content={contentSection('section1')} className='hide-on-print' isCovered />
+            <SectionKeyVisual
+                content={contentSection('section1')}
+                className="hide-on-print"
+                isCovered
+            />
             <SectionText content={contentSection('section2')} isMain />
             <SectionService content={contentSection('section3')} />
             <SectionFeatured content={contentSection('section4')} />
@@ -72,12 +76,14 @@ function PageHome(props) {
  * @property {object} [content={}] - The component translation config
  */
 PageHome.propTypes = {
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    )
 };
 
 /**

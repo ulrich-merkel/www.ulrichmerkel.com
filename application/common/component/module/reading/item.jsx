@@ -38,29 +38,29 @@ import Small from '../../element/small';
  * @returns {ReactElement} React component markup
  */
 function ModuleReadingItem(props) {
-    const {
-        headline,
-        lead,
-        creator,
-        publisher
-    } = props;
+    const { headline, lead, creator, publisher } = props;
 
     return (
-        <li className='m-list__item' itemProp='itemListElement' itemScope itemType='https://schema.org/Book'>
-            <div className='c-reading'>
-                <Headline className='c-reading__name' itemProp='name' htmlElement='h3'>
+        <li
+            className="m-list__item"
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/Book"
+        >
+            <div className="c-reading">
+                <Headline
+                    className="c-reading__name"
+                    itemProp="name"
+                    htmlElement="h3"
+                >
                     {headline}
                 </Headline>
-                <P className='c-reading__description' itemProp='alternateName'>
+                <P className="c-reading__description" itemProp="alternateName">
                     {lead}
                 </P>
-                <Small className='c-reading__source' itemProp='creator'>
-                    <span className='c-reading__source-creator'>
-                        {creator}
-                    </span>
-                    <em className='c-reading__source-publisher'>
-                        {publisher}
-                    </em>
+                <Small className="c-reading__source" itemProp="creator">
+                    <span className="c-reading__source-creator">{creator}</span>
+                    <em className="c-reading__source-publisher">{publisher}</em>
                 </Small>
             </div>
         </li>

@@ -66,10 +66,10 @@ function css(options, callback = noop) {
      * it'll fetch without blocking render
      */
     const styleDomNode = createDomNode('link', {
-        className: [].concat(
-            classNameLoaded,
-            className
-        ).filter(Boolean).join(' '),
+        className: []
+            .concat(classNameLoaded, className)
+            .filter(Boolean)
+            .join(' '),
         disabled: 'disabled',
         href: src,
         id,
@@ -122,10 +122,10 @@ function js(options, callback = noop) {
      */
     const scriptDomNode = createDomNode('script', {
         async: 'true',
-        className: [].concat(
-            classNameLoaded,
-            className
-        ).filter(Boolean).join(' '),
+        className: []
+            .concat(classNameLoaded, className)
+            .filter(Boolean)
+            .join(' '),
         src
     });
     if (!scriptDomNode) {
@@ -135,12 +135,14 @@ function js(options, callback = noop) {
     // Add script event listeners when loaded
     /* eslint-disable immutable/no-mutation, immutable/no-this */
     scriptDomNode.onreadystatechange = scriptDomNode.onload = function handleEvent() {
-        if (!this.readyState || this.readyState === 'complete' || this.readyState === 'loaded') {
-
+        if (
+            !this.readyState ||
+            this.readyState === 'complete' ||
+            this.readyState === 'loaded'
+        ) {
             // Avoid memory leaks in ie
             this.onreadystatechange = this.onload = this.onerror = null;
             callFn(callback, true);
-
         }
     };
     /* eslint-enable immutable/no-mutation, immutable/no-this */
@@ -148,11 +150,9 @@ function js(options, callback = noop) {
     // Try to handle script errors
     /* eslint-disable immutable/no-mutation, immutable/no-this */
     scriptDomNode.onerror = function handleEvent() {
-
         // Avoid memory leaks in ie
         this.onreadystatechange = this.onload = this.onerror = null;
         callFn(callback, false);
-
     };
     /* eslint-enable immutable/no-mutation, immutable/no-this */
 

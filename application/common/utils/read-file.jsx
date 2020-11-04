@@ -43,7 +43,11 @@ function readFile(fileName) {
     const filePath = path.resolve(__dirname, fileName);
 
     return new Promise(function handlePromise(resolve, reject) {
-        return fs.readFile(filePath, readFileOptions, function handleReadFile(error, data) { // eslint-disable-line security/detect-non-literal-fs-filename
+        return fs.readFile(filePath, readFileOptions, function handleReadFile(
+            error,
+            data
+        ) {
+            // eslint-disable-line security/detect-non-literal-fs-filename
             if (error) {
                 return reject(new Error(error));
             }
@@ -69,7 +73,4 @@ function readFileSync(fileName) {
     return fs.readFileSync(filePath, readFileOptions); // eslint-disable-line security/detect-non-literal-fs-filename
 }
 
-export {
-    readFile,
-    readFileSync
-};
+export { readFile, readFileSync };

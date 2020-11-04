@@ -29,10 +29,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import {
-    Button,
-    P
-} from '../../element';
+import { Button, P } from '../../element';
 
 /**
  * Function representing a component to return a single react child element.
@@ -46,13 +43,7 @@ import {
  * @returns {ReactElement} React component markup
  */
 function ModuleArticleButton(props) {
-    const {
-        btnLabel,
-        btnTitle,
-        btnTo,
-        className,
-        isDialog
-    } = props;
+    const { btnLabel, btnTitle, btnTo, className, isDialog } = props;
 
     if (!btnTo || !btnLabel || isDialog) {
         return null;

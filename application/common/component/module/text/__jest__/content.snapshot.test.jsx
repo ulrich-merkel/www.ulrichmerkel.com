@@ -11,20 +11,15 @@ describe('common/component/module/text/content', function () {
     };
 
     it('should render correctly', function () {
-        const tree = renderer.create(
-            <ModuleTextContent
-                {...defaultProps}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextContent {...defaultProps} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('should return null if content is empty', function () {
-        const tree = renderer.create(
-            <ModuleTextContent
-                {...defaultProps}
-                content={null}
-            />
-        ).toJSON();
+        const tree = renderer
+            .create(<ModuleTextContent {...defaultProps} content={null} />)
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

@@ -17,17 +17,17 @@ describe('common/component/layout/footer', function () {
             className: 'layout-footer'
         };
 
-        const tree = renderer.create(
-            <Provider store={mockedStore}>
-                <MemoryRouter>
-                    <LayoutFooterContainer
-                        {...defaultProps}
-                    >
-                        Footer Children
-                    </LayoutFooterContainer>
-                </MemoryRouter>
-            </Provider>
-        ).toJSON();
+        const tree = renderer
+            .create(
+                <Provider store={mockedStore}>
+                    <MemoryRouter>
+                        <LayoutFooterContainer {...defaultProps}>
+                            Footer Children
+                        </LayoutFooterContainer>
+                    </MemoryRouter>
+                </Provider>
+            )
+            .toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
