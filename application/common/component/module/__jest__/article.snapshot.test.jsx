@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
-import React from 'react';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 import ModuleArticle from '../article';
 

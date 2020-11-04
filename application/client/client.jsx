@@ -50,7 +50,7 @@ import '../common/vendor/polyfill/classList';
 import '../common/vendor/polyfill/base64';
 import '../common/vendor/standalone';
 
-import React from 'react';
+import * as React from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 

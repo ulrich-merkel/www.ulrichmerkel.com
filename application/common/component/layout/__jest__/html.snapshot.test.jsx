@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, import/first */
 jest.mock('../../../utils/csp');
 
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import Helmet from 'react-helmet';

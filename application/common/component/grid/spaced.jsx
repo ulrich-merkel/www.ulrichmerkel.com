@@ -16,7 +16,7 @@
  * - 0.0.2 Moved to stateless function
  * - 0.0.1 Basic functions and structure
  */
-import React from 'react';
+import * as React from 'react';
 
 /**
  * Function representing a component to return a single react child element.

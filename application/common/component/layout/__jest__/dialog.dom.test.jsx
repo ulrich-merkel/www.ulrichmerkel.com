@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 // import 'jsdom-global/register';
-// import React from 'react';
+// import * as React from 'react';
 // import { Provider } from 'react-redux';
 // import { mount } from 'enzyme';
 // import sinon from 'sinon';

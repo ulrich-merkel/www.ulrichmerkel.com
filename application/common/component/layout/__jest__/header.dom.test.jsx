@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-named-as-default, func-names */
 // import 'jsdom-global/register';
-// import React from 'react';
+// import * as React from 'react';
 // import { Provider } from 'react-redux';
 // import { MemoryRouter } from 'react-router';
 // import { mount } from 'enzyme';

@@ -36,7 +36,7 @@
  * - 0.0.2 Moved code to es6
  * - 0.0.1 Basic functions and structure
  */
-import React from 'react';
+import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { get } from 'lodash';

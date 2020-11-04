@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names, import/first */
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import { LayoutDialog } from '../dialog';

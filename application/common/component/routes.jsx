@@ -17,7 +17,7 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React from 'react';
+import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';

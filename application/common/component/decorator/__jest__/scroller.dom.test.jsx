@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment, import/no-extraneous-dependencies, import/no-named-as-default, import/first, func-names, immutable/no-mutation */
 // import 'jsdom-global/register';
-// import React from 'react';
+// import * as React from 'react';
 // import PropTypes from 'prop-types';
 // import { Provider } from 'react-redux';
 // import { MemoryRouter } from 'react-router';

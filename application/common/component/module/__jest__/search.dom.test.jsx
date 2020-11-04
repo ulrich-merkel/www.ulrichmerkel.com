@@ -2,7 +2,7 @@
 // @see https://github.com/airbnb/enzyme/issues/426
 // @see https://github.com/facebook/jest/issues/1353
 // import 'jsdom-global/register';
-// import React from 'react';
+// import * as React from 'react';
 // import { Provider } from 'react-redux';
 // import { mount } from 'enzyme';
 // import sinon from 'sinon';

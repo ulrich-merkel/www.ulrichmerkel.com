@@ -16,7 +16,7 @@
  * @changelog
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 

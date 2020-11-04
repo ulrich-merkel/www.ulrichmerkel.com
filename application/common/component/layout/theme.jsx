@@ -20,7 +20,7 @@
  * - 0.0.2 Use pubsub for decoupling
  * - 0.0.1 Basic functions and structure
  */
-import React, { Component, Fragment } from 'react';
+import { Component, default as React, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
