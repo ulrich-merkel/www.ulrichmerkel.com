@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function handleEvent() {
 
 /**
  * Add pubsub messaging to decouple common and client code for adding theming.
- * 
+ *
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
 PubSub.subscribe(THEME_CHANGE_MESSAGE, function subscribeApplyTheme(message, theme) {

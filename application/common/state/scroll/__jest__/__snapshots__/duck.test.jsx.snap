@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should react to an action with the type scroll/SCROLL_HEADER_FIXED 1`] = `
+Object {
+  "meta": Object {},
+  "payload": Object {
+    "headerFixed": true,
+    "headerVisible": true,
+  },
+}
+`;
+
+exports[`reducer should react to an action with the type scroll/SCROLL_HEADER_VISIBLE 1`] = `
+Object {
+  "meta": Object {},
+  "payload": Object {
+    "headerFixed": true,
+    "headerVisible": false,
+  },
+}
+`;
+
+exports[`reducer should return the current state if scroll/SCROLL_HEADER_FIXED payload is empty 1`] = `
+Object {
+  "meta": Object {},
+  "payload": Object {
+    "headerFixed": true,
+    "headerVisible": true,
+  },
+}
+`;
+
+exports[`reducer should return the current state if scroll/SCROLL_HEADER_VISIBLE payload is empty 1`] = `
+Object {
+  "meta": Object {},
+  "payload": Object {
+    "headerFixed": true,
+    "headerVisible": true,
+  },
+}
+`;

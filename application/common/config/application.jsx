@@ -80,7 +80,7 @@ const configApplication = {
         use: toBoolean(process.env.CSP) || true
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER) || true,
+        use: toBoolean(process.env.SERVICEWORKER) || false,
         timeStamp: '2018-01-30'
     },
     applicationCache: {

@@ -20,7 +20,9 @@ module.exports = {
     moduleFileExtensions: [
         'js',
         'jsx',
-        'json'
+        'json',
+        'ts',
+        'tsx'
     ],
     moduleDirectories: [
         'node_modules' // This is required

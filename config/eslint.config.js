@@ -1,5 +1,4 @@
 /* eslint-disable immutable/no-mutation */
-
 module.exports = {
     env: {
         browser: true,
@@ -15,7 +14,7 @@ module.exports = {
         'plugin:lodash/recommended',
         'plugin:react/recommended'
     ],
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     parserOptions: {
         ecmaFeatures: {
             jsx: true
@@ -23,6 +22,7 @@ module.exports = {
         sourceType: 'module'
     },
     plugins: [
+        '@babel',
         'compat',
         'flowtype',
         'immutable',
@@ -38,6 +38,11 @@ module.exports = {
         'tree-shaking',
         'xss'
     ],
+    settings: {
+        'import/resolver': {
+            typescript: {} // this loads <rootdir>/tsconfig.json to eslint
+        }
+    },
     rules: {
         'arrow-body-style': 0,
         'comma-dangle': ['error', 'never'],
@@ -47,6 +52,16 @@ module.exports = {
         indent: [
             'error',
             4
+        ],
+        'import/extensions': [
+            'error',
+            'ignorePackages',
+            {
+                js: 'never',
+                jsx: 'never',
+                ts: 'never',
+                tsx: 'never'
+            }
         ],
         'jest/no-large-snapshots': ['warn', {
             maxSize: 12

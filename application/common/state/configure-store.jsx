@@ -44,7 +44,7 @@ import csrf from './csrf/reducer';
 import dialog from './dialog/reducer';
 import intl from './intl/reducer';
 import page from './page/reducer';
-import scroll from './scroll/reducer';
+import { reducerScroll } from './scroll/duck';
 import search from './search/reducer';
 import theme from './theme/reducer';
 import {
@@ -72,7 +72,7 @@ const reducers = combineReducers({
     dialog,
     intl,
     page,
-    scroll,
+    ...reducerScroll,
     search,
     theme
 });

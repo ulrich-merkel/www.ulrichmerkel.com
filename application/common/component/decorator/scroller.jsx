@@ -30,7 +30,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { changeScrollHeaderFixed, changeScrollHeaderVisible } from '../../state/scroll/duck';
 import { isBrowser } from '../../utils/environment';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 
@@ -66,8 +66,8 @@ function scroller(SourceComponent) {
      *
      * @class
      * @augments React.Component
-     * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
-     * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
+     * @property {Function} props.handleChangeScrollHeaderFixed - Callback action for updating redux
+     * @property {Function} props.handleChangeScrollHeaderVisible - Callback action for updating redux
      * @property {object} props.location - Current router location properties
      */
     class Scroller extends Component {
@@ -166,12 +166,12 @@ function scroller(SourceComponent) {
          */
         onScroll() {
             const {
-                handleScrollChangeHeaderFixed,
-                handleScrollChangeHeaderVisible
+                handleChangeScrollHeaderFixed,
+                handleChangeScrollHeaderVisible
             } = this.props;
             const currentScrollY = getPageOffset();
 
-            handleScrollChangeHeaderFixed(this.headerFixed);
+            handleChangeScrollHeaderFixed(this.headerFixed);
 
             /**
              * User is scrolling up, so show header.
@@ -182,7 +182,7 @@ function scroller(SourceComponent) {
                 || (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
-                handleScrollChangeHeaderVisible(this.headerVisible);
+                handleChangeScrollHeaderVisible(this.headerVisible);
             }
 
             /**
@@ -190,7 +190,7 @@ function scroller(SourceComponent) {
              */
             if (this.previousScrollY < currentScrollY && this.headerVisible && HEADER_HEIGHT < currentScrollY) {
                 this.headerVisible = false;
-                handleScrollChangeHeaderVisible(this.headerVisible);
+                handleChangeScrollHeaderVisible(this.headerVisible);
             }
 
             this.previousScrollY = currentScrollY;
@@ -214,8 +214,8 @@ function scroller(SourceComponent) {
      * @type {object}
      */
     Scroller.propTypes = {
-        handleScrollChangeHeaderFixed: PropTypes.func.isRequired,
-        handleScrollChangeHeaderVisible: PropTypes.func.isRequired,
+        handleChangeScrollHeaderFixed: PropTypes.func.isRequired,
+        handleChangeScrollHeaderVisible: PropTypes.func.isRequired,
         location: PropTypes.shape({
             hash: PropTypes.string,
             key: PropTypes.string,
@@ -234,8 +234,8 @@ function scroller(SourceComponent) {
     const ScrollerContainer = connect(
         null,
         {
-            handleScrollChangeHeaderFixed: changeHeaderFixed,
-            handleScrollChangeHeaderVisible: changeHeaderVisible
+            handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
+            handleChangeScrollHeaderVisible: changeScrollHeaderVisible
         }
     )(withRouter(Scroller));
 

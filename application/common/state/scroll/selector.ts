@@ -20,41 +20,37 @@
 import { createSelector } from 'reselect';
 import { get } from 'lodash';
 
-import { defaultState } from './reducer';
+import { initialState, SCROLL_RESOURCE_NAME } from './duck';
+import { ScrollStateType } from './types';
 
 /**
- * Select scroll headerFixed state from redux store.
+ * Select scroll isHeaderFixed state from redux store.
  *
  * @function
  * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
-const selectStateScrollHeaderFixed = createSelector(
+export const selectStateScrollHeaderFixed = createSelector(
     [
-        (state) => state.scroll
+        (state) => state.[SCROLL_RESOURCE_NAME]
     ],
-    (scroll) => {
-        return get(scroll, 'headerFixed', defaultState.headerFixed);
+    function (scroll: ScrollStateType): boolean {
+        return get(scroll, 'payload.isHeaderFixed', initialState.payload.isHeaderFixed);
     }
 );
 
 /**
- * Select scroll headerVisible state from redux store.
+ * Select scroll isHeaderVisible state from redux store.
  *
  * @function
  * @param {object} state - The current redux state
  * @returns {boolean} The fixed layout header state
  */
-const selectStateScrollHeaderVisible = createSelector(
+export const selectStateScrollHeaderVisible = createSelector(
     [
-        (state) => state.scroll
+        (state) => state.[SCROLL_RESOURCE_NAME]
     ],
-    (scroll) => {
-        return get(scroll, 'headerVisible', defaultState.headerVisible);
+    function (scroll: ScrollStateType): boolean {
+        return get(scroll, 'payload.isHeaderVisible', initialState.payload.isHeaderVisible);
     }
 );
-
-export {
-    selectStateScrollHeaderFixed,
-    selectStateScrollHeaderVisible
-};
