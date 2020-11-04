@@ -33,7 +33,7 @@ import P from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleArticleLead(props) {
@@ -63,7 +63,7 @@ function ModuleArticleLead(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [text=''] - The lead element text
  * @property {string} [className] - The component css class names, will be merged into component default classNames
  */
@@ -76,7 +76,7 @@ ModuleArticleLead.propTypes = {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleArticleLead.propTypes
  */
 ModuleArticleLead.defaultProps = {

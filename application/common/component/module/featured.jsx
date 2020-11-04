@@ -33,7 +33,7 @@ import ModuleFeaturedItem from './featured/item';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleFeatured(props) {
@@ -86,12 +86,12 @@ function ModuleFeatured(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [componentType='ul'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [content='{}'] - The component translation config
+ * @property {object} [content='{}'] - The component translation config
  */
 ModuleFeatured.propTypes = {
     componentType: PropTypes.string,
@@ -114,7 +114,7 @@ ModuleFeatured.propTypes = {
 * Set defaults if props aren't available.
 *
 * @static
-* @type {Object}
+* @type {object}
 * @see ModuleFeatured.propTypes
 */
 ModuleFeatured.defaultProps = {

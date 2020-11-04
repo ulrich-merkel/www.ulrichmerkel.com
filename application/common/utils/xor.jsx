@@ -39,14 +39,14 @@ function utf8ToBase64(data) {
     let buffer;
 
     if (IS_BROWSER && isFunction(window.btoa)) {
-        // preventing "Character Out Of Range" exceptions
+        // Preventing "Character Out Of Range" exceptions
         return window.btoa(unescape(encodeURIComponent(data)));
     }
 
     if (data instanceof Buffer) {
         buffer = data;
     } else {
-        buffer = new Buffer(data.toString(), 'binary');
+        buffer = Buffer.from(data.toString(), 'binary');
     }
 
     return buffer.toString('base64');
@@ -65,11 +65,11 @@ function utf8ToBase64(data) {
 function base64ToUtf8(data) {
 
     if (IS_BROWSER && isFunction(window.atob)) {
-        // preventing "Character Out Of Range" exceptions
+        // Preventing "Character Out Of Range" exceptions
         return decodeURIComponent(escape(window.atob(data)));
     }
 
-    return new Buffer(data, 'base64').toString('binary');
+    return Buffer.from(data, 'base64').toString('binary');
 
 }
 
@@ -91,7 +91,7 @@ function xorEncode(data, key) {
     const keyLength = key.length;
     let result = '';
 
-    // encrypt data string
+    // Encrypt data string
     for (let i = 0; i < dataLength; i = i + 1) {
         result = result + String.fromCharCode(
             xorData.charCodeAt(i) ^ key.charCodeAt(i % keyLength) // eslint-disable-line no-bitwise

@@ -26,7 +26,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The addition css classNames
  * @param {string} [props.htmlElement='section'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
@@ -50,7 +50,7 @@ function GridContainer(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 GridContainer.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -61,7 +61,7 @@ GridContainer.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 GridContainer.defaultProps = {
     htmlElement: 'section'

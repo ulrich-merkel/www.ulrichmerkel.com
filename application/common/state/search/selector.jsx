@@ -26,7 +26,7 @@ import { defaultState } from './reducer';
  * Select search term state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {string} The search term state
  */
 const selectStateSearchTerm = createSelector(

@@ -69,7 +69,9 @@ import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
 
-import { url, port, sessionSecret, debug } from '../common/config/application';
+import {
+    url, port, sessionSecret, debug
+} from '../common/config/application';
 import logger from '../common/utils/logger';
 import { AVAILABLE_LOCALES } from '../common/state/intl/constants';
 import middlewarePost from './middleware/post';
@@ -102,26 +104,24 @@ function logServerStarted(portNumber) {
  *
  * @function
  * @private
- * @param {Object} [config={}] - Optional server and express options
+ * @param {object} [config={}] - Optional server and express options
  * @param {Function} [callback=noop] - Called when server started listening
- * @returns {Object} The newly created and running server object
+ * @returns {object} The newly created and running server object
  */
 function create(config = {}, callback = Function.prototype) {
     assert.optionalObject(config, 'config');
     assert.optionalFunc(callback, 'callback');
 
     // Merge defaults with config
-    const options = Object.assign(
-        {},
-        {
-            url,
-            port,
-            sessionSecret,
-            morganLogPath: '../../report/access.log',
-            staticPath: '../../public'
-        },
-        config
-    );
+    const options = {
+
+        url,
+        port,
+        sessionSecret,
+        morganLogPath: '../../report/access.log',
+        staticPath: '../../public',
+        ...config
+    };
     const serverPort = options.port;
 
     // Create new express service
@@ -141,8 +141,8 @@ function create(config = {}, callback = Function.prototype) {
         app.use(morgan('combined', {
             stream: fs.createWriteStream( // eslint-disable-line security/detect-non-literal-fs-filename
                 morganLogPath, { flags: 'a' }
-            ) }
-        ));
+            )
+        }));
     }
 
     // We need this because "cookie" is true in csrfProtection
@@ -182,14 +182,14 @@ function create(config = {}, callback = Function.prototype) {
         hosts: [
             `127.0.0.1:${serverPort}`,
             `localhost:${serverPort}`,
-            'ulrichmerkel.com', 
+            'ulrichmerkel.com',
             /.*\.ulrichmerkel\.com$/
         ]
     }));
 
     // Enable compression, using advanced response compression using a async zopfli/brotli combination
     // @see {@link https://github.com/aickin/shrink-ray}
-    // @TODO: app.use(shrinkRay()); can't be used until now because the target system is not supported
+    // @TODO app.use(shrinkRay()); can't be used until now because the target system is not supported
     app.use(compression());
 
     // Serve static files
@@ -231,9 +231,9 @@ function create(config = {}, callback = Function.prototype) {
  * Handle express server initialisation.
  *
  * @function
- * @param {Object} [config={}] - Optional server and express options
+ * @param {object} [config={}] - Optional server and express options
  * @param {Function} [callback=noop] - Called when server started listening
- * @returns {Object} The newly created and running server object
+ * @returns {object} The newly created and running server object
  */
 function server(config, callback) {
     assert.optionalObject(config, 'config');

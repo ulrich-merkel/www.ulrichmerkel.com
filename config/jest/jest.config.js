@@ -1,35 +1,39 @@
 /* eslint-disable immutable/no-mutation */
-'use strict';
-
 module.exports = {
-    'rootDir': '../../',
-    'bail': true,
-    'testRegex': '(/__jest__/.*|(\\.|/)(test|spec))\\.jsx?$',
-    'testPathIgnorePatterns': [
-        '<rootDir>/(build|docs|node_modules)/'
+    rootDir: '../../',
+    bail: true,
+    testRegex: '(/__jest__/.*|(\\.|/)(test|spec))\\.jsx?$',
+    testPathIgnorePatterns: [
+        '<rootDir>/(build|docs|node_modules|report|config)/',
+        '/mocks'
     ],
-    'setupFiles': [
+    transform: {
+        '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
+    },
+    setupFiles: [
         '<rootDir>/config/jest/jest.setup.js'
     ],
-    'setupTestFrameworkScriptFile': '<rootDir>/config/jest/jest.each-test-setup.js',
-    'transform': {
-        '^.+\\.jsx$': '<rootDir>/config/jest/jest.transform.js'
-    },
-    'verbose': true,
-    'moduleFileExtensions': [
+    setupFilesAfterEnv: [
+        '<rootDir>/config/jest/jest.each-test-setup.js'
+    ],
+    verbose: true,
+    moduleFileExtensions: [
         'js',
         'jsx',
         'json'
     ],
-    'testEnvironment': 'node',
-    'coverageDirectory': '<rootDir>/report/',
-    'coverageThreshold': {
-        'global': {
-            'branches': 50,
-            'functions': 65,
-            'lines': 65,
-            'statements': 65
+    moduleDirectories: [
+        'node_modules' // This is required
+    ],
+    testEnvironment: 'node',
+    coverageDirectory: '<rootDir>/report/',
+    coverageThreshold: {
+        global: {
+            branches: 50,
+            functions: 65,
+            lines: 65,
+            statements: 65
         }
     },
-    'collectCoverage': true
+    collectCoverage: true
 };

@@ -22,7 +22,7 @@ import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './constants';
  *
  * @function
  * @param {boolean} headerFixed - Whether the header should be displayed fixed or not
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function changeHeaderFixed(headerFixed) {
     return {
@@ -36,7 +36,7 @@ function changeHeaderFixed(headerFixed) {
  *
  * @function
  * @param {boolean} headerVisible - Whether the header is visible or not
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function changeHeaderVisible(headerVisible) {
     return {

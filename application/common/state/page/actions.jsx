@@ -22,7 +22,7 @@ import { PAGE_INCREASE_VIEWS } from './constants';
  * Handle page view increment state change.
  *
  * @function
- * @returns {Object} The redux action playload
+ * @returns {object} The redux action playload
  */
 function addPageView() {
     return {

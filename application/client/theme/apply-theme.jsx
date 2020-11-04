@@ -17,7 +17,7 @@
  * - 0.0.1 Basic functions and structure
  */
 import { AVAILABLE_THEMES } from '../../common/constants/theme';
-import { isBrowser } from  '../../common/utils/environment';
+import { isBrowser } from '../../common/utils/environment';
 import loaderAsync from '../loader/async';
 import { deleteDomNode } from '../utils/dom';
 
@@ -46,9 +46,9 @@ function applyTheme(themeSelected) {
     }
 
     // Remove other theming css files
-    availableThemes.filter(function (theme) {
+    availableThemes.filter(function filterAvailableThemes(theme) {
         return theme !== themeSelected;
-    }).map(function (theme) {
+    }).forEach(function mapAvailableThemes(theme) {
         deleteDomNode(`theme-${theme}`);
     });
 }

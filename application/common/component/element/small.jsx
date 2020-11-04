@@ -23,7 +23,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className=''] - The component css class names, will be merged into component default classNames
  * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
@@ -41,6 +41,7 @@ function ElementSmall(props) {
     );
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ComponentType className={composedClassName} {...otherProps} />
     );
 }
@@ -49,7 +50,7 @@ function ElementSmall(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementSmall.propTypes = {
     className: PropTypes.string,
@@ -60,7 +61,7 @@ ElementSmall.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementSmall.defaultProps = {
     className: '',

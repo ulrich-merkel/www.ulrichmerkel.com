@@ -21,15 +21,14 @@ import {
     STATE_THEME_SELECTED_CHANGE
 } from './constants';
 
-
 /**
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state=defaultState] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = STATE_THEME_DEFAULT_STATE, action) {
 
@@ -40,7 +39,7 @@ function reducer(state = STATE_THEME_DEFAULT_STATE, action) {
      */
     switch (action.type) {
     case STATE_THEME_SELECTED_CHANGE: {
-        const selected = action.selected;
+        const { selected } = action;
         return {
             ...state,
             selected

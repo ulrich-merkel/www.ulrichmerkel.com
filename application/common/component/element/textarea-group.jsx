@@ -33,7 +33,7 @@ import Icon from './icon';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string}props.name - The input name attribute
  * @property {string} [props.className] - The component css class names - will be merged into component default classNames
@@ -74,6 +74,7 @@ class ElementTextareaGroup extends Component {
         });
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Textarea
                     required
@@ -101,7 +102,7 @@ class ElementTextareaGroup extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementTextareaGroup.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -119,7 +120,7 @@ ElementTextareaGroup.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ElementTextareaGroup.propTypes
  */
 ElementTextareaGroup.defaultProps = {

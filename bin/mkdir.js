@@ -12,7 +12,7 @@
  * @see {@link https://gist.github.com/bpedro/742162}
  * @see {@link http://stackoverflow.com/questions/12627586/is-node-js-rmdir-recursive-will-it-work-on-non-empty-directories}
  *
- * @TODO: use promises
+ * @TODO use promises
  *
  * @requires fs
  * @requires rimraf
@@ -143,7 +143,7 @@ function createFolders(folders) {
  * Start checking directories and create folders if necessary.
  *
  * @param {string} destFolder - The directory name
- * @param {Object} cfg - The folders to be checked
+ * @param {object} cfg - The folders to be checked
  * @returns {void}
  */
 function main(destFolder, cfg) {

@@ -38,7 +38,7 @@ import Picture from '../../element/picture';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleFeaturedItem(props) {
@@ -95,10 +95,10 @@ function ModuleFeaturedItem(props) {
  * Valiate props via React.PropTypes helpers.
 
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [path=''] - The react-router link
  * @property {string} [headline] - The items title content
- * @property {Object} [img={}] - The items image config
+ * @property {object} [img={}] - The items image config
  * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  */
 ModuleFeaturedItem.propTypes = {
@@ -112,7 +112,7 @@ ModuleFeaturedItem.propTypes = {
 * Set defaults if props aren't available.
 *
 * @static
-* @type {Object}
+* @type {object}
 * @see ModuleFeaturedItem.propTypes
 */
 ModuleFeaturedItem.defaultProps = {

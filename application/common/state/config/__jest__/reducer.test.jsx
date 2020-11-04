@@ -82,9 +82,7 @@ describe('common/state/config/reducer', function () {
                 data,
                 receivedAt: dateNow,
                 locale
-            })).toEqual(Object.assign({}, defaultState, {
-                [locale]: actionData
-            }));
+            })).toEqual({ ...defaultState, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_REQUEST}`, function () {
             const actionData = {
@@ -94,9 +92,7 @@ describe('common/state/config/reducer', function () {
             expect(reducer(undefined, {
                 type: FETCH_CONFIG_TRANSLATION_REQUEST,
                 locale
-            })).toEqual(Object.assign({}, defaultState, {
-                [locale]: actionData
-            }));
+            })).toEqual({ ...defaultState, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_SUCCESS}`, function () {
             const data = {
@@ -113,9 +109,7 @@ describe('common/state/config/reducer', function () {
                 data,
                 receivedAt: dateNow,
                 locale
-            })).toEqual(Object.assign({}, defaultState, {
-                [locale]: actionData
-            }));
+            })).toEqual({ ...defaultState, [locale]: actionData });
         });
     });
 });

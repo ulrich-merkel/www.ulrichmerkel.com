@@ -21,7 +21,7 @@ const fs = jest.genMockFromModule('fs');
  * @see {@link https://facebook.github.io/jest/docs/manual-mocks.html}
  *
  * @function
- * @param {Object} newMockFiles - The file config
+ * @param {object} newMockFiles - The file config
  * @returns {void}
  */
 let mockFiles = Object.create(null); // eslint-disable-line immutable/no-let
@@ -52,7 +52,7 @@ function __setMockFiles(newMockFiles) {
  *
  * @function
  * @private
- * @returns {Object} The mockFiles object
+ * @returns {object} The mockFiles object
  */
 function __getMockFiles() {
     return mockFiles;
@@ -79,7 +79,7 @@ function __getMockFile(filePath) {
  *
  * @function
  * @param {string} filePath - The current path to file
- * @param {Object} [options={}] - The fs function options
+ * @param {object} [options={}] - The fs function options
  * @param {Function} callback - The ready handler
  * @returns {void}
  */
@@ -94,7 +94,7 @@ function readFile(filePath, options = {}, callback) {
  *
  * @function
  * @param {string} filePath - The current path to file
- * @param {Object} [options={}] - The fs function options
+ * @param {object} [options={}] - The fs function options
  * @returns {string}
  */
 function readFileSync(filePath, options = {}) {

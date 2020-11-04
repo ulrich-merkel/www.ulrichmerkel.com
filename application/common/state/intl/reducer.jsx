@@ -22,7 +22,7 @@ import {
 } from './constants';
 
 /**
- * @type {Object}
+ * @type {object}
  */
 const defaultState = {
     locale: AVAILABLE_LOCALES[0],
@@ -34,9 +34,9 @@ const defaultState = {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state=defaultState] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
 

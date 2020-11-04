@@ -22,8 +22,8 @@ import { ADD_CSRF_TOKEN } from './constants';
  * Handle csrf token state change.
  *
  * @function
- * @param {Object} token - The new csrf token
- * @returns {Object} The redux action playload
+ * @param {object} token - The new csrf token
+ * @returns {object} The redux action playload
  */
 function addToken(token) {
     return {

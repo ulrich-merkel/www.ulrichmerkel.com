@@ -1,6 +1,6 @@
 /* eslint-disable immutable/no-mutation */
-module.exports = {  
-    'Layout': function (browser) {
+module.exports = {
+    Layout(browser) {
         browser
             .init()
             .waitForElementPresent('#l-react', 4000)
@@ -9,7 +9,7 @@ module.exports = {
             .verify.elementPresent('.l-footer')
             .end();
     },
-    after: function (browser, done) {
+    after(browser, done) {
         browser.end();
         done();
     }

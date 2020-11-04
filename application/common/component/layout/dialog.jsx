@@ -56,10 +56,10 @@ import Button from '../element/button';
  * Class representing a component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
  * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
- * @property {Object} [props.content={}] - The component content config
+ * @property {object} [props.content={}] - The component content config
  */
 class LayoutDialog extends Component {
 
@@ -67,7 +67,7 @@ class LayoutDialog extends Component {
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -92,7 +92,7 @@ class LayoutDialog extends Component {
      * ShouldComponentUpdate is triggered before the re-rendering process starts,
      * giving the developer the ability to short circuit this process.
      *
-     * @param {Object} nextProps - The news props to be rendered
+     * @param {object} nextProps - The news props to be rendered
      * @returns {boolean} Whether to force component update or not
      */
     shouldComponentUpdate(nextProps) {
@@ -114,7 +114,7 @@ class LayoutDialog extends Component {
      * Esc key press.
      *
      * @private
-     * @param {Object} event - Synthetic react event
+     * @param {object} event - Synthetic react event
      * @returns {void}
      */
     onKeyDown(event) {
@@ -191,7 +191,7 @@ class LayoutDialog extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutDialog.propTypes = {
     onClose: PropTypes.func,
@@ -212,7 +212,7 @@ LayoutDialog.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutDialog.defaultProps = {
     onClose: Function.prototype,
@@ -228,9 +228,9 @@ LayoutDialog.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} [ownProps] - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {
@@ -241,7 +241,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onClose: function (event) {
+        onClose(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisible(false));
         }

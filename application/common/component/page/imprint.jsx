@@ -39,7 +39,7 @@ import SectionText from '../section/text';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PageImprint(props) {
@@ -58,8 +58,8 @@ function PageImprint(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
- * @property {Object} [content={}] - The component translation config
+ * @type {object}
+ * @property {object} [content={}] - The component translation config
  */
 PageImprint.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -74,7 +74,7 @@ PageImprint.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see PageImprint.propTypes
  */
 PageImprint.defaultProps = {

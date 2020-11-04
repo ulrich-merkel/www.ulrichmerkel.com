@@ -34,7 +34,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
  * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement
  * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
@@ -57,6 +57,7 @@ function ElementHeadline(props) {
     );
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement className={componentClassName} {...otherProps} />
     );
 }
@@ -65,7 +66,7 @@ function ElementHeadline(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementHeadline.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -84,7 +85,7 @@ ElementHeadline.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementHeadline.defaultProps = {
     htmlElement: 'h1',

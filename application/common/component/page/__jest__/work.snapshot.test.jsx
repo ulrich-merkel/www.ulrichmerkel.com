@@ -50,9 +50,11 @@ describe('common/component/page/privacy', function () {
                 <MemoryRouter>
                     <PageWork
                         {...defaultProps}
-                        match={{params: {
-                            work: ''
-                        }}}
+                        match={{
+                            params: {
+                                work: ''
+                            }
+                        }}
                     />
                 </MemoryRouter>
             </Provider>

@@ -39,7 +39,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {string} props.to - The link target/react-router path
  * @param {string} [props.activeClassName='is-active'] - The default is active state css class name
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
@@ -92,6 +92,7 @@ function A(props) {
     }
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ComponentType {...attributes} className={componentClassName} tabIndex='0' title={title} {...otherProps}>
             {children}
         </ComponentType>
@@ -102,7 +103,7 @@ function A(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 A.propTypes = {
     to: PropTypes.string.isRequired,
@@ -119,7 +120,7 @@ A.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 A.defaultProps = {
     activeClassName: 'is-active',

@@ -10,7 +10,7 @@
  *
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  *
- * @TODO: Should be refactored and moved to actions
+ * @TODO Should be refactored and moved to actions
  *
  * @requires common/utils/validation
  *
@@ -24,8 +24,8 @@ import { isBrowser } from '../../utils/environment';
  * Validation helper to check all inputs.
  *
  * @function
- * @param {Object} [state={}] - The current redux contact state if given
- * @returns {Object} The validation status for all inputs as object
+ * @param {object} [state={}] - The current redux contact state if given
+ * @returns {object} The validation status for all inputs as object
  */
 function validate(state = {}) {
     return {
@@ -40,7 +40,7 @@ function validate(state = {}) {
  * Validation single or all input element(s), depending on parameter input.
  *
  * @function
- * @param {Object} state - The current redux contact state
+ * @param {object} state - The current redux contact state
  * @returns {boolean} The validation status
  */
 function isValid(state) {
@@ -54,10 +54,10 @@ function isValid(state) {
 function canSendForm(state) {
     const isStateValid = isValid(state);
 
-    return isStateValid &&
-        state.pristine &&
-        !state.pending &&
-        isBrowser(state);
+    return isStateValid
+        && state.pristine
+        && !state.pending
+        && isBrowser(state);
 }
 
 export {

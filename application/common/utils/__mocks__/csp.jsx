@@ -1,6 +1,6 @@
 /**
- * @TODO: This is a bit verbose - find a stable solution
- * for reusing existing functions. We jest need to mock
+ * @TODO This is a bit verbose - find a stable solution
+ * for reusing existing functions. We just need to mock
  * getNonce here...
  */
 function getNonce() {

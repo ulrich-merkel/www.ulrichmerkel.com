@@ -33,7 +33,7 @@ import Icon from '../../element/icon';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleServiceItem(props) {
@@ -85,7 +85,7 @@ function ModuleServiceItem(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline=''] - The component element headline text
  * @property {string} [text=''] - The component element text
  * @property {number} [index=0] - The component element index count
@@ -104,7 +104,7 @@ ModuleServiceItem.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleServiceItem.propTypes
  */
 ModuleServiceItem.defaultProps = {

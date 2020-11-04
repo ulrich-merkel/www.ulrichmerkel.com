@@ -28,9 +28,9 @@ import logger from '../../common/utils/logger';
  * as error handler by express.
  *
  * @function
- * @param {Object} err - The current error object
- * @param {Object} req - The current request object
- * @param {Object} res - The result object
+ * @param {object} err - The current error object
+ * @param {object} req - The current request object
+ * @param {object} res - The result object
  * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */

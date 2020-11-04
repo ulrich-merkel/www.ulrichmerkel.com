@@ -11,7 +11,7 @@ describe('client/feature-detect/touch-events', function () {
     });
     it('should check for correct ontouchstart browser features', function () {
         global.window = {
-            ontouchstart: function () {
+            ontouchstart() {
                 return true;
             }
         };

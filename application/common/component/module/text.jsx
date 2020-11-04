@@ -49,15 +49,15 @@ import ModuleTextLink from './text/link';
  * Class representing a component.
  *
  * @class
- * @extends React.Component
- * @property {function} [props.handleChangeDialogVisible=Function.prototype] - The redux action for handling the dialog
+ * @augments React.Component
+ * @property {Function} [props.handleChangeDialogVisible=Function.prototype] - The redux action for handling the dialog
  * @property {string} [props.componentType='div'] - The component element type used for React.createElement
  * @property {string} [props.className] - The component css class names - will be merged into component default classNames
  * @property {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
  * @property {boolean} [props.hasColumns2=true] - Whether the component text should be clusted in columns via css or not
  * @property {string} [props.itemType=''] - The schema.org itemtype url attribute
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {Object} [props.content={}] - The component translation config
+ * @property {object} [props.content={}] - The component translation config
  */
 class ModuleText extends Component {
 
@@ -65,7 +65,7 @@ class ModuleText extends Component {
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -146,7 +146,7 @@ class ModuleText extends Component {
      * Open broadcast dialog.
      *
      * @private
-     * @param {Object} event - Synthetic react event
+     * @param {object} event - Synthetic react event
      * @returns {void}
      */
     openDialog(event) {
@@ -226,7 +226,7 @@ class ModuleText extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleText.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -264,7 +264,7 @@ ModuleText.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleText.defaultProps = {
     componentType: 'div',

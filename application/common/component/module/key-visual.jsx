@@ -37,7 +37,7 @@ import ModuleKeyVisualButton from './key-visual/button';
  * Class representing a component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  */
 class ModuleKeyVisual extends Component {
 
@@ -49,7 +49,7 @@ class ModuleKeyVisual extends Component {
      * We do this just because of completeness.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -78,7 +78,7 @@ class ModuleKeyVisual extends Component {
      * @returns {void}
      */
     onClickBtn() {
-        const keyVisual = this.keyVisual;
+        const { keyVisual } = this;
 
         if (keyVisual) {
             const innerHeight = keyVisual.clientHeight;
@@ -145,17 +145,16 @@ class ModuleKeyVisual extends Component {
 
 }
 
-
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [componentType='div'] - The component element type used for React.createElement
  * @property {string} [className] - The component css class names - will be merged into component default classNames
  * @property {boolean} [isWork=false] - Whether the component has work modifiers or not
  * @property {boolean} [isCovered=false] - Whether the component should be background size covered or not
- * @property {Object} [content={}] - The component translation config
+ * @property {object} [content={}] - The component translation config
  */
 ModuleKeyVisual.propTypes = {
     componentType: PropTypes.string,
@@ -176,7 +175,7 @@ ModuleKeyVisual.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleKeyVisual.propTypes
  */
 ModuleKeyVisual.defaultProps = {

@@ -25,7 +25,7 @@ import {
  * Select dialog visible state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {boolean} The dialog visiblity state
  */
 const selectStateThemeSelected = createSelector(

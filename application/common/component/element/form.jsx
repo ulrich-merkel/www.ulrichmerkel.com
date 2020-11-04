@@ -26,7 +26,7 @@ import classnames from 'classnames';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.action - The form action attribute
  * @property {string} props.id - The form id attribute
  * @property {string} [props.acceptCharset='utf-8'] - The form action attribute
@@ -81,6 +81,7 @@ class ElementForm extends Component {
                     onSubmit,
                     onReset
                 }}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             />
         );
@@ -92,7 +93,7 @@ class ElementForm extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementForm.propTypes = {
     action: PropTypes.string.isRequired,
@@ -111,7 +112,7 @@ ElementForm.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementForm.defaultProps = {
     acceptCharset: 'utf-8',

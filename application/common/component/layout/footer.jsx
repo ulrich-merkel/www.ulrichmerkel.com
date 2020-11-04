@@ -50,9 +50,9 @@ import Small from '../element/small';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
- * @param {Object} [props.content={}] - The component content config
+ * @param {object} [props.content={}] - The component content config
  * @param {Function} [props.handleSearchChange=Function.prototype] - Function handling to top scrolling
  * @returns {ReactElement} React component markup
  */
@@ -96,11 +96,11 @@ function LayoutFooter(props) {
                         <GridRow>
                             <GridCol>
                                 <Small>
-                                    &copy; 
+                                    &copy;
                                     {' '}
                                     <strong>
                                         {contentSection('copy.name')}
-                                    </strong> 
+                                    </strong>
                                     {' '}
                                     {contentSection('copy.date')}
                                 </Small>
@@ -118,7 +118,7 @@ function LayoutFooter(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutFooter.propTypes = {
     className: PropTypes.string, // eslint-disable-line  react/require-default-props
@@ -135,7 +135,7 @@ LayoutFooter.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutFooter.defaultProps = {
     content: {},

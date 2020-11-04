@@ -37,8 +37,8 @@ const XHR_DEFAULT_HEADERS = {
  * @see {@link https://github.com/github/fetch}
  *
  * @private
- * @param {Object} response - The http request response from a network request
- * @returns {Object} The response or throws an error
+ * @param {object} response - The http request response from a network request
+ * @returns {object} The response or throws an error
  */
 function checkStatus(response) {
     if (response && response.status >= 200 && response.status < 300) {
@@ -54,20 +54,21 @@ function checkStatus(response) {
  *
  * @function
  * @param {string} url - The xhr request url
- * @param {Object} [options={}] - The fetch options
- * @returns {Object} Promise
+ * @param {object} [options={}] - The fetch options
+ * @returns {object} Promise
  */
 function xhr(url, options = {}) {
-    const fetchOptions = Object.assign({}, {
+    const fetchOptions = {
         method: 'POST',
         mode: 'same-origin',
         headers: XHR_DEFAULT_HEADERS,
-        body: {}
-    }, options);
+        ...options
+    };
 
     /**
      * needed for node-fetch used by isomorphic-fetch because only absolute
      * urls are supported here until now...
+     *
      * @see {@link https://github.com/bitinn/node-fetch/issues/43}
      */
     const absoluteUrlPrefix = isNode() ? `http://${host}:${port}` : '';

@@ -22,8 +22,8 @@ import { CONTACT_CHANGE } from './constants';
  * Handle contact state change.
  *
  * @function
- * @param {Object} contact - The new contact state
- * @returns {Object} The redux action playload
+ * @param {object} contact - The new contact state
+ * @returns {object} The redux action playload
  */
 function changeContact(contact) {
     return {

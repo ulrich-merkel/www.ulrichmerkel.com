@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, func-names */
+/* eslint-disable react/jsx-props-no-spreading, import/no-extraneous-dependencies, func-names */
 import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';

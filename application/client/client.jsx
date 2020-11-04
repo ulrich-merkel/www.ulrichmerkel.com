@@ -84,13 +84,13 @@ featureDetect();
  * Because we're using Browserify module system, the FastClick.attach
  * function will be returned when we call require('fastclick').
  *
- * @TODO: Remove addEventListener and use something better suited for react
+ * @TODO Remove addEventListener and use something better suited for react
  *
  * @see {@link http://stackoverflow.com/questions/24335821/can-i-fastclick-reactjs-running-in-cordova}
  * @see {@link https://github.com/reactjs/react-router/issues/714}
  */
 document.addEventListener('DOMContentLoaded', function handleEvent() {
-    attachFastClick(document.body);
+    attachFastClick.attach(document.body);
 }, false);
 
 /**
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function handleEvent() {
  * 
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
-PubSub.subscribe(THEME_CHANGE_MESSAGE, function (message, theme) {
+PubSub.subscribe(THEME_CHANGE_MESSAGE, function subscribeApplyTheme(message, theme) {
     applyTheme(theme);
 });
 
@@ -110,14 +110,13 @@ PubSub.subscribe(THEME_CHANGE_MESSAGE, function (message, theme) {
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
  *
  * @private
- * @param {Object} Component - The current router react component
- * @param {Object} props - The current react component props
+ * @param {object} Component - The current router react component
+ * @param {object} props - The current react component props
  * @returns {ReactElement} React component markup
  */
 function createElement(Component, props) {
-    return (
-        <Component {...props} />
-    );
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <Component {...props} />;
 }
 
 /**
@@ -127,7 +126,7 @@ hydrate(
     <Root store={store}>
         <BrowserRouter
             basename='/'
-            createElement={createElement}
+            {...{ createElement }}
         >
             <Routes />
         </BrowserRouter>

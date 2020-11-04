@@ -51,7 +51,7 @@ const noop = Function.prototype;
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleFormTheme(props) {
@@ -93,7 +93,7 @@ function ModuleFormTheme(props) {
                 </Legend>
 
                 <GridRow>
-                    {items.map(function (item) {
+                    {items.map(function mapItems(item) {
                         const className = themeSelected === item.value
                             ? 'is-active'
                             : '';
@@ -120,13 +120,12 @@ function ModuleFormTheme(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleFormTheme.propTypes = {
-    /* eslint-disable react/no-unused-prop-types */
     content: PropTypes.shape({
+        legend: PropTypes.string
     }),
-    /* eslint-enable react/no-unused-prop-types */
     themeSelected: PropTypes.string,
     onchangeThemeSelectedDefault: PropTypes.func,
     onchangeThemeSelectedGrey: PropTypes.func,
@@ -137,7 +136,7 @@ ModuleFormTheme.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleFormContact.propTypes
  */
 ModuleFormTheme.defaultProps = {
@@ -155,8 +154,8 @@ ModuleFormTheme.defaultProps = {
  *
  * @function
  * @private
- * @param {Object.<*>} state - The redux store state
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @returns {object}
  */
 function mapStateToProps(state) {
     return {
@@ -175,7 +174,7 @@ function mapStateToProps(state) {
  * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
- * @returns {Object}
+ * @returns {object}
  */
 function mapDispatchToProps(dispatch) {
     return {

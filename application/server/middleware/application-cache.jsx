@@ -39,7 +39,6 @@ function getTimeStamp() {
     return getDateNow();
 }
 
-
 /**
  * Helper function to get dynamic picture sizes as valid cache url.
  *
@@ -79,12 +78,14 @@ function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
  * @returns {string} The manifest content
  */
 function getApplicationCacheResponse() {
-    const { sizes: {
-        keyvisual: pictureSizesKeyvisual,
-        keyvisualWork: pictureSizesKeyvisualWork,
-        keyvisualWorkPrint: pictureSizesKeyvisualWorkPrint,
-        featured: pictureSizesFeatured
-    } } = configPictures;
+    const {
+        sizes: {
+            keyvisual: pictureSizesKeyvisual,
+            keyvisualWork: pictureSizesKeyvisualWork,
+            keyvisualWorkPrint: pictureSizesKeyvisualWorkPrint,
+            featured: pictureSizesFeatured
+        }
+    } = configPictures;
 
     const response = [];
 
@@ -140,8 +141,8 @@ function getApplicationCacheResponse() {
  * Middleware to serve offline application cache manifest file.
  *
  * @function
- * @param {Object} req - The current request object
- * @param {Object} res - The result object
+ * @param {object} req - The current request object
+ * @param {object} res - The result object
  * @returns {Future}
  */
 function middlewareApplicationCache(req, res) {
@@ -155,7 +156,7 @@ function middlewareApplicationCache(req, res) {
             .send('Not found.');
     }
 
-    // @TODO: Adjust caching
+    // @TODO Adjust caching
     return res
         .status(200)
         .set('Content-Type', 'text/cache-manifest')

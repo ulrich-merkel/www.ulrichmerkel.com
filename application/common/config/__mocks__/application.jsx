@@ -9,4 +9,4 @@ const mockedConfigApplication = {
 };
 
 export default mockedConfigApplication;
-export const url = mockedConfigApplication.url;
+export const { url } = mockedConfigApplication;

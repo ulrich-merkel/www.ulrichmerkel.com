@@ -32,9 +32,9 @@ import configIntlDeDe from '../../common/config/intl/de-DE';
  *
  * @function
  * @private
- * @param {Object} file - The file content to be served
- * @param {Object} req - The express request object
- * @param {Object} res - The express response object
+ * @param {object} file - The file content to be served
+ * @param {object} req - The express request object
+ * @param {object} res - The express response object
  * @returns {void}
  */
 function serveFile(file, req, res) {

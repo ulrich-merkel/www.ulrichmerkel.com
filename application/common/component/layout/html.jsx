@@ -43,16 +43,18 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
 /**
  * Function representing the base html layout.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {string} props.locale - The current locale string
- * @param {Object} props.store - Critical redux initial config
+ * @param {object} props.store - Critical redux initial config
  * @param {Array|string} [props.children] - The component react children
- * @param {Object} [props.cssBase=''] - File contents of base css file
- * @param {Object} [props.scriptBootstrap=''] - File contents of loader javascript file
+ * @param {object} [props.cssBase=''] - File contents of base css file
+ * @param {object} [props.scriptBootstrap=''] - File contents of loader javascript file
  * @returns {ReactElement} React component markup
  */
 function LayoutHtml(props) {
-    const { children, locale, store, cssBase, scriptBootstrap } = props;
+    const {
+        children, locale, store, cssBase, scriptBootstrap
+    } = props;
     const manifest = configApplication.applicationCache.use
         ? url.cacheManifest
         : null;
@@ -76,6 +78,7 @@ function LayoutHtml(props) {
     /**
      * Rewind Helmet for access to its data. Read about why rewinding
      * is necessary on the server:
+     *
      * @see {@link https://github.com/nfl/react-helmet#server-usage}
      *
      * Note: Helmet will update your page's `<head`> on the client
@@ -139,7 +142,7 @@ function LayoutHtml(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHtml.propTypes = {
     locale: PropTypes.string.isRequired,
@@ -153,7 +156,7 @@ LayoutHtml.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHtml.defaultProps = {
     cssBase: '',
@@ -166,9 +169,9 @@ LayoutHtml.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} [ownProps] - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {

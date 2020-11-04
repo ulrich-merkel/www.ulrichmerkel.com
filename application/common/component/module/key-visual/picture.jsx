@@ -34,8 +34,8 @@ import { isBrowser } from '../../../utils/environment';
 /**
  * Class representing a component.
  *
- * @class 
- * @extends React.Component
+ * @class
+ * @augments React.Component
  */
 class ModuleKeyVisualPicture extends Component {
 
@@ -43,7 +43,7 @@ class ModuleKeyVisualPicture extends Component {
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -179,7 +179,7 @@ class ModuleKeyVisualPicture extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [img={}] - The image alt description
  * @property {string} [type='digital'] - The image src url
  * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
@@ -200,7 +200,7 @@ ModuleKeyVisualPicture.propTypes = {
 * Set defaults if props aren't available.
 *
 * @static
-* @type {Object}
+* @type {object}
 * @see ModuleKeyVisualPicture.propTypes
 */
 ModuleKeyVisualPicture.defaultProps = {

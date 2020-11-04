@@ -29,8 +29,8 @@ import A from '../../element/a';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
- * @param {Object} [props.content={}] - The link content's text
+ * @param {object} [props] - The current component props
+ * @param {object} [props.content={}] - The link content's text
  * @returns {ReactElement|null} React component markup
  */
 function ModuleTextLink(props) {
@@ -71,7 +71,7 @@ function ModuleTextLink(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextLink.propTypes = {
     content: PropTypes.shape({
@@ -85,7 +85,7 @@ ModuleTextLink.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextLink.defaultProps = {
     content: {}

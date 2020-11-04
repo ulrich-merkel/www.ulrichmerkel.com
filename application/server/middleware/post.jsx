@@ -40,8 +40,8 @@ const xorKey = configApplication.xor.key;
  *
  * @function
  * @private
- * @param {Object} req - The current request object
- * @param {Object} res - The express/http result to be send
+ * @param {object} req - The current request object
+ * @param {object} res - The express/http result to be send
  * @param {string} [message=''] - Additional message to be send
  * @returns {Function} The new routing result
  */
@@ -65,8 +65,8 @@ function sendSuccess(req, res, message = '') {
  *
  * @function
  * @private
- * @param {Object} req - The current request object
- * @param {Object} res - The express/http result to be send
+ * @param {object} req - The current request object
+ * @param {object} res - The express/http result to be send
  * @param {string} [message=''] - Additional message to be send
  * @returns {Function} The new routing result
  */
@@ -88,8 +88,8 @@ function sendError(req, res, message = '') {
  * Handle contact post requests.
  *
  * @function
- * @param {Object} req - The current request object
- * @param {Object} res - The express/http result to be send
+ * @param {object} req - The current request object
+ * @param {object} res - The express/http result to be send
  * @returns {Future}
  */
 function middlewarePost(req, res) {
@@ -109,7 +109,7 @@ function middlewarePost(req, res) {
         );
     }
 
-    // @TODO: Escape user data
+    // @TODO Escape user data
     // @see {@link http://nodewebapps.com/2017/01/03/13-security-best-practices-for-your-web-application/}
     if (!isValid(postData)) {
         return sendError(req, res, 'Data not valid');

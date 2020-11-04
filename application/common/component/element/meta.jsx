@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.content=''] - The meta tag content attribute
  * @param {string} [props.itemProp] - The meta tag itemProp attribute
  * @param {string} [props.name] - The meta tag name attribute
@@ -42,7 +42,13 @@ function ElementMeta(props) {
     }
 
     return (
-        <meta {...{ itemProp, name, property, content }} {...otherProps} />
+        <meta
+            {...{
+                itemProp, name, property, content
+            }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...otherProps}
+        />
     );
 }
 
@@ -50,7 +56,7 @@ function ElementMeta(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementMeta.propTypes = {
     content: PropTypes.string,
@@ -63,7 +69,7 @@ ElementMeta.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementMeta.defaultProps = {
     content: ''

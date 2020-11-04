@@ -24,7 +24,7 @@ exports[`common/component/element/input should call passed callbacks 2`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -48,7 +48,7 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -61,7 +61,7 @@ exports[`common/component/element/input should call passed callbacks 3`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],

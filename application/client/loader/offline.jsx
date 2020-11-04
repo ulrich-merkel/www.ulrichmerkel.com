@@ -29,7 +29,7 @@ import { displayProgress, displayZeroLoaded, displayAllLoaded } from './progress
 * Get application cache api.
 *
 * @private
-* @returns {Object|null} The api if available
+* @returns {object|null} The api if available
 */
 function getApi() {
     return (isBrowser() && window.applicationCache) || null;
@@ -39,7 +39,7 @@ function getApi() {
  * Handle application cache progress event.
  *
  * @private
- * @param {Object} e - The event object
+ * @param {object} e - The event object
  * @returns {void}
  */
 function onProgressEvent(e) {
@@ -69,7 +69,7 @@ function onUpdateReadyEvent() {
         }
     }
 
-    // @TODO: Find growl solution to notify for updates
+    // @TODO Find growl solution to notify for updates
     // if (confirm('New version available - reload page?')) {
     // window.location.reload(true);
     // }

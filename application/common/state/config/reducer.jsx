@@ -38,12 +38,12 @@ const defaultState = {
  *
  * @function
  * @private
- * @param {Object} oldObject - The old state object
- * @param {Object} newValues - The new state object
- * @returns {Object}
+ * @param {object} oldObject - The old state object
+ * @param {object} newValues - The new state object
+ * @returns {object}
  */
 function updateStateObject(oldObject, newValues) {
-    return Object.assign({}, oldObject, newValues);
+    return { ...oldObject, ...newValues };
 }
 
 /**
@@ -51,8 +51,8 @@ function updateStateObject(oldObject, newValues) {
  *
  * @function
  * @private
- * @param {Object} action - The redux action
- * @returns {Object} The new config content state
+ * @param {object} action - The redux action
+ * @returns {object} The new config content state
  */
 function getAsyncStateObject(action) {
     return {
@@ -68,9 +68,9 @@ function getAsyncStateObject(action) {
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {Object} [state=defaultState] - The current state
- * @param {Object} action - The action sent by the dispatcher
- * @returns {Object} The new state for this store
+ * @param {object} [state=defaultState] - The current state
+ * @param {object} action - The action sent by the dispatcher
+ * @returns {object} The new state for this store
  */
 function reducer(state = defaultState, action) {
 
@@ -78,21 +78,25 @@ function reducer(state = defaultState, action) {
     case CONFIG_CONTENT_ADD:
         return updateStateObject(state, { content: getAsyncStateObject(action) });
     case FETCH_CONFIG_CONTENT_REQUEST:
-        return updateStateObject(state, { content: {
-            ...state.content,
-            isFetching: true,
-            didInvalidate: false
-        } });
+        return updateStateObject(state, {
+            content: {
+                ...state.content,
+                isFetching: true,
+                didInvalidate: false
+            }
+        });
     case FETCH_CONFIG_CONTENT_SUCCESS:
         return updateStateObject(state, { content: getAsyncStateObject(action) });
     case CONFIG_TRANSLATION_ADD:
         return updateStateObject(state, { [action.locale]: getAsyncStateObject(action) });
     case FETCH_CONFIG_TRANSLATION_REQUEST:
-        return updateStateObject(state, { [action.locale]: {
-            ...state[action.locale],
-            isFetching: true,
-            didInvalidate: false
-        } });
+        return updateStateObject(state, {
+            [action.locale]: {
+                ...state[action.locale],
+                isFetching: true,
+                didInvalidate: false
+            }
+        });
     case FETCH_CONFIG_TRANSLATION_SUCCESS:
         return updateStateObject(state, { [action.locale]: getAsyncStateObject(action) });
     default:

@@ -29,7 +29,7 @@ import Button from './button';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The button id attribute
  * @property {string} props.name - The button name attribute
  * @property {string} [props.btnClassName] - The button css class names - will be merged into button default classNames
@@ -79,12 +79,15 @@ class ElementButtonGroup extends Component {
         const isButtonDisabled = isDisabled ? { isDisabled: true } : null;
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Button
                     {...isButtonPrimary}
                     {...isButtonSecondary}
                     {...isButtonDisabled}
-                    {...{ id, type, name, title }}
+                    {...{
+                        id, type, name, title
+                    }}
                     className={composedButtonClassName}
                 >
                     {label}
@@ -98,7 +101,7 @@ class ElementButtonGroup extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementButtonGroup.propTypes = {
     id: PropTypes.string.isRequired,
@@ -118,7 +121,7 @@ ElementButtonGroup.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementButtonGroup.defaultProps = {
     isDisabled: false,

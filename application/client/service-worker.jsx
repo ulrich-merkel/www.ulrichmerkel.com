@@ -1,5 +1,4 @@
-/* eslint-disable promise/avoid-new, lodash/prefer-startswith, lodash/prefer-includes */
-/* global caches, self */
+/* eslint-disable no-restricted-globals, promise/avoid-new, lodash/prefer-startswith, lodash/prefer-includes, func-names */
 /**
  * Handle service worker proxy for caching assets.
  *
@@ -71,7 +70,7 @@ function handleError(reason) {
  * Open a cache and use addAll() with an array of assets to add all of
  * them to the cache. Return a promise resolving when all the assets
  * are added.
- * 
+ *
  * @private
  * @returns {Promise}
  */
@@ -79,7 +78,7 @@ function preCache() {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     return caches.open(self.CACHE).then(function handleOpen(cache) {
         if (!cache.addAll) {
-            return Promise.resolve();
+            return true;
         }
         return cache.addAll(STATIC_FILES);
     }).catch(handleError);
@@ -91,7 +90,7 @@ function preCache() {
  * but it does with undefined as value.
  *
  * @private
- * @param {Object} request - The event's request
+ * @param {object} request - The event's request
  * @returns {Promise}
  */
 function fromCache(request) {
@@ -119,9 +118,9 @@ function fromCache(request) {
  * if they are not cached on the first time visit.
  *
  * @private
- * @param {Object} request - The event's request
+ * @param {object} request - The event's request
  * @param {number} [timeout=1000] - Maximum time after the fetch should fail
- * @param {Object} [options] - The fetch handler options
+ * @param {object} [options] - The fetch handler options
  * @returns {Promise}
  */
 function fromNetwork(request, timeout = 20000, options) {
@@ -139,19 +138,18 @@ function fromNetwork(request, timeout = 20000, options) {
          * @see {@link https://adactio.com/journal/10204}
          *
          * @private
-         * @type {Object}
+         * @type {object}
          */
-        const requestObject = new Request(request.url, Object.assign(
-            {},
-            {
-                method: request.method,
-                headers: request.headers,
-                mode: request.mode == 'navigate' ? 'no-cors' : request.mode,
-                credentials: request.credentials,
-                redirect: request.redirect
-            },
-            options
-        ));
+        const requestObject = new Request(request.url, ({
+            method: request.method,
+            headers: request.headers,
+            mode: request.mode === 'navigate'
+                ? 'no-cors'
+                : request.mode,
+            credentials: request.credentials,
+            redirect: request.redirect,
+            ...options
+        }));
 
         return fetch(requestObject).then(function handleFetch(response) {
             clearTimeout(timeoutId);
@@ -164,7 +162,7 @@ function fromNetwork(request, timeout = 20000, options) {
  * Fetch request from network and store response in cache.
  *
  * @private
- * @param {Object} request - The event's request
+ * @param {object} request - The event's request
  * @returns {Promise}
  */
 function fetchAndCache(request) {
@@ -185,11 +183,11 @@ function fetchAndCache(request) {
  * @private
  * @returns {void}
  */
-function clearCaches() { 
-    return caches.keys().then(function(keys) {
-        return Promise.all(keys.filter(function(key) {
+function clearCaches() {
+    return caches.keys().then(function (keys) {
+        return Promise.all(keys.filter(function (key) {
             return key.indexOf(self.CACHE) !== 0;
-        }).map(function(key) { 
+        }).map(function (key) {
             return caches.delete(key);
         }));
     });
@@ -201,12 +199,18 @@ function clearCaches() {
  * handled by the cache.
  *
  * @private
- * @param {Object} request - The event's request
+ * @param {object} request - The event's request
  * @returns {boolean}
  */
 function isHandledByServiceWorker(request) {
     // Prevent caching for form post requests
     if (request.method === 'POST') {
+        return false;
+    }
+
+    // Browser extensions could make requests which can cause the service worker to
+    // break because it's no http request (like chrome-extension://xyz.)
+    if (!request.url.includes('http')) {
         return false;
     }
 
@@ -227,11 +231,12 @@ function isHandledByServiceWorker(request) {
  * Listen to fetch requests. Try to read from cache, if this fails
  * load resource from network and store result additionaly in cache.
  *
- * @param {Object} event - Service worker event
+ * @param {object} event - Service worker event
  * @returns {void}
  */
+/* eslint-disable-next-line consistent-return */
 function onFetch(event) {
-    const request = event.request;
+    const { request } = event;
     const acceptHeader = request.headers.get('Accept');
 
     if (isHandledByServiceWorker(request)) {
@@ -256,7 +261,7 @@ function onFetch(event) {
 /**
  * Listen to install event. Store critical assets in cache.
  *
- * @param {Object} event - Service worker event
+ * @param {object} event - Service worker event
  * @returns {void}
  */
 function onInstall(event) {
@@ -268,13 +273,13 @@ function onInstall(event) {
 /**
  * Listen to activate event. Clear old caches after activation.
  *
- * @param {Object} event - Service worker event
+ * @param {object} event - Service worker event
  * @returns {void}
  */
 function onActivate(event) {
     return event.waitUntil(
-        clearCaches().then(function () { 
-            return self.clients.claim(); 
+        clearCaches().then(function () {
+            return self.clients.claim();
         })
     );
 }
@@ -283,7 +288,7 @@ function onActivate(event) {
  * Listen to message event. Used to pass data from client
  * to the worker environment.
  *
- * @param {Object} event - Service worker event
+ * @param {object} event - Service worker event
  * @returns {void}
  */
 function onMessage(event) {

@@ -1,4 +1,4 @@
-/* eslint-disable func-names*/
+/* eslint-disable func-names */
 import { SEARCH_CHANGE_TERM } from '../constants';
 import { changeSearchTerm } from '../actions';
 

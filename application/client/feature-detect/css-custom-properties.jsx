@@ -10,7 +10,7 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import { isBrowser } from  '../../common/utils/environment';
+import { isBrowser } from '../../common/utils/environment';
 
 /**
  * Test if browser supports css custom properties.

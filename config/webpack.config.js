@@ -3,8 +3,8 @@
  * Configuration file for webpack, which is a static module bundler for modern
  * JavaScript applications.
  *
- * 
- * Standard and additional production plugins are added with built-in optimizations 
+ *
+ * Standard and additional production plugins are added with built-in optimizations
  * accordingly when NODE_ENV is set.
  *
  * @file
@@ -20,9 +20,9 @@
  * @changelog
  * - 0.0.1 Basic function and structure
  */
-'use strict';
-
+const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
 
 /**
  * @private
@@ -33,14 +33,22 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const nodeEnv = process.env.NODE_ENV || 'development';
+const nodeEnv = process.env.NODE_ENV || dotenv.config().parsed.NODE_ENV || 'development';
 const isProduction = nodeEnv === 'production';
 const sourcePath = resolve('/../application');
+
+const plugins = [
+    new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(nodeEnv) // it will automatically pick up key values from .env file
+        }
+    })
+];
 
 /**
  * Webpack configuration.
  *
- * @type {Object}
+ * @type {object}
  */
 module.exports = {
     mode: nodeEnv,
@@ -55,10 +63,14 @@ module.exports = {
         'service-worker': './client/service-worker.jsx'
     },
     output: {
-        path: __dirname + '/../build/public/',
+        path: `${__dirname}/../build/public/`,
         filename: '[name].bundle.js'
     },
     resolve: {
+        alias: {
+            // @see {@link https://medium.com/@sanchit3b/how-to-polyfill-node-core-modules-in-webpack-5-905c1f5504a0}
+            process: 'process/browser'
+        },
         extensions: [
             '.js',
             '.json',
@@ -68,11 +80,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.(js|jsx)$/,
+                exclude: [
+                    /node_modules/,
+                    `${__dirname}/../build/`
+                ],
                 use: [{
                     loader: 'babel-loader'
                 }]
             }
         ]
-    }
+    },
+    plugins
 };

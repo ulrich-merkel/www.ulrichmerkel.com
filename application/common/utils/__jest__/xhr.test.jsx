@@ -13,7 +13,7 @@ const data = {
 
 describe('common/utils/xhr', function () {
 
-    // @TODO: Check if nock is working as expected
+    // @TODO Check if nock is working as expected
     // Use correct async handling for jest
     afterEach(function () {
         nock.cleanAll();

@@ -38,7 +38,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {string} [props.classNameLabel] - The component label child css class names, will be merged into component default classNames
@@ -108,6 +108,7 @@ function ElementButton(props) {
         : null;
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={componentClassName}
             type={htmlElementType}
@@ -122,12 +123,11 @@ function ElementButton(props) {
     );
 }
 
-
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementButton.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -151,7 +151,7 @@ ElementButton.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementButton.defaultProps = {
     htmlElement: 'button',

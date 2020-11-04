@@ -2,7 +2,8 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Minify images to improve page load times.
- * @TODO: Take share images also into account, not just content images - walk recursively
+ *
+ * @TODO Take share images also into account, not just content images - walk recursively
  * through given source folder and check argv.f is working as expected
  *
  * @file

@@ -31,7 +31,7 @@ import Button from '../../element/button';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModuleKeyVisualButton(props) {
@@ -68,7 +68,7 @@ function ModuleKeyVisualButton(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline=''] - The button title content
  * @property {string} [lead=''] - The button label content
  * @property {Function} [onClick=Function.prototype] - The button onclick handler
@@ -83,7 +83,7 @@ ModuleKeyVisualButton.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleKeyVisualButton.propTypes
  */
 ModuleKeyVisualButton.defaultProps = {

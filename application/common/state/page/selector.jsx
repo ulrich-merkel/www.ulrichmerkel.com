@@ -21,7 +21,7 @@ import { createSelector } from 'reselect';
  * Select page state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
+ * @param {object} state - The current redux state
  * @returns {string} The intl locale state
  */
 const selectStatePage = createSelector(

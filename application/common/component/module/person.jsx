@@ -10,7 +10,7 @@
 * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
 * @version 0.0.3
 *
-* @TODO: Find better mapping solution to prevent unnecessary rendering
+* @TODO Find better mapping solution to prevent unnecessary rendering
 *
 * @requires react
 @requires prop-types
@@ -35,7 +35,7 @@ import P from '../element/paragraph';
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function ModulePerson(props) {
@@ -91,7 +91,7 @@ function ModulePerson(props) {
                 <P className='m-person__email'>
                     <abbr title='E-Mail address'>
                         E.
-                    </abbr> 
+                    </abbr>
                     {' '}
                     <a href={`mailto:${content.email}`} itemProp='email'>
                         {content.email}
@@ -102,7 +102,7 @@ function ModulePerson(props) {
                 <P className='m-person__phone'>
                     <abbr title='Phonenumber'>
                         P.
-                    </abbr> 
+                    </abbr>
                     {' '}
                     <a href={`tel:${content.phoneNumbers}`} itemProp='telephone'>
                         {content.phone}
@@ -113,7 +113,7 @@ function ModulePerson(props) {
                 <P className='m-person__website'>
                     <abbr title='Website'>
                         W.
-                    </abbr> 
+                    </abbr>
                     {' '}
                     <a href={`${content.website}`}>
                         {content.website}
@@ -129,13 +129,13 @@ function ModulePerson(props) {
 * Validate props via React.PropTypes helpers.
 *
 * @static
-* @type {Object}
+* @type {object}
 * @property {string} [componentType='div'] - The component element type used for React.createElement
 * @property {string} [className] - The component css class names - will be merged into component default classNames
 * @property {boolean} [isCentered=true] - Whether the component text should be centered via css or not
 * @property {string} [itemType='http://schema.org/Person'] - The schema.org itemtype url attribute
 * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
-* @property {Object} [content={}] - The component translation config
+* @property {object} [content={}] - The component translation config
 */
 ModulePerson.propTypes = {
     componentType: PropTypes.string,
@@ -151,7 +151,7 @@ ModulePerson.propTypes = {
         locality: PropTypes.string,
         email: PropTypes.string,
         phone: PropTypes.string,
-        phoneNumber: PropTypes.string,
+        phoneNumbers: PropTypes.string,
         website: PropTypes.string
     })
     /* eslint-enable react/no-unused-prop-types, react/require-default-props */
@@ -161,7 +161,7 @@ ModulePerson.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModulePerson.propTypes
  */
 ModulePerson.defaultProps = {

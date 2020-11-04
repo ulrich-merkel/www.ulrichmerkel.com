@@ -23,7 +23,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {string} [props.fallbackClassName] - The falllback element css class names
  * @param {string} [props.htmlElement='progress'] - The component element type used for React.createElement
@@ -57,6 +57,7 @@ function ElementProgress(props) {
         <ComponentType
             className={composedClassName}
             {...{ id, max, value }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
             <span className={composedFallbackClassName} id={`${id}__fallback`} />
@@ -68,7 +69,7 @@ function ElementProgress(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementProgress.propTypes = {
     className: string,
@@ -83,7 +84,7 @@ ElementProgress.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementProgress.defaultProps = {
     className: '',

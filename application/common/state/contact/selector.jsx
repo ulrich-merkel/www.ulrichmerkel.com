@@ -21,8 +21,8 @@ import { createSelector } from 'reselect';
  * Select contact state from redux store.
  *
  * @function
- * @param {Object} state - The current redux state
- * @returns {Object} The contact state if found or en empty object
+ * @param {object} state - The current redux state
+ * @returns {object} The contact state if found or en empty object
  */
 const selectStateContact = createSelector(
     [

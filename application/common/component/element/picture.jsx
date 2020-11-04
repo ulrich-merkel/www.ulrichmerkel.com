@@ -35,7 +35,7 @@ const noop = Function.prototype;
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} [props.alt=''] - The image description
  * @property {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
@@ -45,7 +45,7 @@ const noop = Function.prototype;
  * @property {string} [props.path=''] - The image path (folder)
  * @property {Function} [props.pictureRef=noop] - Custom callback to get the img dom node
  * @property {string} [props.placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
- * @property {Array.<Object>} [props.sizes='[]'] - The responsive sizes config
+ * @property {Array.<object>} [props.sizes='[]'] - The responsive sizes config
  */
 class ElementPicture extends Component {
 
@@ -85,6 +85,7 @@ class ElementPicture extends Component {
                 itemScope
                 itemType='http://schema.org/ImageObject'
                 ref={pictureRef}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             >
                 {sizes && sizes.map((value) => {
@@ -126,7 +127,7 @@ class ElementPicture extends Component {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementPicture.propTypes = {
     alt: PropTypes.string,
@@ -164,7 +165,7 @@ ElementPicture.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ElementPicture.defaultProps = {
     alt: '',

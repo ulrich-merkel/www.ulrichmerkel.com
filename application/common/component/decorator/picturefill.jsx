@@ -59,7 +59,7 @@ function pictureFill(SourceComponent) {
      * Wrapper class to call initPicturefill on mount and on updates.
      *
      * @class
-     * @extends React.Component
+     * @augments React.Component
      */
     return class PictureFill extends Component {
 
@@ -89,6 +89,7 @@ function pictureFill(SourceComponent) {
          * @returns {ReactElement} React component markup
          */
         render() {
+            // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
 

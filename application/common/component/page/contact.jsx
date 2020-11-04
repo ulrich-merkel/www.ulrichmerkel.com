@@ -42,7 +42,7 @@ import ModuleFormContact from '../module/form/contact'; // eslint-disable-line i
  * Function representing a component to return a single react child element.
  *
  * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 function PageContact(props) {
@@ -66,9 +66,9 @@ function PageContact(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
- * @property {Object} [content={}] - The component translation config
- * @property {Object} [params={}] - The the router params config
+ * @type {object}
+ * @property {object} [content={}] - The component translation config
+ * @property {object} [params={}] - The the router params config
  */
 PageContact.propTypes = {
     content: PropTypes.objectOf(PropTypes.oneOfType([
@@ -88,7 +88,7 @@ PageContact.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see PageContact.propTypes
  */
 PageContact.defaultProps = {

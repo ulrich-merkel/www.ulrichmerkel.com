@@ -32,8 +32,8 @@ import { getContentSection } from '../../utils/content';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
- * @param {Object} [props.content={}] - The component content config
+ * @param {object} [props] - The current component props
+ * @param {object} [props.content={}] - The component content config
  * @returns {ReactElement} React component markup
  */
 function LayoutLoader(props) {
@@ -64,7 +64,7 @@ function LayoutLoader(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutLoader.propTypes = {
     content: PropTypes.shape({
@@ -78,7 +78,7 @@ LayoutLoader.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutLoader.defaultProps = {
     content: {}
