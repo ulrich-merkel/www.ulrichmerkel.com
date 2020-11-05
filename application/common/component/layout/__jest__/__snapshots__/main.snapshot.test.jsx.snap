@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component/layout/main Snapshot should render correctly 1`] = `
+exports[`LayoutMain should render correctly 1`] = `
 <main
   className="l-main"
   itemProp="mainContentOfPage"

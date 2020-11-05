@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="is-main m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h1
+                class="is-centered c-type--h1 m-article__headline"
+                itemprop="headline"
+              >
+                Oops - Page not found
+              </h1>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  We can't find the page you are looking for
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              />
+              <p
+                class="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  aria-current="page"
+                  class="c-btn active"
+                  href="/"
+                  role="button"
+                  title="Go to startpage"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    Back to startpage
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="Oops - Page not found"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

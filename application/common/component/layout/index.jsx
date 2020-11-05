@@ -18,4 +18,3 @@ export { default as LayoutFooter } from './footer';
 export { default as LayoutHeader } from './header';
 export { default as LayoutHtml } from './html';
 export { default as LayoutLoader } from './loader';
-export { default as LayoutMain } from './main';

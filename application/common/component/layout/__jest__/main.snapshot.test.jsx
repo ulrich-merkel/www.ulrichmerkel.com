@@ -1,15 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies, func-names */
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentToBeTested from '../main';
+import { LayoutMain } from '../main';
 
-describe('component/layout/main', function () {
-    describe('Snapshot', function () {
-        it('should render correctly', function () {
-            const tree = renderer
-                .create(<ComponentToBeTested>Hello</ComponentToBeTested>)
-                .toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+describe('LayoutMain', function () {
+    it('should render correctly', function () {
+        const tree = renderer.create(<LayoutMain>Hello</LayoutMain>).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 });

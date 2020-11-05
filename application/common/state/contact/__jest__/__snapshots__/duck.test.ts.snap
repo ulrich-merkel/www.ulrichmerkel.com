@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducer should react to an action with the type csrf/CHANGE_CONTACT_FORM 1`] = `
+exports[`reducer should react to an action with the type contact/CHANGE_CONTACT_FORM 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,
@@ -11,13 +11,13 @@ Object {
 }
 `;
 
-exports[`reducer should return the current state if csrf/CHANGE_CONTACT_FORM payload is empty 1`] = `
+exports[`reducer should return the current state if contact/CHANGE_CONTACT_FORM payload is empty 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,
   },
   "payload": Object {
-    "form": "",
+    "form": Object {},
   },
 }
 `;

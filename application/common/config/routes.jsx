@@ -30,18 +30,16 @@
  */
 import { url } from './application';
 import LayoutBody from '../component/layout/body'; // eslint-disable-line import/no-named-as-default
-import {
-    PageHome,
-    PageWork,
-    PagePersona,
-    PageContact,
-    PageDisclaimer,
-    PagePrivacy,
-    PageImprint,
-    PageBroadcast,
-    PageSearch,
-    PageNotFound
-} from '../component/page';
+import { PageBroadcast } from '../component/page/broadcast';
+import { PageContact } from '../component/page/contact';
+import { PageDisclaimer } from '../component/page/disclaimer';
+import { PageHome } from '../component/page/home';
+import { PageWork } from '../component/page/work';
+import { PagePersona } from '../component/page/persona';
+import { PagePrivacy } from '../component/page/privacy';
+import { PageImprint } from '../component/page/imprint';
+import { PageSearch } from '../component/page/search';
+import { PageNotFound } from '../component/page/not-found';
 
 const childRoutes = [
     {

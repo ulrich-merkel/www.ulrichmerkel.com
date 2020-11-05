@@ -17,7 +17,7 @@ module.exports = {
     moduleDirectories: [
         'node_modules' // This is required
     ],
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     coverageDirectory: '<rootDir>/report/',
     coverageThreshold: {
         global: {

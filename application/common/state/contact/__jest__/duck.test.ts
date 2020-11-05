@@ -4,7 +4,7 @@ import {
     initialState,
     CHANGE_CONTACT_FORM,
     CONTACT_RESOURCE_NAME,
-    reducerCsrf,
+    reducerContact,
     reducer
 } from '../duck';
 
@@ -39,9 +39,9 @@ describe('reducer', function () {
     });
 });
 
-describe('reducerCsrf', function () {
+describe('reducerContact', function () {
     it(`should have a key of ${CONTACT_RESOURCE_NAME}`, function () {
-        expect(reducerCsrf).toEqual(
+        expect(reducerContact).toEqual(
             expect.objectContaining({
                 [CONTACT_RESOURCE_NAME]: reducer
             })

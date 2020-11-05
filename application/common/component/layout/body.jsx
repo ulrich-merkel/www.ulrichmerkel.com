@@ -53,7 +53,7 @@ import LayoutFooter from './footer';
 import LayoutTheme from './theme';
 import LayoutLoader from './loader';
 import LayoutDialogConnected from './dialog';
-import PageBroadcast from '../page/broadcast';
+import { PageBroadcast } from '../page/broadcast';
 import PageSearch from '../page/search';
 import PageTheme from '../page/theme';
 

@@ -8,16 +8,14 @@
 import {
     CONFIG_CONTENT_ADD,
     CONFIG_TRANSLATION_ADD
-    // FETCH_CONFIG_CONTENT_REQUEST,
-    // FETCH_CONFIG_CONTENT_SUCCESS,
-    // FETCH_CONFIG_TRANSLATION_REQUEST,
-    // FETCH_CONFIG_TRANSLATION_SUCCESS
-} from '../constants';
-import {
     addConfigContent,
     initialState,
     reducer,
     addConfigTranslation
+     // FETCH_CONFIG_CONTENT_REQUEST,
+    // FETCH_CONFIG_CONTENT_SUCCESS,
+    // FETCH_CONFIG_TRANSLATION_REQUEST,
+    // FETCH_CONFIG_TRANSLATION_SUCCESS
     // fetchConfigContentIfNeeded,
     // fetchConfigTranslationIfNeeded
 } from '../duck';

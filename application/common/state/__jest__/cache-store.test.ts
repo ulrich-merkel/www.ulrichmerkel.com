@@ -20,7 +20,7 @@ import { WebStorage } from '../../utils/web-storage';
 
 const webStorage = new WebStorage();
 
-describe('common/state/cache-store', function () {
+describe('cache-store', function () {
     it('should save and load a state', function () {
         const state = { foo: 'bar' };
         saveState(state);

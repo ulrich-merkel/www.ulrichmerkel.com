@@ -22,19 +22,17 @@ import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
 import { LayoutBody } from './layout';
-import {
-    PageBroadcast,
-    PageContact,
-    PageDisclaimer,
-    PageHome,
-    PageImprint,
-    PageNotFound,
-    PagePersona,
-    PagePrivacy,
-    PageSearch,
-    PageTheme,
-    PageWork
-} from './page';
+import { PageBroadcast } from './page/broadcast';
+import { PageContact } from './page/contact';
+import { PageDisclaimer } from './page/disclaimer';
+import { PageHome } from './page/home';
+import { PageImprint } from './page/imprint';
+import { PageNotFound } from './page/not-found';
+import { PagePersona } from './page/persona';
+import { PagePrivacy } from './page/privacy';
+import { PageSearch } from './page/search';
+import { PageTheme } from './page/theme';
+import { PageWork } from './page/work';
 
 /**
  * Handling routes and wrap content in a layout.

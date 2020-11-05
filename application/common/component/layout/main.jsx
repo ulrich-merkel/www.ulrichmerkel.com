@@ -29,7 +29,7 @@ import PropTypes from 'prop-types';
  * @param {Array|string} [props.children] - The component react children
  * @returns {ReactElement} React component markup
  */
-function LayoutMain(props) {
+export function LayoutMain(props) {
     const { children } = props;
 
     return (
@@ -48,5 +48,3 @@ function LayoutMain(props) {
 LayoutMain.propTypes = {
     children: PropTypes.node // eslint-disable-line react/require-default-props
 };
-
-export default LayoutMain;
