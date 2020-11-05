@@ -23,7 +23,7 @@ import fetch from 'isomorphic-fetch';
 import { host, port } from '../config/application';
 import { isNode } from './environment';
 
-const XHR_DEFAULT_HEADERS = {
+export const XHR_DEFAULT_HEADERS = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest'
@@ -52,12 +52,11 @@ function checkStatus(response) {
 /**
  * Simple wrapper around the fetch function.
  *
- * @function
  * @param {string} url - The xhr request url
  * @param {object} [options={}] - The fetch options
  * @returns {object} Promise
  */
-function xhr(url, options = {}) {
+export function xhr(url, options = {}) {
     const fetchOptions = {
         method: 'POST',
         mode: 'same-origin',
@@ -80,7 +79,3 @@ function xhr(url, options = {}) {
             .catch(reject);
     });
 }
-
-export default xhr;
-
-export { XHR_DEFAULT_HEADERS };

@@ -17,9 +17,9 @@
  * @changelog
  * - 0.0.1 basic functions and structure
  */
-import configApplication from '../config/application';
-import xor from '../utils/xor';
-import logger from '../utils/logger';
+import { configApplication } from '../config/application';
+import { decrypt, encrypt } from '../utils/xor';
+import { logger } from '../utils/logger';
 import WebStorage from '../utils/web-storage';
 
 const webStorage = new WebStorage();
@@ -47,7 +47,7 @@ function loadState() {
      */
     try {
         return JSON.parse(
-            xorUse ? xor.decrypt(serializedState, xorKey) : serializedState
+            xorUse ? decrypt(serializedState, xorKey) : serializedState
         );
     } catch (reason) {
         logger.warn(reason);
@@ -65,9 +65,7 @@ function loadState() {
 function saveState(state) {
     webStorage.save(
         stateKey,
-        xorUse
-            ? xor.encrypt(JSON.stringify(state), xorKey)
-            : JSON.stringify(state)
+        xorUse ? encrypt(JSON.stringify(state), xorKey) : JSON.stringify(state)
     );
 }
 

@@ -1,7 +1,7 @@
 /* eslint-disable func-names, promise/no-callback-in-promise */
 import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
 
-import xhr from '../xhr';
+import { xhr } from '../xhr';
 import { host, port } from '../../config/application';
 
 const data = {
@@ -11,7 +11,7 @@ const data = {
     }
 };
 
-describe('common/utils/xhr', function () {
+describe('xhr', function () {
     // @TODO Check if nock is working as expected
     // Use correct async handling for jest
     afterEach(function () {

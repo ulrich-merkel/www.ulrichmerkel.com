@@ -26,9 +26,9 @@
 import nodemailer from 'nodemailer';
 import assert from 'assert-plus';
 
-import configApplication, { url } from '../../common/config/application';
-import logger from '../../common/utils/logger';
-import xor from '../../common/utils/xor';
+import { configApplication, url } from '../../common/config/application';
+import { logger } from '../../common/utils/logger';
+import { decrypt } from '../../common/utils/xor';
 import { isValid } from '../../common/state/contact/utils';
 
 const xorUse = configApplication.xor.use;
@@ -111,7 +111,7 @@ function middlewarePost(req, res) {
     // use req.xhr flag to determine if data is (maybe) xor encoded
     if (req.xhr && postData.data) {
         postData = JSON.parse(
-            xorUse ? xor.decrypt(postData.data, xorKey) : postData.data
+            xorUse ? decrypt(postData.data, xorKey) : postData.data
         );
     }
 

@@ -13,7 +13,7 @@
  * @changelog
  * - 0.0.1 Basic function and structure
  */
-import configApplication from '../config/application';
+import { configApplication } from '../config/application';
 
 /**
  * Get transition config based on page view count.

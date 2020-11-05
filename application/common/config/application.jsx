@@ -36,7 +36,7 @@ const configEnvironment = {
     }
 }[process.env.NODE_ENV || 'development'];
 
-const configApplication = {
+export const configApplication = {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     sessionSecret: process.env.SESSION_SECTRET || 'secret',
@@ -102,7 +102,6 @@ const configApplication = {
     ...configEnvironment
 };
 
-export default configApplication;
 export const { debug } = configApplication;
 export const { url } = configApplication;
 export const { host } = configApplication;

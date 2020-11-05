@@ -29,7 +29,6 @@ const IS_BROWSER = isBrowser();
  * Convert a string to the corresponding base64 string. This method uses the "A-Z",
  * "a-z", "0-9", "+", "/" and "=" characters to encode the string.
  *
- * @function
  * @private
  * @param {string} data - The string to be encoded
  * @returns {string} A String, representing the base-64 encoded string
@@ -55,7 +54,6 @@ function utf8ToBase64(data) {
  * Decode a string to from corresponding base64 string. This method decodes a
  * string of data which has been encoded by the btoa() method.
  *
- * @function
  * @private
  * @param {string} data - The string which has been encoded by the btoa() method
  * @returns {string} A String, representing the decoded string
@@ -75,7 +73,6 @@ function base64ToUtf8(data) {
  *
  * @see {@link https://en.wikipedia.org/wiki/XOR_cipher}
  *
- * @function
  * @private
  * @param {string} data - The string to be crypted
  * @param {string} key - The password phrase used for crypt
@@ -102,12 +99,11 @@ function xorEncode(data, key) {
 /**
  * Encrypt data string.
  *
- * @function
  * @param {string} data - The string to be encrypted
  * @param {string} key - The password phrase used for crypt
  * @returns {string}
  */
-function encrypt(data, key) {
+export function encrypt(data, key) {
     if (!data || !key) {
         return data;
     }
@@ -117,19 +113,13 @@ function encrypt(data, key) {
 /**
  * Decrypt data string.
  *
- * @function
  * @param {string} data - The string to be decrypted
  * @param {string} key - The password phrase used for crypt
  * @returns {string}
  */
-function decrypt(data, key) {
+export function decrypt(data, key) {
     if (!data || !key) {
         return data;
     }
     return xorEncode(base64ToUtf8(data), key);
 }
-
-export default {
-    encrypt,
-    decrypt
-};

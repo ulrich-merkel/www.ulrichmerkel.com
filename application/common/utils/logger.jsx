@@ -169,4 +169,4 @@ Logger.prototype = {
 const logger = new Logger('Application');
 logger.enable(debug);
 
-export default logger;
+export { logger };

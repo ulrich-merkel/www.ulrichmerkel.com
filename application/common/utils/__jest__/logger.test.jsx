@@ -1,6 +1,6 @@
 /* eslint-disable func-names, import/no-extraneous-dependencies */
 import { stub } from 'sinon';
-import logger from '../logger';
+import { logger } from '../logger';
 
 describe('common/utils/logger', function () {
     logger.enable(true);

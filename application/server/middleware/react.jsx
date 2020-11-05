@@ -42,8 +42,8 @@ import { StaticRouter } from 'react-router';
 import { get } from 'lodash';
 import assert from 'assert-plus';
 
-import configApplication from '../../common/config/application';
-import logger from '../../common/utils/logger';
+import { configApplication } from '../../common/config/application';
+import { logger } from '../../common/utils/logger';
 import { readFile } from '../../common/utils/read-file';
 import Root from '../../common/component/root';
 import Routes from '../../common/component/routes';
@@ -54,7 +54,7 @@ import { selectStateIntlLocale } from '../../common/state/intl/selector';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
-} from '../../common/state/config/actions';
+} from '../../common/state/config/duck';
 import { changeCsrfToken } from '../../common/state/csrf/duck';
 
 const { aboveTheFold } = configApplication;

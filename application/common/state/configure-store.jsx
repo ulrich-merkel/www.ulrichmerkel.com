@@ -39,8 +39,12 @@ import { debug } from '../config/application';
 import { isBrowser } from '../utils/environment';
 import { loadState, saveState } from './cache-store';
 import { reducerColorScheme } from './color-scheme/duck';
-import config from './config/reducer';
-import contact from './contact/reducer';
+import {
+    reducerConfig,
+    fetchConfigContentIfNeeded,
+    fetchConfigTranslationIfNeeded
+} from './config/duck';
+import { reducerContact } from './contact/duck';
 import { reducerCsrf } from './csrf/duck';
 import { reducerDialog } from './dialog/duck';
 import { reducerIntl } from './intl/duck';
@@ -48,10 +52,6 @@ import { selectStateIntlLocale } from './intl/selector';
 import { reducerPage } from './page/duck';
 import { reducerScroll } from './scroll/duck';
 import { reducerSearch } from './search/duck';
-import {
-    fetchConfigContentIfNeeded,
-    fetchConfigTranslationIfNeeded
-} from './config/actions';
 
 /**
  * Creating the single application store.
@@ -68,8 +68,8 @@ import {
  */
 const reducers = combineReducers({
     ...reducerColorScheme,
-    config,
-    contact,
+    ...reducerConfig,
+    ...reducerContact,
     ...reducerCsrf,
     ...reducerDialog,
     ...reducerIntl,

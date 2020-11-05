@@ -45,12 +45,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { has } from 'lodash';
 
-import configApplication, { url } from '../../../config/application';
+import { configApplication, url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
-import xor from '../../../utils/xor';
-import logger from '../../../utils/logger';
+import { encrypt } from '../../../utils/xor';
+import { logger } from '../../../utils/logger';
 import scrollTo from '../../../utils/scroll-to';
-import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
+import { xhr, XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContactForm } from '../../../state/contact/selector';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';
 import { changeContactForm } from '../../../state/contact/duck';
@@ -118,7 +118,7 @@ function scrollToTextMessage(textMessage) {
  */
 function send(data, csrfToken = '') {
     const bodyData = xorUse
-        ? xor.encrypt(JSON.stringify(data), xorKey)
+        ? encrypt(JSON.stringify(data), xorKey)
         : JSON.stringify(data);
 
     const xhrData = {

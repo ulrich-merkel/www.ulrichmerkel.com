@@ -21,7 +21,7 @@
  * - 0.0.1 Basic functions and structure
  */
 import { debug } from '../../common/config/application';
-import logger from '../../common/utils/logger';
+import { logger } from '../../common/utils/logger';
 import { isBrowser } from '../../common/utils/environment';
 import {
     displayProgress,

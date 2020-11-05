@@ -70,7 +70,7 @@ import assert from 'assert-plus';
 import hostValidation from 'host-validation';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
-import logger from '../common/utils/logger';
+import { logger } from '../common/utils/logger';
 import { AVAILABLE_LOCALES } from '../common/state/intl/duck';
 import middlewarePost from './middleware/post';
 import middlewareError from './middleware/error';

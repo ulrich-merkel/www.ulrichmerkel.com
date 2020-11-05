@@ -27,7 +27,7 @@
  * - 0.0.2 Improve bypass handling
  * - 0.0.1 Basic functions and structure
  */
-import configApplication from '../common/config/application';
+import { configApplication } from '../common/config/application';
 import { getDateNow } from '../common/utils/date';
 
 const configApplicationCache = configApplication.applicationCache;

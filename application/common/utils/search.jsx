@@ -1,7 +1,7 @@
 /* eslint-disable  no-use-before-define */
 import { get, isArray, isObject, isString, isEmpty } from 'lodash';
 import { url } from '../config/application';
-import logger from './logger';
+import { logger } from './logger';
 
 const PAGES = {
     PageHome: url.home,

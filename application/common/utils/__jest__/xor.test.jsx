@@ -1,14 +1,14 @@
 /* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
-import xor from '../xor';
+import { decrypt, encrypt } from '../xor';
 
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';
 const key = 'abcDEFG1234=%#!§$';
 
-describe('common/utils/xor', function () {
+describe('xor', function () {
     let dataEncrypted = null;
 
     beforeEach(function () {
-        dataEncrypted = xor.encrypt(data, key);
+        dataEncrypted = encrypt(data, key);
     });
 
     afterEach(function () {
@@ -20,15 +20,15 @@ describe('common/utils/xor', function () {
             expect(dataEncrypted).not.toEqual(data);
         });
         it('should decrypt data correctly', function handleIt() {
-            expect(xor.decrypt(dataEncrypted, key)).toEqual(data);
+            expect(decrypt(dataEncrypted, key)).toEqual(data);
         });
         it('should encrypt nothing if data is empty', function handleIt() {
-            expect(xor.encrypt('', key)).toEqual('');
-            expect(xor.decrypt('', key)).toEqual('');
+            expect(encrypt('', key)).toEqual('');
+            expect(decrypt('', key)).toEqual('');
         });
         it('should encrypt nothing if key is empty', function handleIt() {
-            expect(xor.encrypt(data, '')).toEqual(data);
-            expect(xor.decrypt(data, '')).toEqual(data);
+            expect(encrypt(data, '')).toEqual(data);
+            expect(decrypt(data, '')).toEqual(data);
         });
     });
 
@@ -40,15 +40,15 @@ describe('common/utils/xor', function () {
             expect(dataEncrypted).not.toEqual(data);
         });
         it('should decrypt data correctly', function () {
-            expect(xor.decrypt(dataEncrypted, key)).toEqual(data);
+            expect(decrypt(dataEncrypted, key)).toEqual(data);
         });
         it('should encrypt nothing if data is empty', function () {
-            expect(xor.encrypt('', key)).toEqual('');
-            expect(xor.decrypt('', key)).toEqual('');
+            expect(encrypt('', key)).toEqual('');
+            expect(decrypt('', key)).toEqual('');
         });
         it('should encrypt nothing if key is empty', function () {
-            expect(xor.encrypt(data, '')).toEqual(data);
-            expect(xor.decrypt(data, '')).toEqual(data);
+            expect(encrypt(data, '')).toEqual(data);
+            expect(decrypt(data, '')).toEqual(data);
         });
     });
 });

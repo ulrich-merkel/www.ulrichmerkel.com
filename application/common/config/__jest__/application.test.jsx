@@ -1,6 +1,7 @@
 /* eslint-disable func-names */
 import { isNumber, isString } from 'lodash';
-import configApplication, {
+import {
+    configApplication,
     port,
     host,
     sessionSecret,
