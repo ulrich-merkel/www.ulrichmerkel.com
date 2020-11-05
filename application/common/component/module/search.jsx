@@ -36,12 +36,9 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import shortid from 'shortid';
 import { get } from 'lodash';
-
-import {
-    selectStateIntlLocale,
-    selectStateSearchTerm,
-    selectStateConfig
-} from '../../state/selectors';
+import { selectStateIntlLocale } from '../../state/intl/selector';
+import { selectStateSearchTerm } from '../../state/search/selector';
+import { selectStateConfig } from '../../state/config/selector';
 import { changeDialogVisibleSearch } from '../../state/actions';
 import { getContentSection } from '../../utils/content';
 import { findMatches } from '../../utils/search';

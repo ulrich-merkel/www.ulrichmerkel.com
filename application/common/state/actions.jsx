@@ -11,6 +11,5 @@
  * - 0.0.1 Basic functions and structure
  */
 export * from './dialog/actions';
-export * from './intl/actions';
 export * from './search/actions';
 export * from './theme/actions';

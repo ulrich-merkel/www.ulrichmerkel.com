@@ -36,7 +36,7 @@ import Helmet from 'react-helmet';
 import { get, omit } from 'lodash';
 import serialize from 'serialize-javascript';
 
-import { selectStateIntlLocale } from '../../state/selectors';
+import { selectStateIntlLocale } from '../../state/intl/selector';
 import configApplication, { url, csp } from '../../config/application';
 import { getNonceConfig, getCspRules } from '../../utils/csp';
 

@@ -44,8 +44,8 @@ function addPageTracking(SourceComponent) {
          *
          * @returns {void}
          */
+        // eslint-disable-next-line camelcase
         UNSAFE_componentWillMount() {
-            // eslint-disable-line camelcase
             // eslint-disable-next-line react/destructuring-assignment
             this.props.handleAddPageView();
         }
@@ -67,8 +67,8 @@ function addPageTracking(SourceComponent) {
      * @static
      * @type {object}
      */
+    // eslint-disable-next-line immutable/no-mutation
     AddPageTracking.propTypes = {
-        // eslint-disable-line immutable/no-mutation
         handleAddPageView: PropTypes.func.isRequired
     };
 

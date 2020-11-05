@@ -10,12 +10,12 @@ describe('selectStateScrollIsHeaderFixed', function () {
         const state = {
             [SCROLL_RESOURCE_NAME]: {
                 payload: {
-                    headerFixed: true
+                    isHeaderFixed: true
                 }
             }
         };
         expect(selectStateScrollIsHeaderFixed(state)).toEqual(
-            state.scroll.payload.headerFixed
+            state[SCROLL_RESOURCE_NAME].payload.isHeaderFixed
         );
     });
     it("should return a boolean if state isn't found", function () {
@@ -25,7 +25,7 @@ describe('selectStateScrollIsHeaderFixed', function () {
             }
         };
         expect(selectStateScrollIsHeaderFixed(state)).toEqual(
-            initialState.payload.headerFixed
+            initialState.payload.isHeaderFixed
         );
     });
 });
@@ -35,12 +35,12 @@ describe('selectStateScrollIsHeaderVisible', function () {
         const state = {
             [SCROLL_RESOURCE_NAME]: {
                 payload: {
-                    headerVisible: true
+                    isHeaderVisible: true
                 }
             }
         };
         expect(selectStateScrollIsHeaderVisible(state)).toEqual(
-            state.scroll.payload.headerVisible
+            state[SCROLL_RESOURCE_NAME].payload.isHeaderVisible
         );
     });
     it("should return a boolean if state isn't found", function () {
@@ -50,7 +50,7 @@ describe('selectStateScrollIsHeaderVisible', function () {
             }
         };
         expect(selectStateScrollIsHeaderVisible(state)).toEqual(
-            initialState.payload.headerVisible
+            initialState.payload.isHeaderVisible
         );
     });
 });

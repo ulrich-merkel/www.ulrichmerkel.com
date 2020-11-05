@@ -45,14 +45,16 @@ const runMethod = argv.run || 'test';
  * @returns {object} - The ready-to-use server
  */
 function getTranspiledServer() {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (!fs.existsSync(path.resolve(__dirname, serverFile))) {
-        // eslint-disable-line security/detect-non-literal-fs-filename
         console.error(
             chalk.red('Build this project before running this script!')
         );
         process.exit(1);
     }
-    return require(serverFile).default; // eslint-disable-line global-require, security/detect-non-literal-require
+
+    // eslint-disable-next-line global-require, security/detect-non-literal-require
+    return require(serverFile).default;
 }
 
 // BackstopJS Api method mapping
@@ -231,8 +233,8 @@ class Backstop {
      * @returns {Promise|this}
      */
     open() {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (this.isMethod(METHODS.open)) {
-            // eslint-disable-line security/detect-non-literal-fs-filename
             return this.backstop(this.method);
         }
         return this;

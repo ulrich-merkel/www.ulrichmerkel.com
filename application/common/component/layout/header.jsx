@@ -47,16 +47,21 @@ import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import {
     selectStateIntlLocale,
-    selectStateIntlAvailableLocales,
+    selectStateIntlAvailableLocales
+} from '../../state/intl/selector';
+import {
     selectStateScrollIsHeaderFixed,
     selectStateScrollIsHeaderVisible
-} from '../../state/selectors';
+} from '../../state/scroll/selector';
 import {
-    changeLocale,
+    changeIntlLocale,
+    INTL_LOCALE_EN_EN,
+    INTL_LOCALE_DE_DE
+} from '../../state/intl/duck';
+import {
     changeDialogVisibleSearch,
     changeDialogVisibleTheme
-} from '../../state/actions';
-import { INTL_LOCALE_EN_EN, INTL_LOCALE_DE_DE } from '../../state/constants';
+} from '../../state/dialog/actions';
 import ModuleMenu from '../module/menu';
 import { GridContainer, GridRow, GridCol } from '../grid';
 import { A, Button, Header, Icon, Nav, Progress } from '../element';
@@ -305,7 +310,7 @@ function mapDispatchToProps(dispatch) {
     return {
         handleIntlChangeLocale(event) {
             eventPreventDefault(event);
-            dispatch(changeLocale(get(event, 'target.dataset.locale')));
+            dispatch(changeIntlLocale(get(event, 'target.dataset.locale')));
         },
         handleChangeDialogVisibleSearch(event) {
             eventPreventDefault(event);

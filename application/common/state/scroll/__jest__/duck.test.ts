@@ -14,10 +14,10 @@ describe('changeScrollHeaderFixed', function () {
     it(`should have a type of ${SCROLL_HEADER_FIXED}`, function () {
         expect(changeScrollHeaderFixed().type).toEqual(SCROLL_HEADER_FIXED);
     });
-    it('should pass on the headerFixed value we pass in', function () {
-        const headerFixed = false;
-        expect(changeScrollHeaderFixed(headerFixed).headerFixed).toEqual(
-            headerFixed
+    it('should pass on the isHeaderFixed value we pass in', function () {
+        const isHeaderFixed = false;
+        expect(changeScrollHeaderFixed(isHeaderFixed).isHeaderFixed).toEqual(
+            isHeaderFixed
         );
     });
 });
@@ -26,11 +26,11 @@ describe('changeScrollHeaderVisible', function () {
     it(`should have a type of ${SCROLL_HEADER_VISIBLE}`, function () {
         expect(changeScrollHeaderVisible().type).toEqual(SCROLL_HEADER_VISIBLE);
     });
-    it('should pass on the headerVisible value we pass in', function () {
-        const headerVisible = false;
-        expect(changeScrollHeaderVisible(headerVisible).headerVisible).toEqual(
-            headerVisible
-        );
+    it('should pass on the isHeaderVisible value we pass in', function () {
+        const isHeaderVisible = false;
+        expect(
+            changeScrollHeaderVisible(isHeaderVisible).isHeaderVisible
+        ).toEqual(isHeaderVisible);
     });
 });
 
@@ -42,7 +42,7 @@ describe('reducer', function () {
         expect(
             reducer(undefined, {
                 type: SCROLL_HEADER_FIXED,
-                headerFixed: true
+                isHeaderFixed: true
             })
         ).toMatchSnapshot();
     });
@@ -57,7 +57,7 @@ describe('reducer', function () {
         expect(
             reducer(undefined, {
                 type: SCROLL_HEADER_VISIBLE,
-                headerVisible: false
+                isHeaderVisible: false
             })
         ).toMatchSnapshot();
     });

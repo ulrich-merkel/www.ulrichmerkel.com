@@ -1,4 +1,4 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, promise/no-callback-in-promise */
 import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
 
 import xhr from '../xhr';
@@ -29,7 +29,7 @@ describe('common/utils/xhr', function () {
                 expect(callback).not.toBeCalled();
                 return response;
             })
-            .catch(callback); // eslint-disable-line promise/no-callback-in-promise
+            .catch(callback);
     });
     it('should catch response status errors', function () {
         const callback = jest.fn();
@@ -39,7 +39,6 @@ describe('common/utils/xhr', function () {
         return xhr('/test')
             .then(callback)
             .catch(function () {
-                // eslint-disable-line promise/no-callback-in-promise
                 expect(callback).not.toBeCalled();
             });
     });
@@ -54,6 +53,6 @@ describe('common/utils/xhr', function () {
                 expect(callback).not.toBeCalled();
                 return response;
             })
-            .catch(callback); // eslint-disable-line promise/no-callback-in-promise
+            .catch(callback);
     });
 });

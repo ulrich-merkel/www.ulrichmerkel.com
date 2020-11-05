@@ -42,7 +42,7 @@ import config from './config/reducer';
 import contact from './contact/reducer';
 import csrf from './csrf/reducer';
 import dialog from './dialog/reducer';
-import intl from './intl/reducer';
+import { reducerIntl } from './intl/duck';
 import page from './page/reducer';
 import { reducerScroll } from './scroll/duck';
 import search from './search/reducer';
@@ -70,7 +70,7 @@ const reducers = combineReducers({
     contact,
     csrf,
     dialog,
-    intl,
+    ...reducerIntl,
     page,
     ...reducerScroll,
     search,

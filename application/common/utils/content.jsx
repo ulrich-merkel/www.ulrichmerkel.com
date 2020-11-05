@@ -16,7 +16,7 @@
  */
 import { get, isArray, isObject, isString } from 'lodash';
 
-import { AVAILABLE_LOCALES } from '../state/intl/constants';
+import { AVAILABLE_LOCALES } from '../state/intl/duck';
 
 /**
  * Walk through array

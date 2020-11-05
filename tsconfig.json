@@ -1,13 +1,11 @@
 {
-  "compilerOptions": {
-    // "outDir": "./build/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true
-  },
-    // "include": [
-    //   "./src/**/**/\*"
-    // ]
-  }
+    "compilerOptions": {
+        "allowJs": true,
+        "jsx": "react",
+        "jsxSingleQuote": true,
+        "module": "es6",
+        "noImplicitAny": true,
+        "singleQuote": true,
+        "target": "es5"
+    }
+}

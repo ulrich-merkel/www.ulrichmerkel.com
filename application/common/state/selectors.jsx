@@ -14,7 +14,6 @@ export * from './config/selector';
 export * from './contact/selector';
 export * from './csrf/selector';
 export * from './dialog/selector';
-export * from './intl/selector';
 export * from './page/selector';
 export * from './scroll/selector';
 export * from './search/selector';

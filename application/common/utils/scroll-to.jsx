@@ -171,6 +171,7 @@ function scrollTo(opts = {}) {
     animate({
         render: function stepFunction(time) {
             const top = Math.floor(
+                // eslint-disable-next-line no-mixed-operators
                 scrollTopCurrent + (options.top - scrollTopCurrent) * time
             );
             if (hasWindowScrollTo) {

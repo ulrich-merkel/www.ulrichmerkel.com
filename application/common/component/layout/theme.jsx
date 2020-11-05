@@ -79,8 +79,8 @@ class LayoutTheme extends Component {
  * @static
  * @type {object}
  */
+// eslint-disable-next-line immutable/no-mutation
 LayoutTheme.propTypes = {
-    // eslint-disable-line immutable/no-mutation
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     themeSelected: PropTypes.string
 };
@@ -91,8 +91,8 @@ LayoutTheme.propTypes = {
  * @static
  * @type {object}
  */
+// eslint-disable-next-line immutable/no-mutation
 LayoutTheme.defaultProps = {
-    // eslint-disable-line immutable/no-mutation
     themeSelected: AVAILABLE_THEMES.DEFAULT
 };
 

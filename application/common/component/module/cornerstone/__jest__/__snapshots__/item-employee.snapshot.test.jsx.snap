@@ -38,8 +38,7 @@ exports[`common/component/module/cornerstone/item-employee should render correct
           20161212
         </time>
          
-        -
-         
+        - 
         <time
           className="c-time"
         >
@@ -111,8 +110,7 @@ exports[`common/component/module/cornerstone/item-employee should render cssModi
           20161212
         </time>
          
-        -
-         
+        - 
         <time
           className="c-time"
         >

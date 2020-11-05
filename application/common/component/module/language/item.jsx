@@ -51,10 +51,12 @@ function getCssTransformRotate(percent) {
     }
 
     if (perc <= 50) {
+        // eslint-disable-next-line no-mixed-operators
         deg = Math.round(180 - (perc / 100) * 360);
         left = 'is-hidden';
         right = `is-rotated-${deg}`;
     } else {
+        // eslint-disable-next-line no-mixed-operators
         deg = Math.round(180 - ((perc - 50) / 100) * 360);
         left = `is-rotated-${deg}`;
     }

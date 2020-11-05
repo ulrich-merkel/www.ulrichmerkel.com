@@ -9,9 +9,9 @@ module.exports = {
         jest: true
     },
     extends: [
+        'prettier/@typescript-eslint',
         'airbnb',
         'eslint:recommended',
-        'prettier/@typescript-eslint',
         'plugin:lodash/recommended',
         'plugin:react/recommended',
         'plugin:prettier/recommended'
@@ -38,12 +38,13 @@ module.exports = {
         'react',
         'security',
         'tree-shaking',
-        'xss'
+        'xss',
+        'prettier'
     ],
     settings: {
         'import/resolver': {
             // This loads <rootdir>/tsconfig.json to eslint
-            // Otherwise we should use https://react-typescript-cheatsheet.netlify.app/docs/basic/linting
+            // Otherwise we should use @see {@link https://react-typescript-cheatsheet.netlify.app/docs/basic/linting}
             typescript: {}
         }
     },
@@ -53,7 +54,7 @@ module.exports = {
         'immutable/no-let': 2,
         'immutable/no-this': 0,
         'immutable/no-mutation': 2,
-        indent: ['error', 4],
+        indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
         'import/no-named-default': 0,
         'import/extensions': [
             'error',
@@ -96,7 +97,7 @@ module.exports = {
             }
         ],
         'jsx-a11y/href-no-hash': 'off', // @see {@link https://github.com/facebookincubator/create-react-app/issues/2631}
-        'jsx-quotes': ['error', 'prefer-single'],
+        'jsx-quotes': 0,
         'linebreak-style': ['error', 'unix'],
         'lodash/import-scope': 0,
         'lodash/prefer-noop': 0,
@@ -124,12 +125,8 @@ module.exports = {
         'promise/no-promise-in-callback': 'warn',
         'promise/no-return-wrap': 'error',
         'promise/param-names': 'error',
-        quotes: ['error', 'single'],
+        quotes: 0,
         'react/forbid-prop-types': 1,
-        'react/jsx-fragments': 0,
-        'react/jsx-indent-props': ['error', 4],
-        'react/jsx-indent': [2, 4],
-        'react/jsx-props-no-spreading': 0,
         'react/jsx-curly-brace-presence': [
             'off',
             {
@@ -137,6 +134,11 @@ module.exports = {
                 children: 'ignore'
             }
         ],
+        'react/jsx-fragments': 0,
+        'react/jsx-indent-props': ['error', 4],
+        'react/jsx-indent': [2, 4],
+        'react/jsx-one-expression-per-line': 0,
+        'react/jsx-props-no-spreading': 0,
         'security/detect-buffer-noassert': 2,
         'security/detect-child-process': 2,
         'security/detect-eval-with-expression': 2,

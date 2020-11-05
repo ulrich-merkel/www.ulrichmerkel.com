@@ -71,7 +71,7 @@ import hostValidation from 'host-validation';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import logger from '../common/utils/logger';
-import { AVAILABLE_LOCALES } from '../common/state/intl/constants';
+import { AVAILABLE_LOCALES } from '../common/state/intl/duck';
 import middlewarePost from './middleware/post';
 import middlewareError from './middleware/error';
 import middlewareReact from './middleware/react';
@@ -137,11 +137,8 @@ function create(config = {}, callback = Function.prototype) {
         const morganLogPath = path.resolve(__dirname, options.morganLogPath);
         app.use(
             morgan('combined', {
-                stream: fs.createWriteStream(
-                    // eslint-disable-line security/detect-non-literal-fs-filename
-                    morganLogPath,
-                    { flags: 'a' }
-                )
+                // eslint-disable-next-line security/detect-non-literal-fs-filename
+                stream: fs.createWriteStream(morganLogPath, { flags: 'a' })
             })
         );
     }

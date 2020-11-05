@@ -49,7 +49,8 @@ import Root from '../../common/component/root';
 import Routes from '../../common/component/routes';
 import LayoutHtml from '../../common/component/layout/html';
 import configureStore from '../../common/state/configure-store';
-import { changeLocale } from '../../common/state/intl/actions';
+import { changeIntlLocale } from '../../common/state/intl/duck';
+import { selectStateIntlLocale } from '../../common/state/intl/selector';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
@@ -112,12 +113,12 @@ function getLocale(req, store) {
     // @TODO Read locale from router params
     const urlLocale = get({}, 'router.params.locale', '');
     store.dispatch(
-        changeLocale(
+        changeIntlLocale(
             [urlLocale, urlLocale.toUpperCase()].join('-'),
             req.language
         )
     );
-    const acceptedLocale = get(store.getState(), 'intl.locale');
+    const acceptedLocale = selectStateIntlLocale(store.getState());
 
     return acceptedLocale;
 }

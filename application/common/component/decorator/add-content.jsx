@@ -28,10 +28,8 @@ import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import { getTranslatedContent } from '../../utils/content';
-import {
-    selectStateConfig,
-    selectStateIntlLocale
-} from '../../state/selectors';
+import { selectStateIntlLocale } from '../../state/intl/selector';
+import { selectStateConfig } from '../../state/config/selector';
 
 /**
  * Higher order function to get translation data.
@@ -74,8 +72,8 @@ function addContent(configKey) {
          * @static
          * @type {object}
          */
+        // eslint-disable-next-line immutable/no-mutation
         ReturnedComponent.propTypes = {
-            // eslint-disable-line immutable/no-mutation
             config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
             locale: PropTypes.string.isRequired
         };

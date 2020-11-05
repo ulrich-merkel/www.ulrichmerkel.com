@@ -79,9 +79,8 @@ function ModuleCornerstoneItemEmployee(props) {
                         <time className="c-time" itemProp="startDate">
                             {timeStart}
                         </time>{' '}
-                        - <time className='c-time'>{timeEnd}</time>
-)
-</P>
+                        -<time className="c-time">{timeEnd}</time>)
+                    </P>
                     {description.map((value) => {
                         /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements

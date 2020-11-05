@@ -193,8 +193,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                             2016
                           </time>
                            
-                          -
-                           
+                          - 
                           <time
                             className="c-time"
                           >
@@ -256,8 +255,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                             2011
                           </time>
                            
-                          -
-                           
+                          - 
                           <time
                             className="c-time"
                           >
@@ -321,8 +319,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                             2010
                           </time>
                            
-                          -
-                           
+                          - 
                           <time
                             className="c-time"
                           >
@@ -385,8 +382,7 @@ exports[`common/component/page/persona should render correctly 1`] = `
                             2002
                           </time>
                            
-                          -
-                           
+                          - 
                           <time
                             className="c-time"
                           >

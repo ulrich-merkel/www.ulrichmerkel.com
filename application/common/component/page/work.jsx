@@ -42,10 +42,8 @@ import { get } from 'lodash';
 import { url } from '../../config/application';
 import configWork from '../../config/work';
 import addPageTracking from '../decorator/add-page-tracking';
-import {
-    selectStateConfig,
-    selectStateIntlLocale
-} from '../../state/selectors';
+import { selectStateConfig } from '../../state/config/selector';
+import { selectStateIntlLocale } from '../../state/intl/selector';
 import { getContentSection, getTranslatedContent } from '../../utils/content';
 import LayoutMain from '../layout/main';
 import { SectionFeatured, SectionKeyVisual, SectionText } from '../section';
@@ -103,8 +101,8 @@ class PageWork extends Component {
      * @function
      * @returns {void}
      */
+    // eslint-disable-next-line camelcase
     UNSAFE_componentWillMount() {
-        // eslint-disable-line camelcase
         this.handleRouterParams(this.props);
     }
 
@@ -116,8 +114,8 @@ class PageWork extends Component {
      * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
+    // eslint-disable-next-line camelcase
     UNSAFE_componentWillReceiveProps(nextProps) {
-        // eslint-disable-line camelcase
         this.handleRouterParams(nextProps);
     }
 

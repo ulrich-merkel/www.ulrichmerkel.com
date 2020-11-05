@@ -11,4 +11,3 @@
  * - 0.0.1 Basic functions and structure
  */
 export * from './dialog/constants';
-export * from './intl/constants';
