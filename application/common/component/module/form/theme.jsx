@@ -29,11 +29,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { AVAILABLE_THEMES } from '../../../constants/theme';
-import {
-    selectStateCsrfToken,
-    selectStateThemeSelected
-} from '../../../state/selectors';
-import { changeThemeSelected } from '../../../state/actions';
+import { selectStateCsrfToken } from '../../../state/csrf/selector';
+import { selectStateColorSchemeSelected } from '../../../state/color-scheme/selector';
+import { changeThemeSelected } from '../../../state/color-scheme/duck';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow, GridCol } from '../../grid';
 import { Form, Fieldset, Legend, Button } from '../../element';
@@ -151,7 +149,7 @@ ModuleFormTheme.defaultProps = {
 function mapStateToProps(state) {
     return {
         csrfToken: selectStateCsrfToken(state),
-        themeSelected: selectStateThemeSelected(state)
+        themeSelected: selectStateColorSchemeSelected(state)
     };
 }
 
@@ -171,11 +169,11 @@ function mapDispatchToProps(dispatch) {
     return {
         onchangeThemeSelectedDefault: (event) => {
             eventPreventDefault(event);
-            dispatch(changeThemeSelected('default'));
+            dispatch(changeThemeSelected('light'));
         },
         onchangeThemeSelectedGrey: (event) => {
             eventPreventDefault(event);
-            dispatch(changeThemeSelected('grey'));
+            dispatch(changeThemeSelected('dark'));
         }
     };
 }

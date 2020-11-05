@@ -37,12 +37,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 
-import {
-    selectStateSearchTerm
-} from '../../../state/search/selector';
-import {
-    selectStateCsrfToken
-} from '../../../state/csrf/selector';
+import { selectStateSearchTerm } from '../../../state/search/selector';
+import { selectStateCsrfToken } from '../../../state/csrf/selector';
 import { changeSearchTerm } from '../../../state/search/duck';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow, GridCol } from '../../grid';

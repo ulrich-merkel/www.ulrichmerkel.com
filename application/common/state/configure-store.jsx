@@ -33,20 +33,21 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { omit, get } from 'lodash';
+import { omit } from 'lodash';
 
 import { debug } from '../config/application';
 import { isBrowser } from '../utils/environment';
 import { loadState, saveState } from './cache-store';
+import { reducerColorScheme } from './color-scheme/duck';
 import config from './config/reducer';
 import contact from './contact/reducer';
 import csrf from './csrf/reducer';
 import dialog from './dialog/reducer';
 import { reducerIntl } from './intl/duck';
+import { selectStateIntlLocale } from './intl/selector';
 import page from './page/reducer';
 import { reducerScroll } from './scroll/duck';
 import { reducerSearch } from './search/duck';
-import theme from './theme/reducer';
 import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
@@ -66,6 +67,7 @@ import {
  * @private
  */
 const reducers = combineReducers({
+    ...reducerColorScheme,
     config,
     contact,
     csrf,
@@ -73,8 +75,7 @@ const reducers = combineReducers({
     ...reducerIntl,
     page,
     ...reducerScroll,
-    ...reducerSearch,
-    theme
+    ...reducerSearch
 });
 
 // Neat middleware that logs actions
@@ -114,7 +115,7 @@ function configureStore(preloadedState = {}) {
     // Fetch inital data if not already passed as preloadedState
     store.dispatch(fetchConfigContentIfNeeded());
     store.dispatch(
-        fetchConfigTranslationIfNeeded(get(store.getState(), 'intl.locale'))
+        fetchConfigTranslationIfNeeded(selectStateIntlLocale(store.getState()))
     );
 
     return store;

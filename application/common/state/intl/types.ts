@@ -6,7 +6,7 @@ export interface ChangeIntlActionType {
     fallback: string;
 }
 
-export type ScrollActionTypes = ChangeIntlActionType;
+export type IntlActionTypes = ChangeIntlActionType;
 
 export interface IntlStateType {
     meta: {

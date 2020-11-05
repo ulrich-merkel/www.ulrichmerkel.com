@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import { isBoolean } from 'lodash';
 import { ScrollStateType, ScrollActionTypes } from './types';
 
 /**
@@ -84,11 +85,10 @@ export function reducer(
     switch (action.type) {
         case SCROLL_HEADER_FIXED: {
             const isHeaderFixed =
-                action.isHeaderFixed !== undefined
+                isBoolean(action.isHeaderFixed)
                     ? !!action.isHeaderFixed
                     : initialState.payload.isHeaderFixed;
             return {
-                ...state,
                 meta: {
                     ...state.meta,
                     isInitial: false
@@ -101,11 +101,10 @@ export function reducer(
         }
         case SCROLL_HEADER_VISIBLE: {
             const isHeaderVisible =
-                action.isHeaderVisible !== undefined
+                isBoolean(action.isHeaderVisible)
                     ? !!action.isHeaderVisible
                     : initialState.payload.isHeaderVisible;
             return {
-                ...state,
                 meta: {
                     ...state.meta,
                     isInitial: false

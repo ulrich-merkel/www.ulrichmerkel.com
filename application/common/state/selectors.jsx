@@ -17,4 +17,3 @@ export * from './dialog/selector';
 export * from './page/selector';
 export * from './scroll/selector';
 export * from './search/selector';
-export * from './theme/selector';

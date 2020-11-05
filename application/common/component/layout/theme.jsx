@@ -26,7 +26,7 @@ import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
 import { AVAILABLE_THEMES, THEME_CHANGE_MESSAGE } from '../../constants/theme';
-import { selectStateThemeSelected } from '../../state/theme/selector';
+import { selectStateColorSchemeSelected } from '../../state/color-scheme/selector';
 
 /**
  * Apply theming by added or removed custom css files.
@@ -107,7 +107,7 @@ LayoutTheme.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        themeSelected: selectStateThemeSelected(state)
+        themeSelected: selectStateColorSchemeSelected(state)
     };
 }
 

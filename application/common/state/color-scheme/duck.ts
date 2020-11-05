@@ -10,40 +10,57 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import { isString } from 'lodash';
-import { SearchStateType, SearchActionTypes } from './types';
+import { ChangeThemeSelectedActionType, ColorSchemeActionTypes, ColorSchemeStateType } from './types';
 
 /**
  * @type {string}
  */
-export const SEARCH_RESOURCE_NAME = 'search';
+export const COLOR_SCHEME_RESOURCE_NAME = 'colorScheme';
 
 /**
  * @type {string}
  */
-export const SEARCH_CHANGE_TERM = `${SEARCH_RESOURCE_NAME}/SEARCH_CHANGE_TERM`;
+export const COLOR_SCHEME_LIGHT = 'light';
+
+/**
+ * @type {string}
+ */
+export const COLOR_SCHEME_DARK = 'dark';
+
+/**
+ * @type {string}
+ */
+export const COLOR_SCHEME_CHANGE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_CHANGE_SELECTED`;
+
+/**
+ * @type {Array<string>}
+ */
+export const AVAILABLE_COLOR_SCHEMES = [COLOR_SCHEME_LIGHT, COLOR_SCHEME_DARK];
 
 /**
  * @type {object}
  */
-export const initialState: SearchStateType = {
+export const initialState: ColorSchemeStateType = {
     meta: {
         isInitial: true
     },
     payload: {
-        term: ''
+        selected: COLOR_SCHEME_LIGHT
     }
 };
 
 /**
- * Handle search term state change.
+ * Handle theme switch state change.
  *
- * @param {string} term - The search input value
+ * @param {string} selected - The new selected theme state
  * @returns {object} The redux action playload
  */
-export function changeSearchTerm(term: string): SearchActionTypes {
+export function changeThemeSelected(
+    selected: string
+): ChangeThemeSelectedActionType {
     return {
-        type: SEARCH_CHANGE_TERM,
-        term
+        type: COLOR_SCHEME_CHANGE_SELECTED,
+        selected
     };
 }
 
@@ -56,12 +73,12 @@ export function changeSearchTerm(term: string): SearchActionTypes {
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: SearchStateType = initialState,
-    action: SearchActionTypes
-): SearchStateType {
+    state: ColorSchemeStateType = initialState,
+    action: ColorSchemeActionTypes
+): ColorSchemeStateType {
     switch (action.type) {
-        case SEARCH_CHANGE_TERM: {
-            const term = isString(action.term) ? action.term : ''
+        case COLOR_SCHEME_CHANGE_SELECTED: {
+            const selected = isString(action.selected) ? action.selected : ''
             return {
                 meta: {
                     ...state.meta,
@@ -69,7 +86,7 @@ export function reducer(
                 },
                 payload: {
                     ...state.payload,
-                    term
+                    selected
                 }
             };
         }
@@ -85,6 +102,6 @@ export function reducer(
  *
  * @type {Object}
  */
-export const reducerSearch = {
-    [SEARCH_RESOURCE_NAME]: reducer
+export const reducerColorScheme = {
+    [COLOR_SCHEME_RESOURCE_NAME]: reducer
 };

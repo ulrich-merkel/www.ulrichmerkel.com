@@ -9,7 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { ChangeIntlActionType, IntlStateType } from './types';
+import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
 
 /**
  * @type {string}
@@ -77,14 +77,13 @@ export function changeIntlLocale(
  */
 export function reducer(
     state: IntlStateType = initialState,
-    action
+    action: IntlActionTypes
 ): IntlStateType {
     switch (action.type) {
         case INTL_CHANGE_LOCALE: {
             const locale = action.locale && action.locale.trim();
             if (locale && AVAILABLE_LOCALES.includes(locale)) {
                 return {
-                    ...state,
                     meta: {
                         ...state.meta,
                         isInitial: false
@@ -99,7 +98,6 @@ export function reducer(
             const fallback = action.fallback && action.fallback.trim();
             if (fallback && AVAILABLE_LOCALES.includes(fallback)) {
                 return {
-                    ...state,
                     meta: {
                         ...state.meta,
                         isInitial: false
