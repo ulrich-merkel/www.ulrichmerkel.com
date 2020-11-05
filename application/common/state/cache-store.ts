@@ -20,21 +20,25 @@
 import { configApplication } from '../config/application';
 import { decrypt, encrypt } from '../utils/xor';
 import { logger } from '../utils/logger';
-import WebStorage from '../utils/web-storage';
+import { WebStorage } from '../utils/web-storage';
+import { RootState } from './configure-store';
 
 const webStorage = new WebStorage();
 const xorUse = configApplication.xor.use;
 const xorKey = configApplication.xor.key;
-const stateKey = 'state';
+
+/**
+ * @type {string}
+ */
+export const stateKey = 'state';
 
 /**
  * Load saved state and return undefined to let reducers init
  * application default state.
  *
- * @function
- * @returns {object|undefined}
+ * @returns {object|undefined} The complete redux state if available
  */
-function loadState() {
+export function loadState(): RootState {
     const serializedState = webStorage.read(stateKey);
 
     if (serializedState === null) {
@@ -58,15 +62,12 @@ function loadState() {
 /**
  * Save the given application state.
  *
- * @function
  * @param {object} state - The state object to be saved
  * @returns {void}
  */
-function saveState(state) {
+export function saveState(state: RootState): void {
     webStorage.save(
         stateKey,
         xorUse ? encrypt(JSON.stringify(state), xorKey) : JSON.stringify(state)
     );
 }
-
-export { loadState, saveState, stateKey };

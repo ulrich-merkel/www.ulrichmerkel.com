@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
-import configureStore from '../configure-store';
+import { configureStore, rootReducer } from '../configure-store';
 
-describe('common/state/configure-store', function () {
+describe('configureStore', function () {
     it('should create a store', function () {
         const store = configureStore();
         expect(store.dispatch).toBeDefined();
@@ -15,5 +15,11 @@ describe('common/state/configure-store', function () {
         const state = store.getState();
         expect(state.csrf.token).toBeDefined();
         expect(state.csrf.token).toEqual('foo');
+    });
+});
+
+describe('rootReducer', function () {
+    it('should create the correct store keys', function () {
+        expect(rootReducer).toMatchSnapshot();
     });
 });

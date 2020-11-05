@@ -66,7 +66,7 @@ import { reducerSearch } from './search/duck';
  *
  * @private
  */
-const reducers = combineReducers({
+export const rootReducer = combineReducers({
     ...reducerColorScheme,
     ...reducerConfig,
     ...reducerContact,
@@ -78,8 +78,10 @@ const reducers = combineReducers({
     ...reducerSearch
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 // Neat middleware that logs actions
-const loggerMiddleware = createLogger();
+const loggerMiddleware: Function = createLogger();
 
 /**
  * Creates a Redux store that holds the complete state tree of your app.
@@ -88,16 +90,17 @@ const loggerMiddleware = createLogger();
  * @param {object} [preloadedState={}] - Initial store config to reduce the payload on load
  * @returns {object} The newly created store
  */
-function configureStore(preloadedState = {}) {
+export function configureStore(preloadedState: rootReducer = {}) {
     // ThunkMiddleware let's us dispatch() async functions
-    let middlewares = [thunkMiddleware]; // eslint-disable-line prefer-const, immutable/no-let
+    // eslint-disable-next-line prefer-const, immutable/no-let
+    let middlewares = [thunkMiddleware];
     if (debug && isBrowser()) {
         middlewares.push(loggerMiddleware);
     }
 
     // Create store with cached data
     const store = createStore(
-        reducers,
+        rootReducer,
         {
             ...preloadedState,
             ...loadState()
@@ -105,19 +108,17 @@ function configureStore(preloadedState = {}) {
         applyMiddleware(...middlewares)
     );
 
+    const { dispatch, getState, subscribe } = store;
+
     // Listen to changes to save state in cache
-    store.subscribe(() => {
-        const stateToSave = omit(store.getState(), ['csrf', 'page']);
+    subscribe(function () {
+        const stateToSave = omit(getState(), ['csrf', 'page']);
         saveState(stateToSave);
     });
 
     // Fetch inital data if not already passed as preloadedState
-    store.dispatch(fetchConfigContentIfNeeded());
-    store.dispatch(
-        fetchConfigTranslationIfNeeded(selectStateIntlLocale(store.getState()))
-    );
+    dispatch(fetchConfigContentIfNeeded());
+    dispatch(fetchConfigTranslationIfNeeded(selectStateIntlLocale(getState())));
 
     return store;
 }
-
-export default configureStore;

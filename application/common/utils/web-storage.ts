@@ -1,19 +1,12 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for helper component.
  *
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link https://github.com/ulrich-merkel/client-side-cache}
- *
- * @requires lodash
- *
- * @changelog
- * - 0.0.1 basic function and structure
  */
 import { isFunction } from 'lodash';
 
@@ -22,7 +15,9 @@ import { isFunction } from 'lodash';
  *
  * @class
  */
-class WebStorage {
+export class WebStorage {
+    isSupported: boolean = false;
+
     /**
      * The actual class constructor.
      *
@@ -30,13 +25,13 @@ class WebStorage {
      * @returns {void}
      */
     constructor() {
-        // additionally for globally checking test for getItem method
+        // Additionally for globally checking test for getItem method
         this.isSupported =
             typeof localStorage !== 'undefined' &&
             localStorage &&
             isFunction(localStorage.getItem);
 
-        // try to save item, to make sure it really works
+        // Try to save item, to make sure it really works,
         // could be false in private mode or while storage quota errors
         if (this.isSupported) {
             try {
@@ -54,7 +49,7 @@ class WebStorage {
      * @param {string} key - The key to look for
      * @returns {string|null} The content if found
      */
-    read(key) {
+    read(key: string): string {
         if (this.isSupported) {
             return localStorage.getItem(key);
         }
@@ -68,7 +63,7 @@ class WebStorage {
      * @param {string} value - The content to be saved
      * @returns {void}
      */
-    save(key, value) {
+    save(key: string, value: string): void {
         if (this.isSupported) {
             localStorage.setItem(key, value);
         }
@@ -80,13 +75,9 @@ class WebStorage {
      * @param {string} key - The key to look for
      * @returns {void}
      */
-    remove(key) {
+    remove(key: string): void {
         if (this.isSupported) {
             localStorage.removeItem(key);
         }
     }
 }
-
-WebStorage.isSupported = false;
-
-export default WebStorage;

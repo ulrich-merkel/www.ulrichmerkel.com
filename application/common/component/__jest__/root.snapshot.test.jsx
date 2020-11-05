@@ -2,7 +2,7 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import Root from '../root';
-import configureStore from '../../state/configure-store';
+import { configureStore } from '../../state/configure-store';
 
 describe('common/component/root', function () {
     it('should render correctly', function () {

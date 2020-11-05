@@ -1,13 +1,13 @@
 /* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
 import mockedLocalStorage from '../__mocks__/localStorage';
-import WebStorage from '../web-storage';
+import { WebStorage } from '../web-storage';
 
 global.localStorage = mockedLocalStorage;
 
 const data = 'abcdefghijklmnopqrstuvwxyz1234567890';
 const key = 'test';
 
-describe('common/utils/webStorage', function () {
+describe('webStorage', function () {
     let webStorage = null;
 
     beforeEach(function () {

@@ -60,7 +60,7 @@ import 'picturefill';
 
 import Root from '../common/component/root';
 import Routes from '../common/component/routes';
-import configureStore from '../common/state/configure-store';
+import { configureStore } from '../common/state/configure-store';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
 import { THEME_CHANGE_MESSAGE } from '../common/constants/theme';

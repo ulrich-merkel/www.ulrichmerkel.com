@@ -48,7 +48,7 @@ import { readFile } from '../../common/utils/read-file';
 import Root from '../../common/component/root';
 import Routes from '../../common/component/routes';
 import LayoutHtml from '../../common/component/layout/html';
-import configureStore from '../../common/state/configure-store';
+import { configureStore } from '../../common/state/configure-store';
 import { changeIntlLocale } from '../../common/state/intl/duck';
 import { selectStateIntlLocale } from '../../common/state/intl/selector';
 import {
