@@ -41,7 +41,7 @@ import { loadState, saveState } from './cache-store';
 import { reducerColorScheme } from './color-scheme/duck';
 import config from './config/reducer';
 import contact from './contact/reducer';
-import csrf from './csrf/reducer';
+import { reducerCsrf } from './csrf/duck';
 import { reducerDialog } from './dialog/duck';
 import { reducerIntl } from './intl/duck';
 import { selectStateIntlLocale } from './intl/selector';
@@ -70,7 +70,7 @@ const reducers = combineReducers({
     ...reducerColorScheme,
     config,
     contact,
-    csrf,
+    ...reducerCsrf,
     ...reducerDialog,
     ...reducerIntl,
     ...reducerPage,

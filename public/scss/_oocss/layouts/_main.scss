@@ -11,13 +11,12 @@ $animation-time: 0.75s;
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .js {
         .#{$block}__transition {
             position: relative;
             z-index: 1;
 
-            .animate-enter {
+            &.animate-enter {
                 opacity: 0;
                 transform: translateY($animation-offset * -1);
 
@@ -28,18 +27,18 @@ $animation-time: 0.75s;
                 }
             }
 
-            .animate-leave {
+            &.animate-exit {
                 opacity: 1;
                 transform: translateY(0);
 
-                &.animate-leave-active {
+                &.animate-exit-active {
                     opacity: 0;
                     transform: translateY($animation-offset);
                     transition: $animation-time;
                 }
             }
 
-            .animate-appear {
+            &.animate-appear {
                 opacity: 0;
                 transform: translateY(-50px);
 

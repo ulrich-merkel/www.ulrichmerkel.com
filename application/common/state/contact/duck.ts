@@ -9,38 +9,53 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { AddPageViewActionType, PageActionTypes, PageStateType } from './types';
+import { ContactStateType, ContactActionTypes } from './types';
 
 /**
  * @type {string}
  */
-export const PAGE_RESOURCE_NAME = 'page';
+export const CONTACT_RESOURCE_NAME = 'contact';
 
 /**
  * @type {string}
  */
-export const PAGE_INCREASE_VIEWS = `${PAGE_RESOURCE_NAME}/PAGE_INCREASE_VIEWS`;
+export const CHANGE_CONTACT_FORM = `${CONTACT_RESOURCE_NAME}/CHANGE_CONTACT_FORM`;
 
 /**
  * @type {object}
  */
-export const initialState: PageStateType = {
+export const initialState: ContactStateType = {
     meta: {
         isInitial: true
     },
     payload: {
-        viewsAfterReload: 0
+        form: {
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+            pristine: false,
+            namePristine: false,
+            emailPristine: false,
+            subjectPristine: false,
+            messagePristine: false,
+            pending: false,
+            success: false,
+            error: false
+        }
     }
 };
 
 /**
- * Handle page view increment state change.
+ * Handle contact form values changes.
  *
+ * @param {object} form - The contact form values
  * @returns {object} The redux action playload
  */
-export function addPageView(): AddPageViewActionType {
+export function changeContactForm(form: object): ContactActionTypes {
     return {
-        type: PAGE_INCREASE_VIEWS
+        type: CHANGE_CONTACT_FORM,
+        form
     };
 }
 
@@ -53,13 +68,12 @@ export function addPageView(): AddPageViewActionType {
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: PageStateType = initialState,
-    action: PageActionTypes
-): PageStateType {
+    state: ContactStateType = initialState,
+    action: ContactActionTypes
+): ContactStateType {
     switch (action.type) {
-        case PAGE_INCREASE_VIEWS: {
-            const viewsAfterReload = state.payload.viewsAfterReload + 1;
-
+        case CHANGE_CONTACT_FORM: {
+            const form = action.form || {};
             return {
                 meta: {
                     ...state.meta,
@@ -67,7 +81,7 @@ export function reducer(
                 },
                 payload: {
                     ...state.payload,
-                    viewsAfterReload
+                    form
                 }
             };
         }
@@ -83,6 +97,6 @@ export function reducer(
  *
  * @type {Object}
  */
-export const reducerPage = {
-    [PAGE_RESOURCE_NAME]: reducer
+export const reducerContact = {
+    [CONTACT_RESOURCE_NAME]: reducer
 };

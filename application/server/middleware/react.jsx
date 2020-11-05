@@ -55,7 +55,7 @@ import {
     fetchConfigContentIfNeeded,
     fetchConfigTranslationIfNeeded
 } from '../../common/state/config/actions';
-import { addToken } from '../../common/state/csrf/actions';
+import { changeCsrfToken } from '../../common/state/csrf/duck';
 
 const { aboveTheFold } = configApplication;
 
@@ -144,7 +144,7 @@ function loadData(req, store, acceptedLocale) {
         readFile(aboveTheFold.scriptBootstrap),
         dispatch(fetchConfigContentIfNeeded()),
         dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
-        dispatch(addToken(req.csrfToken && req.csrfToken()))
+        dispatch(changeCsrfToken(req.csrfToken && req.csrfToken()))
     ]);
 }
 

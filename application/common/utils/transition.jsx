@@ -18,7 +18,7 @@ import configApplication from '../config/application';
 /**
  * Get transition config based on page view count.
  *
- * @param {number} pageViewsAfterReload - The redux page state
+ * @param {number} pageViewsAfterReload - The redux page views state
  * @returns {object} The ReactCSSTransitionGroup config
  */
 export function getSectionTransition(pageViewsAfterReload) {
@@ -27,7 +27,7 @@ export function getSectionTransition(pageViewsAfterReload) {
     if (pageViewsAfterReload === 1) {
         return {
             ...transition,
-            transitionAppear: false
+            in: false
         };
     }
 

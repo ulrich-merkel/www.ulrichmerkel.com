@@ -6,117 +6,8 @@ exports[`common/component/page/search should render correctly 1`] = `
   itemProp="mainContentOfPage"
   role="main"
 >
-  <div
-    className="l-main__transition"
-  >
-    <section
-      className="l-grid m-section"
-    >
-      <div
-        className="l-grid__spaced--small"
-      >
-        <div
-          className="l-grid__row"
-        >
-          <div
-            className="l-grid__col--12"
-          >
-            <article
-              className="is-main m-article"
-              itemScope={true}
-              itemType="https://schema.org/Article"
-            >
-              <div
-                className="m-article__text"
-                itemProp="text"
-              >
-                <form
-                  acceptCharset="utf-8"
-                  action="/search/"
-                  className="m-form m-form--search"
-                  id="m-form--search"
-                  itemProp="potentialAction"
-                  itemScope={true}
-                  itemType="http://schema.org/SearchAction"
-                  method="post"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                  role="search"
-                >
-                  <fieldset
-                    className="m-form__fieldset"
-                  >
-                    <legend
-                      className="m-form__legend is-visually-hidden"
-                    />
-                    <div
-                      className="l-grid__row"
-                    >
-                      <div
-                        className="l-grid__col--12"
-                      >
-                        <div
-                          className="m-form__group"
-                        >
-                          <input
-                            aria-required={true}
-                            className="m-form__control--text"
-                            id="name"
-                            itemProp="query-input"
-                            name="name"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            placeholder=""
-                            required={true}
-                            type="search"
-                            value=""
-                          />
-                          <label
-                            className="m-form__label is-visually-hidden"
-                            htmlFor="name"
-                          >
-                            
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error"
-                            />
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success"
-                            />
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <input
-                      name="_csrf"
-                      type="hidden"
-                      value=""
-                    />
-                  </fieldset>
-                </form>
-                <h3
-                  className="is-centered c-type--h3"
-                >
-                  Found 0 search results
-                </h3>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</main>
-`;
-
-exports[`common/component/page/search should render correctly as dialog 1`] = `
-<div
-  className="l-main__transition"
->
   <section
-    className="l-grid m-section"
+    className="l-grid l-main__transition"
   >
     <div
       className="l-grid__spaced--small"
@@ -198,7 +89,7 @@ exports[`common/component/page/search should render correctly as dialog 1`] = `
                   <input
                     name="_csrf"
                     type="hidden"
-                    value=""
+                    value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
                   />
                 </fieldset>
               </form>
@@ -213,5 +104,106 @@ exports[`common/component/page/search should render correctly as dialog 1`] = `
       </div>
     </div>
   </section>
-</div>
+</main>
+`;
+
+exports[`common/component/page/search should render correctly as dialog 1`] = `
+<section
+  className="l-grid l-main__transition"
+>
+  <div
+    className="l-grid__spaced--small"
+  >
+    <div
+      className="l-grid__row"
+    >
+      <div
+        className="l-grid__col--12"
+      >
+        <article
+          className="is-main m-article"
+          itemScope={true}
+          itemType="https://schema.org/Article"
+        >
+          <div
+            className="m-article__text"
+            itemProp="text"
+          >
+            <form
+              acceptCharset="utf-8"
+              action="/search/"
+              className="m-form m-form--search"
+              id="m-form--search"
+              itemProp="potentialAction"
+              itemScope={true}
+              itemType="http://schema.org/SearchAction"
+              method="post"
+              noValidate={true}
+              onReset={[Function]}
+              onSubmit={[Function]}
+              role="search"
+            >
+              <fieldset
+                className="m-form__fieldset"
+              >
+                <legend
+                  className="m-form__legend is-visually-hidden"
+                />
+                <div
+                  className="l-grid__row"
+                >
+                  <div
+                    className="l-grid__col--12"
+                  >
+                    <div
+                      className="m-form__group"
+                    >
+                      <input
+                        aria-required={true}
+                        className="m-form__control--text"
+                        id="name"
+                        itemProp="query-input"
+                        name="name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        placeholder=""
+                        required={true}
+                        type="search"
+                        value=""
+                      />
+                      <label
+                        className="m-form__label is-visually-hidden"
+                        htmlFor="name"
+                      >
+                        
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--sad m-form__label__icon--error"
+                        />
+                        <i
+                          aria-hidden="true"
+                          className="c-font-icon--smile m-form__label__icon--success"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <input
+                  name="_csrf"
+                  type="hidden"
+                  value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                />
+              </fieldset>
+            </form>
+            <h3
+              className="is-centered c-type--h3"
+            >
+              Found 0 search results
+            </h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 `;

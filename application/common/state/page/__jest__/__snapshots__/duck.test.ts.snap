@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducer should react to an action with the type colorScheme/PAGE_INCREASE_VIEWS 1`] = `
+exports[`reducer should react to an action with the type page/PAGE_INCREASE_VIEWS 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,

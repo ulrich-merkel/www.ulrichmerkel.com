@@ -51,11 +51,9 @@ import xor from '../../../utils/xor';
 import logger from '../../../utils/logger';
 import scrollTo from '../../../utils/scroll-to';
 import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
-import {
-    selectStateContact,
-    selectStateCsrfToken
-} from '../../../state/selectors';
-import { changeContact } from '../../../state/contact/actions';
+import { selectStateContactForm } from '../../../state/contact/selector';
+import { selectStateCsrfToken } from '../../../state/csrf/selector';
+import { changeContactForm } from '../../../state/contact/duck';
 import { canSendForm, validate } from '../../../state/contact/utils';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridCol, GridRow } from '../../grid';
@@ -598,7 +596,7 @@ ModuleFormContact.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        storeState: selectStateContact(state),
+        storeState: selectStateContactForm(state),
         csrfToken: selectStateCsrfToken(state)
     };
 }
@@ -617,7 +615,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         handleContactChange: (contact) => {
-            dispatch(changeContact(contact));
+            dispatch(changeContactForm(contact));
         }
     };
 }

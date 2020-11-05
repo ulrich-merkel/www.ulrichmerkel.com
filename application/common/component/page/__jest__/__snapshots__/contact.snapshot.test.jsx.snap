@@ -6,281 +6,277 @@ exports[`common/component/page/contact should render correctly 1`] = `
   itemProp="mainContentOfPage"
   role="main"
 >
-  <div
-    className="l-main__transition"
+  <section
+    className="l-grid l-main__transition"
   >
-    <section
-      className="l-grid m-section"
+    <div
+      className="l-grid__spaced--small"
     >
       <div
-        className="l-grid__spaced--small"
+        className="l-grid__row"
       >
         <div
-          className="l-grid__row"
+          className="l-grid__col--12"
         >
-          <div
-            className="l-grid__col--12"
+          <article
+            className="is-main m-article"
+            itemScope={true}
+            itemType="https://schema.org/Article"
           >
-            <article
-              className="is-main m-article"
-              itemScope={true}
-              itemType="https://schema.org/Article"
+            <h1
+              className="is-centered c-type--h1 m-article__headline"
+              itemProp="headline"
             >
-              <h1
-                className="is-centered c-type--h1 m-article__headline"
-                itemProp="headline"
+              Send me a message
+            </h1>
+            <p
+              className="is-centered c-type--p m-article__lead"
+              itemProp="alternativeHeadline"
+            >
+              <strong>
+                Get in touch
+              </strong>
+            </p>
+            <div
+              className="m-article__text"
+              itemProp="text"
+            >
+              <form
+                acceptCharset="utf-8"
+                action="/contact/"
+                className="m-form m-form--contact"
+                id="m-form--contact"
+                itemProp="potentialAction"
+                itemScope={true}
+                itemType="http://schema.org/CommunicateAction"
+                method="post"
+                noValidate={true}
+                onReset={[Function]}
+                onSubmit={[Function]}
+                role="form"
               >
-                Send me a message
-              </h1>
-              <p
-                className="is-centered c-type--p m-article__lead"
-                itemProp="alternativeHeadline"
-              >
-                <strong>
-                  Get in touch
-                </strong>
-              </p>
-              <div
-                className="m-article__text"
-                itemProp="text"
-              >
-                <form
-                  acceptCharset="utf-8"
-                  action="/contact/"
-                  className="m-form m-form--contact"
-                  id="m-form--contact"
-                  itemProp="potentialAction"
-                  itemScope={true}
-                  itemType="http://schema.org/CommunicateAction"
-                  method="post"
-                  noValidate={true}
-                  onReset={[Function]}
-                  onSubmit={[Function]}
-                  role="form"
+                <fieldset
+                  className="m-form__fieldset"
                 >
-                  <fieldset
-                    className="m-form__fieldset"
+                  <legend
+                    className="m-form__legend is-visually-hidden"
                   >
-                    <legend
-                      className="m-form__legend is-visually-hidden"
-                    >
-                      Contactform
-                    </legend>
+                    Contactform
+                  </legend>
+                  <div
+                    className="l-grid__row"
+                  >
                     <div
-                      className="l-grid__row"
+                      className="l-grid__col--6"
                     >
                       <div
-                        className="l-grid__col--6"
+                        className="m-form__group"
                       >
-                        <div
-                          className="m-form__group"
+                        <input
+                          aria-required={true}
+                          className="m-form__control--text"
+                          id="name"
+                          name="name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder=""
+                          required={true}
+                          type="text"
+                          value=""
+                        />
+                        <label
+                          className="m-form__label"
+                          htmlFor="name"
                         >
-                          <input
-                            aria-required={true}
-                            className="m-form__control--text"
-                            id="name"
-                            name="name"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            placeholder=""
-                            required={true}
-                            type="text"
-                            value=""
+                          Your name
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--sad m-form__label__icon--error"
                           />
-                          <label
-                            className="m-form__label"
-                            htmlFor="name"
-                          >
-                            Your name
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error"
-                            />
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success"
-                            />
-                          </label>
-                        </div>
-                      </div>
-                      <div
-                        className="l-grid__col--6"
-                      >
-                        <div
-                          className="m-form__group"
-                        >
-                          <input
-                            aria-required={true}
-                            className="m-form__control--text"
-                            id="email"
-                            name="email"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            placeholder=""
-                            required={true}
-                            type="email"
-                            value=""
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--smile m-form__label__icon--success"
                           />
-                          <label
-                            className="m-form__label"
-                            htmlFor="email"
-                          >
-                            Your email
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error"
-                            />
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success"
-                            />
-                          </label>
-                        </div>
+                        </label>
                       </div>
                     </div>
                     <div
-                      className="l-grid__row"
+                      className="l-grid__col--6"
                     >
                       <div
-                        className="l-grid__col--12"
+                        className="m-form__group"
                       >
-                        <div
-                          className="m-form__group"
+                        <input
+                          aria-required={true}
+                          className="m-form__control--text"
+                          id="email"
+                          name="email"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder=""
+                          required={true}
+                          type="email"
+                          value=""
+                        />
+                        <label
+                          className="m-form__label"
+                          htmlFor="email"
                         >
-                          <input
-                            aria-required={true}
-                            className="m-form__control--text"
-                            id="subject"
-                            name="subject"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            placeholder=""
-                            required={true}
-                            type="text"
-                            value=""
+                          Your email
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--sad m-form__label__icon--error"
                           />
-                          <label
-                            className="m-form__label"
-                            htmlFor="subject"
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--smile m-form__label__icon--success"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="l-grid__row"
+                  >
+                    <div
+                      className="l-grid__col--12"
+                    >
+                      <div
+                        className="m-form__group"
+                      >
+                        <input
+                          aria-required={true}
+                          className="m-form__control--text"
+                          id="subject"
+                          name="subject"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder=""
+                          required={true}
+                          type="text"
+                          value=""
+                        />
+                        <label
+                          className="m-form__label"
+                          htmlFor="subject"
+                        >
+                          Your subject
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--sad m-form__label__icon--error"
+                          />
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--smile m-form__label__icon--success"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="l-grid__row"
+                  >
+                    <div
+                      className="l-grid__col--12"
+                    >
+                      <div
+                        className="m-form__group"
+                      >
+                        <textarea
+                          aria-required={true}
+                          className="m-form__control--textarea"
+                          cols="50"
+                          id="message"
+                          name="message"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder=""
+                          required={true}
+                          rows="4"
+                          value=""
+                        />
+                        <label
+                          className="m-form__label"
+                          htmlFor="message"
+                        >
+                          Your message
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--sad m-form__label__icon--error"
+                          />
+                          <i
+                            aria-hidden="true"
+                            className="c-font-icon--smile m-form__label__icon--success"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="l-grid__row"
+                  >
+                    <div
+                      className="l-grid__col--6"
+                    >
+                      <div
+                        className="m-form__group m-form__group--reset hide-on-print"
+                      >
+                        <button
+                          className="c-btn m-form__btn c-btn--secondary"
+                          id="reset"
+                          name="reset"
+                          role="button"
+                          title="Reset form"
+                          type="reset"
+                        >
+                          <span
+                            className="c-btn__label"
                           >
-                            Your subject
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error"
-                            />
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success"
-                            />
-                          </label>
-                        </div>
+                            Reset form
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
-                      className="l-grid__row"
+                      className="l-grid__col--6"
                     >
                       <div
-                        className="l-grid__col--12"
+                        className="m-form__group m-form__group--submit hide-on-print"
                       >
-                        <div
-                          className="m-form__group"
+                        <button
+                          className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+                          disabled="disabled"
+                          id="submit"
+                          name="submit"
+                          role="button"
+                          title="Send message"
+                          type="submit"
                         >
-                          <textarea
-                            aria-required={true}
-                            className="m-form__control--textarea"
-                            cols="50"
-                            id="message"
-                            name="message"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            placeholder=""
-                            required={true}
-                            rows="4"
-                            value=""
-                          />
-                          <label
-                            className="m-form__label"
-                            htmlFor="message"
+                          <span
+                            className="c-btn__label"
                           >
-                            Your message
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--sad m-form__label__icon--error"
-                            />
-                            <i
-                              aria-hidden="true"
-                              className="c-font-icon--smile m-form__label__icon--success"
-                            />
-                          </label>
-                        </div>
+                            Send message
+                          </span>
+                        </button>
                       </div>
                     </div>
-                    <div
-                      className="l-grid__row"
-                    >
-                      <div
-                        className="l-grid__col--6"
-                      >
-                        <div
-                          className="m-form__group m-form__group--reset hide-on-print"
-                        >
-                          <button
-                            className="c-btn m-form__btn c-btn--secondary"
-                            id="reset"
-                            name="reset"
-                            role="button"
-                            title="Reset form"
-                            type="reset"
-                          >
-                            <span
-                              className="c-btn__label"
-                            >
-                              Reset form
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                      <div
-                        className="l-grid__col--6"
-                      >
-                        <div
-                          className="m-form__group m-form__group--submit hide-on-print"
-                        >
-                          <button
-                            className="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
-                            disabled="disabled"
-                            id="submit"
-                            name="submit"
-                            role="button"
-                            title="Send message"
-                            type="submit"
-                          >
-                            <span
-                              className="c-btn__label"
-                            >
-                              Send message
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <input
-                      name="_csrf"
-                      type="hidden"
-                      value=""
-                    />
-                  </fieldset>
-                </form>
-              </div>
-              <meta
-                content="Send me a message"
-                itemProp="name"
-              />
-            </article>
-          </div>
+                  </div>
+                  <input
+                    name="_csrf"
+                    type="hidden"
+                    value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                  />
+                </fieldset>
+              </form>
+            </div>
+            <meta
+              content="Send me a message"
+              itemProp="name"
+            />
+          </article>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 `;

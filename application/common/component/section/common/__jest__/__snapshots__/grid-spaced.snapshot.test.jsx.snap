@@ -1,25 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`common/component/section/common/grid-spaced should render correctly 1`] = `
-<div
-  className="l-main__transition"
+<section
+  className="l-grid l-main__transition"
 >
-  <section
-    className="l-grid m-section"
+  <div
+    className="l-grid__spaced--small"
   >
     <div
-      className="l-grid__spaced--small"
+      className="l-grid__row"
     >
       <div
-        className="l-grid__row"
+        className="l-grid__col--12"
       >
-        <div
-          className="l-grid__col--12"
-        >
-          Section common grid spaced children
-        </div>
+        Section common grid spaced children
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 `;

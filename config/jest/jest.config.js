@@ -1,7 +1,7 @@
 /* eslint-disable immutable/no-mutation */
 module.exports = {
     rootDir: '../../',
-    bail: true,
+    bail: false,
     testRegex: '(/__jest__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)$',
     testPathIgnorePatterns: [
         '<rootDir>/(build|docs|node_modules|report|config)/',

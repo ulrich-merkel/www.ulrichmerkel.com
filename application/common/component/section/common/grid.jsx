@@ -10,26 +10,10 @@
  * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires react-addons-css-transition-group
- * @requires react-redux
- * @requires common/utils/transition
- * @requires common/state/selectors
- * @requires common/component/grid/section
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- *
- * @changelog
- + - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
 import { getSectionTransition } from '../../../utils/transition';
@@ -49,15 +33,13 @@ function SectionCommonGrid(props) {
     const { children, pageViewsAfterReload } = props;
 
     return (
-        <ReactCSSTransitionGroup
-            {...getSectionTransition(pageViewsAfterReload)}
-        >
+        <CSSTransition {...getSectionTransition(pageViewsAfterReload)}>
             <GridSection>
                 <GridRow>
                     <GridCol>{children}</GridCol>
                 </GridRow>
             </GridSection>
-        </ReactCSSTransitionGroup>
+        </CSSTransition>
     );
 }
 

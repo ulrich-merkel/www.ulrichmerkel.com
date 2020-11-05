@@ -93,13 +93,11 @@ const configApplication = {
         timeStamp: '2018-01-30'
     },
     transition: {
-        transitionName: 'animate',
-        transitionEnterTimeout: 0,
-        transitionLeaveTimeout: 0,
-        transitionAppear: true,
-        transitionAppearTimeout: 0,
-        component: 'div',
-        className: 'l-main__transition'
+        appear: true,
+        className: 'l-main__transition',
+        classNames: 'animate',
+        in: true,
+        timeout: 200
     },
     ...configEnvironment
 };
