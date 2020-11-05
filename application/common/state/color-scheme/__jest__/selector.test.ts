@@ -45,7 +45,7 @@ describe('selectStateColorSchemeSelected', function () {
             }
         };
         expect(selectStateColorSchemeSelected(state)).toEqual(
-            state[COLOR_SCHEME_RESOURCE_NAME].payload.locale
+            state[COLOR_SCHEME_RESOURCE_NAME].payload.selected
         );
     });
     it("should return the default locale if state isn't found", function () {
@@ -55,7 +55,7 @@ describe('selectStateColorSchemeSelected', function () {
             }
         };
         expect(selectStateColorSchemeSelected(state)).toEqual(
-            initialState.payload.locale
+            initialState.payload.selected
         );
     });
 });

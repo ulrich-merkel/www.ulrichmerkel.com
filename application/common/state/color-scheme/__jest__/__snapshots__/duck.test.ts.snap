@@ -10,3 +10,14 @@ Object {
   },
 }
 `;
+
+exports[`reducer should return the current state if payload is empty 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "selected": "",
+  },
+}
+`;

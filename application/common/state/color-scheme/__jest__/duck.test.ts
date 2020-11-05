@@ -36,7 +36,7 @@ describe('reducer', function () {
             reducer(initialState, {
                 type: COLOR_SCHEME_CHANGE_SELECTED
             })
-        ).toEqual(initialState);
+        ).toMatchSnapshot();
     });
 });
 

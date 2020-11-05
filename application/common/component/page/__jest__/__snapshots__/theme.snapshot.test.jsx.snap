@@ -57,7 +57,7 @@ exports[`common/component/page/theme should render correctly 1`] = `
                         className="l-grid__col--6"
                       >
                         <button
-                          className="c-btn is-active"
+                          className="c-btn"
                           onClick={[Function]}
                           role="button"
                           title=""

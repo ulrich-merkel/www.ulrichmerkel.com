@@ -28,7 +28,7 @@ exports[`common/component/module/form/theme should render correctly 1`] = `
         className="l-grid__col--6"
       >
         <button
-          className="c-btn is-active"
+          className="c-btn"
           onClick={[Function]}
           role="button"
           title=""
@@ -96,7 +96,7 @@ exports[`common/component/module/form/theme should render correctly 2`] = `
         className="l-grid__col--6"
       >
         <button
-          className="c-btn is-active"
+          className="c-btn"
           onClick={[Function]}
           role="button"
           title=""
