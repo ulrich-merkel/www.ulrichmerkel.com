@@ -9,62 +9,38 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { isString } from 'lodash';
-import {
-    ChangeThemeSelectedActionType,
-    ColorSchemeActionTypes,
-    ColorSchemeStateType
-} from './types';
+import { AddPageViewActionType, PageActionTypes, PageStateType } from './types';
 
 /**
  * @type {string}
  */
-export const COLOR_SCHEME_RESOURCE_NAME = 'colorScheme';
+export const PAGE_RESOURCE_NAME = 'colorScheme';
 
 /**
  * @type {string}
  */
-export const COLOR_SCHEME_LIGHT = 'light';
-
-/**
- * @type {string}
- */
-export const COLOR_SCHEME_DARK = 'dark';
-
-/**
- * @type {string}
- */
-export const COLOR_SCHEME_CHANGE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_CHANGE_SELECTED`;
-
-/**
- * @type {Array<string>}
- */
-export const AVAILABLE_COLOR_SCHEMES = [COLOR_SCHEME_LIGHT, COLOR_SCHEME_DARK];
+export const PAGE_INCREASE_VIEWS = `${PAGE_RESOURCE_NAME}/PAGE_INCREASE_VIEWS`;
 
 /**
  * @type {object}
  */
-export const initialState: ColorSchemeStateType = {
+export const initialState: PageStateType = {
     meta: {
         isInitial: true
     },
     payload: {
-        selected: COLOR_SCHEME_LIGHT
+        viewsAfterReload: 0
     }
 };
 
 /**
- * Handle theme switch state change.
+ * Handle page view increment state change.
  *
- * @param {string} selected - The new selected theme state
  * @returns {object} The redux action playload
  */
-export function changeThemeSelected(
-    selected: string
-): ChangeThemeSelectedActionType {
+export function addPageView(): AddPageViewActionType {
     return {
-        type: COLOR_SCHEME_CHANGE_SELECTED,
-        selected
+        type: PAGE_INCREASE_VIEWS
     };
 }
 
@@ -77,12 +53,13 @@ export function changeThemeSelected(
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: ColorSchemeStateType = initialState,
-    action: ColorSchemeActionTypes
-): ColorSchemeStateType {
+    state: PageStateType = initialState,
+    action: PageActionTypes
+): PageStateType {
     switch (action.type) {
-        case COLOR_SCHEME_CHANGE_SELECTED: {
-            const selected = isString(action.selected) ? action.selected : '';
+        case PAGE_INCREASE_VIEWS: {
+            const viewsAfterReload = state.payload.viewsAfterReload + 1;
+
             return {
                 meta: {
                     ...state.meta,
@@ -90,7 +67,7 @@ export function reducer(
                 },
                 payload: {
                     ...state.payload,
-                    selected
+                    viewsAfterReload
                 }
             };
         }
@@ -106,6 +83,6 @@ export function reducer(
  *
  * @type {Object}
  */
-export const reducerColorScheme = {
-    [COLOR_SCHEME_RESOURCE_NAME]: reducer
+export const reducerPage = {
+    [PAGE_RESOURCE_NAME]: reducer
 };

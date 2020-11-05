@@ -61,7 +61,7 @@ export function reducer(
 ): SearchStateType {
     switch (action.type) {
         case SEARCH_CHANGE_TERM: {
-            const term = isString(action.term) ? action.term : ''
+            const term = isString(action.term) ? action.term : '';
             return {
                 meta: {
                     ...state.meta,

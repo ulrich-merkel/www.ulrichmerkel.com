@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export,  no-use-before-define */
+/* eslint-disable  no-use-before-define */
 import { get, isArray, isObject, isString, isEmpty } from 'lodash';
 import { url } from '../config/application';
 import logger from './logger';

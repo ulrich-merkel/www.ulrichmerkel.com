@@ -32,8 +32,8 @@ import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
-import getSectionTransition from '../../../utils/transition';
-import { selectStatePage } from '../../../state/selectors';
+import { getSectionTransition } from '../../../utils/transition';
+import { selectStatePageViewsAfterReload } from '../../../state/page/selector';
 import { GridSection, GridRow, GridCol } from '../../grid';
 
 /**
@@ -42,14 +42,16 @@ import { GridSection, GridRow, GridCol } from '../../grid';
  * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs (usally an array of components), if there is only a single child it's a string
- * @param {object} [props.page] - The redux page state
+ * @param {object} [props.pageViewsAfterReload] - The redux page state
  * @returns {ReactElement} React component markup
  */
 function SectionCommonGrid(props) {
-    const { children, page } = props;
+    const { children, pageViewsAfterReload } = props;
 
     return (
-        <ReactCSSTransitionGroup {...getSectionTransition(page)}>
+        <ReactCSSTransitionGroup
+            {...getSectionTransition(pageViewsAfterReload)}
+        >
             <GridSection>
                 <GridRow>
                     <GridCol>{children}</GridCol>
@@ -67,7 +69,17 @@ function SectionCommonGrid(props) {
  */
 SectionCommonGrid.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    page: PropTypes.object // eslint-disable-line react/require-default-props, react/forbid-prop-types
+    pageViewsAfterReload: PropTypes.number
+};
+
+/**
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ */
+SectionCommonGrid.defaultProps = {
+    pageViewsAfterReload: 0
 };
 
 /**
@@ -81,7 +93,7 @@ SectionCommonGrid.propTypes = {
  */
 function mapStateToProps(state) {
     return {
-        page: selectStatePage(state)
+        pageViewsAfterReload: selectStatePageViewsAfterReload(state)
     };
 }
 

@@ -22,7 +22,7 @@ import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addPageView } from '../../state/page/actions';
+import { addPageView } from '../../state/page/duck';
 
 /**
  * The tracking higher order function handling page visits.
@@ -44,10 +44,9 @@ function addPageTracking(SourceComponent) {
          *
          * @returns {void}
          */
-        // eslint-disable-next-line camelcase
-        UNSAFE_componentWillMount() {
-            // eslint-disable-next-line react/destructuring-assignment
-            this.props.handleAddPageView();
+        componentDidMount() {
+            const { handleAddPageView } = this.props;
+            handleAddPageView();
         }
 
         /**

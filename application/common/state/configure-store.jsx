@@ -45,7 +45,7 @@ import csrf from './csrf/reducer';
 import dialog from './dialog/reducer';
 import { reducerIntl } from './intl/duck';
 import { selectStateIntlLocale } from './intl/selector';
-import page from './page/reducer';
+import { reducerPage } from './page/duck';
 import { reducerScroll } from './scroll/duck';
 import { reducerSearch } from './search/duck';
 import {
@@ -73,7 +73,7 @@ const reducers = combineReducers({
     csrf,
     dialog,
     ...reducerIntl,
-    page,
+    ...reducerPage,
     ...reducerScroll,
     ...reducerSearch
 });

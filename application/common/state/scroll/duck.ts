@@ -84,10 +84,9 @@ export function reducer(
 ): ScrollStateType {
     switch (action.type) {
         case SCROLL_HEADER_FIXED: {
-            const isHeaderFixed =
-                isBoolean(action.isHeaderFixed)
-                    ? !!action.isHeaderFixed
-                    : initialState.payload.isHeaderFixed;
+            const isHeaderFixed = isBoolean(action.isHeaderFixed)
+                ? !!action.isHeaderFixed
+                : initialState.payload.isHeaderFixed;
             return {
                 meta: {
                     ...state.meta,
@@ -100,10 +99,9 @@ export function reducer(
             };
         }
         case SCROLL_HEADER_VISIBLE: {
-            const isHeaderVisible =
-                isBoolean(action.isHeaderVisible)
-                    ? !!action.isHeaderVisible
-                    : initialState.payload.isHeaderVisible;
+            const isHeaderVisible = isBoolean(action.isHeaderVisible)
+                ? !!action.isHeaderVisible
+                : initialState.payload.isHeaderVisible;
             return {
                 meta: {
                     ...state.meta,

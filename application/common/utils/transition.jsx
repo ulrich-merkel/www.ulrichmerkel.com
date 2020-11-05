@@ -13,21 +13,18 @@
  * @changelog
  * - 0.0.1 Basic function and structure
  */
-import { get } from 'lodash';
 import configApplication from '../config/application';
 
 /**
  * Get transition config based on page view count.
  *
- * @function
- * @param {object} page - The redux page state
+ * @param {number} pageViewsAfterReload - The redux page state
  * @returns {object} The ReactCSSTransitionGroup config
  */
-function getSectionTransition(page) {
-    const viewsAfterReload = get(page, 'viewsAfterReload', 1);
+export function getSectionTransition(pageViewsAfterReload) {
     const { transition } = configApplication;
 
-    if (viewsAfterReload === 1) {
+    if (pageViewsAfterReload === 1) {
         return {
             ...transition,
             transitionAppear: false
@@ -36,5 +33,3 @@ function getSectionTransition(page) {
 
     return transition;
 }
-
-export default getSectionTransition;

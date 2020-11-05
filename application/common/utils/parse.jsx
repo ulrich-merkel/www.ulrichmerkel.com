@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 /**
  * Es6 module for helper component.
  *

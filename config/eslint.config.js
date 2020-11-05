@@ -51,11 +51,6 @@ module.exports = {
     rules: {
         'arrow-body-style': 0,
         'comma-dangle': ['error', 'never'],
-        'immutable/no-let': 2,
-        'immutable/no-this': 0,
-        'immutable/no-mutation': 2,
-        indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
-        'import/no-named-default': 0,
         'import/extensions': [
             'error',
             'ignorePackages',
@@ -66,6 +61,12 @@ module.exports = {
                 tsx: 'never'
             }
         ],
+        'immutable/no-let': 2,
+        'immutable/no-this': 0,
+        'immutable/no-mutation': 2,
+        indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
+        'import/no-named-default': 0,
+        'import/prefer-default-export': 0,
         'jest/no-large-snapshots': [
             'warn',
             {

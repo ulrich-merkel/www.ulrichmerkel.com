@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export, import/no-mutable-exports, immutable/no-let */
+/* eslint-disable import/no-mutable-exports, immutable/no-let */
 /**
  * Es6 module for helper component.
  *

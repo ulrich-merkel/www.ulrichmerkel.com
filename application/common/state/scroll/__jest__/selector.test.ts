@@ -15,24 +15,18 @@ describe('selectStateScroll', function () {
                 }
             }
         };
-        expect(selectStateScroll(state)).toEqual(
-            state[SCROLL_RESOURCE_NAME]
-        );
+        expect(selectStateScroll(state)).toEqual(state[SCROLL_RESOURCE_NAME]);
     });
-    it("should return the initial state if resource key is not found", function () {
+    it('should return the initial state if resource key is not found', function () {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateScroll(state)).toEqual(
-            initialState
-        );
+        expect(selectStateScroll(state)).toEqual(initialState);
     });
-    it("should return the initial state if no state is found", function () {
-        expect(selectStateScroll()).toEqual(
-            initialState
-        );
+    it('should return the initial state if no state is found', function () {
+        expect(selectStateScroll()).toEqual(initialState);
     });
 });
 

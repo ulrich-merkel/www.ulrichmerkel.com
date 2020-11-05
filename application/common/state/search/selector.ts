@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export, arrow-parens */
 /**
  * Es6 module for Redux Architecture.
  * This file creates a memoized selector, just passing new props if the

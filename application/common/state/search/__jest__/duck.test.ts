@@ -14,9 +14,7 @@ describe('changeSearchTerm', function () {
     });
     it('should pass on the isHeaderFixed value we pass in', function () {
         const term = 'foo';
-        expect(changeSearchTerm(term).term).toEqual(
-            term
-        );
+        expect(changeSearchTerm(term).term).toEqual(term);
     });
 });
 

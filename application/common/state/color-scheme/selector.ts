@@ -38,6 +38,10 @@ export const selectStateColorScheme = createSelector(
 export const selectStateColorSchemeSelected = createSelector(
     [selectStateColorScheme],
     function (colorScheme: ColorSchemeStateType): string {
-        return get(colorScheme, 'payload.selected', initialState.payload.selected);
+        return get(
+            colorScheme,
+            'payload.selected',
+            initialState.payload.selected
+        );
     }
 );

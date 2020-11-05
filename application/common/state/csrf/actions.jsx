@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 /**
  * Es6 module for Redux Architecture.
  * Actions are payloads of information that send data from your application

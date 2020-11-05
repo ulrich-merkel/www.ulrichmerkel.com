@@ -11,7 +11,9 @@ import {
 
 describe('changeThemeSelected', function () {
     it(`should have a type of ${COLOR_SCHEME_CHANGE_SELECTED}`, function () {
-        expect(changeThemeSelected().type).toEqual(COLOR_SCHEME_CHANGE_SELECTED);
+        expect(changeThemeSelected().type).toEqual(
+            COLOR_SCHEME_CHANGE_SELECTED
+        );
     });
     it('should pass on the locale value we pass in', function () {
         const selected = AVAILABLE_COLOR_SCHEMES[1];

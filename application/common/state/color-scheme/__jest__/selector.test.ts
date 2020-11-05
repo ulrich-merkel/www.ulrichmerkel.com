@@ -18,20 +18,16 @@ describe('selectStateColorScheme', function () {
             state[COLOR_SCHEME_RESOURCE_NAME]
         );
     });
-    it("should return the initial state if resource key is not found", function () {
+    it('should return the initial state if resource key is not found', function () {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateColorScheme(state)).toEqual(
-            initialState
-        );
+        expect(selectStateColorScheme(state)).toEqual(initialState);
     });
-    it("should return the initial state if no state is found", function () {
-        expect(selectStateColorScheme()).toEqual(
-            initialState
-        );
+    it('should return the initial state if no state is found', function () {
+        expect(selectStateColorScheme()).toEqual(initialState);
     });
 });
 
@@ -48,7 +44,7 @@ describe('selectStateColorSchemeSelected', function () {
             state[COLOR_SCHEME_RESOURCE_NAME].payload.selected
         );
     });
-    it("should return the default locale if state isn't found", function () {
+    it("should return the default if state isn't found", function () {
         const state = {
             foo: {
                 bar: 'lorem'

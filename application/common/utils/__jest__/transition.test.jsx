@@ -1,8 +1,8 @@
 /* eslint-disable func-names */
-import getSectionTransition from '../transition';
+import { getSectionTransition } from '../transition';
 import configApplication from '../../config/application';
 
-describe('common/utils/transition', function () {
+describe('getSectionTransition', function () {
     const { transition } = configApplication;
 
     it('should apply no transitionAppear if viewsAfterReload is 1', function () {
