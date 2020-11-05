@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should react to an action with the type search/SEARCH_CHANGE_TERM 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "term": "foo",
+  },
+}
+`;
+
+exports[`reducer should return the current state if search/SEARCH_CHANGE_TERM payload is empty 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "term": "",
+  },
+}
+`;

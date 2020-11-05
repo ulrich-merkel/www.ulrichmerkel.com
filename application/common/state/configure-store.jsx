@@ -45,7 +45,7 @@ import dialog from './dialog/reducer';
 import { reducerIntl } from './intl/duck';
 import page from './page/reducer';
 import { reducerScroll } from './scroll/duck';
-import search from './search/reducer';
+import { reducerSearch } from './search/duck';
 import theme from './theme/reducer';
 import {
     fetchConfigContentIfNeeded,
@@ -73,11 +73,11 @@ const reducers = combineReducers({
     ...reducerIntl,
     page,
     ...reducerScroll,
-    search,
+    ...reducerSearch,
     theme
 });
 
-// neat middleware that logs actions
+// Neat middleware that logs actions
 const loggerMiddleware = createLogger();
 
 /**
@@ -89,7 +89,7 @@ const loggerMiddleware = createLogger();
  * @returns {object} The newly created store
  */
 function configureStore(preloadedState = {}) {
-    // thunkMiddleware let's us dispatch() async functions
+    // ThunkMiddleware let's us dispatch() async functions
     let middlewares = [thunkMiddleware]; // eslint-disable-line prefer-const, immutable/no-let
     if (debug && isBrowser()) {
         middlewares.push(loggerMiddleware);

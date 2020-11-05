@@ -38,10 +38,12 @@ import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import {
-    selectStateSearchTerm,
+    selectStateSearchTerm
+} from '../../../state/search/selector';
+import {
     selectStateCsrfToken
-} from '../../../state/selectors';
-import { changeSearchTerm } from '../../../state/actions';
+} from '../../../state/csrf/selector';
+import { changeSearchTerm } from '../../../state/search/duck';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow, GridCol } from '../../grid';
 import { Form, Fieldset, Legend, InputGroup } from '../../element';

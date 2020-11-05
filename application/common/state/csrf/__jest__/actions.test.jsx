@@ -3,7 +3,7 @@ import { ADD_CSRF_TOKEN } from '../constants';
 import { addToken } from '../actions';
 
 describe('common/state/csrf/actions', function () {
-    describe('changeSearchTerm', function () {
+    describe('addToken', function () {
         it(`should have a type of ${ADD_CSRF_TOKEN}`, function () {
             expect(addToken().type).toEqual(ADD_CSRF_TOKEN);
         });

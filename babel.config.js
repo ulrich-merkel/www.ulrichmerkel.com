@@ -8,7 +8,12 @@ module.exports = {
                 useSpread: true
             }
         ],
-        ['@babel/preset-typescript'],
+        [
+            '@babel/preset-typescript',
+            {
+                sourceMaps: 'inline'
+            }
+        ],
         ['@babel/preset-env']
     ]
 };

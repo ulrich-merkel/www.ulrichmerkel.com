@@ -53,7 +53,7 @@ exports[`common/component/module/cornerstone should render correctly 1`] = `
             20161212
           </time>
            
-          - 
+          -
           <time
             className="c-time"
           >
@@ -252,7 +252,7 @@ exports[`common/component/module/cornerstone should render no itemType if unset 
             20161212
           </time>
            
-          - 
+          -
           <time
             className="c-time"
           >
