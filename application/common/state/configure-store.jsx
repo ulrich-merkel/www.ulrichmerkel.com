@@ -42,7 +42,7 @@ import { reducerColorScheme } from './color-scheme/duck';
 import config from './config/reducer';
 import contact from './contact/reducer';
 import csrf from './csrf/reducer';
-import dialog from './dialog/reducer';
+import { reducerDialog } from './dialog/duck';
 import { reducerIntl } from './intl/duck';
 import { selectStateIntlLocale } from './intl/selector';
 import { reducerPage } from './page/duck';
@@ -71,7 +71,7 @@ const reducers = combineReducers({
     config,
     contact,
     csrf,
-    dialog,
+    ...reducerDialog,
     ...reducerIntl,
     ...reducerPage,
     ...reducerScroll,
@@ -85,7 +85,6 @@ const loggerMiddleware = createLogger();
  * Creates a Redux store that holds the complete state tree of your app.
  * There should only be a single store in your app.
  *
- * @function
  * @param {object} [preloadedState={}] - Initial store config to reduce the payload on load
  * @returns {object} The newly created store
  */

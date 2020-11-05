@@ -44,10 +44,10 @@ import addContent from '../decorator/add-content';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import { eventPreventDefault } from '../../utils/event';
 import {
-    STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH,
-    STATE_DIALOG_PAGE_THEME
-} from '../../state/constants';
+    DIALOG_CONTENT_BROADCAST,
+    DIALOG_CONTENT_SEARCH,
+    DIALOG_CONTENT_THEME
+} from '../../state/dialog/duck';
 import LayoutHeaderConnected from './header';
 import LayoutFooter from './footer';
 import LayoutTheme from './theme';
@@ -111,19 +111,19 @@ class LayoutBody extends Component {
                 <LayoutFooter handleScrollTop={handleScrollTop} />
                 <LayoutDialogConnected
                     className="l-dialog--search"
-                    page={STATE_DIALOG_PAGE_SEARCH}
+                    page={DIALOG_CONTENT_SEARCH}
                 >
                     <PageSearch isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
                     className="l-dialog--broadcast"
-                    page={STATE_DIALOG_PAGE_BROADCAST}
+                    page={DIALOG_CONTENT_BROADCAST}
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
                     className="l-dialog--theme"
-                    page={STATE_DIALOG_PAGE_THEME}
+                    page={DIALOG_CONTENT_THEME}
                 >
                     <PageTheme isDialog />
                 </LayoutDialogConnected>

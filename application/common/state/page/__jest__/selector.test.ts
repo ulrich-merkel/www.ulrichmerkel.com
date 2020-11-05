@@ -1,8 +1,5 @@
 /* eslint-disable func-names */
-import {
-    selectStatePage,
-    selectStatePageViewsAfterReload
-} from '../selector';
+import { selectStatePage, selectStatePageViewsAfterReload } from '../selector';
 import { initialState, PAGE_RESOURCE_NAME } from '../duck';
 
 describe('selectStatePage', function () {
@@ -14,9 +11,7 @@ describe('selectStatePage', function () {
                 }
             }
         };
-        expect(selectStatePage(state)).toEqual(
-            state[PAGE_RESOURCE_NAME]
-        );
+        expect(selectStatePage(state)).toEqual(state[PAGE_RESOURCE_NAME]);
     });
     it('should return the initial state if resource key is not found', function () {
         const state = {

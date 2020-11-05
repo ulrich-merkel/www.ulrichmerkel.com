@@ -36,7 +36,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisibleBroadcast } from '../../state/dialog/actions';
+import { changeDialogVisibleBroadcast } from '../../state/dialog/duck';
 import { isBrowser } from '../../utils/environment';
 import { eventPreventDefault } from '../../utils/event';
 import ModuleTextHeadline from './text/headline';

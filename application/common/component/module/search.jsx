@@ -39,7 +39,7 @@ import { get } from 'lodash';
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { selectStateSearchTerm } from '../../state/search/selector';
 import { selectStateConfig } from '../../state/config/selector';
-import { changeDialogVisibleSearch } from '../../state/actions';
+import { changeDialogVisibleSearch } from '../../state/dialog/duck';
 import { getContentSection } from '../../utils/content';
 import { findMatches } from '../../utils/search';
 import addContent from '../decorator/add-content';

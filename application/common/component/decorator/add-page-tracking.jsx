@@ -45,7 +45,7 @@ function addPageTracking(SourceComponent) {
          * @returns {void}
          */
         componentDidMount() {
-            const { handleAddPageView } = this.props;
+            const { handleAddPageView } = this.props;
             handleAddPageView();
         }
 

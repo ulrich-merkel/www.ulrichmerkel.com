@@ -38,13 +38,13 @@ import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { throttle, isEqual, get } from 'lodash';
+import { throttle, get } from 'lodash';
 
 import {
-    selectStateDialogVisible,
-    selectStateDialogPage
-} from '../../state/selectors';
-import { changeDialogVisible } from '../../state/actions';
+    selectStateDialogContent,
+    selectStateDialogVisible
+} from '../../state/dialog/selector';
+import { changeDialogVisible } from '../../state/dialog/duck';
 import addContent from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
@@ -88,17 +88,6 @@ class LayoutDialog extends Component {
         if (isBrowser()) {
             window.addEventListener('keydown', this.onKeyDown, false);
         }
-    }
-
-    /**
-     * ShouldComponentUpdate is triggered before the re-rendering process starts,
-     * giving the developer the ability to short circuit this process.
-     *
-     * @param {object} nextProps - The news props to be rendered
-     * @returns {boolean} Whether to force component update or not
-     */
-    shouldComponentUpdate(nextProps) {
-        return !isEqual(this.props, nextProps);
     }
 
     /**
@@ -236,7 +225,8 @@ function mapStateToProps(state, ownProps) {
     return {
         dialogVisible:
             selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
-        dialogPage: selectStateDialogPage(state) || get(ownProps, 'dialogPage')
+        dialogPage:
+            selectStateDialogContent(state) || get(ownProps, 'dialogPage')
     };
 }
 

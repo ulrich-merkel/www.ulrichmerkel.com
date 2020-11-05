@@ -61,7 +61,7 @@ import {
 import {
     changeDialogVisibleSearch,
     changeDialogVisibleTheme
-} from '../../state/dialog/actions';
+} from '../../state/dialog/duck';
 import ModuleMenu from '../module/menu';
 import { GridContainer, GridRow, GridCol } from '../grid';
 import { A, Button, Header, Icon, Nav, Progress } from '../element';

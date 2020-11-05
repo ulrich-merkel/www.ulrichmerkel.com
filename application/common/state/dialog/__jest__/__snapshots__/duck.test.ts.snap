@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should react to an action with the type dialog/DIALOG_VISIBLE_CHANGE 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "content": "",
+    "visible": false,
+  },
+}
+`;
+
+exports[`reducer should react to an action with the type dialog/DIALOG_VISIBLE_CHANGE 2`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "content": "DIALOG_CONTENT_THEME",
+    "visible": true,
+  },
+}
+`;
