@@ -49,7 +49,7 @@ import { configApplication, url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
 import { encrypt } from '../../../utils/xor';
 import { logger } from '../../../utils/logger';
-import scrollTo from '../../../utils/scroll-to';
+import { scrollTo } from '../../../utils/scroll-to';
 import { xhr, XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
 import { selectStateContactForm } from '../../../state/contact/selector';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';

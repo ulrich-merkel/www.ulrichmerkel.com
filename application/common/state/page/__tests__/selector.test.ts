@@ -1,52 +1,33 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import { selectStatePage, selectStatePageViewsAfterReload } from '../selector';
-import { initialState, PAGE_RESOURCE_NAME } from '../duck';
 
-describe('selectStatePage', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [PAGE_RESOURCE_NAME]: {
-                payload: {
-                    locale: 'en-EN'
-                }
-            }
-        };
-        expect(selectStatePage(state)).toEqual(state[PAGE_RESOURCE_NAME]);
+describe('selectStatePage', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStatePage(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStatePage(state)).toEqual(initialState);
+        expect(selectStatePage(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStatePage()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStatePage()).toMatchSnapshot();
     });
 });
 
-describe('selectStatePageViewsAfterReload', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [PAGE_RESOURCE_NAME]: {
-                payload: {
-                    viewsAfterReload: 12
-                }
-            }
-        };
-        expect(selectStatePageViewsAfterReload(state)).toEqual(
-            state[PAGE_RESOURCE_NAME].payload.viewsAfterReload
-        );
+describe('selectStatePageViewsAfterReload', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStatePageViewsAfterReload(mockState)).toMatchSnapshot();
     });
-    it("should return the default if state isn't found", function () {
+    it("should return the default if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStatePageViewsAfterReload(state)).toEqual(
-            initialState.payload.viewsAfterReload
-        );
+        expect(selectStatePageViewsAfterReload(state)).toMatchSnapshot();
     });
 });

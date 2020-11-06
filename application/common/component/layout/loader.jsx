@@ -6,22 +6,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link https://codeburst.io/how-to-create-a-simple-css-loading-spinner-make-it-accessible-e5c83c2e464c}
- *
- * @requires react
- * @requires prop-types
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -36,7 +24,7 @@ import { getContentSection } from '../../utils/content';
  * @param {object} [props.content={}] - The component content config
  * @returns {ReactElement} React component markup
  */
-function LayoutLoader(props) {
+export function LayoutLoader(props) {
     const { content } = props;
 
     const contentSection = getContentSection(content);
@@ -83,4 +71,4 @@ LayoutLoader.defaultProps = {
     content: {}
 };
 
-export default addContent('LayoutLoader')(LayoutLoader);
+export const LayoutLoaderConnected = addContent('LayoutLoader')(LayoutLoader);

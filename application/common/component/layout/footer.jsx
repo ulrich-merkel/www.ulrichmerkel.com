@@ -6,30 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires react-router
- * @requires classnames
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/component/grid/container
- * @requires common/component/grid/spaced
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/module/menu
- * @requires common/component/element/nav
- * @requires common/component/element/button
- * @requires common/component/element/small
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -56,7 +34,7 @@ import Small from '../element/small';
  * @param {Function} [props.handleSearchChange=Function.prototype] - Function handling to top scrolling
  * @returns {ReactElement} React component markup
  */
-function LayoutFooter(props) {
+export function LayoutFooter(props) {
     const { className, content, handleScrollTop } = props;
 
     const contentSection = getContentSection(content);
@@ -145,4 +123,6 @@ LayoutFooter.defaultProps = {
     handleScrollTop: Function.prototype
 };
 
-export default withRouter(addContent('LayoutFooter')(LayoutFooter));
+export const LayoutFooterConnected = withRouter(
+    addContent('LayoutFooter')(LayoutFooter)
+);

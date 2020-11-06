@@ -76,7 +76,7 @@ import middlewarePost from './middleware/post';
 import middlewareError from './middleware/error';
 import middlewareReact from './middleware/react';
 import middlewareApi from './middleware/api';
-import middlewareApplicationCache from './middleware/application-cache';
+import { middlewareApplicationCache } from './middleware/application-cache';
 
 /**
  * Called when express.js app starts on given port w/o errors.

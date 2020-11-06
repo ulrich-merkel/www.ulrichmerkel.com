@@ -1,50 +1,33 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import { selectStateCsrf, selectStateCsrfToken } from '../selector';
-import { initialState, CSRF_RESOURCE_NAME } from '../duck';
 
-describe('selectStateCsrf', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [CSRF_RESOURCE_NAME]: {
-                payload: {
-                    token: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
-                }
-            }
-        };
-        expect(selectStateCsrf(state)).toEqual(state[CSRF_RESOURCE_NAME]);
+describe('selectStateCsrf', function fndDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateCsrf(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateCsrf(state)).toEqual(initialState);
+        expect(selectStateCsrf(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStateCsrf()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStateCsrf()).toMatchSnapshot();
     });
 });
 
-describe('selectStateCsrfToken', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [CSRF_RESOURCE_NAME]: {
-                payload: {
-                    token: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
-                }
-            }
-        };
-        expect(selectStateCsrfToken(state)).toEqual(
-            state[CSRF_RESOURCE_NAME].payload.token
-        );
+describe('selectStateCsrfToken', function fndDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateCsrfToken(mockState)).toMatchSnapshot();
     });
-    it("should return the default if state isn't found", function () {
+    it("should return the default if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateCsrfToken(state)).toEqual(initialState.payload.token);
+        expect(selectStateCsrfToken(state)).toMatchSnapshot();
     });
 });

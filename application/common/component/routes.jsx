@@ -10,7 +10,7 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
-import { LayoutBody } from './layout';
+import { LayoutBodyConnected } from './layout/body';
 import { PageBroadcast } from './page/broadcast';
 import { PageContact } from './page/contact';
 import { PageDisclaimer } from './page/disclaimer';
@@ -30,7 +30,7 @@ import { PageWork } from './page/work';
  */
 export function Routes() {
     return (
-        <LayoutBody>
+        <LayoutBodyConnected>
             <Switch>
                 <Route exact path={url.home} component={PageHome} />
                 <Route path={`${url.work}/:work`} component={PageWork} />
@@ -44,6 +44,6 @@ export function Routes() {
                 <Route path={url.theme} component={PageTheme} />
                 <Route component={PageNotFound} />
             </Switch>
-        </LayoutBody>
+        </LayoutBodyConnected>
     );
 }

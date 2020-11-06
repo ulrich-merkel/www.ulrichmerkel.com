@@ -1,5 +1,5 @@
 /* eslint-disable func-names, immutable/no-mutation, immutable/no-let */
-import mockedLocalStorage from '../__mocks__/localStorage';
+import { mockedLocalStorage } from '../../../__tests__/mocks/mocked-local-storage';
 import { WebStorage } from '../web-storage';
 
 global.localStorage = mockedLocalStorage;
@@ -29,16 +29,21 @@ describe('webStorage', function () {
         webStorage.save(key, data);
         expect(webStorage.read(key)).toEqual(data);
         webStorage.remove(key);
-        expect(webStorage.read(key)).toBeUndefined();
+        expect(webStorage.read(key)).toEqual(null);
     });
     it('should gracefully degrate', function () {
-        global.localStorage = {
+        const originalWindow = { ...global.localStorage };
+        const windowSpy = jest.spyOn(global, 'localStorage', 'get');
+        windowSpy.mockImplementation(() => ({
+            ...originalWindow,
             getItem: jest.fn()
-        };
+        }));
+
         webStorage = new WebStorage();
 
         webStorage.save(key, data);
         expect(webStorage.read(key)).toEqual(null);
         webStorage.remove(key);
+        windowSpy.mockRestore();
     });
 });

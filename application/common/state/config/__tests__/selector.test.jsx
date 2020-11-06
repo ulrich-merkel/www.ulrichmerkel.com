@@ -1,26 +1,19 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import { selectStateConfig } from '../selector';
 
-describe('common/state/config/selector', function () {
-    describe('selectStateConfig', function () {
-        it('should return the correct state', function () {
-            const state = {
-                config: {
-                    test: 'foo'
-                }
-            };
-            expect(selectStateConfig(state)).toEqual(state.config);
-        });
-        it("should return an empty object if state isn't found", function () {
-            const state = {
-                foo: {
-                    bar: 'test'
-                },
-                bar: {
-                    foo: 'test'
-                }
-            };
-            expect(selectStateConfig(state)).toEqual({});
-        });
+describe('selectStateConfig', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateConfig(mockState)).toMatchSnapshot();
+    });
+    it("should return an empty object if state isn't found", function fnIt() {
+        const state = {
+            foo: {
+                bar: 'test'
+            },
+            bar: {
+                foo: 'test'
+            }
+        };
+        expect(selectStateConfig(state)).toMatchSnapshot();
     });
 });

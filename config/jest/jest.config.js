@@ -4,7 +4,11 @@ module.exports = {
     bail: false,
     testRegex: '(/__tests__/.*|(\\.|/))\\.test.[jt]sx?$',
     testPathIgnorePatterns: [
-        '<rootDir>/(build|docs|node_modules|report|config)/',
+        '<rootDir>/node_modules/',
+        '<rootDir>/build/',
+        '<rootDir>/docs/',
+        '<rootDir>/report/',
+        '<rootDir>/config/',
         '/mocks'
     ],
     transform: {

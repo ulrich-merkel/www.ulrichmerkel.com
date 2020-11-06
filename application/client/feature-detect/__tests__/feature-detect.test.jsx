@@ -1,8 +1,7 @@
 /* eslint-disable func-names, immutable/no-mutation, lodash/prefer-constant */
-import 'jsdom-global/register';
 import featureDetect from '../feature-detect';
 import hasCssCustomProperties from '../css-custom-properties';
-import hasTouchEvents from '../touch-events';
+import { hasTouchEvents } from '../touch-events';
 
 jest.mock('../css-custom-properties');
 jest.mock('../touch-events');

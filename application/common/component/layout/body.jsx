@@ -10,25 +10,25 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import { pictureFill } from '../decorator/picturefill';
 import { scroller } from '../decorator/scroller';
 import { addContent } from '../decorator/add-content';
-import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 import { eventPreventDefault } from '../../utils/event';
 import {
     DIALOG_CONTENT_BROADCAST,
     DIALOG_CONTENT_SEARCH,
     DIALOG_CONTENT_THEME
 } from '../../state/dialog/duck';
-import LayoutHeaderConnected from './header';
-import LayoutFooter from './footer';
-import LayoutTheme from './theme';
-import LayoutLoader from './loader';
-import LayoutDialogConnected from './dialog';
+import { LayoutHeaderConnected } from './header';
+import { LayoutFooterConnected } from './footer';
+import { LayoutThemeConnected } from './theme';
+import { LayoutLoaderConnected } from './loader';
+import { LayoutDialogConnected } from './dialog';
 import { PageBroadcast } from '../page/broadcast';
 import { PageSearch } from '../page/search';
 import { PageTheme } from '../page/theme';
@@ -53,23 +53,11 @@ function handleScrollTop(event) {
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component content config
  */
-class LayoutBody extends Component {
-    /**
-     * ShouldComponentUpdate is triggered before the re-rendering process starts,
-     * giving the developer the ability to short circuit this process.
-     *
-     * @param {object} nextProps - The news props to be rendered
-     * @returns {boolean} Whether to force component update or not
-     */
-    shouldComponentUpdate(nextProps) {
-        return this.props !== nextProps;
-    }
-
+export class LayoutBody extends PureComponent {
     /**
      * The required render function to return a single react child element.
      *
@@ -79,12 +67,12 @@ class LayoutBody extends Component {
         const { children, content } = this.props;
 
         return (
-            <LayoutTheme>
+            <LayoutThemeConnected>
                 <Helmet {...content} />
-                <LayoutLoader />
+                <LayoutLoaderConnected />
                 <LayoutHeaderConnected />
                 {children}
-                <LayoutFooter handleScrollTop={handleScrollTop} />
+                <LayoutFooterConnected handleScrollTop={handleScrollTop} />
                 <LayoutDialogConnected
                     className="l-dialog--search"
                     page={DIALOG_CONTENT_SEARCH}
@@ -103,7 +91,7 @@ class LayoutBody extends Component {
                 >
                     <PageTheme isDialog />
                 </LayoutDialogConnected>
-            </LayoutTheme>
+            </LayoutThemeConnected>
         );
     }
 }
@@ -142,9 +130,6 @@ LayoutBody.defaultProps = {
  *
  * @type {ReactElement}
  */
-const LayoutBodyContainer = scroller(
+export const LayoutBodyConnected = scroller(
     pictureFill(addContent('Head')(LayoutBody))
 );
-
-export default LayoutBodyContainer;
-export { LayoutBody };

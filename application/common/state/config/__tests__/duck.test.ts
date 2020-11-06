@@ -1,10 +1,4 @@
 /* eslint-disable func-names, immutable/no-mutation */
-// @see https://github.com/reactjs/redux/blob/master/docs/recipes/WritingTests.md
-// import configureMockStore from 'redux-mock-store'; // eslint-disable-line import/no-extraneous-dependencies
-// import nock from 'nock'; // eslint-disable-line import/no-extraneous-dependencies
-// import thunk from 'redux-thunk';
-
-// import { host, port, url } from '../../../config/application';
 import {
     CONFIG_CONTENT_ADD,
     CONFIG_TRANSLATION_ADD,
@@ -13,14 +7,11 @@ import {
     reducer,
     addConfigTranslation,
     FETCH_CONFIG_CONTENT_REQUEST,
-    // FETCH_CONFIG_CONTENT_SUCCESS,
-    FETCH_CONFIG_TRANSLATION_REQUEST
-    // FETCH_CONFIG_TRANSLATION_SUCCESS
-    // fetchConfigContentIfNeeded,
-    // fetchConfigTranslationIfNeeded
+    FETCH_CONFIG_CONTENT_SUCCESS,
+    FETCH_CONFIG_TRANSLATION_REQUEST,
+    FETCH_CONFIG_TRANSLATION_SUCCESS
 } from '../duck';
 
-// const mockStore = configureMockStore([thunk]);
 Date.now = jest.fn().mockReturnValue(1234567890);
 const dateNow = Date.now();
 
@@ -44,63 +35,6 @@ describe('addConfigTranslation', function () {
         expect(addConfigTranslation(content, locale).locale).toEqual(locale);
     });
 });
-
-// @TODO Check response after jest and nock update
-// describe('fetchConfigContentIfNeeded', function () {
-//     afterEach(function () {
-//         nock.cleanAll();
-//     });
-
-//     it(`should create ${FETCH_CONFIG_CONTENT_SUCCESS} when fetching content has been done`, function () {
-//         const data = {
-//             body: {
-//                 foo: 'bar',
-//                 bar: ['foo']
-//             }
-//         };
-//         nock(`http://${host}:${port}`)
-//             .get(`${url.api}${url.apiConfigContent}`)
-//             .reply(200, data);
-
-//         const expectedActions = [
-//             { type: FETCH_CONFIG_CONTENT_REQUEST },
-//             { type: FETCH_CONFIG_CONTENT_SUCCESS, data, receivedAt: Date.now() }
-//         ];
-//         const store = mockStore({ config: null });
-
-//         return store.dispatch(fetchConfigContentIfNeeded()).then(function () {
-//             return expect(store.getActions()).toEqual(expectedActions);
-//         });
-//     });
-// });
-// describe('fetchConfigTranslationIfNeeded', function () {
-//     afterEach(function () {
-//         nock.cleanAll();
-//     });
-
-//     it(`should create ${FETCH_CONFIG_TRANSLATION_SUCCESS} when fetching translation has been done`, function () {
-//         const data = {
-//             body: {
-//                 foo: 'bar',
-//                 bar: ['foo']
-//             }
-//         };
-//         const locale = 'en-en';
-//         nock(`http://${host}:${port}`)
-//             .get(`${url.api}${url.apiConfigEnEn}`)
-//             .reply(200, data);
-
-//         const expectedActions = [
-//             { type: FETCH_CONFIG_TRANSLATION_REQUEST, locale },
-//             { type: FETCH_CONFIG_TRANSLATION_SUCCESS, data, receivedAt: Date.now(), locale }
-//         ];
-//         const store = mockStore({ config: null });
-
-//         return store.dispatch(fetchConfigTranslationIfNeeded('en-EN')).then(function () {
-//             return expect(store.getActions()).toEqual(expectedActions);
-//         });
-//     });
-// });
 
 describe('reducer', function () {
     it('should return the initial state', function () {

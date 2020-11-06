@@ -5,36 +5,12 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.6
- *
- * @requires react
- * @requires react-dom
- * @requires react-router
- * @requires lodash
- * @requires assert-plus
- * @requires common/config/application
- * @requires common/utils/logger
- * @requires common/utils/read-file
- * @requires common/component/root
- * @requires common/component/layout/html
- * @requires common/state/configure-store
- * @requires common/state/config/actions
- * @requires common/state/intl/actions
- * @requires common/state/csrf/actions
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link https://github.com/reactjs/react-router/blob/1.0.x/docs/guides/advanced/ServerRendering.md}
  * @see {@link https://github.com/reactjs/react-router/issues/1990}
  * @see {@link https://www.youtube.com/watch?v=PnpfGy7q96U}
  * @see {@link https://github.com/reactjs/redux/issues/723}
- *
- * @changelog
- * - 0.0.6 Switching to react-router@4
- * - 0.0.5 Add assert-plus as function parameter checker
- * - 0.0.4 Improve error handling and above the fold files
- * - 0.0.3 Adjusted async rendering
- * - 0.0.2 Moved code to es6
- * - 0.0.1 Basic functions and structure
  */
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -47,7 +23,7 @@ import { logger } from '../../common/utils/logger';
 import { readFile } from '../../common/utils/read-file';
 import { Root } from '../../common/component/root';
 import { Routes } from '../../common/component/routes';
-import LayoutHtml from '../../common/component/layout/html';
+import { LayoutHtmlConnected } from '../../common/component/layout/html';
 import { configureStore } from '../../common/state/configure-store';
 import { changeIntlLocale } from '../../common/state/intl/duck';
 import { selectStateIntlLocale } from '../../common/state/intl/selector';
@@ -86,11 +62,11 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
     return {
         html: renderToStaticMarkup(
             <Root {...{ store }}>
-                <LayoutHtml {...{ store, cssBase, scriptBootstrap }}>
+                <LayoutHtmlConnected {...{ store, cssBase, scriptBootstrap }}>
                     <StaticRouter context={context} location={url}>
                         <Routes />
                     </StaticRouter>
-                </LayoutHtml>
+                </LayoutHtmlConnected>
             </Root>
         ),
         context

@@ -1,81 +1,51 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateIntl,
     selectStateIntlLocale,
     selectStateIntlAvailableLocales
 } from '../selector';
-import { initialState, INTL_RESOURCE_NAME } from '../duck';
 
-describe('selectStateIntl', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [INTL_RESOURCE_NAME]: {
-                payload: {
-                    locale: 'en-EN'
-                }
-            }
-        };
-        expect(selectStateIntl(state)).toEqual(state[INTL_RESOURCE_NAME]);
+describe('selectStateIntl', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateIntl(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateIntl(state)).toEqual(initialState);
+        expect(selectStateIntl(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStateIntl()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStateIntl()).toMatchSnapshot();
     });
 });
 
-describe('selectStateIntlLocale', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [INTL_RESOURCE_NAME]: {
-                payload: {
-                    locale: 'en-EN'
-                }
-            }
-        };
-        expect(selectStateIntlLocale(state)).toEqual(
-            state[INTL_RESOURCE_NAME].payload.locale
-        );
+describe('selectStateIntlLocale', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateIntlLocale(mockState)).toMatchSnapshot();
     });
-    it("should return the default locale if state isn't found", function () {
+    it("should return the default locale if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateIntlLocale(state)).toEqual(
-            initialState.payload.locale
-        );
+        expect(selectStateIntlLocale(state)).toMatchSnapshot();
     });
 });
 
-describe('selectStateIntlAvailableLocales', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [INTL_RESOURCE_NAME]: {
-                payload: {
-                    availableLocales: ['en-EN', 'de-DE', 'fr-FR']
-                }
-            }
-        };
-        expect(selectStateIntlAvailableLocales(state)).toEqual(
-            state[INTL_RESOURCE_NAME].payload.availableLocales
-        );
+describe('selectStateIntlAvailableLocales', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateIntlAvailableLocales(mockState)).toMatchSnapshot();
     });
-    it("should return the default availableLocales if state isn't found", function () {
+    it("should return the default availableLocales if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateIntlAvailableLocales(state)).toEqual(
-            initialState.payload.availableLocales
-        );
+        expect(selectStateIntlAvailableLocales(state)).toMatchSnapshot();
     });
 });

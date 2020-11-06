@@ -1,81 +1,51 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateScroll,
     selectStateScrollIsHeaderFixed,
     selectStateScrollIsHeaderVisible
 } from '../selector';
-import { initialState, SCROLL_RESOURCE_NAME } from '../duck';
 
-describe('selectStateScroll', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [SCROLL_RESOURCE_NAME]: {
-                payload: {
-                    isHeaderFixed: true
-                }
-            }
-        };
-        expect(selectStateScroll(state)).toEqual(state[SCROLL_RESOURCE_NAME]);
+describe('selectStateScroll', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateScroll(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateScroll(state)).toEqual(initialState);
+        expect(selectStateScroll(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStateScroll()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStateScroll()).toMatchSnapshot();
     });
 });
 
-describe('selectStateScrollIsHeaderFixed', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [SCROLL_RESOURCE_NAME]: {
-                payload: {
-                    isHeaderFixed: true
-                }
-            }
-        };
-        expect(selectStateScrollIsHeaderFixed(state)).toEqual(
-            state[SCROLL_RESOURCE_NAME].payload.isHeaderFixed
-        );
+describe('selectStateScrollIsHeaderFixed', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateScrollIsHeaderFixed(mockState)).toMatchSnapshot();
     });
-    it("should return a boolean if state isn't found", function () {
+    it("should return a boolean if state isn't found", function fnIt() {
         const state = {
             super: {
                 dummy: 'ipsum'
             }
         };
-        expect(selectStateScrollIsHeaderFixed(state)).toEqual(
-            initialState.payload.isHeaderFixed
-        );
+        expect(selectStateScrollIsHeaderFixed(state)).toMatchSnapshot();
     });
 });
 
-describe('selectStateScrollIsHeaderVisible', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [SCROLL_RESOURCE_NAME]: {
-                payload: {
-                    isHeaderVisible: true
-                }
-            }
-        };
-        expect(selectStateScrollIsHeaderVisible(state)).toEqual(
-            state[SCROLL_RESOURCE_NAME].payload.isHeaderVisible
-        );
+describe('selectStateScrollIsHeaderVisible', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateScrollIsHeaderVisible(mockState)).toMatchSnapshot();
     });
-    it("should return a boolean if state isn't found", function () {
+    it("should return a boolean if state isn't found", function fnIt() {
         const state = {
             dummy: {
                 test: 'ipsum'
             }
         };
-        expect(selectStateScrollIsHeaderVisible(state)).toEqual(
-            initialState.payload.isHeaderVisible
-        );
+        expect(selectStateScrollIsHeaderVisible(state)).toMatchSnapshot();
     });
 });

@@ -18,7 +18,7 @@ import {
     changeScrollHeaderVisible
 } from '../../state/scroll/duck';
 import { isBrowser } from '../../utils/environment';
-import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 
 // @TODO Should be computed from actual css declaration
 const HEADER_HEIGHT = 61;

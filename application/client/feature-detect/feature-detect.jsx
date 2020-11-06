@@ -15,7 +15,7 @@
  */
 import { isBrowser } from '../../common/utils/environment';
 import hasCssCustomProperties from './css-custom-properties';
-import hasTouchEvents from './touch-events';
+import { hasTouchEvents } from './touch-events';
 
 /**
  * Initialize feature detection for browsers and add

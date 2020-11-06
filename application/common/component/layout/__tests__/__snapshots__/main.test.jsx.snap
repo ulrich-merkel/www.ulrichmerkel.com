@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutMain should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    Hello
+  </main>
+</DocumentFragment>
+`;

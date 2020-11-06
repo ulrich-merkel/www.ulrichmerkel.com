@@ -70,6 +70,20 @@ export class ModuleText extends Component {
     }
 
     /**
+     * Open broadcast dialog.
+     *
+     * @private
+     * @param {object} event - Synthetic react event
+     * @returns {void}
+     */
+    openDialog = (event) => {
+        const { handleChangeDialogVisible } = this.props;
+
+        eventPreventDefault(event);
+        handleChangeDialogVisible(true);
+    };
+
+    /**
      * Bind click event handlers to links in text content.
      *
      * @private
@@ -110,19 +124,6 @@ export class ModuleText extends Component {
             });
         }
     }
-
-    /**
-     * Open broadcast dialog.
-     *
-     * @private
-     * @param {object} event - Synthetic react event
-     * @returns {void}
-     */
-    openDialog = (event) => {
-        eventPreventDefault(event);
-        // eslint-disable-next-line react/destructuring-assignment
-        this.props.handleChangeDialogVisible(true);
-    };
 
     /**
      * The required render function to return a single react child element.

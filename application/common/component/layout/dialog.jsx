@@ -7,32 +7,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires classnames
- * @requires lodash
- * @requires common/state/selectors
- * @requires common/state/dialog/actions
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/utils/environment
- * @requires common/utils/event
- * @requires common/component/module/article
- * @requires common/component/module/list
- * @requires common/component/grid/spaced
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.4 Add isBroadcast and isSearch to props
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -58,13 +33,12 @@ import Button from '../element/button';
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
  * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
  * @property {object} [props.content={}] - The component content config
  */
-class LayoutDialog extends Component {
+export class LayoutDialog extends Component {
     /**
      * The actual class constructor.
      *
@@ -238,10 +212,8 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
-const LayoutDialogConnected = connect(
+
+export const LayoutDialogConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('LayoutDialog')(LayoutDialog));
-
-export default LayoutDialogConnected;
-export { LayoutDialog };

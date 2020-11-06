@@ -42,7 +42,6 @@ function getTimeStamp() {
 /**
  * Helper function to get dynamic picture sizes as valid cache url.
  *
- * @function
  * @private
  * @param {string} path - The image path
  * @param {Array.<string>} sizes - The responsive image sizes
@@ -75,7 +74,6 @@ function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
 /**
  * Get the application cache response as valid string.
  *
- * @function
  * @private
  * @returns {string} The manifest content
  */
@@ -239,12 +237,11 @@ function getApplicationCacheResponse() {
 /**
  * Middleware to serve offline application cache manifest file.
  *
- * @function
  * @param {object} req - The current request object
  * @param {object} res - The result object
  * @returns {Future}
  */
-function middlewareApplicationCache(req, res) {
+export function middlewareApplicationCache(req, res) {
     assert.object(req, 'req');
     assert.object(res, 'res');
 
@@ -259,5 +256,3 @@ function middlewareApplicationCache(req, res) {
         .set('Content-Type', 'text/cache-manifest')
         .send(getApplicationCacheResponse());
 }
-
-export default middlewareApplicationCache;

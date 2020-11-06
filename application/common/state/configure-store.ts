@@ -7,30 +7,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires redux
- * @requires redux-thunk
- * @requires redux-logger
- * @requires lodash
- * @requires common/config/application
- * @requires common/utils/environment
- * @requires common/state/cache-store
- * @requires common/state/config/reducer
- * @requires common/state/contact/reducer
- * @requires common/state/csrf/reducer
- * @requires common/state/dialog/reducer
- * @requires common/state/intl/reducer
- * @requires common/state/page/reducer
- * @requires common/state/scroll/reducer
- * @requires common/state/scroll/reducer
- * @requires common/state/config/actions
- *
- * @changelog
- * - 0.0.1 basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, Store } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { omit } from 'lodash';
@@ -90,15 +69,13 @@ const loggerMiddleware: Function = createLogger();
  * @param {object} [preloadedState={}] - Initial store config to reduce the payload on load
  * @returns {object} The newly created store
  */
-export function configureStore(preloadedState: rootReducer = {}) {
-    // ThunkMiddleware let's us dispatch() async functions
-    // eslint-disable-next-line prefer-const, immutable/no-let
-    let middlewares = [thunkMiddleware];
-    if (debug && isBrowser()) {
-        middlewares.push(loggerMiddleware);
-    }
+export function configureStore(preloadedState: RootState = {}): Store {
+    const middlewares = [
+        thunkMiddleware,
+        debug && isBrowser() && loggerMiddleware
+    ].filter(Boolean);
 
-    // Create store with cached data
+    // Create store with preloaded/cached data
     const store = createStore(
         rootReducer,
         {
@@ -111,7 +88,7 @@ export function configureStore(preloadedState: rootReducer = {}) {
     const { dispatch, getState, subscribe } = store;
 
     // Listen to changes to save state in cache
-    subscribe(function () {
+    subscribe(function handleSubscription() {
         const stateToSave = omit(getState(), ['csrf', 'page']);
         saveState(stateToSave);
     });

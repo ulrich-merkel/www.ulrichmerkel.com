@@ -4,21 +4,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2018
- * @version 0.0.2
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires pubsub-js
- * @requires common/constants/theme
- * @requires common/state/theme/selector
- *
- * @changelog
- * - 0.0.2 Use pubsub for decoupling
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { Component, default as React, Fragment } from 'react';
 import PropTypes from 'prop-types';
@@ -34,7 +20,7 @@ import { selectStateColorSchemeSelected } from '../../state/color-scheme/selecto
  * @augments React.Component
  * @property {string} props.themeSelected - Current selected theme
  */
-class LayoutTheme extends Component {
+export class LayoutTheme extends Component {
     /**
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
@@ -42,8 +28,9 @@ class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        // eslint-disable-next-line react/destructuring-assignment
-        PubSub.publish(THEME_CHANGE_MESSAGE, this.props.themeSelected);
+        const { themeSelected } = this.props;
+
+        PubSub.publish(THEME_CHANGE_MESSAGE, themeSelected);
     }
 
     /**
@@ -115,4 +102,4 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-export default connect(mapStateToProps)(LayoutTheme);
+export const LayoutThemeConnected = connect(mapStateToProps)(LayoutTheme);

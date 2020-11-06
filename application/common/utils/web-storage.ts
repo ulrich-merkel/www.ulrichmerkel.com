@@ -15,7 +15,7 @@ import { isFunction } from 'lodash';
  *
  * @class
  */
-export class WebStorage {
+class WebStorage {
     isSupported: boolean = false;
 
     /**
@@ -81,3 +81,5 @@ export class WebStorage {
         }
     }
 }
+
+export { WebStorage };

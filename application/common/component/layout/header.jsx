@@ -6,34 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires react-router
- * @requires classnames
- * @requires lodash
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/utils/event
- * @requires common/state/selectors
- * @requires common/state/intl/actions
- * @requires common/state/intl/constants
- * @requires common/component/grid/container
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/module/menu
- * @requires common/component/element/nav
- *
- * @changelog
- * - 0.0.4 added withRouter to get correct rendering after hydrate
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -80,7 +54,7 @@ import { A, Button, Header, Icon, Nav, Progress } from '../element';
  * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @returns {ReactElement} React component markup
  */
-function LayoutHeader(props) {
+export function LayoutHeader(props) {
     const {
         className,
         content,
@@ -327,12 +301,9 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderConnected = withRouter(
+export const LayoutHeaderConnected = withRouter(
     connect(
         mapStateToProps,
         mapDispatchToProps
     )(addContent('LayoutHeader')(LayoutHeader))
 );
-
-export default LayoutHeaderConnected;
-export { LayoutHeader };

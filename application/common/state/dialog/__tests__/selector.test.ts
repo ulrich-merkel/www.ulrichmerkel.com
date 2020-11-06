@@ -1,84 +1,51 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateDialog,
     selectStateDialogContent,
     selectStateDialogVisible
 } from '../selector';
-import { initialState, DIALOG_RESOURCE_NAME } from '../duck';
 
-describe('selectStateDialog', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [DIALOG_RESOURCE_NAME]: {
-                payload: {
-                    visible: true,
-                    content: 'search'
-                }
-            }
-        };
-        expect(selectStateDialog(state)).toEqual(state[DIALOG_RESOURCE_NAME]);
+describe('selectStateDialog', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateDialog(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateDialog(state)).toEqual(initialState);
+        expect(selectStateDialog(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStateDialog()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStateDialog()).toMatchSnapshot();
     });
 });
 
-describe('selectStateDialogVisible', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [DIALOG_RESOURCE_NAME]: {
-                payload: {
-                    visible: true,
-                    content: 'search'
-                }
-            }
-        };
-        expect(selectStateDialogVisible(state)).toEqual(
-            state[DIALOG_RESOURCE_NAME].payload.visible
-        );
+describe('selectStateDialogVisible', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateDialogVisible(mockState)).toMatchSnapshot();
     });
-    it("should return the default if state isn't found", function () {
+    it("should return the default if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateDialogVisible(state)).toEqual(
-            initialState.payload.visible
-        );
+        expect(selectStateDialogVisible(state)).toMatchSnapshot();
     });
 });
 
-describe('selectStateDialogContent', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [DIALOG_RESOURCE_NAME]: {
-                payload: {
-                    visible: true,
-                    content: 'search'
-                }
-            }
-        };
-        expect(selectStateDialogContent(state)).toEqual(
-            state[DIALOG_RESOURCE_NAME].payload.content
-        );
+describe('selectStateDialogContent', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateDialogContent(mockState)).toMatchSnapshot();
     });
-    it("should return the default if state isn't found", function () {
+    it("should return the default if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateDialogContent(state)).toEqual(
-            initialState.payload.content
-        );
+        expect(selectStateDialogContent(state)).toMatchSnapshot();
     });
 });

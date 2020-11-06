@@ -1,50 +1,33 @@
-/* eslint-disable func-names */
+import { mockState } from '../../../../__tests__/utils/get-mocked-store';
 import { selectStateSearch, selectStateSearchTerm } from '../selector';
-import { initialState, SEARCH_RESOURCE_NAME } from '../duck';
 
-describe('selectStateSearch', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [SEARCH_RESOURCE_NAME]: {
-                payload: {
-                    locale: 'en-EN'
-                }
-            }
-        };
-        expect(selectStateSearch(state)).toEqual(state[SEARCH_RESOURCE_NAME]);
+describe('selectStateSearch', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateSearch(mockState)).toMatchSnapshot();
     });
-    it('should return the initial state if resource key is not found', function () {
+    it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateSearch(state)).toEqual(initialState);
+        expect(selectStateSearch(state)).toMatchSnapshot();
     });
-    it('should return the initial state if no state is found', function () {
-        expect(selectStateSearch()).toEqual(initialState);
+    it('should return the initial state if no state is found', function fnIt() {
+        expect(selectStateSearch()).toMatchSnapshot();
     });
 });
 
-describe('selectStateSearchTerm', function () {
-    it('should return the correct state', function () {
-        const state = {
-            [SEARCH_RESOURCE_NAME]: {
-                payload: {
-                    term: 'Hello?'
-                }
-            }
-        };
-        expect(selectStateSearchTerm(state)).toEqual(
-            state[SEARCH_RESOURCE_NAME].payload.term
-        );
+describe('selectStateSearchTerm', function fnDescribe() {
+    it('should return the correct state', function fnIt() {
+        expect(selectStateSearchTerm(mockState)).toMatchSnapshot();
     });
-    it("should return the default if state isn't found", function () {
+    it("should return the default if state isn't found", function fnIt() {
         const state = {
             foo: {
                 bar: 'lorem'
             }
         };
-        expect(selectStateSearchTerm(state)).toEqual(initialState.payload.term);
+        expect(selectStateSearchTerm(state)).toMatchSnapshot();
     });
 });

@@ -5,42 +5,12 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.5
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/client/index.js}
- *
- * @requires babel-polyfill
- * @requires react
- * @requires react-dom
- * @requires react-router
- * @requires react-router-dom
- * @requires fastclick
- * @requires picturefill
- * @requires pubsub-js
- * @requires common/vendor/polyfill/base64
- * @requires common/vendor/polyfill/classList
- * @requires common/vendor/polyfill/console
- * @requires common/vendor/polyfill/CustomEvent
- * @requires common/vendor/polyfill/requestAnimationFrame
- * @requires common/vendor/standalone
- * @requires common/component/root
- * @requires common/component/routes
- * @requires common/state/configure-store
- * @requires common/config/application
- * @requires common/constants/theme
- * @requires client/feature-detect/feature-detect
- * @requires client/theme/apply-theme
- *
- * @changelog
- * - 0.0.5 Add PubSub due to decoupling
- * - 0.0.4 Switching to react-router@4
- * - 0.0.3 Adding history to get basename
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
 import '@babel/polyfill';
 import '../common/vendor/polyfill/console';

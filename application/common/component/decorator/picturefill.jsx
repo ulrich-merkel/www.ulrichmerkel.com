@@ -33,7 +33,7 @@ function initPicturefill() {
      * `picturefill` needs to be globally available here to make this work without errors
      * (is included in main client file).
      */
-    setTimeout(function () {
+    setTimeout(function setPictureFill() {
         picturefill();
     });
 }
