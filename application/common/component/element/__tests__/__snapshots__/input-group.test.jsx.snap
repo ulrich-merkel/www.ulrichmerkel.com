@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputGroup should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="input-group"
+  >
+    <input
+      aria-required="true"
+      class="m-form__control--text is-pristine"
+      id="input-group"
+      name="input"
+      placeholder=""
+      required=""
+      type="submit"
+      value="2"
+    />
+    <label
+      class="m-form__label"
+      for="input-group"
+    >
+      input
+      <i
+        aria-hidden="true"
+        class="c-font-icon--sad m-form__label__icon--error"
+      />
+      <i
+        aria-hidden="true"
+        class="c-font-icon--smile m-form__label__icon--success"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`InputGroup should render correctly the placeholder 1`] = `
+<DocumentFragment>
+  <div
+    class="input-group"
+  >
+    <input
+      aria-required="true"
+      class="m-form__control--text is-pristine"
+      id="input-group"
+      name="input"
+      placeholder="placeholder"
+      required=""
+      type="submit"
+      value="2"
+    />
+    <label
+      class="m-form__label is-visually-hidden"
+      for="input-group"
+    >
+      input
+      <i
+        aria-hidden="true"
+        class="c-font-icon--sad m-form__label__icon--error"
+      />
+      <i
+        aria-hidden="true"
+        class="c-font-icon--smile m-form__label__icon--success"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;

@@ -22,8 +22,8 @@ import { changeDialogVisibleSearch } from '../../state/dialog/duck';
 import { getContentSection } from '../../utils/content';
 import { findMatches } from '../../utils/search';
 import { addContent } from '../decorator/add-content';
-import A from '../element/a';
-import Headline from '../element/headline';
+import { A } from '../element/a';
+import { Headline } from '../element/headline';
 
 /**
  * Function representing a component to return a single react child element.

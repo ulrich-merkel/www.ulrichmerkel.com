@@ -4,17 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -29,7 +20,7 @@ import classnames from 'classnames';
  * @param {string} [props.icon=''] - The icon name taken for the web font
  * @returns {ReactElement|null} React component markup
  */
-function ElementIcon(props) {
+export function Icon(props) {
     const { htmlElement, className, icon, ...otherProps } = props;
 
     if (!icon) {
@@ -55,7 +46,7 @@ function ElementIcon(props) {
  * @static
  * @type {object}
  */
-ElementIcon.propTypes = {
+Icon.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     htmlElement: PropTypes.string,
     icon: PropTypes.string
@@ -67,9 +58,7 @@ ElementIcon.propTypes = {
  * @static
  * @type {object}
  */
-ElementIcon.defaultProps = {
+Icon.defaultProps = {
     htmlElement: 'i',
     icon: ''
 };
-
-export default ElementIcon;

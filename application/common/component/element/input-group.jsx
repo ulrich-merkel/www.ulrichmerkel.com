@@ -5,27 +5,15 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/input
- * @requires common/component/element/label
- * @requires common/component/element/icon
- *
- * @changelog
- * - 0.0.2 Add isLabelVisuallyHidden and placeholder to props
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Input from './input';
-import Label from './label';
-import Icon from './icon';
+import { Input } from './input';
+import { Label } from './label';
+import { Icon } from './icon';
 
 /**
  * Class representing a component.
@@ -33,7 +21,6 @@ import Icon from './icon';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
@@ -48,7 +35,7 @@ import Icon from './icon';
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value=''] - The default input value
  */
-class ElementInputGroup extends Component {
+export class InputGroup extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -119,7 +106,7 @@ class ElementInputGroup extends Component {
  * @static
  * @type {object}
  */
-ElementInputGroup.propTypes = {
+InputGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -141,7 +128,7 @@ ElementInputGroup.propTypes = {
  * @static
  * @type {object}
  */
-ElementInputGroup.defaultProps = {
+InputGroup.defaultProps = {
     isLabelVisuallyHidden: false,
     isPristine: false,
     isValid: true,
@@ -151,5 +138,3 @@ ElementInputGroup.defaultProps = {
     type: 'text',
     value: ''
 };
-
-export default ElementInputGroup;

@@ -5,15 +5,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -38,7 +30,7 @@ import classnames from 'classnames';
  * @property {Function} [props.onReset=Function.prototype] - The form reset handler function
  * @property {Function} [props.onSubmit=Function.prototype] - The form submit handler function
  */
-class ElementForm extends Component {
+export class Form extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -90,7 +82,7 @@ class ElementForm extends Component {
  * @static
  * @type {object}
  */
-ElementForm.propTypes = {
+Form.propTypes = {
     action: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     acceptCharset: PropTypes.string,
@@ -109,7 +101,7 @@ ElementForm.propTypes = {
  * @static
  * @type {object}
  */
-ElementForm.defaultProps = {
+Form.defaultProps = {
     acceptCharset: 'utf-8',
     itemProp: 'potentialAction',
     itemType: 'http://schema.org/CommunicateAction',
@@ -118,5 +110,3 @@ ElementForm.defaultProps = {
     onSubmit: Function.prototype,
     role: 'form'
 };
-
-export default ElementForm;

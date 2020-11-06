@@ -11,12 +11,8 @@ describe('getDateNow', function fnDescribe() {
     });
 
     it('should return a date via date', function fnIt() {
-        const originalWindow = { ...global.window };
-        const windowSpy = jest.spyOn(global, 'window', 'get');
-        windowSpy.mockImplementation(() => ({
-            ...originalWindow,
-            performance: {}
-        }));
+        const windowSpy = jest.spyOn(global, 'performance', 'get');
+        windowSpy.mockImplementation(() => {});
 
         expect(getDateNow()).toEqual(974851200000);
         windowSpy.mockRestore();

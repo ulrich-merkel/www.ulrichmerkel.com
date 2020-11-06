@@ -5,22 +5,13 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from './button';
+import { Button } from './button';
 
 /**
  * Class representing a component to return a single react child element.
@@ -28,7 +19,6 @@ import Button from './button';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.id - The button id attribute
  * @property {string} props.name - The button name attribute
@@ -42,7 +32,7 @@ import Button from './button';
  * @property {string} [props.title=''] - The button title attribute
  * @property {string} [props.type='button'] - The button type attribute
  */
-class ElementButtonGroup extends Component {
+export class ButtonGroup extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -106,7 +96,7 @@ class ElementButtonGroup extends Component {
  * @static
  * @type {object}
  */
-ElementButtonGroup.propTypes = {
+ButtonGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     btnClassName: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -126,7 +116,7 @@ ElementButtonGroup.propTypes = {
  * @static
  * @type {object}
  */
-ElementButtonGroup.defaultProps = {
+ButtonGroup.defaultProps = {
     isDisabled: false,
     isPending: false,
     isPrimary: false,
@@ -135,5 +125,3 @@ ElementButtonGroup.defaultProps = {
     title: '',
     type: 'button'
 };
-
-export default ElementButtonGroup;

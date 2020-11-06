@@ -19,8 +19,10 @@ import { selectStateCsrfToken } from '../../../state/csrf/selector';
 import { changeSearchTerm } from '../../../state/search/duck';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow, GridCol } from '../../grid';
-import { Form, Fieldset, Legend, InputGroup } from '../../element';
-
+import { Fieldset } from '../../element/fieldset';
+import { Form } from '../../element/form';
+import { InputGroup } from '../../element/input-group';
+import { Legend } from '../../element';
 /**
  * Function representing a component to return a single react child element.
  *

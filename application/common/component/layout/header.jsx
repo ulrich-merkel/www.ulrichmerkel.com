@@ -38,7 +38,11 @@ import {
 } from '../../state/dialog/duck';
 import { ModuleMenu } from '../module/menu';
 import { GridContainer, GridRow, GridCol } from '../grid';
-import { A, Button, Header, Icon, Nav, Progress } from '../element';
+import { A } from '../element/a';
+import { Button } from '../element/button';
+import { Header } from '../element/header';
+import { Icon } from '../element/icon';
+import { Nav, Progress } from '../element';
 
 /**
  * Function representing a component to return a single react child element.

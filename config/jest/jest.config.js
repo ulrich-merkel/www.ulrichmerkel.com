@@ -8,8 +8,7 @@ module.exports = {
         '<rootDir>/build/',
         '<rootDir>/docs/',
         '<rootDir>/report/',
-        '<rootDir>/config/',
-        '/mocks'
+        '<rootDir>/config/'
     ],
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
@@ -23,6 +22,9 @@ module.exports = {
     ],
     testEnvironment: 'jsdom',
     coverageDirectory: '<rootDir>/report/',
+    coveragePathIgnorePatterns: [
+        '__tests__'
+    ],
     coverageThreshold: {
         global: {
             branches: 50,

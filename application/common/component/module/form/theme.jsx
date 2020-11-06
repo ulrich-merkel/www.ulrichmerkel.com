@@ -17,7 +17,10 @@ import { selectStateColorSchemeSelected } from '../../../state/color-scheme/sele
 import { changeThemeSelected } from '../../../state/color-scheme/duck';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow, GridCol } from '../../grid';
-import { Form, Fieldset, Legend, Button } from '../../element';
+import { Button } from '../../element/button';
+import { Fieldset } from '../../element/fieldset';
+import { Form } from '../../element/form';
+import { Legend } from '../../element';
 
 const noop = Function.prototype;
 

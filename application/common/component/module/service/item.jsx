@@ -25,9 +25,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Headline from '../../element/headline';
+import { Headline } from '../../element/headline';
 import P from '../../element/paragraph';
-import Icon from '../../element/icon';
+import { Icon } from '../../element/icon';
 
 /**
  * Function representing a component to return a single react child element.

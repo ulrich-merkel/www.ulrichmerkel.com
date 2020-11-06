@@ -22,7 +22,7 @@ import GridRow from '../grid/row';
 import GridCol from '../grid/col';
 import { ModuleMenu } from '../module/menu';
 import Nav from '../element/nav';
-import Button from '../element/button';
+import { Button } from '../element/button';
 import Small from '../element/small';
 
 /**

@@ -26,14 +26,11 @@ import { changeContactForm } from '../../../state/contact/duck';
 import { canSendForm, validate } from '../../../state/contact/utils';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridCol, GridRow } from '../../grid';
-import {
-    ButtonGroup,
-    Fieldset,
-    Form,
-    InputGroup,
-    Legend,
-    TextareaGroup
-} from '../../element';
+import { ButtonGroup } from '../../element/button-group';
+import { Fieldset } from '../../element/fieldset';
+import { Form } from '../../element/form';
+import { InputGroup } from '../../element/input-group';
+import { Legend, TextareaGroup } from '../../element';
 import ModuleFormContactMessage from './contact/message';
 
 const defaultState = {

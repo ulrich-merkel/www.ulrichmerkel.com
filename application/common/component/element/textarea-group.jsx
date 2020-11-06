@@ -23,8 +23,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Textarea from './textarea';
-import Label from './label';
-import Icon from './icon';
+import { Label } from './label';
+import { Icon } from './icon';
 
 /**
  * Class representing a component.

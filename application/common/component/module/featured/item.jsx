@@ -31,8 +31,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import A from '../../element/a';
-import Icon from '../../element/icon';
+import { A } from '../../element/a';
+import { Icon } from '../../element/icon';
 import Picture from '../../element/picture';
 
 /**

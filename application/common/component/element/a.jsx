@@ -4,24 +4,11 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-router-dom
- * @requires classnames
- *
- * @changelog
- * - 0.0.4 Switching to react-router@4
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Moved code to es6
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
- * import A from './a';
+ * import { A } from './a';
  *
  * <A to='/page' className='additional-css' itemProp='url'>
  *     Link text
@@ -49,7 +36,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.exact] - Exclusively passed to NavLink
  * @returns {ReactElement} React component markup
  */
-function A(props) {
+export function A(props) {
     const {
         activeClassName,
         children,
@@ -130,5 +117,3 @@ A.defaultProps = {
     componentType: 'a',
     title: ''
 };
-
-export default A;

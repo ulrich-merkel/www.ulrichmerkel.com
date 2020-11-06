@@ -28,7 +28,7 @@ import { isBrowser } from '../../utils/environment';
 import GridSpaced from '../grid/spaced';
 import GridRow from '../grid/row';
 import GridCol from '../grid/col';
-import Button from '../element/button';
+import { Button } from '../element/button';
 
 /**
  * Class representing a component.

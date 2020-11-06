@@ -16,7 +16,7 @@ import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionSearch } from '../section/search';
-import { ModuleFormThemeConnected }  from '../module/form/theme';
+import { ModuleFormThemeConnected } from '../module/form/theme';
 
 type PageProps = {
     content: {};

@@ -4,17 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +18,7 @@ import classnames from 'classnames';
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
-function ElementFieldset(props) {
+export function Fieldset(props) {
     const { className, ...otherProps } = props;
 
     const componentClassName = classnames('m-form__fieldset', className);
@@ -44,8 +35,6 @@ function ElementFieldset(props) {
  * @static
  * @type {object}
  */
-ElementFieldset.propTypes = {
+Fieldset.propTypes = {
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
-
-export default ElementFieldset;

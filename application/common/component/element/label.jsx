@@ -4,18 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.2 Add isVisuallyHidden to props
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -30,7 +20,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.isVisuallyHidden] - Whether the label is visually hidden or not
  * @returns {ReactElement} React component markup
  */
-function ElementLabel(props) {
+export function Label(props) {
     const { className, htmlFor, isVisuallyHidden, ...otherProps } = props;
 
     const composedClassName = classnames('m-form__label', className, {
@@ -53,7 +43,7 @@ function ElementLabel(props) {
  * @static
  * @type {object}
  */
-ElementLabel.propTypes = {
+Label.propTypes = {
     htmlFor: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     isVisuallyHidden: PropTypes.bool
@@ -65,8 +55,6 @@ ElementLabel.propTypes = {
  * @static
  * @type {object}
  */
-ElementLabel.defaultProps = {
+Label.defaultProps = {
     isVisuallyHidden: false
 };
-
-export default ElementLabel;

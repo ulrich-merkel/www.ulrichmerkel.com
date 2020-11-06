@@ -26,7 +26,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import Headline from '../../element/headline';
+import { Headline } from '../../element/headline';
 import P from '../../element/paragraph';
 
 /**

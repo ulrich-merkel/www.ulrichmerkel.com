@@ -23,10 +23,7 @@ import { isFunction } from 'lodash';
  * @returns {number} The current timestamp
  */
 export let getDateNow = function getDateNowFn() {
-    if (
-        typeof window.performance !== 'undefined' &&
-        isFunction(window.performance.now)
-    ) {
+    if (typeof performance !== 'undefined' && isFunction(performance.now)) {
         getDateNow = function getDateNowPerformance(): number {
             return performance.now();
         };

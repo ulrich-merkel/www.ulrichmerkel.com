@@ -2,7 +2,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { Headline, P, Button } from '../../../element';
+import { P } from '../../../element';
+import { Button } from '../../../element/button';
+import { Headline } from '../../../element/headline';
 
 function ModuleFormContactMessage(props) {
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;

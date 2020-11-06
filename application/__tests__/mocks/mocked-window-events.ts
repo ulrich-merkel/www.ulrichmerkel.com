@@ -11,6 +11,4 @@ window.removeEventListener = jest.fn().mockImplementation((event) => {
     mockedWindowEvents[event] = null;
 });
 
-export {
-    mockedWindowEvents
-}
+export { mockedWindowEvents };
