@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meta should render correctly 1`] = `
+<DocumentFragment>
+  <meta
+    content="bar"
+    itemprop="foo"
+    name="name"
+    property="foo"
+  />
+</DocumentFragment>
+`;
+
+exports[`Meta should render nothing if no content is set 1`] = `<DocumentFragment />`;

@@ -4,17 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
  * import P from './paragraph';
@@ -41,7 +32,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.isCentered=false] - Whether the component should be centered via css or not
  * @returns {ReactElement} React component markup
  */
-function ElementParagraph(props) {
+export function P(props) {
     const {
         className,
         hasColumns2,
@@ -72,7 +63,7 @@ function ElementParagraph(props) {
  * @static
  * @type {object}
  */
-ElementParagraph.propTypes = {
+P.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     hasColumns2: PropTypes.bool,
     htmlElement: PropTypes.string,
@@ -85,10 +76,8 @@ ElementParagraph.propTypes = {
  * @static
  * @type {object}
  */
-ElementParagraph.defaultProps = {
+P.defaultProps = {
     hasColumns2: false,
     htmlElement: 'p',
     isCentered: false
 };
-
-export default ElementParagraph;

@@ -42,7 +42,8 @@ import { A } from '../element/a';
 import { Button } from '../element/button';
 import { Header } from '../element/header';
 import { Icon } from '../element/icon';
-import { Nav, Progress } from '../element';
+import { Nav } from '../element/nav';
+import { Progress } from '../element/progress';
 
 /**
  * Function representing a component to return a single react child element.

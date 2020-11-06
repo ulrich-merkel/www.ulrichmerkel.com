@@ -20,7 +20,7 @@ import { GridRow, GridCol } from '../../grid';
 import { Button } from '../../element/button';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
-import { Legend } from '../../element';
+import { Legend } from '../../element/legend';
 
 const noop = Function.prototype;
 

@@ -26,7 +26,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
-import P from '../../element/paragraph';
+import { P } from '../../element/paragraph';
 import { Icon } from '../../element/icon';
 
 /**

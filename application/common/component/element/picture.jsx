@@ -5,26 +5,14 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @see {@link https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.wi9haug7n}
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/element/picture-source
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import ElementPictureSource from './picture-source';
+import { PictureSource } from './picture-source';
 
 const noop = Function.prototype;
 
@@ -34,7 +22,6 @@ const noop = Function.prototype;
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} [props.alt=''] - The image description
  * @property {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
@@ -47,7 +34,7 @@ const noop = Function.prototype;
  * @property {string} [props.placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
  * @property {Array.<object>} [props.sizes='[]'] - The responsive sizes config
  */
-class ElementPicture extends Component {
+export class Picture extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -89,7 +76,7 @@ class ElementPicture extends Component {
                         const { height, minWidth, width } = value;
 
                         return (
-                            <ElementPictureSource
+                            <PictureSource
                                 key={shortid.generate()}
                                 {...{
                                     ext,
@@ -121,7 +108,7 @@ class ElementPicture extends Component {
  * @static
  * @type {object}
  */
-ElementPicture.propTypes = {
+Picture.propTypes = {
     alt: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -146,7 +133,7 @@ ElementPicture.propTypes = {
  * @static
  * @type {object}
  */
-ElementPicture.defaultProps = {
+Picture.defaultProps = {
     alt: '',
     ext: '',
     htmlElement: 'picture',
@@ -157,5 +144,3 @@ ElementPicture.defaultProps = {
         'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
     sizes: []
 };
-
-export default ElementPicture;

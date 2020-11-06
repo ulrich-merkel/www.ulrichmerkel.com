@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`P should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="is-centered has-columns--2 c-type--p"
+    name="paragraph"
+  >
+    P Tag Children
+  </span>
+</DocumentFragment>
+`;

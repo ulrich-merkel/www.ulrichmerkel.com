@@ -28,7 +28,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
-import Picture from '../../element/picture';
+import { Picture } from '../../element/picture';
 import { isBrowser } from '../../../utils/environment';
 
 /**

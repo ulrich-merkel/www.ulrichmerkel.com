@@ -4,18 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.2 Add isVisuallyHidden to props
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -29,7 +19,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.isVisuallyHidden] - Whether the legend is visually hidden or not
  * @returns {ReactElement} React component markup
  */
-function ElementLegend(props) {
+export function Legend(props) {
     const { className, isVisuallyHidden, ...other } = props;
 
     const composedClassName = classnames('m-form__legend', className, {
@@ -48,7 +38,7 @@ function ElementLegend(props) {
  * @static
  * @type {object}
  */
-ElementLegend.propTypes = {
+Legend.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     isVisuallyHidden: PropTypes.bool
 };
@@ -59,8 +49,6 @@ ElementLegend.propTypes = {
  * @static
  * @type {object}
  */
-ElementLegend.defaultProps = {
+Legend.defaultProps = {
     isVisuallyHidden: false
 };
-
-export default ElementLegend;

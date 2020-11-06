@@ -22,7 +22,7 @@ import { GridRow, GridCol } from '../../grid';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { InputGroup } from '../../element/input-group';
-import { Legend } from '../../element';
+import { Legend } from '../../element/legend';
 /**
  * Function representing a component to return a single react child element.
  *

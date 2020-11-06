@@ -21,9 +21,9 @@ import GridSpaced from '../grid/spaced';
 import GridRow from '../grid/row';
 import GridCol from '../grid/col';
 import { ModuleMenu } from '../module/menu';
-import Nav from '../element/nav';
+import { Nav } from '../element/nav';
 import { Button } from '../element/button';
-import Small from '../element/small';
+import { Small } from '../element/small';
 
 /**
  * Function representing a component to return a single react child element.

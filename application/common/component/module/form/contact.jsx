@@ -30,7 +30,8 @@ import { ButtonGroup } from '../../element/button-group';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { InputGroup } from '../../element/input-group';
-import { Legend, TextareaGroup } from '../../element';
+import { Legend } from '../../element/legend';
+import { TextareaGroup } from '../../element/textarea-group';
 import ModuleFormContactMessage from './contact/message';
 
 const defaultState = {

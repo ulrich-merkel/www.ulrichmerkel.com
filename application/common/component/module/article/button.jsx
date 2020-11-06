@@ -30,7 +30,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { Button } from '../../element/button';
-import { P } from '../../element';
+import { P } from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { P } from '../../../element';
+import { P } from '../../../element/paragraph';
 import { Button } from '../../../element/button';
 import { Headline } from '../../../element/headline';
 

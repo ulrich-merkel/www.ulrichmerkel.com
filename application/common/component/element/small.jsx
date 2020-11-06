@@ -4,17 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -28,7 +19,7 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-function ElementSmall(props) {
+export function Small(props) {
     const { htmlElement: ComponentType, className, ...otherProps } = props;
 
     const composedClassName = classnames('c-type--small', className);
@@ -45,7 +36,7 @@ function ElementSmall(props) {
  * @static
  * @type {object}
  */
-ElementSmall.propTypes = {
+Small.propTypes = {
     className: PropTypes.string,
     htmlElement: PropTypes.string
 };
@@ -56,9 +47,7 @@ ElementSmall.propTypes = {
  * @static
  * @type {object}
  */
-ElementSmall.defaultProps = {
+Small.defaultProps = {
     className: '',
     htmlElement: 'small'
 };
-
-export default ElementSmall;

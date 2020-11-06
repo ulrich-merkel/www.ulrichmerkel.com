@@ -22,9 +22,7 @@ module.exports = {
     ],
     testEnvironment: 'jsdom',
     coverageDirectory: '<rootDir>/report/',
-    coveragePathIgnorePatterns: [
-        '__tests__'
-    ],
+    coveragePathIgnorePatterns: ['__tests__'],
     coverageThreshold: {
         global: {
             branches: 50,

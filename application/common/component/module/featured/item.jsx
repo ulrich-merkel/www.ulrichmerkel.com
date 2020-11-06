@@ -33,7 +33,7 @@ import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
-import Picture from '../../element/picture';
+import { Picture } from '../../element/picture';
 
 /**
  * Function representing a component to return a single react child element.
