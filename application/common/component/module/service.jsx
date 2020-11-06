@@ -6,24 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires component/module/service/item
- *
- * @changelog
- * - 0.0.4 Excluded headline/lead into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -36,12 +20,11 @@ import ModuleServiceItem from './service/item';
  * Helper function to insert clear items in array to ease css timeline
  * view floating.
  *
- * @function
  * @private
  * @param {Array} input - The source array
  * @returns {Array} The converted list
  */
-function insertClearedListItems(input) {
+export function insertClearedListItems(input) {
     let array = Array.from(input); // eslint-disable-line prefer-const
     const { length } = array;
 
@@ -63,11 +46,10 @@ function insertClearedListItems(input) {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleService(props) {
+export function ModuleService(props) {
     const {
         componentType,
         className,
@@ -148,5 +130,3 @@ ModuleService.defaultProps = {
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleService;

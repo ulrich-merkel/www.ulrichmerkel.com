@@ -6,24 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/module/reading/item
- *
- * @changelog
- * - 0.0.4 Excluded headline/lead into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -35,11 +19,10 @@ import ModuleReadingItem from './reading/item';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleReading(props) {
+export function ModuleReading(props) {
     const {
         componentType,
         className,
@@ -124,5 +107,3 @@ ModuleReading.defaultProps = {
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleReading;

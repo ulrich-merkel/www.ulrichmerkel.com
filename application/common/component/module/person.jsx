@@ -1,30 +1,14 @@
 /* eslint-disable immutable/no-mutation */
 /**
-* Es6 module for React Component.
-* Component module React classes combine elements to
-* bigger parts of the page.
-*
-* @file
-* @module
-*
-* @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
-* @version 0.0.3
-*
-* @TODO Find better mapping solution to prevent unnecessary rendering
-*
-* @requires react
-@requires prop-types
-* @requires classnames
-* @requires common/component/element/paragraph
-*
-* @changelog
-* - 0.0.4 Excluded headline/lead into separate component
-* - 0.0.3 Moved to stateless function
-* - 0.0.2 rewritten for es2015
-* - 0.0.1 Basic functions and structure
-*
-* @example <caption>Example usage (jsx)</caption>
-*/
+ * Es6 module for React Component.
+ * Component module React classes combine elements to
+ * bigger parts of the page.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
+ */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -34,11 +18,10 @@ import P from '../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModulePerson(props) {
+export function ModulePerson(props) {
     const {
         componentType,
         className,
@@ -167,5 +150,3 @@ ModulePerson.defaultProps = {
     itemType: 'http://schema.org/Person',
     isCentered: true
 };
-
-export default ModulePerson;

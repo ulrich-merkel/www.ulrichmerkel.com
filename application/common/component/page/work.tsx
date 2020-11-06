@@ -41,12 +41,14 @@ import { get } from 'lodash';
 
 import { url } from '../../config/application';
 import configWork from '../../config/work';
-import addPageTracking from '../decorator/add-page-tracking';
+import { addPageTracking } from '../decorator/add-page-tracking';
 import { selectStateConfig } from '../../state/config/selector';
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { getContentSection, getTranslatedContent } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import { SectionFeatured, SectionKeyVisual, SectionText } from '../section';
+import { SectionFeatured } from '../section/featured';
+import { SectionKeyVisual } from '../section/key-visual';
+import { SectionText } from '../section/text';
 
 const NOT_FOUND = 'not-found';
 

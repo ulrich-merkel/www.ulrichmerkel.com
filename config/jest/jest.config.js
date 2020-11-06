@@ -2,7 +2,7 @@
 module.exports = {
     rootDir: '../../',
     bail: false,
-    testRegex: '(/__jest__/.*|(\\.|/)(test|spec))\\.(js|jsx|ts|tsx)$',
+    testRegex: '(/__tests__/.*|(\\.|/))\\.test.[jt]sx?$',
     testPathIgnorePatterns: [
         '<rootDir>/(build|docs|node_modules|report|config)/',
         '/mocks'

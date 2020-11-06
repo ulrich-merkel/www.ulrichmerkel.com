@@ -6,21 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/element/headline
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -32,11 +19,10 @@ import Headline from '../element/headline';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleList(props) {
+export function ModuleList(props) {
     const { componentType, className, itemType, content, children } = props;
 
     const ComponentType = componentType;
@@ -122,5 +108,3 @@ ModuleList.defaultProps = {
     itemType: 'http://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleList;

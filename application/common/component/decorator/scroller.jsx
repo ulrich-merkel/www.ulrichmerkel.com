@@ -5,24 +5,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires react-router
- * @requires lodash
- * @requires common/state/scroll/actions
- * @requires common/utils/environment
- * @requires common/utils/scroll-to
- *
- * @changelog
- * - 0.0.3 Added scrollTop after change to react-router@4
- * - 0.0.2 Improved scroll handling
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -62,7 +45,7 @@ function scrollTop() {
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-function scroller(SourceComponent) {
+export function scroller(SourceComponent) {
     /**
      * Class representing a component.
      *
@@ -245,5 +228,3 @@ function scroller(SourceComponent) {
 
     return ScrollerContainer;
 }
-
-export default scroller;

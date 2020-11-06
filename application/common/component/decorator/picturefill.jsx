@@ -6,16 +6,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires picturefill
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 
@@ -42,7 +33,7 @@ function initPicturefill() {
      * `picturefill` needs to be globally available here to make this work without errors
      * (is included in main client file).
      */
-    setTimeout(() => {
+    setTimeout(function () {
         picturefill();
     });
 }
@@ -53,7 +44,7 @@ function initPicturefill() {
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-function pictureFill(SourceComponent) {
+export function pictureFill(SourceComponent) {
     /**
      * Wrapper class to call initPicturefill on mount and on updates.
      *
@@ -92,5 +83,3 @@ function pictureFill(SourceComponent) {
         }
     };
 }
-
-export default pictureFill;

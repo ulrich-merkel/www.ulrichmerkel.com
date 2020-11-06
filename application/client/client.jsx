@@ -58,8 +58,8 @@ import PubSub from 'pubsub-js';
 import attachFastClick from 'fastclick';
 import 'picturefill';
 
-import Root from '../common/component/root';
-import Routes from '../common/component/routes';
+import { Root } from '../common/component/root';
+import { Routes } from '../common/component/routes';
 import { configureStore } from '../common/state/configure-store';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';

@@ -7,22 +7,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/utils/scroll-to
- * @requires common/component/key-visual/picture
- * @requires common/component/key-visual/article
- * @requires common/component/key-visual/button
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -32,6 +17,7 @@ import scrollTo from '../../utils/scroll-to';
 import ModuleKeyVisualPicture from './key-visual/picture';
 import ModuleKeyVisualArticle from './key-visual/article';
 import ModuleKeyVisualButton from './key-visual/button';
+import { eventPreventDefault } from '../../utils/event';
 
 /**
  * Class representing a component.
@@ -39,44 +25,18 @@ import ModuleKeyVisualButton from './key-visual/button';
  * @class
  * @augments React.Component
  */
-class ModuleKeyVisual extends Component {
-    /**
-     * The actual class constructor.
-     *
-     * This is usally unnecessary if we don't perform any actions here,
-     * because a default constructor will call super(props) for us.
-     * We do this just because of completeness.
-     *
-     * @constructs
-     * @param {object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
-
-        /**
-         * A bind call or arrow function in a JSX prop will create a brand new
-         * function on every single render. This is bad for performance, as it
-         * will result in the garbage collector being invoked way more than is necessary.
-         *
-         * Unfortunately React ES6 classes do not autobind their methods like components created
-         * with the older React.createClass syntax. There are several approaches to binding methods
-         * for ES6 classes. A basic approach is to just manually bind the methods in the constructor
-         *
-         * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
-         */
-        this.onClickBtn = this.onClickBtn.bind(this);
-    }
-
+export class ModuleKeyVisual extends Component {
     /**
      * Handle button down click event.
      *
-     * @function
-     * @private
+     * @param {object} event - Click event object
      * @returns {void}
      */
-    onClickBtn() {
+    onClickBtn = (event) => {
+        const { onClickBtn } = this.props;
         const { keyVisual } = this;
+
+        eventPreventDefault(event);
 
         if (keyVisual) {
             const innerHeight = keyVisual.clientHeight;
@@ -88,13 +48,13 @@ class ModuleKeyVisual extends Component {
             scrollTo({
                 top: innerHeight + boundingClientRectTop + offsetTop
             });
+            onClickBtn();
         }
-    }
+    };
 
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
@@ -156,10 +116,8 @@ class ModuleKeyVisual extends Component {
  * @property {object} [content={}] - The component translation config
  */
 ModuleKeyVisual.propTypes = {
-    componentType: PropTypes.string,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isWork: PropTypes.bool,
-    isCovered: PropTypes.bool,
+    componentType: PropTypes.string,
     content: PropTypes.shape({
         headline: PropTypes.string,
         lead: PropTypes.string,
@@ -167,7 +125,10 @@ ModuleKeyVisual.propTypes = {
         btnTitle: PropTypes.string,
         img: PropTypes.object,
         type: PropTypes.string
-    })
+    }),
+    isCovered: PropTypes.bool,
+    isWork: PropTypes.bool,
+    onClickBtn: PropTypes.func
 };
 
 /**
@@ -179,9 +140,8 @@ ModuleKeyVisual.propTypes = {
  */
 ModuleKeyVisual.defaultProps = {
     componentType: 'div',
-    isWork: false,
+    content: {},
     isCovered: false,
-    content: {}
+    isWork: false,
+    onClickBtn: Function.prototype
 };
-
-export default ModuleKeyVisual;

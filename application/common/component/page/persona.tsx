@@ -11,17 +11,15 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
-import addContent from '../decorator/add-content';
-import addPageTracking from '../decorator/add-page-tracking';
+import { addContent } from '../decorator/add-content';
+import { addPageTracking } from '../decorator/add-page-tracking';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import {
-    SectionCornerstone,
-    SectionLanguage,
-    SectionReading,
-    SectionService,
-    SectionText
-} from '../section';
+import { SectionCornerstone } from '../section/cornerstone';
+import { SectionLanguage } from '../section/language';
+import { SectionReading } from '../section/reading';
+import { SectionService } from '../section/service';
+import { SectionText } from '../section/text';
 
 type PageProps = {
     content: {};

@@ -45,7 +45,7 @@ import {
     selectStateDialogVisible
 } from '../../state/dialog/selector';
 import { changeDialogVisible } from '../../state/dialog/duck';
-import addContent from '../decorator/add-content';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';

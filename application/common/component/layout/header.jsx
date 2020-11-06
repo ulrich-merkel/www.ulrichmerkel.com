@@ -42,7 +42,7 @@ import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
-import addContent from '../decorator/add-content';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import {
@@ -62,7 +62,7 @@ import {
     changeDialogVisibleSearch,
     changeDialogVisibleTheme
 } from '../../state/dialog/duck';
-import ModuleMenu from '../module/menu';
+import { ModuleMenu } from '../module/menu';
 import { GridContainer, GridRow, GridCol } from '../grid';
 import { A, Button, Header, Icon, Nav, Progress } from '../element';
 

@@ -7,7 +7,6 @@
  *
  * @file
  * @module
- * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  */
@@ -23,13 +22,12 @@ import { GridSection, GridRow, GridCol } from '../../grid';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs (usally an array of components), if there is only a single child it's a string
  * @param {object} [props.pageViewsAfterReload] - The redux page state
  * @returns {ReactElement} React component markup
  */
-function SectionCommonGrid(props) {
+function Grid(props) {
     const { children, pageViewsAfterReload } = props;
 
     return (
@@ -49,7 +47,7 @@ function SectionCommonGrid(props) {
  * @static
  * @type {object}
  */
-SectionCommonGrid.propTypes = {
+Grid.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     pageViewsAfterReload: PropTypes.number
 };
@@ -60,7 +58,7 @@ SectionCommonGrid.propTypes = {
  * @static
  * @type {object}
  */
-SectionCommonGrid.defaultProps = {
+Grid.defaultProps = {
     pageViewsAfterReload: 0
 };
 
@@ -83,6 +81,4 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const SectionCommonGridContainer = connect(mapStateToProps)(SectionCommonGrid);
-
-export default SectionCommonGridContainer;
+export const SectionCommonGrid = connect(mapStateToProps)(Grid);

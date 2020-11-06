@@ -6,22 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/module/featured/item
- *
- * @changelog
- * - 0.0.4 Excluded item into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -36,7 +22,7 @@ import ModuleFeaturedItem from './featured/item';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleFeatured(props) {
+export function ModuleFeatured(props) {
     const {
         componentType,
         className,
@@ -117,5 +103,3 @@ ModuleFeatured.defaultProps = {
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleFeatured;

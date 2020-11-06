@@ -12,11 +12,11 @@ import * as React from 'react';
 import { withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 
-import addPageTracking from '../decorator/add-page-tracking';
-import addContent from '../decorator/add-content';
+import { addPageTracking } from '../decorator/add-page-tracking';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import SectionContact from '../section/contact';
+import { SectionContact } from '../section/contact';
 import ModuleFormContact from '../module/form/contact'; // eslint-disable-line import/no-named-as-default
 
 type PageProps = {

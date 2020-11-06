@@ -5,18 +5,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires common/state/page/actions
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -30,7 +19,7 @@ import { addPageView } from '../../state/page/duck';
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-function addPageTracking(SourceComponent) {
+export function addPageTracking(SourceComponent) {
     /**
      * Wrapper class to connect to redux and handle tracking action.
      *
@@ -79,5 +68,3 @@ function addPageTracking(SourceComponent) {
         handleAddPageView: addPageView
     })(AddPageTracking);
 }
-
-export default addPageTracking;

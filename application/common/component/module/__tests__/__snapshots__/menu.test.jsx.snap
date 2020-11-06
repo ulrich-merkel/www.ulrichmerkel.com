@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleMenu should render correctly 1`] = `
+<DocumentFragment>
+  <ol
+    class="m-menu m-menu--bar module-menu"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="menu"
+  >
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="foo"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="bar"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <i
+          aria-hidden="true"
+          class="c-font-icon--icon m-menu__icon"
+        />
+        <span
+          class="m-menu__label"
+          itemprop="name"
+        >
+          label
+        </span>
+      </a>
+      <link
+        href="/test"
+        itemprop="url"
+      />
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="url"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <span
+          class="is-visually-hidden m-menu__label"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="url"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <span
+          class="m-menu__label"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    Module menu children
+  </ol>
+</DocumentFragment>
+`;
+
+exports[`ModuleMenu should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <ol
+    class="m-menu m-menu--bar module-menu"
+    role="menu"
+  >
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="foo"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="bar"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <i
+          aria-hidden="true"
+          class="c-font-icon--icon m-menu__icon"
+        />
+        <span
+          class="m-menu__label"
+          itemprop="name"
+        >
+          label
+        </span>
+      </a>
+      <link
+        href="/test"
+        itemprop="url"
+      />
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="url"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <span
+          class="is-visually-hidden m-menu__label"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item"
+        href="/foo"
+        itemprop="url"
+        role="menuitem"
+        tabindex="0"
+        title="title"
+      >
+        <span
+          class="m-menu__label"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    Module menu children
+  </ol>
+</DocumentFragment>
+`;
+
+exports[`ModuleMenu should return null if content image is empty 1`] = `<DocumentFragment />`;

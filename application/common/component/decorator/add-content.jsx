@@ -4,23 +4,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires lodash
- * @requires common/utils/content
- * @requires common/state/selectors
- *
- * @changelog
- * - 0.0.4 Refactored for better readability
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Moved code to es6
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -37,7 +21,7 @@ import { selectStateConfig } from '../../state/config/selector';
  * @param {string} configKey - The object key to be found in translation config
  * @returns {Function}
  */
-function addContent(configKey) {
+export function addContent(configKey) {
     /**
      * The react higher order function for passing data to props.
      *
@@ -102,5 +86,3 @@ function addContent(configKey) {
         return connect(mapStateToProps)(ReturnedComponent);
     };
 }
-
-export default addContent;

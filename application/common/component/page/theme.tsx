@@ -11,11 +11,11 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
-import addPageTracking from '../decorator/add-page-tracking';
-import addContent from '../decorator/add-content';
+import { addPageTracking } from '../decorator/add-page-tracking';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import SectionSearch from '../section/search';
+import { SectionSearch } from '../section/search';
 import ModuleFormTheme from '../module/form/theme'; // eslint-disable-line import/no-named-as-default
 
 type PageProps = {

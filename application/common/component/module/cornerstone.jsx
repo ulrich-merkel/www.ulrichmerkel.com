@@ -6,24 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/element/headline
- * @requires common/component/module/cornerstone/item-employee
- * @requires common/component/module/cornerstone/item-education
- *
- * @changelog
- * - 0.0.4 Excluded headline/lead into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -40,7 +24,7 @@ import ModuleCornerstoneItemEducation from './cornerstone/item-education';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleCornerstone(props) {
+export function ModuleCornerstone(props) {
     const {
         componentType,
         className,
@@ -176,5 +160,3 @@ ModuleCornerstone.defaultProps = {
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleCornerstone;

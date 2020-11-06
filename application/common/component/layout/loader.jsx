@@ -26,7 +26,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import addContent from '../decorator/add-content';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 
 /**

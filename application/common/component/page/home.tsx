@@ -11,14 +11,14 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
-import addPageTracking from '../decorator/add-page-tracking';
-import addContent from '../decorator/add-content';
+import { addPageTracking } from '../decorator/add-page-tracking';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import SectionKeyVisual from '../section/key-visual';
-import SectionText from '../section/text';
-import SectionService from '../section/service';
-import SectionFeatured from '../section/featured';
+import { SectionKeyVisual } from '../section/key-visual';
+import { SectionText } from '../section/text';
+import { SectionService } from '../section/service';
+import { SectionFeatured } from '../section/featured';
 
 type PageProps = {
     content: {};

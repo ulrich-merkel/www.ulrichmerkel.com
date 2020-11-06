@@ -8,39 +8,15 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-helmet
- * @requires common/component/decorator/picturefill
- * @requires common/component/decorator/scroller
- * @requires common/component/decorator/add-content
- * @requires common/utils/event
- * @requires common/utils/scroll-to
- * @requires common/state/constants
- * @requires common/component/layout/header
- * @requires common/component/layout/footer
- * @requires common/component/layout/loader
- * @requires common/component/layout/dialog
- * @requires common/component/page/broadcast
- * @requires common/component/page/search
- * @requires common/component/page/theme
- *
- * @changelog
- * - 0.0.4 Add theming
- * - 0.0.3 Remove connect and state handling, improve dialog handling
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import pictureFill from '../decorator/picturefill';
-import scroller from '../decorator/scroller';
-import addContent from '../decorator/add-content';
+import { pictureFill } from '../decorator/picturefill';
+import { scroller } from '../decorator/scroller';
+import { addContent } from '../decorator/add-content';
 import scrollTo, { getPageOffset } from '../../utils/scroll-to';
 import { eventPreventDefault } from '../../utils/event';
 import {
@@ -54,8 +30,8 @@ import LayoutTheme from './theme';
 import LayoutLoader from './loader';
 import LayoutDialogConnected from './dialog';
 import { PageBroadcast } from '../page/broadcast';
-import PageSearch from '../page/search';
-import PageTheme from '../page/theme';
+import { PageSearch } from '../page/search';
+import { PageTheme } from '../page/theme';
 
 /**
  * Scroll to top animation helper.

@@ -7,31 +7,19 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires common/component/section/common/grid-spaced
- * @requires common/component/module/article
- * @requires common/component/module/list
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import SectionCommonGridSpaced from './common/grid-spaced';
-import ModuleArticle from '../module/article';
-import ModuleList from '../module/list';
+import { SectionCommonGridSpaced } from './common/grid-spaced';
+import { ModuleArticle } from '../module/article';
+import { ModuleList } from '../module/list';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs - usually an array of components, if there is only a single child it's a string
  * @param {object} [props.content={}] - The content config input
@@ -85,4 +73,4 @@ SectionList.defaultProps = {
     isMain: false
 };
 
-export default SectionList;
+export { SectionList };

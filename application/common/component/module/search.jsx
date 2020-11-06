@@ -6,29 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires classnames
- * @requires shortid
- * @requires lodash
- * @requires common/state/selectors
- * @requires common/state/actions
- * @requires common/utils/content
- * @requires common/utils/search
- * @requires common/component/decorator/add-content
- * @requires common/component/element/headline
- * @requires common/component/element/a
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -42,18 +21,17 @@ import { selectStateConfig } from '../../state/config/selector';
 import { changeDialogVisibleSearch } from '../../state/dialog/duck';
 import { getContentSection } from '../../utils/content';
 import { findMatches } from '../../utils/search';
-import addContent from '../decorator/add-content';
+import { addContent } from '../decorator/add-content';
 import A from '../element/a';
 import Headline from '../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleSearch(props) {
+export function ModuleSearch(props) {
     const {
         children,
         className,
@@ -176,7 +154,6 @@ ModuleSearch.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {object.<*>} state - The redux store state
  * @param {object.<*>} [ownProps] - The current component props
@@ -197,7 +174,6 @@ function mapStateToProps(state, ownProps) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {object}
@@ -214,7 +190,7 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-export default connect(
+export const ModuleSearchConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('')(ModuleSearch));

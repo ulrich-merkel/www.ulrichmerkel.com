@@ -3,19 +3,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires react-router-dom
- * @requires common/config/application
- * @requires common/component/layout
- * @requires common/component/page
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -37,10 +26,9 @@ import { PageWork } from './page/work';
 /**
  * Handling routes and wrap content in a layout.
  *
- * @function
  * @returns {ReactElement} React component markup
  */
-function Routes() {
+export function Routes() {
     return (
         <LayoutBody>
             <Switch>
@@ -59,5 +47,3 @@ function Routes() {
         </LayoutBody>
     );
 }
-
-export default Routes;

@@ -7,28 +7,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires react-redux
- * @requires shortid
- * @requires common/state/dialog/actions
- * @requires common/utils/environment
- * @requires common/utils/event
- * @requires component/module/text/headline
- * @requires component/module/text/content
- * @requires component/module/text/person
- * @requires component/module/text/time
- * @requires component/module/text/link
- *
- * @changelog
- * - 0.0.4 Excluded headline/content/person... into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -59,20 +38,7 @@ import ModuleTextLink from './text/link';
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component translation config
  */
-class ModuleText extends Component {
-    /**
-     * The actual class constructor.
-     *
-     * @constructs
-     * @param {object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
-
-        this.openDialog = this.openDialog.bind(this);
-    }
-
+export class ModuleText extends Component {
     /**
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
@@ -152,11 +118,11 @@ class ModuleText extends Component {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    openDialog(event) {
+    openDialog = (event) => {
         eventPreventDefault(event);
         // eslint-disable-next-line react/destructuring-assignment
         this.props.handleChangeDialogVisible(true);
-    }
+    };
 
     /**
      * The required render function to return a single react child element.
@@ -275,9 +241,6 @@ ModuleText.defaultProps = {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleTextContainer = connect(null, {
+export const ModuleTextConnected = connect(null, {
     handleChangeDialogVisible: changeDialogVisibleBroadcast
 })(ModuleText);
-
-export default ModuleTextContainer;
-export { ModuleText };

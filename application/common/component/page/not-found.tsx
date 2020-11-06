@@ -12,11 +12,11 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 
-import addPageTracking from '../decorator/add-page-tracking';
-import addContent from '../decorator/add-content';
+import { addPageTracking } from '../decorator/add-page-tracking';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import SectionText from '../section/text';
+import { SectionText } from '../section/text';
 
 type PageProps = {
     content: {};
