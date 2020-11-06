@@ -103,7 +103,7 @@
     "test:retire": "retire --ignorefile $npm_package_directories_config/retireignore.json; exit 0;",
     "test": "npm-run-all test:*",
     "transpile:client": "webpack --config $npm_package_directories_config/webpack.config.js",
-    "transpile:server": "babel $npm_package_directories_source_application -d $npm_package_directories_build_application -x \".js,.jsx,.ts,.tsx\"",
+    "transpile:server": "babel $npm_package_directories_source_application -d $npm_package_directories_build_application -x \".js,.jsx,.ts,.tsx\" --ignore \"*/**/__tests__/,*/**/__mocks__/\"",
     "transpile": "npm-run-all --parallel transpile:*",
     "travis": "rimraf $npm_package_directories_build_root && npm test --silent && npm run doc && npm run build --silent",
     "upgrade": "if which yarn ; then yarn upgrade-interactive --latest --ignore-engines; else npm outdated ; fi",

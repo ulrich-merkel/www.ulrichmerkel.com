@@ -17,7 +17,7 @@ import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionContact } from '../section/contact';
-import ModuleFormContact from '../module/form/contact'; // eslint-disable-line import/no-named-as-default
+import { ModuleFormContactConnected } from '../module/form/contact';
 
 type PageProps = {
     content: {};
@@ -41,7 +41,7 @@ function Page(props: PageProps) {
         <LayoutMain>
             <Helmet {...contentSection('head')} />
             <SectionContact content={contentSection('section1')} isMain>
-                <ModuleFormContact
+                <ModuleFormContactConnected
                     content={contentSection('formContact')}
                     {...{ routerState }}
                 />

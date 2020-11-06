@@ -2,13 +2,15 @@
 /**
  * @see {@link https://github.com/airbnb/enzyme/issues/426}
  */
-const map = {};
+const mockedWindowEvents = {};
 
 window.addEventListener = jest.fn().mockImplementation((event, cb) => {
-    map[event] = cb;
+    mockedWindowEvents[event] = cb;
 });
 window.removeEventListener = jest.fn().mockImplementation((event) => {
-    map[event] = null;
+    mockedWindowEvents[event] = null;
 });
 
-export default map;
+export {
+    mockedWindowEvents
+}

@@ -17,7 +17,7 @@ import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionSearch } from '../section/search';
 import { ModuleSearchConnected } from '../module/search';
-import ModuleFormSearch from '../module/form/search'; // eslint-disable-line import/no-named-as-default
+import { ModuleFormSearchConnected } from '../module/form/search';
 
 type PageProps = {
     content: {};
@@ -36,7 +36,7 @@ function Page(props: PageProps) {
 
     const pageSearchContent = (
         <SectionSearch content={contentSection('section1')} isMain isDialog>
-            <ModuleFormSearch content={contentSection('formSearch')} />
+            <ModuleFormSearchConnected content={contentSection('formSearch')} />
             <ModuleSearchConnected isMain>{children}</ModuleSearchConnected>
         </SectionSearch>
     );

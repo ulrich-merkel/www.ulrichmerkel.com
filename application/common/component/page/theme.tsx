@@ -16,7 +16,7 @@ import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionSearch } from '../section/search';
-import ModuleFormTheme from '../module/form/theme'; // eslint-disable-line import/no-named-as-default
+import { ModuleFormThemeConnected }  from '../module/form/theme';
 
 type PageProps = {
     content: {};
@@ -35,7 +35,7 @@ function Page(props: PageProps) {
 
     const pageThemeContent = (
         <SectionSearch content={contentSection('section1')} isMain isDialog>
-            <ModuleFormTheme content={contentSection('formTheme')} />
+            <ModuleFormThemeConnected content={contentSection('formTheme')} />
             {children}
         </SectionSearch>
     );

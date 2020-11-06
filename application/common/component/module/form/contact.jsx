@@ -5,40 +5,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
- *
- * @TODO Add classname and htmlElement to props, add honeypot again
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires lodash
- * @requires common/config/application
- * @requires common/utils/environment
- * @requires common/utils/xor
- * @requires common/utils/logger
- * @requires common/utils/scroll-to
- * @requires common/utils/xhr
- * @requires common/state/selectors
- * @requires common/state/contact/actions
- * @requires common/state/contact/utils
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/button-group
- * @requires common/component/element/fieldset
- * @requires common/component/element/form
- * @requires common/component/element/input-group
- * @requires common/component/element/legend
- * @requires common/component/element/textarea-group
- *
- * @changelog
- * - 0.0.4 Refactored, simplified state
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -624,10 +593,7 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleFormContactContainer = connect(
+export const ModuleFormContactConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormContact);
-
-export default ModuleFormContactContainer;
-export { ModuleFormContact };

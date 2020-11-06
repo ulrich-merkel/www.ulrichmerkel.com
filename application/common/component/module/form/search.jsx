@@ -5,32 +5,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires lodash
- * @requires common/config/application
- * @requires common/utils/environment
- * @requires common/utils/xor
- * @requires common/utils/logger
- * @requires common/utils/scroll-to
- * @requires common/utils/xhr
- * @requires common/state/selectors
- * @requires common/state/actions
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/form
- * @requires common/component/element/fieldset
- * @requires common/component/element/legend
- * @requires common/component/element/input-group
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -47,11 +24,10 @@ import { Form, Fieldset, Legend, InputGroup } from '../../element';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleFormSearch(props) {
+export function ModuleFormSearch(props) {
     const { content, csrfToken, searchTerm, handleSearchChangeTerm } = props;
 
     return (
@@ -129,7 +105,6 @@ ModuleFormSearch.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {object.<*>} state - The redux store state
  * @param {object.<*>} ownProps - The current component props
@@ -149,7 +124,6 @@ function mapStateToProps(state, ownProps) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {object}
@@ -166,10 +140,7 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleFormSearchContainer = connect(
+export const ModuleFormSearchConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormSearch);
-
-export default ModuleFormSearchContainer;
-export { ModuleFormSearch };

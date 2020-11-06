@@ -5,24 +5,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires common/constants/theme
- * @requires common/state/selectors
- * @requires common/state/actions
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/form
- * @requires common/component/element/fieldset
- * @requires common/component/element/legend
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -44,7 +27,7 @@ const noop = Function.prototype;
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleFormTheme(props) {
+export function ModuleFormTheme(props) {
     const {
         content,
         csrfToken,
@@ -141,7 +124,6 @@ ModuleFormTheme.defaultProps = {
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {object.<*>} state - The redux store state
  * @returns {object}
@@ -160,7 +142,6 @@ function mapStateToProps(state) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
- * @function
  * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {object}
@@ -182,10 +163,7 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleFormThemeContainer = connect(
+export const ModuleFormThemeConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormTheme);
-
-export default ModuleFormThemeContainer;
-export { ModuleFormTheme };
