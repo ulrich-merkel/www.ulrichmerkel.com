@@ -17,7 +17,9 @@ import { connect } from 'react-redux';
 
 import { getSectionTransition } from '../../../utils/transition';
 import { selectStatePageViewsAfterReload } from '../../../state/page/selector';
-import { GridSection, GridRow, GridCol } from '../../grid';
+import { GridSection } from '../../grid/section';
+import { GridRow } from '../../grid/row';
+import { GridCol } from '../../grid/col';
 
 /**
  * Function representing a component to return a single react child element.

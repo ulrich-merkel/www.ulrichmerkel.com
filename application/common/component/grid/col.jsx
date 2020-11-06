@@ -6,18 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.2 Moved to stateless function
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -32,7 +22,7 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='div'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-function GridCol(props) {
+export function GridCol(props) {
     const { className, cols, htmlElement, ...otherProps } = props;
 
     const ComponentType = htmlElement;
@@ -63,5 +53,3 @@ GridCol.defaultProps = {
     cols: 12,
     htmlElement: 'div'
 };
-
-export default GridCol;

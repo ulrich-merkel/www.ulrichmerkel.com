@@ -37,7 +37,9 @@ import {
     changeDialogVisibleTheme
 } from '../../state/dialog/duck';
 import { ModuleMenu } from '../module/menu';
-import { GridContainer, GridRow, GridCol } from '../grid';
+import { GridContainer } from '../grid/container';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
 import { A } from '../element/a';
 import { Button } from '../element/button';
 import { Header } from '../element/header';

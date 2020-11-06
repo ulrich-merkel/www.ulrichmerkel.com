@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridContainer should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="l-grid foo"
+  >
+    Grid Container Children
+  </span>
+</DocumentFragment>
+`;

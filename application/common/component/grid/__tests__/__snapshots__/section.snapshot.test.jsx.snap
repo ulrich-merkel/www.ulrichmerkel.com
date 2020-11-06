@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/component/grid/section should render correctly 1`] = `
-<section
-  className="l-grid m-section"
->
-  Grid Section Children
-</section>
-`;

@@ -28,7 +28,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { isString } from 'lodash';
 
-import GridCol from '../../grid/col';
+import { GridCol } from '../../grid/col';
 import { Headline } from '../../element/headline';
 import { Meta } from '../../element/meta';
 

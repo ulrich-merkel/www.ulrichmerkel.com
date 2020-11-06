@@ -25,9 +25,9 @@ import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
 
-import GridSpaced from '../grid/spaced';
-import GridRow from '../grid/row';
-import GridCol from '../grid/col';
+import { GridSpaced } from '../grid/spaced';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
 import { Button } from '../element/button';
 
 /**

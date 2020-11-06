@@ -16,10 +16,10 @@ import classnames from 'classnames';
 
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
-import GridContainer from '../grid/container';
-import GridSpaced from '../grid/spaced';
-import GridRow from '../grid/row';
-import GridCol from '../grid/col';
+import { GridContainer } from '../grid/container';
+import { GridSpaced } from '../grid/spaced';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
 import { ModuleMenu } from '../module/menu';
 import { Nav } from '../element/nav';
 import { Button } from '../element/button';
