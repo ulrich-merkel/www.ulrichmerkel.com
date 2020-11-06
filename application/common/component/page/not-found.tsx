@@ -5,7 +5,6 @@
  *
  * @file
  * @module
- * @flow weak
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
