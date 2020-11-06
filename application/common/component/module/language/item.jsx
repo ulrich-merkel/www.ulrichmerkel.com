@@ -6,22 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires lodash
- * @requires common/component/grid/col
- * @requires common/component/element/headline
- * @requires common/component/element/meta
- *
- * @changelog
- * - 0.0.2 Removed inline style for csp support
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -35,7 +21,6 @@ import { Meta } from '../../element/meta';
 /**
  * Helper function to get style classNames for css3 rotate transform.
  *
- * @function
  * @private
  * @param {string|number} percent - The percent value to be calculated in degrees
  * @returns {object} The classNames config for left and right circle
@@ -70,11 +55,10 @@ function getCssTransformRotate(percent) {
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleLanguageItem(props) {
+export function ModuleLanguageItem(props) {
     const { headline, lead, percent } = props;
 
     const rotatedCssTransform = getCssTransformRotate(percent);
@@ -151,5 +135,3 @@ ModuleLanguageItem.defaultProps = {
     lead: '',
     percent: 0
 };
-
-export default ModuleLanguageItem;

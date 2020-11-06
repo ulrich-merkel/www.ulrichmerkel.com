@@ -6,20 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.3 moved to stateless function
- * - 0.0.2 rewritten for es2015
- * - 0.0.1 basic functions and structure
- *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -30,11 +18,10 @@ import { Button } from '../../element/button';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleKeyVisualButton(props) {
+export function ModuleKeyVisualButton(props) {
     const { onClick, label, title } = props;
 
     if (!label || !title) {
@@ -85,5 +72,3 @@ ModuleKeyVisualButton.defaultProps = {
     label: '',
     onClick: Function.prototype
 };
-
-export default ModuleKeyVisualButton;

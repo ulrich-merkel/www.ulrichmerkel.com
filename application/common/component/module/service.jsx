@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import ModuleServiceItem from './service/item';
+import { ModuleServiceItem } from './service/item';
 
 /**
  * Helper function to insert clear items in array to ease css timeline

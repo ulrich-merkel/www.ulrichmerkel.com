@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleArticleButton should render btnLabel if btnTitle is empty 1`] = `
+<DocumentFragment>
+  <p
+    class="is-centered c-type--p article-button hide-on-print"
+  >
+    <a
+      class="c-btn"
+      href="/index"
+      role="button"
+      title="Button label"
+    >
+      <span
+        class="c-btn__label"
+      >
+        Button label
+      </span>
+    </a>
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModuleArticleButton should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="is-centered c-type--p article-button hide-on-print"
+  >
+    <a
+      class="c-btn"
+      href="/index"
+      role="button"
+      title="Button title"
+    >
+      <span
+        class="c-btn__label"
+      >
+        Button label
+      </span>
+    </a>
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModuleArticleButton should return null if content is empty 1`] = `<DocumentFragment />`;

@@ -6,20 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
- *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -31,11 +19,10 @@ import { P } from '../../element/paragraph';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleKeyVisualArticle(props) {
+export function ModuleKeyVisualArticle(props) {
     const { headline, lead } = props;
 
     if (!headline || !lead) {
@@ -84,5 +71,3 @@ ModuleKeyVisualArticle.defaultProps = {
     headline: '',
     lead: ''
 };
-
-export default ModuleKeyVisualArticle;

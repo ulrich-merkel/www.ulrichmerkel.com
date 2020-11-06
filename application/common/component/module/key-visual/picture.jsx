@@ -7,21 +7,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires lodash
- * @requires common/component/element/picture
- * @requires common/utils/environment
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
@@ -34,10 +20,9 @@ import { isBrowser } from '../../../utils/environment';
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  */
-class ModuleKeyVisualPicture extends Component {
+export class ModuleKeyVisualPicture extends Component {
     /**
      * The actual class constructor.
      *
@@ -203,5 +188,3 @@ ModuleKeyVisualPicture.defaultProps = {
     type: 'digital',
     isCovered: false
 };
-
-export default ModuleKeyVisualPicture;

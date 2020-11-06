@@ -6,18 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/a
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -28,12 +18,11 @@ import { A } from '../../element/a';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {object} [props.content={}] - The link content's text
  * @returns {ReactElement|null} React component markup
  */
-function ModuleTextLink(props) {
+export function ModuleTextLink(props) {
     const { content } = props;
 
     if (!content) {
@@ -84,5 +73,3 @@ ModuleTextLink.propTypes = {
 ModuleTextLink.defaultProps = {
     content: {}
 };
-
-export default ModuleTextLink;

@@ -6,20 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- * @requires common/component/element/icon
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -32,11 +20,10 @@ import { Icon } from '../../element/icon';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleServiceItem(props) {
+export function ModuleServiceItem(props) {
     const { headline, text, index, icon, isClear } = props;
 
     if (isClear) {
@@ -105,5 +92,3 @@ ModuleServiceItem.defaultProps = {
     icon: '',
     isClear: false
 };
-
-export default ModuleServiceItem;

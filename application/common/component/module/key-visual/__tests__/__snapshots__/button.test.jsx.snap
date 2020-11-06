@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleKeyVisualButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+    role="button"
+    title="title"
+    type="button"
+  >
+    <span
+      class="c-btn__label is-visually-hidden"
+    >
+      label
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`ModuleKeyVisualButton should render null if no content is provided 1`] = `<DocumentFragment />`;

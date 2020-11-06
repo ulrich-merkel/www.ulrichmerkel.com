@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFeaturedItem should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="m-featured__list-item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://schema.org/SiteNavigationElement"
+  >
+    <a
+      class="c-link m-featured__item"
+      href="/work//work/test"
+      tabindex="0"
+      title="Featured item work headline"
+    >
+      <span
+        class="m-featured__hover"
+      >
+        <span
+          class="m-featured__text"
+        >
+          <span
+            aria-level="3"
+            class="m-featured__headline"
+            role="heading"
+          >
+            Featured item work headline
+          </span>
+          <i
+            aria-hidden="true"
+            class="c-font-icon--plus m-featured__icon"
+          />
+        </span>
+      </span>
+      Module featured item children
+      <meta
+        content="Featured item work headline"
+        itemprop="name"
+      />
+    </a>
+  </li>
+</DocumentFragment>
+`;

@@ -13,9 +13,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import ArticleHeadline from './article/headline';
-import ArticleLead from './article/lead';
-import ArticleButton from './article/button';
+import { ModuleArticleHeadline } from './article/headline';
+import { ModuleArticleLead } from './article/lead';
+import { ModuleArticleButton } from './article/button';
 import { Meta } from '../element/meta';
 
 /**
@@ -61,16 +61,19 @@ export function ModuleArticle(props) {
             itemType={itemType}
             {...otherProps}
         >
-            <ArticleHeadline
+            <ModuleArticleHeadline
                 className={composedHeadlineClassName}
                 text={content.headline}
                 {...{ isMain }}
             />
-            <ArticleLead className={'m-article__lead'} text={content.lead} />
+            <ModuleArticleLead
+                className={'m-article__lead'}
+                text={content.lead}
+            />
             <div className="m-article__text" itemProp="text">
                 {children}
             </div>
-            <ArticleButton
+            <ModuleArticleButton
                 btnTo={content.btnTo}
                 btnLabel={content.btnLabel}
                 btnTitle={content.btnTitle}

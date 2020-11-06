@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import ModuleLanguageItem from './language/item';
+import { ModuleLanguageItem } from './language/item';
 
 /**
  * Function representing a component to return a single react child element.

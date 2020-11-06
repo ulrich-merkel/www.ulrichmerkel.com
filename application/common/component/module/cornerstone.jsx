@@ -15,8 +15,8 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
-import ModuleCornerstoneItemEmployee from './cornerstone/item-employee';
-import ModuleCornerstoneItemEducation from './cornerstone/item-education';
+import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
+import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
 
 /**
  * Function representing a component to return a single react child element.

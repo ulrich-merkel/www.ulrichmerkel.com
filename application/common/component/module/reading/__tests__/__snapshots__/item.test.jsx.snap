@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleReadingItem should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="m-list__item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/Book"
+  >
+    <div
+      class="c-reading"
+    >
+      <h3
+        class="is-centered c-type--h3 c-reading__name"
+        itemprop="name"
+      >
+        Headline reading
+      </h3>
+      <p
+        class="c-type--p c-reading__description"
+        itemprop="alternateName"
+      >
+        Lead reading
+      </p>
+      <small
+        class="c-type--small c-reading__source"
+        itemprop="creator"
+      >
+        <span
+          class="c-reading__source-creator"
+        >
+          Creator
+        </span>
+        <em
+          class="c-reading__source-publisher"
+        >
+          Publisher
+        </em>
+      </small>
+    </div>
+  </li>
+</DocumentFragment>
+`;

@@ -6,26 +6,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/a
- * @requires common/component/element/image
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link http://stackoverflow.com/questions/30115324/pass-props-in-link-react-router}
- *
- * @changelog
- * - 0.0.4 Excluded headline/lead into separate component, improved nested routing
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -41,7 +25,7 @@ import { Picture } from '../../element/picture';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleFeaturedItem(props) {
+export function ModuleFeaturedItem(props) {
     const { path, headline, img, children } = props;
 
     const componentListItemClassName = classnames('m-featured__item');
@@ -116,5 +100,3 @@ ModuleFeaturedItem.defaultProps = {
     path: '',
     img: {}
 };
-
-export default ModuleFeaturedItem;

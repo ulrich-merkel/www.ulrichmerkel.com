@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleCornerstoneItemEmployee should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="m-cornerstone__item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="roleName"
+        >
+          Headline item employee
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+        >
+          <strong>
+            Lead  item employee
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+          itemprop="description"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           -
+          <time
+            class="c-time"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleCornerstoneItemEmployee should render cssModifier and offset if passed 1`] = `
+<DocumentFragment>
+  <li
+    class="m-cornerstone__item--employee has-offset--200"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="roleName"
+        >
+          Headline item employee
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+        >
+          <strong>
+            Lead  item employee
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+          itemprop="description"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           -
+          <time
+            class="c-time"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+  </li>
+</DocumentFragment>
+`;

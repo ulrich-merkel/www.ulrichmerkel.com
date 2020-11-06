@@ -18,11 +18,11 @@ import shortid from 'shortid';
 import { changeDialogVisibleBroadcast } from '../../state/dialog/duck';
 import { isBrowser } from '../../utils/environment';
 import { eventPreventDefault } from '../../utils/event';
-import ModuleTextHeadline from './text/headline';
-import ModuleTextContent from './text/content';
-import ModuleTextPerson from './text/person';
-import ModuleTextTime from './text/time';
-import ModuleTextLink from './text/link';
+import { ModuleTextHeadline } from './text/headline';
+import { ModuleTextContent } from './text/content';
+import { ModuleTextPerson } from './text/person';
+import { ModuleTextTime } from './text/time';
+import { ModuleTextLink } from './text/link';
 
 /**
  * Class representing a component.

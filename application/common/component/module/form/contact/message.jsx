@@ -6,7 +6,7 @@ import { P } from '../../../element/paragraph';
 import { Button } from '../../../element/button';
 import { Headline } from '../../../element/headline';
 
-function ModuleFormContactMessage(props) {
+export function ModuleFormContactMessage(props) {
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (
@@ -45,5 +45,3 @@ ModuleFormContactMessage.propTypes = {
     onReset: PropTypes.func, // eslint-disable-line react/require-default-props
     resetUrl: PropTypes.string // eslint-disable-line react/require-default-props
 };
-
-export default ModuleFormContactMessage;

@@ -6,19 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/a
- * @requires common/component/element/a
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -30,7 +19,6 @@ import { Icon } from '../../element/icon';
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
@@ -42,7 +30,7 @@ import { Icon } from '../../element/icon';
  * @param {string} [props.title=''] - The items title content
  * @returns {ReactElement} React component markup
  */
-function ModuleMenuItem(props) {
+export function ModuleMenuItem(props) {
     const {
         path,
         title,
@@ -125,5 +113,3 @@ ModuleMenuItem.defaultProps = {
     path: '',
     title: ''
 };
-
-export default ModuleMenuItem;

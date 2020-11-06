@@ -6,24 +6,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/paragraph
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -43,7 +27,7 @@ import { P } from '../../element/paragraph';
  * @param {boolean} [props.isDialog=false] - Flag if this is rendering within a dialog
  * @returns {ReactElement} React component markup
  */
-function ModuleArticleButton(props) {
+export function ModuleArticleButton(props) {
     const { btnLabel, btnTitle, btnTo, className, isDialog } = props;
 
     if (!btnTo || !btnLabel || isDialog) {
@@ -87,5 +71,3 @@ ModuleArticleButton.defaultProps = {
     btnTo: '',
     isDialog: false
 };
-
-export default ModuleArticleButton;

@@ -14,9 +14,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { scrollTo } from '../../utils/scroll-to';
-import ModuleKeyVisualPicture from './key-visual/picture';
-import ModuleKeyVisualArticle from './key-visual/article';
-import ModuleKeyVisualButton from './key-visual/button';
+import { ModuleKeyVisualPicture } from './key-visual/picture';
+import { ModuleKeyVisualArticle } from './key-visual/article';
+import { ModuleKeyVisualButton } from './key-visual/button';
 import { eventPreventDefault } from '../../utils/event';
 
 /**

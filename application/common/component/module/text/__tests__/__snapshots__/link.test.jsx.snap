@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleTextLink should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-text__link is-centered"
+  >
+    <a
+      class="c-link"
+      href="/foo"
+      tabindex="0"
+      title="Module text link title"
+    >
+      <i
+        aria-hidden="true"
+        class="c-font-icon--earth"
+      />
+      Module text link label
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleTextLink should return null if content is empty 1`] = `<DocumentFragment />`;
