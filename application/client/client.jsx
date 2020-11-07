@@ -9,7 +9,7 @@
  *
  * @see {@link https://github.com/ryanflorence/example-react-router-server-rendering-lazy-routes/blob/master/modules/client.js}
  * @see {@link https://github.com/reactjs/react-router/issues/3183}
- * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17
+ * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/server/middleware/renderHTML.js#L17}
  * @see {@link https://github.com/voronianski/universal-react-router-flux-2016/blob/master/src/client/index.js}
  */
 import '@babel/polyfill';
@@ -34,8 +34,8 @@ import { configureStore } from '../common/state/configure-store';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
 import { THEME_CHANGE_MESSAGE } from '../common/constants/theme';
-import featureDetect from './feature-detect/feature-detect';
-import applyTheme from './theme/apply-theme';
+import { featureDetect } from './feature-detect/feature-detect';
+import { applyTheme } from './theme/apply-theme';
 
 const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID);
 const store = configureStore(window.__PRELOADED_STATE__); // eslint-disable-line no-underscore-dangle

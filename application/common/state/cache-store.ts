@@ -6,16 +6,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires common/config/application
- * @requires common/utils/xor
- * @requires common/utils/logger
- * @requires common/utils/web-storage
- *
- * @changelog
- * - 0.0.1 basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { configApplication } from '../config/application';
 import { decrypt, encrypt } from '../utils/xor';
@@ -38,7 +29,7 @@ export const stateKey = 'state';
  *
  * @returns {object|undefined} The complete redux state if available
  */
-export function loadState(): RootState {
+export function loadState(): RootState | undefined {
     const serializedState = webStorage.read(stateKey);
 
     if (serializedState === null) {

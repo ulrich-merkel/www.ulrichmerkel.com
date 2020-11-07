@@ -20,7 +20,7 @@ import assert from 'assert-plus';
 
 import { configApplication } from '../../common/config/application';
 import { logger } from '../../common/utils/logger';
-import { readFile } from '../../common/utils/read-file';
+import { readFile } from '../utils/read-file';
 import { Root } from '../../common/component/root';
 import { Routes } from '../../common/component/routes';
 import { LayoutHtmlConnected } from '../../common/component/layout/html';
@@ -132,7 +132,7 @@ function loadData(req, store, acceptedLocale) {
  * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */
-function middlewareReact(req, res, next) {
+export function middlewareReact(req, res, next) {
     assert.object(req, 'req');
     assert.object(res, 'res');
     assert.optionalFunc(next, 'next');
@@ -156,5 +156,3 @@ function middlewareReact(req, res, next) {
             return res.status(404).send(`<!doctype html>${rendered.html}`);
         });
 }
-
-export default middlewareReact;

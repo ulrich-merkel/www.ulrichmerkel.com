@@ -6,17 +6,10 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
  *
  * @see {@link http://stackoverflow.com/questions/8917921/cross-browser-javascript-not-jquery-scroll-to-top-animation}
  * @see {@link https://github.com/danro/easing-js/blob/master/easing.js}
  * @see {@link  https://github.com/cferdinandi/smooth-scroll/blob/master/src/js/smooth-scroll.js}
- *
- * @requires lodash
- * @requires common/utils/environment
- *
- * @changelog
- * - 0.0.1 basic functions and structure
  */
 import { isFunction } from 'lodash';
 
