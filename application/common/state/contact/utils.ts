@@ -36,7 +36,7 @@ export function validate(contactForm: ContactFormType): ValidateType {
  */
 export function isValid(contactForm: ContactFormType): boolean {
     const validated = validate(contactForm);
-console.log({validated, contactForm})
+
     return !Object.keys(validated).some(function someKey(key) {
         return validated[key] !== undefined && !validated[key];
     });

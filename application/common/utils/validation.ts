@@ -33,7 +33,9 @@ export function email(value: string): boolean {
     /* eslint-disable security/detect-unsafe-regex, max-len */
     if (
         isValidValue(value) &&
-        (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value))
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+            value
+        )
     ) {
         return true;
     }

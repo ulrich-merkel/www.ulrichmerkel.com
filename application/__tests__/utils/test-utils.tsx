@@ -50,8 +50,5 @@ function customRender(reactElement: Component, options: Object = {}): Object {
 
 // Re-export the render method and everything else, if something is missing please
 // add it here...
-export {
-    fireEvent,
-    screen
-} from '@testing-library/react';
+export { fireEvent, screen } from '@testing-library/react';
 export { customRender as render, snapshotDiff };

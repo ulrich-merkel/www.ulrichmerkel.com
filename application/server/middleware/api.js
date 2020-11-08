@@ -31,7 +31,9 @@ function serveFile(file, req, res) {
     res.json(file);
 }
 
-export const middlewareApi = Router();
+const middlewareApi = Router();
 middlewareApi.get(url.apiConfigContent, serveFile.bind(null, configContent));
 middlewareApi.get(url.apiConfigEnEn, serveFile.bind(null, configIntlEnEn));
 middlewareApi.get(url.apiConfigDeDe, serveFile.bind(null, configIntlDeDe));
+
+export { middlewareApi };
