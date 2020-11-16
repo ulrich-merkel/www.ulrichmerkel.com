@@ -78,7 +78,13 @@ export function LayoutHtml(props) {
     const lang = isString(locale) ? locale.split('-')[0] : '';
 
     return (
-        <html className="no-js" dir="ltr" lang={lang} manifest={manifest}>
+        <html
+            className="no-js"
+            dir="ltr"
+            id="doc-root"
+            lang={lang}
+            manifest={manifest}
+        >
             <head>
                 <meta charSet="utf-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

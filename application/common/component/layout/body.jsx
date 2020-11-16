@@ -13,7 +13,9 @@
 import { default as React, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 
+import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { pictureFill } from '../decorator/picturefill';
 import { scroller } from '../decorator/scroller';
 import { addContent } from '../decorator/add-content';
@@ -26,29 +28,12 @@ import {
 } from '../../state/dialog/duck';
 import { LayoutHeaderConnected } from './header';
 import { LayoutFooterConnected } from './footer';
-import { LayoutThemeConnected } from './theme';
+import { LayoutSettingsConnected } from './settings';
 import { LayoutLoaderConnected } from './loader';
 import { LayoutDialogConnected } from './dialog';
 import { PageBroadcast } from '../page/broadcast';
 import { PageSearch } from '../page/search';
-import { PageTheme } from '../page/theme';
-
-/**
- * Scroll to top animation helper.
- *
- * @private
- * @param {object} event - The synthetic react event
- * @returns {void}
- */
-function handleScrollTop(event) {
-    // eslint-disable-line class-methods-use-this
-    eventPreventDefault(event);
-    if (getPageOffset()) {
-        scrollTo({
-            top: 0
-        });
-    }
-}
+import { PageSettings } from '../page/settings';
 
 /**
  * Class representing a component.
@@ -59,6 +44,24 @@ function handleScrollTop(event) {
  */
 export class LayoutBody extends PureComponent {
     /**
+     * Scroll to top animation helper.
+     *
+     * @param {object} event - The synthetic react event
+     * @returns {void}
+     */
+    handleScrollTop = (event) => {
+        const { reducedMotionSelectedReduce } = this.props;
+
+        eventPreventDefault(event);
+        if (getPageOffset()) {
+            scrollTo({
+                duration: reducedMotionSelectedReduce ? 0 : 300,
+                top: 0
+            });
+        }
+    };
+
+    /**
      * The required render function to return a single react child element.
      *
      * @returns {ReactElement} React component markup
@@ -67,12 +70,12 @@ export class LayoutBody extends PureComponent {
         const { children, content } = this.props;
 
         return (
-            <LayoutThemeConnected>
+            <LayoutSettingsConnected>
                 <Helmet {...content} />
                 <LayoutLoaderConnected />
                 <LayoutHeaderConnected />
                 {children}
-                <LayoutFooterConnected handleScrollTop={handleScrollTop} />
+                <LayoutFooterConnected handleScrollTop={this.handleScrollTop} />
                 <LayoutDialogConnected
                     className="l-dialog--search"
                     page={DIALOG_CONTENT_SEARCH}
@@ -89,9 +92,9 @@ export class LayoutBody extends PureComponent {
                     className="l-dialog--theme"
                     page={DIALOG_CONTENT_THEME}
                 >
-                    <PageTheme isDialog />
+                    <PageSettings isDialog />
                 </LayoutDialogConnected>
-            </LayoutThemeConnected>
+            </LayoutSettingsConnected>
         );
     }
 }
@@ -111,7 +114,8 @@ LayoutBody.propTypes = {
             PropTypes.array,
             PropTypes.object
         ])
-    )
+    ),
+    reducedMotionSelectedReduce: PropTypes.bool
 };
 
 /**
@@ -121,8 +125,26 @@ LayoutBody.propTypes = {
  * @type {object}
  */
 LayoutBody.defaultProps = {
-    content: {}
+    content: {},
+    reducedMotionSelectedReduce: false
 };
+
+/**
+ * The component will subscribe to Redux store updates. Any time it updates,
+ * mapStateToProps will be called, Its result must be a plain object,
+ * and it will be merged into the component’s props.
+ *
+ * @private
+ * @param {object<string, *>} state - The current redux store state
+ * @returns {object<string, *>} The mapped state properties
+ */
+function mapStateToProps(state) {
+    return {
+        reducedMotionSelectedReduce: selectStateReducedMotionSelectedReduce(
+            state
+        )
+    };
+}
 
 /**
  * Connects a React component to a Redux store. It does not modify the
@@ -131,5 +153,5 @@ LayoutBody.defaultProps = {
  * @type {ReactElement}
  */
 export const LayoutBodyConnected = scroller(
-    pictureFill(addContent('Head')(LayoutBody))
+    pictureFill(addContent('Head')(connect(mapStateToProps)(LayoutBody)))
 );

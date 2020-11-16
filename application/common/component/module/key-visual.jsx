@@ -12,7 +12,9 @@
 import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
 
+import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
 import { scrollTo } from '../../utils/scroll-to';
 import { ModuleKeyVisualPicture } from './key-visual/picture';
 import { ModuleKeyVisualArticle } from './key-visual/article';
@@ -33,7 +35,7 @@ export class ModuleKeyVisual extends Component {
      * @returns {void}
      */
     onClickBtn = (event) => {
-        const { onClickBtn } = this.props;
+        const { onClickBtn, reducedMotionSelected } = this.props;
         const { keyVisual } = this;
 
         eventPreventDefault(event);
@@ -46,6 +48,7 @@ export class ModuleKeyVisual extends Component {
             const offsetTop = document.body.scrollTop;
 
             scrollTo({
+                duration: reducedMotionSelected ? 0 : 300,
                 top: innerHeight + boundingClientRectTop + offsetTop
             });
             onClickBtn();
@@ -128,7 +131,8 @@ ModuleKeyVisual.propTypes = {
     }),
     isCovered: PropTypes.bool,
     isWork: PropTypes.bool,
-    onClickBtn: PropTypes.func
+    onClickBtn: PropTypes.func,
+    reducedMotionSelected: PropTypes.bool
 };
 
 /**
@@ -143,5 +147,29 @@ ModuleKeyVisual.defaultProps = {
     content: {},
     isCovered: false,
     isWork: false,
-    onClickBtn: Function.prototype
+    onClickBtn: Function.prototype,
+    reducedMotionSelected: false
 };
+
+/**
+ * The component will subscribe to Redux store updates. Any time it updates,
+ * mapStateToProps will be called, Its result must be a plain object,
+ * and it will be merged into the component’s props.
+ *
+ * @private
+ * @param {object<string, *>} state - The current redux store state
+ * @returns {object<string, *>} The mapped state properties
+ */
+function mapStateToProps(state) {
+    return {
+        reducedMotionSelected: selectStateReducedMotionSelected(state)
+    };
+}
+
+/**
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
+export const ModuleKeyVisualConnected = connect(mapStateToProps)(
+    ModuleKeyVisual
+);

@@ -23,7 +23,7 @@ describe('featureDetect', function fnDescribe() {
         featureDetect();
 
         const html = document.getElementsByTagName('html')[0];
-        expect(html.className).toEqual('js no-customproperties no-touchevents');
+        expect(html.className).toMatchSnapshot();
     });
     it('should add className for css custom properties', function fnIt() {
         hasCssCustomProperties.mockImplementation(() => true);
@@ -31,7 +31,7 @@ describe('featureDetect', function fnDescribe() {
         featureDetect();
 
         const html = document.getElementsByTagName('html')[0];
-        expect(html.className).toEqual('js no-touchevents customproperties');
+        expect(html.className).toMatchSnapshot();
     });
     it('should add className for touch events', function fnIt() {
         hasCssCustomProperties.mockImplementation(() => false);
@@ -39,6 +39,6 @@ describe('featureDetect', function fnDescribe() {
         featureDetect();
 
         const html = document.getElementsByTagName('html')[0];
-        expect(html.className).toEqual('js no-customproperties touchevents');
+        expect(html.className).toMatchSnapshot();
     });
 });

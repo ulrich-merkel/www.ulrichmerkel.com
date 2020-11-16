@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`featureDetect should add className for css custom properties 1`] = `"js no-touchevents passiveeventlisteners customproperties"`;
+
+exports[`featureDetect should add className for touch events 1`] = `"js passiveeventlisteners no-customproperties touchevents"`;
+
+exports[`featureDetect should add feature detect css classNames 1`] = `"js no-customproperties no-touchevents passiveeventlisteners"`;

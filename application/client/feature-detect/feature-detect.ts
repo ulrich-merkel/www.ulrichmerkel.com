@@ -9,6 +9,7 @@
 import { isBrowser } from '../../common/utils/environment';
 import { hasCssCustomProperties } from './css-custom-properties';
 import { hasTouchEvents } from './touch-events';
+import { hasPassiveEventListeners } from './passive-event-listeners';
 
 /**
  * Initialize feature detection for browsers and add
@@ -38,6 +39,14 @@ export function featureDetect(): void {
     } else {
         classNamesToAdd.push('no-touchevents');
         classNamesToRemove.push('touchevents');
+    }
+
+    if (hasPassiveEventListeners()) {
+        classNamesToAdd.push('passiveeventlisteners');
+        classNamesToRemove.push('no-passiveeventlisteners');
+    } else {
+        classNamesToAdd.push('no-passiveeventlisteners');
+        classNamesToRemove.push('passiveeventlisteners');
     }
 
     const html = document.getElementsByTagName('html')[0];

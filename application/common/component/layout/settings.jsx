@@ -11,16 +11,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
-import { AVAILABLE_THEMES, THEME_CHANGE_MESSAGE } from '../../constants/theme';
+import {
+    PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE,
+    COLOR_SCHEME_LIGHT
+} from '../../state/color-scheme/duck';
 import { selectStateColorSchemeSelected } from '../../state/color-scheme/selector';
+import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
+import {
+    MOTION_PREFERENCES_NO_PREFERENCE,
+    PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE
+} from '../../state/reduced-motion/duck';
 
 /**
  * Apply theming by added or removed custom css files.
  *
  * @augments React.Component
- * @property {string} props.themeSelected - Current selected theme
+ * @property {string} props.colorSchemeSelected - Current selected theme
  */
-export class LayoutTheme extends Component {
+export class LayoutSettings extends Component {
     /**
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
@@ -28,9 +36,13 @@ export class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        const { themeSelected } = this.props;
+        const { colorSchemeSelected, reducedMotionSelected } = this.props;
 
-        PubSub.publish(THEME_CHANGE_MESSAGE, themeSelected);
+        PubSub.publish(PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE, colorSchemeSelected);
+        PubSub.publish(
+            PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE,
+            reducedMotionSelected
+        );
     }
 
     /**
@@ -41,10 +53,19 @@ export class LayoutTheme extends Component {
      * @returns {void}
      */
     componentDidUpdate(prevProps) {
-        const { themeSelected } = this.props;
+        const { colorSchemeSelected, reducedMotionSelected } = this.props;
 
-        if (themeSelected !== prevProps.themeSelected) {
-            PubSub.publish(THEME_CHANGE_MESSAGE, themeSelected);
+        if (colorSchemeSelected !== prevProps.colorSchemeSelected) {
+            PubSub.publish(
+                PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE,
+                colorSchemeSelected
+            );
+        }
+        if (reducedMotionSelected !== prevProps.reducedMotionSelected) {
+            PubSub.publish(
+                PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE,
+                reducedMotionSelected
+            );
         }
     }
 
@@ -67,9 +88,10 @@ export class LayoutTheme extends Component {
  * @type {object}
  */
 // eslint-disable-next-line immutable/no-mutation
-LayoutTheme.propTypes = {
+LayoutSettings.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    themeSelected: PropTypes.string
+    colorSchemeSelected: PropTypes.string,
+    reducedMotionSelected: PropTypes.string
 };
 
 /**
@@ -79,8 +101,9 @@ LayoutTheme.propTypes = {
  * @type {object}
  */
 // eslint-disable-next-line immutable/no-mutation
-LayoutTheme.defaultProps = {
-    themeSelected: AVAILABLE_THEMES.DEFAULT
+LayoutSettings.defaultProps = {
+    colorSchemeSelected: COLOR_SCHEME_LIGHT,
+    reducedMotionSelected: MOTION_PREFERENCES_NO_PREFERENCE
 };
 
 /**
@@ -94,7 +117,8 @@ LayoutTheme.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        themeSelected: selectStateColorSchemeSelected(state)
+        colorSchemeSelected: selectStateColorSchemeSelected(state),
+        reducedMotionSelected: selectStateReducedMotionSelected(state)
     };
 }
 
@@ -102,4 +126,4 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-export const LayoutThemeConnected = connect(mapStateToProps)(LayoutTheme);
+export const LayoutSettingsConnected = connect(mapStateToProps)(LayoutSettings);

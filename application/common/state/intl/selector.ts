@@ -12,6 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, INTL_RESOURCE_NAME } from './duck';
 import { IntlStateType } from './types';
 
@@ -23,7 +24,7 @@ import { IntlStateType } from './types';
  * @returns {object} The intl state
  */
 export const selectStateIntl = createSelector(
-    [(state) => state?.[INTL_RESOURCE_NAME]],
+    [(state: RootState) => state?.[INTL_RESOURCE_NAME]],
     function (intl: IntlStateType): IntlStateType {
         return isEmpty(intl) ? initialState : intl;
     }

@@ -34,12 +34,19 @@ export const COLOR_SCHEME_DARK = 'dark';
 /**
  * @type {string}
  */
-export const COLOR_SCHEME_CHANGE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_CHANGE_SELECTED`;
+export const COLOR_SCHEME_TOGGLE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_TOGGLE_SELECTED`;
 
 /**
  * @type {Array<string>}
  */
 export const AVAILABLE_COLOR_SCHEMES = [COLOR_SCHEME_LIGHT, COLOR_SCHEME_DARK];
+
+/**
+ * Define pubsub message name for theme change.
+ *
+ * @type {string}
+ */
+export const PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_CHANGE_MESSAGE`;
 
 /**
  * @type {object}
@@ -56,15 +63,12 @@ export const initialState: ColorSchemeStateType = {
 /**
  * Handle theme switch state change.
  *
- * @param {string} selected - The new selected theme state
  * @returns {object} The redux action playload
  */
-export function changeThemeSelected(
-    selected: string
+export function toggleThemeSelected(
 ): ChangeThemeSelectedActionType {
     return {
-        type: COLOR_SCHEME_CHANGE_SELECTED,
-        selected
+        type: COLOR_SCHEME_TOGGLE_SELECTED
     };
 }
 
@@ -81,8 +85,10 @@ export function reducer(
     action: ColorSchemeActionTypes
 ): ColorSchemeStateType {
     switch (action.type) {
-        case COLOR_SCHEME_CHANGE_SELECTED: {
-            const selected = isString(action.selected) ? action.selected : '';
+        case COLOR_SCHEME_TOGGLE_SELECTED: {
+            const selected = state.payload.selected === COLOR_SCHEME_LIGHT
+                ? COLOR_SCHEME_DARK
+                : COLOR_SCHEME_LIGHT;
             return {
                 meta: {
                     ...state.meta,

@@ -15,8 +15,8 @@ import { addPageTracking } from '../decorator/add-page-tracking';
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
-import { SectionSearch } from '../section/search';
-import { ModuleFormThemeConnected } from '../module/form/theme';
+import { SectionSettings } from '../section/settings';
+import { ModuleFormSettingsConnected } from '../module/form/settings';
 
 type PageProps = {
     content: {};
@@ -32,12 +32,12 @@ type PageProps = {
 function Page(props: PageProps) {
     const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
-
+console.log({content, isDialog})
     const pageThemeContent = (
-        <SectionSearch content={contentSection('section1')} isMain isDialog>
-            <ModuleFormThemeConnected content={contentSection('formTheme')} />
+        <SectionSettings content={contentSection('section1')} isMain isDialog>
+            <ModuleFormSettingsConnected content={contentSection('formSettings')} />
             {children}
-        </SectionSearch>
+        </SectionSettings>
     );
 
     if (isDialog) {
@@ -52,4 +52,4 @@ function Page(props: PageProps) {
     );
 }
 
-export const PageTheme = addPageTracking(addContent('PageTheme')(Page));
+export const PageSettings = addPageTracking(addContent('PageSettings')(Page));

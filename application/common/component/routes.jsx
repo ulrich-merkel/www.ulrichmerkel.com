@@ -20,7 +20,7 @@ import { PageNotFound } from './page/not-found';
 import { PagePersona } from './page/persona';
 import { PagePrivacy } from './page/privacy';
 import { PageSearch } from './page/search';
-import { PageTheme } from './page/theme';
+import { PageSettings } from './page/settings';
 import { PageWork } from './page/work';
 
 /**
@@ -41,7 +41,7 @@ export function Routes() {
                 <Route path={url.imprint} component={PageImprint} />
                 <Route path={url.broadcast} component={PageBroadcast} />
                 <Route path={url.search} component={PageSearch} />
-                <Route path={url.theme} component={PageTheme} />
+                <Route path={url.settings} component={PageSettings} />
                 <Route component={PageNotFound} />
             </Switch>
         </LayoutBodyConnected>

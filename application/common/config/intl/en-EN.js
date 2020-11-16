@@ -84,8 +84,8 @@ export const configIntlEnEn = {
     'intl-page-persona-section2-professional-experience-list-1-headline':
         'Senior Software Engineer Frontend',
     'intl-page-persona-section2-professional-experience-list-1-description': `Design, implement and maintain
-        web applications for <a href='http://www.tomtom.com/' target='_blank' title='TomTom website' rel='noopener noreferrer'>TomTom Telematics</a>
-        with strong focus on code quality and continuously improving the technology stack with new ideas.`,
+        web applications as well as mobile apps for <a href='https://www.webfleet.com/' target='_blank' title='Webfleet solutions website' rel='noopener noreferrer'>Webfleet solutions</a>
+        (formerly known as TomTom Telematics) with strong focus on code quality and continuously improving the technology stack with new ideas.`,
     'intl-page-persona-section2-professional-experience-list-2-headline':
         'Senior frontend developer',
     'intl-page-persona-section2-professional-experience-list-2-description': `Project, draft and develop complex webapplications for
@@ -151,12 +151,12 @@ export const configIntlEnEn = {
         "Responsive, <abbr title='Syntactically Awesome Style Sheets'>SCSS</abbr>/Less, <abbr title='Block, Element, Modifier methodology'>BEM</abbr>, <abbr title='Scalable and Modular Architecture for CSS'>SMACSS</abbr>, <abbr title='Object Oriented CSS'>OOCSS</abbr>, Foundation, Bootstrap",
     'intl-page-persona-section3-list-3-headline': 'JavaScript',
     'intl-page-persona-section3-list-3-text':
-        'jQuery, Angular, Backbone, React, Node, object-oriented/functional',
+        'React, React Native, jQuery, Angular, Backbone, NodeJs, object-oriented/functional',
     'intl-page-persona-section3-list-4-headline': 'Backend',
     'intl-page-persona-section3-list-4-text': `${PHP}, Zend, Kirby, MySQL, Ruby`,
     'intl-page-persona-section3-list-5-headline': 'Workflow',
     'intl-page-persona-section3-list-5-text':
-        "Karma, Jasmine, Jest, QUnit, Grunt/Gulp, Git/<abbr title='Apache Subversion'>SVN</abbr>, <abbr title='Node Package Manager'>NPM</abbr>, Bower, Vagrant, Styleguides",
+        "Jest, Karma, Jasmine,QUnit, Webpack, Grunt/Gulp, Git/<abbr title='Apache Subversion'>SVN</abbr>, <abbr title='Node Package Manager'>NPM</abbr>, Bower, Vagrant, Styleguides",
     'intl-page-persona-section3-list-6-headline': 'Design and UX',
     'intl-page-persona-section3-list-6-text':
         "Adobe <abbr title='Creative Cloud'>CC</abbr> like Photoshop, Illustrator, Fireworks, InDesign, After Effects",
@@ -486,6 +486,12 @@ export const configIntlEnEn = {
     'intl-search-section1-no-results': 'Found 0 search results',
     'intl-search-section1-form-legend': 'Insert your search',
     'intl-search-section1-form-input-name': 'Your search term',
+
+    // Page
+    'intl-settings-head-title': 'Settings',
+    'intl-settings-head-description': 'Adjust page color and appearance',
+    'intl-settings-section1-headline': 'Settings',
+    'intl-settings-section1-lead': 'Adjust page color and appearance',
 
     // Menu
     'intl-menu-main-link-1-label': 'Work',

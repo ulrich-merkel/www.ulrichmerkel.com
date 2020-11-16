@@ -27,10 +27,11 @@ import { reducerContact } from './contact/duck';
 import { reducerCsrf } from './csrf/duck';
 import { reducerDialog } from './dialog/duck';
 import { reducerIntl } from './intl/duck';
-import { selectStateIntlLocale } from './intl/selector';
 import { reducerPage } from './page/duck';
+import { reducerReducedMotion } from './reduced-motion/duck';
 import { reducerScroll } from './scroll/duck';
 import { reducerSearch } from './search/duck';
+import { selectStateIntlLocale } from './intl/selector';
 
 /**
  * Creating the single application store.
@@ -53,6 +54,7 @@ export const rootReducer = combineReducers({
     ...reducerDialog,
     ...reducerIntl,
     ...reducerPage,
+    ...reducerReducedMotion,
     ...reducerScroll,
     ...reducerSearch
 });

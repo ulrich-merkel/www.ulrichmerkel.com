@@ -215,7 +215,7 @@ exports[`LayoutBody should render correctly 1`] = `
               >
                 <a
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
-                  href="/theme"
+                  href="/settings"
                   tabindex="0"
                   title=""
                 >
@@ -224,7 +224,7 @@ exports[`LayoutBody should render correctly 1`] = `
                   >
                     <i
                       aria-hidden="true"
-                      class="c-font-icon--paint-format c-btn__icon"
+                      class="c-font-icon--cog c-btn__icon"
                     />
                   </span>
                 </a>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageTheme should render correctly 1`] = `
+exports[`PageSettings should render correctly 1`] = `
 <DocumentFragment>
   <main
     class="l-main"
@@ -52,34 +52,52 @@ exports[`PageTheme should render correctly 1`] = `
                       <div
                         class="l-grid__col--6"
                       >
-                        <button
-                          class="c-btn"
-                          role="button"
-                          title=""
-                          type="button"
+                        <div
+                          class="c-toggle"
                         >
-                          <span
-                            class="c-btn__label"
+                          <input
+                            class="c-toggle__input"
+                            id="dark-mode"
+                            type="checkbox"
+                          />
+                          <label
+                            class="c-toggle__label"
+                            for="dark-mode"
                           >
-                            default
-                          </span>
-                        </button>
+                            <span
+                              class="c-toggle__text"
+                            >
+                              Dark mode
+                            </span>
+                          </label>
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      class="l-grid__row"
+                    >
                       <div
                         class="l-grid__col--6"
                       >
-                        <button
-                          class="c-btn"
-                          role="button"
-                          title=""
-                          type="button"
+                        <div
+                          class="c-toggle"
                         >
-                          <span
-                            class="c-btn__label"
+                          <input
+                            class="c-toggle__input"
+                            id="reduced-motion-toggle"
+                            type="checkbox"
+                          />
+                          <label
+                            class="c-toggle__label"
+                            for="reduced-motion-toggle"
                           >
-                            grey
-                          </span>
-                        </button>
+                            <span
+                              class="c-toggle__text"
+                            >
+                              Reduced motion
+                            </span>
+                          </label>
+                        </div>
                       </div>
                     </div>
                     <input

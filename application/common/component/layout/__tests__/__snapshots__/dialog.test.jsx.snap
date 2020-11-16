@@ -43,10 +43,6 @@ exports[`LayoutDialog should render correctly 1`] = `
         />
       </button>
     </div>
-    <div
-      class="l-dialog__background"
-      role="presentation"
-    />
   </dialog>
 </DocumentFragment>
 `;
@@ -94,10 +90,6 @@ exports[`LayoutDialog should render correctly the connected version 1`] = `
         />
       </button>
     </div>
-    <div
-      class="l-dialog__background"
-      role="presentation"
-    />
   </dialog>
 </DocumentFragment>
 `;

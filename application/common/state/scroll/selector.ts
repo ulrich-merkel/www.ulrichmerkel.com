@@ -12,6 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, SCROLL_RESOURCE_NAME } from './duck';
 import { ScrollStateType } from './types';
 
@@ -23,7 +24,7 @@ import { ScrollStateType } from './types';
  * @returns {object} The scroll state
  */
 export const selectStateScroll = createSelector(
-    [(state) => state?.[SCROLL_RESOURCE_NAME]],
+    [(state: RootState) => state?.[SCROLL_RESOURCE_NAME]],
     function (scroll: ScrollStateType): ScrollStateType {
         return isEmpty(scroll) ? initialState : scroll;
     }

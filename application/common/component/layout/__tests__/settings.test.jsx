@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { render } from '../../../../__tests__/utils/test-utils';
-import { LayoutTheme, LayoutThemeConnected } from '../theme';
+import { LayoutSettings, LayoutSettingsConnected } from '../settings';
 
-describe('LayoutTheme', function fnDescribe() {
+describe('LayoutSettings', function fnDescribe() {
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(<LayoutTheme>Hello</LayoutTheme>);
+        const { asFragment } = render(<LayoutSettings>Hello</LayoutSettings>);
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
-            <LayoutThemeConnected>Hello</LayoutThemeConnected>
+            <LayoutSettingsConnected>Hello</LayoutSettingsConnected>
         );
         expect(asFragment()).toMatchSnapshot();
     });

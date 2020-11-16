@@ -1,8 +1,7 @@
-import { COLOR_SCHEME_CHANGE_SELECTED } from './duck';
+import { COLOR_SCHEME_TOGGLE_SELECTED } from './duck';
 
 export interface ChangeThemeSelectedActionType {
-    type: typeof COLOR_SCHEME_CHANGE_SELECTED;
-    selected: string;
+    type: typeof COLOR_SCHEME_TOGGLE_SELECTED;
 }
 
 export type ColorSchemeActionTypes = ChangeThemeSelectedActionType;

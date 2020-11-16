@@ -16,6 +16,7 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
 import { selectStatePageViewsAfterReload } from '../../../state/page/selector';
+import { selectStateReducedMotionSelectedReduce } from '../../../state/reduced-motion/selector';
 import { getSectionTransition } from '../../../utils/transition';
 import { GridSection } from '../../grid/section';
 import { GridSpaced } from '../../grid/spaced';
@@ -31,10 +32,19 @@ import { GridCol } from '../../grid/col';
  * @returns {ReactElement} React component markup
  */
 function Grid(props) {
-    const { children, pageViewsAfterReload } = props;
+    const {
+        children,
+        pageViewsAfterReload,
+        reducedMotionSelectedReduce
+    } = props;
 
     return (
-        <CSSTransition {...getSectionTransition(pageViewsAfterReload)}>
+        <CSSTransition
+            {...getSectionTransition(
+                pageViewsAfterReload,
+                reducedMotionSelectedReduce
+            )}
+        >
             <GridSection>
                 <GridSpaced>
                     <GridRow>
@@ -53,8 +63,9 @@ function Grid(props) {
  * @type {object}
  */
 Grid.propTypes = {
+    children: PropTypes.node, // eslint-disable-line react/require-default-props
     pageViewsAfterReload: PropTypes.number,
-    children: PropTypes.node // eslint-disable-line react/require-default-props
+    reducedMotionSelectedReduce: PropTypes.bool
 };
 
 /**
@@ -64,7 +75,8 @@ Grid.propTypes = {
  * @type {object}
  */
 Grid.defaultProps = {
-    pageViewsAfterReload: 0
+    pageViewsAfterReload: 0,
+    reducedMotionSelectedReduce: false
 };
 
 /**
@@ -78,7 +90,10 @@ Grid.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        pageViewsAfterReload: selectStatePageViewsAfterReload(state)
+        pageViewsAfterReload: selectStatePageViewsAfterReload(state),
+        reducedMotionSelectedReduce: selectStateReducedMotionSelectedReduce(
+            state
+        )
     };
 }
 

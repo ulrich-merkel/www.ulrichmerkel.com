@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render } from '../../../../../__tests__/utils/test-utils';
-import { ModuleFormThemeConnected } from '../theme';
+import { ModuleFormSettingsConnected } from '../settings';
 
-describe('ModuleFormTheme', function fnDescribe() {
+describe('ModuleFormSettings', function fnDescribe() {
     const defaultProps = {
         content: {},
         csrfToken: '',
@@ -13,9 +13,9 @@ describe('ModuleFormTheme', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormThemeConnected {...defaultProps}>
+            <ModuleFormSettingsConnected {...defaultProps}>
                 Module form children
-            </ModuleFormThemeConnected>
+            </ModuleFormSettingsConnected>
         );
         expect(asFragment()).toMatchSnapshot();
     });

@@ -11,7 +11,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { initialState, COLOR_SCHEME_RESOURCE_NAME } from './duck';
+import { RootState } from '../configure-store';
+import { initialState, COLOR_SCHEME_RESOURCE_NAME, COLOR_SCHEME_DARK } from './duck';
 import { ColorSchemeStateType } from './types';
 
 /**
@@ -22,7 +23,7 @@ import { ColorSchemeStateType } from './types';
  * @returns {object} The color scheme state
  */
 export const selectStateColorScheme = createSelector(
-    [(state) => state?.[COLOR_SCHEME_RESOURCE_NAME]],
+    [(state: RootState) => state?.[COLOR_SCHEME_RESOURCE_NAME]],
     function (colorScheme: ColorSchemeStateType): ColorSchemeStateType {
         return isEmpty(colorScheme) ? initialState : colorScheme;
     }
@@ -43,5 +44,19 @@ export const selectStateColorSchemeSelected = createSelector(
             'payload.selected',
             initialState.payload.selected
         );
+    }
+);
+
+/**
+ * Select selected color scheme.
+ *
+ * @function
+ * @param {object} state - The current redux state
+ * @returns {boolean} The selected color scheme state
+ */
+export const selectStateColorSchemeSelectedDarkMode = createSelector(
+    [selectStateColorSchemeSelected],
+    function (colorSchemeSelected: string): boolean {
+        return colorSchemeSelected === COLOR_SCHEME_DARK;
     }
 );

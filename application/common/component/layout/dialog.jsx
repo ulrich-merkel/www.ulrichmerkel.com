@@ -24,6 +24,7 @@ import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
+import { closeDialog, showDialog } from '../../../client/utils/dialog';
 
 import { GridSpaced } from '../grid/spaced';
 import { GridRow } from '../grid/row';
@@ -107,8 +108,11 @@ export class LayoutDialog extends Component {
         } = this.props;
 
         if (!dialogVisible || !page || dialogPage !== page) {
+            closeDialog();
             return null;
         }
+
+        showDialog();
 
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
@@ -141,8 +145,6 @@ export class LayoutDialog extends Component {
                         {contentSectionNav.btnCloseLabel}
                     </Button>
                 </div>
-
-                <div className="l-dialog__background" role="presentation" />
             </dialog>
         );
     }

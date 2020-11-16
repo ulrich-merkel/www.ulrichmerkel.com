@@ -33,9 +33,11 @@ import { Routes } from '../common/component/routes';
 import { configureStore } from '../common/state/configure-store';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
-import { THEME_CHANGE_MESSAGE } from '../common/constants/theme';
+import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../common/state/color-scheme/duck';
+import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../common/state/reduced-motion/duck';
 import { featureDetect } from './feature-detect/feature-detect';
-import { applyTheme } from './theme/apply-theme';
+import { applyColorScheme } from './settings/apply-color-scheme';
+import { applyReducedMotion } from './settings/apply-reduced-motion';
 
 const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID);
 const store = configureStore(window.__PRELOADED_STATE__); // eslint-disable-line no-underscore-dangle
@@ -72,12 +74,24 @@ document.addEventListener(
  *
  * @see {@link https://github.com/mroderick/PubSubJS}.
  */
-PubSub.subscribe(THEME_CHANGE_MESSAGE, function subscribeApplyTheme(
-    message,
-    theme
-) {
-    applyTheme(theme);
-});
+PubSub.subscribe(
+    PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE,
+    function subscribeApplyTheme(message, colorSchemeSelected) {
+        applyColorScheme(colorSchemeSelected);
+    }
+);
+
+/**
+ * Add pubsub messaging to decouple common and client code for adding theming.
+ *
+ * @see {@link https://github.com/mroderick/PubSubJS}.
+ */
+PubSub.subscribe(
+    PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE,
+    function subscribeApplyTheme(message, reducedMotionSelected) {
+        applyReducedMotion(reducedMotionSelected);
+    }
+);
 
 /**
  * Helper functionto be able to pass props to the children page component.

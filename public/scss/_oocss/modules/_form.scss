@@ -29,7 +29,6 @@ $block: '#{$config-ns}m-form';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     @include shake;
 
     // Defaults
@@ -123,6 +122,11 @@ $block: '#{$config-ns}m-form';
 
         will-change: top, color;
         transition: top $config-transition-arguments, color $config-transition-arguments;
+        @include reducedMotion;
+
+        &:hover {
+            @include var(color, --theme-module-form-label-color-hover);
+        }
 
         &:focus {
             top: rem-calc($config-type-scale-7 * -1);
@@ -155,6 +159,7 @@ $block: '#{$config-ns}m-form';
 
         will-change: border, color;
         transition: border $config-transition-arguments, color $config-transition-arguments;
+        @include reducedMotion;
 
         &.is-pristine,
         &:focus,

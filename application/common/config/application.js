@@ -51,6 +51,7 @@ export const configApplication = {
         persona: '/persona',
         privacy: '/privacy',
         search: '/search',
+        settings: '/settings',
         work: '/work',
         workGedankenKollektiv: '/gedanken-kollektiv',
         workLebensweltSchule: '/lebenswelt-schule',

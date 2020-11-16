@@ -16,10 +16,9 @@ interface Document {
 /**
  * Get basic window document dom node.
  *
- * @private
  * @returns {object|null} The current document or null (in isomorph environments)
  */
-function getDocumentDomNode(): Document {
+export function getDocumentDomNode(): Document {
     if (typeof window === 'undefined') {
         return null;
     }

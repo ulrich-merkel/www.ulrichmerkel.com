@@ -12,6 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, CSRF_RESOURCE_NAME } from './duck';
 import { CsrfStateType } from './types';
 
@@ -23,7 +24,7 @@ import { CsrfStateType } from './types';
  * @returns {object} The csrf state
  */
 export const selectStateCsrf = createSelector(
-    [(state) => state?.[CSRF_RESOURCE_NAME]],
+    [(state: RootState) => state?.[CSRF_RESOURCE_NAME]],
     function (csrf: CsrfStateType): CsrfStateType {
         return isEmpty(csrf) ? initialState : csrf;
     }

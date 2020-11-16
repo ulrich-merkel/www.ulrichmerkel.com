@@ -103,6 +103,7 @@ $block: '#{$config-ns}m-featured';
 
         will-change: transform;
         transition: transform $config-transition-arguments;
+        @include reducedMotion;
 
         @supports (transform: scale(1)) {
             .no-touch &,
@@ -134,6 +135,7 @@ $block: '#{$config-ns}m-featured';
 
         will-change: bottom, opacity, transform;
         transition: bottom $config-transition-arguments, opacity $config-transition-arguments, transform $config-transition-arguments;
+        @include reducedMotion;
 
         @include breakpoint(320px) {
             padding: rem-calc($config-type-scale-5);
@@ -210,6 +212,7 @@ $block: '#{$config-ns}m-featured';
 
         will-change: top;
         transition: top $config-transition-arguments, opacity $config-transition-arguments;
+        @include reducedMotion;
     }
 
     @media print {

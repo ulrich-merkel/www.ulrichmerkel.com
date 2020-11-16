@@ -12,6 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, SEARCH_RESOURCE_NAME } from './duck';
 import { SearchStateType } from './types';
 
@@ -23,7 +24,7 @@ import { SearchStateType } from './types';
  * @returns {object} The intl state
  */
 export const selectStateSearch = createSelector(
-    [(state) => state?.[SEARCH_RESOURCE_NAME]],
+    [(state: RootState) => state?.[SEARCH_RESOURCE_NAME]],
     function (search: SearchStateType): SearchStateType {
         return isEmpty(search) ? initialState : search;
     }

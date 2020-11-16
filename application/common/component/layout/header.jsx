@@ -16,6 +16,7 @@ import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
+import { url } from '../../config/application';
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
@@ -181,7 +182,7 @@ export function LayoutHeader(props) {
                                 >
                                     <A
                                         className="m-menu__item--search c-btn--small c-btn--clear"
-                                        to="/search"
+                                        to={url.search}
                                         onClick={
                                             handleChangeDialogVisibleSearch
                                         }
@@ -203,14 +204,14 @@ export function LayoutHeader(props) {
                                 >
                                     <A
                                         className="m-menu__item--theme c-btn--small c-btn--clear"
-                                        to="/theme"
+                                        to={url.settings}
                                         onClick={handleChangeDialogVisibleTheme}
                                         title={''}
                                     >
                                         <span className="c-btn__label">
                                             <Icon
                                                 className="c-btn__icon"
-                                                icon="paint-format"
+                                                icon="cog"
                                             />
                                         </span>
                                     </A>

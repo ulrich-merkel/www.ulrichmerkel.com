@@ -11,14 +11,15 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { AVAILABLE_THEMES } from '../../../constants/theme';
+import { toggleThemeSelected } from '../../../state/color-scheme/duck';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';
-import { selectStateColorSchemeSelected } from '../../../state/color-scheme/selector';
-import { changeThemeSelected } from '../../../state/color-scheme/duck';
+import { selectStateColorSchemeSelectedDarkMode } from '../../../state/color-scheme/selector';
+import { toggleReducedMotionSelected } from '../../../state/reduced-motion/duck';
+import { selectStateReducedMotionSelectedReduce } from '../../../state/reduced-motion/selector';
 import { eventPreventDefault } from '../../../utils/event';
 import { GridRow } from '../../grid/row';
 import { GridCol } from '../../grid/col';
-import { Button } from '../../element/button';
+import { Toggle } from '../../element/toggle';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { Legend } from '../../element/legend';
@@ -31,27 +32,15 @@ const noop = Function.prototype;
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleFormTheme(props) {
+export function ModuleFormSettings(props) {
     const {
         content,
         csrfToken,
-        themeSelected,
-        onchangeThemeSelectedDefault,
-        onchangeThemeSelectedGrey
+        colorSchemeSelectedDarkMode,
+        onToggleReducedMotionSelected,
+        reducedMotionSelectedReduce,
+        onToggleThemeSelected
     } = props;
-
-    const items = [
-        {
-            onClick: onchangeThemeSelectedDefault,
-            i18n: 'default',
-            value: AVAILABLE_THEMES.DEFAULT
-        },
-        {
-            onClick: onchangeThemeSelectedGrey,
-            i18n: 'grey',
-            value: AVAILABLE_THEMES.GREY
-        }
-    ];
 
     return (
         <Form
@@ -67,24 +56,24 @@ export function ModuleFormTheme(props) {
                 <Legend isVisuallyHidden>{content.legend}</Legend>
 
                 <GridRow>
-                    {items.map(function mapItems(item) {
-                        const className =
-                            themeSelected === item.value ? 'is-active' : '';
-
-                        return (
-                            <GridCol
-                                key={`button-theme-switch-${item.value}`}
-                                cols={'6'}
-                            >
-                                <Button
-                                    onClick={item.onClick}
-                                    {...{ className }}
-                                >
-                                    {item.i18n}
-                                </Button>
-                            </GridCol>
-                        );
-                    })}
+                    <GridCol cols={'6'}>
+                        <Toggle
+                            id="dark-mode"
+                            label="Dark mode"
+                            onChange={onToggleThemeSelected}
+                            checked={colorSchemeSelectedDarkMode}
+                        />
+                    </GridCol>
+                </GridRow>
+                <GridRow>
+                    <GridCol cols={'6'}>
+                        <Toggle
+                            id="reduced-motion-toggle"
+                            label="Reduced motion"
+                            checked={reducedMotionSelectedReduce}
+                            onChange={onToggleReducedMotionSelected}
+                        />
+                    </GridCol>
                 </GridRow>
                 <input type="hidden" name="_csrf" value={csrfToken} />
             </Fieldset>
@@ -98,14 +87,15 @@ export function ModuleFormTheme(props) {
  * @static
  * @type {object}
  */
-ModuleFormTheme.propTypes = {
+ModuleFormSettings.propTypes = {
     content: PropTypes.shape({
         legend: PropTypes.string
     }),
-    themeSelected: PropTypes.string,
-    onchangeThemeSelectedDefault: PropTypes.func,
-    onchangeThemeSelectedGrey: PropTypes.func,
-    csrfToken: PropTypes.string
+    colorSchemeSelectedDarkMode: PropTypes.bool,
+    csrfToken: PropTypes.string,
+    onToggleReducedMotionSelected: PropTypes.func,
+    onToggleThemeSelected: PropTypes.func,
+    reducedMotionSelectedReduce: PropTypes.bool
 };
 
 /**
@@ -115,12 +105,13 @@ ModuleFormTheme.propTypes = {
  * @type {object}
  * @see ModuleFormContact.propTypes
  */
-ModuleFormTheme.defaultProps = {
+ModuleFormSettings.defaultProps = {
+    colorSchemeSelectedDarkMode: false,
     content: {},
-    themeSelected: AVAILABLE_THEMES.DEFAULT,
     csrfToken: '',
-    onchangeThemeSelectedDefault: noop,
-    onchangeThemeSelectedGrey: noop
+    onToggleReducedMotionSelected: noop,
+    onToggleThemeSelected: noop,
+    reducedMotionSelectedReduce: false
 };
 
 /**
@@ -135,7 +126,12 @@ ModuleFormTheme.defaultProps = {
 function mapStateToProps(state) {
     return {
         csrfToken: selectStateCsrfToken(state),
-        themeSelected: selectStateColorSchemeSelected(state)
+        colorSchemeSelectedDarkMode: selectStateColorSchemeSelectedDarkMode(
+            state
+        ),
+        reducedMotionSelectedReduce: selectStateReducedMotionSelectedReduce(
+            state
+        )
     };
 }
 
@@ -150,24 +146,28 @@ function mapStateToProps(state) {
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {object}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        onchangeThemeSelectedDefault: (event) => {
-            eventPreventDefault(event);
-            dispatch(changeThemeSelected('light'));
-        },
-        onchangeThemeSelectedGrey: (event) => {
-            eventPreventDefault(event);
-            dispatch(changeThemeSelected('dark'));
-        }
-    };
-}
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         onchangeThemeSelectedDefault: (event) => {
+//             eventPreventDefault(event);
+//             dispatch(toggleThemeSelected('light'));
+//         },
+//         onchangeThemeSelectedGrey: (event) => {
+//             eventPreventDefault(event);
+//             dispatch(toggleThemeSelected('dark'));
+//         }
+//     };
+// }
+const mapDispatchToProps = {
+    onToggleThemeSelected: toggleThemeSelected,
+    onToggleReducedMotionSelected: toggleReducedMotionSelected
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-export const ModuleFormThemeConnected = connect(
+export const ModuleFormSettingsConnected = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ModuleFormTheme);
+)(ModuleFormSettings);

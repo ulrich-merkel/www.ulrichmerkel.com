@@ -12,6 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, CONTACT_RESOURCE_NAME } from './duck';
 import { ContactStateType } from './types';
 
@@ -23,7 +24,7 @@ import { ContactStateType } from './types';
  * @returns {object} The contact state
  */
 export const selectStateContact = createSelector(
-    [(state) => state?.[CONTACT_RESOURCE_NAME]],
+    [(state: RootState) => state?.[CONTACT_RESOURCE_NAME]],
     function (contact: ContactStateType): ContactStateType {
         return isEmpty(contact) ? initialState : contact;
     }

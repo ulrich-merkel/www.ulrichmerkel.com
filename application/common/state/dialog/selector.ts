@@ -11,6 +11,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { RootState } from '../configure-store';
 import { initialState, DIALOG_RESOURCE_NAME } from './duck';
 import { DialogStateType } from './types';
 
@@ -22,7 +23,7 @@ import { DialogStateType } from './types';
  * @returns {object} The dialog state
  */
 export const selectStateDialog = createSelector(
-    [(state) => state?.[DIALOG_RESOURCE_NAME]],
+    [(state: RootState) => state?.[DIALOG_RESOURCE_NAME]],
     function (dialog: DialogStateType): DialogStateType {
         return isEmpty(dialog) ? initialState : dialog;
     }

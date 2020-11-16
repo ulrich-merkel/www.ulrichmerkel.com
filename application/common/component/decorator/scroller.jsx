@@ -13,31 +13,19 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
+import { hasPassiveEventListeners } from '../../../client/feature-detect/passive-event-listeners';
 import {
     changeScrollHeaderFixed,
     changeScrollHeaderVisible
 } from '../../state/scroll/duck';
+import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
 import { isBrowser } from '../../utils/environment';
 import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 
+const supportsPassiveEventListeners = hasPassiveEventListeners();
+
 // @TODO Should be computed from actual css declaration
 const HEADER_HEIGHT = 61;
-
-/**
- * Scroll to top, make sure the page is already scrolled.
- *
- * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
- *
- * @private
- * @returns {void}
- */
-function scrollTop() {
-    if (getPageOffset()) {
-        scrollTo({
-            top: 0
-        });
-    }
-}
 
 /**
  * The scroller higher order function handling window scrolling.
@@ -102,35 +90,30 @@ export function scroller(SourceComponent) {
          */
         componentDidMount() {
             if (isBrowser()) {
-                window.addEventListener('scroll', this.onScroll);
+                // Use our detect's results. passive applied if supported, capture will be false either way.
+                window.addEventListener(
+                    'scroll',
+                    this.onScroll,
+                    supportsPassiveEventListeners ? { passive: true } : false
+                );
             }
             this.onScroll();
-        }
-
-        /**
-         * Invoked before a mounted component receives new props. React only calls
-         * this method if some of component's props may update.
-         *
-         * @param {object} [nextProps] - The new class properties
-         * @returns {void}
-         */
-        // eslint-disable-next-line camelcase
-        UNSAFE_componentWillReceiveProps(nextProps) {
-            const { location } = this.props;
-
-            if (location !== nextProps.location) {
-                scrollTop();
-            }
         }
 
         /**
          * Invoked immediately after the component's updates are flushed to
          * the DOM. This method is not called for the initial render.
          *
+         * @param {object} [prevProps] - The previous class properties
          * @returns {void}
          */
-        componentDidUpdate() {
+        componentDidUpdate(prevProps) {
+            const { location } = this.props;
+
             this.onScroll();
+            if (location !== prevProps.location) {
+                this.scrollTop();
+            }
         }
 
         /**
@@ -187,6 +170,25 @@ export function scroller(SourceComponent) {
         }
 
         /**
+         * Scroll to top, make sure the page is already scrolled.
+         *
+         * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
+         *
+         * @private
+         * @returns {void}
+         */
+        scrollTop = () => {
+            const { reducedMotionSelected } = this.props;
+
+            if (getPageOffset()) {
+                scrollTo({
+                    duration: reducedMotionSelected ? 0 : 300,
+                    top: 0
+                });
+            }
+        };
+
+        /**
          * The required render function to return a single react child element.
          *
          * @returns {ReactElement} React component markup
@@ -212,7 +214,38 @@ export function scroller(SourceComponent) {
             pathname: PropTypes.string,
             search: PropTypes.string,
             state: PropTypes.object
-        }).isRequired
+        }).isRequired,
+        reducedMotionSelected: PropTypes.bool
+    };
+
+    /**
+     * Set defaults if props aren't available.
+     *
+     * @static
+     * @type {object}
+     */
+    Scroller.defaultProps = {
+        reducedMotionSelected: false
+    };
+
+    /**
+     * The component will subscribe to Redux store updates. Any time it updates,
+     * mapStateToProps will be called, Its result must be a plain object,
+     * and it will be merged into the component’s props.
+     *
+     * @private
+     * @param {object<string, *>} state - The current redux store state
+     * @returns {object<string, *>} The mapped state properties
+     */
+    function mapStateToProps(state) {
+        return {
+            reducedMotionSelected: selectStateReducedMotionSelected(state)
+        };
+    }
+
+    const mapDispatchToProps = {
+        handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
+        handleChangeScrollHeaderVisible: changeScrollHeaderVisible
     };
 
     /**
@@ -221,10 +254,10 @@ export function scroller(SourceComponent) {
      * We also use the shorthand notation for mapDispatchToProps here to save
      * some bytes.
      */
-    const ScrollerContainer = connect(null, {
-        handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
-        handleChangeScrollHeaderVisible: changeScrollHeaderVisible
-    })(withRouter(Scroller));
+    const ScrollerContainer = connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(withRouter(Scroller));
 
     return ScrollerContainer;
 }

@@ -26,15 +26,20 @@ const transition: Transition = {
  * Get transition config based on page view count.
  *
  * @param {number} pageViewsAfterReload - The redux page views state
+ * @param {boolean} reducedMotionSelectedReduce - The redux state for reduced motion
  * @returns {object} The ReactCSSTransitionGroup transition config
  */
-export function getSectionTransition(pageViewsAfterReload: number): Transition {
+export function getSectionTransition(pageViewsAfterReload: number, reducedMotionSelectedReduce: boolean): Transition {
     if (pageViewsAfterReload === 1) {
         return {
             ...transition,
-            in: false
+            in: false,
+            timeout: reducedMotionSelectedReduce ? 0 : 200
         };
     }
 
-    return transition;
+    return {
+        ...transition,
+        timeout: reducedMotionSelectedReduce ? 0 : 200
+    }
 }
