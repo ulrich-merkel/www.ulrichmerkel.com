@@ -8,7 +8,7 @@ exports[`PagePersona should render correctly 1`] = `
     role="main"
   >
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -122,7 +122,7 @@ exports[`PagePersona should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -969,7 +969,7 @@ exports[`PagePersona should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -1277,7 +1277,7 @@ exports[`PagePersona should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -1476,7 +1476,7 @@ exports[`PagePersona should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"

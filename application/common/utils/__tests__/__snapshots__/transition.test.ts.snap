@@ -6,7 +6,7 @@ Object {
   "className": "l-main__transition",
   "classNames": "animate",
   "in": true,
-  "timeout": 200,
+  "timeout": 750,
 }
 `;
 
@@ -16,6 +16,6 @@ Object {
   "className": "l-main__transition",
   "classNames": "animate",
   "in": true,
-  "timeout": 200,
+  "timeout": 750,
 }
 `;

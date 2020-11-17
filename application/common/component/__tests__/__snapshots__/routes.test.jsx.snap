@@ -241,7 +241,7 @@ exports[`Routes should render correctly 1`] = `
     role="main"
   >
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__row"
@@ -251,7 +251,6 @@ exports[`Routes should render correctly 1`] = `
         >
           <div
             class="m-key-visual hide-on-print"
-            reducedmotionselected="no-preference"
           >
             <picture
               class="c-picture m-key-visual__image m-key-visual__image--digital"
@@ -368,7 +367,7 @@ exports[`Routes should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -459,7 +458,7 @@ exports[`Routes should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"
@@ -666,7 +665,7 @@ exports[`Routes should render correctly 1`] = `
       </div>
     </section>
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__row"
