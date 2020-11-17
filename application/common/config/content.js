@@ -359,8 +359,7 @@ export const configContent = {
             // social microformats
             { rel: 'me', href: 'https://www.xing.com/profile/Ulrich_Merkel4' },
             { rel: 'me', href: 'https://www.facebook.com/ulrich.merkel' },
-            { rel: 'me', href: 'https://github.com/ulrich-merkel' },
-            { rel: 'me', href: 'https://delicious.com/ulrichmerkel' }
+            { rel: 'me', href: 'https://github.com/ulrich-merkel' }
         ]
     },
     PageHome: {
@@ -1935,16 +1934,6 @@ export const configContent = {
                         label: 'intl-menu-social-link-3-label',
                         itemType: 'http://schema.org/Organization',
                         icon: 'github',
-                        isLabelHidden: true,
-                        itemPropA: 'sameAs',
-                        metaLinkUrl: `${HOMEPAGE_URL}`
-                    },
-                    {
-                        path: 'https://delicious.com/ulrichmerkel',
-                        title: 'intl-menu-social-link-4-title',
-                        label: 'intl-menu-social-link-4-label',
-                        itemType: 'http://schema.org/Organization',
-                        icon: 'delicious',
                         isLabelHidden: true,
                         itemPropA: 'sameAs',
                         metaLinkUrl: `${HOMEPAGE_URL}`

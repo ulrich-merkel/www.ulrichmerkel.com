@@ -512,8 +512,6 @@ export const configIntlEnEn = {
     'intl-menu-social-link-2-title': 'Ulrich Merkel @ Facebook',
     'intl-menu-social-link-3-label': 'GitHub',
     'intl-menu-social-link-3-title': 'Ulrich Merkel @ GitHub',
-    'intl-menu-social-link-4-label': 'Delicious',
-    'intl-menu-social-link-4-title': 'Ulrich Merkel @ Delicious',
 
     'intl-menu-imprint-link-1-label': 'Disclaimer',
     'intl-menu-imprint-link-1-title': 'Disclaimer',
