@@ -6,18 +6,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires picturefill
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 
 /**
  * Helper function to init picture element polyfill.
@@ -42,7 +33,7 @@ function initPicturefill() {
      * `picturefill` needs to be globally available here to make this work without errors
      * (is included in main client file).
      */
-    setTimeout(() => {
+    setTimeout(function setPictureFill() {
         picturefill();
     });
 }
@@ -53,8 +44,7 @@ function initPicturefill() {
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-function pictureFill(SourceComponent) {
-
+export function pictureFill(SourceComponent) {
     /**
      * Wrapper class to call initPicturefill on mount and on updates.
      *
@@ -62,7 +52,6 @@ function pictureFill(SourceComponent) {
      * @augments React.Component
      */
     return class PictureFill extends Component {
-
         /**
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
@@ -92,9 +81,5 @@ function pictureFill(SourceComponent) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
-
     };
-
 }
-
-export default pictureFill;

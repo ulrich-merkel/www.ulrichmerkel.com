@@ -6,29 +6,14 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/paragraph
- *
- * @changelog
- * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import P from '../../element/paragraph';
+import { P } from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.
@@ -36,12 +21,8 @@ import P from '../../element/paragraph';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleArticleLead(props) {
-
-    const {
-        text,
-        className
-    } = props;
+export function ModuleArticleLead(props) {
+    const { text, className } = props;
 
     if (!text) {
         return null;
@@ -50,13 +31,14 @@ function ModuleArticleLead(props) {
     const composedClassName = classnames(className);
 
     return (
-        <P className={composedClassName} isCentered itemProp='alternativeHeadline'>
-            <strong>
-                {text}
-            </strong>
+        <P
+            className={composedClassName}
+            isCentered
+            itemProp="alternativeHeadline"
+        >
+            <strong>{text}</strong>
         </P>
     );
-
 }
 
 /**
@@ -82,5 +64,3 @@ ModuleArticleLead.propTypes = {
 ModuleArticleLead.defaultProps = {
     text: ''
 };
-
-export default ModuleArticleLead;

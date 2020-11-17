@@ -5,17 +5,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -25,7 +17,6 @@ import classnames from 'classnames';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
@@ -38,37 +29,36 @@ import classnames from 'classnames';
  * @property {Function} [props.onBlur=Function.prototype] - The textarea onBlur handler
  * @property {Function} [props.onChange=Function.prototype] - The textarea onChange handler
  */
-class ElementTextarea extends Component {
-
+export class Textarea extends Component {
     /**
      * The required render function to return a single react child element.
      *
      * @returns {ReactElement} React component markup
      */
     render() {
-
-        const {
-            className,
-            required,
-            ...other
-        } = this.props;
+        const { className, required, ...other } = this.props;
 
         const composedClassName = classnames(
             'm-form__control--textarea',
             className
         );
 
-        const requiredAttributes = required ? {
-            required: true,
-            'aria-required': true
-        } : null;
+        const requiredAttributes = required
+            ? {
+                  required: true,
+                  'aria-required': true
+              }
+            : null;
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <textarea className={composedClassName} {...requiredAttributes} {...other} />
+            <textarea
+                className={composedClassName}
+                {...requiredAttributes}
+                {...other}
+            />
         );
     }
-
 }
 
 /**
@@ -77,7 +67,7 @@ class ElementTextarea extends Component {
  * @static
  * @type {object}
  */
-ElementTextarea.propTypes = {
+Textarea.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -95,9 +85,9 @@ ElementTextarea.propTypes = {
  *
  * @static
  * @type {object}
- * @see ElementTextarea.propTypes
+ * @see Textarea.propTypes
  */
-ElementTextarea.defaultProps = {
+Textarea.defaultProps = {
     cols: '50',
     onBlur: Function.prototype,
     onChange: Function.prototype,
@@ -105,5 +95,3 @@ ElementTextarea.defaultProps = {
     required: false,
     rows: '4'
 };
-
-export default ElementTextarea;

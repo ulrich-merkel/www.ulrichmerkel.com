@@ -37,6 +37,7 @@ $block: '#{$config-ns}m-nav';
 
         will-change: color;
         transition: color $config-transition-arguments;
+        @include reducedMotion;
 
         &::before {
             position: relative;

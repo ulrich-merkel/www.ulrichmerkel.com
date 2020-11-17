@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFormContact should render a success message 1`] = `
+<DocumentFragment>
+  <div
+    class="m-article__text"
+    id="m-form--contact-success"
+    itemprop="text"
+  >
+    <h3
+      class="is-centered c-type--h3"
+    />
+    <div
+      class="m-article__description is-centered"
+      itemprop="description"
+    >
+      <p
+        class="c-type--p"
+      />
+      <p
+        class="c-type--p"
+      >
+        <a
+          class="c-btn is-centered c-btn--large"
+          href="/contact"
+          role="button"
+          title="btnRenewTitle"
+        >
+          <span
+            class="c-btn__label"
+          >
+            btnRenewLabel
+          </span>
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleFormContact should render an error message 1`] = `
+<DocumentFragment>
+  <div
+    class="m-article__text"
+    id="m-form--contact-success"
+    itemprop="text"
+  >
+    <h3
+      class="is-centered c-type--h3"
+    />
+    <div
+      class="m-article__description is-centered"
+      itemprop="description"
+    >
+      <p
+        class="c-type--p"
+      />
+      <p
+        class="c-type--p"
+      >
+        <a
+          class="c-btn is-centered c-btn--large"
+          href="/contact"
+          role="button"
+          title=""
+        >
+          <span
+            class="c-btn__label"
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleFormContact should render correctly 1`] = `
+<DocumentFragment>
+  <form
+    accept-charset="utf-8"
+    action="/contact/"
+    class="m-form m-form--contact"
+    id="m-form--contact"
+    itemprop="potentialAction"
+    itemscope=""
+    itemtype="http://schema.org/CommunicateAction"
+    method="post"
+    novalidate=""
+    role="form"
+  >
+    <fieldset
+      class="m-form__fieldset"
+    >
+      <legend
+        class="m-form__legend is-visually-hidden"
+      >
+        legend
+      </legend>
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="m-form__group"
+          >
+            <input
+              aria-required="true"
+              class="m-form__control--text"
+              id="name"
+              name="name"
+              placeholder=""
+              required=""
+              type="text"
+              value=""
+            />
+            <label
+              class="m-form__label"
+              for="name"
+            >
+              inputName
+              <i
+                aria-hidden="true"
+                class="c-font-icon--sad m-form__label__icon--error"
+              />
+              <i
+                aria-hidden="true"
+                class="c-font-icon--smile m-form__label__icon--success"
+              />
+            </label>
+          </div>
+        </div>
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="m-form__group"
+          >
+            <input
+              aria-required="true"
+              class="m-form__control--text"
+              id="email"
+              name="email"
+              placeholder=""
+              required=""
+              type="email"
+              value=""
+            />
+            <label
+              class="m-form__label"
+              for="email"
+            >
+              inputEmail
+              <i
+                aria-hidden="true"
+                class="c-font-icon--sad m-form__label__icon--error"
+              />
+              <i
+                aria-hidden="true"
+                class="c-font-icon--smile m-form__label__icon--success"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <div
+            class="m-form__group"
+          >
+            <input
+              aria-required="true"
+              class="m-form__control--text"
+              id="subject"
+              name="subject"
+              placeholder=""
+              required=""
+              type="text"
+              value=""
+            />
+            <label
+              class="m-form__label"
+              for="subject"
+            >
+              inputSubject
+              <i
+                aria-hidden="true"
+                class="c-font-icon--sad m-form__label__icon--error"
+              />
+              <i
+                aria-hidden="true"
+                class="c-font-icon--smile m-form__label__icon--success"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <div
+            class="m-form__group"
+          >
+            <textarea
+              aria-required="true"
+              class="m-form__control--textarea"
+              cols="50"
+              id="message"
+              name="message"
+              placeholder=""
+              required=""
+              rows="4"
+            />
+            <label
+              class="m-form__label"
+              for="message"
+            >
+              inputMessage
+              <i
+                aria-hidden="true"
+                class="c-font-icon--sad m-form__label__icon--error"
+              />
+              <i
+                aria-hidden="true"
+                class="c-font-icon--smile m-form__label__icon--success"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="m-form__group m-form__group--reset hide-on-print"
+          >
+            <button
+              class="c-btn m-form__btn c-btn--secondary"
+              id="reset"
+              name="reset"
+              role="button"
+              title="btnResetTitle"
+              type="reset"
+            >
+              <span
+                class="c-btn__label"
+              >
+                btnResetLabel
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="m-form__group m-form__group--submit hide-on-print"
+          >
+            <button
+              class="c-btn m-form__btn c-btn--submit c-btn--primary is-disabled"
+              disabled=""
+              id="submit"
+              name="submit"
+              role="button"
+              title="btnSubmitTitle"
+              type="submit"
+            >
+              <span
+                class="c-btn__label"
+              >
+                btnSubmitLabel
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <input
+        name="_csrf"
+        type="hidden"
+        value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+      />
+    </fieldset>
+  </form>
+</DocumentFragment>
+`;

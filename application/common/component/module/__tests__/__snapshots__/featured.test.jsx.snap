@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFeatured should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="m-featured foo"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="list"
+  >
+    <li
+      class="m-featured__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-featured__item"
+        href="/work/path/"
+        tabindex="0"
+        title="headline"
+      >
+        <span
+          class="m-featured__hover"
+        >
+          <span
+            class="m-featured__text"
+          >
+            <span
+              aria-level="3"
+              class="m-featured__headline"
+              role="heading"
+            >
+              headline
+            </span>
+            <i
+              aria-hidden="true"
+              class="c-font-icon--plus m-featured__icon"
+            />
+          </span>
+        </span>
+        <meta
+          content="headline"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    Module Featured Children
+  </span>
+</DocumentFragment>
+`;
+
+exports[`ModuleFeatured should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <span
+    class="m-featured foo"
+    role="list"
+  >
+    <li
+      class="m-featured__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-featured__item"
+        href="/work/path/"
+        tabindex="0"
+        title="headline"
+      >
+        <span
+          class="m-featured__hover"
+        >
+          <span
+            class="m-featured__text"
+          >
+            <span
+              aria-level="3"
+              class="m-featured__headline"
+              role="heading"
+            >
+              headline
+            </span>
+            <i
+              aria-hidden="true"
+              class="c-font-icon--plus m-featured__icon"
+            />
+          </span>
+        </span>
+        <meta
+          content="headline"
+          itemprop="name"
+        />
+      </a>
+    </li>
+    Module featured children
+  </span>
+</DocumentFragment>
+`;
+
+exports[`ModuleFeatured should return null if no content is empty 1`] = `<DocumentFragment />`;

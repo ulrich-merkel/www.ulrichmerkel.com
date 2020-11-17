@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutDialog should render correctly 1`] = `
+<DocumentFragment>
+  <dialog
+    class="l-dialog"
+    role="presentation"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      Dialog Children
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <button
+              class="c-btn"
+              role="button"
+              title=""
+              type="button"
+            >
+              <span
+                class="c-btn__label"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        class="c-btn l-dialog__button--close c-font-icon--close"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label is-visually-hidden"
+        />
+      </button>
+    </div>
+  </dialog>
+</DocumentFragment>
+`;
+
+exports[`LayoutDialog should render correctly the connected version 1`] = `
+<DocumentFragment>
+  <dialog
+    class="l-dialog"
+    role="presentation"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      Dialog Children
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <button
+              class="c-btn"
+              role="button"
+              title=""
+              type="button"
+            >
+              <span
+                class="c-btn__label"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        class="c-btn l-dialog__button--close c-font-icon--close"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label is-visually-hidden"
+        />
+      </button>
+    </div>
+  </dialog>
+</DocumentFragment>
+`;
+
+exports[`LayoutDialog should render null if not visible 1`] = `<DocumentFragment />`;

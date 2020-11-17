@@ -6,24 +6,14 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/headline
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Headline from '../../element/headline';
+import { Headline } from '../../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
@@ -31,13 +21,8 @@ import Headline from '../../element/headline';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleArticleHeadline(props) {
-
-    const {
-        text,
-        isMain,
-        className
-    } = props;
+export function ModuleArticleHeadline(props) {
+    const { text, isMain, className } = props;
 
     if (!text) {
         return null;
@@ -47,11 +32,14 @@ function ModuleArticleHeadline(props) {
     const htmlElement = isMain ? 'h1' : 'h2';
 
     return (
-        <Headline className={composedClassName} itemProp='headline' htmlElement={htmlElement}>
+        <Headline
+            className={composedClassName}
+            itemProp="headline"
+            htmlElement={htmlElement}
+        >
             {text}
         </Headline>
     );
-
 }
 
 /**
@@ -80,5 +68,3 @@ ModuleArticleHeadline.defaultProps = {
     text: '',
     isMain: false
 };
-
-export default ModuleArticleHeadline;

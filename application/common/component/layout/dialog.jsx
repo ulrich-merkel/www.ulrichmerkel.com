@@ -7,62 +7,39 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires classnames
- * @requires lodash
- * @requires common/state/selectors
- * @requires common/state/dialog/actions
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/utils/environment
- * @requires common/utils/event
- * @requires common/component/module/article
- * @requires common/component/module/list
- * @requires common/component/grid/spaced
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.4 Add isBroadcast and isSearch to props
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { throttle, isEqual, get } from 'lodash';
+import { throttle, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
-import { changeDialogVisible } from '../../state/actions';
-import addContent from '../decorator/add-content';
+import {
+    selectStateDialogContent,
+    selectStateDialogVisible
+} from '../../state/dialog/selector';
+import { changeDialogVisible } from '../../state/dialog/duck';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
+import { closeDialog, showDialog } from '../../../client/utils/dialog';
 
-import GridSpaced from '../grid/spaced';
-import GridRow from '../grid/row';
-import GridCol from '../grid/col';
-import Button from '../element/button';
+import { GridSpaced } from '../grid/spaced';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
+import { Button } from '../element/button';
 
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
  * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
  * @property {object} [props.content={}] - The component content config
  */
-class LayoutDialog extends Component {
-
+export class LayoutDialog extends Component {
     /**
      * The actual class constructor.
      *
@@ -86,17 +63,6 @@ class LayoutDialog extends Component {
         if (isBrowser()) {
             window.addEventListener('keydown', this.onKeyDown, false);
         }
-    }
-
-    /**
-     * ShouldComponentUpdate is triggered before the re-rendering process starts,
-     * giving the developer the ability to short circuit this process.
-     *
-     * @param {object} nextProps - The news props to be rendered
-     * @returns {boolean} Whether to force component update or not
-     */
-    shouldComponentUpdate(nextProps) {
-        return !isEqual(this.props, nextProps);
     }
 
     /**
@@ -142,17 +108,19 @@ class LayoutDialog extends Component {
         } = this.props;
 
         if (!dialogVisible || !page || dialogPage !== page) {
+            closeDialog();
             return null;
         }
+
+        showDialog();
 
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
         const composedClassName = classnames('l-dialog', className);
 
         return (
-            <dialog className={composedClassName} role='presentation'>
-                <div className='l-dialog__content'>
-
+            <dialog className={composedClassName} role="presentation">
+                <div className="l-dialog__content">
                     {children}
 
                     <GridSpaced>
@@ -169,22 +137,17 @@ class LayoutDialog extends Component {
                     </GridSpaced>
 
                     <Button
-                        className='l-dialog__button--close c-font-icon--close'
-                        classNameLabel='is-visually-hidden'
+                        className="l-dialog__button--close c-font-icon--close"
+                        classNameLabel="is-visually-hidden"
                         title={contentSectionNav.btnCloseTitle}
                         onClick={onClose}
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
-
                 </div>
-
-                <div className='l-dialog__background' role='presentation' />
-
             </dialog>
         );
     }
-
 }
 
 /**
@@ -199,12 +162,14 @@ LayoutDialog.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     page: PropTypes.string
 };
 
@@ -234,8 +199,10 @@ LayoutDialog.defaultProps = {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
-        dialogPage: selectStateDialogPage(state) || get(ownProps, 'dialogPage')
+        dialogVisible:
+            selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
+        dialogPage:
+            selectStateDialogContent(state) || get(ownProps, 'dialogPage')
     };
 }
 
@@ -247,12 +214,8 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
-const LayoutDialogConnected = connect(
+
+export const LayoutDialogConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('LayoutDialog')(LayoutDialog));
-
-export default LayoutDialogConnected;
-export {
-    LayoutDialog
-};

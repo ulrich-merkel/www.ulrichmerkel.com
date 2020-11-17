@@ -3,48 +3,34 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires react-router-dom
- * @requires common/config/application
- * @requires common/component/layout
- * @requires common/component/page
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
-import { LayoutBody } from './layout';
-import {
-    PageBroadcast,
-    PageContact,
-    PageDisclaimer,
-    PageHome,
-    PageImprint,
-    PageNotFound,
-    PagePersona,
-    PagePrivacy,
-    PageSearch,
-    PageTheme,
-    PageWork
-} from './page';
+import { LayoutBodyConnected } from './layout/body';
+import { PageBroadcast } from './page/broadcast';
+import { PageContact } from './page/contact';
+import { PageDisclaimer } from './page/disclaimer';
+import { PageHome } from './page/home';
+import { PageImprint } from './page/imprint';
+import { PageNotFound } from './page/not-found';
+import { PagePersona } from './page/persona';
+import { PagePrivacy } from './page/privacy';
+import { PageSearch } from './page/search';
+import { PageSettings } from './page/settings';
+import { PageWork } from './page/work';
 
 /**
  * Handling routes and wrap content in a layout.
  *
- * @function
  * @returns {ReactElement} React component markup
  */
-function Routes() {
+export function Routes() {
     return (
-        <LayoutBody>
+        <LayoutBodyConnected>
             <Switch>
                 <Route exact path={url.home} component={PageHome} />
                 <Route path={`${url.work}/:work`} component={PageWork} />
@@ -55,11 +41,9 @@ function Routes() {
                 <Route path={url.imprint} component={PageImprint} />
                 <Route path={url.broadcast} component={PageBroadcast} />
                 <Route path={url.search} component={PageSearch} />
-                <Route path={url.theme} component={PageTheme} />
+                <Route path={url.settings} component={PageSettings} />
                 <Route component={PageNotFound} />
             </Switch>
-        </LayoutBody>
+        </LayoutBodyConnected>
     );
 }
-
-export default Routes;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should call passed callbacks 1`] = `
+<DocumentFragment>
+  <input
+    class="m-form__control--text"
+    id="input-callbacks"
+    name="input-callbacks"
+    placeholder=""
+    type="text"
+    value=""
+  />
+</DocumentFragment>
+`;
+
+exports[`Input should render correctly with default callbacks 1`] = `
+<DocumentFragment>
+  <input
+    aria-required="true"
+    class="m-form__control--text input"
+    classnamelabel="input-label"
+    id="input"
+    name="input"
+    placeholder="Test input placeholder"
+    required=""
+    type="text"
+    value="4"
+  />
+</DocumentFragment>
+`;

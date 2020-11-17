@@ -6,20 +6,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -29,15 +19,11 @@ import PropTypes from 'prop-types';
  * @param {Array|string} [props.children] - The component react children
  * @returns {ReactElement} React component markup
  */
-function LayoutMain(props) {
+export function LayoutMain(props) {
     const { children } = props;
 
     return (
-        <main
-            className='l-main'
-            itemProp='mainContentOfPage'
-            role='main'
-        >
+        <main className="l-main" itemProp="mainContentOfPage" role="main">
             {children}
         </main>
     );
@@ -52,5 +38,3 @@ function LayoutMain(props) {
 LayoutMain.propTypes = {
     children: PropTypes.node // eslint-disable-line react/require-default-props
 };
-
-export default LayoutMain;

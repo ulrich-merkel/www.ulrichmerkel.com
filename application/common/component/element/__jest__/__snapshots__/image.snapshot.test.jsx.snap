@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/component/element/image should render correctly 1`] = `
-<img
-  alt="foo"
-  className="c-img image"
-  src="span"
-/>
-`;

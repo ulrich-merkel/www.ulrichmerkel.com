@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-form__group"
+  >
+    <button
+      class="c-btn m-form__btn button-group c-btn--primary is-disabled"
+      disabled=""
+      id="button-group"
+      name="button"
+      role="button"
+      title=""
+      type="submit"
+    >
+      <span
+        class="c-btn__label"
+      >
+        button
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

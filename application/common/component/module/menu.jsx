@@ -6,31 +6,19 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/module/menu/item
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import ModuleMenuItem from './menu/item';
+import { ModuleMenuItem } from './menu/item';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
@@ -39,7 +27,7 @@ import ModuleMenuItem from './menu/item';
  * @param {string} [props.itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @returns {ReactElement|null} React component markup
  */
-function ModuleMenu(props) {
+export function ModuleMenu(props) {
     const {
         children,
         className,
@@ -64,7 +52,7 @@ function ModuleMenu(props) {
     return (
         <ComponentType
             className={componentClassName}
-            role='menu'
+            role="menu"
             {...componentSchema}
             {...otherProps}
         >
@@ -80,7 +68,9 @@ function ModuleMenu(props) {
                         isLabelHidden={value.isLabelHidden}
                         itemPropA={value.itemPropA}
                     >
-                        {value.metaLinkUrl && <link itemProp='url' href={value.metaLinkUrl} />}
+                        {value.metaLinkUrl && (
+                            <link itemProp="url" href={value.metaLinkUrl} />
+                        )}
                     </ModuleMenuItem>
                 );
             })}
@@ -128,5 +118,3 @@ ModuleMenu.defaultProps = {
     content: {},
     itemType: 'https://schema.org/ItemList'
 };
-
-export default ModuleMenu;

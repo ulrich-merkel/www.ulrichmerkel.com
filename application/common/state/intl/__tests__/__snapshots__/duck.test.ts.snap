@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should not react to an action with the type intl/INTL_CHANGE_LOCALE and unknown locale 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;
+
+exports[`reducer should react to an action with the type intl/INTL_CHANGE_LOCALE 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;
+
+exports[`reducer should react to an action with the type intl/INTL_CHANGE_LOCALE, unknown locale and fallback 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;

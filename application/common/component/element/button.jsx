@@ -4,23 +4,11 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires react-router
- * @requires classnames
- *
- * @changelog
- * - 0.0.3 Improved propTypes ordering, renamed componentType to htmlElement
- * - 0.0.2 Improved api
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
- * import Button from './button';
+ * import { Button } from './button';
  *
  * <Button className='additional-css' to='contact' title='Lorem ipsum' isPrimary isLarge>
  *     Show Contact Page
@@ -30,7 +18,7 @@
  * //     <span class="c-btn__label">Show Contact Page</span>
  * // </a>
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
@@ -56,7 +44,7 @@ import classnames from 'classnames';
  * @param {string} [props.type='button'] - The element type attribute
  * @returns {ReactElement} React component markup
  */
-function ElementButton(props) {
+export function Button(props) {
     const {
         htmlElement,
         className,
@@ -76,36 +64,22 @@ function ElementButton(props) {
         ...otherProps
     } = props;
 
-    const componentLabelClassName = classnames(
-        'c-btn__label',
-        classNameLabel,
-        {
-            'is-visually-hidden': isLabelHidden
-        }
-    );
+    const componentLabelClassName = classnames('c-btn__label', classNameLabel, {
+        'is-visually-hidden': isLabelHidden
+    });
 
-    const componentClassName = classnames(
-        'c-btn',
-        className,
-        {
-            'c-btn--primary': isPrimary,
-            'c-btn--secondary': isSecondary,
-            'c-btn--large': isLarge,
-            'c-btn--small': isSmall,
-            'c-btn--clear': isClear,
-            'is-disabled': isDisabled
-        }
-    );
+    const componentClassName = classnames('c-btn', className, {
+        'c-btn--primary': isPrimary,
+        'c-btn--secondary': isSecondary,
+        'c-btn--large': isLarge,
+        'c-btn--small': isSmall,
+        'c-btn--clear': isClear,
+        'is-disabled': isDisabled
+    });
 
-    const HtmlElement = to
-        ? NavLink
-        : htmlElement;
-    const htmlElementType = !to
-        ? type
-        : null;
-    const disabledAttr = isDisabled
-        ? { disabled: 'disabled' }
-        : null;
+    const HtmlElement = to ? NavLink : htmlElement;
+    const htmlElementType = !to ? type : null;
+    const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -116,9 +90,7 @@ function ElementButton(props) {
             {...disabledAttr}
             {...otherProps}
         >
-            <span className={componentLabelClassName}>
-                {children}
-            </span>
+            <span className={componentLabelClassName}>{children}</span>
         </HtmlElement>
     );
 }
@@ -129,7 +101,7 @@ function ElementButton(props) {
  * @static
  * @type {object}
  */
-ElementButton.propTypes = {
+Button.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     classNameLabel: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -153,7 +125,7 @@ ElementButton.propTypes = {
  * @static
  * @type {object}
  */
-ElementButton.defaultProps = {
+Button.defaultProps = {
     htmlElement: 'button',
     isClear: false,
     isDisabled: false,
@@ -166,5 +138,3 @@ ElementButton.defaultProps = {
     title: '',
     type: 'button'
 };
-
-export default ElementButton;

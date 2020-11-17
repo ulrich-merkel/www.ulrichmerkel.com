@@ -5,69 +5,35 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
- *
- * @TODO Add classname and htmlElement to props, add honeypot again
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires lodash
- * @requires common/config/application
- * @requires common/utils/environment
- * @requires common/utils/xor
- * @requires common/utils/logger
- * @requires common/utils/scroll-to
- * @requires common/utils/xhr
- * @requires common/state/selectors
- * @requires common/state/contact/actions
- * @requires common/state/contact/utils
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/button-group
- * @requires common/component/element/fieldset
- * @requires common/component/element/form
- * @requires common/component/element/input-group
- * @requires common/component/element/legend
- * @requires common/component/element/textarea-group
- *
- * @changelog
- * - 0.0.4 Refactored, simplified state
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { has } from 'lodash';
 
-import configApplication, { url } from '../../../config/application';
+import { configApplication, url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
-import xor from '../../../utils/xor';
-import logger from '../../../utils/logger';
-import scrollTo from '../../../utils/scroll-to';
-import xhr, { XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
-import { selectStateContact, selectStateCsrfToken } from '../../../state/selectors';
-import { changeContact } from '../../../state/contact/actions';
+import { encrypt } from '../../../utils/xor';
+import { logger } from '../../../utils/logger';
+import { scrollTo } from '../../../utils/scroll-to';
+import { xhr, XHR_DEFAULT_HEADERS } from '../../../utils/xhr';
+import { selectStateContactForm } from '../../../state/contact/selector';
+import { selectStateCsrfToken } from '../../../state/csrf/selector';
+import { changeContactForm } from '../../../state/contact/duck';
 import { canSendForm, validate } from '../../../state/contact/utils';
 import { eventPreventDefault } from '../../../utils/event';
-import {
-    GridCol,
-    GridRow
-} from '../../grid';
-import {
-    ButtonGroup,
-    Fieldset,
-    Form,
-    InputGroup,
-    Legend,
-    TextareaGroup
-} from '../../element';
-import ModuleFormContactMessage from './contact/message';
+import { GridCol } from '../../grid/col';
+import { GridRow } from '../../grid/row';
+import { ButtonGroup } from '../../element/button-group';
+import { Fieldset } from '../../element/fieldset';
+import { Form } from '../../element/form';
+import { InputGroup } from '../../element/input-group';
+import { Legend } from '../../element/legend';
+import { TextareaGroup } from '../../element/textarea-group';
+import { ModuleFormContactMessage } from './contact/message';
 
 const defaultState = {
     name: '',
@@ -101,7 +67,9 @@ const xorKey = configApplicationXor.key;
  */
 function scrollToTextMessage(textMessage) {
     if (textMessage) {
-        const boundingClientRectTop = Math.abs(textMessage.getBoundingClientRect().top);
+        const boundingClientRectTop = Math.abs(
+            textMessage.getBoundingClientRect().top
+        );
         scrollTo({
             top: boundingClientRectTop
         });
@@ -118,7 +86,7 @@ function scrollToTextMessage(textMessage) {
  */
 function send(data, csrfToken = '') {
     const bodyData = xorUse
-        ? xor.encrypt(JSON.stringify(data), xorKey)
+        ? encrypt(JSON.stringify(data), xorKey)
         : JSON.stringify(data);
 
     const xhrData = {
@@ -155,7 +123,6 @@ function getState(key, storeState) {
  * @augments React.Component
  */
 class ModuleFormContact extends Component {
-
     /**
      * The actual class constructor.
      *
@@ -184,14 +151,10 @@ class ModuleFormContact extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
         this.handleContactChange = this.handleContactChange.bind(this);
-
     }
 
     componentDidMount() {
-        const {
-            storeState,
-            routerState
-        } = this.props;
+        const { storeState, routerState } = this.props;
 
         this.setState({
             name: getState('name', storeState),
@@ -203,10 +166,19 @@ class ModuleFormContact extends Component {
             subjectPristine: getState('subjectPristine', storeState),
             messagePristine: getState('messagePristine', storeState),
             pending: getState('pending', storeState),
-            success: routerState === 'success' || getState('success', storeState),
+            success:
+                routerState === 'success' || getState('success', storeState),
             error: routerState === 'error' || getState('error', storeState),
             browser: isBrowser()
         });
+    }
+
+    /**
+     * @returns {void}
+     */
+    handleContactChange() {
+        const { handleContactChange } = this.props;
+        handleContactChange(this.state);
     }
 
     /**
@@ -265,10 +237,7 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     onReset() {
-        this.setState(
-            defaultState,
-            this.handleContactChange
-        );
+        this.setState(defaultState, this.handleContactChange);
     }
 
     /**
@@ -289,15 +258,13 @@ class ModuleFormContact extends Component {
                 onReset={this.onReset}
                 resetUrl={url.contact}
                 {...{
-                    headline, text, btnTitle, btnLabel
+                    headline,
+                    text,
+                    btnTitle,
+                    btnLabel
                 }}
             />
         );
-    }
-
-    handleContactChange() {
-        // eslint-disable-next-line react/destructuring-assignment
-        this.props.handleContactChange(this.state);
     }
 
     /**
@@ -321,42 +288,46 @@ class ModuleFormContact extends Component {
             message: String(state.message)
         };
 
-        this.setState({
-            pending: true,
-            success: false,
-            error: false
-        }, () => {
-            send(data, csrfToken)
-                .then(
-                    (response) => {
+        this.setState(
+            {
+                pending: true,
+                success: false,
+                error: false
+            },
+            () => {
+                send(data, csrfToken)
+                    .then((response) => {
                         if (!response || !response.ok) {
-                            throw new Error(`Can't send email! ${response.statusText}`);
+                            throw new Error(
+                                `Can't send email! ${response.statusText}`
+                            );
                         }
                         return new Promise((resolve) => {
-                            this.setState({
-                                success: true,
-                                pending: false
-                            }, resolve);
+                            this.setState(
+                                {
+                                    success: true,
+                                    pending: false
+                                },
+                                resolve
+                            );
                         });
-                    }
-                )
-                .then(
-                    () => {
+                    })
+                    .then(() => {
                         return scrollToTextMessage(this.textMessage);
-                    }
-                )
-                .catch(
-                    (reason) => {
-                        this.setState({
-                            error: true,
-                            pending: false
-                        }, () => {
-                            logger.warn(reason);
-                        });
-                    }
-                );
-        });
-
+                    })
+                    .catch((reason) => {
+                        this.setState(
+                            {
+                                error: true,
+                                pending: false
+                            },
+                            () => {
+                                logger.warn(reason);
+                            }
+                        );
+                    });
+            }
+        );
     }
 
     /**
@@ -399,10 +370,7 @@ class ModuleFormContact extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            content,
-            csrfToken
-        } = this.props;
+        const { content, csrfToken } = this.props;
 
         const { state } = this;
 
@@ -416,16 +384,15 @@ class ModuleFormContact extends Component {
 
         return (
             <Form
-                action='/contact/'
-                className='m-form--contact'
-                id='m-form--contact'
-                itemProp='potentialAction'
+                action="/contact/"
+                className="m-form--contact"
+                id="m-form--contact"
+                itemProp="potentialAction"
                 onSubmit={this.onSubmit}
                 onReset={this.onReset}
             >
                 <Fieldset>
-
-                    <Legend className='is-visually-hidden'>
+                    <Legend className="is-visually-hidden">
                         {content.legend}
                     </Legend>
 
@@ -501,7 +468,9 @@ class ModuleFormContact extends Component {
                                 type={'submit'}
                                 title={content.btnSubmitTitle}
                                 label={content.btnSubmitLabel}
-                                className={'m-form__group--submit hide-on-print'}
+                                className={
+                                    'm-form__group--submit hide-on-print'
+                                }
                                 btnClassName={'c-btn--submit'}
                                 isPrimary
                                 isDisabled={!canSendForm(state)}
@@ -509,7 +478,7 @@ class ModuleFormContact extends Component {
                             />
                         </GridCol>
                     </GridRow>
-                    <input type='hidden' name='_csrf' value={csrfToken} />
+                    <input type="hidden" name="_csrf" value={csrfToken} />
                 </Fieldset>
             </Form>
         );
@@ -598,7 +567,7 @@ ModuleFormContact.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        storeState: selectStateContact(state),
+        storeState: selectStateContactForm(state),
         csrfToken: selectStateCsrfToken(state)
     };
 }
@@ -617,21 +586,16 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         handleContactChange: (contact) => {
-            dispatch(changeContact(contact));
+            dispatch(changeContactForm(contact));
         }
     };
 }
 
 /**
-* Connects a React component to a Redux store. It does not modify the
-* component class passed to it. Instead, it returns a new, connected component class.
-*/
-const ModuleFormContactContainer = connect(
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ */
+export const ModuleFormContactConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ModuleFormContact);
-
-export default ModuleFormContactContainer;
-export {
-    ModuleFormContact
-};

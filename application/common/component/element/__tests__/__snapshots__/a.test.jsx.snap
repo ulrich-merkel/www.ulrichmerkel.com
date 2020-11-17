@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A should handle correct link to external page 1 1`] = `
+<DocumentFragment>
+  <a
+    class="c-link link-a"
+    href="http://www.foo.bar"
+    lang="de"
+    rel="noopener noreferrer"
+    tabindex="0"
+    target="_blank"
+    title="Link title"
+  >
+    Link Children
+  </a>
+</DocumentFragment>
+`;
+
+exports[`A should handle correct link to external page 2 1`] = `
+<DocumentFragment>
+  <a
+    class="c-link link-a"
+    href="http://foo.bar"
+    lang="de"
+    rel="noopener noreferrer"
+    tabindex="0"
+    target="_blank"
+    title="Link title"
+  >
+    Link Children
+  </a>
+</DocumentFragment>
+`;
+
+exports[`A should handle correct link to external page 3 1`] = `
+<DocumentFragment>
+  <a
+    class="c-link link-a"
+    href="www.foo.bar"
+    lang="de"
+    rel="noopener noreferrer"
+    tabindex="0"
+    target="_blank"
+    title="Link title"
+  >
+    Link Children
+  </a>
+</DocumentFragment>
+`;
+
+exports[`A should handle correct link to relative page 1`] = `
+<DocumentFragment>
+  <a
+    class="c-link link-a"
+    href="/persona"
+    lang="de"
+    tabindex="0"
+    title="Link title"
+  >
+    Link Children
+  </a>
+</DocumentFragment>
+`;
+
+exports[`A should render correctly 1`] = `
+<DocumentFragment>
+  <a
+    class="c-link link-a"
+    href="testpage"
+    lang="de"
+    tabindex="0"
+    title="Link title"
+  >
+    Link Children
+  </a>
+</DocumentFragment>
+`;

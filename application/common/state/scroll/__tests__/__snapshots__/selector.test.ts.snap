@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectStateScroll should return the correct state 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "isHeaderFixed": true,
+    "isHeaderVisible": true,
+  },
+}
+`;
+
+exports[`selectStateScroll should return the initial state if no state is found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "isHeaderFixed": true,
+    "isHeaderVisible": true,
+  },
+}
+`;
+
+exports[`selectStateScroll should return the initial state if resource key is not found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "isHeaderFixed": true,
+    "isHeaderVisible": true,
+  },
+}
+`;
+
+exports[`selectStateScrollIsHeaderFixed should return a boolean if state isn't found 1`] = `true`;
+
+exports[`selectStateScrollIsHeaderFixed should return the correct state 1`] = `true`;
+
+exports[`selectStateScrollIsHeaderVisible should return a boolean if state isn't found 1`] = `true`;
+
+exports[`selectStateScrollIsHeaderVisible should return the correct state 1`] = `true`;

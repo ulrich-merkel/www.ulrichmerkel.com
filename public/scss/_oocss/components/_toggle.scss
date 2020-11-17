@@ -1,0 +1,95 @@
+////
+/// Component mark
+///
+/// @see https://codepen.io/mburnette/pen/LxNxNg
+/// @group components
+/// @author Ulrich Merkel
+////
+
+$block: '#{$config-ns}c-toggle';
+
+// Below the fold css, could be lazy loaded
+@if ($config-non-critical-css) {
+    .#{$block} {
+        display: block;
+        text-align: left;
+        margin-bottom: rem-calc($config-theme-grid-vertical-spacing * 2);
+
+        @if ($config-support-hovers) {
+            .no-touch &:hover,
+            .no-touchevents &:hover,
+            .no-js &:hover,
+            &:focus {
+                @include var(color, --config-theme-link-color-hover);
+                text-decoration: none;
+            }
+        }
+
+        .#{$block}__input[type=checkbox] {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        .#{$block}__label {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 90%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .#{$block}__label::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            content: '';
+            border-radius: rem-calc(50px);
+            height: rem-calc(20px);
+            width: rem-calc(40px);
+            margin: 0 rem-calc($config-theme-grid-vertical-spacing) 0 0;
+            vertical-align: top;
+            @include var(background, --config-theme-c-toggle-background);
+        }
+
+        .#{$block}__label::after {
+            border-radius: rem-calc(14px);
+            content: '';
+            height: rem-calc(14px);
+            left: rem-calc(4px);
+            position: absolute;
+            top: rem-calc(3px);
+            width: rem-calc(14px);
+            @include var(background, --config-theme-c-toggle-circle-background);
+
+            will-change: left;
+            transition: left $config-theme-transition-arguments;
+            @include reducedMotion;
+
+        }
+
+        .#{$block}__input:checked + .#{$block}__label::before {
+            @include var(background, --config-theme-c-toggle-background-active);
+        }
+
+        .#{$block}__input:checked + .#{$block}__label::after {
+            left: rem-calc(40px - 14px - 3px);
+        }
+
+        .#{$block}__label:active::after {
+            width: rem-calc(22px);
+        }
+
+        .#{$block}__input:checked + .#{$block}__label:active::after {
+            transform: translateX(rem-calc(-9px));
+        }
+
+        .#{$block}__text {
+            display: inline-block;
+            color: currentColor;
+            margin-left: rem-calc(50px);
+        }
+    }
+}

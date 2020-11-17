@@ -17,29 +17,37 @@
     var document = win.document,
         navigator = document && document.navigator;
 
-    if (document && navigator && typeof navigator.standalone !== 'undefined' && navigator.standalone) {
+    if (
+        document &&
+        navigator &&
+        typeof navigator.standalone !== 'undefined' &&
+        navigator.standalone
+    ) {
         var curnode,
             location = document.location,
             stop = /^(a|html)$/i;
 
-        document.addEventListener('click', function handleClick(event) {
-            curnode = event.target;
+        document.addEventListener(
+            'click',
+            function handleClick(event) {
+                curnode = event.target;
 
-            while (!(stop).test(curnode.nodeName)) {
-                curnode = curnode.parentNode;
-            }
+                while (!stop.test(curnode.nodeName)) {
+                    curnode = curnode.parentNode;
+                }
 
-            // Condidions to do this only on links to your own app
-            // if you want all links, use if('href' in curnode) instead.
-            if ('href' in curnode && (curnode.href.indexOf('http') || ~curnode.href.indexOf(location.host))) {
-                event.preventDefault();
-                location.href = curnode.href;
-            }
-
-        }, false);
+                // Condidions to do this only on links to your own app
+                // if you want all links, use if('href' in curnode) instead.
+                if (
+                    'href' in curnode &&
+                    (curnode.href.indexOf('http') ||
+                        ~curnode.href.indexOf(location.host))
+                ) {
+                    event.preventDefault();
+                    location.href = curnode.href;
+                }
+            },
+            false
+        );
     }
-}(
-    typeof window !== 'undefined'
-        ? window
-        : {}
-));
+})(typeof window !== 'undefined' ? window : {});

@@ -1,0 +1,1868 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PagePersona should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="is-main m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h1
+                class="is-centered c-type--h1 m-article__headline"
+                itemprop="headline"
+              >
+                Some notes about my person
+              </h1>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Who i am and what i can do for you
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <div
+                  class="m-text"
+                >
+                  <div
+                    class="m-text__block"
+                  >
+                    <div
+                      class="has-columns--2 m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        I am a frontend developer from Germany with a deeper love for design and usability.
+        With this passion in mind i am creating fast and beautiful web applications and sites.
+        I am trying to learn every week something new to push the boundries of what the web and
+        all the new technologies are able to do.
+        After a long experience with broadcast technologies with numerous productions for
+        
+                        <a
+                          class="js-show-broadcast"
+                          href="/broadcast"
+                          rel="noopener noreferrer"
+                          title="Show my broadcast experiences"
+                        >
+                          international and national clients
+                        </a>
+                        ,
+        i decided to take a course of web technology studies to take my passion into profession.
+        Now i project, draft and develop complex webapplications for international and national companies and brands
+        in my daily worklive, where my strength are frontend technologies (
+                        <abbr
+                          title="HyperText Markup Language 5"
+                        >
+                          HTML5
+                        </abbr>
+                        , 
+                        <abbr
+                          title="Cascading Style Sheets Level 3"
+                        >
+                          CSS3
+                        </abbr>
+                         and 
+                        <abbr
+                          title="Lightweight scripting language for web pages"
+                        >
+                          JavaScript
+                        </abbr>
+                        ).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  aria-current="page"
+                  class="c-btn active"
+                  href="/"
+                  role="button"
+                  title="See some work examples"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    See some work
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="Some notes about my person"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h2
+                class="is-centered c-type--h2 m-article__headline"
+                itemprop="headline"
+              >
+                Personal Timeline
+              </h2>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Things i did in my live
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <ol
+                  class="m-cornerstone"
+                  itemscope=""
+                  itemtype="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    class="m-cornerstone__item--center"
+                  >
+                    <h3
+                      class="is-centered c-type--h3 m-cornerstone__headline"
+                    >
+                      Professional Experience
+                    </h3>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--left"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="roleName"
+                        >
+                          Software Engineer Frontend
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            TomTom Telematics
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                          itemprop="description"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2016
+                          </time>
+                           -
+                          <time
+                            class="c-time"
+                          >
+                            Today
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Design, implement and maintain
+        web applications for 
+                          <a
+                            href="http://www.tomtom.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="TomTom website"
+                          >
+                            TomTom Telematics
+                          </a>
+                          
+        with strong focus on code quality and continuously improving the technology stack with new ideas.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    class="m-cornerstone__item--right has-offset--100"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="roleName"
+                        >
+                          Senior frontend developer
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Pluspol interactive
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                          itemprop="description"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2011
+                          </time>
+                           -
+                          <time
+                            class="c-time"
+                          >
+                            2016
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Project, draft and develop complex webapplications for
+        international companies and brands at 
+                          <a
+                            href="http://www.pluspol-interactive.de/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="Pluspol interactive website"
+                          >
+                            Pluspol interactive
+                          </a>
+                          .
+        Building responsive and mobile websites including optimisations
+        for offline mode and performance.
+        Freelance frontend developer until 2014, afterwards full-time permanent.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    class="m-cornerstone__item--left has-offset--50"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="roleName"
+                        >
+                          TV graphics operator
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Mitteldeutscher Rundfunk
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                          itemprop="description"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2010
+                          </time>
+                           -
+                          <time
+                            class="c-time"
+                          >
+                            2012
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Doing freelance work for operation and creation of TV graphics
+        at the german television company 
+                          <a
+                            href="http://www.mdr.de/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="MDR website"
+                          >
+                            Mitteldeutscher Rundfunk
+                          </a>
+                          
+        (
+                          <abbr
+                            title="Mitteldeutscher Rundfunk Leipzig"
+                          >
+                            MDR
+                          </abbr>
+                          ), mainly for live studio productions
+        with 
+                          <a
+                            href="http://chyronhego.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="Chyron"
+                          >
+                            Chyron
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    class="m-cornerstone__item--right"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EmployeeRole"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="roleName"
+                        >
+                          Virtual graphics operator
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                        >
+                          <strong>
+                            Swiss Timing Sportservice
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                          itemprop="description"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2002
+                          </time>
+                           -
+                          <time
+                            class="c-time"
+                          >
+                            2009
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Teamleader, engineer and operator for TV graphics in live and studio
+        mode at 
+                          <a
+                            href="http://www.swisstiming.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="ST Sportservice website"
+                          >
+                            Swiss Timing Sportservice
+                          </a>
+                          , notably virtual TV
+        graphics with 
+                          <a
+                            href="http://www.vizrt.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="VizRT"
+                          >
+                            VizRT
+                          </a>
+                          , TV Draw
+        and 
+                          <a
+                            href="http://www.evs.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="EVS"
+                          >
+                            EVS
+                          </a>
+                          .
+        Numerous 
+                          <a
+                            class="js-show-broadcast"
+                            href="#"
+                            title="Show my broadcast experiences"
+                          >
+                            international experiences
+                          </a>
+                           with broadcast productions for
+        international and national clients. Freelance frontend developer and TV operator from 2010 till 2012.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                  </li>
+                  <li
+                    class="m-cornerstone__item--center"
+                  >
+                    <h3
+                      class="is-centered c-type--h3 m-cornerstone__headline"
+                    >
+                      Education
+                    </h3>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--left"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="name"
+                        >
+                          Bachelor of Engineering
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                          itemprop="alternateName"
+                        >
+                          <strong>
+                            Media Technology
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2009
+                          </time>
+                           - 
+                          <time
+                            class="c-time"
+                            itemprop="endDate"
+                          >
+                            2014
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Course of studies with focus on web technology, interactive media,
+        computer science and interface design at 
+                          <a
+                            href="http://www.htwk-leipzig.de/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="HTWK website"
+                          >
+                            University
+        of Applied Sciences
+                          </a>
+                           (
+                          <abbr
+                            title="Hochschule für Technik, Wirtschaft und Kultur Leipzig"
+                          >
+                            HTWK
+                          </abbr>
+                          ) Leipzig.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden=""
+                      itemprop="location"
+                      itemscope=""
+                      itemtype="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Leipzig)"
+                        itemprop="name"
+                      />
+                      <div
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Karl-Liebknecht-Straße 132"
+                          itemprop="streetAddress"
+                        />
+                        <meta
+                          content="Leipzig"
+                          itemprop="addressLocality"
+                        />
+                        <meta
+                          content="http://www.htwk-leipzig.de/"
+                          itemprop="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--right has-offset--100"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="name"
+                        >
+                          Apprenticeship
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                          itemprop="alternateName"
+                        >
+                          <strong>
+                            Digital Media Designer
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            2003
+                          </time>
+                           - 
+                          <time
+                            class="c-time"
+                            itemprop="endDate"
+                          >
+                            2006
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Skilled Engineering Worker with specialisation in digital & print. Schooling with focus on web technology
+        via dual education (
+                          <a
+                            href="http://www.gutenbergschule-leipzig.de/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="Gutenbergschule website"
+                          >
+                            Gutenbergschule
+        Leipzig
+                          </a>
+                           and 
+                          <a
+                            href="http://www.swisstiming.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            title="ST Sportservice"
+                          >
+                            ST Sportservice
+                          </a>
+                          ).
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden=""
+                      itemprop="location"
+                      itemscope=""
+                      itemtype="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Leipzig)"
+                        itemprop="name"
+                      />
+                      <div
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Gutenbergplatz 8"
+                          itemprop="streetAddress"
+                        />
+                        <meta
+                          content="Leipzig"
+                          itemprop="addressLocality"
+                        />
+                        <meta
+                          content="http://www.gutenbergschule-leipzig.de/"
+                          itemprop="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--left"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="name"
+                        >
+                          Music school
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                          itemprop="alternateName"
+                        >
+                          <strong>
+                            Anna-Magdalena Bach Zeitz
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            1986
+                          </time>
+                           - 
+                          <time
+                            class="c-time"
+                            itemprop="endDate"
+                          >
+                            1999
+                          </time>
+                          )
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__text"
+                          itemprop="description"
+                        >
+                          Schooling in clarinet, piano and musical composition.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden=""
+                      itemprop="location"
+                      itemscope=""
+                      itemtype="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Zeitz)"
+                        itemprop="name"
+                      />
+                      <div
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Nicolaiplatz"
+                          itemprop="streetAddress"
+                        />
+                        <meta
+                          content="Zeitz"
+                          itemprop="addressLocality"
+                        />
+                        <meta
+                          content="http://www.kreismusikschule-burgenlandkreis.de/"
+                          itemprop="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--right"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="name"
+                        >
+                          Grammar school
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                          itemprop="alternateName"
+                        >
+                          <strong>
+                            Geschwister-Scholl Zeitz
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            1992
+                          </time>
+                           - 
+                          <time
+                            class="c-time"
+                            itemprop="endDate"
+                          >
+                            1999
+                          </time>
+                          )
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden=""
+                      itemprop="location"
+                      itemscope=""
+                      itemtype="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Zeitz)"
+                        itemprop="name"
+                      />
+                      <div
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Humboldtstraße 7"
+                          itemprop="streetAddress"
+                        />
+                        <meta
+                          content="Zeitz"
+                          itemprop="addressLocality"
+                        />
+                        <meta
+                          content="http://www.kreismusikschule-burgenlandkreis.de/"
+                          itemprop="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--left"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/EducationEvent"
+                  >
+                    <div
+                      class="m-cornerstone__description"
+                    >
+                      <div
+                        class="m-cornerstone__description-content"
+                      >
+                        <h4
+                          class="is-centered c-type--h4 m-cornerstone__headline"
+                          itemprop="name"
+                        >
+                          Elementary school
+                        </h4>
+                        <p
+                          class="c-type--p m-cornerstone__company"
+                          itemprop="alternateName"
+                        >
+                          <strong>
+                            Frederic-Joliot-Curie Pegau
+                          </strong>
+                        </p>
+                        <p
+                          class="c-type--p m-cornerstone__time"
+                        >
+                          (
+                          <time
+                            class="c-time"
+                            itemprop="startDate"
+                          >
+                            1987
+                          </time>
+                           - 
+                          <time
+                            class="c-time"
+                            itemprop="endDate"
+                          >
+                            1992
+                          </time>
+                          )
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="m-cornerstone__bubble"
+                    />
+                    <div
+                      hidden=""
+                      itemprop="location"
+                      itemscope=""
+                      itemtype="https://schema.org/Place"
+                    >
+                      <meta
+                        content="Germany (Pegau)"
+                        itemprop="name"
+                      />
+                      <div
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/PostalAddress"
+                      >
+                        <meta
+                          content="Ernst-Reinsdorf-Straße 3"
+                          itemprop="streetAddress"
+                        />
+                        <meta
+                          content="Pegau"
+                          itemprop="addressLocality"
+                        />
+                        <meta
+                          content="http://www.mittelschule-pegau.de/"
+                          itemprop="sameAs"
+                        />
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-cornerstone__item--start"
+                  >
+                    <div
+                      class="m-cornerstone__bubble c-font-icon--bookmark2"
+                    />
+                  </li>
+                </ol>
+              </div>
+              <meta
+                content="Personal Timeline"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h2
+                class="is-centered c-type--h2 m-article__headline"
+                itemprop="headline"
+              >
+                What i can do for you
+              </h2>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Some detailed technical skills
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <ul
+                  class="m-service"
+                  itemscope=""
+                  itemtype="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    class="m-service__item--left"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--skill-html m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          HTML5
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Mobile, Offline, 
+                          <abbr
+                            title="Accessible Rich Internet Applications"
+                          >
+                            ARIA
+                          </abbr>
+                          , Microdata, Performance, 
+                          <abbr
+                            title="Search Engine Optimization"
+                          >
+                            SEO
+                          </abbr>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-service__item--right"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--skill-css m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          CSS3
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Responsive, 
+                          <abbr
+                            title="Syntactically Awesome Style Sheets"
+                          >
+                            SCSS
+                          </abbr>
+                          /Less, 
+                          <abbr
+                            title="Block, Element, Modifier methodology"
+                          >
+                            BEM
+                          </abbr>
+                          , 
+                          <abbr
+                            title="Scalable and Modular Architecture for CSS"
+                          >
+                            SMACSS
+                          </abbr>
+                          , 
+                          <abbr
+                            title="Object Oriented CSS"
+                          >
+                            OOCSS
+                          </abbr>
+                          , Foundation, Bootstrap
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="m-service__item--clear"
+                  />
+                  <li
+                    class="m-service__item--left"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--skill-javascript m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          JavaScript
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          jQuery, Angular, Backbone, React, Node, object-oriented/functional
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-service__item--right"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--skill-php m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Backend
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          <abbr
+                            title="PHP: Hypertext Preprocessor"
+                          >
+                            PHP
+                          </abbr>
+                          , Zend, Kirby, MySQL, Ruby
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="m-service__item--clear"
+                  />
+                  <li
+                    class="m-service__item--left"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--magic-wand m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Workflow
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Karma, Jasmine, Jest, QUnit, Grunt/Gulp, Git/
+                          <abbr
+                            title="Apache Subversion"
+                          >
+                            SVN
+                          </abbr>
+                          , 
+                          <abbr
+                            title="Node Package Manager"
+                          >
+                            NPM
+                          </abbr>
+                          , Bower, Vagrant, Styleguides
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-service__item--right"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--happy m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Design and UX
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Adobe 
+                          <abbr
+                            title="Creative Cloud"
+                          >
+                            CC
+                          </abbr>
+                           like Photoshop, Illustrator, Fireworks, InDesign, After Effects
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="m-service__item--clear"
+                  />
+                </ul>
+              </div>
+              <meta
+                content="What i can do for you"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h2
+                class="is-centered c-type--h2 m-article__headline"
+                itemprop="headline"
+              >
+                Languages
+              </h2>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Languages to communicate with
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <ul
+                  class="m-language"
+                  itemscope=""
+                  itemtype="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    class="l-grid__col--4"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Language"
+                    role="listitem"
+                  >
+                    <div
+                      class="c-box"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-box__header"
+                      >
+                        German
+                      </h3>
+                      <div
+                        class="c-box__content"
+                      >
+                        <div
+                          class="c-pie"
+                        >
+                          <div
+                            class="c-pie__circle"
+                            data-percent="99"
+                            data-text="Native"
+                          >
+                            <div
+                              class="c-pie__left"
+                            >
+                              <span
+                                class="c-pie__mask is-rotated-4"
+                              />
+                            </div>
+                            <div
+                              class="c-pie__right"
+                            >
+                              <span
+                                class="c-pie__mask"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="German"
+                        itemprop="name"
+                      />
+                    </div>
+                  </li>
+                  <li
+                    class="l-grid__col--4"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Language"
+                    role="listitem"
+                  >
+                    <div
+                      class="c-box"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-box__header"
+                      >
+                        English
+                      </h3>
+                      <div
+                        class="c-box__content"
+                      >
+                        <div
+                          class="c-pie"
+                        >
+                          <div
+                            class="c-pie__circle"
+                            data-percent="77"
+                            data-text="Fluent"
+                          >
+                            <div
+                              class="c-pie__left"
+                            >
+                              <span
+                                class="c-pie__mask is-rotated-83"
+                              />
+                            </div>
+                            <div
+                              class="c-pie__right"
+                            >
+                              <span
+                                class="c-pie__mask"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="English"
+                        itemprop="name"
+                      />
+                    </div>
+                  </li>
+                  <li
+                    class="l-grid__col--4"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Language"
+                    role="listitem"
+                  >
+                    <div
+                      class="c-box"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-box__header"
+                      >
+                        French
+                      </h3>
+                      <div
+                        class="c-box__content"
+                      >
+                        <div
+                          class="c-pie"
+                        >
+                          <div
+                            class="c-pie__circle"
+                            data-percent="6"
+                            data-text="Poor"
+                          >
+                            <div
+                              class="c-pie__left"
+                            >
+                              <span
+                                class="c-pie__mask is-hidden"
+                              />
+                            </div>
+                            <div
+                              class="c-pie__right"
+                            >
+                              <span
+                                class="c-pie__mask is-rotated-158"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <meta
+                        content="French"
+                        itemprop="name"
+                      />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <meta
+                content="Languages"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h2
+                class="is-centered c-type--h2 m-article__headline"
+                itemprop="headline"
+              >
+                Recommended reading
+              </h2>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Some books i read and could recommend to you
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <ul
+                  class="m-list--reading m-reading"
+                  itemscope=""
+                  itemtype="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        You don't know JS
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        ES6 and beyond
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          Simpson, Kyle
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          O'Reilly 2015
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        Real-Life Responsive Web Design
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Smashing Book #5
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        />
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          Smashing Magazine 2015
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        Data Structures and Algorithms with JavaScript
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Bringing classic computing approaches to the Web
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          McMillan, Michael
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          O'Reilly 2014
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        New Perspectives on Web Design
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Smashing Book #4
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        />
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          Smashing Magazine 2013
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        Responsive Webdesign
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Reaktionsfähige Websites gestalten und umsetzen
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          Zillgens, Christoph
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          Carl Hanser 2013
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        Secrets of the JavaScript Ninja
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      />
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          Resig, John & Bibeault, Bear
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          Manning, MITP 2012
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        JavaScript Web Applications
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        jQuery Developer Guide to Moving State to the Client
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          MacCaw, Alex
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          O'Reilly 2011
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        JavaScript Patterns
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Mit Coding Patterns und Entwurfsmustern zu besseren JavaScript-Anwendungen
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          MacCaw, Alex
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          O'Reilly 2010
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                  <li
+                    class="m-list__item"
+                    itemprop="itemListElement"
+                    itemscope=""
+                    itemtype="https://schema.org/Book"
+                  >
+                    <div
+                      class="c-reading"
+                    >
+                      <h3
+                        class="is-centered c-type--h3 c-reading__name"
+                        itemprop="name"
+                      >
+                        High Performance JavaScript
+                      </h3>
+                      <p
+                        class="c-type--p c-reading__description"
+                        itemprop="alternateName"
+                      >
+                        Build Faster Web Application Interfaces
+                      </p>
+                      <small
+                        class="c-type--small c-reading__source"
+                        itemprop="creator"
+                      >
+                        <span
+                          class="c-reading__source-creator"
+                        >
+                          Zakas, Nicholas C.
+                        </span>
+                        <em
+                          class="c-reading__source-publisher"
+                        >
+                          O'Reilly 2010
+                        </em>
+                      </small>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <meta
+                content="Recommended reading"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

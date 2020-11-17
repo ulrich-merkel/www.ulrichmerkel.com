@@ -4,18 +4,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -28,14 +20,8 @@ import PropTypes from 'prop-types';
  * @param {string} [props.property] - The meta tag property attribute
  * @returns {ReactElement|null} React component markup
  */
-function ElementMeta(props) {
-    const {
-        content,
-        itemProp,
-        name,
-        property,
-        ...otherProps
-    } = props;
+export function Meta(props) {
+    const { content, itemProp, name, property, ...otherProps } = props;
 
     if (!content) {
         return null;
@@ -44,7 +30,10 @@ function ElementMeta(props) {
     return (
         <meta
             {...{
-                itemProp, name, property, content
+                itemProp,
+                name,
+                property,
+                content
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
@@ -58,7 +47,7 @@ function ElementMeta(props) {
  * @static
  * @type {object}
  */
-ElementMeta.propTypes = {
+Meta.propTypes = {
     content: PropTypes.string,
     itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
     name: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -71,8 +60,6 @@ ElementMeta.propTypes = {
  * @static
  * @type {object}
  */
-ElementMeta.defaultProps = {
+Meta.defaultProps = {
     content: ''
 };
-
-export default ElementMeta;

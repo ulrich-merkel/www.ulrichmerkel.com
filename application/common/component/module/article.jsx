@@ -6,33 +6,17 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/module/article/headline
- * @requires common/component/module/article/lead
- * @requires common/component/module/article/button
- * @requires common/component/module/article/meta
- *
- * @changelog
- * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import ArticleHeadline from './article/headline';
-import ArticleLead from './article/lead';
-import ArticleButton from './article/button';
-import Meta from '../element/meta';
+import { ModuleArticleHeadline } from './article/headline';
+import { ModuleArticleLead } from './article/lead';
+import { ModuleArticleButton } from './article/button';
+import { Meta } from '../element/meta';
 
 /**
  * Function representing a component to return a single react child element.
@@ -40,8 +24,7 @@ import Meta from '../element/meta';
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleArticle(props) {
-
+export function ModuleArticle(props) {
     const {
         componentType,
         className,
@@ -64,9 +47,12 @@ function ModuleArticle(props) {
         'm-article',
         className
     );
-    const composedHeadlineClassName = classnames({
-        'is-spaced': isSpaced
-    }, 'm-article__headline');
+    const composedHeadlineClassName = classnames(
+        {
+            'is-spaced': isSpaced
+        },
+        'm-article__headline'
+    );
 
     return (
         <ComponentType
@@ -75,41 +61,34 @@ function ModuleArticle(props) {
             itemType={itemType}
             {...otherProps}
         >
-            <ArticleHeadline
+            <ModuleArticleHeadline
                 className={composedHeadlineClassName}
                 text={content.headline}
                 {...{ isMain }}
             />
-            <ArticleLead
+            <ModuleArticleLead
                 className={'m-article__lead'}
                 text={content.lead}
             />
-            <div className='m-article__text' itemProp='text'>
+            <div className="m-article__text" itemProp="text">
                 {children}
             </div>
-            <ArticleButton
+            <ModuleArticleButton
                 btnTo={content.btnTo}
                 btnLabel={content.btnLabel}
                 btnTitle={content.btnTitle}
                 className={'m-article__button'}
                 {...{ isDialog }}
             />
+            <Meta itemProp="name" content={content.headline} />
             <Meta
-                itemProp='name'
-                content={content.headline}
-            />
-            <Meta
-                itemProp='author'
+                itemProp="author"
                 content={content.author}
-                defaultContent='Ulrich Merkel'
+                defaultContent="Ulrich Merkel"
             />
-            <Meta
-                itemProp='datePublished'
-                content={content.datePublished}
-            />
+            <Meta itemProp="datePublished" content={content.datePublished} />
         </ComponentType>
     );
-
 }
 
 /**
@@ -163,5 +142,3 @@ ModuleArticle.defaultProps = {
     noMargin: false,
     content: {}
 };
-
-export default ModuleArticle;

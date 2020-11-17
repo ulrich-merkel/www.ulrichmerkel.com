@@ -4,19 +4,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -28,22 +19,19 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='header'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-function ElementHeader(props) {
-    const {
-        htmlElement,
-        className,
-        ...otherProps
-    } = props;
+export function Header(props) {
+    const { htmlElement, className, ...otherProps } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        'c-header',
-        className
-    );
+    const composedClassName = classnames('c-header', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType className={composedClassName} role='banner' {...otherProps} />
+        <ComponentType
+            className={composedClassName}
+            role="banner"
+            {...otherProps}
+        />
     );
 }
 
@@ -53,7 +41,7 @@ function ElementHeader(props) {
  * @static
  * @type {object}
  */
-ElementHeader.propTypes = {
+Header.propTypes = {
     htmlElement: PropTypes.string,
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
@@ -64,8 +52,6 @@ ElementHeader.propTypes = {
  * @static
  * @type {object}
  */
-ElementHeader.defaultProps = {
+Header.defaultProps = {
     htmlElement: 'header'
 };
-
-export default ElementHeader;

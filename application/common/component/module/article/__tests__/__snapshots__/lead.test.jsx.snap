@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleArticleLead should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="is-centered c-type--p article-lead"
+    itemprop="alternativeHeadline"
+  >
+    <strong>
+      Module article lead text
+    </strong>
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModuleArticleLead should return null if text is empty 1`] = `<DocumentFragment />`;

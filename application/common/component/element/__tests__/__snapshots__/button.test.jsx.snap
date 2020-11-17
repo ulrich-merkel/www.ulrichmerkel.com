@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="c-btn button c-btn--primary c-btn--large is-disabled"
+    disabled=""
+    id="button"
+    name="button"
+    role="button"
+    title="Test button title"
+    type="submit"
+  >
+    <span
+      class="c-btn__label button-label"
+    >
+      Button Children
+    </span>
+  </button>
+</DocumentFragment>
+`;

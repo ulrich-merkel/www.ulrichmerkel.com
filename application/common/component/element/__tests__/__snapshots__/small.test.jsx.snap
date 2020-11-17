@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Small should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="c-type--small small"
+  >
+    Small Children
+  </span>
+</DocumentFragment>
+`;

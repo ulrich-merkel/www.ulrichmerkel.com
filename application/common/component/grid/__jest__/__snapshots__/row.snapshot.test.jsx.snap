@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/component/grid/row should render correctly 1`] = `
-<span
-  className="l-grid__row row"
->
-  Grid Row Children
-</span>
-`;

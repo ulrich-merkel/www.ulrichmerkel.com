@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFormSettings should render correctly 1`] = `
+<DocumentFragment>
+  <form
+    accept-charset="utf-8"
+    action="/theme/"
+    class="m-form m-form--theme"
+    id="m-form--theme"
+    itemprop="potentialAction"
+    itemscope=""
+    itemtype="http://schema.org/Action"
+    method="post"
+    novalidate=""
+    role="form"
+  >
+    <fieldset
+      class="m-form__fieldset"
+    >
+      <legend
+        class="m-form__legend is-visually-hidden"
+      />
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="c-toggle"
+          >
+            <input
+              class="c-toggle__input"
+              id="dark-mode"
+              type="checkbox"
+            />
+            <label
+              class="c-toggle__label"
+              for="dark-mode"
+            >
+              <span
+                class="c-toggle__text"
+              >
+                Dark mode
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--6"
+        >
+          <div
+            class="c-toggle"
+          >
+            <input
+              class="c-toggle__input"
+              id="reduced-motion-toggle"
+              type="checkbox"
+            />
+            <label
+              class="c-toggle__label"
+              for="reduced-motion-toggle"
+            >
+              <span
+                class="c-toggle__text"
+              >
+                Reduced motion
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        name="_csrf"
+        type="hidden"
+        value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+      />
+    </fieldset>
+  </form>
+</DocumentFragment>
+`;

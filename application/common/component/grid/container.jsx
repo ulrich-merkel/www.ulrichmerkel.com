@@ -6,20 +6,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.2 Moved to stateless function
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -31,19 +21,13 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='section'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-function GridContainer(props) {
-    const {
-        className,
-        htmlElement,
-        ...otherProps
-    } = props;
+export function GridContainer(props) {
+    const { className, htmlElement, ...otherProps } = props;
 
     const ComponentType = htmlElement;
     const componentClassName = classnames('l-grid', className);
 
-    return (
-        <ComponentType className={componentClassName} {...otherProps} />
-    );
+    return <ComponentType className={componentClassName} {...otherProps} />;
 }
 
 /**
@@ -66,5 +50,3 @@ GridContainer.propTypes = {
 GridContainer.defaultProps = {
     htmlElement: 'section'
 };
-
-export default GridContainer;

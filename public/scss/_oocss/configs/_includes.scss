@@ -6,12 +6,13 @@
 ////
 
 // Mixins
-@import '../mixins/clearfix';
-@import '../mixins/typo';
 @import '../mixins/breakpoint';
+@import '../mixins/clearfix';
 @import '../mixins/is-visually-hidden';
-@import '../mixins/strip-unit';
+@import '../mixins/reduced-motion';
 @import '../mixins/rem-calc';
+@import '../mixins/strip-unit';
+@import '../mixins/typo';
 @import '../mixins/var';
 @import '../mixins/vertical-center';
 
@@ -35,6 +36,7 @@
 @import '../components/box';
 @import '../components/pie';
 @import '../components/time';
+@import '../components/toggle';
 
 // Modules
 @import '../modules/menu';

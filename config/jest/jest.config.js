@@ -2,31 +2,27 @@
 module.exports = {
     rootDir: '../../',
     bail: true,
-    testRegex: '(/__jest__/.*|(\\.|/)(test|spec))\\.jsx?$',
+    testRegex: '(/__tests__/.*|(\\.|/))\\.test.[jt]sx?$',
     testPathIgnorePatterns: [
-        '<rootDir>/(build|docs|node_modules|report|config)/',
-        '/mocks'
+        '<rootDir>/node_modules/',
+        '<rootDir>/build/',
+        '<rootDir>/docs/',
+        '<rootDir>/report/',
+        '<rootDir>/config/'
     ],
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
     },
-    setupFiles: [
-        '<rootDir>/config/jest/jest.setup.js'
-    ],
-    setupFilesAfterEnv: [
-        '<rootDir>/config/jest/jest.each-test-setup.js'
-    ],
+    setupFiles: ['<rootDir>/config/jest/jest.setup.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.each-test-setup.js'],
     verbose: true,
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'json'
-    ],
+    moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
     moduleDirectories: [
         'node_modules' // This is required
     ],
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     coverageDirectory: '<rootDir>/report/',
+    coveragePathIgnorePatterns: ['__tests__'],
     coverageThreshold: {
         global: {
             branches: 50,

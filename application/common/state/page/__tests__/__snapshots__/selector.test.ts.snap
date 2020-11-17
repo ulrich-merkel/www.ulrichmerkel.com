@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectStatePage should return the correct state 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "viewsAfterReload": 0,
+  },
+}
+`;
+
+exports[`selectStatePage should return the initial state if no state is found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "viewsAfterReload": 0,
+  },
+}
+`;
+
+exports[`selectStatePage should return the initial state if resource key is not found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "viewsAfterReload": 0,
+  },
+}
+`;
+
+exports[`selectStatePageViewsAfterReload should return the correct state 1`] = `0`;
+
+exports[`selectStatePageViewsAfterReload should return the default if state isn't found 1`] = `0`;

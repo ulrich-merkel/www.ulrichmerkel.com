@@ -69,9 +69,7 @@ function getInstalledVersion(version) {
      * node --version is returning something like v6.5.0 while
      * npm --version will return 3.10.3
      */
-    return version.charAt(0) === 'v'
-        ? version.substr(1)
-        : version;
+    return version.charAt(0) === 'v' ? version.substr(1) : version;
 }
 
 /**
@@ -85,22 +83,24 @@ function getInstalledVersion(version) {
  */
 function main(version, isNpm, isNode, swallow) {
     // eslint-disable-next-line no-nested-ternary
-    const plattform = isNpm
-        ? 'npm'
-        : (isNode ? 'node' : '');
+    const plattform = isNpm ? 'npm' : isNode ? 'node' : '';
     const installedVersion = getInstalledVersion(version);
     const packageVersion = getPackageVersion(isNpm, isNode);
 
     if (packageVersion !== installedVersion) {
-        console.error(chalk.red(
-            `${plattform} version: Installed version ${installedVersion} and requested package.json version ${packageVersion} don't match!`
-        ));
+        console.error(
+            chalk.red(
+                `${plattform} version: Installed version ${installedVersion} and requested package.json version ${packageVersion} don't match!`
+            )
+        );
         process.exit(swallow ? 0 : 1);
     }
 
-    console.log(chalk.green(
-        `${plattform} version: Installed version ${installedVersion}`
-    ));
+    console.log(
+        chalk.green(
+            `${plattform} version: Installed version ${installedVersion}`
+        )
+    );
     process.exit(0);
 }
 

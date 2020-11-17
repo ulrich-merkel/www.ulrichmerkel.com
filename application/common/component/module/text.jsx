@@ -7,43 +7,22 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires react-redux
- * @requires shortid
- * @requires common/state/dialog/actions
- * @requires common/utils/environment
- * @requires common/utils/event
- * @requires component/module/text/headline
- * @requires component/module/text/content
- * @requires component/module/text/person
- * @requires component/module/text/time
- * @requires component/module/text/link
- *
- * @changelog
- * - 0.0.4 Excluded headline/content/person... into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 
-import { changeDialogVisibleBroadcast } from '../../state/dialog/actions';
+import { changeDialogVisibleBroadcast } from '../../state/dialog/duck';
 import { isBrowser } from '../../utils/environment';
 import { eventPreventDefault } from '../../utils/event';
-import ModuleTextHeadline from './text/headline';
-import ModuleTextContent from './text/content';
-import ModuleTextPerson from './text/person';
-import ModuleTextTime from './text/time';
-import ModuleTextLink from './text/link';
+import { ModuleTextHeadline } from './text/headline';
+import { ModuleTextContent } from './text/content';
+import { ModuleTextPerson } from './text/person';
+import { ModuleTextTime } from './text/time';
+import { ModuleTextLink } from './text/link';
 
 /**
  * Class representing a component.
@@ -59,21 +38,7 @@ import ModuleTextLink from './text/link';
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component translation config
  */
-class ModuleText extends Component {
-
-    /**
-     * The actual class constructor.
-     *
-     * @constructs
-     * @param {object} [props] - The initial class properties
-     * @returns {void}
-     */
-    constructor(props) {
-        super(props);
-
-        this.openDialog = this.openDialog.bind(this);
-    }
-
+export class ModuleText extends Component {
     /**
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
@@ -105,6 +70,20 @@ class ModuleText extends Component {
     }
 
     /**
+     * Open broadcast dialog.
+     *
+     * @private
+     * @param {object} event - Synthetic react event
+     * @returns {void}
+     */
+    openDialog = (event) => {
+        const { handleChangeDialogVisible } = this.props;
+
+        eventPreventDefault(event);
+        handleChangeDialogVisible(true);
+    };
+
+    /**
      * Bind click event handlers to links in text content.
      *
      * @private
@@ -115,7 +94,9 @@ class ModuleText extends Component {
             return;
         }
 
-        const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
+        const showDialogNodes = document.getElementsByClassName(
+            'js-show-broadcast'
+        );
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {
                 showDialogNode.addEventListener('click', this.openDialog);
@@ -134,25 +115,14 @@ class ModuleText extends Component {
             return;
         }
 
-        const showDialogNodes = document.getElementsByClassName('js-show-broadcast');
+        const showDialogNodes = document.getElementsByClassName(
+            'js-show-broadcast'
+        );
         if (showDialogNodes) {
             Array.prototype.forEach.call(showDialogNodes, (showDialogNode) => {
                 showDialogNode.removeEventListener('click', this.openDialog);
             });
         }
-    }
-
-    /**
-     * Open broadcast dialog.
-     *
-     * @private
-     * @param {object} event - Synthetic react event
-     * @returns {void}
-     */
-    openDialog(event) {
-        eventPreventDefault(event);
-        // eslint-disable-next-line react/destructuring-assignment
-        this.props.handleChangeDialogVisible(true);
     }
 
     /**
@@ -176,26 +146,19 @@ class ModuleText extends Component {
         }
 
         const ComponentType = componentType;
-        const componentClassName = classnames(
-            'm-text',
-            className
-        );
-        const componentTextBlockClassName = classnames(
-            'm-text__block'
-        );
+        const componentClassName = classnames('m-text', className);
+        const componentTextBlockClassName = classnames('m-text__block');
         const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
         return (
-            <ComponentType
-                className={componentClassName}
-                {...componentSchema}
-            >
+            <ComponentType className={componentClassName} {...componentSchema}>
                 {content.text.map((value) => {
                     return (
-                        <div key={shortid.generate()} className={componentTextBlockClassName}>
-                            <ModuleTextHeadline
-                                text={value.headline}
-                            />
+                        <div
+                            key={shortid.generate()}
+                            className={componentTextBlockClassName}
+                        >
+                            <ModuleTextHeadline text={value.headline} />
                             <ModuleTextContent
                                 content={value.content}
                                 isCentered={isCentered}
@@ -279,14 +242,6 @@ ModuleText.defaultProps = {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const ModuleTextContainer = connect(
-    null,
-    {
-        handleChangeDialogVisible: changeDialogVisibleBroadcast
-    }
-)(ModuleText);
-
-export default ModuleTextContainer;
-export {
-    ModuleText
-};
+export const ModuleTextConnected = connect(null, {
+    handleChangeDialogVisible: changeDialogVisibleBroadcast
+})(ModuleText);

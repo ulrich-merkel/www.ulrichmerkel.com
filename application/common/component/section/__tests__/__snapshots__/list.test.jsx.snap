@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionList should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="l-grid l-main__transition animate-appear animate-appear-active"
+  >
+    <div
+      class="l-grid__spaced--small"
+    >
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <article
+            class="is-main m-article"
+            itemscope=""
+            itemtype="https://schema.org/Article"
+          >
+            <div
+              class="m-article__text"
+              itemprop="text"
+            >
+              <ul
+                class="m-list--broadcast"
+                itemscope=""
+                itemtype="http://schema.org/ItemList"
+                role="list"
+              >
+                Section list children
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

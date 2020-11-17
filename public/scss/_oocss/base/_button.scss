@@ -27,6 +27,7 @@
 
         will-change: background, color;
         transition: background $config-transition-arguments ease-in-out, color $config-transition-arguments ease-in-out;
+        @include reducedMotion;
     }
 
     @if ($config-support-prefix-moz) {

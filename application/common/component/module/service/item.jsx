@@ -6,79 +6,57 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- * @requires common/component/element/icon
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Headline from '../../element/headline';
-import P from '../../element/paragraph';
-import Icon from '../../element/icon';
+import { Headline } from '../../element/headline';
+import { P } from '../../element/paragraph';
+import { Icon } from '../../element/icon';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleServiceItem(props) {
-
-    const {
-        headline,
-        text,
-        index,
-        icon,
-        isClear
-    } = props;
+export function ModuleServiceItem(props) {
+    const { headline, text, index, icon, isClear } = props;
 
     if (isClear) {
-        return (
-            <li className='m-service__item--clear' aria-hidden='true' />
-        );
+        return <li className="m-service__item--clear" aria-hidden="true" />;
     }
 
     const componentListItemClassName = classnames({
         'm-service__item--right': index % 3 === 1,
         'm-service__item--left': index % 3 === 0
     });
-    const componentListItemIconClassName = classnames(
-        'm-service__icon-font'
-    );
+    const componentListItemIconClassName = classnames('m-service__icon-font');
 
     return (
-        <li className={componentListItemClassName} itemProp='itemListElement'>
-            <div className='m-service__content'>
-                <div className='m-service__icon'>
-                    <Icon className={componentListItemIconClassName} icon={icon} />
+        <li className={componentListItemClassName} itemProp="itemListElement">
+            <div className="m-service__content">
+                <div className="m-service__icon">
+                    <Icon
+                        className={componentListItemIconClassName}
+                        icon={icon}
+                    />
                 </div>
-                <div className='m-service__description'>
-                    <Headline className='m-service__headline' htmlElement='h3'>
+                <div className="m-service__description">
+                    <Headline className="m-service__headline" htmlElement="h3">
                         {headline}
                     </Headline>
                     <P
-                        className='m-service__text'
+                        className="m-service__text"
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
                 </div>
             </div>
         </li>
     );
-
 }
 
 /**
@@ -114,5 +92,3 @@ ModuleServiceItem.defaultProps = {
     icon: '',
     isClear: false
 };
-
-export default ModuleServiceItem;

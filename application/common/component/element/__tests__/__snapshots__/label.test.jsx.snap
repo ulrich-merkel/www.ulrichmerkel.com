@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should render correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="m-form__label label"
+    for="foo-bar"
+  >
+    Label Children
+  </label>
+</DocumentFragment>
+`;
+
+exports[`Label should render correctly the hidden state 1`] = `
+<DocumentFragment>
+  <label
+    class="m-form__label label is-visually-hidden"
+    for="foo-bar"
+  >
+    Label Children
+  </label>
+</DocumentFragment>
+`;

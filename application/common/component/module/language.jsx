@@ -6,41 +6,23 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/module/language/item
- *
- * @changelog
- * - 0.0.4 Excluded headline/lead into separate component
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import ModuleLanguageItem from './language/item';
+import { ModuleLanguageItem } from './language/item';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleLanguage(props) {
-
+export function ModuleLanguage(props) {
     const {
         componentType,
         className,
@@ -55,16 +37,13 @@ function ModuleLanguage(props) {
     }
 
     const ComponentType = componentType;
-    const componentClassName = classnames(
-        'm-language',
-        className
-    );
+    const componentClassName = classnames('m-language', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
         <ComponentType
             className={componentClassName}
-            role='list'
+            role="list"
             {...componentSchema}
             {...otherProps}
         >
@@ -81,7 +60,6 @@ function ModuleLanguage(props) {
             {children}
         </ComponentType>
     );
-
 }
 
 /**
@@ -101,14 +79,16 @@ ModuleLanguage.propTypes = {
     itemType: PropTypes.string,
     children: PropTypes.node, // eslint-disable-line react/require-default-props
     content: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.shape({
-            headline: PropTypes.string,
-            lead: PropTypes.string,
-            percent: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ])
-        }))
+        list: PropTypes.arrayOf(
+            PropTypes.shape({
+                headline: PropTypes.string,
+                lead: PropTypes.string,
+                percent: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number
+                ])
+            })
+        )
     })
 };
 
@@ -124,5 +104,3 @@ ModuleLanguage.defaultProps = {
     itemType: 'https://schema.org/ItemList',
     content: {}
 };
-
-export default ModuleLanguage;

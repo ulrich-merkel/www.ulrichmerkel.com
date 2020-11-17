@@ -5,26 +5,15 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/textarea
- * @requires common/component/element/label
- * @requires common/component/element/icon
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Textarea from './textarea';
-import Label from './label';
-import Icon from './icon';
+import { Textarea } from './textarea';
+import { Label } from './label';
+import { Icon } from './icon';
 
 /**
  * Class representing a component.
@@ -32,7 +21,6 @@ import Icon from './icon';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string}props.name - The input name attribute
@@ -44,8 +32,7 @@ import Icon from './icon';
  * @property {Function} [props.onChange=Function.prototype] - The input change handler
  * @property {string} [props.value=''] - The default input value
  */
-class ElementTextareaGroup extends Component {
-
+export class TextareaGroup extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -64,10 +51,13 @@ class ElementTextareaGroup extends Component {
             ...otherProps
         } = this.props;
 
-        const composedGroupClassName = classnames({
-            'has-error': !isValid && isPristine,
-            'is-valid': isValid && isPristine
-        }, 'm-form__group');
+        const composedGroupClassName = classnames(
+            {
+                'has-error': !isValid && isPristine,
+                'is-valid': isValid && isPristine
+            },
+            'm-form__group'
+        );
 
         const composedInputClassName = classnames({
             'is-pristine': isPristine
@@ -89,13 +79,15 @@ class ElementTextareaGroup extends Component {
                 />
                 <Label htmlFor={id}>
                     {label}
-                    <Icon className='m-form__label__icon--error' icon='sad' />
-                    <Icon className='m-form__label__icon--success' icon='smile' />
+                    <Icon className="m-form__label__icon--error" icon="sad" />
+                    <Icon
+                        className="m-form__label__icon--success"
+                        icon="smile"
+                    />
                 </Label>
             </div>
         );
     }
-
 }
 
 /**
@@ -104,7 +96,7 @@ class ElementTextareaGroup extends Component {
  * @static
  * @type {object}
  */
-ElementTextareaGroup.propTypes = {
+TextareaGroup.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     id: PropTypes.string.isRequired,
     isPristine: PropTypes.bool,
@@ -121,14 +113,12 @@ ElementTextareaGroup.propTypes = {
  *
  * @static
  * @type {object}
- * @see ElementTextareaGroup.propTypes
+ * @see TextareaGroup.propTypes
  */
-ElementTextareaGroup.defaultProps = {
+TextareaGroup.defaultProps = {
     isPristine: false,
     isValid: true,
     onBlur: Function.prototype,
     onChange: Function.prototype,
     value: ''
 };
-
-export default ElementTextareaGroup;

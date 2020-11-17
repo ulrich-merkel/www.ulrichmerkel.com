@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/component/element/headline Snapshot should render correctly 1`] = `
-<h3
-  className="is-centered c-type--h3 headline"
->
-  Headline Children
-</h3>
-`;

@@ -4,19 +4,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -28,22 +19,19 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-function ElementNav(props) {
-    const {
-        htmlElement,
-        className,
-        ...otherProps
-    } = props;
+export function Nav(props) {
+    const { htmlElement, className, ...otherProps } = props;
 
     const ComponentType = htmlElement;
-    const composedClassName = classnames(
-        'm-nav',
-        className
-    );
+    const composedClassName = classnames('m-nav', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType className={composedClassName} role='navigation' {...otherProps} />
+        <ComponentType
+            className={composedClassName}
+            role="navigation"
+            {...otherProps}
+        />
     );
 }
 
@@ -53,7 +41,7 @@ function ElementNav(props) {
  * @static
  * @type {object}
  */
-ElementNav.propTypes = {
+Nav.propTypes = {
     htmlElement: PropTypes.string,
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
@@ -64,8 +52,6 @@ ElementNav.propTypes = {
  * @static
  * @type {object}
  */
-ElementNav.defaultProps = {
+Nav.defaultProps = {
     htmlElement: 'nav'
 };
-
-export default ElementNav;

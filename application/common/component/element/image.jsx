@@ -4,19 +4,10 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -29,18 +20,10 @@ import classnames from 'classnames';
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
-function ElementImage(props) {
-    const {
-        className,
-        alt,
-        src,
-        ...otherProps
-    } = props;
+export function Image(props) {
+    const { className, alt, src, ...otherProps } = props;
 
-    const componentClassName = classnames(
-        'c-img',
-        className
-    );
+    const componentClassName = classnames('c-img', className);
 
     return (
         <img
@@ -59,7 +42,7 @@ function ElementImage(props) {
  * @static
  * @type {object}
  */
-ElementImage.propTypes = {
+Image.propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string,
     className: PropTypes.string // eslint-disable-line react/require-default-props
@@ -71,8 +54,6 @@ ElementImage.propTypes = {
  * @static
  * @type {object}
  */
-ElementImage.defaultProps = {
+Image.defaultProps = {
     alt: ''
 };
-
-export default ElementImage;

@@ -4,20 +4,11 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
- * import Headline from './headline';
+ * import { Headline } from './headline';
  *
  * <Headline className='additional-css' itemProp='headline'>
  *     My Headline Text
@@ -27,7 +18,7 @@
  * // My Headline Text
  * // </h1>
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -40,7 +31,7 @@ import classnames from 'classnames';
  * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
  * @returns {ReactElement} React component markup
  */
-function ElementHeadline(props) {
+export function Headline(props) {
     const {
         htmlElement: HtmlElement,
         className,
@@ -68,16 +59,9 @@ function ElementHeadline(props) {
  * @static
  * @type {object}
  */
-ElementHeadline.propTypes = {
+Headline.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
-    htmlElement: PropTypes.oneOf([
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h6'
-    ]),
+    htmlElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
     isCentered: PropTypes.bool
 };
 
@@ -87,9 +71,7 @@ ElementHeadline.propTypes = {
  * @static
  * @type {object}
  */
-ElementHeadline.defaultProps = {
+Headline.defaultProps = {
     htmlElement: 'h1',
     isCentered: true
 };
-
-export default ElementHeadline;

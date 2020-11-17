@@ -65,6 +65,7 @@ $block: '#{$config-ns}m-progress';
 
         will-change: width;
         transition: width $config-transition-arguments;
+        @include reducedMotion;
 
         // Generate fallback width animation classnames
         @for $i from 1 through 10 {

@@ -86,15 +86,17 @@ function runPageSpeedInsights(url) {
     console.log(chalk.grey('Start PageSpeed Insights'));
 
     // @TODO Check if psi.output could be used again (removed due to non resolving promise)
-    return psi(url, { nokey: 'true', strategy: 'mobile' }).then(function handleData(data) {
-        console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
-        console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);
-        console.log('Stats: ');
-        console.log(data.pageStats);
-        runningServer.close();
-        console.log(chalk.grey('Finished PageSpeed Insights'));
-        return process.exit(0);
-    });
+    return psi(url, { nokey: 'true', strategy: 'mobile' }).then(
+        function handleData(data) {
+            console.log(`Speed Score: ${data.ruleGroups.SPEED.score}`);
+            console.log(`Usability Score: ${data.ruleGroups.USABILITY.score}`);
+            console.log('Stats: ');
+            console.log(data.pageStats);
+            runningServer.close();
+            console.log(chalk.grey('Finished PageSpeed Insights'));
+            return process.exit(0);
+        }
+    );
 }
 
 /**
@@ -146,7 +148,6 @@ function main(serverPath, serverPort, callback) {
         }
         ngrok.connect(argvPort, ngrokConnected);
     });
-
 }
 
 // Start routine

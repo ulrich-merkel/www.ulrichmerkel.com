@@ -1,0 +1,18 @@
+////
+/// Reduced motion media query mixins.
+///
+/// @group mixin
+/// @author Ulrich Merkel
+////
+
+/// Add reduced motion to transitions
+@mixin reducedMotion {
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition-duration: $config-theme-transition-arguments-none;
+        @content;
+    }
+    .reduced-motion-reduce & {
+        transition-duration: $config-theme-transition-arguments-none;
+        @content;
+    }
+}

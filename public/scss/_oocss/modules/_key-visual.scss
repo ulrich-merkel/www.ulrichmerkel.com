@@ -96,7 +96,7 @@ $block: '#{$config-ns}m-key-visual';
 
             will-change: margin-top;
             transition: margin-top $config-transition-arguments;
-
+            @include reducedMotion;
         }
     }
 
@@ -121,7 +121,6 @@ $block: '#{$config-ns}m-key-visual';
                 display: block;
                 opacity: 1;
             }
-
         }
 
     }
@@ -130,7 +129,7 @@ $block: '#{$config-ns}m-key-visual';
 
         // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eeeeee+79,fefefe+91,f2f2f2+100 */
         @include var(background, --theme-module-key-visual-work-background);
-        @include var(background, linear-gradient(to bottom, --theme-module-key-visual-gradient));
+        @include var(background, --theme-module-key-visual-gradient);
 
         .#{$block}__image--digital,
         .#{$block}__image--print {

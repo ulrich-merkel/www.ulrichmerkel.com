@@ -6,43 +6,28 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
  * @param {object} [props] - The current component props
  * @param {object} [props.content={}] - The time content's text
  * @returns {ReactElement|null} React component markup
  */
-function ModuleTextTime(props) {
-    const {
-        content
-    } = props;
+export function ModuleTextTime(props) {
+    const { content } = props;
 
     if (!content || (!content.timeStart && !content.timeEnd)) {
         return null;
     }
 
-    const {
-        timeStart,
-        timeEnd
-    } = content;
+    const { timeStart, timeEnd } = content;
 
     const componentTextContentClassName = classnames(
         'm-text__time',
@@ -51,21 +36,11 @@ function ModuleTextTime(props) {
 
     return (
         <div className={componentTextContentClassName}>
-            {timeStart && (
-                <time className='c-time'>
-                    {timeStart}
-                </time>
-            )}
+            {timeStart && <time className="c-time">{timeStart}</time>}
             {timeStart && timeEnd && (
-                <span className='c-time--separator'>
-                    -
-                </span>
+                <span className="c-time--separator">-</span>
             )}
-            {timeEnd && (
-                <time className='c-time'>
-                    {timeEnd}
-                </time>
-            )}
+            {timeEnd && <time className="c-time">{timeEnd}</time>}
         </div>
     );
 }
@@ -92,5 +67,3 @@ ModuleTextTime.propTypes = {
 ModuleTextTime.defaultProps = {
     content: {}
 };
-
-export default ModuleTextTime;

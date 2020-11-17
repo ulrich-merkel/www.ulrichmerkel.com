@@ -59,6 +59,7 @@ $block: '#{$config-ns}m-service';
 
         will-change: background;
         transition: background $config-transition-arguments;
+        @include reducedMotion;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             margin-right: 0;

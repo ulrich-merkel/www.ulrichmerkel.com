@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    aria-hidden="true"
+    class="c-font-icon--foo icon"
+  />
+</DocumentFragment>
+`;
+
+exports[`Icon should return null if icon is empty 1`] = `<DocumentFragment />`;

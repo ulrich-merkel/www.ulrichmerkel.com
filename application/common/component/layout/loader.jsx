@@ -6,27 +6,15 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link https://codeburst.io/how-to-create-a-simple-css-loading-spinner-make-it-accessible-e5c83c2e464c}
- *
- * @requires react
- * @requires prop-types
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import addContent from '../decorator/add-content';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 
 /**
@@ -36,26 +24,26 @@ import { getContentSection } from '../../utils/content';
  * @param {object} [props.content={}] - The component content config
  * @returns {ReactElement} React component markup
  */
-function LayoutLoader(props) {
-    const {
-        content
-    } = props;
+export function LayoutLoader(props) {
+    const { content } = props;
 
     const contentSection = getContentSection(content);
 
     return (
-        <dialog className='l-dialog--loading' role='alert' aria-live='assertive'>
-            <div className='l-dialog__content'>
-                <div className='c-flip'>
-                    <div className='c-flip__front'>
+        <dialog
+            className="l-dialog--loading"
+            role="alert"
+            aria-live="assertive"
+        >
+            <div className="l-dialog__content">
+                <div className="c-flip">
+                    <div className="c-flip__front">
                         {contentSection('headline')}
                     </div>
-                    <div className='c-flip__back'>
-                        {contentSection('lead')}
-                    </div>
+                    <div className="c-flip__back">{contentSection('lead')}</div>
                 </div>
             </div>
-            <div className='l-dialog__background' />
+            <div className="l-dialog__background" />
         </dialog>
     );
 }
@@ -71,7 +59,6 @@ LayoutLoader.propTypes = {
         headline: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
         lead: PropTypes.string // eslint-disable-line react/no-unused-prop-types
     })
-
 };
 
 /**
@@ -84,4 +71,4 @@ LayoutLoader.defaultProps = {
     content: {}
 };
 
-export default addContent('LayoutLoader')(LayoutLoader);
+export const LayoutLoaderConnected = addContent('LayoutLoader')(LayoutLoader);

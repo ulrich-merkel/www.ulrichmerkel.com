@@ -1,13 +1,12 @@
 const rootUrl = `http://localhost:${process.env.PORT}`;
 const scenarioDefaults = {
-    selectors: [
-        'document'
-    ],
+    selectors: ['document'],
     delay: 500,
     misMatchThreshold: 0.1
 };
 
-module.exports = { // eslint-disable-line immutable/no-mutation
+// eslint-disable-next-line immutable/no-mutation
+module.exports = {
     id: 'visual_regression',
     viewports: [
         {

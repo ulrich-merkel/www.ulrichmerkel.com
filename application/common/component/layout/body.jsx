@@ -8,90 +8,58 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-helmet
- * @requires common/component/decorator/picturefill
- * @requires common/component/decorator/scroller
- * @requires common/component/decorator/add-content
- * @requires common/utils/event
- * @requires common/utils/scroll-to
- * @requires common/state/constants
- * @requires common/component/layout/header
- * @requires common/component/layout/footer
- * @requires common/component/layout/loader
- * @requires common/component/layout/dialog
- * @requires common/component/page/broadcast
- * @requires common/component/page/search
- * @requires common/component/page/theme
- *
- * @changelog
- * - 0.0.4 Add theming
- * - 0.0.3 Remove connect and state handling, improve dialog handling
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 
-import pictureFill from '../decorator/picturefill';
-import scroller from '../decorator/scroller';
-import addContent from '../decorator/add-content';
-import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
+import { pictureFill } from '../decorator/picturefill';
+import { scroller } from '../decorator/scroller';
+import { addContent } from '../decorator/add-content';
+import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 import { eventPreventDefault } from '../../utils/event';
 import {
-    STATE_DIALOG_PAGE_BROADCAST,
-    STATE_DIALOG_PAGE_SEARCH,
-    STATE_DIALOG_PAGE_THEME
-} from '../../state/constants';
-import LayoutHeaderConnected from './header';
-import LayoutFooter from './footer';
-import LayoutTheme from './theme';
-import LayoutLoader from './loader';
-import LayoutDialogConnected from './dialog';
-import PageBroadcast from '../page/broadcast';
-import PageSearch from '../page/search';
-import PageTheme from '../page/theme';
-
-/**
- * Scroll to top animation helper.
- *
- * @private
- * @param {object} event - The synthetic react event
- * @returns {void}
- */
-function handleScrollTop(event) { // eslint-disable-line class-methods-use-this
-    eventPreventDefault(event);
-    if (getPageOffset()) {
-        scrollTo({
-            top: 0
-        });
-    }
-}
+    DIALOG_CONTENT_BROADCAST,
+    DIALOG_CONTENT_SEARCH,
+    DIALOG_CONTENT_THEME
+} from '../../state/dialog/duck';
+import { LayoutHeaderConnected } from './header';
+import { LayoutFooterConnected } from './footer';
+import { LayoutSettingsConnected } from './settings';
+import { LayoutLoaderConnected } from './loader';
+import { LayoutDialogConnected } from './dialog';
+import { PageBroadcast } from '../page/broadcast';
+import { PageSearch } from '../page/search';
+import { PageSettings } from '../page/settings';
 
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component content config
  */
-class LayoutBody extends Component {
+export class LayoutBody extends PureComponent {
     /**
-     * ShouldComponentUpdate is triggered before the re-rendering process starts,
-     * giving the developer the ability to short circuit this process.
+     * Scroll to top animation helper.
      *
-     * @param {object} nextProps - The news props to be rendered
-     * @returns {boolean} Whether to force component update or not
+     * @param {object} event - The synthetic react event
+     * @returns {void}
      */
-    shouldComponentUpdate(nextProps) {
-        return this.props !== nextProps;
-    }
+    handleScrollTop = (event) => {
+        const { reducedMotionSelectedReduce } = this.props;
+
+        eventPreventDefault(event);
+        if (getPageOffset()) {
+            scrollTo({
+                duration: reducedMotionSelectedReduce ? 0 : 300,
+                top: 0
+            });
+        }
+    };
 
     /**
      * The required render function to return a single react child element.
@@ -99,42 +67,36 @@ class LayoutBody extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            children,
-            content
-        } = this.props;
+        const { children, content } = this.props;
 
         return (
-            <LayoutTheme>
+            <LayoutSettingsConnected>
                 <Helmet {...content} />
-                <LayoutLoader />
+                <LayoutLoaderConnected />
                 <LayoutHeaderConnected />
                 {children}
-                <LayoutFooter
-                    handleScrollTop={handleScrollTop}
-                />
+                <LayoutFooterConnected handleScrollTop={this.handleScrollTop} />
                 <LayoutDialogConnected
-                    className='l-dialog--search'
-                    page={STATE_DIALOG_PAGE_SEARCH}
+                    className="l-dialog--search"
+                    page={DIALOG_CONTENT_SEARCH}
                 >
                     <PageSearch isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
-                    className='l-dialog--broadcast'
-                    page={STATE_DIALOG_PAGE_BROADCAST}
+                    className="l-dialog--broadcast"
+                    page={DIALOG_CONTENT_BROADCAST}
                 >
                     <PageBroadcast isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
-                    className='l-dialog--theme'
-                    page={STATE_DIALOG_PAGE_THEME}
+                    className="l-dialog--theme"
+                    page={DIALOG_CONTENT_THEME}
                 >
-                    <PageTheme isDialog />
+                    <PageSettings isDialog />
                 </LayoutDialogConnected>
-            </LayoutTheme>
+            </LayoutSettingsConnected>
         );
     }
-
 }
 
 /**
@@ -145,12 +107,15 @@ class LayoutBody extends Component {
  */
 LayoutBody.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ]))
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
+    reducedMotionSelectedReduce: PropTypes.bool
 };
 
 /**
@@ -160,8 +125,26 @@ LayoutBody.propTypes = {
  * @type {object}
  */
 LayoutBody.defaultProps = {
-    content: {}
+    content: {},
+    reducedMotionSelectedReduce: false
 };
+
+/**
+ * The component will subscribe to Redux store updates. Any time it updates,
+ * mapStateToProps will be called, Its result must be a plain object,
+ * and it will be merged into the component’s props.
+ *
+ * @private
+ * @param {object<string, *>} state - The current redux store state
+ * @returns {object<string, *>} The mapped state properties
+ */
+function mapStateToProps(state) {
+    return {
+        reducedMotionSelectedReduce: selectStateReducedMotionSelectedReduce(
+            state
+        )
+    };
+}
 
 /**
  * Connects a React component to a Redux store. It does not modify the
@@ -169,11 +152,6 @@ LayoutBody.defaultProps = {
  *
  * @type {ReactElement}
  */
-const LayoutBodyContainer = scroller(
-    pictureFill(addContent('Head')(LayoutBody))
+export const LayoutBodyConnected = scroller(
+    pictureFill(addContent('Head')(connect(mapStateToProps)(LayoutBody)))
 );
-
-export default LayoutBodyContainer;
-export {
-    LayoutBody
-};
