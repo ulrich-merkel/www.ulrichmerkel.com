@@ -174,6 +174,14 @@ class ModuleFormContact extends Component {
     }
 
     /**
+     * @returns {void}
+     */
+    handleContactChange() {
+        const { handleContactChange } = this.props;
+        handleContactChange(this.state);
+    }
+
+    /**
      * Handle input value change.
      *
      * @private
@@ -257,11 +265,6 @@ class ModuleFormContact extends Component {
                 }}
             />
         );
-    }
-
-    handleContactChange() {
-        // eslint-disable-next-line react/destructuring-assignment
-        this.props.handleContactChange(this.state);
     }
 
     /**

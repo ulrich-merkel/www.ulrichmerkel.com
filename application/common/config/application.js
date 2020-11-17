@@ -79,11 +79,11 @@ export const configApplication = {
     },
     serviceWorker: {
         use: toBoolean(process.env.SERVICEWORKER) || false,
-        timeStamp: '2018-01-30'
+        timeStamp: '2020-11-30'
     },
     applicationCache: {
         use: toBoolean(process.env.APPCACHE) || false,
-        timeStamp: '2018-01-30'
+        timeStamp: '2020-11-30'
     },
     ...configEnvironment
 };
