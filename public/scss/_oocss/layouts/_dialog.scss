@@ -193,7 +193,6 @@ $block: '#{$config-ns}l-dialog';
     .#{$block}--search {
         .m-form__control--text {
             @include var(color, --theme-layout-dialog-text-color);
-            @include var(background, --theme-layout-dialog-search-input-background);
         }
 
         .c-type--h3 {
