@@ -128,6 +128,9 @@ $block: '#{$config-ns}l-dialog';
         animation-fill-mode: forwards;
         animation-duration: 0.3s;
 
+        will-change: opacity, transform;
+        @include reducedMotion;
+
         &.animate-enter {
             visibility: visible;
 

@@ -18,7 +18,7 @@ import {
     changeScrollHeaderFixed,
     changeScrollHeaderVisible
 } from '../../state/scroll/duck';
-import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
+import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { isBrowser } from '../../utils/environment';
 import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 
@@ -239,7 +239,7 @@ export function scroller(SourceComponent) {
      */
     function mapStateToProps(state) {
         return {
-            reducedMotionSelected: selectStateReducedMotionSelected(state)
+            reducedMotionSelected: selectStateReducedMotionSelectedReduce(state)
         };
     }
 

@@ -19,7 +19,7 @@ const transition: Transition = {
     className: 'l-main__transition',
     classNames: 'animate',
     in: true,
-    timeout: 200
+    timeout: 750
 };
 
 /**
@@ -30,16 +30,17 @@ const transition: Transition = {
  * @returns {object} The ReactCSSTransitionGroup transition config
  */
 export function getSectionTransition(pageViewsAfterReload: number, reducedMotionSelectedReduce: boolean): Transition {
-    if (pageViewsAfterReload === 1) {
+    if (pageViewsAfterReload <= 1) {
         return {
             ...transition,
             in: false,
-            timeout: reducedMotionSelectedReduce ? 0 : 200
+            appear: false,
+            timeout: reducedMotionSelectedReduce ? 0 : transition.timeout
         };
     }
 
     return {
         ...transition,
-        timeout: reducedMotionSelectedReduce ? 0 : 200
+        timeout: reducedMotionSelectedReduce ? 0 : transition.timeout
     }
 }

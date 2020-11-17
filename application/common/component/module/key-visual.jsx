@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 
-import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
+import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { scrollTo } from '../../utils/scroll-to';
 import { ModuleKeyVisualPicture } from './key-visual/picture';
 import { ModuleKeyVisualArticle } from './key-visual/article';
@@ -162,7 +162,7 @@ ModuleKeyVisual.defaultProps = {
  */
 function mapStateToProps(state) {
     return {
-        reducedMotionSelected: selectStateReducedMotionSelected(state)
+        reducedMotionSelected: selectStateReducedMotionSelectedReduce(state)
     };
 }
 
