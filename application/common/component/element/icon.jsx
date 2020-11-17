@@ -4,38 +4,24 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.htmlElement='i'] - The component element type used for React.createElement
  * @param {string} [props.icon=''] - The icon name taken for the web font
  * @returns {ReactElement|null} React component markup
  */
-function ElementIcon(props) {
-    const {
-        htmlElement,
-        className,
-        icon,
-        ...otherProps
-    } = props;
+export function Icon(props) {
+    const { htmlElement, className, icon, ...otherProps } = props;
 
     if (!icon) {
         return null;
@@ -45,7 +31,12 @@ function ElementIcon(props) {
     const componentClassName = classnames(`c-font-icon--${icon}`, className);
 
     return (
-        <ComponentHtmlElement className={componentClassName} aria-hidden='true' {...otherProps} />
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <ComponentHtmlElement
+            className={componentClassName}
+            aria-hidden="true"
+            {...otherProps}
+        />
     );
 }
 
@@ -53,9 +44,9 @@ function ElementIcon(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementIcon.propTypes = {
+Icon.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     htmlElement: PropTypes.string,
     icon: PropTypes.string
@@ -65,11 +56,9 @@ ElementIcon.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementIcon.defaultProps = {
+Icon.defaultProps = {
     htmlElement: 'i',
     icon: ''
 };
-
-export default ElementIcon;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addContent should render correctly with content 1`] = `
+<DocumentFragment>
+  <div
+    class="page"
+  >
+    <h1>
+      Some broadcast experiences
+    </h1>
+    <p>
+      Test
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`addContent should render correctly without content 1`] = `
+<DocumentFragment>
+  <div
+    class="page"
+  >
+    <h1 />
+    <p>
+      Test
+    </p>
+  </div>
+</DocumentFragment>
+`;

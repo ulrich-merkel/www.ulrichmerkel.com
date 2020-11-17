@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`canSendForm should return the correct result 1`] = `false`;
+
+exports[`canSendForm should return the correct result 2`] = `false`;
+
+exports[`canSendForm should return the correct result 3`] = `false`;
+
+exports[`canSendForm should return the correct result 4`] = `undefined`;
+
+exports[`isValid should return the correct result 1`] = `false`;
+
+exports[`isValid should return the correct result 2`] = `false`;
+
+exports[`isValid should return the correct result 3`] = `false`;
+
+exports[`isValid should return the correct result 4`] = `true`;
+
+exports[`validate should return the correct result 1`] = `
+Object {
+  "email": false,
+  "message": false,
+  "name": false,
+  "subject": false,
+}
+`;
+
+exports[`validate should return the correct result 2`] = `
+Object {
+  "email": false,
+  "message": false,
+  "name": false,
+  "subject": false,
+}
+`;
+
+exports[`validate should return the correct result 3`] = `
+Object {
+  "email": false,
+  "message": true,
+  "name": true,
+  "subject": true,
+}
+`;
+
+exports[`validate should return the correct result 4`] = `
+Object {
+  "email": true,
+  "message": true,
+  "name": true,
+  "subject": true,
+}
+`;

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextareaGroup should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="textarea-group"
+  >
+    <textarea
+      aria-required="true"
+      class="m-form__control--textarea is-pristine"
+      cols="50"
+      id="textarea-group"
+      name="textarea"
+      placeholder=""
+      required=""
+      rows="4"
+    >
+      2
+    </textarea>
+    <label
+      class="m-form__label"
+      for="textarea-group"
+    >
+      textarea
+      <i
+        aria-hidden="true"
+        class="c-font-icon--sad m-form__label__icon--error"
+      />
+      <i
+        aria-hidden="true"
+        class="c-font-icon--smile m-form__label__icon--success"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;

@@ -25,6 +25,7 @@ $block: '#{$config-ns}l-header';
 
                 will-change: top;
                 transition: top $config-transition-arguments-slow;
+                @include reducedMotion;
             }
 
             + .l-main {

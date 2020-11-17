@@ -7,43 +7,27 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires lodash
- * @requires common/component/element/picture
- * @requires common/utils/environment
- *
- * @changelog
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
-import Picture from '../../element/picture';
+import { Picture } from '../../element/picture';
 import { isBrowser } from '../../../utils/environment';
 
 /**
  * Class representing a component.
  *
- * @class 
- * @extends React.Component
+ * @augments React.Component
  */
-class ModuleKeyVisualPicture extends Component {
-
+export class ModuleKeyVisualPicture extends Component {
     /**
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -71,7 +55,6 @@ class ModuleKeyVisualPicture extends Component {
         this.state = {
             pictureStyle: {}
         };
-
     }
 
     /**
@@ -142,10 +125,7 @@ class ModuleKeyVisualPicture extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const {
-            img,
-            type
-        } = this.props;
+        const { img, type } = this.props;
         const { pictureStyle } = this.state;
 
         if (!img.name || !img.ext || !img.path) {
@@ -165,21 +145,21 @@ class ModuleKeyVisualPicture extends Component {
                 path={img.path}
                 alt={img.alt}
                 sizes={img.sizes}
-                pictureRef={(picture) => { this.picture = picture; }}
+                pictureRef={(picture) => {
+                    this.picture = picture;
+                }}
                 className={componentPictureClassName}
                 style={componentPictureStyle}
             />
-
         );
     }
-
 }
 
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [img={}] - The image alt description
  * @property {string} [type='digital'] - The image src url
  * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
@@ -197,16 +177,14 @@ ModuleKeyVisualPicture.propTypes = {
 };
 
 /**
-* Set defaults if props aren't available.
-*
-* @static
-* @type {Object}
-* @see ModuleKeyVisualPicture.propTypes
-*/
+ * Set defaults if props aren't available.
+ *
+ * @static
+ * @type {object}
+ * @see ModuleKeyVisualPicture.propTypes
+ */
 ModuleKeyVisualPicture.defaultProps = {
     img: {},
     type: 'digital',
     isCovered: false
 };
-
-export default ModuleKeyVisualPicture;

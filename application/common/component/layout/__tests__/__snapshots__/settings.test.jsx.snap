@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutSettings should render correctly 1`] = `
+<DocumentFragment>
+  Hello
+</DocumentFragment>
+`;
+
+exports[`LayoutSettings should render correctly the connected version 1`] = `
+<DocumentFragment>
+  Hello
+</DocumentFragment>
+`;

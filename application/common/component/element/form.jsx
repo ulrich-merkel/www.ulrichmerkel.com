@@ -5,17 +5,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -26,7 +18,7 @@ import classnames from 'classnames';
  * because we want to use refs for this component.
  *
  * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.action - The form action attribute
  * @property {string} props.id - The form id attribute
  * @property {string} [props.acceptCharset='utf-8'] - The form action attribute
@@ -38,8 +30,7 @@ import classnames from 'classnames';
  * @property {Function} [props.onReset=Function.prototype] - The form reset handler function
  * @property {Function} [props.onSubmit=Function.prototype] - The form submit handler function
  */
-class ElementForm extends Component {
-
+export class Form extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -60,10 +51,7 @@ class ElementForm extends Component {
             ...otherProps
         } = this.props;
 
-        const composedClassName = classnames(
-            'm-form',
-            className
-        );
+        const composedClassName = classnames('m-form', className);
 
         return (
             <form
@@ -81,20 +69,20 @@ class ElementForm extends Component {
                     onSubmit,
                     onReset
                 }}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             />
         );
     }
-
 }
 
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementForm.propTypes = {
+Form.propTypes = {
     action: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     acceptCharset: PropTypes.string,
@@ -111,9 +99,9 @@ ElementForm.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementForm.defaultProps = {
+Form.defaultProps = {
     acceptCharset: 'utf-8',
     itemProp: 'potentialAction',
     itemType: 'http://schema.org/CommunicateAction',
@@ -122,5 +110,3 @@ ElementForm.defaultProps = {
     onSubmit: Function.prototype,
     role: 'form'
 };
-
-export default ElementForm;

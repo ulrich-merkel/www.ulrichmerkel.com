@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutLoader should render correctly 1`] = `
+<DocumentFragment>
+  <dialog
+    aria-live="assertive"
+    class="l-dialog--loading"
+    role="alert"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      <div
+        class="c-flip"
+      >
+        <div
+          class="c-flip__front"
+        >
+          Headline
+        </div>
+        <div
+          class="c-flip__back"
+        >
+          Lorem ipsum
+        </div>
+      </div>
+    </div>
+    <div
+      class="l-dialog__background"
+    />
+  </dialog>
+</DocumentFragment>
+`;
+
+exports[`LayoutLoader should render correctly the connected version 1`] = `
+<DocumentFragment>
+  <dialog
+    aria-live="assertive"
+    class="l-dialog--loading"
+    role="alert"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      <div
+        class="c-flip"
+      >
+        <div
+          class="c-flip__front"
+        >
+          Headline
+        </div>
+        <div
+          class="c-flip__back"
+        >
+          Lorem ipsum
+        </div>
+      </div>
+    </div>
+    <div
+      class="l-dialog__background"
+    />
+  </dialog>
+</DocumentFragment>
+`;

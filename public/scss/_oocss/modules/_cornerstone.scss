@@ -64,7 +64,6 @@ $block: 'm-cornerstone';
 
     .#{$block}__item--right,
     .#{$block}__item--left {
-
         @include breakpoint($config-grid--breakpoint-xsmall) {
             &:hover {
                 .#{$block}__description-content {
@@ -79,7 +78,6 @@ $block: 'm-cornerstone';
     }
 
     .#{$block}__item--right {
-
         @include breakpoint($config-grid--breakpoint-xsmall) {
             float: right;
             clear: right;
@@ -174,6 +172,7 @@ $block: 'm-cornerstone';
 
         will-change: background, color;
         transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+        @include reducedMotion;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             background: transparent;
@@ -218,8 +217,9 @@ $block: 'm-cornerstone';
         @include var(border, --theme-module-cornerstone-bubble-border);
         border-radius: 50%;
 
-        will-change: background, color;
-        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+        will-change: background, color, width, height;
+        transition: background $config-transition-arguments, color $config-transition-arguments;
+        @include reducedMotion;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             display: block;

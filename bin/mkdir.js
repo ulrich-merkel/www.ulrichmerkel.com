@@ -12,7 +12,7 @@
  * @see {@link https://gist.github.com/bpedro/742162}
  * @see {@link http://stackoverflow.com/questions/12627586/is-node-js-rmdir-recursive-will-it-work-on-non-empty-directories}
  *
- * @TODO: use promises
+ * @TODO use promises
  *
  * @requires fs
  * @requires rimraf
@@ -64,9 +64,11 @@ function checkBuildDirectory(directory, callback) {
     assert.string(directory, 'directory');
     assert.func(callback, 'callback');
 
-    fs.stat(directory, function statFn(error) { // eslint-disable-line security/detect-non-literal-fs-filename
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fs.stat(directory, function statFn(error) {
         if (error && error.code === 'ENOENT') {
-            return void fs.mkdir(directory, callback); // eslint-disable-line security/detect-non-literal-fs-filename
+            // eslint-disable-next-line security/detect-non-literal-fs-filename
+            return void fs.mkdir(directory, callback);
         }
         return callback();
     });
@@ -127,10 +129,13 @@ function createFolders(folders) {
     assert.optionalArray(folders, 'folders');
 
     runThroughFolders(folders, function runThroughFoldersFn(folder) {
-        fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) { // eslint-disable-line security/detect-non-literal-fs-filename
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        fs.mkdir(`${argvDestFolder}${folder.name}`, function mkdirFn(error) {
             if (error) {
                 if (error.code === 'EEXIST') {
-                    return void console.log(chalk.grey(`${error.path} already exists`));
+                    return void console.log(
+                        chalk.grey(`${error.path} already exists`)
+                    );
                 }
                 return void console.warn(chalk.red(error));
             }
@@ -143,7 +148,7 @@ function createFolders(folders) {
  * Start checking directories and create folders if necessary.
  *
  * @param {string} destFolder - The directory name
- * @param {Object} cfg - The folders to be checked
+ * @param {object} cfg - The folders to be checked
  * @returns {void}
  */
 function main(destFolder, cfg) {

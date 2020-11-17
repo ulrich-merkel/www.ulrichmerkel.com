@@ -14,7 +14,6 @@ selenium-debug.log
 .eslintcache
 .shutterrc
 .coveralls.yml
-.shutterrc
 .htaccess
 google*.html
 TODO.md

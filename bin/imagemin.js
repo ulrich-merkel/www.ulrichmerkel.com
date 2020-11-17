@@ -2,7 +2,8 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console, no-void */
 /**
  * Minify images to improve page load times.
- * @TODO: Take share images also into account, not just content images - walk recursively
+ *
+ * @TODO Take share images also into account, not just content images - walk recursively
  * through given source folder and check argv.f is working as expected
  *
  * @file
@@ -93,13 +94,9 @@ function main(folders, dest, plugins = []) {
     console.log(chalk.gray(`Start minifying ${foldersLength} image folders`));
     folders.forEach(function forEachFolder(folder) {
         // eslint-disable-next-line promise/catch-or-return
-        imagemin(
-            [`${dest}${folder}*.{jpg,png}`],
-            `${dest}${folder}`,
-            {
-                plugins
-            }
-        ).then(imagesMinified);
+        imagemin([`${dest}${folder}*.{jpg,png}`], `${dest}${folder}`, {
+            plugins
+        }).then(imagesMinified);
     });
 }
 

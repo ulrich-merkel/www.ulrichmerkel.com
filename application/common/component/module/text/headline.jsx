@@ -6,42 +6,30 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires common/component/element/headline
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import Headline from '../../element/headline';
+import { Headline } from '../../element/headline';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.text=''] - The headline text
  * @returns {ReactElement} React component markup
  */
-function ModuleTextHeadline(props) {
-    const {
-        text
-    } = props;
+export function ModuleTextHeadline(props) {
+    const { text } = props;
 
     if (!text) {
         return null;
     }
 
     return (
-        <Headline className='m-text__headline' htmlElement='h3'>
+        <Headline className="m-text__headline" htmlElement="h3">
             {text}
         </Headline>
     );
@@ -51,7 +39,7 @@ function ModuleTextHeadline(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextHeadline.propTypes = {
     text: PropTypes.string
@@ -61,10 +49,8 @@ ModuleTextHeadline.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleTextHeadline.defaultProps = {
     text: ''
 };
-
-export default ModuleTextHeadline;

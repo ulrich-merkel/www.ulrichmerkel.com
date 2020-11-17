@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PictureSource should render correctly 1`] = `
+<DocumentFragment>
+  <source
+    class="c-picture__source test"
+    media="(min-width: 100px)"
+    srcset="pathname@200x100.webp"
+    type="image/webp"
+  />
+  <source
+    class="c-picture__source test"
+    media="(min-width: 100px)"
+    srcset="pathname@200x100.jpg"
+    type="image/jpeg"
+  />
+</DocumentFragment>
+`;

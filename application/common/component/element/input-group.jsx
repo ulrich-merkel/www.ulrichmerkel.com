@@ -5,27 +5,15 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.2
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/input
- * @requires common/component/element/label
- * @requires common/component/element/icon
- *
- * @changelog
- * - 0.0.2 Add isLabelVisuallyHidden and placeholder to props
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Input from './input';
-import Label from './label';
-import Icon from './icon';
+import { Input } from './input';
+import { Label } from './label';
+import { Icon } from './icon';
 
 /**
  * Class representing a component.
@@ -33,8 +21,7 @@ import Icon from './icon';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
  * @property {string} [props.className] - The component css class names - will be merged into component default classNames
@@ -48,8 +35,7 @@ import Icon from './icon';
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value=''] - The default input value
  */
-class ElementInputGroup extends Component {
-
+export class InputGroup extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -72,16 +58,20 @@ class ElementInputGroup extends Component {
             ...otherProps
         } = this.props;
 
-        const composedGroupClassName = classnames({
-            'has-error': !isValid && isPristine,
-            'is-valid': isValid && isPristine
-        }, 'm-form__group');
+        const composedGroupClassName = classnames(
+            {
+                'has-error': !isValid && isPristine,
+                'is-valid': isValid && isPristine
+            },
+            'm-form__group'
+        );
 
         const composedInputClassName = classnames({
             'is-pristine': isPristine
         });
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Input
                     required
@@ -99,29 +89,31 @@ class ElementInputGroup extends Component {
                 />
                 <Label htmlFor={id} isVisuallyHidden={isLabelVisuallyHidden}>
                     {label}
-                    <Icon className='m-form__label__icon--error' icon='sad' />
-                    <Icon className='m-form__label__icon--success' icon='smile' />
+                    <Icon className="m-form__label__icon--error" icon="sad" />
+                    <Icon
+                        className="m-form__label__icon--success"
+                        icon="smile"
+                    />
                 </Label>
             </div>
         );
     }
-
 }
 
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementInputGroup.propTypes = {
+InputGroup.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     isLabelVisuallyHidden: PropTypes.bool,
     isPristine: PropTypes.bool,
     isValid: PropTypes.bool,
-    itemProp: PropTypes.string,  // eslint-disable-line react/require-default-props
+    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
     label: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
@@ -134,9 +126,9 @@ ElementInputGroup.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementInputGroup.defaultProps = {
+InputGroup.defaultProps = {
     isLabelVisuallyHidden: false,
     isPristine: false,
     isValid: true,
@@ -146,5 +138,3 @@ ElementInputGroup.defaultProps = {
     type: 'text',
     value: ''
 };
-
-export default ElementInputGroup;

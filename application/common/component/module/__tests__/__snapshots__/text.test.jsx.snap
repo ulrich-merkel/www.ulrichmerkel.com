@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleText should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-text module-text"
+    itemscope=""
+    itemtype="foo"
+  >
+    <div
+      class="m-text__block"
+    >
+      <h3
+        class="is-centered c-type--h3 m-text__headline"
+      >
+        headline
+      </h3>
+    </div>
+    <div
+      class="m-text__time is-centered"
+    >
+      <time
+        class="c-time"
+      >
+        567
+      </time>
+    </div>
+    <div
+      class="m-text__link is-centered"
+    >
+      <a
+        class="c-link"
+        href="/bar"
+        tabindex="0"
+        title="Link title"
+      >
+        <i
+          aria-hidden="true"
+          class="c-font-icon--earth"
+        />
+        Link label
+      </a>
+    </div>
+    Module text children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleText should render correctly the connected version 1`] = `
+<DocumentFragment>
+  <div
+    class="m-text module-text"
+    itemscope=""
+    itemtype="foo"
+  >
+    <div
+      class="m-text__block"
+    >
+      <h3
+        class="is-centered c-type--h3 m-text__headline"
+      >
+        headline
+      </h3>
+    </div>
+    <div
+      class="m-text__time is-centered"
+    >
+      <time
+        class="c-time"
+      >
+        567
+      </time>
+    </div>
+    <div
+      class="m-text__link is-centered"
+    >
+      <a
+        class="c-link"
+        href="/bar"
+        tabindex="0"
+        title="Link title"
+      >
+        <i
+          aria-hidden="true"
+          class="c-font-icon--earth"
+        />
+        Link label
+      </a>
+    </div>
+    Module text children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleText should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <div
+    class="m-text module-text"
+  >
+    <div
+      class="m-text__block"
+    >
+      <h3
+        class="is-centered c-type--h3 m-text__headline"
+      >
+        headline
+      </h3>
+    </div>
+    <div
+      class="m-text__time is-centered"
+    >
+      <time
+        class="c-time"
+      >
+        567
+      </time>
+    </div>
+    <div
+      class="m-text__link is-centered"
+    >
+      <a
+        class="c-link"
+        href="/bar"
+        tabindex="0"
+        title="Link title"
+      >
+        <i
+          aria-hidden="true"
+          class="c-font-icon--earth"
+        />
+        Link label
+      </a>
+    </div>
+    Module text children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleText should return null if no content is given 1`] = `<DocumentFragment />`;

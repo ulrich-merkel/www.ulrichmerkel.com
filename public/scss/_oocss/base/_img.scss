@@ -55,6 +55,13 @@
             @include font-size($config-type-scale-9);
             @include var(color, --theme-base-img-missing-color);
         }
+
+        @media (prefers-color-scheme: dark) {
+            filter: brightness(0.8) contrast(1.2);
+        }
+        .color-scheme-dark & {
+            filter: brightness(0.8) contrast(1.2);
+        }
     }
 
 }

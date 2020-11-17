@@ -6,37 +6,24 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires shortid
- * @requires common/component/element/headline
- * @requires common/component/element/paragraph
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import Headline from '../../element/headline';
-import P from '../../element/paragraph';
+import { Headline } from '../../element/headline';
+import { P } from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function ModuleCornerstoneItemEducation(props) {
-
+export function ModuleCornerstoneItemEducation(props) {
     const {
         cssModifier,
         offset,
@@ -50,34 +37,45 @@ function ModuleCornerstoneItemEducation(props) {
     } = props;
 
     const composedListItemClassName = classnames(
-        cssModifier ? `m-cornerstone__item--${cssModifier}` : 'm-cornerstone__item',
+        cssModifier
+            ? `m-cornerstone__item--${cssModifier}`
+            : 'm-cornerstone__item',
         offset ? `has-offset--${offset}` : ''
     );
 
     return (
-        <li className={composedListItemClassName} itemProp='itemListElement' itemScope itemType='https://schema.org/EducationEvent' {...otherProps}>
-            <div className='m-cornerstone__description'>
-                <div className='m-cornerstone__description-content'>
-                    <Headline className='m-cornerstone__headline' itemProp='name' htmlElement='h4'>
+        <li
+            className={composedListItemClassName}
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/EducationEvent"
+            {...otherProps}
+        >
+            <div className="m-cornerstone__description">
+                <div className="m-cornerstone__description-content">
+                    <Headline
+                        className="m-cornerstone__headline"
+                        itemProp="name"
+                        htmlElement="h4"
+                    >
                         {headline}
                     </Headline>
-                    <P className='m-cornerstone__company' itemProp='alternateName'>
-                        <strong>
-                            {lead}
-                        </strong>
+                    <P
+                        className="m-cornerstone__company"
+                        itemProp="alternateName"
+                    >
+                        <strong>{lead}</strong>
                     </P>
-                    <P className='m-cornerstone__time'>
+                    <P className="m-cornerstone__time">
                         (
-                        <time className='c-time' itemProp='startDate'>
+                        <time className="c-time" itemProp="startDate">
                             {timeStart}
-                        </time>
-                        {' '}
-- 
-                        {' '}
-                        <time className='c-time' itemProp='endDate'>
+                        </time>{' '}
+                        -{' '}
+                        <time className="c-time" itemProp="endDate">
                             {timeEnd}
                         </time>
-)
+                        )
                     </P>
                     {description.map((text) => {
                         /**
@@ -89,39 +87,53 @@ function ModuleCornerstoneItemEducation(props) {
                         return (
                             <P
                                 key={shortid.generate()}
-                                className='m-cornerstone__text'
-                                itemProp='description'
+                                className="m-cornerstone__text"
+                                itemProp="description"
                                 dangerouslySetInnerHTML={{ __html: text }}
                             />
                         );
                     })}
                 </div>
             </div>
-            <div className='m-cornerstone__bubble' />
-            <div hidden itemProp='location' itemScope itemType='https://schema.org/Place'>
-                <meta itemProp='name' content={place.name} />
-                <div itemProp='address' itemScope itemType='http://schema.org/PostalAddress'>
-                    <meta itemProp='streetAddress' content={place.streetAddress} />
-                    <meta itemProp='addressLocality' content={place.addressLocality} />
-                    <meta itemProp='sameAs' content={place.sameAs} />
+            <div className="m-cornerstone__bubble" />
+            <div
+                hidden
+                itemProp="location"
+                itemScope
+                itemType="https://schema.org/Place"
+            >
+                <meta itemProp="name" content={place.name} />
+                <div
+                    itemProp="address"
+                    itemScope
+                    itemType="http://schema.org/PostalAddress"
+                >
+                    <meta
+                        itemProp="streetAddress"
+                        content={place.streetAddress}
+                    />
+                    <meta
+                        itemProp="addressLocality"
+                        content={place.addressLocality}
+                    />
+                    <meta itemProp="sameAs" content={place.sameAs} />
                 </div>
             </div>
         </li>
     );
-
 }
 
 /**
  * Valiate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @property {string} [headline] - The item headline
  * @property {string} [lead] - The item subline
  * @property {string} [timeStart] - The item start time
  * @property {string} [timeEnd] - The item end time
  * @property {Array} [description=[]] - The items description
- * @property {Object} [place={}] - The items place description
+ * @property {object} [place={}] - The items place description
  * @property {string} [cssModifier] - The bem css modifier
  * @property {string} [offset] - The css top offset to display items nice
  */
@@ -131,10 +143,9 @@ ModuleCornerstoneItemEducation.propTypes = {
     timeStart: PropTypes.string, // eslint-disable-line react/require-default-props
     timeEnd: PropTypes.string, // eslint-disable-line react/require-default-props
     description: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    place: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object
-    ])),
+    place: PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    ),
     cssModifier: PropTypes.string, // eslint-disable-line react/require-default-props
     offset: PropTypes.string // eslint-disable-line react/require-default-props
 };
@@ -143,12 +154,10 @@ ModuleCornerstoneItemEducation.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  * @see ModuleCornerstoneItemEducation.propTypes
  */
 ModuleCornerstoneItemEducation.defaultProps = {
     description: [],
     place: {}
 };
-
-export default ModuleCornerstoneItemEducation;

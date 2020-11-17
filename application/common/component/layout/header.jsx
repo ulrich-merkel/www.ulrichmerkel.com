@@ -6,90 +6,63 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires react-router
- * @requires classnames
- * @requires lodash
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/utils/event
- * @requires common/state/selectors
- * @requires common/state/intl/actions
- * @requires common/state/intl/constants
- * @requires common/component/grid/container
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/module/menu
- * @requires common/component/element/nav
- *
- * @changelog
- * - 0.0.4 added withRouter to get correct rendering after hydrate
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
-import addContent from '../decorator/add-content';
+import { url } from '../../config/application';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import {
     selectStateIntlLocale,
-    selectStateIntlAvailableLocales,
-    selectStateScrollHeaderFixed,
-    selectStateScrollHeaderVisible
-} from '../../state/selectors';
+    selectStateIntlAvailableLocales
+} from '../../state/intl/selector';
 import {
-    changeLocale,
-    changeDialogVisibleSearch,
-    changeDialogVisibleTheme
-} from '../../state/actions';
+    selectStateScrollIsHeaderFixed,
+    selectStateScrollIsHeaderVisible
+} from '../../state/scroll/selector';
 import {
+    changeIntlLocale,
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
-} from '../../state/constants';
-import ModuleMenu from '../module/menu';
+} from '../../state/intl/duck';
 import {
-    GridContainer,
-    GridRow,
-    GridCol
-} from '../grid';
-import {
-    A,
-    Button,
-    Header,
-    Icon,
-    Nav,
-    Progress
-} from '../element';
+    changeDialogVisibleSearch,
+    changeDialogVisibleTheme
+} from '../../state/dialog/duck';
+import { ModuleMenu } from '../module/menu';
+import { GridContainer } from '../grid/container';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
+import { A } from '../element/a';
+import { Button } from '../element/button';
+import { Header } from '../element/header';
+import { Icon } from '../element/icon';
+import { Nav } from '../element/nav';
+import { Progress } from '../element/progress';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
  * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
  * @param {Array.<string>} props.intlAvailableLocales - All available locale strings
  * @param {string} props.intlLocale - The current locale string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
- * @param {Object} [props.content={}] - The component content config
+ * @param {object} [props.content={}] - The component content config
  * @param {boolean} [props.headerFixed] - Whether the navigation bar is sticky/ficked or not
  * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @returns {ReactElement} React component markup
  */
-function LayoutHeader(props) {
+export function LayoutHeader(props) {
     const {
         className,
         content,
@@ -129,97 +102,117 @@ function LayoutHeader(props) {
         <Header
             className={componentClassName}
             itemScope
-            itemType='http://schema.org/WPHeader'
-            role='banner'
+            itemType="http://schema.org/WPHeader"
+            role="banner"
         >
             <Progress />
-            <Nav className='m-nav--main'>
+            <Nav className="m-nav--main">
                 <GridContainer>
                     <GridRow>
                         <GridCol>
                             <input
-                                aria-label={contentSection('button.toggle.label')}
-                                className='m-nav__toggle c-font-icon--menu'
-                                data-label={contentSection('button.toggle.label')}
-                                type='checkbox'
+                                aria-label={contentSection(
+                                    'button.toggle.label'
+                                )}
+                                className="m-nav__toggle c-font-icon--menu"
+                                data-label={contentSection(
+                                    'button.toggle.label'
+                                )}
+                                type="checkbox"
                             />
                             <ModuleMenu
-                                className='m-nav__toggle-target'
+                                className="m-nav__toggle-target"
                                 content={contentSection('menu.main')}
                             />
 
-                            {/* @TODO: should be separated into own component, extend component menu, map available locales */}
+                            {/* @TODO should be separated into own component, extend component menu, map available locales */}
                             <ul
                                 className={menuAsideClassName}
-                                role='menu'
+                                role="menu"
                                 itemScope
-                                itemType='http://schema.org/ItemList'
+                                itemType="http://schema.org/ItemList"
                             >
                                 <li
-                                    className='m-menu__list-item'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <Button
                                         className={buttonEnClassName}
                                         data-locale={INTL_LOCALE_EN_EN}
-                                        title={contentSection('menu.language.list[0].title')}
+                                        title={contentSection(
+                                            'menu.language.list[0].title'
+                                        )}
                                         onClick={handleIntlChangeLocale}
                                         isSmall
                                         isClear
                                     >
-                                        {contentSection('menu.language.list[0].label')}
+                                        {contentSection(
+                                            'menu.language.list[0].label'
+                                        )}
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <Button
                                         className={buttonDeClassName}
                                         data-locale={INTL_LOCALE_DE_DE}
-                                        title={contentSection('menu.language.list[1].title')}
+                                        title={contentSection(
+                                            'menu.language.list[1].title'
+                                        )}
                                         onClick={handleIntlChangeLocale}
                                         isSmall
                                         isClear
                                     >
-                                        {contentSection('menu.language.list[1].label')}
+                                        {contentSection(
+                                            'menu.language.list[1].label'
+                                        )}
                                     </Button>
                                 </li>
                                 <li
-                                    className='m-menu__list-item--search always-float'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item--search always-float"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <A
-                                        className='m-menu__item--search c-btn--small c-btn--clear'
-                                        to='/search'
-                                        onClick={handleChangeDialogVisibleSearch}
+                                        className="m-menu__item--search c-btn--small c-btn--clear"
+                                        to={url.search}
+                                        onClick={
+                                            handleChangeDialogVisibleSearch
+                                        }
                                         title={'Search'}
                                     >
-                                        <span className='c-btn__label'>
-                                            <Icon className='c-btn__icon' icon='search' />
+                                        <span className="c-btn__label">
+                                            <Icon
+                                                className="c-btn__icon"
+                                                icon="search"
+                                            />
                                         </span>
                                     </A>
                                 </li>
                                 <li
-                                    className='m-menu__list-item--theme always-float'
-                                    itemProp='itemListElement'
+                                    className="m-menu__list-item--theme always-float"
+                                    itemProp="itemListElement"
                                     itemScope
-                                    itemType='http://www.schema.org/SiteNavigationElement'
+                                    itemType="http://www.schema.org/SiteNavigationElement"
                                 >
                                     <A
-                                        className='m-menu__item--theme c-btn--small c-btn--clear'
-                                        to='/theme'
+                                        className="m-menu__item--theme c-btn--small c-btn--clear"
+                                        to={url.settings}
                                         onClick={handleChangeDialogVisibleTheme}
                                         title={''}
                                     >
-                                        <span className='c-btn__label'>
-                                            <Icon className='c-btn__icon' icon='paint-format' />
+                                        <span className="c-btn__label">
+                                            <Icon
+                                                className="c-btn__icon"
+                                                icon="cog"
+                                            />
                                         </span>
                                     </A>
                                 </li>
@@ -236,7 +229,7 @@ function LayoutHeader(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHeader.propTypes = {
     handleIntlChangeLocale: PropTypes.func.isRequired,
@@ -256,7 +249,7 @@ LayoutHeader.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutHeader.defaultProps = {
     content: {}
@@ -268,15 +261,19 @@ LayoutHeader.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} [ownProps] - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {
-        headerFixed: selectStateScrollHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible: selectStateScrollHeaderVisible(state) || ownProps.headerVisible,
-        intlAvailableLocales: selectStateIntlAvailableLocales(state) || ownProps.intlAvailableLocales,
+        headerFixed:
+            selectStateScrollIsHeaderFixed(state) || ownProps.headerFixed,
+        headerVisible:
+            selectStateScrollIsHeaderVisible(state) || ownProps.headerVisible,
+        intlAvailableLocales:
+            selectStateIntlAvailableLocales(state) ||
+            ownProps.intlAvailableLocales,
         intlLocale: selectStateIntlLocale(state) || ownProps.intlLocale
     };
 }
@@ -289,19 +286,19 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @param {Function} dispatch - The redux store dispatch function
- * @returns {Object}
+ * @returns {object}
  */
 function mapDispatchToProps(dispatch) {
     return {
-        handleIntlChangeLocale: function (event) {
+        handleIntlChangeLocale(event) {
             eventPreventDefault(event);
-            dispatch(changeLocale(get(event, 'target.dataset.locale')));
+            dispatch(changeIntlLocale(get(event, 'target.dataset.locale')));
         },
-        handleChangeDialogVisibleSearch: function (event) {
+        handleChangeDialogVisibleSearch(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisibleSearch(true));
         },
-        handleChangeDialogVisibleTheme: function (event) {
+        handleChangeDialogVisibleTheme(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisibleTheme(true));
         }
@@ -312,12 +309,9 @@ function mapDispatchToProps(dispatch) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const LayoutHeaderConnected = withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(addContent('LayoutHeader')(LayoutHeader)));
-
-export default LayoutHeaderConnected;
-export {
-    LayoutHeader
-};
+export const LayoutHeaderConnected = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(addContent('LayoutHeader')(LayoutHeader))
+);

@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageImprint should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="is-main m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h1
+                class="is-centered c-type--h1 m-article__headline"
+                itemprop="headline"
+              >
+                Imprint
+              </h1>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Legal details and information in accordance with section 5 TMG.
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <div
+                  class="m-text"
+                >
+                  <div
+                    class="m-text__block"
+                  >
+                    <h3
+                      class="is-centered c-type--h3 m-text__headline"
+                    >
+                      Publisher information
+                    </h3>
+                    <div
+                      class="is-centered m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        Person responsible for content in accordance with 55 Abs. 2 RStV:
+                      </p>
+                    </div>
+                    <div
+                      class="is-centered m-person is-centered m-text__content"
+                      itemscope=""
+                      itemtype="http://schema.org/Person"
+                    >
+                      <p
+                        class="c-type--p m-person__name"
+                      >
+                        <strong>
+                          Ulrich Merkel
+                        </strong>
+                      </p>
+                      <address
+                        class="m-person__address c-type--address"
+                        itemprop="address"
+                        itemscope=""
+                        itemtype="http://schema.org/Address"
+                      >
+                        <span
+                          class="m-person__street-address"
+                          itemprop="street-address"
+                        >
+                          Pegauer Straße 51
+                        </span>
+                        <span
+                          class="m-person__postal-code"
+                          itemprop="postal-code"
+                        >
+                          04442
+                        </span>
+                        <span
+                          class="m-person__locality"
+                          itemprop="locality"
+                        >
+                          Zwenkau, Germany
+                        </span>
+                      </address>
+                      <p
+                        class="c-type--p m-person__email"
+                      >
+                        <abbr
+                          title="E-Mail address"
+                        >
+                          E.
+                        </abbr>
+                         
+                        <a
+                          href="mailto:hello@ulrichmerkel.com"
+                          itemprop="email"
+                        >
+                          hello@ulrichmerkel.com
+                        </a>
+                      </p>
+                      <p
+                        class="c-type--p m-person__website"
+                      >
+                        <abbr
+                          title="Website"
+                        >
+                          W.
+                        </abbr>
+                         
+                        <a
+                          href="http://www.ulrichmerkel.com"
+                        >
+                          http://www.ulrichmerkel.com
+                        </a>
+                      </p>
+                    </div>
+                    <div
+                      class="is-centered m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        Ust. (VAT) - Idnr. DE  235 248 02155
+                        <br />
+                        
+        Amtsgericht Borna
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="m-text__block"
+                  >
+                    <h3
+                      class="is-centered c-type--h3 m-text__headline"
+                    >
+                      Indication of source for images and graphics
+                    </h3>
+                    <div
+                      class="is-centered m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        <a
+                          href="http://www.adrian-kuehne.de/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          title="Show Adrian Kühne website"
+                        >
+                          
+        
+                          <i
+                            aria-hidden="true"
+                            class="c-font-icon--earth"
+                          />
+                           http://www.adrian-kuehne.de/ (Adrian Kühne)
+        
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="m-text__block"
+                  >
+                    <h3
+                      class="is-centered c-type--h3 m-text__headline"
+                    >
+                      Technology
+                    </h3>
+                    <div
+                      class="is-centered m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        This website is build with React.js, Node.js, 
+                        <abbr
+                          title="HyperText Markup Language 5"
+                        >
+                          HTML5
+                        </abbr>
+                        , 
+                        <abbr
+                          title="Cascading Style Sheets Level 3"
+                        >
+                          CSS3
+                        </abbr>
+                        , love and 100% recycled pixels.
+        View 
+                        <a
+                          href="https://github.com/ulrich-merkel/www.ulrichmerkel.com"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          title="Show source code on GitHub"
+                        >
+                          source code
+                        </a>
+                         on Github.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  aria-current="page"
+                  class="c-btn active"
+                  href="/"
+                  role="button"
+                  title="Go to startpage"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    Back to startpage
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="Imprint"
+                itemprop="name"
+              />
+              <meta
+                content="2017-10-7"
+                itemprop="datePublished"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

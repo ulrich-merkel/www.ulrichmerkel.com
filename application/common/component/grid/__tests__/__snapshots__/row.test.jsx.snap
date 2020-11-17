@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridRow should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="l-grid__row row"
+  >
+    Grid Row Children
+  </span>
+</DocumentFragment>
+`;

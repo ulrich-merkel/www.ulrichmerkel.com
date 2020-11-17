@@ -4,24 +4,11 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-router-dom
- * @requires classnames
- *
- * @changelog
- * - 0.0.4 Switching to react-router@4
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Moved code to es6
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
- * import A from './a';
+ * import { A } from './a';
  *
  * <A to='/page' className='additional-css' itemProp='url'>
  *     Link text
@@ -31,7 +18,7 @@
  * //  Link text
  * // </a>
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
@@ -39,7 +26,7 @@ import classnames from 'classnames';
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} props - The current component props
+ * @param {object} props - The current component props
  * @param {string} props.to - The link target/react-router path
  * @param {string} [props.activeClassName='is-active'] - The default is active state css class name
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
@@ -49,7 +36,7 @@ import classnames from 'classnames';
  * @param {boolean} [props.exact] - Exclusively passed to NavLink
  * @returns {ReactElement} React component markup
  */
-function A(props) {
+export function A(props) {
     const {
         activeClassName,
         children,
@@ -71,10 +58,7 @@ function A(props) {
         strict,
         to
     };
-    const componentClassName = classnames(
-        'c-link',
-        className
-    );
+    const componentClassName = classnames('c-link', className);
 
     let ComponentType = componentType,
         attributes = ancorAttributes;
@@ -92,7 +76,14 @@ function A(props) {
     }
 
     return (
-        <ComponentType {...attributes} className={componentClassName} tabIndex='0' title={title} {...otherProps}>
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <ComponentType
+            {...attributes}
+            className={componentClassName}
+            tabIndex="0"
+            title={title}
+            {...otherProps}
+        >
             {children}
         </ComponentType>
     );
@@ -102,7 +93,7 @@ function A(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 A.propTypes = {
     to: PropTypes.string.isRequired,
@@ -119,12 +110,10 @@ A.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 A.defaultProps = {
     activeClassName: 'is-active',
     componentType: 'a',
     title: ''
 };
-
-export default A;

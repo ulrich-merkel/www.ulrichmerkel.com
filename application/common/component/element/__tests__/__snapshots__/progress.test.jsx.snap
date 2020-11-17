@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should render correctly 1`] = `
+<DocumentFragment>
+  <progress
+    class="m-progress picture"
+    id="m-progress"
+    max="80"
+    value="20"
+  >
+    <span
+      class="m-progress__fallback"
+      id="m-progress__fallback"
+    />
+  </progress>
+</DocumentFragment>
+`;

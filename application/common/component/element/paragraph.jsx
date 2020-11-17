@@ -4,17 +4,8 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @example <caption>Example usage (jsx)</caption>
  * import P from './paragraph';
@@ -27,21 +18,21 @@
  * // Paragraph text content lorem ipsum dolor
  * // </p>
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
  * @param {string} [props.htmlElement='p'] - The component element type used for React.createElement
  * @param {boolean} [props.isCentered=false] - Whether the component should be centered via css or not
  * @returns {ReactElement} React component markup
  */
-function ElementParagraph(props) {
+export function P(props) {
     const {
         className,
         hasColumns2,
@@ -61,6 +52,7 @@ function ElementParagraph(props) {
     );
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ComponentType className={componentClassName} {...otherProps} />
     );
 }
@@ -69,9 +61,9 @@ function ElementParagraph(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementParagraph.propTypes = {
+P.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     hasColumns2: PropTypes.bool,
     htmlElement: PropTypes.string,
@@ -82,12 +74,10 @@ ElementParagraph.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementParagraph.defaultProps = {
+P.defaultProps = {
     hasColumns2: false,
     htmlElement: 'p',
     isCentered: false
 };
-
-export default ElementParagraph;

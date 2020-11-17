@@ -18,6 +18,7 @@
 
         will-change: background, color;
         transition: background $config-transition-arguments, color $config-transition-arguments;
+        @include reducedMotion;
     }
 
 }

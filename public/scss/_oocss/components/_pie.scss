@@ -54,10 +54,6 @@ $block: '#{$config-ns}c-pie';
         height: 100%;
         @include var(background-color, --theme-component-pie-mask-background-color);
 
-        // Be careful, this produces buggy output
-        // will-change: transform;
-        // transition: transform $config-transition-arguments;
-
         &.is-hidden {
             display: none;
             visibility: hidden;

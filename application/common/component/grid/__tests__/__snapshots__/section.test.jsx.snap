@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridSection should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="l-grid m-section"
+  >
+    Grid Section Children
+  </section>
+</DocumentFragment>
+`;

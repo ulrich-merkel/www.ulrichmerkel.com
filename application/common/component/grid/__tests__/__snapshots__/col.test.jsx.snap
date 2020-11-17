@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridCol should render correctly 1`] = `
+<DocumentFragment>
+  <span
+    class="l-grid__col--12 col"
+  >
+    Grid Col Children
+  </span>
+</DocumentFragment>
+`;
+
+exports[`GridCol should render custom col width 1`] = `
+<DocumentFragment>
+  <div
+    class="l-grid__col--12"
+    col="4"
+  >
+    Grid Col Children
+  </div>
+</DocumentFragment>
+`;

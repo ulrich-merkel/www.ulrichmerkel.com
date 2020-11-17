@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Legend should render correctly 1`] = `
+<DocumentFragment>
+  <legend
+    class="m-form__legend label"
+  >
+    Legend Children
+  </legend>
+</DocumentFragment>
+`;
+
+exports[`Legend should render correctly the hidden state 1`] = `
+<DocumentFragment>
+  <legend
+    class="m-form__legend label is-visually-hidden"
+  >
+    Legend Children
+  </legend>
+</DocumentFragment>
+`;

@@ -26,8 +26,9 @@ $config-critical-css: true;
 $config-non-critical-css: true;
 
 //---------------------------------------------
-//	:: Color vars
-//  http://chir.ag/projects/name-that-color/
+// :: Color vars
+// @see {@link http://chir.ag/projects/name-that-color/}
+// @see {@link https://coolors.co/b80c09-6b2b06-e5e7e6-b7b5b3-0d0d01}
 //---------------------------------------------
 $config-color-black: #000;
 $config-color-white: #fff;
@@ -39,19 +40,17 @@ $config-color-alto: #d6d6d6;
 $config-color-dove-grey: #656565;
 $config-color-grey: #8a8a8a;
 $config-color-java: #14b9d6;
+$config-color-test: #37bcdd;
 $config-color-pickled-bluewood: #2c3e50;
 $config-color-cinnabar: #e74c3c;
 $config-color-mountain-meadow: #1abc9c;
 $config-color-shark: #333538;
-
-// @see {@link https://coolors.co/b80c09-6b2b06-e5e7e6-b7b5b3-0d0d01}
+$config-color-tundora: #292929;
 $config-color-milano-red: #b80c09;
-$color-color-brown-bramble: #6b2b06;
-$color-color-black-haze: #e5e7e6;
-$color-color-cotton-seed: #b7b5b3;
-$color-color-pine-tree: #0d0d01;
-
-$config-color-key-visual-gradient: #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%;
+$config-color-color-brown-bramble: #6b2b06;
+$config-color-color-cotton-seed: #b7b5b3;
+$config-color-color-pine-tree: #0d0d01;
+$config-color-color-heavy-metal: #232320;
 
 //---------------------------------------------
 //	:: Animation vars
@@ -59,6 +58,11 @@ $config-color-key-visual-gradient: #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%;
 $config-transition-arguments: 0.2s ease-in-out;
 $config-transition-arguments-fast: 0.05s ease-in-out;
 $config-transition-arguments-slow: 0.5s ease-in-out;
+
+$config-var-transition-arguments: 0.2s ease-in-out;
+$config-var-transition-arguments-fast: 0.05s ease-in-out;
+$config-var-transition-arguments-slow: 0.5s ease-in-out;
+$config-var-transition-arguments-none: 0s;
 
 //---------------------------------------------
 //	:: Font vars

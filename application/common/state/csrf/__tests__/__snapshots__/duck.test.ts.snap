@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should react to an action with the type csrf/CHANGE_CSRF_TOKEN 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "token": "foo",
+  },
+}
+`;
+
+exports[`reducer should return the current state if csrf/CHANGE_CSRF_TOKEN payload is empty 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "token": "",
+  },
+}
+`;

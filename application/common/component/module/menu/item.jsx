@@ -6,34 +6,20 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/a
- * @requires common/component/element/a
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import {
-    A,
-    Icon
-} from '../../element';
+import { A } from '../../element/a';
+import { Icon } from '../../element/icon';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @function
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
  * @param {boolean} [props.isLabelHidden=false] - Whether the label is hidden or not
@@ -44,7 +30,7 @@ import {
  * @param {string} [props.title=''] - The items title content
  * @returns {ReactElement} React component markup
  */
-function ModuleMenuItem(props) {
+export function ModuleMenuItem(props) {
     const {
         path,
         title,
@@ -70,10 +56,23 @@ function ModuleMenuItem(props) {
     );
 
     return (
-        <li className={componentListItemClassName} itemProp='itemListElement' itemScope itemType={itemType} {...otherProps}>
-            <A itemProp={itemPropA} to={path} title={title} className='m-menu__item' role='menuitem' exact>
-                <Icon className='m-menu__icon' icon={icon} />
-                <span className={labelClassName} itemProp='name'>
+        <li
+            className={componentListItemClassName}
+            itemProp="itemListElement"
+            itemScope
+            itemType={itemType}
+            {...otherProps}
+        >
+            <A
+                itemProp={itemPropA}
+                to={path}
+                title={title}
+                className="m-menu__item"
+                role="menuitem"
+                exact
+            >
+                <Icon className="m-menu__icon" icon={icon} />
+                <span className={labelClassName} itemProp="name">
                     {label}
                 </span>
             </A>
@@ -86,7 +85,7 @@ function ModuleMenuItem(props) {
  * Valiate props via React.PropTypes helpers.
 
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenuItem.propTypes = {
     children: PropTypes.node, // eslint-disable-line react/require-default-props
@@ -103,7 +102,7 @@ ModuleMenuItem.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleMenuItem.defaultProps = {
     icon: '',
@@ -114,5 +113,3 @@ ModuleMenuItem.defaultProps = {
     path: '',
     title: ''
 };
-
-export default ModuleMenuItem;

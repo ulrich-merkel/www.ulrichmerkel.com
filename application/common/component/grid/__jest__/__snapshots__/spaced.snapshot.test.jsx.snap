@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`common/component/grid/spaced should render correctly 1`] = `
-<div
-  className="l-grid__spaced--small"
->
-  Grid Spaced Children
-</div>
-`;

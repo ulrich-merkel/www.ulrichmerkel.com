@@ -6,38 +6,20 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- * @requires common/component/element/paragraph
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.4 Restructed module as simple wrapper article (rendering without children behaviour)
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
- *
- * @example <caption>Example usage (jsx)</caption>
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import {
-    Button,
-    P
-} from '../../element';
+import { Button } from '../../element/button';
+import { P } from '../../element/paragraph';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.btnLabel=''] - The button label
  * @param {string} [props.btnTitle=''] - The button title
  * @param {string} [props.btnTo=''] - The button link target
@@ -45,14 +27,8 @@ import {
  * @param {boolean} [props.isDialog=false] - Flag if this is rendering within a dialog
  * @returns {ReactElement} React component markup
  */
-function ModuleArticleButton(props) {
-    const {
-        btnLabel,
-        btnTitle,
-        btnTo,
-        className,
-        isDialog
-    } = props;
+export function ModuleArticleButton(props) {
+    const { btnLabel, btnTitle, btnTo, className, isDialog } = props;
 
     if (!btnTo || !btnLabel || isDialog) {
         return null;
@@ -73,7 +49,7 @@ function ModuleArticleButton(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleArticleButton.propTypes = {
     btnLabel: PropTypes.string,
@@ -87,7 +63,7 @@ ModuleArticleButton.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 ModuleArticleButton.defaultProps = {
     btnLabel: '',
@@ -95,5 +71,3 @@ ModuleArticleButton.defaultProps = {
     btnTo: '',
     isDialog: false
 };
-
-export default ModuleArticleButton;

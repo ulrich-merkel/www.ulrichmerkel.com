@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleKeyVisualPicture should render correctly 1`] = `
+<DocumentFragment>
+  <picture
+    class="c-picture m-key-visual__image m-key-visual__image--digital"
+    itemscope=""
+    itemtype="http://schema.org/ImageObject"
+  >
+    <source
+      class="c-picture__source"
+      media="(min-width: 2560px)"
+      srcset="/img/content/home/keyvisual@2560x1600.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 2560px)"
+      srcset="/img/content/home/keyvisual@2560x1600.jpg"
+      type="image/jpeg"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1680px)"
+      srcset="/img/content/home/keyvisual@1680x1050.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1680px)"
+      srcset="/img/content/home/keyvisual@1680x1050.jpg"
+      type="image/jpeg"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1440px)"
+      srcset="/img/content/home/keyvisual@1440x960.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1440px)"
+      srcset="/img/content/home/keyvisual@1440x960.jpg"
+      type="image/jpeg"
+    />
+    <img
+      alt="foo"
+      class="c-picture__img"
+      itemprop="contentUrl"
+      src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+      srcset="/img/content/home/keyvisual.jpg"
+    />
+  </picture>
+</DocumentFragment>
+`;
+
+exports[`ModuleKeyVisualPicture should render null if no content is provided 1`] = `<DocumentFragment />`;
+
+exports[`ModuleKeyVisualPicture should render type and isCovered if given 1`] = `
+<DocumentFragment>
+  <picture
+    class="c-picture m-key-visual__image m-key-visual__image--digital"
+    itemscope=""
+    itemtype="http://schema.org/ImageObject"
+    style="background-position: 20% 25%; background-size: cover; background-image: url(data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);"
+  >
+    <source
+      class="c-picture__source"
+      media="(min-width: 2560px)"
+      srcset="/img/content/home/keyvisual@2560x1600.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 2560px)"
+      srcset="/img/content/home/keyvisual@2560x1600.jpg"
+      type="image/jpeg"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1680px)"
+      srcset="/img/content/home/keyvisual@1680x1050.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1680px)"
+      srcset="/img/content/home/keyvisual@1680x1050.jpg"
+      type="image/jpeg"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1440px)"
+      srcset="/img/content/home/keyvisual@1440x960.webp"
+      type="image/webp"
+    />
+    <source
+      class="c-picture__source"
+      media="(min-width: 1440px)"
+      srcset="/img/content/home/keyvisual@1440x960.jpg"
+      type="image/jpeg"
+    />
+    <img
+      alt="foo"
+      class="c-picture__img"
+      itemprop="contentUrl"
+      src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+      srcset="/img/content/home/keyvisual.jpg"
+    />
+  </picture>
+</DocumentFragment>
+`;

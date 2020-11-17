@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fieldset should render correctly 1`] = `
+<DocumentFragment>
+  <fieldset
+    class="m-form__fieldset fieldset"
+    htmlelement="span"
+  >
+    Fieldset Children
+  </fieldset>
+</DocumentFragment>
+`;

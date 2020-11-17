@@ -5,17 +5,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -25,8 +17,7 @@ import classnames from 'classnames';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {string} props.id - The input id attribute
  * @property {string} props.name - The input name attribute
  * @property {string} [props.className] - The input css class names - will be merged into component default classNames
@@ -38,8 +29,7 @@ import classnames from 'classnames';
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value] - The input value attribute
  */
-class ElementInput extends Component {
-
+export class Input extends Component {
     /**
      * The required render function to return a single react child element.
      *
@@ -65,10 +55,12 @@ class ElementInput extends Component {
             className
         );
 
-        const requiredAttr = required ? {
-            required: true,
-            'aria-required': true
-        } : null;
+        const requiredAttr = required
+            ? {
+                  required: true,
+                  'aria-required': true
+              }
+            : null;
 
         return (
             <input
@@ -84,20 +76,20 @@ class ElementInput extends Component {
                     placeholder
                 }}
                 {...requiredAttr}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...other}
             />
         );
     }
-
 }
 
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementInput.propTypes = {
+Input.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     className: PropTypes.string, // eslint-disable-line react/require-default-props
@@ -114,14 +106,12 @@ ElementInput.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementInput.defaultProps = {
+Input.defaultProps = {
     onBlur: Function.prototype,
     onChange: Function.prototype,
     placeholder: '',
     required: false,
     type: 'text'
 };
-
-export default ElementInput;

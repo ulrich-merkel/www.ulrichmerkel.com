@@ -183,5 +183,7 @@ $block: '#{$config-ns}c-font-icon';
     .#{$block}--paint-format::before {
         content: '\e90c';
     }
-
+    .#{$block}--cog::before {
+        content: '\e994';
+    }
 }

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionCommonGridSpaced should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="l-grid l-main__transition animate-appear animate-appear-active"
+  >
+    <div
+      class="l-grid__spaced--small"
+    >
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          Section common grid spaced children
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

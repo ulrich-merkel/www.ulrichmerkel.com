@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleSearch should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-list--search module-list"
+    itemscope=""
+    itemtype="itemType"
+    role="list"
+  >
+    <li
+      class="m-list__list-item"
+      itemprop="itemListElement"
+    >
+      <a
+        class="c-link c-type--h4 m-list__item"
+        href="index"
+        itemscope=""
+        itemtype="http://www.schema.org/SiteNavigationElement"
+        tabindex="0"
+        title="index"
+      >
+        <span
+          class="m-menu__label"
+        />
+        <small
+          class="m-menu__description"
+        />
+      </a>
+    </li>
+    <li
+      class="m-list__list-item"
+      itemprop="itemListElement"
+    >
+      <a
+        class="c-link c-type--h4 m-list__item"
+        href="contact"
+        itemscope=""
+        itemtype="http://www.schema.org/SiteNavigationElement"
+        tabindex="0"
+        title="contact"
+      >
+        <span
+          class="m-menu__label"
+        />
+        <small
+          class="m-menu__description"
+        />
+      </a>
+    </li>
+    Module list children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleSearch should render correctly the connected version 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-list--search module-list"
+    itemscope=""
+    itemtype="itemType"
+    role="list"
+  >
+    <li
+      class="m-list__list-item"
+      itemprop="itemListElement"
+    >
+      <a
+        class="c-link c-type--h4 m-list__item"
+        href="index"
+        itemscope=""
+        itemtype="http://www.schema.org/SiteNavigationElement"
+        tabindex="0"
+        title="index"
+      >
+        <span
+          class="m-menu__label"
+        />
+        <small
+          class="m-menu__description"
+        />
+      </a>
+    </li>
+    <li
+      class="m-list__list-item"
+      itemprop="itemListElement"
+    >
+      <a
+        class="c-link c-type--h4 m-list__item"
+        href="contact"
+        itemscope=""
+        itemtype="http://www.schema.org/SiteNavigationElement"
+        tabindex="0"
+        title="contact"
+      >
+        <span
+          class="m-menu__label"
+        />
+        <small
+          class="m-menu__description"
+        />
+      </a>
+    </li>
+    Module list children
+  </ul>
+</DocumentFragment>
+`;

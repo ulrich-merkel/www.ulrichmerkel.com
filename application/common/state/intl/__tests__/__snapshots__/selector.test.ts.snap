@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectStateIntl should return the correct state 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;
+
+exports[`selectStateIntl should return the initial state if no state is found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;
+
+exports[`selectStateIntl should return the initial state if resource key is not found 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": true,
+  },
+  "payload": Object {
+    "availableLocales": Array [
+      "en-EN",
+    ],
+    "locale": "en-EN",
+  },
+}
+`;
+
+exports[`selectStateIntlAvailableLocales should return the correct state 1`] = `
+Array [
+  "en-EN",
+]
+`;
+
+exports[`selectStateIntlAvailableLocales should return the default availableLocales if state isn't found 1`] = `
+Array [
+  "en-EN",
+]
+`;
+
+exports[`selectStateIntlLocale should return the correct state 1`] = `"en-EN"`;
+
+exports[`selectStateIntlLocale should return the default locale if state isn't found 1`] = `"en-EN"`;

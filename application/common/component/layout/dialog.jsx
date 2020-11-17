@@ -7,67 +7,44 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.4
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires classnames
- * @requires lodash
- * @requires common/state/selectors
- * @requires common/state/dialog/actions
- * @requires common/component/decorator/add-content
- * @requires common/utils/content
- * @requires common/utils/environment
- * @requires common/utils/event
- * @requires common/component/module/article
- * @requires common/component/module/list
- * @requires common/component/grid/spaced
- * @requires common/component/grid/row
- * @requires common/component/grid/col
- * @requires common/component/element/button
- *
- * @changelog
- * - 0.0.4 Add isBroadcast and isSearch to props
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { throttle, isEqual, get } from 'lodash';
+import { throttle, get } from 'lodash';
 
-import { selectStateDialogVisible, selectStateDialogPage } from '../../state/selectors';
-import { changeDialogVisible } from '../../state/actions';
-import addContent from '../decorator/add-content';
+import {
+    selectStateDialogContent,
+    selectStateDialogVisible
+} from '../../state/dialog/selector';
+import { changeDialogVisible } from '../../state/dialog/duck';
+import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
 import { eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
+import { closeDialog, showDialog } from '../../../client/utils/dialog';
 
-import GridSpaced from '../grid/spaced';
-import GridRow from '../grid/row';
-import GridCol from '../grid/col';
-import Button from '../element/button';
+import { GridSpaced } from '../grid/spaced';
+import { GridRow } from '../grid/row';
+import { GridCol } from '../grid/col';
+import { Button } from '../element/button';
 
 /**
  * Class representing a component.
  *
- * @class
- * @extends React.Component
+ * @augments React.Component
  * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
  * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
- * @property {Object} [props.content={}] - The component content config
+ * @property {object} [props.content={}] - The component content config
  */
-class LayoutDialog extends Component {
-
+export class LayoutDialog extends Component {
     /**
      * The actual class constructor.
      *
      * @constructs
-     * @param {Object} [props] - The initial class properties
+     * @param {object} [props] - The initial class properties
      * @returns {void}
      */
     constructor(props) {
@@ -89,17 +66,6 @@ class LayoutDialog extends Component {
     }
 
     /**
-     * ShouldComponentUpdate is triggered before the re-rendering process starts,
-     * giving the developer the ability to short circuit this process.
-     *
-     * @param {Object} nextProps - The news props to be rendered
-     * @returns {boolean} Whether to force component update or not
-     */
-    shouldComponentUpdate(nextProps) {
-        return !isEqual(this.props, nextProps);
-    }
-
-    /**
      * Invoked immediately before a component is unmounted from the DOM.
      *
      * @returns {void}
@@ -114,13 +80,14 @@ class LayoutDialog extends Component {
      * Esc key press.
      *
      * @private
-     * @param {Object} event - Synthetic react event
+     * @param {object} event - Synthetic react event
      * @returns {void}
      */
     onKeyDown(event) {
+        const { onClose } = this.props;
+
         if (event && event.keyCode === 27) {
-            // eslint-disable-next-line react/destructuring-assignment
-            this.props.onClose();
+            onClose();
         }
     }
 
@@ -136,27 +103,24 @@ class LayoutDialog extends Component {
             content,
             dialogPage,
             dialogVisible,
-            isBroadcast,
-            isSearch,
             onClose,
             page
         } = this.props;
 
         if (!dialogVisible || !page || dialogPage !== page) {
+            closeDialog();
             return null;
         }
 
+        showDialog();
+
         const contentSection = getContentSection(content);
         const contentSectionNav = contentSection('nav') || {};
-        const composedClassName = classnames('l-dialog', className, {
-            'l-dialog--broadcast': isBroadcast,
-            'l-dialog--search': isSearch
-        });
+        const composedClassName = classnames('l-dialog', className);
 
         return (
-            <dialog className={composedClassName} role='presentation'>
-                <div className='l-dialog__content'>
-
+            <dialog className={composedClassName} role="presentation">
+                <div className="l-dialog__content">
                     {children}
 
                     <GridSpaced>
@@ -173,29 +137,24 @@ class LayoutDialog extends Component {
                     </GridSpaced>
 
                     <Button
-                        className='l-dialog__button--close c-font-icon--close'
-                        classNameLabel='is-visually-hidden'
+                        className="l-dialog__button--close c-font-icon--close"
+                        classNameLabel="is-visually-hidden"
                         title={contentSectionNav.btnCloseTitle}
                         onClick={onClose}
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
-
                 </div>
-
-                <div className='l-dialog__background' role='presentation' />
-
             </dialog>
         );
     }
-
 }
 
 /**
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutDialog.propTypes = {
     onClose: PropTypes.func,
@@ -203,14 +162,14 @@ LayoutDialog.propTypes = {
     className: PropTypes.string, // eslint-disable-line react/require-default-props
     dialogPage: PropTypes.string,
     dialogVisible: PropTypes.bool,
-    isBroadcast: PropTypes.bool,
-    isSearch: PropTypes.bool,
-    content: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-        PropTypes.object
-    ])),
+    content: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array,
+            PropTypes.object
+        ])
+    ),
     page: PropTypes.string
 };
 
@@ -218,14 +177,12 @@ LayoutDialog.propTypes = {
  * Set defaults if props aren't available.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
 LayoutDialog.defaultProps = {
     onClose: Function.prototype,
     dialogPage: '',
     dialogVisible: false,
-    isBroadcast: false,
-    isSearch: false,
     content: {},
     page: ''
 };
@@ -236,31 +193,29 @@ LayoutDialog.defaultProps = {
  * and it will be merged into the component’s props.
  *
  * @private
- * @param {Object.<*>} state - The redux store state
- * @param {Object.<*>} [ownProps] - The current component props
- * @returns {Object}
+ * @param {object.<*>} state - The redux store state
+ * @param {object.<*>} [ownProps] - The current component props
+ * @returns {object}
  */
 function mapStateToProps(state, ownProps) {
     return {
-        dialogVisible: selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
-        dialogPage: selectStateDialogPage(state) || get(ownProps, 'dialogPage')
+        dialogVisible:
+            selectStateDialogVisible(state) || get(ownProps, 'dialogVisible'),
+        dialogPage:
+            selectStateDialogContent(state) || get(ownProps, 'dialogPage')
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        onClose: function (event) {
+        onClose(event) {
             eventPreventDefault(event);
             dispatch(changeDialogVisible(false));
         }
     };
 }
-const LayoutDialogConnected = connect(
+
+export const LayoutDialogConnected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(addContent('LayoutDialog')(LayoutDialog));
-
-export default LayoutDialogConnected;
-export {
-    LayoutDialog
-};

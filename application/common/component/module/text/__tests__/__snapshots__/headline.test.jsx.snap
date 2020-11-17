@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleTextHeadline should render correctly 1`] = `
+<DocumentFragment>
+  <h3
+    class="is-centered c-type--h3 m-text__headline"
+  >
+    Module text headline
+  </h3>
+</DocumentFragment>
+`;
+
+exports[`ModuleTextHeadline should return null if content is empty 1`] = `<DocumentFragment />`;

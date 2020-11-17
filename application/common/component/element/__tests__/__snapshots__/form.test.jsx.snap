@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should render correctly 1`] = `
+<DocumentFragment>
+  <form
+    accept-charset="utf-8"
+    action="test"
+    class="m-form form"
+    data-test="form-data"
+    id="form"
+    itemprop="potentialAction"
+    itemscope=""
+    itemtype="http://schema.org/CommunicateAction"
+    method="post"
+    novalidate=""
+    role="form"
+  >
+    Form Children
+  </form>
+</DocumentFragment>
+`;

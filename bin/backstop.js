@@ -42,16 +42,19 @@ const runMethod = argv.run || 'test';
  * Check if transpiled server file is avialable.
  *
  * @private
- * @returns {Object} - The ready-to-use server
+ * @returns {object} - The ready-to-use server
  */
 function getTranspiledServer() {
-    if (!fs.existsSync(path.resolve(__dirname, serverFile))) { // eslint-disable-line security/detect-non-literal-fs-filename
-        console.error(chalk.red(
-            'Build this project before running this script!'
-        ));
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    if (!fs.existsSync(path.resolve(__dirname, serverFile))) {
+        console.error(
+            chalk.red('Build this project before running this script!')
+        );
         process.exit(1);
     }
-    return require(serverFile).default; // eslint-disable-line global-require, security/detect-non-literal-require
+
+    // eslint-disable-next-line global-require, security/detect-non-literal-require
+    return require(serverFile).default;
 }
 
 // BackstopJS Api method mapping
@@ -67,11 +70,10 @@ const METHODS = {
  * @class
  */
 class Backstop {
-
     /**
      * @constructs
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {void}
      */
@@ -86,7 +88,10 @@ class Backstop {
      * @returns {boolean}
      */
     shouldHandleServer() {
-        return this.method && (this.method === METHODS.reference || this.method === METHODS.test);
+        return (
+            this.method &&
+            (this.method === METHODS.reference || this.method === METHODS.test)
+        );
     }
 
     /**
@@ -102,7 +107,7 @@ class Backstop {
                 return;
             }
             if (this.runningServer) {
-                reject('Backstop server already running!');
+                reject(new Error('Backstop server already running!'));
                 return;
             }
             this.runningServer = getTranspiledServer()({}, (error) => {
@@ -128,13 +133,11 @@ class Backstop {
                 return;
             }
             if (!this.runningServer) {
-                reject('No backstop server running');
+                reject(new Error('No backstop server running'));
                 return;
             }
             this.runningServer.close(() => {
-                console.log(chalk.green(
-                    'Backstop server successful stopped'
-                ));
+                console.log(chalk.green('Backstop server successful stopped'));
                 resolve();
                 this.runningServer = null;
             });
@@ -146,7 +149,7 @@ class Backstop {
      *
      * @private
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {Promise}
      */
@@ -158,10 +161,9 @@ class Backstop {
         if (METHODS[method]) {
             this.method = METHODS[method];
         }
-        this.options = Object.assign(
-            {},
-            options
-        );
+        this.options = {
+            ...options
+        };
         this.configFile = configFile;
 
         return this.startServer();
@@ -177,7 +179,7 @@ class Backstop {
     backstop(method) {
         assert.string(method, 'method');
 
-        const configFile = this.configFile;
+        const { configFile } = this;
         return new Promise((resolve, reject) => {
             backstopjs(method, { config: configFile })
                 .then(resolve)
@@ -231,7 +233,8 @@ class Backstop {
      * @returns {Promise|this}
      */
     open() {
-        if (this.isMethod(METHODS.open)) { // eslint-disable-line security/detect-non-literal-fs-filename
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        if (this.isMethod(METHODS.open)) {
             return this.backstop(this.method);
         }
         return this;
@@ -244,9 +247,7 @@ class Backstop {
      * @returns {void}
      */
     done() {
-        console.log(chalk.green(
-            `Backstop ${this.method} successful`
-        ));
+        console.log(chalk.green(`Backstop ${this.method} successful`));
         return this.stopServer().then(() => {
             return process.exit(0);
         });
@@ -257,15 +258,13 @@ class Backstop {
      * the current comparison in default browser.
      *
      * @private
-     * @param {Object} reason - The error message
+     * @param {object} reason - The error message
      * @returns {void}
      */
     fail(reason) {
         assert.object(reason, 'reason');
 
-        console.error(chalk.red(
-            reason
-        ));
+        console.error(chalk.red(reason));
         this.backstop(METHODS.open); // eslint-disable-line security/detect-non-literal-fs-filename
         return this.stopServer().then(() => {
             return process.exit(1);
@@ -277,7 +276,7 @@ class Backstop {
      *
      * @private
      * @param {string} configFile - The backstop config json
-     * @param {Object} options - The cli options
+     * @param {object} options - The cli options
      * @param {string} method - The cli method to be called
      * @returns {void}
      */
@@ -291,10 +290,7 @@ class Backstop {
                 .catch(this.fail.bind(this))
                 .finally(resolve);
         });
-
-
     }
-
 }
 
 // Listen to cli

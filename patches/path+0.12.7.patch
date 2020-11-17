@@ -1,0 +1,13 @@
+diff --git a/node_modules/path/path.js b/node_modules/path/path.js
+index 87b8ee4..21926ce 100644
+--- a/node_modules/path/path.js
++++ b/node_modules/path/path.js
+@@ -22,7 +22,7 @@
+ 'use strict';
+ 
+ 
+-var isWindows = process.platform === 'win32';
++var isWindows = typeof process !== 'undefined' ? process.platform === 'win32' : false;
+ var util = require('util');
+ 
+ 

@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSettings should render correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    <section
+      class="l-grid l-main__transition animate-appear animate-appear-active"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="is-main m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <form
+                  accept-charset="utf-8"
+                  action="/theme/"
+                  class="m-form m-form--theme"
+                  id="m-form--theme"
+                  itemprop="potentialAction"
+                  itemscope=""
+                  itemtype="http://schema.org/Action"
+                  method="post"
+                  novalidate=""
+                  role="form"
+                >
+                  <fieldset
+                    class="m-form__fieldset"
+                  >
+                    <legend
+                      class="m-form__legend is-visually-hidden"
+                    />
+                    <div
+                      class="l-grid__row"
+                    >
+                      <div
+                        class="l-grid__col--6"
+                      >
+                        <div
+                          class="c-toggle"
+                        >
+                          <input
+                            class="c-toggle__input"
+                            id="dark-mode"
+                            type="checkbox"
+                          />
+                          <label
+                            class="c-toggle__label"
+                            for="dark-mode"
+                          >
+                            <span
+                              class="c-toggle__text"
+                            >
+                              Dark mode
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="l-grid__row"
+                    >
+                      <div
+                        class="l-grid__col--6"
+                      >
+                        <div
+                          class="c-toggle"
+                        >
+                          <input
+                            class="c-toggle__input"
+                            id="reduced-motion-toggle"
+                            type="checkbox"
+                          />
+                          <label
+                            class="c-toggle__label"
+                            for="reduced-motion-toggle"
+                          >
+                            <span
+                              class="c-toggle__text"
+                            >
+                              Reduced motion
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      name="_csrf"
+                      type="hidden"
+                      value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+                    />
+                  </fieldset>
+                </form>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

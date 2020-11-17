@@ -1,41 +1,30 @@
 /* eslint-disable immutable/no-this, immutable/no-mutation */
-/* global window, document */
 /**
  * Es6 module for handling browser scrolling actions.
  *
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
- *
- * @requires react
- * @requires prop-types
- * @requires react-redux
- * @requires react-router
- * @requires lodash
- * @requires common/state/scroll/actions
- * @requires common/utils/environment
- * @requires common/utils/scroll-to
- *
- * @changelog
- * - 0.0.3 Added scrollTop after change to react-router@4
- * - 0.0.2 Improved scroll handling
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React, { Component } from 'react';
+import { default as React, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
-import { changeHeaderFixed, changeHeaderVisible } from '../../state/scroll/actions';
+import { hasPassiveEventListeners } from '../../../client/feature-detect/passive-event-listeners';
+import {
+    changeScrollHeaderFixed,
+    changeScrollHeaderVisible
+} from '../../state/scroll/duck';
+import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
 import { isBrowser } from '../../utils/environment';
-import scrollTo, { getPageOffset } from '../../utils/scroll-to';
+import { getPageOffset, scrollTo } from '../../utils/scroll-to';
 
-// @TODO: Should be computed from actual css declaration
+const supportsPassiveEventListeners = hasPassiveEventListeners();
+
+// @TODO Should be computed from actual css declaration
 const HEADER_HEIGHT = 61;
 
 /**
@@ -44,19 +33,17 @@ const HEADER_HEIGHT = 61;
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-function scroller(SourceComponent) {
-
+export function scroller(SourceComponent) {
     /**
      * Class representing a component.
      *
      * @class
-     * @extends React.Component
-     * @property {Function} props.handleScrollChangeHeaderFixed - Callback action for updating redux
-     * @property {Function} props.handleScrollChangeHeaderVisible - Callback action for updating redux
-     * @property {Object} props.location - Current router location properties
+     * @augments React.Component
+     * @property {Function} props.handleChangeScrollHeaderFixed - Callback action for updating redux
+     * @property {Function} props.handleChangeScrollHeaderVisible - Callback action for updating redux
+     * @property {object} props.location - Current router location properties
      */
     class Scroller extends Component {
-
         /**
          * The actual class constructor.
          *
@@ -65,7 +52,7 @@ function scroller(SourceComponent) {
          * We do this just because of completeness.
          *
          * @constructs
-         * @param {Object} [props] - The initial class properties
+         * @param {object} [props] - The initial class properties
          * @returns {void}
          */
         constructor(props) {
@@ -102,32 +89,31 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentDidMount() {
-            isBrowser() && window.addEventListener('scroll', this.onScroll);
-            this.onScroll();
-        }
-
-        /**
-         * Invoked before a mounted component receives new props. React only calls
-         * this method if some of component's props may update.
-         *
-         * @param {Object} [nextProps] - The new class properties
-         * @returns {void}
-         */
-        componentWillReceiveProps (nextProps) {
-            // eslint-disable-next-line react/destructuring-assignment
-            if (this.props.location !== nextProps.location) {
-                this.scrollTop();
+            if (isBrowser()) {
+                // Use our detect's results. passive applied if supported, capture will be false either way.
+                window.addEventListener(
+                    'scroll',
+                    this.onScroll,
+                    supportsPassiveEventListeners ? { passive: true } : false
+                );
             }
+            this.onScroll();
         }
 
         /**
          * Invoked immediately after the component's updates are flushed to
          * the DOM. This method is not called for the initial render.
          *
+         * @param {object} [prevProps] - The previous class properties
          * @returns {void}
          */
-        componentDidUpdate() {
+        componentDidUpdate(prevProps) {
+            const { location } = this.props;
+
             this.onScroll();
+            if (location !== prevProps.location) {
+                this.scrollTop();
+            }
         }
 
         /**
@@ -136,7 +122,9 @@ function scroller(SourceComponent) {
          * @returns {void}
          */
         componentWillUnmount() {
-            isBrowser() && window.removeEventListener('scroll', this.onScroll);
+            if (isBrowser()) {
+                window.removeEventListener('scroll', this.onScroll);
+            }
         }
 
         /**
@@ -146,31 +134,36 @@ function scroller(SourceComponent) {
          */
         onScroll() {
             const {
-                handleScrollChangeHeaderFixed,
-                handleScrollChangeHeaderVisible
+                handleChangeScrollHeaderFixed,
+                handleChangeScrollHeaderVisible
             } = this.props;
             const currentScrollY = getPageOffset();
 
-            handleScrollChangeHeaderFixed(this.headerFixed);
+            handleChangeScrollHeaderFixed(this.headerFixed);
 
             /**
              * User is scrolling up, so show header.
              * Also checking if initial scroll position is used.
              */
             if (
-                (this.previousScrollY > currentScrollY && !this.headerVisible) ||
+                (this.previousScrollY > currentScrollY &&
+                    !this.headerVisible) ||
                 (this.previousScrollY === 0 && currentScrollY === 0)
             ) {
                 this.headerVisible = true;
-                handleScrollChangeHeaderVisible(this.headerVisible);
+                handleChangeScrollHeaderVisible(this.headerVisible);
             }
 
             /**
              * User is scrolling down, so hide header.
              */
-            if (this.previousScrollY < currentScrollY && this.headerVisible && HEADER_HEIGHT < currentScrollY) {
+            if (
+                this.previousScrollY < currentScrollY &&
+                this.headerVisible &&
+                HEADER_HEIGHT < currentScrollY
+            ) {
                 this.headerVisible = false;
-                handleScrollChangeHeaderVisible(this.headerVisible);
+                handleChangeScrollHeaderVisible(this.headerVisible);
             }
 
             this.previousScrollY = currentScrollY;
@@ -181,15 +174,19 @@ function scroller(SourceComponent) {
          *
          * @see {@link https://developer.mozilla.org/de/docs/Web/API/Window/scrollY}
          *
+         * @private
          * @returns {void}
          */
-        scrollTop() {
+        scrollTop = () => {
+            const { reducedMotionSelected } = this.props;
+
             if (getPageOffset()) {
                 scrollTo({
+                    duration: reducedMotionSelected ? 0 : 300,
                     top: 0
                 });
             }
-        }
+        };
 
         /**
          * The required render function to return a single react child element.
@@ -197,6 +194,7 @@ function scroller(SourceComponent) {
          * @returns {ReactElement} React component markup
          */
         render() {
+            // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
     }
@@ -205,18 +203,49 @@ function scroller(SourceComponent) {
      * Validate props via React.PropTypes helpers.
      *
      * @static
-     * @type {Object}
+     * @type {object}
      */
     Scroller.propTypes = {
-        handleScrollChangeHeaderFixed: PropTypes.func.isRequired,
-        handleScrollChangeHeaderVisible: PropTypes.func.isRequired,
+        handleChangeScrollHeaderFixed: PropTypes.func.isRequired,
+        handleChangeScrollHeaderVisible: PropTypes.func.isRequired,
         location: PropTypes.shape({
             hash: PropTypes.string,
             key: PropTypes.string,
             pathname: PropTypes.string,
             search: PropTypes.string,
             state: PropTypes.object
-        }).isRequired
+        }).isRequired,
+        reducedMotionSelected: PropTypes.bool
+    };
+
+    /**
+     * Set defaults if props aren't available.
+     *
+     * @static
+     * @type {object}
+     */
+    Scroller.defaultProps = {
+        reducedMotionSelected: false
+    };
+
+    /**
+     * The component will subscribe to Redux store updates. Any time it updates,
+     * mapStateToProps will be called, Its result must be a plain object,
+     * and it will be merged into the component’s props.
+     *
+     * @private
+     * @param {object<string, *>} state - The current redux store state
+     * @returns {object<string, *>} The mapped state properties
+     */
+    function mapStateToProps(state) {
+        return {
+            reducedMotionSelected: selectStateReducedMotionSelected(state)
+        };
+    }
+
+    const mapDispatchToProps = {
+        handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
+        handleChangeScrollHeaderVisible: changeScrollHeaderVisible
     };
 
     /**
@@ -226,15 +255,9 @@ function scroller(SourceComponent) {
      * some bytes.
      */
     const ScrollerContainer = connect(
-        null,
-        {
-            handleScrollChangeHeaderFixed: changeHeaderFixed,
-            handleScrollChangeHeaderVisible: changeHeaderVisible
-        }
+        mapStateToProps,
+        mapDispatchToProps
     )(withRouter(Scroller));
 
     return ScrollerContainer;
-
 }
-
-export default scroller;

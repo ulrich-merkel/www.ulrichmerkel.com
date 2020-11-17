@@ -4,41 +4,27 @@
  *
  * @file
  * @module
- * @flow weak
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires react
- * @requires prop-types
- * @requires classnames
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 /**
  * Function representing a component to return a single react child element.
  *
- * @param {Object} [props] - The current component props
+ * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
-function ElementFieldset(props) {
-    const {
-        className,
-        ...otherProps
-    } = props;
+export function Fieldset(props) {
+    const { className, ...otherProps } = props;
 
-    const componentClassName = classnames(
-        'm-form__fieldset',
-        className
-    );
+    const componentClassName = classnames('m-form__fieldset', className);
 
     return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <fieldset className={componentClassName} {...otherProps} />
     );
 }
@@ -47,11 +33,8 @@ function ElementFieldset(props) {
  * Validate props via React.PropTypes helpers.
  *
  * @static
- * @type {Object}
+ * @type {object}
  */
-ElementFieldset.propTypes = {
+Fieldset.propTypes = {
     className: PropTypes.string // eslint-disable-line react/require-default-props
 };
-
-
-export default ElementFieldset;

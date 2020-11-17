@@ -117,17 +117,26 @@ $block: '#{$config-ns}m-menu';
         .#{$block}__item,
         [class^='#{$block}__item--'],
         [class*=' #{$block}__item--'] {
-            // @TODO: use same box model as main menu to improve click targets
+            // @TODO use same box model as main menu to improve click targets
             padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-1) 0;
-            @include var(color, --theme-module-menu-aside-item-search-color);
+            @include var(color, --theme-module-menu-aside-item-color);
 
             will-change: color;
             transition: color $config-transition-arguments;
+            @include reducedMotion;
 
             &.is-active {
-                @include var(color, --theme-module-menu-aside-item-search-active-color);
+                @include var(color, --theme-module-menu-aside-item-active-color);
             }
 
+            @if ($config-support-hovers) {
+                .no-touch &:hover,
+                .no-touchevents &:hover,
+                .no-js &:hover,
+                &:focus {
+                    @include var(color, --theme-module-menu-aside-item-hover-color);
+                }
+            }
         }
 
         .#{$block}__list-item--theme {
@@ -201,6 +210,7 @@ $block: '#{$config-ns}m-menu';
 
                     will-change: width;
                     transition: width $config-transition-arguments;
+                    @include reducedMotion;
                 }
             }
 

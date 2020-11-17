@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleTextTime should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-text__time is-centered"
+  >
+    <time
+      class="c-time"
+    >
+      123
+    </time>
+    <span
+      class="c-time--separator"
+    >
+      -
+    </span>
+    <time
+      class="c-time"
+    >
+      456
+    </time>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleTextTime should return null if content is empty 1`] = `<DocumentFragment />`;
