@@ -13,7 +13,6 @@ $theme-default: (
     --theme-base-button-color-hover: $config-color-pickled-bluewood,
     --theme-base-button-color-visited: $config-color-java,
     --theme-base-button-color: $config-color-java,
-    --theme-base-button-outline-focus: $config-color-pickled-bluewood,
 
     // Base link
     --theme-base-link-attr-tel-color-hover: $config-color-pickled-bluewood,
@@ -112,9 +111,7 @@ $theme-default: (
     --theme-component-type-p-font-weight: $config-font-weight-light,
 
     // Layout dialog
-    --theme-layout-dialog-background-background:  rgba(255, 255, 255, 0.97),//$config-color-white,//$config-color-pickled-bluewood,
-    // --theme-layout-dialog-background-opacity: 0.95,
-    // --theme-layout-dialog-search-input-background: $config-color-pickled-bluewood,
+    --theme-layout-dialog-background-background: rgba(255, 255, 255, 0.97),
     --theme-layout-dialog-text-color: $config-color-pickled-bluewood,
 
     // Layout footer
@@ -164,7 +161,7 @@ $theme-default: (
     --theme-module-form-label-color: $config-color-java,
 
     // Module key-visual
-    --theme-module-key-visual-gradient: linear-gradient(to bottom, #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%), // (#fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%),
+    --theme-module-key-visual-gradient: linear-gradient(to bottom, #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%),
     --theme-module-key-visual-headline-background: $config-color-concrete,
     --theme-module-key-visual-headline-color: $config-color-pickled-bluewood,
     --theme-module-key-visual-text-background: $config-color-concrete,
@@ -213,18 +210,17 @@ $color-scheme-dark: (
     --theme-base-button-color-active: $config-color-java,
     --theme-base-button-color-focus: $config-color-java,
     --theme-base-button-color-hover: $config-color-java,
-    --theme-base-button-color-visited: $config-color-test,
-    --theme-base-button-color: $config-color-test,
-    --theme-base-button-outline-focus: $config-color-java,
+    --theme-base-button-color-visited: $config-color-scooter,
+    --theme-base-button-color: $config-color-scooter,
 
     // Base link
     --theme-base-link-attr-tel-color-hover: $config-color-java,
-    --theme-base-link-attr-tel-color: $config-color-test,
+    --theme-base-link-attr-tel-color: $config-color-scooter,
     --theme-base-link-color-active: $config-color-java,
     --theme-base-link-color-focus: $config-color-java,
     --theme-base-link-color-hover: $config-color-java,
-    --theme-base-link-color-visited: $config-color-test,
-    --theme-base-link-color: $config-color-test,
+    --theme-base-link-color-visited: $config-color-scooter,
+    --theme-base-link-color: $config-color-scooter,
     --theme-base-link-outline-focus: $config-color-java,
 
     // Base type
@@ -232,64 +228,42 @@ $color-scheme-dark: (
 
     // Component btn
     --theme-component-btn-background-hover: $config-color-java,
-    --theme-component-btn-background: $config-color-test,
-    --theme-component-btn-color-active: $config-color-white,
-    --theme-component-btn-color-hover: $config-color-white,
-    --theme-component-btn-color-visited: $config-color-white,
-    --theme-component-btn-color: $config-color-white,
+    --theme-component-btn-background: $config-color-scooter,
     --theme-component-btn-font-weight: $config-font-weight-bold,
-    --theme-component-btn-letter-spacing: 1px,
-    --theme-component-btn-opacity-disabled: 0.4,
-    --theme-component-btn-secondary-background: $config-color-concrete,
-    --theme-component-btn-secondary-color:$config-color-java,
-    --theme-component-btn-secondary-font-size: 90%,
-    --theme-component-btn-submit-border: 1px solid transparent,
-    --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-test,
-    --theme-component-btn-submit-is-pending-border: 4px solid $config-color-concrete,
+    --theme-component-btn-secondary-color: $config-color-java,
+    --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-scooter,
 
     // Component pie
     --theme-component-pie-circle-background-color: $config-color-grey,
     --theme-component-pie-circle-before-background-color: $config-color-tundora,
-    // --theme-component-pie-mask-background-color: $config-color-dove-grey,
 
     // Component type
     --theme-component-type-h-color: $config-color-white,
 
     // Layout dialog
-    --theme-layout-dialog-background-background: rgba(#292929, 0.97),//$config-color-tundora,
+    --theme-layout-dialog-background-background: rgba(#292929, 0.97),
     --theme-layout-dialog-text-color: $config-color-white,
 
     // Layout header
-    --theme-layout-header-background: $config-color-color-heavy-metal,
+    --theme-layout-header-background: $config-color-heavy-metal,
 
     // Layout react
     --theme-layout-react-background: $config-color-tundora,
 
     // Layout footer
-    --theme-layout-footer-background: $config-color-color-heavy-metal,
+    --theme-layout-footer-background: $config-color-heavy-metal,
 
     // Module cornerstone
     --theme-module-cornerstone-highlight-color: $config-color-white,
     --theme-module-cornerstone-highlight-background: $config-color-shark,
-    // --theme-module-cornerstone-item-hover-bubble-background: $config-color-milano-red,
     --theme-module-cornerstone-item-hover-description-content-background: $config-color-shark,
     --theme-module-cornerstone-bubble-border: 2px solid $config-color-tundora,
     --theme-module-cornerstone-bubble-intro-border: 2px solid $config-color-tundora,
 
     // Module form
     --theme-module-form-control-border-bottom: 1px solid $config-color-shark,
-    // --theme-module-form-control-border-color-focus: $config-color-milano-red,
     --theme-module-form-control-background: $config-color-tundora,
-    // --theme-module-form-control-color-label-focus: $config-color-color-pine-tree,
     --theme-module-form-control-color: $config-color-alto,
-    // --theme-module-form-label-color-focus: $config-color-color-pine-tree,
-    // --theme-module-form-label-color: $config-color-milano-red,
-    // --theme-layout-dialog-search-input-background: $config-color-tundora,
-
-    // Module menu footer
-    // --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-milano-red,
-    // --theme-module-menu-footer-item-color-active: $config-color-milano-red,
-    // --theme-module-menu-footer-item-color: $config-color-color-cotton-seed,
 
     // Module key-visual
     --theme-module-key-visual-gradient: linear-gradient(to bottom, #656565 0%, #292929 79%, #2d2d2d 91%, #3d3d3d 100%),
@@ -299,28 +273,17 @@ $color-scheme-dark: (
     --theme-module-key-visual-work-background: $config-color-dove-grey,
 
     // Module menu
-    --theme-module-menu-aside-item-active-color: $config-color-white,
-    --theme-module-menu-aside-item-hover-color: $config-color-test,
-    --theme-module-menu-aside-item-color: $config-color-white,
-    --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-test,
-    --theme-module-menu-footer-item-color-active: $config-color-test,
-    --theme-module-menu-footer-item-color: $config-color-alto,
-    --theme-module-menu-footer-item-font-size: 90%,
-    --theme-module-menu-footer-social-item-font-size: 150%,
-    --theme-module-menu-main-item-active-background: $config-color-test,
-    --theme-module-menu-main-item-active-color: $config-color-white,
-    --theme-module-menu-main-item-background: $config-color-color-heavy-metal,
-    --theme-module-menu-main-item-color: $config-color-white,
+    --theme-module-menu-aside-item-hover-color: $config-color-scooter,
+    --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-scooter,
+    --theme-module-menu-footer-item-color-active: $config-color-scooter,
+    --theme-module-menu-main-item-active-background: $config-color-scooter,
+    --theme-module-menu-main-item-background: $config-color-heavy-metal,
 
     // Module nav
-    --theme-module-nav-toggle-color: $config-color-color-cotton-seed,
+    --theme-module-nav-toggle-color: $config-color-cotton-seed,
 
     // Module progress
-    --theme-module-progess-background: $config-color-color-pine-tree,
-    // --theme-module-progess-value-background: $config-color-milano-red,
-
-    // Module service
-    // --theme-module-service-icon-background: $config-color-dove-grey
+    --theme-module-progess-background: $config-color-pine-tree
 );
 
 // Layouts
