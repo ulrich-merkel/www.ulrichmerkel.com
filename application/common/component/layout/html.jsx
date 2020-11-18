@@ -16,7 +16,6 @@ import PropTypes from 'prop-types';
 import { isEmpty, isString, get, omit } from 'lodash';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-
 import serialize from 'serialize-javascript';
 
 import { selectStateIntlLocale } from '../../state/intl/selector';

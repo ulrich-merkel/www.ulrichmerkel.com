@@ -68,8 +68,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: [/node_modules/, `${__dirname}/../build/`],
+                // @see {@link https://github.com/microsoft/TypeScript-Babel-Starter}
+                test: /\.(ts|js)x?$/,
+                exclude: [`${__dirname}/../build/`],
                 use: [
                     {
                         loader: 'babel-loader'

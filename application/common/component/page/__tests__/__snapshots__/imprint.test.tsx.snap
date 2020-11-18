@@ -8,7 +8,7 @@ exports[`PageImprint should render correctly 1`] = `
     role="main"
   >
     <section
-      class="l-grid l-main__transition animate-appear animate-appear-active"
+      class="l-grid l-main__transition"
     >
       <div
         class="l-grid__spaced--small"

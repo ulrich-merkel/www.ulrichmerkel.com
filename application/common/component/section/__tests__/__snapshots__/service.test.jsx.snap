@@ -3,7 +3,7 @@
 exports[`SectionService should render correctly 1`] = `
 <DocumentFragment>
   <section
-    class="l-grid l-main__transition animate-appear animate-appear-active"
+    class="l-grid l-main__transition"
   >
     <div
       class="l-grid__spaced--small"

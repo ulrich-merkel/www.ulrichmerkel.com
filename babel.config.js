@@ -1,8 +1,12 @@
 /* eslint-disable immutable/no-mutation */
 module.exports = {
     include: [/\.(js|jsx|ts|tsx)$/],
-    plugins: ['@babel/plugin-proposal-class-properties'],
+    plugins: [
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-object-rest-spread'
+    ],
     presets: [
+        ['@babel/preset-env'],
         [
             '@babel/preset-react',
             {
@@ -14,7 +18,6 @@ module.exports = {
             {
                 sourceMaps: 'inline'
             }
-        ],
-        ['@babel/preset-env']
+        ]
     ]
 };
