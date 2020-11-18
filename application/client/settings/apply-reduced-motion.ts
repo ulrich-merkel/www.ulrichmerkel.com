@@ -27,17 +27,13 @@ export function applyReducedMotion(reducedMotionSelected: string): void {
     const add = [`reduced-motion-${reducedMotionSelected}`];
 
     // Remove other theming css files
-    const remove = MOTION_PREFERENCES
-        .filter(function filterAvailableThemes(reducedMotion) {
-            return reducedMotion !== reducedMotionSelected;
-        })
-        .map(function mapAvailableThemes(reducedMotion) {
-            return `reduced-motion-${reducedMotion}`
-        });
+    const remove = MOTION_PREFERENCES.filter(function filterAvailableThemes(
+        reducedMotion
+    ) {
+        return reducedMotion !== reducedMotionSelected;
+    }).map(function mapAvailableThemes(reducedMotion) {
+        return `reduced-motion-${reducedMotion}`;
+    });
 
-    setDomNodeClassName(
-        'doc-root',
-        add,
-        remove
-    );
+    setDomNodeClassName('doc-root', add, remove);
 }

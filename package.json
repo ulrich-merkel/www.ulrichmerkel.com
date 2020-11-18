@@ -113,8 +113,8 @@
     "watch:css": "npm run css -- --watch",
     "watch:server": "npm run transpile:server -- --watch",
     "watch:static": "npm run static -- --watch",
-    "prettier:write": "prettier --write $npm_package_directories_source_application",
-    "prettier:check": "prettier --check $npm_package_directories_source_application",
+    "prettier:write": "prettier --write $npm_package_directories_source_application && prettier --write $npm_package_directories_source_public/scss/",
+    "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/",
     "watch": "npm-run-all --parallel watch:*"
   },
   "husky": {
@@ -123,8 +123,8 @@
     }
   },
   "lint-staged": {
-    "*.js": "prettier --write --ignore-unknown && npm run test:eslint",
-    "*.css": "npm run test:css"
+    "*.js": "prettier --write && npm run test:eslint",
+    "*.css": "prettier --write && npm run test:css"
   },
   "main": "application/server/bootstrap.js",
   "browser": "application/client/bootstrap.js",
@@ -208,6 +208,14 @@
     "@babel/preset-react": "7.12.5",
     "@babel/preset-typescript": "7.12.1",
     "@testing-library/react": "11.1.2",
+    "@types/jest": "26.0.15",
+    "@types/lodash": "4.14.165",
+    "@types/node": "14.14.8",
+    "@types/react": "16.9.56",
+    "@types/react-redux": "7.1.11",
+    "@types/react-router": "5.1.8",
+    "@types/react-router-dom": "5.1.6",
+    "@types/redux": "3.6.0",
     "@typescript-eslint/eslint-plugin": "4.8.0",
     "@typescript-eslint/parser": "4.8.0",
     "autoprefixer": "10.0.2",

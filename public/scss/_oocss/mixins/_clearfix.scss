@@ -9,7 +9,6 @@
 ///
 /// @see http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix {
-
     // for IE 6/7 only
     @if $config-support-legacy-browsers {
         *zoom: 1;

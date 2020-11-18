@@ -7,7 +7,6 @@
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     img {
         // Add wrapper for missing image styling
         position: relative;
@@ -50,7 +49,10 @@
             font-style: normal;
             text-align: center;
 
-            @include var(font-family, --theme-base-img-missing-after-font-family);
+            @include var(
+                font-family,
+                --theme-base-img-missing-after-font-family
+            );
             @include var(content, --theme-base-img-missing-after-content);
             @include font-size($config-type-scale-9);
             @include var(color, --theme-base-img-missing-color);
@@ -63,5 +65,4 @@
             filter: brightness(0.8) contrast(1.2);
         }
     }
-
 }

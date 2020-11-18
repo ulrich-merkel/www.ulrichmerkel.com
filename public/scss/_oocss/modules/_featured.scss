@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-featured';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     // Defaults
     .#{$block},
     [class^='#{$block}--'],
@@ -63,7 +62,6 @@ $block: '#{$config-ns}m-featured';
             .no-touchevents &:hover,
             .no-js &:hover,
             &:focus {
-
                 .#{$block}__hover {
                     opacity: 1;
                     transform: scale(1);
@@ -89,10 +87,8 @@ $block: '#{$config-ns}m-featured';
                         mix-blend-mode: overlay;
                     }
                 }
-
             }
         }
-
     }
 
     .#{$block}__picture {
@@ -134,7 +130,9 @@ $block: '#{$config-ns}m-featured';
         transform: scale(1.025);
 
         will-change: bottom, opacity, transform;
-        transition: bottom $config-transition-arguments, opacity $config-transition-arguments, transform $config-transition-arguments;
+        transition: bottom $config-transition-arguments,
+            opacity $config-transition-arguments,
+            transform $config-transition-arguments;
         @include reducedMotion;
 
         @include breakpoint(320px) {
@@ -178,7 +176,6 @@ $block: '#{$config-ns}m-featured';
             .#{$block}__headline {
                 top: rem-calc($config-type-scale-14);
             }
-
         }
     }
 
@@ -211,7 +208,8 @@ $block: '#{$config-ns}m-featured';
         opacity: 0;
 
         will-change: top;
-        transition: top $config-transition-arguments, opacity $config-transition-arguments;
+        transition: top $config-transition-arguments,
+            opacity $config-transition-arguments;
         @include reducedMotion;
     }
 
@@ -225,5 +223,4 @@ $block: '#{$config-ns}m-featured';
             // stylelint-enable declaration-no-important
         }
     }
-
 }

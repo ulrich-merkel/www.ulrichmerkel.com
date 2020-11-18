@@ -9,7 +9,6 @@ $block: '#{$config-ns}l-header';
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     .#{$block} {
         position: relative;
         z-index: 2;
@@ -55,5 +54,4 @@ $block: '#{$config-ns}l-header';
             display: none;
         }
     }
-
 }

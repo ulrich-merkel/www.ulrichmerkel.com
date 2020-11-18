@@ -9,7 +9,6 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { isString } from 'lodash';
 import {
     ChangeReducedMotionSelectedActionType,
     ReducedMotionActionTypes,
@@ -39,7 +38,10 @@ export const REDUCED_MOTION_TOGGLE_SELECTED = `${REDUCED_MOTION_RESOURCE_NAME}/R
 /**
  * @type {Array<string>}
  */
-export const MOTION_PREFERENCES = [MOTION_PREFERENCES_NO_PREFERENCE, MOTION_PREFERENCES_REDUCE];
+export const MOTION_PREFERENCES = [
+    MOTION_PREFERENCES_NO_PREFERENCE,
+    MOTION_PREFERENCES_REDUCE
+];
 
 /**
  * Define pubsub message name for theme change.
@@ -65,8 +67,7 @@ export const initialState: ReducedMotionStateType = {
  *
  * @returns {object} The redux action playload
  */
-export function toggleReducedMotionSelected(
-): ChangeReducedMotionSelectedActionType {
+export function toggleReducedMotionSelected(): ChangeReducedMotionSelectedActionType {
     return {
         type: REDUCED_MOTION_TOGGLE_SELECTED
     };
@@ -86,9 +87,10 @@ export function reducer(
 ): ReducedMotionStateType {
     switch (action.type) {
         case REDUCED_MOTION_TOGGLE_SELECTED: {
-            const selected = state.payload.selected === MOTION_PREFERENCES_REDUCE
-                ? MOTION_PREFERENCES_NO_PREFERENCE
-                : MOTION_PREFERENCES_REDUCE;
+            const selected =
+                state.payload.selected === MOTION_PREFERENCES_REDUCE
+                    ? MOTION_PREFERENCES_NO_PREFERENCE
+                    : MOTION_PREFERENCES_REDUCE;
             return {
                 meta: {
                     ...state.meta,

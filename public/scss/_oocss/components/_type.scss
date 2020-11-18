@@ -55,7 +55,6 @@ $block: '#{$config-ns}c-type';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     h1,
     .#{$block}--h1,
     [class^='#{$block}--h1--'],
@@ -94,7 +93,6 @@ $block: '#{$config-ns}c-type';
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
-
         &.has-border {
             position: relative;
 
@@ -108,7 +106,10 @@ $block: '#{$config-ns}c-type';
                 height: 0;
                 margin: 0;
                 content: ' ';
-                @include var(border-top, --theme-component-type-h-has-border-border-top);
+                @include var(
+                    border-top,
+                    --theme-component-type-h-has-border-border-top
+                );
             }
 
             &.is-centered {
@@ -117,14 +118,12 @@ $block: '#{$config-ns}c-type';
                 }
             }
         }
-
     }
 
     .is-centered {
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;
         }
-
     }
 
     .has-columns--2 {
@@ -183,5 +182,4 @@ $block: '#{$config-ns}c-type';
             display: none;
         }
     }
-
 }

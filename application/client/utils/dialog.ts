@@ -18,7 +18,7 @@ let showTimer: number = 0;
  *
  * @returns {void}
  */
-export function showDialog (): void {
+export function showDialog(): void {
     clearTimeout(showTimer);
     showTimer = setTimeout(function () {
         const doc = getDocumentDomNode();
@@ -26,7 +26,9 @@ export function showDialog (): void {
             return;
         }
 
-        const scrollY = doc.documentElement.style.getPropertyValue('--scroll-y');
+        const scrollY = doc.documentElement.style.getPropertyValue(
+            '--scroll-y'
+        );
         const body = doc.body;
         body.style.position = 'fixed';
         body.style.top = `-${scrollY}`;
@@ -38,7 +40,7 @@ export function showDialog (): void {
  *
  * @returns {void}
  */
-export function closeDialog (): void {
+export function closeDialog(): void {
     const doc = getDocumentDomNode();
     if (!doc) {
         return;

@@ -1,4 +1,4 @@
-import { default as React, Component } from 'react';
+import { default as React, Component, FunctionComponent } from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
@@ -12,14 +12,14 @@ import { RootState } from '../../common/state/configure-store';
  *
  * @see {@link https://testing-library.com/docs/react-testing-library/setup#custom-render}
  *
+ * @function
  * @private
  * @param {object} [state] - The state to be used, falls back to mockState
  * @param {object} [props] - The react provider options
  * @returns {ReactElement} The component to be rendered
  */
-function AllTestProviders(state: RootState, props: Object): Component {
-    // eslint-disable-next-line react/prop-types
-    const { children } = props;
+const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
+    const children = props?.children;
     const store = getMockedStore(state);
 
     return (
@@ -27,7 +27,7 @@ function AllTestProviders(state: RootState, props: Object): Component {
             <MemoryRouter>{children}</MemoryRouter>
         </Provider>
     );
-}
+};
 
 /**
  * Overrider the "default" render function with custom adjustments.

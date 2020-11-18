@@ -25,7 +25,7 @@ $block: '#{$config-ns}c-toggle';
             }
         }
 
-        .#{$block}__input[type=checkbox] {
+        .#{$block}__input[type='checkbox'] {
             height: 0;
             width: 0;
             visibility: hidden;
@@ -67,7 +67,6 @@ $block: '#{$config-ns}c-toggle';
             will-change: left;
             transition: left $config-theme-transition-arguments;
             @include reducedMotion;
-
         }
 
         .#{$block}__input:checked + .#{$block}__label::before {

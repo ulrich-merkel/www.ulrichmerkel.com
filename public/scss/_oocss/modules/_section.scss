@@ -9,12 +9,10 @@ $block: '#{$config-ns}m-section';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     // Defaults
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
         display: block;
     }
-
 }

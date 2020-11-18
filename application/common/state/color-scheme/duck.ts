@@ -65,8 +65,7 @@ export const initialState: ColorSchemeStateType = {
  *
  * @returns {object} The redux action playload
  */
-export function toggleThemeSelected(
-): ChangeThemeSelectedActionType {
+export function toggleThemeSelected(): ChangeThemeSelectedActionType {
     return {
         type: COLOR_SCHEME_TOGGLE_SELECTED
     };
@@ -86,9 +85,10 @@ export function reducer(
 ): ColorSchemeStateType {
     switch (action.type) {
         case COLOR_SCHEME_TOGGLE_SELECTED: {
-            const selected = state.payload.selected === COLOR_SCHEME_LIGHT
-                ? COLOR_SCHEME_DARK
-                : COLOR_SCHEME_LIGHT;
+            const selected =
+                state.payload.selected === COLOR_SCHEME_LIGHT
+                    ? COLOR_SCHEME_DARK
+                    : COLOR_SCHEME_LIGHT;
             return {
                 meta: {
                     ...state.meta,

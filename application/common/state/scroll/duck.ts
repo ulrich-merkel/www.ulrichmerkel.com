@@ -10,7 +10,12 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import { isBoolean } from 'lodash';
-import { ScrollStateType, ScrollActionTypes } from './types';
+import {
+    ScrollStateType,
+    ScrollActionTypes,
+    HeaderFixedActionType,
+    HeaderVisibleActionType
+} from './types';
 
 /**
  * @type {string}
@@ -48,7 +53,7 @@ export const initialState: ScrollStateType = {
  */
 export function changeScrollHeaderFixed(
     isHeaderFixed: boolean
-): ScrollActionTypes {
+): HeaderFixedActionType {
     return {
         type: SCROLL_HEADER_FIXED,
         isHeaderFixed
@@ -63,7 +68,7 @@ export function changeScrollHeaderFixed(
  */
 export function changeScrollHeaderVisible(
     isHeaderVisible: boolean
-): ScrollActionTypes {
+): HeaderVisibleActionType {
     return {
         type: SCROLL_HEADER_VISIBLE,
         isHeaderVisible
