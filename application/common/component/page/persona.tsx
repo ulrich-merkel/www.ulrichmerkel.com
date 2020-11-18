@@ -8,7 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
+import { default as React, FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
 
 import { addContent } from '../decorator/add-content';
@@ -28,11 +28,12 @@ type PageProps = {
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {object} [props.content={}] - The component translation config
  * @returns {ReactElement} React component markup
  */
-function Page(props: PageProps) {
+const Page: FunctionComponent<PageProps> = (props) => {
     const { content } = props;
     const contentSection = getContentSection(content);
 

@@ -20,7 +20,7 @@ import { ModuleArticle } from '../module/article';
  * Function representing a component to return a single react child element.
  *
  * @param {object} [props] - The current component props
- * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
+ * @param {Array|string|ReactElement} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {object} [props.content={}] - The content config input
  * @param {boolean} [props.isMain=false] - Whether the component text should be displayed as main article or not
  * @returns {ReactElement} React component markup

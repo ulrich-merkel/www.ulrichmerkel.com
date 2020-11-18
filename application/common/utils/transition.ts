@@ -6,12 +6,19 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
+import { isBoolean, isNumber } from 'lodash';
+
 interface Transition {
     appear: boolean;
     className: string;
     classNames: string;
     in: boolean;
     timeout: number;
+}
+
+interface GetSectionTransitionParams {
+    pageViewsAfterReload?: number;
+    reducedMotionSelectedReduce?: boolean;
 }
 
 const transition: Transition = {
@@ -25,22 +32,26 @@ const transition: Transition = {
 /**
  * Get transition config based on page view count.
  *
- * @param {number} pageViewsAfterReload - The redux page views state
- * @param {boolean} reducedMotionSelectedReduce - The redux state for reduced motion
+ * @param {object} params - All transition parameters
+ * @param {number} [params.pageViewsAfterReload] - The redux page views state
+ * @param {boolean} [params.reducedMotionSelectedReduce] - The redux state for reduced motion
  * @returns {object} The ReactCSSTransitionGroup transition config
  */
-export function getSectionTransition(pageViewsAfterReload: number, reducedMotionSelectedReduce: boolean): Transition {
-    if (pageViewsAfterReload <= 1) {
+export function getSectionTransition(params: GetSectionTransitionParams): Transition {
+    const { pageViewsAfterReload, reducedMotionSelectedReduce } = params;
+    const timeout = isBoolean(reducedMotionSelectedReduce) && reducedMotionSelectedReduce ? 0 : transition.timeout;
+
+    if (isNumber(pageViewsAfterReload) && pageViewsAfterReload <= 1) {
         return {
             ...transition,
             in: false,
             appear: false,
-            timeout: reducedMotionSelectedReduce ? 0 : transition.timeout
+            timeout
         };
     }
 
     return {
         ...transition,
-        timeout: reducedMotionSelectedReduce ? 0 : transition.timeout
+        timeout
     }
 }
