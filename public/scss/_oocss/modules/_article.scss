@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-article';
 
 // Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
-
     // defaults
     .#{$block},
     [class^='#{$block}--'],
@@ -40,5 +39,4 @@ $block: '#{$config-ns}m-article';
     .#{$block}__button {
         margin-bottom: rem-calc(24);
     }
-
 }

@@ -43,6 +43,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             />
         </LayoutMain>
     );
-}
+};
 
 export const PageImprint = addPageTracking(addContent('PageImprint')(Page));

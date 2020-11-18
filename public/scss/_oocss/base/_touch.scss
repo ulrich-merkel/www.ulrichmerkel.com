@@ -7,9 +7,7 @@
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     html {
-
         // Remove click delay on touch devices for mobile ie
         //
         // @see http://www.smashingmagazine.com/2014/10/21/providing-a-native-experience-with-web-technologies/
@@ -18,17 +16,15 @@
             -ms-touch-action: manipulation; // IE 10
         }
         touch-action: manipulation; // IE 11+
-
     }
 
     body {
-
         @if ($config-support-prefix-webkit) {
-
             // Mobile touch tab color for iOS
-            @include var(-webkit-tap-highlight-color, --theme-base-touch-tap-highlight-color);
-
+            @include var(
+                -webkit-tap-highlight-color,
+                --theme-base-touch-tap-highlight-color
+            );
         }
     }
-
 }

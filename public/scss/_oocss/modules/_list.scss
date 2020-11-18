@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-list';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     // Defaults
     .#{$block},
     [class^='#{$block}--'],
@@ -34,7 +33,6 @@ $block: '#{$config-ns}m-list';
         }
 
         .#{$block}__item {
-
             // Just show hover for non-touch devices
             @if ($config-support-hovers) {
                 .no-touch &,
@@ -48,9 +46,7 @@ $block: '#{$config-ns}m-list';
                     }
                 }
             }
-
         }
-
     }
 
     .#{$block}--reading {
@@ -76,10 +72,12 @@ $block: '#{$config-ns}m-list';
                 .no-touch &:hover,
                 .no-touchevents &:hover,
                 .no-js &:hover {
-                    @include var(color, --theme-module-broadcast-list-item-color-hover);
+                    @include var(
+                        color,
+                        --theme-module-broadcast-list-item-color-hover
+                    );
                 }
             }
-
         }
         .#{$block}__label,
         .#{$block}__description {

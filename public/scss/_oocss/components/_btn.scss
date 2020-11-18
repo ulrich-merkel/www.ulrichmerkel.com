@@ -21,7 +21,6 @@ $block: '#{$config-ns}c-btn';
 
 // Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
-
     @include rotation;
 
     // Defaults
@@ -31,7 +30,9 @@ $block: '#{$config-ns}c-btn';
         position: relative;
         display: inline-block;
         margin: 0;
-        padding: rem-calc($config-type-scale-7) rem-calc($config-type-scale-13) rem-calc($config-type-scale-5);
+        padding: rem-calc($config-type-scale-7)
+            rem-calc($config-type-scale-13)
+            rem-calc($config-type-scale-5);
 
         font-family: inherit;
         font-size: inherit;
@@ -47,7 +48,9 @@ $block: '#{$config-ns}c-btn';
         outline: none;
 
         will-change: background, color, opacity;
-        transition: background $config-transition-arguments, color $config-transition-arguments, opacity $config-transition-arguments;
+        transition: background $config-transition-arguments,
+            color $config-transition-arguments,
+            opacity $config-transition-arguments;
         @include reducedMotion;
 
         // Put link pseudo-classes in right order (:link :visited :hover :active) for
@@ -70,7 +73,10 @@ $block: '#{$config-ns}c-btn';
                 // stylelint-disable declaration-no-important
                 text-decoration: none !important;
                 // stylelint-enable declaration-no-important
-                @include var(background, --theme-component-btn-background-hover);
+                @include var(
+                    background,
+                    --theme-component-btn-background-hover
+                );
 
                 .#{$block}__label {
                     transform: translateY(-2px);
@@ -99,7 +105,9 @@ $block: '#{$config-ns}c-btn';
         }
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
-            padding: rem-calc($config-type-scale-12) rem-calc($config-type-scale-13 * 2) rem-calc($config-type-scale-11);
+            padding: rem-calc($config-type-scale-12)
+                rem-calc($config-type-scale-13 * 2)
+                rem-calc($config-type-scale-11);
         }
     }
 
@@ -125,7 +133,6 @@ $block: '#{$config-ns}c-btn';
             transition: width $config-transition-arguments;
             @include reducedMotion;
         }
-
     }
 
     .#{$block}--secondary {
@@ -135,7 +142,9 @@ $block: '#{$config-ns}c-btn';
     }
 
     .#{$block}--small {
-        padding: rem-calc($config-type-scale-8) rem-calc($config-type-scale-13) rem-calc($config-type-scale-7);
+        padding: rem-calc($config-type-scale-8)
+            rem-calc($config-type-scale-13)
+            rem-calc($config-type-scale-7);
     }
 
     .#{$block}--clear {
@@ -155,8 +164,14 @@ $block: '#{$config-ns}c-btn';
             height: 60px;
             padding: 0;
             background-color: transparent;
-            @include var(border, --theme-component-btn-submit-is-pending-border);
-            @include var(border-top, --theme-component-btn-submit-is-pending-border-top);
+            @include var(
+                border,
+                --theme-component-btn-submit-is-pending-border
+            );
+            @include var(
+                border-top,
+                --theme-component-btn-submit-is-pending-border-top
+            );
             border-radius: 50%;
             transform: rotate(360deg);
             transition: 0.6s;
@@ -174,6 +189,5 @@ $block: '#{$config-ns}c-btn';
         [class*=' #{$block}--'] {
             padding-left: 0;
         }
-
     }
 }

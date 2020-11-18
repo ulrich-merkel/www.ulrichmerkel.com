@@ -11,27 +11,46 @@ $block: '#{$config-ns}c-flip';
 
 @mixin move-one {
     @keyframes move-one {
-        0% { transform: rotateX(0deg); }
-        25% { transform: rotateX(180deg); }
-        50% { transform: rotateX(180deg); }
-        75% { transform: rotateX(360deg); }
-        100% { transform: rotateX(360deg); }
+        0% {
+            transform: rotateX(0deg);
+        }
+        25% {
+            transform: rotateX(180deg);
+        }
+        50% {
+            transform: rotateX(180deg);
+        }
+        75% {
+            transform: rotateX(360deg);
+        }
+        100% {
+            transform: rotateX(360deg);
+        }
     }
 }
 
 @mixin move-two {
     @keyframes move-two {
-        0% { transform: rotateX(180deg); }
-        25% { transform: rotateX(0deg); }
-        50% { transform: rotateX(0deg); }
-        75% { transform: rotateX(-180deg); }
-        100% { transform: rotateX(-180deg); }
+        0% {
+            transform: rotateX(180deg);
+        }
+        25% {
+            transform: rotateX(0deg);
+        }
+        50% {
+            transform: rotateX(0deg);
+        }
+        75% {
+            transform: rotateX(-180deg);
+        }
+        100% {
+            transform: rotateX(-180deg);
+        }
     }
 }
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     @include move-one;
     @include move-two;
 
@@ -49,7 +68,7 @@ $block: '#{$config-ns}c-flip';
         margin-left: -40px;
         font-size: rem-calc($config-type-scale-12);
         line-height: rem-calc(150);
-        @include var(color,  --theme-component-flip-color);
+        @include var(color, --theme-component-flip-color);
         text-align: center;
         transform-style: preserve-3d;
     }
@@ -67,13 +86,19 @@ $block: '#{$config-ns}c-flip';
 
     .#{$block}__front {
         z-index: 3;
-        @include var(background-color, --theme-component-flip-front-background-color);
+        @include var(
+            background-color,
+            --theme-component-flip-front-background-color
+        );
         animation: move-one 1s infinite ease 0.1s;
     }
 
     .#{$block}__back {
         z-index: 1;
-        @include var(background-color, --theme-component-flip-back-background-color);
+        @include var(
+            background-color,
+            --theme-component-flip-back-background-color
+        );
         transform: rotateX(180deg);
         animation: move-two 1s infinite ease 0.1s;
     }

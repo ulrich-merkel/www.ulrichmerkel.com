@@ -12,7 +12,6 @@ $block: '#{$config-ns}c-font-icon';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     /* stylelint-disable declaration-colon-newline-after */
     @font-face {
         font-family: 'fonticons';
@@ -23,7 +22,6 @@ $block: '#{$config-ns}c-font-icon';
             url('#{$fonticons}.svg?41546266#fonticons') format('svg');
         font-style: normal;
         font-weight: $config-font-weight-normal;
-
     }
     /* stylelint-enable declaration-colon-newline-after */
 

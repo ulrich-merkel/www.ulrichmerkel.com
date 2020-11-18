@@ -12,7 +12,11 @@ import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
 import { RootState } from '../configure-store';
-import { initialState, REDUCED_MOTION_RESOURCE_NAME, MOTION_PREFERENCES_REDUCE } from './duck';
+import {
+    initialState,
+    REDUCED_MOTION_RESOURCE_NAME,
+    MOTION_PREFERENCES_REDUCE
+} from './duck';
 import { ReducedMotionStateType } from './types';
 
 /**

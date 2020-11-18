@@ -27,7 +27,7 @@ const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
             <MemoryRouter>{children}</MemoryRouter>
         </Provider>
     );
-}
+};
 
 /**
  * Overrider the "default" render function with custom adjustments.

@@ -48,6 +48,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             <SectionFeatured content={contentSection('section4')} />
         </LayoutMain>
     );
-}
+};
 
 export const PageHome = addPageTracking(addContent('PageHome')(Page));

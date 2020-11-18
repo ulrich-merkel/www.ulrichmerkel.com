@@ -7,7 +7,6 @@
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     a,
     abbr,
     acronym,
@@ -164,5 +163,4 @@
     svg:not(:root) {
         overflow: hidden;
     }
-
 }

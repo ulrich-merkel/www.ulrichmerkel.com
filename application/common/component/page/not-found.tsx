@@ -38,6 +38,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             <SectionText content={contentSection('section1')} isMain />
         </LayoutMain>
     );
-}
+};
 
 export const PageNotFound = addPageTracking(addContent('PageNotFound')(Page));

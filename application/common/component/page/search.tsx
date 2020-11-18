@@ -52,6 +52,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             {pageSearchContent}
         </LayoutMain>
     );
-}
+};
 
 export const PageSearch = addPageTracking(addContent('PageSearch')(Page));

@@ -7,7 +7,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021 
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
 import Helmet from 'react-helmet';
@@ -31,8 +31,8 @@ type PageProps = {
     match: {
         params: {
             work: string;
-        }
-    },
+        };
+    };
     config: any;
 };
 

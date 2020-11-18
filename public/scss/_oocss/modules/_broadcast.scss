@@ -9,9 +9,7 @@ $block: '#{$config-ns}m-broadcast';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .#{$block}--persona {
-
         .m-article__alt-headline {
             margin-bottom: rem-calc($config-grid--gutter);
         }
@@ -21,7 +19,6 @@ $block: '#{$config-ns}m-broadcast';
         }
 
         .m-list__item {
-
             // Just show hover for non-touch devices
             @if ($config-support-hovers) {
                 .no-touch &,
@@ -29,12 +26,14 @@ $block: '#{$config-ns}m-broadcast';
                 .no-js & {
                     a {
                         &:hover {
-                            @include var(color, --theme-module-broadcast-list-item-color-hover);
+                            @include var(
+                                color,
+                                --theme-module-broadcast-list-item-color-hover
+                            );
                         }
                     }
                 }
             }
-
         }
     }
 }

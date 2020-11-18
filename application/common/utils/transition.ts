@@ -37,9 +37,14 @@ const transition: Transition = {
  * @param {boolean} [params.reducedMotionSelectedReduce] - The redux state for reduced motion
  * @returns {object} The ReactCSSTransitionGroup transition config
  */
-export function getSectionTransition(params: GetSectionTransitionParams): Transition {
+export function getSectionTransition(
+    params: GetSectionTransitionParams
+): Transition {
     const { pageViewsAfterReload, reducedMotionSelectedReduce } = params;
-    const timeout = isBoolean(reducedMotionSelectedReduce) && reducedMotionSelectedReduce ? 0 : transition.timeout;
+    const timeout =
+        isBoolean(reducedMotionSelectedReduce) && reducedMotionSelectedReduce
+            ? 0
+            : transition.timeout;
 
     if (isNumber(pageViewsAfterReload) && pageViewsAfterReload <= 1) {
         return {
@@ -53,5 +58,5 @@ export function getSectionTransition(params: GetSectionTransitionParams): Transi
     return {
         ...transition,
         timeout
-    }
+    };
 }

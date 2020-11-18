@@ -10,7 +10,12 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import { isBoolean } from 'lodash';
-import { ScrollStateType, ScrollActionTypes, HeaderFixedActionType, HeaderVisibleActionType } from './types';
+import {
+    ScrollStateType,
+    ScrollActionTypes,
+    HeaderFixedActionType,
+    HeaderVisibleActionType
+} from './types';
 
 /**
  * @type {string}

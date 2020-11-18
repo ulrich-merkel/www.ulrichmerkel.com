@@ -36,7 +36,9 @@ const Page: FunctionComponent<PageProps> = (props) => {
 
     const pageThemeContent = (
         <SectionSettings content={contentSection('section1')} isMain isDialog>
-            <ModuleFormSettingsConnected content={contentSection('formSettings')} />
+            <ModuleFormSettingsConnected
+                content={contentSection('formSettings')}
+            />
             {children}
         </SectionSettings>
     );
@@ -51,6 +53,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             {pageThemeContent}
         </LayoutMain>
     );
-}
+};
 
 export const PageSettings = addPageTracking(addContent('PageSettings')(Page));

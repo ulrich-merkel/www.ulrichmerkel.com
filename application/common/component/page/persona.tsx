@@ -47,6 +47,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             <SectionReading content={contentSection('section5')} />
         </LayoutMain>
     );
-}
+};
 
 export const PagePersona = addPageTracking(addContent('PagePersona')(Page));

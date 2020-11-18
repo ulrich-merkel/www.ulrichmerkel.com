@@ -109,18 +109,23 @@
             text-decoration: none;
             @include var(border-bottom, --theme-base-type-abbr-border-bottom);
         }
-
     }
 
     blockquote {
         margin: 0 0 rem-calc($config-type-scale-9);
-        padding: rem-calc($config-type-scale-1) rem-calc($config-type-scale-10) 0 rem-calc($config-type-scale-12);
+        padding: rem-calc($config-type-scale-1)
+            rem-calc($config-type-scale-10)
+            0
+            rem-calc($config-type-scale-12);
         @include var(border-left, --theme-base-type-blockquote-border-left);
     }
 
     blockquote,
     blockquote p {
-        @include var(line-height, --theme-base-type-blockquote-text-line-height);
+        @include var(
+            line-height,
+            --theme-base-type-blockquote-text-line-height
+        );
         @include var(color, --theme-base-type-blockquote-text-color);
     }
 
@@ -133,5 +138,4 @@
     cite::before {
         @include var(content, --theme-base-type-cite-before-content);
     }
-
 }

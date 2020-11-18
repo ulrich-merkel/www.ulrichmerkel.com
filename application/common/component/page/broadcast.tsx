@@ -45,6 +45,6 @@ const Page: FunctionComponent<PageProps> = (props) => {
             <SectionList content={contentSection('section1')} isMain />
         </LayoutMain>
     );
-}
+};
 
 export const PageBroadcast = addPageTracking(addContent('PageBroadcast')(Page));

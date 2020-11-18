@@ -49,7 +49,7 @@ const Page: FunctionComponent<PageProps> = (props) => {
             </SectionContact>
         </LayoutMain>
     );
-}
+};
 
 export const PageContact = addPageTracking(
     withRouter(addContent('PageContact')(Page))

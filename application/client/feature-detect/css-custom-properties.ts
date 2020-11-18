@@ -30,7 +30,8 @@ export function hasCssCustomProperties(): boolean {
     testElement.style.setProperty('background', 'var(--color)');
     document.body.appendChild(testElement);
 
-    const doesSupportCssCustomProperties = getComputedStyle(testElement).backgroundColor === color;
+    const doesSupportCssCustomProperties =
+        getComputedStyle(testElement).backgroundColor === color;
     document.body.removeChild(testElement);
 
     return doesSupportCssCustomProperties;
