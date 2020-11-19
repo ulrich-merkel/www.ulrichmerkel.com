@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-work';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -43,7 +42,6 @@ $block: '#{$config-ns}m-work';
             // \A is the line feed character... it's an escape
             content: ' \A';
         }
-
     }
 
     .#{$block}__description {
@@ -55,14 +53,16 @@ $block: '#{$config-ns}m-work';
 
     .#{$block}__headline,
     .#{$block}__description {
-
         span {
             display: inline-block;
             padding: 1px 3px;
             @include var(color, --theme-module-work-headline-color);
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
-                @include var(background, --theme-module-work-headline-background);
+                @include var(
+                    background,
+                    --theme-module-work-headline-background
+                );
             }
         }
     }
@@ -74,5 +74,4 @@ $block: '#{$config-ns}m-work';
         z-index: 1;
         display: block;
     }
-
 }

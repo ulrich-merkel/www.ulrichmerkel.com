@@ -9,11 +9,9 @@ $block: '#{$config-ns}c-time';
 
 // above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
-
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
         @include var(font-weight, --theme-component-time-font-weight);
     }
-
 }

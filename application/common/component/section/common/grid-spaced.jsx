@@ -40,10 +40,10 @@ function Grid(props) {
 
     return (
         <CSSTransition
-            {...getSectionTransition(
+            {...getSectionTransition({
                 pageViewsAfterReload,
                 reducedMotionSelectedReduce
-            )}
+            })}
         >
             <GridSection>
                 <GridSpaced>

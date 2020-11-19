@@ -13,7 +13,6 @@ $theme-default: (
     --theme-base-button-color-hover: $config-color-pickled-bluewood,
     --theme-base-button-color-visited: $config-color-java,
     --theme-base-button-color: $config-color-java,
-
     // Base link
     --theme-base-link-attr-tel-color-hover: $config-color-pickled-bluewood,
     --theme-base-link-attr-tel-color: $config-color-java,
@@ -23,9 +22,8 @@ $theme-default: (
     --theme-base-link-color-visited: $config-color-java,
     --theme-base-link-color: $config-color-java,
     --theme-base-link-outline-focus: $config-color-pickled-bluewood,
-
     // Base img
-    --theme-base-img-missing-after-content: '\ea07 ' attr(alt),
+    --theme-base-img-missing-after-content: '\ea07 'attr(alt),
     --theme-base-img-missing-after-font-family: fonticons,
     --theme-base-img-missing-background: $config-color-concrete,
     --theme-base-img-missing-before-content: 'Image could not be loaded',
@@ -34,20 +32,17 @@ $theme-default: (
     --theme-base-img-missing-color: $config-color-dove-grey,
     --theme-base-img-missing-font-family: $config-type-font-family,
     --theme-base-img-missing-font-weight: $config-font-weight-light,
-
     // Base selection
     --theme-base-selection-background: $config-color-cinnabar,
     --theme-base-selection-color: $config-color-white,
-
     // Base touch
     --theme-base-touch-tap-highlight-color: rgba(63, 154, 201, 0.3),
-
     // Base type
     --theme-base-type-abbr-border-bottom: 1px dotted $config-color-dove-grey,
     --theme-base-type-blockquote-border-left: 1px solid $config-color-concrete,
     --theme-base-type-blockquote-text-color: $config-color-grey,
     --theme-base-type-blockquote-text-line-height: 1.6,
-    --theme-base-type-cite-before-content:  '\2014 \0020',
+    --theme-base-type-cite-before-content: '\2014 \0020',
     --theme-base-type-cite-color: $config-color-concrete,
     --theme-base-type-color: $config-color-pickled-bluewood,
     --theme-base-type-font-family: $config-type-font-family,
@@ -58,10 +53,8 @@ $theme-default: (
     --theme-base-type-sub-bottom: -0.25em,
     --theme-base-type-sup-sub-font-size: 75%,
     --theme-base-type-sup-top: -0.5em,
-
     // Base viewport
     --theme-base-viewport-width: $config-grid--viewport-width,
-
     // Component btn
     --theme-component-btn-background-hover: $config-color-pickled-bluewood,
     --theme-component-btn-background: $config-color-java,
@@ -76,75 +69,67 @@ $theme-default: (
     --theme-component-btn-secondary-color: $config-color-pickled-bluewood,
     --theme-component-btn-secondary-font-size: 90%,
     --theme-component-btn-submit-border: 1px solid transparent,
-    --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-java,
-    --theme-component-btn-submit-is-pending-border: 4px solid $config-color-concrete,
-
+    --theme-component-btn-submit-is-pending-border-top: 4px solid
+        $config-color-java,
+    --theme-component-btn-submit-is-pending-border: 4px solid
+        $config-color-concrete,
     // Component flip
     --theme-component-flip-back-background-color: $config-color-java,
     --theme-component-flip-color: $config-color-white,
     --theme-component-flip-front-background-color: $config-color-cinnabar,
-
     // Component pie
     --theme-component-pie-circle-after-font-weight: $config-font-weight-bold,
     --theme-component-pie-circle-background-color: $config-color-concrete,
     --theme-component-pie-circle-before-background-color: $config-color-white,
     --theme-component-pie-mask-background-color: $config-color-cinnabar,
-
     // Component reading
     --theme-component-reading-font-weight: $config-font-weight-light,
-
     // Component time
     --theme-component-time-font-weight: $config-font-weight-light,
-
     // Component Toggle
     --config-theme-c-toggle-background: $config-color-dove-grey,
     --config-theme-c-toggle-background-active: $config-color-mountain-meadow,
     --config-theme-c-toggle-circle-background: $config-color-white,
-
     // Component type
     --theme-component-type-h-color: $config-color-pickled-bluewood,
     --theme-component-type-h-font-family: $config-type-font-family,
     --theme-component-type-h-font-weight: $config-font-weight-normal,
-    --theme-component-type-h-has-border-border-top: 1px solid $config-color-black,
+    --theme-component-type-h-has-border-border-top: 1px solid
+        $config-color-black,
     --theme-component-type-h-line-height: 1.4,
     --theme-component-type-h-small-font-size: $config-font-small-size,
     --theme-component-type-p-font-weight: $config-font-weight-light,
-
     // Layout dialog
     --theme-layout-dialog-background-background: rgba(255, 255, 255, 0.97),
     --theme-layout-dialog-text-color: $config-color-pickled-bluewood,
-
     // Layout footer
     --theme-layout-footer-background: $config-color-pickled-bluewood,
     --theme-layout-footer-color: $config-color-alto,
-
     // Layout header
     --theme-layout-header-background: $config-color-pickled-bluewood,
-
     // Layout react
     --theme-layout-react-background: $config-color-white,
-
     // Module broadcast
     --theme-module-broadcast-list-item-color-hover: $config-color-white,
-
     // Module cornerstone
     --theme-module-cornerstone-after-border-right: 1px solid $config-color-black,
     --theme-module-cornerstone-bubble-background: $config-color-black,
     --theme-module-cornerstone-bubble-border: 2px solid $config-color-white,
     --theme-module-cornerstone-bubble-hover-background: $config-color-cinnabar,
     --theme-module-cornerstone-bubble-intro-background: $config-color-black,
-    --theme-module-cornerstone-bubble-intro-border: 2px solid $config-color-white,
+    --theme-module-cornerstone-bubble-intro-border: 2px solid
+        $config-color-white,
     --theme-module-cornerstone-bubble-intro-color: $config-color-white,
     --theme-module-cornerstone-highlight-color: $config-color-pickled-bluewood,
     --theme-module-cornerstone-highlight-background: $config-color-concrete,
-    --theme-module-cornerstone-item-hover-bubble-background: $config-color-cinnabar,
-    --theme-module-cornerstone-item-hover-description-content-background: $config-color-concrete,
-
+    --theme-module-cornerstone-item-hover-bubble-background:
+        $config-color-cinnabar,
+    --theme-module-cornerstone-item-hover-description-content-background:
+        $config-color-concrete,
     // Module featured
     --theme-module-featured-hover-background: rgba(0, 0, 0, 0.75),
     --theme-module-featured-text-border: 1px solid $config-color-white,
     --theme-module-featured-text-color: $config-color-white,
-
     // Module form
     --theme-module-form-control-border-bottom: 1px solid $config-color-concrete,
     --theme-module-form-control-border-color-focus: $config-color-java,
@@ -157,24 +142,29 @@ $theme-default: (
     --theme-module-form-isvalid-border-color: $config-color-mountain-meadow,
     --theme-module-form-isvalid-color: $config-color-mountain-meadow,
     --theme-module-form-label-color-focus: $config-color-alto,
-    --theme-module-form-label-color-hover:$config-color-pickled-bluewood,
+    --theme-module-form-label-color-hover: $config-color-pickled-bluewood,
     --theme-module-form-label-color: $config-color-java,
-
     // Module key-visual
-    --theme-module-key-visual-gradient: linear-gradient(to bottom, #fff 0%, #eee 79%, #fefefe 91%, #f2f2f2 100%),
+    --theme-module-key-visual-gradient:
+        linear-gradient(
+            to bottom,
+            #fff 0%,
+            #eee 79%,
+            #fefefe 91%,
+            #f2f2f2 100%
+        ),
     --theme-module-key-visual-headline-background: $config-color-concrete,
     --theme-module-key-visual-headline-color: $config-color-pickled-bluewood,
     --theme-module-key-visual-text-background: $config-color-concrete,
     --theme-module-key-visual-work-background: $config-color-concrete,
-
     // Module list
     --theme-module-list-search-color: $config-color-java,
-
     // Module menu
     --theme-module-menu-aside-item-active-color: $config-color-white,
     --theme-module-menu-aside-item-hover-color: $config-color-java,
     --theme-module-menu-aside-item-color: $config-color-white,
-    --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-java,
+    --theme-module-menu-footer-imprint-item-border-top: 1px solid
+        $config-color-java,
     --theme-module-menu-footer-item-color-active: $config-color-java,
     --theme-module-menu-footer-item-color: $config-color-alto,
     --theme-module-menu-footer-item-font-size: 90%,
@@ -183,21 +173,17 @@ $theme-default: (
     --theme-module-menu-main-item-active-color: $config-color-white,
     --theme-module-menu-main-item-background: $config-color-pickled-bluewood,
     --theme-module-menu-main-item-color: $config-color-white,
-
     // Module nav
     --theme-module-nav-toggle-color-checked: $config-color-white,
     --theme-module-nav-toggle-color: $config-color-java,
     --theme-module-nav-toggle-font-size: 180%,
-
     // Module progress
     --theme-module-progess-background: $config-color-pickled-bluewood,
     --theme-module-progess-value-background: $config-color-java,
-
     // Module service
     --theme-module-service-icon-background: $config-color-cinnabar,
     --theme-module-service-icon-color: $config-color-white,
     --theme-module-service-text-font-size: 90%,
-
     // Module work
     --theme-module-work-headline-background: $config-color-concrete,
     --theme-module-work-headline-color: $config-color-pickled-bluewood,
@@ -212,7 +198,6 @@ $color-scheme-dark: (
     --theme-base-button-color-hover: $config-color-java,
     --theme-base-button-color-visited: $config-color-scooter,
     --theme-base-button-color: $config-color-scooter,
-
     // Base link
     --theme-base-link-attr-tel-color-hover: $config-color-java,
     --theme-base-link-attr-tel-color: $config-color-scooter,
@@ -222,66 +207,63 @@ $color-scheme-dark: (
     --theme-base-link-color-visited: $config-color-scooter,
     --theme-base-link-color: $config-color-scooter,
     --theme-base-link-outline-focus: $config-color-java,
-
     // Base type
     --theme-base-type-color: $config-color-white,
-
     // Component btn
     --theme-component-btn-background-hover: $config-color-java,
     --theme-component-btn-background: $config-color-scooter,
     --theme-component-btn-font-weight: $config-font-weight-bold,
     --theme-component-btn-secondary-color: $config-color-java,
-    --theme-component-btn-submit-is-pending-border-top: 4px solid $config-color-scooter,
-
+    --theme-component-btn-submit-is-pending-border-top: 4px solid
+        $config-color-scooter,
     // Component pie
     --theme-component-pie-circle-background-color: $config-color-grey,
     --theme-component-pie-circle-before-background-color: $config-color-tundora,
-
     // Component type
     --theme-component-type-h-color: $config-color-white,
-
     // Layout dialog
     --theme-layout-dialog-background-background: rgba(#292929, 0.97),
     --theme-layout-dialog-text-color: $config-color-white,
-
     // Layout header
     --theme-layout-header-background: $config-color-heavy-metal,
-
     // Layout react
     --theme-layout-react-background: $config-color-tundora,
-
     // Layout footer
     --theme-layout-footer-background: $config-color-heavy-metal,
-
     // Module cornerstone
     --theme-module-cornerstone-highlight-color: $config-color-white,
     --theme-module-cornerstone-highlight-background: $config-color-shark,
-    --theme-module-cornerstone-item-hover-description-content-background: $config-color-shark,
+    --theme-module-cornerstone-item-hover-description-content-background:
+        $config-color-shark,
     --theme-module-cornerstone-bubble-border: 2px solid $config-color-tundora,
-    --theme-module-cornerstone-bubble-intro-border: 2px solid $config-color-tundora,
-
+    --theme-module-cornerstone-bubble-intro-border: 2px solid
+        $config-color-tundora,
     // Module form
     --theme-module-form-control-border-bottom: 1px solid $config-color-shark,
     --theme-module-form-control-background: $config-color-tundora,
     --theme-module-form-control-color: $config-color-alto,
-
     // Module key-visual
-    --theme-module-key-visual-gradient: linear-gradient(to bottom, #656565 0%, #292929 79%, #2d2d2d 91%, #3d3d3d 100%),
+    --theme-module-key-visual-gradient:
+        linear-gradient(
+            to bottom,
+            #656565 0%,
+            #292929 79%,
+            #2d2d2d 91%,
+            #3d3d3d 100%
+        ),
     --theme-module-key-visual-headline-background: $config-color-tundora,
     --theme-module-key-visual-headline-color: $config-color-white,
     --theme-module-key-visual-text-background: $config-color-tundora,
     --theme-module-key-visual-work-background: $config-color-dove-grey,
-
     // Module menu
     --theme-module-menu-aside-item-hover-color: $config-color-scooter,
-    --theme-module-menu-footer-imprint-item-border-top: 1px solid $config-color-scooter,
+    --theme-module-menu-footer-imprint-item-border-top: 1px solid
+        $config-color-scooter,
     --theme-module-menu-footer-item-color-active: $config-color-scooter,
     --theme-module-menu-main-item-active-background: $config-color-scooter,
     --theme-module-menu-main-item-background: $config-color-heavy-metal,
-
     // Module nav
     --theme-module-nav-toggle-color: $config-color-cotton-seed,
-
     // Module progress
     --theme-module-progess-background: $config-color-pine-tree
 );

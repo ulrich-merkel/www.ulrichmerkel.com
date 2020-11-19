@@ -9,9 +9,7 @@ $block: '#{$config-ns}m-progress';
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     progress {
-
         // ----------------------------
         // Styling an indeterminate progress bar
         // ----------------------------
@@ -33,14 +31,19 @@ $block: '#{$config-ns}m-progress';
             }
 
             &::-webkit-progress-value {
-                @include var(background, --theme-module-progess-value-background);
+                @include var(
+                    background,
+                    --theme-module-progess-value-background
+                );
             }
 
             &::-moz-progress-bar {
-                @include var(background, --theme-module-progess-value-background);
+                @include var(
+                    background,
+                    --theme-module-progess-value-background
+                );
             }
         }
-
     }
 
     .#{$block} {
@@ -73,6 +76,5 @@ $block: '#{$config-ns}m-progress';
                 width: 10px * $i;
             }
         }
-
     }
 }

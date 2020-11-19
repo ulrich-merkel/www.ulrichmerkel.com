@@ -89,10 +89,10 @@ export function getNonceConfig(): NonceConfig {
  *
  * @see {@link http://stackoverflow.com/questions/32788355/csp-nonce-ignored-by-safari}
  *
- * @param {object} nonceConfig - The output from a getNonceConfig call
+ * @param {object} [nonceConfig] - The output from a getNonceConfig call
  * @returns {string} The meta tag rules to be used
  */
-export function getCspRules(nonceConfig: NonceConfig): string {
+export function getCspRules(nonceConfig?: NonceConfig): string {
     if (isEmpty(nonceConfig)) {
         return '';
     }

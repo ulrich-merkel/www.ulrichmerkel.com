@@ -7,9 +7,7 @@
 
 // Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
-
     @media print {
-
         // ----------------------------
         // Basic print setup
         // ----------------------------
@@ -49,7 +47,7 @@
             &[title] {
                 &::after {
                     // stylelint-disable function-whitespace-after
-                    content: ' ('attr(title)') ';
+                    content: ' (' attr(title) ') ';
                     // stylelint-enable function-whitespace-after
                 }
             }
@@ -103,7 +101,5 @@
         body {
             width: 900px;
         }
-
     }
-
 }

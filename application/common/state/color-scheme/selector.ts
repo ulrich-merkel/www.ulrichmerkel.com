@@ -12,7 +12,11 @@ import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
 import { RootState } from '../configure-store';
-import { initialState, COLOR_SCHEME_RESOURCE_NAME, COLOR_SCHEME_DARK } from './duck';
+import {
+    initialState,
+    COLOR_SCHEME_RESOURCE_NAME,
+    COLOR_SCHEME_DARK
+} from './duck';
 import { ColorSchemeStateType } from './types';
 
 /**

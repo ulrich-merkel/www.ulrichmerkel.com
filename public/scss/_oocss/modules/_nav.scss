@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-nav';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     // Defaults
     .#{$block},
     [class^='#{$block}--'],
@@ -21,7 +20,8 @@ $block: '#{$config-ns}m-nav';
         display: block;
         width: 37px;
         height: 37px;
-        margin: rem-calc($config-grid--gutter / 2) rem-calc($config-grid--gutter);
+        margin: rem-calc($config-grid--gutter / 2)
+            rem-calc($config-grid--gutter);
         // @TODO This should be done by autoprefixer!!!
         @if ($config-support-prefix-webkit) {
             -webkit-appearance: none;
@@ -83,7 +83,6 @@ $block: '#{$config-ns}m-nav';
                 display: block;
             }
         }
-
     }
 
     .#{$block}__aside {

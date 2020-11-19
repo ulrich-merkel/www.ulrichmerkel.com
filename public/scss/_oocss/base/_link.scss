@@ -7,7 +7,6 @@
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     // ----------------------------
     // Default basic styling, mainly reset styles
     // ----------------------------
@@ -17,15 +16,14 @@
         text-decoration: none;
 
         will-change: background, color;
-        transition: background $config-transition-arguments, color $config-transition-arguments;
+        transition: background $config-transition-arguments,
+            color $config-transition-arguments;
         @include reducedMotion;
     }
-
 }
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     // Put link pseudo-classes in right order (:link :visited :hover :active) for
     // old internet explorers
     // @see http://css-tricks.com/snippets/css/link-pseudo-classes-in-order/
@@ -37,7 +35,6 @@
     .no-touch,
     .no-touchevents,
     .no-js {
-
         // Just show hover for non-touch devices
         @if ($config-support-hovers) {
             a:hover {
@@ -62,7 +59,6 @@
                 @include var(color, --theme-base-link-attr-tel-color-hover);
             }
         }
-
     }
 
     a:active {
@@ -73,5 +69,4 @@
         @include var(color, --theme-base-link-color-focus);
         @include var(outline, --theme-base-link-outline-focus);
     }
-
 }

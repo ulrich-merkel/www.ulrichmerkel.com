@@ -9,7 +9,6 @@ $block: '#{$config-ns}l-grid';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .#{$block} {
         width: 100%;
     }
@@ -24,7 +23,6 @@ $block: '#{$config-ns}l-grid';
         &.is-aligned--left {
             margin: 0;
         }
-
     }
 
     .#{$block}__spaced--large {
@@ -136,5 +134,4 @@ $block: '#{$config-ns}l-grid';
             padding-left: 0;
         }
     }
-
 }

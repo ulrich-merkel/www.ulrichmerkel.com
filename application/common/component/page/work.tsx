@@ -7,33 +7,9 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires react
- * @requires prop-types
- * @requires react-helmet
- * @requires react-redux
- * @requires react-router
- * @requires lodash
- * @requires common/config/application
- * @requires common/config/work
- * @requires common/component/decorator/add-page-tracking
- * @requires common/utils/content
- * @requires common/state/selectors
- * @requires common/component/layout/main
- * @requires common/component/section/key-visual
- * @requires common/component/section/text
- * @requires common/component/section/featured
- *
- * @changelog
- * - 0.0.4 Improve react-router routing
- * - 0.0.3 Moved to stateless function
- * - 0.0.2 Rewritten for es2015
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router';
@@ -50,6 +26,20 @@ import { SectionFeatured } from '../section/featured';
 import { SectionKeyVisual } from '../section/key-visual';
 import { SectionText } from '../section/text';
 
+type PageProps = {
+    locale: string;
+    match: {
+        params: {
+            work: string;
+        };
+    };
+    config: any;
+};
+
+type PageState = {
+    work: string;
+};
+
 const NOT_FOUND = 'not-found';
 
 /**
@@ -60,7 +50,7 @@ const NOT_FOUND = 'not-found';
  * @param {Array} config - The work config
  * @returns {string} The first found entry by name
  */
-function getWorkContentKey(routerPath, config) {
+function getWorkContentKey(routerPath: string, config) {
     return config
         .filter((entry) => {
             return entry.routerPath.substr(1) === routerPath;
@@ -80,7 +70,7 @@ function getWorkContentKey(routerPath, config) {
  * @property {object} props.match - The react router params
  * @property {object} [props.content={}] - The component translation config
  */
-class Page extends Component {
+class Page extends Component<PageProps, PageState> {
     /**
      * The actual class constructor.
      *
@@ -97,14 +87,9 @@ class Page extends Component {
     }
 
     /**
-     * Invoked once, both on the client and server,
-     * immediately before the initial rendering occurs.
-     *
-     * @function
      * @returns {void}
      */
-    // eslint-disable-next-line camelcase
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         this.handleRouterParams(this.props);
     }
 
@@ -112,19 +97,16 @@ class Page extends Component {
      * Invoked before a mounted component receives new props. React only calls
      * this method if some of component's props may update.
      *
-     * @function
      * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
-    // eslint-disable-next-line camelcase
-    UNSAFE_componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         this.handleRouterParams(nextProps);
     }
 
     /**
      * Handle state transition or redirect based on the router params.
      *
-     * @function
      * @private
      * @param {object} props - The current component props with router match
      * @returns {void}
@@ -149,7 +131,6 @@ class Page extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement|null} React component markup
      */
     render() {
@@ -188,40 +169,10 @@ class Page extends Component {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Page.propTypes = {
-    locale: PropTypes.string.isRequired,
-    match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    config: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object // eslint-disable-line react/forbid-prop-types
-        ])
-    )
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Page.defaultProps = {
-    config: {}
-};
-
-/**
  * The component will subscribe to Redux store updates. Any time it updates,
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
  *
- * @function
  * @private
  * @param {object.<*>} state - The redux store state
  * @returns {object}

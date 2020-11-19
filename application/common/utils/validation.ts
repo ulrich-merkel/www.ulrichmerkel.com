@@ -14,10 +14,10 @@ import { isNil } from 'lodash';
 /**
  * Helper function to check if value is valid.
  *
- * @param {string} value - The value to be checked
+ * @param {string} [value] - The value to be checked
  * @returns {boolean} Whether the value is valid or not
  */
-export function isValidValue(value: string): boolean {
+export function isValidValue(value?: string): boolean {
     return !isNil(value) && value !== '';
 }
 
@@ -26,10 +26,10 @@ export function isValidValue(value: string): boolean {
  *
  * @see {@link https://www.w3resource.com/javascript/form/email-validation.php}
  *
- * @param {string} value - The value to be checked
+ * @param {string} [value] - The value to be checked
  * @returns {boolean} Whether the value is a valid email or not
  */
-export function email(value: string): boolean {
+export function email(value?: string): boolean {
     /* eslint-disable security/detect-unsafe-regex, max-len */
     if (
         isValidValue(value) &&
@@ -47,10 +47,10 @@ export function email(value: string): boolean {
 /**
  * Validate required helper.
  *
- * @param {string} value - The value to be checked
+ * @param {string} [value] - The value to be checked
  * @returns {boolean} Whether the value is empty/set or not
  */
-export function required(value: string): boolean {
+export function required(value?: string): boolean {
     if (!isValidValue(value)) {
         return false;
     }

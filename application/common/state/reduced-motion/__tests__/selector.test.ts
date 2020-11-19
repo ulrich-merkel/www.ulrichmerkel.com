@@ -23,7 +23,9 @@ describe('selectStateReducedMotion', function fnDescribe() {
 
 describe('selectStateReducedMotionSelectedReduce', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateReducedMotionSelectedReduce(mockState)).toMatchSnapshot();
+        expect(
+            selectStateReducedMotionSelectedReduce(mockState)
+        ).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {
         const state = {

@@ -8,7 +8,7 @@
  *
  * @see {@link https://blog.risingstack.com/react-js-best-practices-for-2016/}
  */
-import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/duck'
+import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/duck';
 import { isBrowser } from '../../common/utils/environment';
 import { setDomNodeClassName } from '../utils/dom';
 
@@ -34,12 +34,8 @@ export function applyColorScheme(colorSchemeSelected: string): void {
             return theme !== colorSchemeSelected;
         })
         .map(function mapAvailableThemes(theme) {
-            return `color-scheme-${theme}`
+            return `color-scheme-${theme}`;
         });
 
-    setDomNodeClassName(
-        'doc-root',
-        add,
-        remove
-    );
+    setDomNodeClassName('doc-root', add, remove);
 }
