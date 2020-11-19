@@ -269,6 +269,7 @@
     "service-worker-mock": "2.0.5",
     "snapshot-diff": "0.8.1",
     "stylelint": "13.7.2",
+    "stylelint-prettier": "1.1.2",
     "tldrlegal": "1.0.11",
     "typescript": "4.0.5",
     "uglify-js": "3.11.6",
