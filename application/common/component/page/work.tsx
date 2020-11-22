@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Page components combine section components to the
@@ -112,19 +111,17 @@ class Page extends Component<PageProps, PageState> {
      * @returns {void}
      */
     handleRouterParams(props) {
+        const { work } = this.state;
         const locationParamWork = get(props, 'match.params.work', null);
-        const work = getWorkContentKey(locationParamWork, configWork);
+        const newWork = getWorkContentKey(locationParamWork, configWork);
 
-        // Set redirect state if route couldn't be found
-        if (!work) {
-            this.setState({
-                work: NOT_FOUND
-            });
+        if (work === newWork) {
             return;
         }
 
+        // Set redirect state if route couldn't be found
         this.setState({
-            work
+            work: !newWork ? NOT_FOUND : newWork
         });
     }
 

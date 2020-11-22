@@ -1,4 +1,4 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateReducedMotion,
     selectStateReducedMotionSelectedReduce
@@ -6,7 +6,7 @@ import {
 
 describe('selectStateReducedMotion', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateReducedMotion(mockState)).toMatchSnapshot();
+        expect(selectStateReducedMotion(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -24,7 +24,7 @@ describe('selectStateReducedMotion', function fnDescribe() {
 describe('selectStateReducedMotionSelectedReduce', function fnDescribe() {
     it('should return the correct state', function fnIt() {
         expect(
-            selectStateReducedMotionSelectedReduce(mockState)
+            selectStateReducedMotionSelectedReduce(mockedState)
         ).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {

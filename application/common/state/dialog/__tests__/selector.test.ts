@@ -1,4 +1,4 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateDialog,
     selectStateDialogContent,
@@ -7,7 +7,7 @@ import {
 
 describe('selectStateDialog', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateDialog(mockState)).toMatchSnapshot();
+        expect(selectStateDialog(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -24,7 +24,7 @@ describe('selectStateDialog', function fnDescribe() {
 
 describe('selectStateDialogVisible', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateDialogVisible(mockState)).toMatchSnapshot();
+        expect(selectStateDialogVisible(mockedState)).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {
         const state = {
@@ -38,7 +38,7 @@ describe('selectStateDialogVisible', function fnDescribe() {
 
 describe('selectStateDialogContent', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateDialogContent(mockState)).toMatchSnapshot();
+        expect(selectStateDialogContent(mockedState)).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {
         const state = {

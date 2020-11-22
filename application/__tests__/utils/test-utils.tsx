@@ -1,4 +1,4 @@
-import { default as React, Component, FunctionComponent } from 'react';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
@@ -11,10 +11,11 @@ import { RootState } from '../../common/state/configure-store';
  * A custom wrapper where all additional providers can be defined (Redux, Theme, ....).
  *
  * @see {@link https://testing-library.com/docs/react-testing-library/setup#custom-render}
+ * @see {@link https://dev.to/wojciechmatuszewski/writing-unit-tests-with-react-typescript-and-react-testing-library-1nmg}
  *
  * @function
  * @private
- * @param {object} [state] - The state to be used, falls back to mockState
+ * @param {object} [state] - The state to be used, falls back to mockedState
  * @param {object} [props] - The react provider options
  * @returns {ReactElement} The component to be rendered
  */
@@ -39,7 +40,7 @@ const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
  * @param {object} [options={}] - Testing library options
  * @returns {object} The test render result
  */
-function customRender(reactElement: Component, options: Object = {}): Object {
+function customRender(reactElement: ReactNode, options: Object = {}): Object {
     const { state, ...otherOptions } = options;
 
     return render(reactElement, {
