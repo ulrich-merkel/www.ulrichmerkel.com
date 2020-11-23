@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation */
+
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -10,28 +10,34 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
+import { getSectionTransition } from '../../../utils/transition';
 import { selectStatePageViewsAfterReload } from '../../../state/page/selector';
 import { selectStateReducedMotionSelectedReduce } from '../../../state/reduced-motion/selector';
-import { getSectionTransition } from '../../../utils/transition';
 import { GridSection } from '../../grid/section';
-import { GridSpaced } from '../../grid/spaced';
 import { GridRow } from '../../grid/row';
 import { GridCol } from '../../grid/col';
+
+type Props = {
+    children: ReactNode;
+    pageViewsAfterReload: number;
+    reducedMotionSelectedReduce: boolean;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @param {object} [props.pageViewsAfterReload] - The redux page state
+ * @param {number} [props.pageViewsAfterReload] - The redux page state
+ * @param {boolean} [props.reducedMotionSelectedReduce] - The redux reduced motion state
  * @returns {ReactElement} React component markup
  */
-function Grid(props) {
+export const Grid: FunctionComponent<Props> = (props) => {
     const {
         children,
         pageViewsAfterReload,
@@ -40,44 +46,19 @@ function Grid(props) {
 
     return (
         <CSSTransition
-            {...getSectionTransition(
+            {...getSectionTransition({
                 pageViewsAfterReload,
                 reducedMotionSelectedReduce
-            )}
+            })}
         >
             <GridSection>
-                <GridSpaced>
-                    <GridRow>
-                        <GridCol>{children}</GridCol>
-                    </GridRow>
-                </GridSpaced>
+                <GridRow>
+                    <GridCol>{children}</GridCol>
+                </GridRow>
             </GridSection>
         </CSSTransition>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Grid.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    pageViewsAfterReload: PropTypes.number,
-    reducedMotionSelectedReduce: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Grid.defaultProps = {
-    pageViewsAfterReload: 0,
-    reducedMotionSelectedReduce: false
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,
@@ -101,6 +82,4 @@ function mapStateToProps(state) {
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
  */
-const SectionCommonGridSpaced = connect(mapStateToProps)(Grid);
-
-export { SectionCommonGridSpaced };
+export const SectionCommonGrid = connect(mapStateToProps)(Grid);

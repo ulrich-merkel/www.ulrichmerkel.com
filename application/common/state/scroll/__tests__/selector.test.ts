@@ -1,4 +1,4 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateScroll,
     selectStateScrollIsHeaderFixed,
@@ -7,7 +7,7 @@ import {
 
 describe('selectStateScroll', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateScroll(mockState)).toMatchSnapshot();
+        expect(selectStateScroll(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -24,7 +24,7 @@ describe('selectStateScroll', function fnDescribe() {
 
 describe('selectStateScrollIsHeaderFixed', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateScrollIsHeaderFixed(mockState)).toMatchSnapshot();
+        expect(selectStateScrollIsHeaderFixed(mockedState)).toMatchSnapshot();
     });
     it("should return a boolean if state isn't found", function fnIt() {
         const state = {
@@ -38,7 +38,7 @@ describe('selectStateScrollIsHeaderFixed', function fnDescribe() {
 
 describe('selectStateScrollIsHeaderVisible', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateScrollIsHeaderVisible(mockState)).toMatchSnapshot();
+        expect(selectStateScrollIsHeaderVisible(mockedState)).toMatchSnapshot();
     });
     it("should return a boolean if state isn't found", function fnIt() {
         const state = {

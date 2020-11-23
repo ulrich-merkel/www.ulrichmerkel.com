@@ -8,7 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
+import { default as React, FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
 
 import { addPageTracking } from '../decorator/add-page-tracking';
@@ -19,7 +19,7 @@ import { SectionSearch } from '../section/search';
 import { ModuleSearchConnected } from '../module/search';
 import { ModuleFormSearchConnected } from '../module/form/search';
 
-type PageProps = {
+type Props = {
     content: {};
     isDialog?: boolean;
 };
@@ -27,10 +27,11 @@ type PageProps = {
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function Page(props: PageProps) {
+const Page: FunctionComponent<Props> = (props) => {
     const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
 
@@ -51,6 +52,6 @@ function Page(props: PageProps) {
             {pageSearchContent}
         </LayoutMain>
     );
-}
+};
 
 export const PageSearch = addPageTracking(addContent('PageSearch')(Page));

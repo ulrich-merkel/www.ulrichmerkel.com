@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-key-visual';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -48,7 +47,6 @@ $block: '#{$config-ns}m-key-visual';
             // \A is the line feed character... it's an escape
             content: ' \A';
         }
-
     }
 
     .#{$block}__lead {
@@ -60,14 +58,16 @@ $block: '#{$config-ns}m-key-visual';
 
     .#{$block}__headline,
     .#{$block}__lead {
-
         .#{$block}__boxed {
             display: inline-block;
             padding: 1px 3px;
             @include var(color, --theme-module-key-visual-headline-color);
 
             @include breakpoint($config-grid--breakpoint-xsmall) {
-                @include var(background, --theme-module-key-visual-headline-background);
+                @include var(
+                    background,
+                    --theme-module-key-visual-headline-background
+                );
             }
         }
     }
@@ -122,11 +122,9 @@ $block: '#{$config-ns}m-key-visual';
                 opacity: 1;
             }
         }
-
     }
 
     .#{$block}--work {
-
         // Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eeeeee+79,fefefe+91,f2f2f2+100 */
         @include var(background, --theme-module-key-visual-work-background);
         @include var(background, --theme-module-key-visual-gradient);
@@ -141,7 +139,6 @@ $block: '#{$config-ns}m-key-visual';
         }
 
         .#{$block}__image--digital {
-
             .c-picture__img {
                 @include breakpoint(1100px) {
                     width: auto;
@@ -151,7 +148,6 @@ $block: '#{$config-ns}m-key-visual';
         }
 
         .#{$block}__image--print {
-
             .c-picture__img {
                 @include breakpoint(320px) {
                     width: auto;
@@ -167,20 +163,15 @@ $block: '#{$config-ns}m-key-visual';
                 }
             }
         }
-
     }
 
     @media print {
-
         .#{$block}__image,
         [class^='#{$block}__image--'],
         [class*=' #{$block}__image--'] {
-
             .c-picture__source {
                 object-fit: contain;
             }
-
         }
-
     }
 }

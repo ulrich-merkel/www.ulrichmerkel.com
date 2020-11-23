@@ -8,7 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
+import { default as React, FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
 
 import { addPageTracking } from '../decorator/add-page-tracking';
@@ -20,17 +20,18 @@ import { SectionText } from '../section/text';
 import { SectionService } from '../section/service';
 import { SectionFeatured } from '../section/featured';
 
-type PageProps = {
+type Props = {
     content: {};
 };
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-function Page(props: PageProps) {
+const Page: FunctionComponent<Props> = (props) => {
     const { content } = props;
     const contentSection = getContentSection(content);
 
@@ -47,6 +48,6 @@ function Page(props: PageProps) {
             <SectionFeatured content={contentSection('section4')} />
         </LayoutMain>
     );
-}
+};
 
 export const PageHome = addPageTracking(addContent('PageHome')(Page));

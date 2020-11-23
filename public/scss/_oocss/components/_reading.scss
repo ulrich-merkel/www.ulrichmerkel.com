@@ -9,7 +9,6 @@ $block: '#{$config-ns}c-reading';
 
 // Above the fold css, visible without scrolling
 @if ($config-non-critical-css) {
-
     // Defaults
     .#{$block},
     [class^='#{$block}--'],
@@ -46,5 +45,4 @@ $block: '#{$config-ns}c-reading';
     .#{$block}__source-publisher {
         display: block;
     }
-
 }

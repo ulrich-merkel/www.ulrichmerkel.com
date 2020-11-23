@@ -10,6 +10,9 @@
  */
 import { getDocumentDomNode } from './dom';
 
+/**
+ * @type {number}
+ */
 let showTimer: number = 0;
 
 /**
@@ -18,16 +21,18 @@ let showTimer: number = 0;
  *
  * @returns {void}
  */
-export function showDialog (): void {
+export function showDialog(): void {
     clearTimeout(showTimer);
     showTimer = setTimeout(function () {
-        const doc = getDocumentDomNode();
-        if (!doc) {
+        const document = getDocumentDomNode();
+        if (!document) {
             return;
         }
 
-        const scrollY = doc.documentElement.style.getPropertyValue('--scroll-y');
-        const body = doc.body;
+        const scrollY = document.documentElement.style.getPropertyValue(
+            '--scroll-y'
+        );
+        const body = document.body;
         body.style.position = 'fixed';
         body.style.top = `-${scrollY}`;
     }, 500);
@@ -38,13 +43,13 @@ export function showDialog (): void {
  *
  * @returns {void}
  */
-export function closeDialog (): void {
-    const doc = getDocumentDomNode();
-    if (!doc) {
+export function closeDialog(): void {
+    const document = getDocumentDomNode();
+    if (!document) {
         return;
     }
 
-    const body = doc.body;
+    const body = document.body;
     body.style.position = '';
     body.style.top = '';
 }

@@ -9,7 +9,6 @@ $block: '#{$config-ns}m-service';
 
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
-
     .#{$block} {
         position: relative;
         z-index: 2;
@@ -96,7 +95,6 @@ $block: '#{$config-ns}m-service';
     }
 
     .#{$block}__item--right {
-
         @include breakpoint($config-grid--breakpoint-xsmall) {
             float: right;
             clear: right;
@@ -115,11 +113,9 @@ $block: '#{$config-ns}m-service';
                 text-align: left;
             }
         }
-
     }
 
     .#{$block}__item--left {
-
         @include breakpoint($config-grid--breakpoint-xsmall) {
             float: left;
             clear: left;
@@ -138,7 +134,6 @@ $block: '#{$config-ns}m-service';
                 text-align: right;
             }
         }
-
     }
 
     @media print {
@@ -146,5 +141,4 @@ $block: '#{$config-ns}m-service';
             max-width: 100%;
         }
     }
-
 }

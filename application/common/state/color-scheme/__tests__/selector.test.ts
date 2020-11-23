@@ -1,4 +1,4 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateColorScheme,
     selectStateColorSchemeSelected
@@ -6,7 +6,7 @@ import {
 
 describe('selectStateColorScheme', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateColorScheme(mockState)).toMatchSnapshot();
+        expect(selectStateColorScheme(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -23,7 +23,7 @@ describe('selectStateColorScheme', function fnDescribe() {
 
 describe('selectStateColorSchemeSelected', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateColorSchemeSelected(mockState)).toMatchSnapshot();
+        expect(selectStateColorSchemeSelected(mockedState)).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {
         const state = {

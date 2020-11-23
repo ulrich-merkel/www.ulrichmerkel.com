@@ -9,7 +9,6 @@ $block: '#{$config-ns}l-dialog';
 
 // Above the fold css, visible without scrolling
 @if ($config-critical-css) {
-
     .#{$block},
     [class^='#{$block}--'],
     [class*=' #{$block}--'] {
@@ -49,7 +48,6 @@ $block: '#{$config-ns}l-dialog';
         .m-article__text {
             @include var(color, --theme-layout-dialog-text-color);
         }
-
     }
 
     .#{$block}__button--close {
@@ -91,7 +89,6 @@ $block: '#{$config-ns}l-dialog';
             margin: 0;
         }
     }
-
 }
 
 // Below the fold css, could be lazy loaded
@@ -171,7 +168,6 @@ $block: '#{$config-ns}l-dialog';
 
         .m-list--broadcast {
             .m-list__item {
-
                 // just show hover for non-touch devices
                 @if ($config-support-hovers) {
                     .no-touch &,
@@ -179,12 +175,14 @@ $block: '#{$config-ns}l-dialog';
                     .no-js & {
                         a {
                             &:hover {
-                                @include var(color, --theme-layout-dialog-text-color);
+                                @include var(
+                                    color,
+                                    --theme-layout-dialog-text-color
+                                );
                             }
                         }
                     }
                 }
-
             }
 
             .m-list__alt-headline {

@@ -1,12 +1,20 @@
 /* eslint-disable func-names, immutable/no-mutation */
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
+    shouldFetch,
     CONFIG_CONTENT_ADD,
     CONFIG_TRANSLATION_ADD,
+    receiveConfigContent,
+    requestConfigContent,
+    receiveConfigTranslation,
     addConfigContent,
     initialState,
+    requestConfigTranslation,
+    failedConfigContent,
     reducer,
     addConfigTranslation,
     FETCH_CONFIG_CONTENT_REQUEST,
+    FETCH_CONFIG_CONTENT_FAILURE,
     FETCH_CONFIG_CONTENT_SUCCESS,
     FETCH_CONFIG_TRANSLATION_REQUEST,
     FETCH_CONFIG_TRANSLATION_SUCCESS
@@ -14,6 +22,91 @@ import {
 
 Date.now = jest.fn().mockReturnValue(1234567890);
 const dateNow = Date.now();
+
+describe('shouldFetch', function fnDescribe() {
+    it('should decide correctly to fetch', function fnIt() {
+        expect(shouldFetch()).toBeTruthy();
+        expect(shouldFetch({
+            ...mockedState,
+            config: {
+                content: {
+                    data: null
+                }
+            }
+        }, 'config.content')).toBeTruthy();
+        expect(shouldFetch({
+            ...mockedState,
+            config: {
+                content: {
+                    isFetching: true,
+                    data: { foo: 'bar' }
+                }
+            }
+        }, 'config.content')).toBeFalsy();
+        expect(shouldFetch({
+            ...mockedState,
+            config: {
+                content: {
+                    didInvalidate: false,
+                    isFetching: false,
+                    data: { foo: 'bar' }
+                }
+            }
+        }, 'config.content')).toBeFalsy();
+        expect(shouldFetch({
+            ...mockedState,
+            config: {
+                content: {
+                    didInvalidate: true,
+                    isFetching: false,
+                    data: { foo: 'bar' }
+                }
+            }
+        }, 'config.content')).toBeTruthy();
+    });
+});
+
+describe('requestConfigContent', function fnDescribe() {
+    it(`should have a type of ${FETCH_CONFIG_CONTENT_REQUEST}`, function fnIt() {
+        expect(requestConfigContent().type).toEqual(FETCH_CONFIG_CONTENT_REQUEST);
+    });
+});
+
+describe('requestConfigTranslation', function fnDescribe() {
+    it(`should have a type of ${FETCH_CONFIG_TRANSLATION_REQUEST}`, function fnIt() {
+        expect(requestConfigTranslation('de-DE').type).toEqual(FETCH_CONFIG_TRANSLATION_REQUEST);
+    });
+    it('should pass on the content value we pass in', function fnIt() {
+        const locale = 'de-DE';
+        expect(requestConfigTranslation(locale).locale).toEqual(locale);
+    });
+});
+
+describe('receiveConfigContent', function fnDescribe() {
+    it(`should have a type of ${FETCH_CONFIG_CONTENT_SUCCESS}`, function fnIt() {
+        expect(receiveConfigContent('de-DE').type).toEqual(FETCH_CONFIG_CONTENT_SUCCESS);
+    });
+    it('should pass on the content value we pass in', function fnIt() {
+        const data = { foo: 'bar' };
+        expect(receiveConfigContent(data).data).toEqual(data);
+    });
+});
+
+describe('receiveConfigTranslation', function fnDescribe() {
+    it(`should have a type of ${FETCH_CONFIG_TRANSLATION_SUCCESS}`, function fnIt() {
+        expect(receiveConfigTranslation({ foo: 'bar' }, 'de-DE').type).toEqual(FETCH_CONFIG_TRANSLATION_SUCCESS);
+    });
+    it('should pass on the content value we pass in', function fnIt() {
+        const data = { foo: 'bar' };
+        expect(receiveConfigTranslation(data, 'de-DE').data).toEqual(data);
+    });
+});
+
+describe('failedConfigContent', function fnDescribe() {
+    it(`should have a type of ${FETCH_CONFIG_CONTENT_FAILURE}`, function fnIt() {
+        expect(failedConfigContent().type).toEqual(FETCH_CONFIG_CONTENT_FAILURE);
+    });
+});
 
 describe('addConfigContent', function () {
     it(`should have a type of ${CONFIG_CONTENT_ADD}`, function () {

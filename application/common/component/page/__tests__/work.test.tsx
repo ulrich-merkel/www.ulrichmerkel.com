@@ -1,9 +1,10 @@
-/* eslint-disable func-names */
 import * as React from 'react';
 import { render } from '../../../../__tests__/utils/test-utils';
 import { PageWork } from '../work';
 
-describe('PageWork', function () {
+jest.useFakeTimers();
+
+describe('PageWork', function fnDescribe() {
     const defaultProps = {
         locale: 'en-EN',
         match: {
@@ -30,11 +31,12 @@ describe('PageWork', function () {
         }
     };
 
-    it('should render correctly', function () {
+    it('should render correctly', function fnIt() {
         const { asFragment } = render(<PageWork {...defaultProps} />);
+        jest.runAllTimers();
         expect(asFragment()).toMatchSnapshot();
     });
-    it('should return null if no work param is given', function () {
+    it('should return null if no work param is given', function fnIt() {
         const { asFragment } = render(
             <PageWork
                 {...defaultProps}
@@ -45,6 +47,7 @@ describe('PageWork', function () {
                 }}
             />
         );
+        jest.runAllTimers();
         expect(asFragment()).toMatchSnapshot();
     });
 });

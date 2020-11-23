@@ -25,15 +25,11 @@ export function hasPassiveEventListeners(): boolean {
     let supportsPassiveEventListeners = false;
 
     try {
-        const opts = Object.defineProperty(
-            {}, 
-            'passive',
-            {
-                get: function() {
-                    supportsPassiveEventListeners = true;
-                }
+        const opts = Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassiveEventListeners = true;
             }
-        );
+        });
         window.addEventListener('testPassive', null, opts);
         window.removeEventListener('testPassive', null, opts);
     } catch (error) {

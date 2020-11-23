@@ -6,7 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
+import { default as React, FunctionComponent } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { url } from '../config/application';
@@ -26,9 +26,10 @@ import { PageWork } from './page/work';
 /**
  * Handling routes and wrap content in a layout.
  *
+ * @function
  * @returns {ReactElement} React component markup
  */
-export function Routes() {
+export const Routes: FunctionComponent = () => {
     return (
         <LayoutBodyConnected>
             <Switch>

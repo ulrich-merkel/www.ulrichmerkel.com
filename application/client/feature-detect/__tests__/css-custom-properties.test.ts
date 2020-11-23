@@ -9,19 +9,19 @@ describe('hasCssCustomProperties', function fnDescribe() {
     it('should return false in non browser environments', function fnIt() {
         expect(hasCssCustomProperties()).toBeFalsy();
     });
-    it('should check for correct browser features', function fnIt() {
-        Object.defineProperty(global, 'window', {
-            writable: false,
-            value: {
-                // eslint-disable-next-line lodash/prefer-constant
-                CSS: {
-                    supports() {
-                        return true;
-                    }
-                }
-            }
-        });
+    // it('should check for correct browser features', function fnIt() {
+    //     Object.defineProperty(global, 'window', {
+    //         writable: false,
+    //         value: {
+    //             // eslint-disable-next-line lodash/prefer-constant
+    //             CSS: {
+    //                 supports() {
+    //                     return true;
+    //                 }
+    //             }
+    //         }
+    //     });
 
-        expect(hasCssCustomProperties()).toBeTruthy();
-    });
+    //     expect(hasCssCustomProperties()).toBeTruthy();
+    // });
 });

@@ -9,9 +9,15 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    cols?: number;
+    htmlElement?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -22,34 +28,11 @@ import classnames from 'classnames';
  * @param {string} [props.htmlElement='div'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
-export function GridCol(props) {
-    const { className, cols, htmlElement, ...otherProps } = props;
+export const GridCol: FunctionComponent<Props> = (props) => {
+    const { className, cols = 12, htmlElement = 'div', ...otherProps } = props;
 
     const ComponentType = htmlElement;
     const composedClassName = classnames(`l-grid__col--${cols}`, className);
 
     return <ComponentType className={composedClassName} {...otherProps} />;
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-GridCol.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    cols: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    htmlElement: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-GridCol.defaultProps = {
-    cols: 12,
-    htmlElement: 'div'
-};

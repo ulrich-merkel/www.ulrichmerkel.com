@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getSectionTransition should apply default transition if viewsAfterReload is greater than 1 1`] = `
+exports[`getSectionTransition should apply default transition if pageViewsAfterReload is greater than 1 1`] = `
 Object {
   "appear": true,
   "className": "l-main__transition",
@@ -10,12 +10,22 @@ Object {
 }
 `;
 
-exports[`getSectionTransition should apply no transitionAppear if viewsAfterReload is 1 1`] = `
+exports[`getSectionTransition should apply no transitionAppear if pageViewsAfterReload is 1 1`] = `
+Object {
+  "appear": false,
+  "className": "l-main__transition",
+  "classNames": "animate",
+  "in": false,
+  "timeout": 750,
+}
+`;
+
+exports[`getSectionTransition should correct transitions for reducedMotionSelectedReduce 1`] = `
 Object {
   "appear": true,
   "className": "l-main__transition",
   "classNames": "animate",
   "in": true,
-  "timeout": 750,
+  "timeout": 0,
 }
 `;

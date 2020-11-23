@@ -1,9 +1,9 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import { selectStatePage, selectStatePageViewsAfterReload } from '../selector';
 
 describe('selectStatePage', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStatePage(mockState)).toMatchSnapshot();
+        expect(selectStatePage(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -20,7 +20,7 @@ describe('selectStatePage', function fnDescribe() {
 
 describe('selectStatePageViewsAfterReload', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStatePageViewsAfterReload(mockState)).toMatchSnapshot();
+        expect(selectStatePageViewsAfterReload(mockedState)).toMatchSnapshot();
     });
     it("should return the default if state isn't found", function fnIt() {
         const state = {
