@@ -32,7 +32,7 @@ function isValidEvent(event: CustomEvent, functionToCall: string): boolean {
 }
 
 /**
- * Handle form submit event.
+ * Prevent event default handling.
  *
  * @param {object} event - The current event object
  * @returns {void}
@@ -44,7 +44,7 @@ export function eventPreventDefault(event: CustomEvent): void {
 }
 
 /**
- * Handle form submit event.
+ * Prevent event propagation.
  *
  * @param {object} event - The current event object
  * @returns {void}

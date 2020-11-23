@@ -10,12 +10,16 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 
 import { SectionCommonGrid } from './common/grid';
 import { ModuleArticle } from '../module/article';
 import { ModuleFeatured } from '../module/featured';
+
+type Props = {
+    children?: ReactNode;
+    content: any;
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -25,46 +29,16 @@ import { ModuleFeatured } from '../module/featured';
  * @param {object} [props.content={}] - The content config input
  * @returns {ReactElement} React component markup
  */
-function SectionFeatured(props) {
-    const { children, content, ...moduleProps } = props;
+export const SectionFeatured: FunctionComponent<Props> = (props) => {
+    const { children, content, ...otherProps } = props;
 
     return (
         <SectionCommonGrid>
             <ModuleArticle {...{ content }} isSpaced noMargin>
-                <ModuleFeatured {...{ content }} {...moduleProps}>
+                <ModuleFeatured {...{ content }} {...otherProps}>
                     {children}
                 </ModuleFeatured>
             </ModuleArticle>
         </SectionCommonGrid>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-SectionFeatured.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    )
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-SectionFeatured.defaultProps = {
-    content: {}
-};
-
-export { SectionFeatured };

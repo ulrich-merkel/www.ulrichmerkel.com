@@ -1,0 +1,2004 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes should render correctly 1`] = `
+<DocumentFragment>
+  <dialog
+    aria-live="assertive"
+    class="l-dialog--loading"
+    role="alert"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      <div
+        class="c-flip"
+      >
+        <div
+          class="c-flip__front"
+        >
+          Now
+        </div>
+        <div
+          class="c-flip__back"
+        >
+          Loading
+        </div>
+      </div>
+    </div>
+    <div
+      class="l-dialog__background"
+    />
+  </dialog>
+  <header
+    class="c-header l-header is-fixed is-visible"
+    itemscope=""
+    itemtype="http://schema.org/WPHeader"
+    role="banner"
+  >
+    <progress
+      class="m-progress"
+      id="m-progress"
+      max="100"
+      value="0"
+    >
+      <span
+        class="m-progress__fallback"
+        id="m-progress__fallback"
+      />
+    </progress>
+    <nav
+      class="m-nav m-nav--main"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <input
+              aria-label="Menu"
+              class="m-nav__toggle c-font-icon--menu"
+              data-label="Menu"
+              type="checkbox"
+            />
+            <ul
+              class="m-menu m-menu--main m-nav__toggle-target"
+              itemscope=""
+              itemtype="https://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current="page"
+                  class="c-link m-menu__item is-active"
+                  href="/"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Show some work"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Work
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item"
+                  href="/persona"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Show information about my persona"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Persona
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item"
+                  href="/contact"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Get in touch"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Contact
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="m-menu--aside m-nav__toggle-target m-nav__aside"
+              itemscope=""
+              itemtype="http://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
+                  data-locale="en-EN"
+                  role="button"
+                  title="Switch to english"
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    en
+                  </span>
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+                  data-locale="de-DE"
+                  role="button"
+                  title="Sprache in deutsch ändern"
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    de
+                  </span>
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item--search always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  href="/search"
+                  tabindex="0"
+                  title="Search"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--search c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item--theme always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  href="/settings"
+                  tabindex="0"
+                  title=""
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--cog c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+  <main
+    class="l-main"
+    itemprop="mainContentOfPage"
+    role="main"
+  >
+    <section
+      class="l-grid l-main__transition"
+    >
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <div
+            class="m-key-visual hide-on-print"
+          >
+            <picture
+              class="c-picture m-key-visual__image m-key-visual__image--digital"
+              itemscope=""
+              itemtype="http://schema.org/ImageObject"
+              style="background-position: 20% 25%; background-size: cover; background-image: url(data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);"
+            >
+              <source
+                class="c-picture__source"
+                media="(min-width: 2560px)"
+                srcset="/img/content/home/keyvisual@2560x1600.webp"
+                type="image/webp"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 2560px)"
+                srcset="/img/content/home/keyvisual@2560x1600.jpg"
+                type="image/jpeg"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1680px)"
+                srcset="/img/content/home/keyvisual@1680x1050.webp"
+                type="image/webp"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1680px)"
+                srcset="/img/content/home/keyvisual@1680x1050.jpg"
+                type="image/jpeg"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1440px)"
+                srcset="/img/content/home/keyvisual@1440x960.webp"
+                type="image/webp"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1440px)"
+                srcset="/img/content/home/keyvisual@1440x960.jpg"
+                type="image/jpeg"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1024px)"
+                srcset="/img/content/home/keyvisual@1024x640.webp"
+                type="image/webp"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 1024px)"
+                srcset="/img/content/home/keyvisual@1024x640.jpg"
+                type="image/jpeg"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 720px)"
+                srcset="/img/content/home/keyvisual@720x480.webp"
+                type="image/webp"
+              />
+              <source
+                class="c-picture__source"
+                media="(min-width: 720px)"
+                srcset="/img/content/home/keyvisual@720x480.jpg"
+                type="image/jpeg"
+              />
+              <img
+                alt="Ulrich Merkel"
+                class="c-picture__img"
+                itemprop="contentUrl"
+                src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                srcset="/img/content/home/keyvisual.jpg"
+              />
+            </picture>
+            <article
+              class="m-key-visual__text"
+            >
+              <h3
+                class="is-centered c-type--h3 m-key-visual__headline"
+                itemprop="headline"
+              >
+                <span
+                  class="m-key-visual__boxed"
+                >
+                  Hello, my name is Ulrich Merkel
+                </span>
+              </h3>
+              <p
+                class="c-type--p m-key-visual__lead"
+                itemprop="description"
+              >
+                <span
+                  class="m-key-visual__boxed"
+                >
+                  I am a (Frontend) Web Developer
+                </span>
+              </p>
+            </article>
+            <button
+              class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+              role="button"
+              title="Scroll down"
+              type="button"
+            >
+              <span
+                class="c-btn__label is-visually-hidden"
+              >
+                Scroll down
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="is-main m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h1
+                class="is-centered c-type--h1 m-article__headline"
+                itemprop="headline"
+              >
+                What i do
+              </h1>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  I build fancy and fast websites
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <div
+                  class="m-text"
+                >
+                  <div
+                    class="m-text__block"
+                  >
+                    <div
+                      class="has-columns--2 m-text__content"
+                    >
+                      <p
+                        class="c-type--p"
+                      >
+                        I am a web developer with a deeply understanding of design and ux.
+        I love creating code and design that push the boundries of what the web can do.
+        For me this means make it work for everyone
+        on every device, pursue performance on each step and
+        focus on solving problems with the right tools.
+        With this in mind i create functional, beautiful and accessable
+        websites.
+        I believe that friendship, trust and loyalty are important values (of a team and in personal) - and these values are important
+        to succeed and to push things forward. Every interest and new idea is welcomed and celebrated, there should be no barriers in thinking
+        because learning on the go should be involved in every step in this fast moving development role.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="is-centered c-type--p m-article__button hide-on-print"
+              >
+                <a
+                  class="c-btn"
+                  href="/persona"
+                  role="button"
+                  title="See my resume"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    Learn more about my person
+                  </span>
+                </a>
+              </p>
+              <meta
+                content="What i do"
+                itemprop="name"
+              />
+              <meta
+                content="2017-10-7"
+                itemprop="datePublished"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition"
+    >
+      <div
+        class="l-grid__spaced--small"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <article
+              class="m-article"
+              itemscope=""
+              itemtype="https://schema.org/Article"
+            >
+              <h2
+                class="is-centered c-type--h2 m-article__headline"
+                itemprop="headline"
+              >
+                Services
+              </h2>
+              <p
+                class="is-centered c-type--p m-article__lead"
+                itemprop="alternativeHeadline"
+              >
+                <strong>
+                  Some things i am able to do
+                </strong>
+              </p>
+              <div
+                class="m-article__text"
+                itemprop="text"
+              >
+                <ul
+                  class="m-service"
+                  itemscope=""
+                  itemtype="https://schema.org/ItemList"
+                  role="list"
+                >
+                  <li
+                    class="m-service__item--left"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--lab m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Developing
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Frontend and backend web development with 
+                          <abbr
+                            title="HyperText Markup Language 5"
+                          >
+                            HTML5
+                          </abbr>
+                          , 
+                          <abbr
+                            title="Cascading Style Sheets Level 3"
+                          >
+                            CSS3
+                          </abbr>
+                          , 
+                          <abbr
+                            title="Lightweight scripting language for web pages"
+                          >
+                            JavaScript
+                          </abbr>
+                           and 
+                          <abbr
+                            title="PHP: Hypertext Preprocessor"
+                          >
+                            PHP
+                          </abbr>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-service__item--right"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--stats-dots m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Frontend optimisation
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Frontend optimisation for performance, search engines and mobile as well as test automation
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="m-service__item--clear"
+                  />
+                  <li
+                    class="m-service__item--left"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--magic-wand m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Design and UX
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Find creative solutions for user interfaces and fancy designs
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="m-service__item--right"
+                    itemprop="itemListElement"
+                  >
+                    <div
+                      class="m-service__content"
+                    >
+                      <div
+                        class="m-service__icon"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--happy m-service__icon-font"
+                        />
+                      </div>
+                      <div
+                        class="m-service__description"
+                      >
+                        <h3
+                          class="is-centered c-type--h3 m-service__headline"
+                        >
+                          Support and consulting
+                        </h3>
+                        <p
+                          class="c-type--p m-service__text"
+                        >
+                          Helping you to get things done right, with the appropriate tools you need
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="m-service__item--clear"
+                  />
+                </ul>
+              </div>
+              <meta
+                content="Services"
+                itemprop="name"
+              />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="l-grid l-main__transition"
+    >
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <article
+            class="has-no-margin m-article"
+            itemscope=""
+            itemtype="https://schema.org/Article"
+          >
+            <h2
+              class="is-centered c-type--h2 is-spaced m-article__headline"
+              itemprop="headline"
+            >
+              Featured Work
+            </h2>
+            <div
+              class="m-article__text"
+              itemprop="text"
+            >
+              <ul
+                class="m-featured"
+                itemscope=""
+                itemtype="https://schema.org/ItemList"
+                role="list"
+              >
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/optik-ludewig"
+                    tabindex="0"
+                    title="Optik Ludewig"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Optik Ludewig
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--optik-ludewig@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--optik-ludewig@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--optik-ludewig@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--optik-ludewig@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--optik-ludewig@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--optik-ludewig@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--optik-ludewig@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--optik-ludewig@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--optik-ludewig@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--optik-ludewig@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--optik-ludewig@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--optik-ludewig@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--optik-ludewig@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--optik-ludewig@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--optik-ludewig@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--optik-ludewig@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Optik Ludewig website"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--optik-ludewig.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Optik Ludewig"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/summer-inspiration"
+                    tabindex="0"
+                    title="Summer Inspiration"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Summer Inspiration
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--summer-inspiration@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--summer-inspiration@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--summer-inspiration@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--summer-inspiration@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--summer-inspiration@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--summer-inspiration@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--summer-inspiration@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--summer-inspiration@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--summer-inspiration@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--summer-inspiration@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--summer-inspiration@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--summer-inspiration@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--summer-inspiration@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--summer-inspiration@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--summer-inspiration@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--summer-inspiration@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Summer Inspiration website"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--summer-inspiration.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Summer Inspiration"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/momentariness"
+                    tabindex="0"
+                    title="Momentariness"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Momentariness
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--momentariness@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--momentariness@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--momentariness@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--momentariness@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--momentariness@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--momentariness@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--momentariness@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--momentariness@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--momentariness@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--momentariness@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--momentariness@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--momentariness@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--momentariness@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--momentariness@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--momentariness@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--momentariness@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Momentariness digital collage"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--momentariness.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Momentariness"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/lebenswelt-schule"
+                    tabindex="0"
+                    title="Lebenswelt Schule"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Lebenswelt Schule
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--lebenswelt-schule@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Lebenswelt Schule website"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--lebenswelt-schule.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Lebenswelt Schule"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/revolution"
+                    tabindex="0"
+                    title="Revolution"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Revolution
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--revolution@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--revolution@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--revolution@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--revolution@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--revolution@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--revolution@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--revolution@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--revolution@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--revolution@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--revolution@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--revolution@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--revolution@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--revolution@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--revolution@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--revolution@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--revolution@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Revolution digital collage"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--revolution.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Revolution"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/verlegeservice-bunge"
+                    tabindex="0"
+                    title="Verlegeservice Bunge"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Verlegeservice Bunge
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--verlegeservice-bunge@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Verlegeservice Bunge website"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--verlegeservice-bunge.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Verlegeservice Bunge"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="m-featured__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-featured__item"
+                    href="/work/gedanken-kollektiv"
+                    tabindex="0"
+                    title="Gedanken Kollektiv"
+                  >
+                    <span
+                      class="m-featured__hover"
+                    >
+                      <span
+                        class="m-featured__text"
+                      >
+                        <span
+                          aria-level="3"
+                          class="m-featured__headline"
+                          role="heading"
+                        >
+                          Gedanken Kollektiv
+                        </span>
+                        <i
+                          aria-hidden="true"
+                          class="c-font-icon--plus m-featured__icon"
+                        />
+                      </span>
+                    </span>
+                    <picture
+                      class="c-picture m-featured__picture"
+                      itemscope=""
+                      itemtype="http://schema.org/ImageObject"
+                    >
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@600x600.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 2561px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@600x600.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@512x512.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1921px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@512x512.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@384x384.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1631px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@384x384.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@326x326.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1441px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@326x326.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@288x288.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 1201px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@288x288.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@240x240.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 641px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@240x240.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@214x214.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 321px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@214x214.jpg"
+                        type="image/jpeg"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@160x160.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        class="c-picture__source"
+                        media="(min-width: 0px)"
+                        srcset="/img/content/home/featured--gedanken-kollektiv@160x160.jpg"
+                        type="image/jpeg"
+                      />
+                      <img
+                        alt="Gedanken Kollektiv website"
+                        class="c-picture__img"
+                        itemprop="contentUrl"
+                        src="data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        srcset="/img/content/home/featured--gedanken-kollektiv.jpg"
+                      />
+                    </picture>
+                    <meta
+                      content="Gedanken Kollektiv"
+                      itemprop="name"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <meta
+              content="Featured Work"
+              itemprop="name"
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer
+    class="l-footer"
+    itemscope=""
+    itemtype="http://schema.org/WPFooter"
+    role="contentinfo"
+  >
+    <button
+      class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      role="button"
+      title="Scroll to top"
+      type="button"
+    >
+      <span
+        class="c-btn__label is-visually-hidden"
+      >
+        Scroll to top
+      </span>
+    </button>
+    <nav
+      class="m-nav"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__spaced--small"
+        >
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <ul
+                class="m-menu m-menu--imprint"
+                itemscope=""
+                itemtype="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/disclaimer"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Disclaimer"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Disclaimer
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/imprint"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Imprint"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Imprint
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/privacy"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Privacy"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Privacy
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <ul
+                class="m-menu m-menu--social"
+                itemscope=""
+                itemtype="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://www.xing.com/profile/Ulrich_Merkel4"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Xing"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--xing m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Xing
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://www.facebook.com/ulrich.merkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Facebook"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--facebook m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://github.com/ulrich-merkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ GitHub"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--github m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      GitHub
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://delicious.com/ulrichmerkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Delicious"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--delicious m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Delicious
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <small
+                class="c-type--small"
+              >
+                © 
+                <strong>
+                  Ulrich Merkel
+                </strong>
+                 2017
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </footer>
+</DocumentFragment>
+`;

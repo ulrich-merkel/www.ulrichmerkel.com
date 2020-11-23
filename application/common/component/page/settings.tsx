@@ -18,7 +18,7 @@ import { LayoutMain } from '../layout/main';
 import { SectionSettings } from '../section/settings';
 import { ModuleFormSettingsConnected } from '../module/form/settings';
 
-type PageProps = {
+type Props = {
     content: {};
     isDialog?: boolean;
 };
@@ -30,7 +30,7 @@ type PageProps = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
 

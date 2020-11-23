@@ -17,7 +17,7 @@ import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionList } from '../section/list';
 
-type PageProps = {
+type Props = {
     content: {};
     isDialog?: boolean;
 };
@@ -29,7 +29,7 @@ type PageProps = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content, isDialog } = props;
     const contentSection = getContentSection(content);
 
