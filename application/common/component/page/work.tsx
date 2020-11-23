@@ -51,10 +51,10 @@ const NOT_FOUND = 'not-found';
  */
 function getWorkContentKey(routerPath: string, config) {
     return config
-        .filter((entry) => {
+        .filter(function fnFilter(entry) {
             return entry.routerPath.substr(1) === routerPath;
         })
-        .map((entry) => {
+        .map(function fnMap(entry) {
             return entry.intlKey;
         })
         .shift();
