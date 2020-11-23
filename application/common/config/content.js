@@ -1442,35 +1442,31 @@ export const configContent = {
     },
     PageSettings: {
         head: {
-            title: 'intl-search-section1-headline',
+            title: 'intl-settings-section1-headline',
             meta: [
                 {
                     name: 'description',
-                    content: 'intl-search-head-description'
+                    content: 'intl-settings-head-description'
                 },
                 {
                     property: 'og:description',
-                    content: 'intl-search-head-description'
+                    content: 'intl-settings-head-description'
                 },
                 {
                     name: 'twitter:description',
-                    content: 'intl-search-head-description'
+                    content: 'intl-settings-head-description'
                 },
-                { name: 'dcterms.Title', content: 'intl-search-head-title' },
+                { name: 'dcterms.Title', content: 'intl-settings-head-title' },
                 {
                     name: 'dcterms.Description',
-                    content: 'intl-search-head-description'
+                    content: 'intl-settings-head-description'
                 }
             ]
         },
         section1: {
-            headline: 'intl-search-section1-headline',
-            lead: 'intl-search-section1-lead',
-            noResults: 'intl-search-section1-no-results'
-        },
-        formSearch: {
-            legend: 'intl-search-section1-form-legend',
-            inputTerm: 'intl-search-section1-form-input-name'
+            headline: 'intl-settings-section1-headline',
+            lead: 'intl-settings-section1-lead',
+            noResults: 'intl-settings-section1-no-results'
         }
     },
     PageBroadcast: {

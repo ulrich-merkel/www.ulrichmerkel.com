@@ -1,15 +1,16 @@
 # www.ulrichmerkel.com
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ulrich-merkel/www.ulrichmerkel.com.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com.svg?branch=master)](https://travis-ci.org/ulrich-merkel/www.ulrichmerkel.com)
-[![Dependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com)
-[![devDependency Status](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com/dev-status.svg?style=flat)](https://david-dm.org/ulrich-merkel/www.ulrichmerkel.com#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/ulrich-merkel/www.ulrichmerkel.com/badge.svg?branch=master)](https://coveralls.io/github/ulrich-merkel/www.ulrichmerkel.com?branch=master)
 [![Code Climate](https://codeclimate.com/github/ulrich-merkel/www.ulrichmerkel.com/badges/gpa.svg)](https://codeclimate.com/github/ulrich-merkel/www.ulrichmerkel.com)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](www.ulrichmerkel.com)
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
 [![node](https://img.shields.io/node/v/gh-badges.svg)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/ulrich-merkel/www.ulrichmerkel.com)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![Known Vulnerabilities](https://snyk.io/test/github/ulrich-merkel/www.ulrichmerkel.com/badge.svg)](https://snyk.io/test/github/ulrich-merkel/www.ulrichmerkel.com)
+
+
 
 
 ## About
@@ -34,7 +35,7 @@ Using next generation JavaScript today
 * [ESLint](http://eslint.org/) - The pluggable linting utility for JavaScript and JSX
 * [Stylelint](https://github.com/stylelint/stylelint) - A mighty, modern CSS linter
 * [Jest](https://facebook.github.io/jest) - Painless JavaScript testing framework
-* [Flow](https://flowtype.org/) - A static type checker for JavaScript
+* [Typescript](https://www.typescriptlang.org/) - Typed JavaScript at Any Scale
 * [Snyk](https://snyk.io/) - Continuously finds and fixes vulnerabilities in your dependencies
 * [Node Security Platform](https://github.com/nodesecurity/nsp) - Helps you keep your node applications secure
 * [RetireJS](https://github.com/RetireJS/retire.js) - Detecting the use of JavaScript libraries with known vulnerabilities
@@ -43,7 +44,6 @@ Using next generation JavaScript today
 * [Travis CI](https://travis-ci.org/) - Test and Deploy with Confidence
 * [Codeclimate](https://codeclimate.com/) - Code Climate empowers organizations to take control of their code quality
 * [Coveralls](https://coveralls.io/) - Help you deliver code confidently by showing which parts of your code aren’t covered by your test suite
-* [Greenkeeper](https://greenkeeper.io/) - Get safety & consistency with real-time monitoring and automatic updates for npm dependencies
 
 ### Documentation
 
