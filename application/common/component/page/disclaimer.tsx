@@ -18,7 +18,7 @@ import { getContentSection } from '../../utils/content';
 import { LayoutMain } from '../layout/main';
 import { SectionText } from '../section/text';
 
-type PageProps = {
+type Props = {
     content: {};
 };
 
@@ -29,7 +29,7 @@ type PageProps = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content } = props;
     const contentSection = getContentSection(content);
 

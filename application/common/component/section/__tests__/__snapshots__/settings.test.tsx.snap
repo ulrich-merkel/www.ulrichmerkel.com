@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionSettings should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="l-grid l-main__transition"
+  >
+    <div
+      class="l-grid__spaced--small"
+    >
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <article
+            class="m-article"
+            itemscope=""
+            itemtype="https://schema.org/Article"
+          >
+            <div
+              class="m-article__text"
+              itemprop="text"
+            >
+              Section settings children
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

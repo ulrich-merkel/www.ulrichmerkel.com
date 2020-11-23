@@ -7,12 +7,6 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 
-interface Document {
-    getElementById: Function<HTMLElement>;
-    getElementsByTagName: Function<HTMLElement>;
-    createElement: Function<HTMLElement>;
-}
-
 /**
  * Get basic window document dom node.
  *
@@ -32,7 +26,7 @@ export function getDocumentDomNode(): Document {
  * @param {string} id - The elements tag name
  * @returns {object|null} The current element or null
  */
-export function getDomNodeById(id: string): HTMLElement | null {
+export function getDomNodeById(id: string): Element | null {
     const doc = getDocumentDomNode();
     return (doc && doc.getElementById(id)) || null;
 }
@@ -43,7 +37,7 @@ export function getDomNodeById(id: string): HTMLElement | null {
  * @param {string} name - The elements tag name
  * @returns {Array<object>|null} The current element or null
  */
-export function getDomNodesByTagName(name: string): HTMLElement[] | null {
+export function getDomNodesByTagName(name: string): HTMLCollectionOf<Element> | null {
     const doc = getDocumentDomNode();
     return (doc && doc.getElementsByTagName(name)) || null;
 }
@@ -54,7 +48,7 @@ export function getDomNodesByTagName(name: string): HTMLElement[] | null {
  * @param {string} name - The elements tag name
  * @returns {object|null} The current element or null
  */
-export function getFirstDomNodeByTagName(name: string): HTMLElement | null {
+export function getFirstDomNodeByTagName(name: string): Element | null {
     const domNode = getDomNodesByTagName(name);
     return (domNode && domNode[0]) || null;
 }
@@ -64,7 +58,7 @@ export function getFirstDomNodeByTagName(name: string): HTMLElement | null {
  *
  * @returns {object|null} The current head dom element or null
  */
-export function getHeadDomNode(): HTMLElement | null {
+export function getHeadDomNode(): Element | null {
     return getFirstDomNodeByTagName('head');
 }
 

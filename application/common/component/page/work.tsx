@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Page components combine section components to the
@@ -26,7 +25,7 @@ import { SectionFeatured } from '../section/featured';
 import { SectionKeyVisual } from '../section/key-visual';
 import { SectionText } from '../section/text';
 
-type PageProps = {
+type Props = {
     locale: string;
     match: {
         params: {
@@ -36,7 +35,7 @@ type PageProps = {
     config: any;
 };
 
-type PageState = {
+type State = {
     work: string;
 };
 
@@ -52,10 +51,10 @@ const NOT_FOUND = 'not-found';
  */
 function getWorkContentKey(routerPath: string, config) {
     return config
-        .filter((entry) => {
+        .filter(function fnFilter(entry) {
             return entry.routerPath.substr(1) === routerPath;
         })
-        .map((entry) => {
+        .map(function fnMap(entry) {
             return entry.intlKey;
         })
         .shift();
@@ -70,7 +69,7 @@ function getWorkContentKey(routerPath: string, config) {
  * @property {object} props.match - The react router params
  * @property {object} [props.content={}] - The component translation config
  */
-class Page extends Component<PageProps, PageState> {
+class Page extends Component<Props, State> {
     /**
      * The actual class constructor.
      *
@@ -90,41 +89,38 @@ class Page extends Component<PageProps, PageState> {
      * @returns {void}
      */
     componentDidMount() {
-        this.handleRouterParams(this.props);
+        this.handleRouterParams();
     }
 
     /**
      * Invoked before a mounted component receives new props. React only calls
      * this method if some of component's props may update.
      *
-     * @param {object} [nextProps] - The new class properties
      * @returns {void}
      */
-    componentDidUpdate(nextProps) {
-        this.handleRouterParams(nextProps);
+    componentDidUpdate() {
+        this.handleRouterParams();
     }
 
     /**
      * Handle state transition or redirect based on the router params.
      *
      * @private
-     * @param {object} props - The current component props with router match
      * @returns {void}
      */
-    handleRouterParams(props) {
-        const locationParamWork = get(props, 'match.params.work', null);
-        const work = getWorkContentKey(locationParamWork, configWork);
+    handleRouterParams() {
+        const { match } = this.props;
+        const { work } = this.state;
+        const locationParamWork = get(match, 'params.work', null);
+        const newWork = getWorkContentKey(locationParamWork, configWork);
 
-        // Set redirect state if route couldn't be found
-        if (!work) {
-            this.setState({
-                work: NOT_FOUND
-            });
+        if (work === newWork || (!newWork && work === NOT_FOUND)) {
             return;
         }
 
+        // Set redirect state if route couldn't be found
         this.setState({
-            work
+            work: !newWork ? NOT_FOUND : newWork
         });
     }
 

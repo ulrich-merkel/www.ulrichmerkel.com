@@ -12,6 +12,7 @@
 import assert from 'assert-plus';
 
 import { logger } from '../../common/utils/logger';
+import { errorCodes } from '../constants/error-codes';
 
 /**
  * Catch 404 and forward to error handler. Define custom error logic in here.
@@ -33,8 +34,8 @@ export function middlewareError(err, req, res, next) {
     // eslint-disable-next-line prefer-const, immutable/no-let
     let error = err;
 
-    // handle csrf token errors thrown by csurf
-    if (error.code === 'EBADCSRFTOKEN') {
+    // Handle csrf token errors thrown by csurf
+    if (error.code === errorCodes.EBADCSRFTOKEN) {
         error.status = 403; // eslint-disable-line immutable/no-mutation
     }
 

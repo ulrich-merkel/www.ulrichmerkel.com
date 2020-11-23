@@ -3,7 +3,7 @@
 exports[`selectStateReducedMotion should return the correct state 1`] = `
 Object {
   "meta": Object {
-    "isInitial": true,
+    "isInitial": false,
   },
   "payload": Object {
     "selected": "no-preference",

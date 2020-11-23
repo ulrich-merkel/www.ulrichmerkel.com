@@ -11,18 +11,18 @@
     // Default basic styling, mainly reset styles
     // ----------------------------
     button {
+        appearance: none;
+        background: none;
+        border: 0;
+        cursor: pointer;
         display: block;
+        line-height: inherit;
         margin: 0;
         padding: 0;
-        line-height: inherit;
-        @include var(color, --theme-base-button-color);
         text-align: center;
         text-decoration: none;
         text-transform: none;
-        cursor: pointer;
-        background: none;
-        border: 0;
-        appearance: none;
+        @include var(color, --theme-base-button-color);
 
         will-change: background, color;
         transition: background $config-transition-arguments ease-in-out,

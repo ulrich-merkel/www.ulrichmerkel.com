@@ -10,11 +10,14 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import { get } from 'lodash';
+import { Action } from 'redux';
 
 import { url } from '../../config/application';
 import { xhr } from '../../utils/xhr';
 import { getDateNow } from '../../utils/date';
 import { logger } from '../../utils/logger';
+import { RootState } from '../configure-store';
+import { RequestConfigTranslationActionType, ReceiveConfigContentActionType, ReceiveConfigTranslationActionType } from './types';
 
 /**
  * @type {string}
@@ -75,11 +78,11 @@ export const CONFIG_TRANSLATION_INVALIDATE = `${CONFIG_RESOURCE_NAME}/CONFIG_TRA
  * Check if async data needs to be loaded from server.
  *
  * @private
- * @param {object} state - The current redux store object
- * @param {string} stateKey - The state key as input for lodash's get
+ * @param {object} [state] - The current config redux store object
+ * @param {string} [stateKey] - The state key as input for lodash's get
  * @returns {boolean}
  */
-export function shouldFetch(state, stateKey) {
+export function shouldFetch(state?: RootState, stateKey?: string) {
     const stateData = get(state, stateKey);
 
     if (!stateData || !stateData.data) {
@@ -98,7 +101,7 @@ export function shouldFetch(state, stateKey) {
  * @private
  * @returns {object} Redux action
  */
-export function requestConfigContent() {
+export function requestConfigContent(): Action {
     return {
         type: FETCH_CONFIG_CONTENT_REQUEST
     };
@@ -111,7 +114,7 @@ export function requestConfigContent() {
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function requestConfigTranslation(locale) {
+export function requestConfigTranslation(locale: string): RequestConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_REQUEST,
         locale
@@ -125,7 +128,7 @@ export function requestConfigTranslation(locale) {
  * @param {object} data - The api json data
  * @returns {object} Redux action
  */
-export function receiveConfigContent(data) {
+export function receiveConfigContent(data: any): ReceiveConfigContentActionType {
     return {
         type: FETCH_CONFIG_CONTENT_SUCCESS,
         receivedAt: getDateNow(),
@@ -141,7 +144,7 @@ export function receiveConfigContent(data) {
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function receiveConfigTranslation(data, locale) {
+export function receiveConfigTranslation(data: any, locale: string): ReceiveConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_SUCCESS,
         receivedAt: getDateNow(),
@@ -156,7 +159,7 @@ export function receiveConfigTranslation(data, locale) {
  * @private
  * @returns {object} Redux action
  */
-export function failedConfigContent() {
+export function failedConfigContent(): Action {
     return {
         type: FETCH_CONFIG_CONTENT_FAILURE
     };

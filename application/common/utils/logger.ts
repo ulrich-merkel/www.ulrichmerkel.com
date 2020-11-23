@@ -51,17 +51,15 @@ function getLogOptions() {
  * Create custom logger on top of console log.
  *
  * @param {string} name - The prefix to be used for messages
- * @returns {object} The current logger instance
+ * @returns {void}
  */
-function Logger(name: string): LoggerType {
+function Logger(name: string): void {
     this.name = name;
     this._log = noop;
     this._info = noop;
     this._warn = noop;
     this._error = noop;
     this._enabled = false;
-
-    return this;
 }
 
 Logger.prototype = {

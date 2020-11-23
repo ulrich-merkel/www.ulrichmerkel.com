@@ -19,7 +19,7 @@ import { LayoutMain } from '../layout/main';
 import { SectionContact } from '../section/contact';
 import { ModuleFormContactConnected } from '../module/form/contact';
 
-type PageProps = {
+type Props = {
     content: {};
     params?: {
         state: {};
@@ -33,7 +33,7 @@ type PageProps = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content, params } = props;
     const contentSection = getContentSection(content);
     const routerState = params && params.state;

@@ -1,4 +1,4 @@
-import { mockState } from '../../../../__tests__/utils/get-mocked-store';
+import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
     selectStateIntl,
     selectStateIntlLocale,
@@ -7,7 +7,7 @@ import {
 
 describe('selectStateIntl', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateIntl(mockState)).toMatchSnapshot();
+        expect(selectStateIntl(mockedState)).toMatchSnapshot();
     });
     it('should return the initial state if resource key is not found', function fnIt() {
         const state = {
@@ -24,7 +24,7 @@ describe('selectStateIntl', function fnDescribe() {
 
 describe('selectStateIntlLocale', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateIntlLocale(mockState)).toMatchSnapshot();
+        expect(selectStateIntlLocale(mockedState)).toMatchSnapshot();
     });
     it("should return the default locale if state isn't found", function fnIt() {
         const state = {
@@ -38,7 +38,7 @@ describe('selectStateIntlLocale', function fnDescribe() {
 
 describe('selectStateIntlAvailableLocales', function fnDescribe() {
     it('should return the correct state', function fnIt() {
-        expect(selectStateIntlAvailableLocales(mockState)).toMatchSnapshot();
+        expect(selectStateIntlAvailableLocales(mockedState)).toMatchSnapshot();
     });
     it("should return the default availableLocales if state isn't found", function fnIt() {
         const state = {

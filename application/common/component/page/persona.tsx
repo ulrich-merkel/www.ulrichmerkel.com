@@ -21,7 +21,7 @@ import { SectionReading } from '../section/reading';
 import { SectionService } from '../section/service';
 import { SectionText } from '../section/text';
 
-type PageProps = {
+type Props = {
     content: {};
 };
 
@@ -33,7 +33,7 @@ type PageProps = {
  * @param {object} [props.content={}] - The component translation config
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content } = props;
     const contentSection = getContentSection(content);
 

@@ -19,7 +19,7 @@ import { SectionSearch } from '../section/search';
 import { ModuleSearchConnected } from '../module/search';
 import { ModuleFormSearchConnected } from '../module/form/search';
 
-type PageProps = {
+type Props = {
     content: {};
     isDialog?: boolean;
 };
@@ -31,7 +31,7 @@ type PageProps = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-const Page: FunctionComponent<PageProps> = (props) => {
+const Page: FunctionComponent<Props> = (props) => {
     const { content, isDialog, children } = props;
     const contentSection = getContentSection(content);
 
