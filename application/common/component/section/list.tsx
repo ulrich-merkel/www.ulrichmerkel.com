@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements

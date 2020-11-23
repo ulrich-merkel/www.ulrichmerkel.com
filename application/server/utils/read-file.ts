@@ -12,7 +12,8 @@ import path from 'path';
 import { promisify } from 'util';
 
 const readFileOptions = {
-    encoding: 'utf-8'
+    encoding: 'utf-8',
+    flag: 'r' // @see {@link https://nodejs.org/api/fs.html#fs_file_system_flags}
 };
 const readFileAsync = promisify(fs.readFile);
 

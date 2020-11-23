@@ -34,6 +34,7 @@ import morgan from 'morgan';
 import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
+import { isFunction } from 'lodash';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import { logger } from '../common/utils/logger';
@@ -51,7 +52,7 @@ import { middlewareApplicationCache } from './middleware/application-cache';
  * @param {string|number} portNumber - The server listen port
  * @returns {void}
  */
-function logServerStarted(portNumber) {
+function logServerStarted(portNumber: string) {
     assert.string(portNumber, 'portNumber');
 
     logger.log('✅  Server is running and listening');
@@ -66,11 +67,11 @@ function logServerStarted(portNumber) {
  * Start new express server.
  *
  * @private
- * @param {object} [config={}] - Optional server and express options
- * @param {Function} [callback=noop] - Called when server started listening
+ * @param {object} [config] - Optional server and express options
+ * @param {Function} [callback] - Called when server started listening
  * @returns {object} The newly created and running server object
  */
-function createServer(config = {}, callback = Function.prototype) {
+function createServer(config?: any, callback?: Function) {
     assert.optionalObject(config, 'config');
     assert.optionalFunc(callback, 'callback');
 
@@ -188,22 +189,22 @@ function createServer(config = {}, callback = Function.prototype) {
     return app.listen(serverPort, function serverStarted(error) {
         if (error) {
             logger.error(error.message);
-            callback(error);
+            isFunction(callback) && callback(error);
             return;
         }
         logServerStarted(serverPort);
-        callback();
+        isFunction(callback) &&  callback();
     });
 }
 
 /**
  * Handle express server initialisation.
  *
- * @param {object} [config={}] - Optional server and express options
- * @param {Function} [callback=noop] - Called when server started listening
+ * @param {object} [config] - Optional server and express options
+ * @param {Function} [callback] - Called when server started listening
  * @returns {object} The newly created and running server object
  */
-export function server(config, callback) {
+export function server(config?: any, callback?: Function) {
     assert.optionalObject(config, 'config');
     assert.optionalFunc(callback, 'callback');
 
