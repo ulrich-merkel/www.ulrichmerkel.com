@@ -115,14 +115,14 @@
     "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/",
     "watch": "npm-run-all --parallel watch:*"
   },
+  "lint-staged": {
+    "application/**/*.{js,jsx,ts,tsx}": ["prettier --write && npm run test:eslint"],
+    "public/**/*.{css,scss}": ["prettier --write && npm run test:css"]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "application/**/*.{js,jsx,ts,tsx}": "prettier --write && npm run test:eslint",
-    "public/**/*.{css,scss}": "prettier --write && npm run test:css"
   },
   "main": "application/server/bootstrap.js",
   "browser": "application/client/bootstrap.js",
