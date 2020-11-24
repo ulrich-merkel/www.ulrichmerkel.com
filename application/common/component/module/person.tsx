@@ -63,12 +63,12 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
 
     return (
         <HtmlElement className={componentClassName} {...componentSchema}>
-            {content.name && (
+            {content?.name && (
                 <P className="m-person__name">
                     <strong>{content.name}</strong>
                 </P>
             )}
-            {content.streetAddress && content.postalCode && content.locality && (
+            {content?.streetAddress && content?.postalCode && content?.locality && (
                 <address
                     className="m-person__address c-type--address"
                     itemProp="address"
@@ -92,7 +92,7 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
                     </span>
                 </address>
             )}
-            {content.email && (
+            {content?.email && (
                 <P className="m-person__email">
                     <abbr title="E-Mail address">E.</abbr>{' '}
                     <a href={`mailto:${content.email}`} itemProp="email">
@@ -100,7 +100,7 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
                     </a>
                 </P>
             )}
-            {content.phoneNumbers && content.phone && (
+            {content?.phoneNumbers && content?.phone && (
                 <P className="m-person__phone">
                     <abbr title="Phonenumber">P.</abbr>{' '}
                     <a
@@ -111,7 +111,7 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
                     </a>
                 </P>
             )}
-            {content.website && (
+            {content?.website && (
                 <P className="m-person__website">
                     <abbr title="Website">W.</abbr>{' '}
                     <a href={`${content.website}`}>{content.website}</a>
