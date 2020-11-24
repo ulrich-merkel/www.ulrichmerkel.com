@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleLanguage should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-language foo"
+    componenttype="span"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="list"
+  >
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo1
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="1"
+              data-text="bar1"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-hidden"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask is-rotated-176"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo1"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo2
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="20"
+              data-text="bar2"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-hidden"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask is-rotated-108"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo2"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo3
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="80"
+              data-text="bar3"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-rotated-72"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo3"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    Module language children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleLanguage should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-language foo"
+    componenttype="span"
+    role="list"
+  >
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo1
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="1"
+              data-text="bar1"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-hidden"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask is-rotated-176"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo1"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo2
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="20"
+              data-text="bar2"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-hidden"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask is-rotated-108"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo2"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    <li
+      class="l-grid__col--4"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Language"
+      role="listitem"
+    >
+      <div
+        class="c-box"
+      >
+        <h3
+          class="is-centered c-type--h3 c-box__header"
+        >
+          foo3
+        </h3>
+        <div
+          class="c-box__content"
+        >
+          <div
+            class="c-pie"
+          >
+            <div
+              class="c-pie__circle"
+              data-percent="80"
+              data-text="bar3"
+            >
+              <div
+                class="c-pie__left"
+              >
+                <span
+                  class="c-pie__mask is-rotated-72"
+                />
+              </div>
+              <div
+                class="c-pie__right"
+              >
+                <span
+                  class="c-pie__mask"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <meta
+          content="foo3"
+          itemprop="name"
+        />
+      </div>
+    </li>
+    Module language children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleLanguage should return null if no content image is empty 1`] = `<DocumentFragment />`;

@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleReading should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-list--reading m-reading foo"
+    componenttype="menu"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="list"
+  >
+    <li
+      class="m-list__item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Book"
+    >
+      <div
+        class="c-reading"
+      >
+        <h3
+          class="is-centered c-type--h3 c-reading__name"
+          itemprop="name"
+        >
+          headline
+        </h3>
+        <p
+          class="c-type--p c-reading__description"
+          itemprop="alternateName"
+        >
+          lead
+        </p>
+        <small
+          class="c-type--small c-reading__source"
+          itemprop="creator"
+        >
+          <span
+            class="c-reading__source-creator"
+          >
+            creator
+          </span>
+          <em
+            class="c-reading__source-publisher"
+          >
+            publisher
+          </em>
+        </small>
+      </div>
+    </li>
+    <li
+      class="m-list__item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Book"
+    >
+      <div
+        class="c-reading"
+      >
+        <h3
+          class="is-centered c-type--h3 c-reading__name"
+          itemprop="name"
+        >
+          headline
+        </h3>
+        <p
+          class="c-type--p c-reading__description"
+          itemprop="alternateName"
+        >
+          lead
+        </p>
+        <small
+          class="c-type--small c-reading__source"
+          itemprop="creator"
+        >
+          <span
+            class="c-reading__source-creator"
+          >
+            creator
+          </span>
+          <em
+            class="c-reading__source-publisher"
+          >
+            publisher
+          </em>
+        </small>
+      </div>
+    </li>
+    Module reading children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleReading should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-list--reading m-reading foo"
+    componenttype="menu"
+    role="list"
+  >
+    <li
+      class="m-list__item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Book"
+    >
+      <div
+        class="c-reading"
+      >
+        <h3
+          class="is-centered c-type--h3 c-reading__name"
+          itemprop="name"
+        >
+          headline
+        </h3>
+        <p
+          class="c-type--p c-reading__description"
+          itemprop="alternateName"
+        >
+          lead
+        </p>
+        <small
+          class="c-type--small c-reading__source"
+          itemprop="creator"
+        >
+          <span
+            class="c-reading__source-creator"
+          >
+            creator
+          </span>
+          <em
+            class="c-reading__source-publisher"
+          >
+            publisher
+          </em>
+        </small>
+      </div>
+    </li>
+    <li
+      class="m-list__item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/Book"
+    >
+      <div
+        class="c-reading"
+      >
+        <h3
+          class="is-centered c-type--h3 c-reading__name"
+          itemprop="name"
+        >
+          headline
+        </h3>
+        <p
+          class="c-type--p c-reading__description"
+          itemprop="alternateName"
+        >
+          lead
+        </p>
+        <small
+          class="c-type--small c-reading__source"
+          itemprop="creator"
+        >
+          <span
+            class="c-reading__source-creator"
+          >
+            creator
+          </span>
+          <em
+            class="c-reading__source-publisher"
+          >
+            publisher
+          </em>
+        </small>
+      </div>
+    </li>
+    Module reading children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleReading should return null if no content is given 1`] = `<DocumentFragment />`;

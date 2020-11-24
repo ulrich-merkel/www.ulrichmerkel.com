@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleList should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-list--broadcast module-list"
+    itemscope=""
+    itemtype="http://schema.org/ItemList"
+    role="list"
+  >
+    <li
+      class="m-list__item"
+    >
+      <h3
+        class="c-type--h3 m-list__alt-headline"
+      >
+        2012
+      </h3>
+      <ul
+        class="m-list"
+      >
+        <li
+          class="m-list__item"
+          itemprop="itemListElement"
+        >
+          <a
+            href="http://www.diamondleague.com/"
+            target="_blank"
+            title="Diamant League website"
+          >
+            Diamant League
+          </a>
+          , track and field athletics, intl-broadcast-virtual-graphics - USA (New York, Eugene)
+        </li>
+      </ul>
+    </li>
+    <li
+      class="m-list__item"
+    >
+      <h3
+        class="c-type--h3 m-list__alt-headline"
+      >
+        2011
+      </h3>
+      <ul
+        class="m-list"
+      >
+        <li
+          class="m-list__item"
+          itemprop="itemListElement"
+        >
+          <a
+            href="http://www.bundesliga.de/"
+            target="_blank"
+            title="Bundesliga website"
+          >
+            German Soccer League
+          </a>
+          , intl-broadcast-virtual-graphics - Germany
+        </li>
+        <li
+          class="m-list__item"
+          itemprop="itemListElement"
+        >
+          <a
+            href="http://www.mdr.de/"
+            target="_blank"
+            title="MDR website"
+          >
+            Mitteldeutscher Rundfunk Leipzig
+          </a>
+          , intl-broadcast-tv-graphics - Germany
+        </li>
+      </ul>
+    </li>
+    Module list children
+  </ul>
+</DocumentFragment>
+`;

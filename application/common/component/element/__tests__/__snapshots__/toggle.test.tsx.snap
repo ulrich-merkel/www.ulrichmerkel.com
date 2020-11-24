@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="c-toggle test"
+  >
+    <input
+      checked=""
+      class="m-form__control--text c-toggle__input"
+      id="test"
+      name="test"
+      placeholder=""
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="m-form__label c-toggle__label"
+      for="test"
+    >
+      <span
+        class="c-toggle__text"
+      >
+        Test
+      </span>
+    </label>
+  </div>
+</DocumentFragment>
+`;

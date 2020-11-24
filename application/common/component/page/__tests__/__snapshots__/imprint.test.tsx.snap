@@ -63,7 +63,7 @@ exports[`PageImprint should render correctly 1`] = `
                       </p>
                     </div>
                     <div
-                      class="is-centered m-person is-centered m-text__content"
+                      class="m-person is-centered m-text__content"
                       itemscope=""
                       itemtype="http://schema.org/Person"
                     >

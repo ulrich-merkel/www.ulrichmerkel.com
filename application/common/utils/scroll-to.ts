@@ -17,17 +17,17 @@ import { isBrowser } from './environment';
 import { getDateNow } from './date';
 
 interface AnimateOptions {
-    duration: number;
-    easing: Function;
-    callback: Function;
-    render: Function;
+    duration?: number;
+    easing?: Function;
+    callback?: Function;
+    render?: Function;
 }
 
 interface ScrollToOptions {
-    top: number;
-    duration: number;
-    easing: Function;
-    callback: Function;
+    top?: number;
+    duration?: number;
+    easing?: Function;
+    callback?: Function;
 }
 
 /**
@@ -38,7 +38,7 @@ interface ScrollToOptions {
  * @param {number} t - The current animation process running from 0 to 1
  * @returns {number} The next process value
  */
-export function easeInOutQuad(t): number {
+export function easeInOutQuad(t: number): number {
     // eslint-disable-next-line no-mixed-operators
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }

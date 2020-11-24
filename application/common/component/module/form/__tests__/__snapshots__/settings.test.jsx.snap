@@ -30,12 +30,15 @@ exports[`ModuleFormSettings should render correctly 1`] = `
             class="c-toggle"
           >
             <input
-              class="c-toggle__input"
+              class="m-form__control--text c-toggle__input"
               id="dark-mode"
+              name="dark-mode"
+              placeholder=""
               type="checkbox"
+              value=""
             />
             <label
-              class="c-toggle__label"
+              class="m-form__label c-toggle__label"
               for="dark-mode"
             >
               <span
@@ -57,12 +60,15 @@ exports[`ModuleFormSettings should render correctly 1`] = `
             class="c-toggle"
           >
             <input
-              class="c-toggle__input"
+              class="m-form__control--text c-toggle__input"
               id="reduced-motion-toggle"
+              name="reduced-motion-toggle"
+              placeholder=""
               type="checkbox"
+              value=""
             />
             <label
-              class="c-toggle__label"
+              class="m-form__label c-toggle__label"
               for="reduced-motion-toggle"
             >
               <span

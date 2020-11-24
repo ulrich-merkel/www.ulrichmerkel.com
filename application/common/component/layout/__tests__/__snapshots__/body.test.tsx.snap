@@ -1,0 +1,513 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutBody should render correctly 1`] = `
+<DocumentFragment>
+  <dialog
+    aria-live="assertive"
+    class="l-dialog--loading"
+    role="alert"
+  >
+    <div
+      class="l-dialog__content"
+    >
+      <div
+        class="c-flip"
+      >
+        <div
+          class="c-flip__front"
+        >
+          Now
+        </div>
+        <div
+          class="c-flip__back"
+        >
+          Loading
+        </div>
+      </div>
+    </div>
+    <div
+      class="l-dialog__background"
+    />
+  </dialog>
+  <header
+    class="c-header l-header is-fixed is-visible"
+    itemscope=""
+    itemtype="http://schema.org/WPHeader"
+    role="banner"
+  >
+    <progress
+      class="m-progress"
+      id="m-progress"
+      max="100"
+      value=""
+    >
+      <span
+        class="m-progress__fallback"
+        id="m-progress__fallback"
+      />
+    </progress>
+    <nav
+      class="m-nav m-nav--main"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <input
+              aria-label="Menu"
+              class="m-nav__toggle c-font-icon--menu"
+              data-label="Menu"
+              type="checkbox"
+            />
+            <ul
+              class="m-menu m-menu--main m-nav__toggle-target"
+              itemscope=""
+              itemtype="https://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  aria-current="page"
+                  class="c-link m-menu__item is-active"
+                  href="/"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Show some work"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Work
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item"
+                  href="/persona"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Show information about my persona"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Persona
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item"
+                  href="/contact"
+                  itemprop="url"
+                  role="menuitem"
+                  tabindex="0"
+                  title="Get in touch"
+                >
+                  <span
+                    class="m-menu__label"
+                    itemprop="name"
+                  >
+                    Contact
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="m-menu--aside m-nav__toggle-target m-nav__aside"
+              itemscope=""
+              itemtype="http://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
+                  data-locale="en-EN"
+                  role="button"
+                  title="Switch to english"
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    en
+                  </span>
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+                  data-locale="de-DE"
+                  role="button"
+                  title="Sprache in deutsch ändern"
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    de
+                  </span>
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item--search always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  href="/search"
+                  tabindex="0"
+                  title="Search"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--search c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item--theme always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  href="/settings"
+                  tabindex="0"
+                  title=""
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--cog c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+  Body Children
+  <footer
+    class="l-footer"
+    itemscope=""
+    itemtype="http://schema.org/WPFooter"
+    role="contentinfo"
+  >
+    <button
+      class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      role="button"
+      title="Scroll to top"
+      type="button"
+    >
+      <span
+        class="c-btn__label is-visually-hidden"
+      >
+        Scroll to top
+      </span>
+    </button>
+    <nav
+      class="m-nav"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__spaced--small"
+        >
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <ul
+                class="m-menu m-menu--imprint"
+                itemscope=""
+                itemtype="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/disclaimer"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Disclaimer"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Disclaimer
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/imprint"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Imprint"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Imprint
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="/privacy"
+                    itemprop="url"
+                    role="menuitem"
+                    tabindex="0"
+                    title="Privacy"
+                  >
+                    <span
+                      class="m-menu__label"
+                      itemprop="name"
+                    >
+                      Privacy
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <ul
+                class="m-menu m-menu--social"
+                itemscope=""
+                itemtype="https://schema.org/ItemList"
+                role="menu"
+              >
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://www.xing.com/profile/Ulrich_Merkel4"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Xing"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--xing m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Xing
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://www.facebook.com/ulrich.merkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Facebook"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--facebook m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Facebook
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://github.com/ulrich-merkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ GitHub"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--github m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      GitHub
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+                <li
+                  class="m-menu__list-item"
+                  itemprop="itemListElement"
+                  itemscope=""
+                  itemtype="http://schema.org/Organization"
+                >
+                  <a
+                    class="c-link m-menu__item"
+                    href="https://delicious.com/ulrichmerkel"
+                    itemprop="sameAs"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    tabindex="0"
+                    target="_blank"
+                    title="Ulrich Merkel @ Delicious"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--delicious m-menu__icon"
+                    />
+                    <span
+                      class="is-visually-hidden m-menu__label"
+                      itemprop="name"
+                    >
+                      Delicious
+                    </span>
+                  </a>
+                  <link
+                    href="//www.ulrichmerkel.com"
+                    itemprop="url"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <small
+                class="c-type--small"
+              >
+                © 
+                <strong>
+                  Ulrich Merkel
+                </strong>
+                 2017
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </footer>
+</DocumentFragment>
+`;

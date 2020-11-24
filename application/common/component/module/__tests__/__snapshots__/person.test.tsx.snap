@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModulePerson should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__name"
+    >
+      <strong>
+        bar
+      </strong>
+    </p>
+    <address
+      class="m-person__address c-type--address"
+      itemprop="address"
+      itemscope=""
+      itemtype="http://schema.org/Address"
+    >
+      <span
+        class="m-person__street-address"
+        itemprop="street-address"
+      >
+        streetAddress
+      </span>
+      <span
+        class="m-person__postal-code"
+        itemprop="postal-code"
+      >
+        postalCode
+      </span>
+      <span
+        class="m-person__locality"
+        itemprop="locality"
+      >
+        locality
+      </span>
+    </address>
+    <p
+      class="c-type--p m-person__email"
+    >
+      <abbr
+        title="E-Mail address"
+      >
+        E.
+      </abbr>
+       
+      <a
+        href="mailto:email"
+        itemprop="email"
+      >
+        email
+      </a>
+    </p>
+    <p
+      class="c-type--p m-person__website"
+    >
+      <abbr
+        title="Website"
+      >
+        W.
+      </abbr>
+       
+      <a
+        href="website"
+      >
+        website
+      </a>
+    </p>
+    Module person children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render isCentered correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="is-centered m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__name"
+    >
+      <strong>
+        bar
+      </strong>
+    </p>
+    <address
+      class="m-person__address c-type--address"
+      itemprop="address"
+      itemscope=""
+      itemtype="http://schema.org/Address"
+    >
+      <span
+        class="m-person__street-address"
+        itemprop="street-address"
+      >
+        streetAddress
+      </span>
+      <span
+        class="m-person__postal-code"
+        itemprop="postal-code"
+      >
+        postalCode
+      </span>
+      <span
+        class="m-person__locality"
+        itemprop="locality"
+      >
+        locality
+      </span>
+    </address>
+    <p
+      class="c-type--p m-person__email"
+    >
+      <abbr
+        title="E-Mail address"
+      >
+        E.
+      </abbr>
+       
+      <a
+        href="mailto:email"
+        itemprop="email"
+      >
+        email
+      </a>
+    </p>
+    <p
+      class="c-type--p m-person__website"
+    >
+      <abbr
+        title="Website"
+      >
+        W.
+      </abbr>
+       
+      <a
+        href="website"
+      >
+        website
+      </a>
+    </p>
+    Module person children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render just a name correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__name"
+    >
+      <strong>
+        bar
+      </strong>
+    </p>
+    Module person children not rendered
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render just a phone number correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    Module person children not rendered
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render just a website correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__website"
+    >
+      <abbr
+        title="Website"
+      >
+        W.
+      </abbr>
+       
+      <a
+        href="website"
+      >
+        website
+      </a>
+    </p>
+    Module person children not rendered
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render just an address correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <address
+      class="m-person__address c-type--address"
+      itemprop="address"
+      itemscope=""
+      itemtype="http://schema.org/Address"
+    >
+      <span
+        class="m-person__street-address"
+        itemprop="street-address"
+      >
+        streetAddress
+      </span>
+      <span
+        class="m-person__postal-code"
+        itemprop="postal-code"
+      >
+        postalCode
+      </span>
+      <span
+        class="m-person__locality"
+        itemprop="locality"
+      >
+        locality
+      </span>
+    </address>
+    Module person children not rendered
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render just an email correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__email"
+    >
+      <abbr
+        title="E-Mail address"
+      >
+        E.
+      </abbr>
+       
+      <a
+        href="mailto:email"
+        itemprop="email"
+      >
+        email
+      </a>
+    </p>
+    Module person children not rendered
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should render no itemType if unset 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person foo"
+  >
+    <p
+      class="c-type--p m-person__name"
+    >
+      <strong>
+        bar
+      </strong>
+    </p>
+    <address
+      class="m-person__address c-type--address"
+      itemprop="address"
+      itemscope=""
+      itemtype="http://schema.org/Address"
+    >
+      <span
+        class="m-person__street-address"
+        itemprop="street-address"
+      >
+        streetAddress
+      </span>
+      <span
+        class="m-person__postal-code"
+        itemprop="postal-code"
+      >
+        postalCode
+      </span>
+      <span
+        class="m-person__locality"
+        itemprop="locality"
+      >
+        locality
+      </span>
+    </address>
+    <p
+      class="c-type--p m-person__email"
+    >
+      <abbr
+        title="E-Mail address"
+      >
+        E.
+      </abbr>
+       
+      <a
+        href="mailto:email"
+        itemprop="email"
+      >
+        email
+      </a>
+    </p>
+    <p
+      class="c-type--p m-person__website"
+    >
+      <abbr
+        title="Website"
+      >
+        W.
+      </abbr>
+       
+      <a
+        href="website"
+      >
+        website
+      </a>
+    </p>
+    Module person children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModulePerson should return null if no content is given 1`] = `<DocumentFragment />`;
