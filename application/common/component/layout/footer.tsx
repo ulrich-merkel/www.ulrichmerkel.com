@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,10 +8,10 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import { withRouter } from 'react-router';
 import classnames from 'classnames';
+import { noop } from 'lodash';
 
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
@@ -25,6 +24,12 @@ import { Nav } from '../element/nav';
 import { Button } from '../element/button';
 import { Small } from '../element/small';
 
+type Props = {
+    className: string;
+    content: any;
+    handleScrollTop: (event) => void;
+};
+
 /**
  * Function representing a component to return a single react child element.
  *
@@ -34,8 +39,8 @@ import { Small } from '../element/small';
  * @param {Function} [props.handleSearchChange=Function.prototype] - Function handling to top scrolling
  * @returns {ReactElement} React component markup
  */
-export function LayoutFooter(props) {
-    const { className, content, handleScrollTop } = props;
+export const LayoutFooter: FunctionComponent<Props> = (props) => {
+    const { className, content, handleScrollTop = noop } = props;
 
     const contentSection = getContentSection(content);
     const componentClassName = classnames('l-footer', className);
@@ -94,35 +99,11 @@ export function LayoutFooter(props) {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
  *
- * @static
- * @type {object}
+ * @type {ReactElement}
  */
-LayoutFooter.propTypes = {
-    className: PropTypes.string, // eslint-disable-line  react/require-default-props
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    ),
-    handleScrollTop: PropTypes.func
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-LayoutFooter.defaultProps = {
-    content: {},
-    handleScrollTop: Function.prototype
-};
-
 export const LayoutFooterConnected = withRouter(
     addContent('LayoutFooter')(LayoutFooter)
 );

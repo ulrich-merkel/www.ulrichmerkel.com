@@ -111,7 +111,7 @@ function createElement(Component, props) {
 }
 
 /**
- * Render page component accoringly to dom element basid on given location.
+ * Render page component accoringly to dom element based on given location.
  */
 hydrate(
     <Root store={store}>

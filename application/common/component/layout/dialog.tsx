@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,11 +8,10 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { throttle, get } from 'lodash';
+import { throttle, get, noop } from 'lodash';
 
 import {
     selectStateDialogContent,
@@ -31,15 +29,22 @@ import { GridRow } from '../grid/row';
 import { GridCol } from '../grid/col';
 import { Button } from '../element/button';
 
+type Props = {
+    onClose: () => void;
+    children: ReactNode;
+    className: string;
+    dialogPage: string;
+    dialogVisible: boolean;
+    content: any;
+    page: string;
+}
+
 /**
  * Class representing a component.
  *
  * @augments React.Component
- * @property {Function} [props.onClose=Function.prototype] - Redux action callback to control dialog visibility
- * @property {boolean} [props.dialogVisible=false] - Redux state whether this dialog is visible or not
- * @property {object} [props.content={}] - The component content config
  */
-export class LayoutDialog extends Component {
+export class LayoutDialog extends Component<Props> {
     /**
      * The actual class constructor.
      *
@@ -84,7 +89,7 @@ export class LayoutDialog extends Component {
      * @returns {void}
      */
     onKeyDown(event) {
-        const { onClose } = this.props;
+        const { onClose = noop } = this.props;
 
         if (event && event.keyCode === 27) {
             onClose();
@@ -101,10 +106,10 @@ export class LayoutDialog extends Component {
             children,
             className,
             content,
-            dialogPage,
-            dialogVisible,
-            onClose,
-            page
+            dialogPage = '',
+            dialogVisible = false,
+            onClose = noop,
+            page = ''
         } = this.props;
 
         if (!dialogVisible || !page || dialogPage !== page) {
@@ -151,43 +156,6 @@ export class LayoutDialog extends Component {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-LayoutDialog.propTypes = {
-    onClose: PropTypes.func,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    dialogPage: PropTypes.string,
-    dialogVisible: PropTypes.bool,
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    ),
-    page: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-LayoutDialog.defaultProps = {
-    onClose: Function.prototype,
-    dialogPage: '',
-    dialogVisible: false,
-    content: {},
-    page: ''
-};
-
-/**
  * The component will subscribe to Redux store updates. Any time it updates,
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
@@ -206,6 +174,17 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
+/**
+ * If an object is passed, each function inside it will be assumed to
+ * be a Redux action creator. An object with the same function names,
+ * but with every action creator wrapped into a dispatch call so they
+ * may be invoked directly, will be merged into the component’s props.
+ * If a function is passed, it will be given dispatch.
+ *
+ * @private
+ * @param {Function} dispatch - The redux store dispatch function
+ * @returns {object}
+ */
 function mapDispatchToProps(dispatch) {
     return {
         onClose(event) {
@@ -215,6 +194,12 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+/**
+ * Connects a React component to a Redux store. It does not modify the
+ * component class passed to it. Instead, it returns a new, connected component class.
+ * 
+ * @type {ReactElement}
+ */
 export const LayoutDialogConnected = connect(
     mapStateToProps,
     mapDispatchToProps

@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,17 +8,21 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
+
+type Props = {
+    children?: ReactNode;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component react children
  * @returns {ReactElement} React component markup
  */
-export function LayoutMain(props) {
+export const LayoutMain: FunctionComponent<Props> = (props) => {
     const { children } = props;
 
     return (
@@ -28,13 +31,3 @@ export function LayoutMain(props) {
         </main>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-LayoutMain.propTypes = {
-    children: PropTypes.node // eslint-disable-line react/require-default-props
-};

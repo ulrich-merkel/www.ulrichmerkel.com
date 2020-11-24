@@ -1,5 +1,4 @@
 /** global picturefill */
-/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -10,8 +9,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, PureComponent, ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
@@ -35,6 +33,12 @@ import { PageBroadcast } from '../page/broadcast';
 import { PageSearch } from '../page/search';
 import { PageSettings } from '../page/settings';
 
+type Props = {
+    children?: ReactNode;
+    content?: any;
+    reducedMotionSelectedReduce?: boolean;
+}
+
 /**
  * Class representing a component.
  *
@@ -42,7 +46,7 @@ import { PageSettings } from '../page/settings';
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component content config
  */
-export class LayoutBody extends PureComponent {
+export class LayoutBody extends PureComponent<Props> {
     /**
      * Scroll to top animation helper.
      *
@@ -50,7 +54,7 @@ export class LayoutBody extends PureComponent {
      * @returns {void}
      */
     handleScrollTop = (event) => {
-        const { reducedMotionSelectedReduce } = this.props;
+        const { reducedMotionSelectedReduce = false } = this.props;
 
         eventPreventDefault(event);
         if (getPageOffset()) {
@@ -98,36 +102,6 @@ export class LayoutBody extends PureComponent {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-LayoutBody.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    ),
-    reducedMotionSelectedReduce: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-LayoutBody.defaultProps = {
-    content: {},
-    reducedMotionSelectedReduce: false
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

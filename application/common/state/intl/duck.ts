@@ -34,7 +34,7 @@ export const INTL_CHANGE_LOCALE = `${INTL_RESOURCE_NAME}/INTL_CHANGE_LOCALE`;
 /**
  * @type {Array<string>}
  */
-export const AVAILABLE_LOCALES = [INTL_LOCALE_EN_EN];
+export const AVAILABLE_LOCALES: string[] = [INTL_LOCALE_EN_EN];
 
 /**
  * @type {object}
@@ -53,12 +53,12 @@ export const initialState: IntlStateType = {
  * Handle locale string state change.
  *
  * @param {string} locale - The new locale
- * @param {string} fallback - The fallback locale if new locale is not available
+ * @param {string} [fallback] - The fallback locale if new locale is not available
  * @returns {object} The redux action playload
  */
 export function changeIntlLocale(
     locale: string,
-    fallback: string
+    fallback?: string
 ): ChangeIntlActionType {
     return {
         type: INTL_CHANGE_LOCALE,

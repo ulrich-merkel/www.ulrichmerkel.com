@@ -6,8 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { Component, default as React, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, Fragment, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
@@ -22,13 +21,21 @@ import {
     PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE
 } from '../../state/reduced-motion/duck';
 
+type Props = {
+    children?: ReactNode;
+    colorSchemeSelected: string;
+    reducedMotionSelected: string;
+}
+
 /**
- * Apply theming by added or removed custom css files.
+ * Apply theming and settings.
  *
  * @augments React.Component
- * @property {string} props.colorSchemeSelected - Current selected theme
+ * @property {ReactElement} props.children - Component childs to be rendered
+ * @property {string} props.colorSchemeSelected - Current selected color scheme
+ * @property {string} props.reducedMotionSelected - Current selected reduced motion
  */
-export class LayoutSettings extends Component {
+export class LayoutSettings extends Component<Props> {
     /**
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
@@ -36,7 +43,7 @@ export class LayoutSettings extends Component {
      * @returns {void}
      */
     componentDidMount() {
-        const { colorSchemeSelected, reducedMotionSelected } = this.props;
+        const { colorSchemeSelected = COLOR_SCHEME_LIGHT, reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE } = this.props;
 
         PubSub.publish(PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE, colorSchemeSelected);
         PubSub.publish(
@@ -53,7 +60,7 @@ export class LayoutSettings extends Component {
      * @returns {void}
      */
     componentDidUpdate(prevProps) {
-        const { colorSchemeSelected, reducedMotionSelected } = this.props;
+        const { colorSchemeSelected = COLOR_SCHEME_LIGHT, reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE } = this.props;
 
         if (colorSchemeSelected !== prevProps.colorSchemeSelected) {
             PubSub.publish(
@@ -82,31 +89,6 @@ export class LayoutSettings extends Component {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-// eslint-disable-next-line immutable/no-mutation
-LayoutSettings.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    colorSchemeSelected: PropTypes.string,
-    reducedMotionSelected: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-// eslint-disable-next-line immutable/no-mutation
-LayoutSettings.defaultProps = {
-    colorSchemeSelected: COLOR_SCHEME_LIGHT,
-    reducedMotionSelected: MOTION_PREFERENCES_NO_PREFERENCE
-};
-
-/**
  * The component will subscribe to Redux store updates. Any time it updates,
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
@@ -125,5 +107,7 @@ function mapStateToProps(state) {
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {ReactElement}
  */
 export const LayoutSettingsConnected = connect(mapStateToProps)(LayoutSettings);

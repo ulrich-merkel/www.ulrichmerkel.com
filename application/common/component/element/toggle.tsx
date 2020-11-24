@@ -6,7 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 

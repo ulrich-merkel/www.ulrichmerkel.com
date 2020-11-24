@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -9,8 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import classnames from 'classnames';
@@ -33,6 +31,7 @@ import {
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
 } from '../../state/intl/duck';
+import { Locale, Locales } from '../../state/intl/types';
 import {
     changeDialogVisibleSearch,
     changeDialogVisibleTheme
@@ -48,9 +47,24 @@ import { Icon } from '../element/icon';
 import { Nav } from '../element/nav';
 import { Progress } from '../element/progress';
 
+type Props = {
+    handleIntlChangeLocale: (event) => void;
+    handleChangeDialogVisibleSearch: (event) => void;
+    handleChangeDialogVisibleTheme: (event) => void;
+    intlLocale: Locale;
+    intlAvailableLocales: Locales;
+    headerFixed?: boolean;
+    headerVisible?: boolean;
+    className?: string;
+    content?: {
+        menu: any;
+    }
+};
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
  * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
@@ -62,7 +76,7 @@ import { Progress } from '../element/progress';
  * @param {boolean} [props.headerVisible] - Whether the navigation bar is visible or not (used for css3 animation)
  * @returns {ReactElement} React component markup
  */
-export function LayoutHeader(props) {
+export const LayoutHeader: FunctionComponent<Props> = (props) => {
     const {
         className,
         content,
@@ -226,36 +240,6 @@ export function LayoutHeader(props) {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-LayoutHeader.propTypes = {
-    handleIntlChangeLocale: PropTypes.func.isRequired,
-    handleChangeDialogVisibleSearch: PropTypes.func.isRequired,
-    handleChangeDialogVisibleTheme: PropTypes.func.isRequired,
-    intlLocale: PropTypes.string.isRequired,
-    intlAvailableLocales: PropTypes.arrayOf(PropTypes.string).isRequired,
-    headerFixed: PropTypes.bool, // eslint-disable-line react/require-default-props
-    headerVisible: PropTypes.bool, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    content: PropTypes.shape({
-        menu: PropTypes.object // eslint-disable-line react/no-unused-prop-types
-    })
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-LayoutHeader.defaultProps = {
-    content: {}
-};
-
-/**
  * The component will subscribe to Redux store updates. Any time it updates,
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
@@ -285,6 +269,7 @@ function mapStateToProps(state, ownProps) {
  * may be invoked directly, will be merged into the component’s props.
  * If a function is passed, it will be given dispatch.
  *
+ * @private
  * @param {Function} dispatch - The redux store dispatch function
  * @returns {object}
  */
@@ -308,6 +293,8 @@ function mapDispatchToProps(dispatch) {
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {ReactElement}
  */
 export const LayoutHeaderConnected = withRouter(
     connect(

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Layout components merge modules to bigger parts of the
@@ -11,9 +10,9 @@
  *
  * @see {@link http://www.html5rocks.com/en/tutorials/security/content-security-policy/}
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { isEmpty, isString, get, omit } from 'lodash';
+import { Store } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import serialize from 'serialize-javascript';
@@ -22,9 +21,18 @@ import { selectStateIntlLocale } from '../../state/intl/selector';
 import { configApplication, url, csp } from '../../config/application';
 import { getNonceConfig, getCspRules } from '../../utils/csp';
 
+type Props = {
+    locale: string;
+    store: Store;
+    children?: ReactNode;
+    cssBase?: string;
+    scriptBootstrap?: string;
+};
+
 /**
  * Function representing the base html layout.
  *
+ * @function
  * @param {object} props - The current component props
  * @param {string} props.locale - The current locale string
  * @param {object} props.store - Critical redux initial config
@@ -33,8 +41,8 @@ import { getNonceConfig, getCspRules } from '../../utils/csp';
  * @param {object} [props.scriptBootstrap=''] - File contents of loader javascript file
  * @returns {ReactElement} React component markup
  */
-export function LayoutHtml(props) {
-    const { children, locale, store, cssBase, scriptBootstrap } = props;
+export const LayoutHtml: FunctionComponent<Props> = (props) => {
+    const { children, locale, store, cssBase = '', scriptBootstrap = '' } = props;
     const manifest = configApplication.applicationCache.use
         ? url.cacheManifest
         : null;
@@ -141,31 +149,6 @@ export function LayoutHtml(props) {
 }
 
 /**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-LayoutHtml.propTypes = {
-    locale: PropTypes.string.isRequired,
-    store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    cssBase: PropTypes.string,
-    scriptBootstrap: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-LayoutHtml.defaultProps = {
-    cssBase: '',
-    scriptBootstrap: ''
-};
-
-/**
  * The component will subscribe to Redux store updates. Any time it updates,
  * mapStateToProps will be called, Its result must be a plain object,
  * and it will be merged into the component’s props.
@@ -184,5 +167,7 @@ function mapStateToProps(state, ownProps) {
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {ReactElement}
  */
 export const LayoutHtmlConnected = connect(mapStateToProps)(LayoutHtml);
