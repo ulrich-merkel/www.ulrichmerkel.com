@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,20 +8,41 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, createRef } from 'react';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
 import { Picture } from '../../element/picture';
 import { isBrowser } from '../../../utils/environment';
 
+type Props = {
+    img?: {
+        name: string;
+        ext: string;
+        path: string;
+        alt: string;
+        sizes: [];
+    };
+    type?: string;
+    isCovered?: boolean;
+};
+
+type State = {
+    pictureStyle: {
+        backgroundPosition?: string;
+        backgroundSize?: string;
+        backgroundImage?: string;
+    }
+}
+
 /**
  * Class representing a component.
  *
  * @augments React.Component
  */
-export class ModuleKeyVisualPicture extends Component {
+export class ModuleKeyVisualPicture extends Component<Props, State> {
+    pictureRef = createRef<HTMLDivElement>();
+
     /**
      * The actual class constructor.
      *
@@ -61,7 +81,6 @@ export class ModuleKeyVisualPicture extends Component {
      * Invoked once, only on the client (not on the server),
      * immediately after the initial rendering occurs.
      *
-     * @function
      * @returns {void}
      */
     componentDidMount() {
@@ -74,7 +93,6 @@ export class ModuleKeyVisualPicture extends Component {
     /**
      * Invoked immediately before a component is unmounted from the DOM.
      *
-     * @function
      * @returns {void}
      */
     componentWillUnmount() {
@@ -88,14 +106,13 @@ export class ModuleKeyVisualPicture extends Component {
      * less just a workaround to improve seo instead of using a more
      * simpler css solution.
      *
-     * @function
      * @returns {void}
      */
     onResize() {
-        const { isCovered } = this.props;
+        const { isCovered = false } = this.props;
 
-        if (isCovered && this.picture) {
-            const imgDomNode = this.picture.querySelector('img');
+        if (isCovered && this.pictureRef) {
+            const imgDomNode = this.pictureRef?.current?.querySelector('img');
             if (!imgDomNode) {
                 this.setState({
                     pictureStyle: {}
@@ -121,11 +138,10 @@ export class ModuleKeyVisualPicture extends Component {
     /**
      * The required render function to return a single react child element.
      *
-     * @function
      * @returns {ReactElement} React component markup
      */
     render() {
-        const { img, type } = this.props;
+        const { img, type = 'digital' } = this.props;
         const { pictureStyle } = this.state;
 
         if (!img.name || !img.ext || !img.path) {
@@ -136,55 +152,18 @@ export class ModuleKeyVisualPicture extends Component {
             'm-key-visual__image',
             type ? `m-key-visual__image--${type}` : ''
         );
-        const componentPictureStyle = pictureStyle;
 
         return (
             <Picture
-                name={img.name}
-                ext={img.ext}
-                path={img.path}
                 alt={img.alt}
-                sizes={img.sizes}
-                pictureRef={(picture) => {
-                    this.picture = picture;
-                }}
                 className={componentPictureClassName}
-                style={componentPictureStyle}
+                ext={img.ext}
+                name={img.name}
+                path={img.path}
+                pictureRef={this.pictureRef}
+                sizes={img.sizes}
+                style={pictureStyle}
             />
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [img={}] - The image alt description
- * @property {string} [type='digital'] - The image src url
- * @property {boolean} [isCovered=false] - Whether the image should be background size covered or not
- */
-ModuleKeyVisualPicture.propTypes = {
-    img: PropTypes.shape({
-        name: PropTypes.string,
-        ext: PropTypes.string,
-        path: PropTypes.string,
-        alt: PropTypes.string,
-        sizes: PropTypes.array
-    }),
-    type: PropTypes.string,
-    isCovered: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleKeyVisualPicture.propTypes
- */
-ModuleKeyVisualPicture.defaultProps = {
-    img: {},
-    type: 'digital',
-    isCovered: false
-};

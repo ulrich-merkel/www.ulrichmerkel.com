@@ -70,24 +70,11 @@ exports[`ModuleCornerstoneItemEducation should render correctly 1`] = `
       itemscope=""
       itemtype="https://schema.org/Place"
     >
-      <meta
-        itemprop="name"
-      />
       <div
         itemprop="address"
         itemscope=""
         itemtype="http://schema.org/PostalAddress"
-      >
-        <meta
-          itemprop="streetAddress"
-        />
-        <meta
-          itemprop="addressLocality"
-        />
-        <meta
-          itemprop="sameAs"
-        />
-      </div>
+      />
     </div>
   </li>
 </DocumentFragment>
@@ -163,24 +150,11 @@ exports[`ModuleCornerstoneItemEducation should render cssModifier and offset if 
       itemscope=""
       itemtype="https://schema.org/Place"
     >
-      <meta
-        itemprop="name"
-      />
       <div
         itemprop="address"
         itemscope=""
         itemtype="http://schema.org/PostalAddress"
-      >
-        <meta
-          itemprop="streetAddress"
-        />
-        <meta
-          itemprop="addressLocality"
-        />
-        <meta
-          itemprop="sameAs"
-        />
-      </div>
+      />
     </div>
   </li>
 </DocumentFragment>

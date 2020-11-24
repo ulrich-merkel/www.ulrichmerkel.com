@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,21 +8,28 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 import { Small } from '../../element/small';
 
+type Props = {
+    headline?: string;
+    lead?: string;
+    creator?: string;
+    publisher?: string;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleReadingItem(props) {
-    const { headline, lead, creator, publisher } = props;
+export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
+    const { headline = '', lead = '', creator = '', publisher = '' } = props;
 
     return (
         <li
@@ -51,34 +57,3 @@ export function ModuleReadingItem(props) {
         </li>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [headline=''] - The component element headline text
- * @property {string} [lead=''] - The component element lead text
- * @property {string} [creator=''] - The component element author name
- * @property {string} [publisher=''] - The component element publisher name
- */
-ModuleReadingItem.propTypes = {
-    headline: PropTypes.string,
-    lead: PropTypes.string,
-    creator: PropTypes.string,
-    publisher: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleReadingItem.propTypes
- */
-ModuleReadingItem.defaultProps = {
-    headline: '',
-    lead: '',
-    creator: '',
-    publisher: ''
-};

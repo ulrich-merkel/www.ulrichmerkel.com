@@ -28,9 +28,11 @@ type Props = {
     className?: string;
     exact?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemProp?: string;
     itemScope?: boolean;
     itemType?: string;
     onClick?: () => void;
+    role?: string;
     strict?: boolean;
     tabIndex?: number;
     title?: string;
@@ -58,11 +60,13 @@ export const A: FunctionComponent<Props> = (props) => {
         className,
         exact,
         htmlElement = 'a',
+        itemProp,
+        itemScope,
+        itemType,
         onClick = noop,
+        role,
         strict,
         tabIndex = 0,
-        itemType,
-        itemScope,
         title = '',
         to,
         ...otherProps
@@ -100,9 +104,11 @@ export const A: FunctionComponent<Props> = (props) => {
             {...attributes}
             className={componentClassName}
             {...{
+                itemProp,
                 itemScope,
                 itemType,
                 onClick,
+                role,
                 tabIndex,
                 title
             }}

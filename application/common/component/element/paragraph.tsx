@@ -26,6 +26,8 @@ type Props = {
     hasColumns2?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
+    itemProp?: string;
+    dangerouslySetInnerHTML?: { __html: string; }
 };
 
 /**

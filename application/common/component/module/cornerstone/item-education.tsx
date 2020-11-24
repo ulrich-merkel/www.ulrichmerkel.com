@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation, react/jsx-indent */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,29 +8,42 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
+import { Meta } from '../../element/meta';
+
+type Props = {
+    cssModifier?: string;
+    description?: string[];
+    headline?: string;
+    lead?: string;
+    offset?: string;
+    place?: any;
+    timeEnd?: string;
+    timeStart?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleCornerstoneItemEmployee(props) {
+export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (props) => {
     const {
         cssModifier,
-        offset,
+        description,
         headline,
         lead,
-        timeStart,
+        offset,
+        place,
         timeEnd,
-        description,
+        timeStart,
         ...otherProps
     } = props;
 
@@ -47,29 +59,36 @@ export function ModuleCornerstoneItemEmployee(props) {
             className={composedListItemClassName}
             itemProp="itemListElement"
             itemScope
-            itemType="https://schema.org/EmployeeRole"
+            itemType="https://schema.org/EducationEvent"
             {...otherProps}
         >
             <div className="m-cornerstone__description">
                 <div className="m-cornerstone__description-content">
                     <Headline
                         className="m-cornerstone__headline"
-                        itemProp="roleName"
+                        itemProp="name"
                         htmlElement="h4"
                     >
                         {headline}
                     </Headline>
-                    <P className="m-cornerstone__company">
+                    <P
+                        className="m-cornerstone__company"
+                        itemProp="alternateName"
+                    >
                         <strong>{lead}</strong>
                     </P>
-                    <P className="m-cornerstone__time" itemProp="description">
+                    <P className="m-cornerstone__time">
                         (
                         <time className="c-time" itemProp="startDate">
                             {timeStart}
                         </time>{' '}
-                        -<time className="c-time">{timeEnd}</time>)
+                        -{' '}
+                        <time className="c-time" itemProp="endDate">
+                            {timeEnd}
+                        </time>
+                        )
                     </P>
-                    {description.map((value) => {
+                    {Array.isArray(description) && description.map(function (text) {
                         /**
                          * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
                          * are not possible to be set via translation strings.
@@ -81,47 +100,36 @@ export function ModuleCornerstoneItemEmployee(props) {
                                 key={shortid.generate()}
                                 className="m-cornerstone__text"
                                 itemProp="description"
-                                dangerouslySetInnerHTML={{ __html: value }}
+                                dangerouslySetInnerHTML={{ __html: text }}
                             />
                         );
                     })}
                 </div>
             </div>
             <div className="m-cornerstone__bubble" />
+            <div
+                hidden
+                itemProp="location"
+                itemScope
+                itemType="https://schema.org/Place"
+            >
+                <Meta itemProp="name" content={place.name} />
+                <div
+                    itemProp="address"
+                    itemScope
+                    itemType="http://schema.org/PostalAddress"
+                >
+                    <Meta
+                        itemProp="streetAddress"
+                        content={place.streetAddress}
+                    />
+                    <Meta
+                        itemProp="addressLocality"
+                        content={place.addressLocality}
+                    />
+                    <Meta itemProp="sameAs" content={place.sameAs} />
+                </div>
+            </div>
         </li>
     );
 }
-
-/**
- * Valiate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [headline] - The item headline
- * @property {string} [lead] - The item subline
- * @property {string} [timeStart] - The item start time
- * @property {string} [timeEnd] - The item end time
- * @property {Array} [description=[]] - The items description
- * @property {string} [cssModifier] - The bem css modifier
- * @property {string} [offset] - The css top offset to display items nice
- */
-ModuleCornerstoneItemEmployee.propTypes = {
-    headline: PropTypes.string, // eslint-disable-line react/require-default-props
-    lead: PropTypes.string, // eslint-disable-line react/require-default-props
-    timeStart: PropTypes.string, // eslint-disable-line react/require-default-props
-    timeEnd: PropTypes.string, // eslint-disable-line react/require-default-props
-    description: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    cssModifier: PropTypes.string, // eslint-disable-line react/require-default-props
-    offset: PropTypes.string // eslint-disable-line react/require-default-props
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleCornerstoneItemEmployee.propTypes
- */
-ModuleCornerstoneItemEmployee.defaultProps = {
-    description: []
-};

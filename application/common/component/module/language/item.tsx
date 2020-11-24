@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation, immutable/no-let */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,31 +8,31 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
-import { isString } from 'lodash';
 
 import { GridCol } from '../../grid/col';
 import { Headline } from '../../element/headline';
 import { Meta } from '../../element/meta';
 
+type Props = {
+    headline?: string;
+    lead?: string;
+    percent?: number;
+}
+
 /**
  * Helper function to get style classNames for css3 rotate transform.
  *
  * @private
- * @param {string|number} percent - The percent value to be calculated in degrees
+ * @param {number} percent - The percent value to be calculated in degrees
  * @returns {object} The classNames config for left and right circle
  */
-function getCssTransformRotate(percent) {
+function getCssTransformRotate(percent: number): {left: string, right: string} {
     let left = '',
         right = '',
         deg = 0,
         perc = percent;
-
-    if (isString(perc)) {
-        perc = parseInt(perc, 10);
-    }
 
     if (perc <= 50) {
         // eslint-disable-next-line no-mixed-operators
@@ -55,11 +54,12 @@ function getCssTransformRotate(percent) {
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleLanguageItem(props) {
-    const { headline, lead, percent } = props;
+export const ModuleLanguageItem: FunctionComponent<Props> = (props) => {
+    const { headline = '', lead = '', percent = 0 } = props;
 
     const rotatedCssTransform = getCssTransformRotate(percent);
 
@@ -107,31 +107,3 @@ export function ModuleLanguageItem(props) {
         </GridCol>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [headline=''] - The language item headline
- * @property {string} [lead=''] - The language item lead text
- * @property {string|number} [percent=0] - The language capability in percent
- */
-ModuleLanguageItem.propTypes = {
-    headline: PropTypes.string,
-    lead: PropTypes.string,
-    percent: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleLanguageItem.propTypes
- */
-ModuleLanguageItem.defaultProps = {
-    headline: '',
-    lead: '',
-    percent: 0
-};

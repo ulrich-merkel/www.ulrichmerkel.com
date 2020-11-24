@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,23 +8,31 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 import { Icon } from '../../element/icon';
 
+type Props = {
+    headline?: string;
+    text?: string;
+    index?: number;
+    icon?: string;
+    isClear?: boolean;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleServiceItem(props) {
-    const { headline, text, index, icon, isClear } = props;
-
+export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
+    const { headline = '', text= '', index = 0, icon= '', isClear = false } = props;
+    
     if (isClear) {
         return <li className="m-service__item--clear" aria-hidden="true" />;
     }
@@ -58,37 +65,3 @@ export function ModuleServiceItem(props) {
         </li>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [headline=''] - The component element headline text
- * @property {string} [text=''] - The component element text
- * @property {number} [index=0] - The component element index count
- * @property {string} [icon=''] - The component element additional icon type
- * @property {boolean} [isClear=false] - Whether this is a cleared entry or not
- */
-ModuleServiceItem.propTypes = {
-    headline: PropTypes.string,
-    text: PropTypes.string,
-    index: PropTypes.number,
-    icon: PropTypes.string,
-    isClear: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleServiceItem.propTypes
- */
-ModuleServiceItem.defaultProps = {
-    headline: '',
-    text: '',
-    index: 0,
-    icon: '',
-    isClear: false
-};

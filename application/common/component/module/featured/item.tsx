@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -11,22 +10,36 @@
  *
  * @see {@link http://stackoverflow.com/questions/30115324/pass-props-in-link-react-router}
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
 import { Picture } from '../../element/picture';
+import { Meta } from '../../element/meta';
+
+type Props = {
+    path: string;
+    headline: string;
+    img: {
+        name: string;
+        ext: "" | "jpg" | "png";
+        path: string;
+        alt: string;
+        sizes: [];
+    }
+    children: ReactNode;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleFeaturedItem(props) {
-    const { path, headline, img, children } = props;
+export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
+    const { path = '', headline, img, children } = props;
 
     const componentListItemClassName = classnames('m-featured__item');
 
@@ -45,7 +58,7 @@ export function ModuleFeaturedItem(props) {
                 <span className="m-featured__hover">
                     <span className="m-featured__text">
                         <span
-                            aria-level="3"
+                            aria-level={3}
                             className="m-featured__headline"
                             role="heading"
                         >
@@ -66,37 +79,8 @@ export function ModuleFeaturedItem(props) {
 
                 {children}
 
-                <meta itemProp="name" content={headline} />
+                <Meta itemProp="name" content={headline} />
             </A>
         </li>
     );
 }
-
-/**
- * Valiate props via React.PropTypes helpers.
-
- * @static
- * @type {object}
- * @property {string} [path=''] - The react-router link
- * @property {string} [headline] - The items title content
- * @property {object} [img={}] - The items image config
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- */
-ModuleFeaturedItem.propTypes = {
-    path: PropTypes.string,
-    headline: PropTypes.string, // eslint-disable-line react/require-default-props
-    img: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    children: PropTypes.node // eslint-disable-line react/require-default-props
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleFeaturedItem.propTypes
- */
-ModuleFeaturedItem.defaultProps = {
-    path: '',
-    img: {}
-};

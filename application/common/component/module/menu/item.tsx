@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,16 +8,27 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
 
+type Props = {
+    children?: ReactNode;
+    icon?: string;
+    isLabelHidden?: boolean;
+    itemPropA?: string;
+    itemType?: string;
+    label?: string;
+    path?: string;
+    title?: string;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
@@ -30,16 +40,16 @@ import { Icon } from '../../element/icon';
  * @param {string} [props.title=''] - The items title content
  * @returns {ReactElement} React component markup
  */
-export function ModuleMenuItem(props) {
+export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
     const {
-        path,
-        title,
-        label,
         children,
-        itemType,
-        icon,
-        isLabelHidden,
-        itemPropA,
+        icon = '',
+        isLabelHidden = false,
+        itemPropA = 'url',
+        itemType = 'http://www.schema.org/SiteNavigationElement',
+        label = '',
+        path = '',
+        title = '',
         ...otherProps
     } = props;
 
@@ -80,36 +90,3 @@ export function ModuleMenuItem(props) {
         </li>
     );
 }
-
-/**
- * Valiate props via React.PropTypes helpers.
-
- * @static
- * @type {object}
- */
-ModuleMenuItem.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    icon: PropTypes.string,
-    isLabelHidden: PropTypes.bool,
-    itemPropA: PropTypes.string,
-    itemType: PropTypes.string,
-    label: PropTypes.string,
-    path: PropTypes.string,
-    title: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-ModuleMenuItem.defaultProps = {
-    icon: '',
-    isLabelHidden: false,
-    itemPropA: 'url',
-    itemType: 'http://www.schema.org/SiteNavigationElement',
-    label: '',
-    path: '',
-    title: ''
-};

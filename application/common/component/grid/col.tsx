@@ -17,6 +17,10 @@ type Props = {
     className?: string;
     cols?: number;
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemProp?: string;
+    itemScope?: boolean;
+    itemType?: string;
+    role?: string;
 };
 
 /**

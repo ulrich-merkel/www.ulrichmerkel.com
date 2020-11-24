@@ -21,7 +21,7 @@ type Props = {
         list: {
             headline: string;
             lead: string;
-            percent: string | number;
+            percent: number;
         }[]
     };
     htmlElement?: keyof JSX.IntrinsicElements;

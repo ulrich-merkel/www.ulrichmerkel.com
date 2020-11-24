@@ -6,7 +6,7 @@ describe('ModuleLanguageItem', function fnDescribe() {
     const defaultProps = {
         headline: 'Headline language',
         lead: 'Lead language',
-        percent: '70'
+        percent: 70
     };
 
     it('should render correctly', function fnIt() {

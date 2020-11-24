@@ -64,7 +64,7 @@ export class Picture extends Component<Props> {
             htmlElement: HtmlElement = 'picture',
             name = '',
             path = '',
-            pictureRef = noop,
+            pictureRef,
             placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
             sizes = [],
             ...otherProps

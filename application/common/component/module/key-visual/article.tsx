@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,20 +8,25 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 
+type Props = {
+    headline?: string;
+    lead?: string;
+};
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleKeyVisualArticle(props) {
+export const ModuleKeyVisualArticle: FunctionComponent<Props> = (props) => {
     const { headline, lead } = props;
 
     if (!headline || !lead) {
@@ -46,28 +50,3 @@ export function ModuleKeyVisualArticle(props) {
         </article>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [headline=''] - The article headline content
- * @property {string} [lead=''] - The article lead content
- */
-ModuleKeyVisualArticle.propTypes = {
-    headline: PropTypes.string,
-    lead: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleKeyVisualArticle.propTypes
- */
-ModuleKeyVisualArticle.defaultProps = {
-    headline: '',
-    lead: ''
-};
