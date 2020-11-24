@@ -143,21 +143,8 @@ function mapStateToProps(state) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function>}
  */
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         onchangeThemeSelectedDefault: (event) => {
-//             eventPreventDefault(event);
-//             dispatch(toggleThemeSelected('light'));
-//         },
-//         onchangeThemeSelectedGrey: (event) => {
-//             eventPreventDefault(event);
-//             dispatch(toggleThemeSelected('dark'));
-//         }
-//     };
-// }
 const mapDispatchToProps = {
     onToggleThemeSelected: toggleThemeSelected,
     onToggleReducedMotionSelected: toggleReducedMotionSelected

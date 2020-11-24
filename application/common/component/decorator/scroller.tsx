@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-this, immutable/no-mutation */
 /**
  * Es6 module for handling browser scrolling actions.
  *
@@ -7,7 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ComponentType } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -27,13 +26,26 @@ const supportsPassiveEventListeners = hasPassiveEventListeners();
 // @TODO Should be computed from actual css declaration
 const HEADER_HEIGHT = 61;
 
+type Props = {
+    handleChangeScrollHeaderFixed: (headerFixed: boolean) => void;
+    handleChangeScrollHeaderVisible:(headerVisible: boolean) => void;
+    location: {
+        hash: string;
+        key: string;
+        pathname: string;
+        search: string;
+        state: any;
+    };
+    reducedMotionSelected: boolean;
+}
+
 /**
  * The scroller higher order function handling window scrolling.
  *
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-export function scroller(SourceComponent) {
+export function scroller(SourceComponent: ComponentType): ComponentType {
     /**
      * Class representing a component.
      *
@@ -43,7 +55,11 @@ export function scroller(SourceComponent) {
      * @property {Function} props.handleChangeScrollHeaderVisible - Callback action for updating redux
      * @property {object} props.location - Current router location properties
      */
-    class Scroller extends Component {
+    class Scroller extends Component<Props> {
+        previousScrollY: number = 0;
+        headerFixed: boolean = true;
+        headerVisible: boolean = true;
+
         /**
          * The actual class constructor.
          *
@@ -76,10 +92,6 @@ export function scroller(SourceComponent) {
              * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md}
              */
             this.onScroll = throttle(this.onScroll.bind(this), 100);
-
-            this.previousScrollY = 0;
-            this.headerFixed = true;
-            this.headerVisible = true;
         }
 
         /**
@@ -178,7 +190,7 @@ export function scroller(SourceComponent) {
          * @returns {void}
          */
         scrollTop = () => {
-            const { reducedMotionSelected } = this.props;
+            const { reducedMotionSelected = false } = this.props;
 
             if (getPageOffset()) {
                 scrollTo({
@@ -200,35 +212,6 @@ export function scroller(SourceComponent) {
     }
 
     /**
-     * Validate props via React.PropTypes helpers.
-     *
-     * @static
-     * @type {object}
-     */
-    Scroller.propTypes = {
-        handleChangeScrollHeaderFixed: PropTypes.func.isRequired,
-        handleChangeScrollHeaderVisible: PropTypes.func.isRequired,
-        location: PropTypes.shape({
-            hash: PropTypes.string,
-            key: PropTypes.string,
-            pathname: PropTypes.string,
-            search: PropTypes.string,
-            state: PropTypes.object
-        }).isRequired,
-        reducedMotionSelected: PropTypes.bool
-    };
-
-    /**
-     * Set defaults if props aren't available.
-     *
-     * @static
-     * @type {object}
-     */
-    Scroller.defaultProps = {
-        reducedMotionSelected: false
-    };
-
-    /**
      * The component will subscribe to Redux store updates. Any time it updates,
      * mapStateToProps will be called, Its result must be a plain object,
      * and it will be merged into the component’s props.
@@ -243,6 +226,16 @@ export function scroller(SourceComponent) {
         };
     }
 
+    /**
+     * If an object is passed, each function inside it will be assumed to
+     * be a Redux action creator. An object with the same function names,
+     * but with every action creator wrapped into a dispatch call so they
+     * may be invoked directly, will be merged into the component’s props.
+     * If a function is passed, it will be given dispatch.
+     *
+     * @private
+     * @type {object<string, Function>}
+     */
     const mapDispatchToProps = {
         handleChangeScrollHeaderFixed: changeScrollHeaderFixed,
         handleChangeScrollHeaderVisible: changeScrollHeaderVisible

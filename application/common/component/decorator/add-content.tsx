@@ -5,15 +5,22 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
+ * 
+ * @see {@link https://reactjs.org/docs/higher-order-components.html}
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ComponentType } from 'react';
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 
 import { getTranslatedContent } from '../../utils/content';
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { selectStateConfig } from '../../state/config/selector';
+import { Locale } from '../../state/intl/types';
+
+type Props = {
+    config: any;
+    locale: Locale;
+}
 
 /**
  * Higher order function to get translation data.
@@ -21,23 +28,24 @@ import { selectStateConfig } from '../../state/config/selector';
  * @param {string} configKey - The object key to be found in translation config
  * @returns {Function}
  */
-export function addContent(configKey) {
+export function addContent(configKey: string) {
     /**
      * The react higher order function for passing data to props.
      *
      * @param {ReactElement} SourceComponent - The react component to be decorated
      * @returns {ReactElement}
      */
-    return function sourceComponent(SourceComponent) {
+    return function sourceComponent(SourceComponent: ComponentType): ComponentType {
         /**
          * Wrapper component to get redux state.
          *
+         * @function
          * @param {object} props - The current component props
          * @param {object} props.config - The content configuration
          * @param {string} props.locale - The current locale string
          * @returns {ReactElement} React component markup
          */
-        function ReturnedComponent(props) {
+        const ReturnedComponent: FunctionComponent<Props> = (props) => {
             const { locale, config } = props;
             const content = getTranslatedContent(locale, config, configKey);
 
@@ -49,18 +57,6 @@ export function addContent(configKey) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent content={content} {...props} />;
         }
-
-        /**
-         * Validate props via React.PropTypes helpers.
-         *
-         * @static
-         * @type {object}
-         */
-        // eslint-disable-next-line immutable/no-mutation
-        ReturnedComponent.propTypes = {
-            config: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-            locale: PropTypes.string.isRequired
-        };
 
         /**
          * The component will subscribe to Redux store updates. Any time it updates,

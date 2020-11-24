@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-this */
 /* global picturefill */
 /**
  * Es6 module for handling responsive images.
@@ -8,7 +7,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ComponentType } from 'react';
 
 /**
  * Helper function to init picture element polyfill.
@@ -44,7 +43,7 @@ function initPicturefill() {
  * @param {ReactElement} SourceComponent - The react component to be decorated
  * @returns {ReactElement}
  */
-export function pictureFill(SourceComponent) {
+export function pictureFill(SourceComponent: ComponentType): ComponentType {
     /**
      * Wrapper class to call initPicturefill on mount and on updates.
      *
