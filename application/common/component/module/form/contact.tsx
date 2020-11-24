@@ -9,10 +9,9 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import { has } from 'lodash';
+import { has, noop } from 'lodash';
 
 import { configApplication, url } from '../../../config/application';
 import { isBrowser } from '../../../utils/environment';
@@ -56,6 +55,66 @@ const configApplicationXor = configApplication.xor;
 const xorUse = configApplicationXor.use;
 const xorKey = configApplicationXor.key;
 
+type Props = {
+    content?: {
+        legend: string;
+        inputName: string;
+        inputEmail: string;
+        inputWebsite: string;
+        inputSubject: string;
+        inputMessage: string;
+        btnResetTitle: string;
+        btnResetLabel: string;
+        btnSubmitTitle: string;
+        btnSubmitLabel: string;
+        btnRenewTitle: string;
+        btnRenewLabel: string;
+        thankYou: string;
+        errorHeadline: string;
+        errorText: string;
+        btnTryAgainTitle: string;
+        btnTryAgainLabel: string;
+        thankYouHeadline: string;
+        thankYouText: string;
+    };
+    storeState?: {
+        name: string;
+        email: string;
+        subject:string;
+        message:string;
+        pristine: boolean;
+        namePristine: boolean;
+        emailPristine: boolean;
+        websitePristine:boolean;
+        subjectPristine: boolean;
+        messagePristine: boolean;
+        pending: boolean;
+        success: boolean;
+        error: boolean;
+        browser: boolean;
+    };
+    handleContactChange?: () => void;
+    routerState?: string;
+    csrfToken?: string;
+}
+
+type State = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    pristine: boolean;
+    namePristine: boolean;
+    emailPristine: boolean;
+    websitePristine: boolean;
+    subjectPristine: boolean;
+    messagePristine: boolean;
+    pending: boolean;
+    success: boolean;
+    error: boolean;
+    browser: boolean;
+}
+
 /**
  * Scroll to text message, usually for smaller screens after submitting.
  * More or less a work around until Element.scrollIntoView() is fully
@@ -81,10 +140,10 @@ function scrollToTextMessage(textMessage) {
  *
  * @private
  * @param {object} data - The post data to be send
- * @param {object} [csrfToken=''] - The csrf token string to be validated
+ * @param {string} [csrfToken=''] - The csrf token string to be validated
  * @returns {Future}
  */
-function send(data, csrfToken = '') {
+function send(data, csrfToken: string = ''): Promise<Response> {
     const bodyData = xorUse
         ? encrypt(JSON.stringify(data), xorKey)
         : JSON.stringify(data);
@@ -97,7 +156,7 @@ function send(data, csrfToken = '') {
         })
     };
 
-    return new Promise((resolve, reject) => {
+    return new Promise(function (resolve, reject) {
         xhr(url.contact, xhrData).then(resolve).catch(reject);
     });
 }
@@ -110,7 +169,7 @@ function send(data, csrfToken = '') {
  * @param {object} storeState - The redux contact state
  * @returns {*}
  */
-function getState(key, storeState) {
+function getState(key: string, storeState) {
     return storeState && storeState[key] !== undefined
         ? storeState[key]
         : defaultState[key];
@@ -122,7 +181,9 @@ function getState(key, storeState) {
  * @class
  * @augments React.Component
  */
-class ModuleFormContact extends Component {
+class ModuleFormContact extends Component<Props, State> {
+    textMessage = createRef();
+
     /**
      * The actual class constructor.
      *
@@ -177,7 +238,7 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     handleContactChange() {
-        const { handleContactChange } = this.props;
+        const { handleContactChange = noop } = this.props;
         handleContactChange(this.state);
     }
 
@@ -257,6 +318,7 @@ class ModuleFormContact extends Component {
             <ModuleFormContactMessage
                 onReset={this.onReset}
                 resetUrl={url.contact}
+                ref={this.textMessage}
                 {...{
                     headline,
                     text,
@@ -274,7 +336,7 @@ class ModuleFormContact extends Component {
      * @returns {void}
      */
     send() {
-        const { csrfToken } = this.props;
+        const { csrfToken = '' } = this.props;
         const { state } = this;
 
         if (!canSendForm(state)) {
@@ -313,7 +375,7 @@ class ModuleFormContact extends Component {
                         });
                     })
                     .then(() => {
-                        return scrollToTextMessage(this.textMessage);
+                        return scrollToTextMessage(this.textMessage.current);
                     })
                     .catch((reason) => {
                         this.setState(
@@ -370,7 +432,7 @@ class ModuleFormContact extends Component {
      * @returns {ReactElement} React component markup
      */
     render() {
-        const { content, csrfToken } = this.props;
+        const { content, csrfToken = '' } = this.props;
 
         const { state } = this;
 
@@ -397,7 +459,7 @@ class ModuleFormContact extends Component {
                     </Legend>
 
                     <GridRow>
-                        <GridCol cols={'6'}>
+                        <GridCol cols={6}>
                             <InputGroup
                                 id={'name'}
                                 name={'name'}
@@ -408,7 +470,7 @@ class ModuleFormContact extends Component {
                                 isPristine={state.namePristine}
                             />
                         </GridCol>
-                        <GridCol cols={'6'}>
+                        <GridCol cols={6}>
                             <InputGroup
                                 id={'email'}
                                 name={'email'}
@@ -449,7 +511,7 @@ class ModuleFormContact extends Component {
                         </GridCol>
                     </GridRow>
                     <GridRow>
-                        <GridCol cols={'6'}>
+                        <GridCol cols={6}>
                             <ButtonGroup
                                 id={'reset'}
                                 name={'reset'}
@@ -461,7 +523,7 @@ class ModuleFormContact extends Component {
                                 isDisabled={state.pending}
                             />
                         </GridCol>
-                        <GridCol cols={'6'}>
+                        <GridCol cols={6}>
                             <ButtonGroup
                                 id={'submit'}
                                 name={'submit'}
@@ -484,77 +546,6 @@ class ModuleFormContact extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [content.legend] - Translated string for element legend
- * @property {string} [content.inputName] - Translated string for name input
- * @property {string} [content.inputEmail] - Translated string for email input
- * @property {string} [content.inputWebsite] - Translated string for website input
- * @property {string} [content.inputSubject] - Translated string for subject input
- * @property {string} [content.inputMessage] - Translated string for message textarea
- * @property {string} [content.btnResetTitle] - Translated string for reset button title
- * @property {string} [content.btnResetLabel] - Translated string for reset button label
- * @property {string} [content.btnSubmitTitle] - Translated string for submit button title
- * @property {string} [content.btnSubmitLabel] - Translated string for submit button label
- * @property {string} [content.btnRenewTitle] - Translated string for renew button title
- * @property {string} [content.btnRenewLabel] - Translated string for renew button label
- * @property {string} [content.thankYou] - Translated string for thank you message
- * @property {string} [content.errorHeadline] - Translated string for error headline
- * @property {string} [content.errorText] - Translated string for error message
- * @property {string} [content.btnTryAgainTitle] - Translated string for retry button title
- * @property {string} [content.btnTryAgainLabel] - Translated string for retry button label
- * @property {object} [storeState={}] - The redux contact state
- * @property {Function} [handleContactChange=Function.prototype] - Action handler for redux contact state
- * @property {string} [routerState] - The current router params
- * @property {string} [csrfToken=''] - The csrf token for validation
- */
-ModuleFormContact.propTypes = {
-    /* eslint-disable react/no-unused-prop-types */
-    content: PropTypes.shape({
-        legend: PropTypes.string,
-        inputName: PropTypes.string,
-        inputEmail: PropTypes.string,
-        inputWebsite: PropTypes.string,
-        inputSubject: PropTypes.string,
-        inputMessage: PropTypes.string,
-        btnResetTitle: PropTypes.string,
-        btnResetLabel: PropTypes.string,
-        btnSubmitTitle: PropTypes.string,
-        btnSubmitLabel: PropTypes.string,
-        btnRenewTitle: PropTypes.string,
-        btnRenewLabel: PropTypes.string,
-        thankYou: PropTypes.string,
-        errorHeadline: PropTypes.string,
-        errorText: PropTypes.string,
-        btnTryAgainTitle: PropTypes.string,
-        btnTryAgainLabel: PropTypes.string,
-        thankYouHeadline: PropTypes.string,
-        thankYouText: PropTypes.string
-    }),
-    /* eslint-enable react/no-unused-prop-types */
-    storeState: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    handleContactChange: PropTypes.func,
-    routerState: PropTypes.string, // eslint-disable-line react/require-default-props
-    csrfToken: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleFormContact.propTypes
- */
-ModuleFormContact.defaultProps = {
-    content: {},
-    storeState: {},
-    handleContactChange: Function.prototype,
-    csrfToken: ''
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

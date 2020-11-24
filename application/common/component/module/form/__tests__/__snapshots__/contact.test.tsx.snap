@@ -82,7 +82,6 @@ exports[`ModuleFormContact should render correctly 1`] = `
     class="m-form m-form--contact"
     id="m-form--contact"
     itemprop="potentialAction"
-    itemscope=""
     itemtype="http://schema.org/CommunicateAction"
     method="post"
     novalidate=""

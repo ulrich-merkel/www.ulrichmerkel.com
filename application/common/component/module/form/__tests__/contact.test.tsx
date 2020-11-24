@@ -22,7 +22,7 @@ describe('ModuleFormContact', function fnDescribe() {
             thankYou: 'thankYou'
         },
         storeState: {},
-        handleContactChange: () => {},
+        handleContactChange: jest.fn(),
         routerState: '',
         csrfToken: ''
     };

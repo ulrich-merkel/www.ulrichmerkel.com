@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFormContactMessage should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-article__text"
+    id="m-form--contact-success"
+    itemprop="text"
+  >
+    <h3
+      class="is-centered c-type--h3"
+    >
+      headline
+    </h3>
+    <div
+      class="m-article__description is-centered"
+      itemprop="description"
+    >
+      <p
+        class="c-type--p"
+      >
+        text
+      </p>
+      <p
+        class="c-type--p"
+      >
+        <a
+          class="c-btn is-centered c-btn--large"
+          href="/resetUrl"
+          role="button"
+          title="title"
+        >
+          <span
+            class="c-btn__label"
+          >
+            click
+          </span>
+        </a>
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

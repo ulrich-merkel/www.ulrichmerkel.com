@@ -19,7 +19,9 @@ exports[`ModuleFormSettings should render correctly 1`] = `
     >
       <legend
         class="m-form__legend is-visually-hidden"
-      />
+      >
+        Hello settings
+      </legend>
       <div
         class="l-grid__row"
       >

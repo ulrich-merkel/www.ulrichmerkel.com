@@ -9,10 +9,9 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, ChangeEvent, FunctionComponent } from 'react';
 import { connect } from 'react-redux';
-import { get } from 'lodash';
+import { get, noop } from 'lodash';
 
 import { selectStateSearchTerm } from '../../../state/search/selector';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';
@@ -24,14 +23,26 @@ import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { InputGroup } from '../../element/input-group';
 import { Legend } from '../../element/legend';
+
+type Props = {
+    content: {
+        inputTerm: string;
+        legend: string;
+    };
+    csrfToken: string;
+    handleSearchChangeTerm: (event: ChangeEvent) => void;
+    searchTerm: string;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleFormSearch(props) {
-    const { content, csrfToken, searchTerm, handleSearchChangeTerm } = props;
+export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
+    const { content, csrfToken = '', searchTerm = '', handleSearchChangeTerm = noop } = props;
 
     return (
         <Form
@@ -48,13 +59,13 @@ export function ModuleFormSearch(props) {
                 <Legend isVisuallyHidden>{content.legend}</Legend>
 
                 <GridRow>
-                    <GridCol cols={'12'}>
+                    <GridCol cols={12}>
                         <InputGroup
-                            id={'name'}
+                            id='search'
                             isLabelVisuallyHidden
                             itemProp="query-input"
                             label={content.inputTerm}
-                            name={'name'}
+                            name='search'
                             onChange={handleSearchChangeTerm}
                             placeholder={content.inputTerm}
                             type="search"
@@ -67,41 +78,6 @@ export function ModuleFormSearch(props) {
         </Form>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [content....] - Translated string for element legend
- * @property {object} [storeState={}] - The redux contact state
- * @property {Function} [handleContactChange=Function.prototype] - Action handler for redux contact state
- * @property {string} [routerState] - The current router params
- * @property {string} [csrfToken=''] - The csrf token for validation
- */
-ModuleFormSearch.propTypes = {
-    content: PropTypes.shape({
-        inputTerm: PropTypes.string,
-        legend: PropTypes.string
-    }),
-    searchTerm: PropTypes.string,
-    handleSearchChangeTerm: PropTypes.func,
-    csrfToken: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleFormContact.propTypes
- */
-ModuleFormSearch.defaultProps = {
-    content: {},
-    searchTerm: '',
-    handleSearchChangeTerm: Function.prototype,
-    csrfToken: ''
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,
@@ -133,8 +109,9 @@ function mapStateToProps(state, ownProps) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        handleSearchChangeTerm: (e) => {
-            dispatch(changeSearchTerm(get(e, 'target.value')));
+        handleSearchChangeTerm: (event: React.ChangeEvent) => {
+            const searchTerm = get(event, 'target.value');
+            dispatch(changeSearchTerm(searchTerm));
         }
     };
 }

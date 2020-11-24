@@ -7,9 +7,9 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, ChangeEvent, FunctionComponent } from 'react';
 import { connect } from 'react-redux';
+import { noop } from 'lodash';
 
 import { toggleThemeSelected } from '../../../state/color-scheme/duck';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';
@@ -24,22 +24,32 @@ import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { Legend } from '../../element/legend';
 
-const noop = Function.prototype;
+type Props = {
+    content: {
+        legend: string;
+    };
+    csrfToken: '',
+    colorSchemeSelectedDarkMode: boolean;
+    onToggleReducedMotionSelected: (event: ChangeEvent) => void;
+    reducedMotionSelectedReduce: boolean;
+    onToggleThemeSelected: (event: ChangeEvent) => void;
+}
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleFormSettings(props) {
+export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
     const {
         content,
-        csrfToken,
-        colorSchemeSelectedDarkMode,
-        onToggleReducedMotionSelected,
-        reducedMotionSelectedReduce,
-        onToggleThemeSelected
+        csrfToken = '',
+        colorSchemeSelectedDarkMode = false,
+        onToggleReducedMotionSelected = noop,
+        reducedMotionSelectedReduce = false,
+        onToggleThemeSelected = noop
     } = props;
 
     return (
@@ -53,10 +63,10 @@ export function ModuleFormSettings(props) {
             onSubmit={eventPreventDefault}
         >
             <Fieldset>
-                <Legend isVisuallyHidden>{content.legend}</Legend>
+                <Legend isVisuallyHidden>{content?.legend}</Legend>
 
                 <GridRow>
-                    <GridCol cols={'6'}>
+                    <GridCol cols={6}>
                         <Toggle
                             id="dark-mode"
                             label="Dark mode"
@@ -66,7 +76,7 @@ export function ModuleFormSettings(props) {
                     </GridCol>
                 </GridRow>
                 <GridRow>
-                    <GridCol cols={'6'}>
+                    <GridCol cols={6}>
                         <Toggle
                             id="reduced-motion-toggle"
                             label="Reduced motion"
@@ -80,39 +90,6 @@ export function ModuleFormSettings(props) {
         </Form>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-ModuleFormSettings.propTypes = {
-    content: PropTypes.shape({
-        legend: PropTypes.string
-    }),
-    colorSchemeSelectedDarkMode: PropTypes.bool,
-    csrfToken: PropTypes.string,
-    onToggleReducedMotionSelected: PropTypes.func,
-    onToggleThemeSelected: PropTypes.func,
-    reducedMotionSelectedReduce: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleFormContact.propTypes
- */
-ModuleFormSettings.defaultProps = {
-    colorSchemeSelectedDarkMode: false,
-    content: {},
-    csrfToken: '',
-    onToggleReducedMotionSelected: noop,
-    onToggleThemeSelected: noop,
-    reducedMotionSelectedReduce: false
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

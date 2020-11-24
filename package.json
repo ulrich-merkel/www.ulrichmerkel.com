@@ -122,6 +122,9 @@
   },
   "lint-staged": {
     "*.js": "prettier --write && npm run test:eslint",
+    "*.jsx": "prettier --write && npm run test:eslint",
+    "*.ts": "prettier --write && npm run test:eslint",
+    "*.tsx": "prettier --write && npm run test:eslint",
     "*.css": "prettier --write && npm run test:css"
   },
   "main": "application/server/bootstrap.js",

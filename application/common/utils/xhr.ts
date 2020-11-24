@@ -9,6 +9,7 @@
  *
  * @see {@link https://davidwalsh.name/fetch}
  * @see {@link https://hacks.mozilla.org/2015/03/this-api-is-so-fetching/}
+ * @see {@link https://www.carlrippon.com/fetch-with-async-await-and-typescript/}
  */
 import fetch from 'isomorphic-fetch';
 
@@ -32,12 +33,11 @@ export const XHR_DEFAULT_HEADERS = {
  * @param {object} response - The http request response from a network request
  * @returns {object} The response or throws an error
  */
-function checkStatus(response) {
+function checkStatus(response: Response) {
     if (response && response.status >= 200 && response.status < 300) {
         return response;
     }
     const error = new Error(response.statusText);
-    error.response = response; // eslint-disable-line immutable/no-mutation
     throw error;
 }
 
@@ -48,7 +48,7 @@ function checkStatus(response) {
  * @param {object} [options={}] - The fetch options
  * @returns {object} Promise
  */
-export function xhr(url, options = {}) {
+export function xhr(url: string, options = {}): Promise<Response> {
     const fetchOptions = {
         method: 'POST',
         mode: 'same-origin',

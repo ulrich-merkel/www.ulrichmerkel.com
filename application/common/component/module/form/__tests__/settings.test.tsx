@@ -4,7 +4,9 @@ import { ModuleFormSettingsConnected } from '../settings';
 
 describe('ModuleFormSettings', function fnDescribe() {
     const defaultProps = {
-        content: {},
+        content: {
+            legend: 'Hello settings'
+        },
         csrfToken: '',
         themeSelected: 'default',
         onchangeThemeSelectedDefault: jest.fn(),

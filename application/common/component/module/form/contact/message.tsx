@@ -1,12 +1,26 @@
-/* eslint-disable immutable/no-mutation */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, forwardRef, FunctionComponent } from 'react';
 
 import { P } from '../../../element/paragraph';
 import { Button } from '../../../element/button';
 import { Headline } from '../../../element/headline';
 
-export function ModuleFormContactMessage(props) {
+type Props = {
+    btnLabel: string;
+    btnTitle: string;
+    headline: string;
+    text: string;
+    onReset: () => void;
+    resetUrl: string;
+};
+
+/**
+ * Rendering a message block for the contact form.
+ *
+ * @function
+ * @param {object} [props] - The current component props
+ * @returns {ReactElement} React component markup
+ */
+export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (
@@ -14,6 +28,7 @@ export function ModuleFormContactMessage(props) {
             className="m-article__text"
             id="m-form--contact-success"
             itemProp="text"
+            ref={ref}
         >
             <Headline htmlElement="h3">{headline}</Headline>
             <div
@@ -35,13 +50,4 @@ export function ModuleFormContactMessage(props) {
             </div>
         </div>
     );
-}
-
-ModuleFormContactMessage.propTypes = {
-    btnLabel: PropTypes.string, // eslint-disable-line react/require-default-props
-    btnTitle: PropTypes.string, // eslint-disable-line react/require-default-props
-    headline: PropTypes.string, // eslint-disable-line react/require-default-props
-    text: PropTypes.string, // eslint-disable-line react/require-default-props
-    onReset: PropTypes.func, // eslint-disable-line react/require-default-props
-    resetUrl: PropTypes.string // eslint-disable-line react/require-default-props
-};
+});
