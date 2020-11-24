@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering an input html tag.
  *
@@ -8,8 +8,21 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { noop } from 'lodash';
+
+type Props = {
+    id: string;
+    name: string;
+    className?: string;
+    itemProp?: string;
+    onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder?: string;
+    required?: boolean;
+    type?: string;
+    value?: string;
+};
 
 /**
  * Class representing a component to return a single react child element.
@@ -29,7 +42,7 @@ import classnames from 'classnames';
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value] - The input value attribute
  */
-export class Input extends Component {
+export class Input extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -41,11 +54,11 @@ export class Input extends Component {
             id,
             itemProp,
             name,
-            onBlur,
-            onChange,
-            placeholder,
-            required,
-            type,
+            onBlur = noop,
+            onChange = noop,
+            placeholder = '',
+            required = false,
+            type = 'text',
             value,
             ...other
         } = this.props;
@@ -82,36 +95,3 @@ export class Input extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Input.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    type: PropTypes.string,
-    value: PropTypes.string // eslint-disable-line react/require-default-props
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Input.defaultProps = {
-    onBlur: Function.prototype,
-    onChange: Function.prototype,
-    placeholder: '',
-    required: false,
-    type: 'text'
-};

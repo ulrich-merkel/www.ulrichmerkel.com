@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a html button or react-router navlink.
  *
@@ -18,14 +17,32 @@
  * //     <span class="c-btn__label">Show Contact Page</span>
  * // </a>
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    classNameLabel?: string;
+    htmlElement?: string;
+    isClear?: boolean;
+    isDisabled?: boolean;
+    isLabelHidden?: boolean;
+    isLarge?: boolean;
+    isPrimary?: boolean;
+    isSecondary?: boolean;
+    isSmall?: boolean;
+    role?: string;
+    title?: string;
+    to?: string;
+    type?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
@@ -44,23 +61,23 @@ import classnames from 'classnames';
  * @param {string} [props.type='button'] - The element type attribute
  * @returns {ReactElement} React component markup
  */
-export function Button(props) {
+export const Button: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement,
+        children,
         className,
         classNameLabel,
+        htmlElement = 'button',
+        isClear = false,
+        isDisabled = false,
+        isLabelHidden = false,
+        isLarge = false,
+        isPrimary = false,
+        isSecondary = false,
+        isSmall = false,
+        role = 'button',
+        title = '',
         to,
-        type,
-        title,
-        role,
-        isPrimary,
-        isSecondary,
-        isLarge,
-        isSmall,
-        isClear,
-        isDisabled,
-        isLabelHidden,
-        children,
+        type = 'button',
         ...otherProps
     } = props;
 
@@ -94,47 +111,3 @@ export function Button(props) {
         </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Button.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    classNameLabel: PropTypes.string, // eslint-disable-line react/require-default-props
-    htmlElement: PropTypes.string,
-    isClear: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isLabelHidden: PropTypes.bool,
-    isLarge: PropTypes.bool,
-    isPrimary: PropTypes.bool,
-    isSecondary: PropTypes.bool,
-    isSmall: PropTypes.bool,
-    role: PropTypes.string,
-    title: PropTypes.string,
-    to: PropTypes.string, // eslint-disable-line react/require-default-props
-    type: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Button.defaultProps = {
-    htmlElement: 'button',
-    isClear: false,
-    isDisabled: false,
-    isLabelHidden: false,
-    isLarge: false,
-    isPrimary: false,
-    isSecondary: false,
-    isSmall: false,
-    role: 'button',
-    title: '',
-    type: 'button'
-};

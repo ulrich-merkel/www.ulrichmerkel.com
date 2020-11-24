@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a label html tag.
  *
@@ -7,21 +6,28 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    htmlFor: string;
+    className?: string;
+    isVisuallyHidden?: boolean;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.htmlFor] - The label for attribute
  * @param {string} [props.className] - The label css class names, will be merged into component default classNames
  * @param {boolean} [props.isVisuallyHidden] - Whether the label is visually hidden or not
  * @returns {ReactElement} React component markup
  */
-export function Label(props) {
-    const { className, htmlFor, isVisuallyHidden, ...otherProps } = props;
+export const Label: FunctionComponent<Props> = (props) => {
+    const { className, htmlFor, isVisuallyHidden = false, ...otherProps } = props;
 
     const composedClassName = classnames('m-form__label', className, {
         'is-visually-hidden': isVisuallyHidden
@@ -36,25 +42,3 @@ export function Label(props) {
         />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Label.propTypes = {
-    htmlFor: PropTypes.string.isRequired,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isVisuallyHidden: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Label.defaultProps = {
-    isVisuallyHidden: false
-};

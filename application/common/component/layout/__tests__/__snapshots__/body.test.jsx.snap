@@ -39,7 +39,7 @@ exports[`LayoutBody should render correctly 1`] = `
       class="m-progress"
       id="m-progress"
       max="100"
-      value="0"
+      value=""
     >
       <span
         class="m-progress__fallback"

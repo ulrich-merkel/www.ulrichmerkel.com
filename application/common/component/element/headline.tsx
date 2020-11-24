@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a html headline tag, like h1, h2, h3...
  *
@@ -18,24 +17,31 @@
  * // My Headline Text
  * // </h1>
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    htmlElement: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    isCentered?: boolean;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
  * @property {string} [props.htmlElement='h1'] - The component element type used for React.createElement
  * @property {boolean} [props.isCentered=true] - Whether the component should be centered via css or not
  * @returns {ReactElement} React component markup
  */
-export function Headline(props) {
+export const Headline: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement,
+        htmlElement: HtmlElement = 'h1',
         className,
-        isCentered,
+        isCentered = true,
         ...otherProps
     } = props;
 
@@ -52,26 +58,3 @@ export function Headline(props) {
         <HtmlElement className={componentClassName} {...otherProps} />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Headline.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    htmlElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-    isCentered: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Headline.defaultProps = {
-    htmlElement: 'h1',
-    isCentered: true
-};

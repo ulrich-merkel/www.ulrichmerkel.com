@@ -63,7 +63,6 @@ function getWorkContentKey(routerPath: string, config) {
 /**
  * Class representing a component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.locale - The redux intl locale state
  * @property {object} props.match - The react router params

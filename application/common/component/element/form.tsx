@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering a form html tag.
  *
@@ -7,9 +7,23 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
+import { noop } from 'lodash';
+
+type Props = {
+    acceptCharset?: string;
+    action: string;
+    children?: ReactNode;
+    className?:string;
+    id: string;
+    itemProp?: string;
+    itemType?: string;
+    method?: string;
+    onReset?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onSubmit?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    role?: string;
+};
 
 /**
  * Class representing a component to return a single react child element.
@@ -17,7 +31,6 @@ import classnames from 'classnames';
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
  *
- * @class
  * @augments React.Component
  * @property {string} props.action - The form action attribute
  * @property {string} props.id - The form id attribute
@@ -30,7 +43,7 @@ import classnames from 'classnames';
  * @property {Function} [props.onReset=Function.prototype] - The form reset handler function
  * @property {Function} [props.onSubmit=Function.prototype] - The form submit handler function
  */
-export class Form extends Component {
+export class Form extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -38,16 +51,16 @@ export class Form extends Component {
      */
     render() {
         const {
-            acceptCharset,
+            acceptCharset = 'utf-8',
             action,
             className,
             id,
-            itemProp,
-            itemType,
-            method,
-            role,
-            onSubmit,
-            onReset,
+            itemProp = 'potentialAction',
+            itemType = 'http://schema.org/CommunicateAction',
+            method = 'post',
+            onReset = noop,
+            onSubmit = noop,
+            role = 'form',
             ...otherProps
         } = this.props;
 
@@ -75,38 +88,3 @@ export class Form extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Form.propTypes = {
-    action: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    acceptCharset: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemProp: PropTypes.string,
-    itemType: PropTypes.string,
-    method: PropTypes.string,
-    onReset: PropTypes.func,
-    onSubmit: PropTypes.func,
-    role: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Form.defaultProps = {
-    acceptCharset: 'utf-8',
-    itemProp: 'potentialAction',
-    itemType: 'http://schema.org/CommunicateAction',
-    method: 'post',
-    onReset: Function.prototype,
-    onSubmit: Function.prototype,
-    role: 'form'
-};

@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a p html tag.
  *
@@ -18,13 +17,21 @@
  * // Paragraph text content lorem ipsum dolor
  * // </p>
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    hasColumns2?: boolean;
+    htmlElement?: string;
+    isCentered?: boolean;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {boolean} [props.hasColumns2=false] - Whether the component should be rendered in 2 columns via css or not
@@ -32,16 +39,15 @@ import classnames from 'classnames';
  * @param {boolean} [props.isCentered=false] - Whether the component should be centered via css or not
  * @returns {ReactElement} React component markup
  */
-export function P(props) {
+export const P: FunctionComponent<Props> = (props) => {
     const {
         className,
-        hasColumns2,
-        htmlElement,
-        isCentered,
+        hasColumns2 = false,
+        htmlElement: HtmlElement = 'p',
+        isCentered = false,
         ...otherProps
     } = props;
 
-    const ComponentType = htmlElement;
     const componentClassName = classnames(
         {
             'is-centered': isCentered,
@@ -53,31 +59,6 @@ export function P(props) {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType className={componentClassName} {...otherProps} />
+        <HtmlElement className={componentClassName} {...otherProps} />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-P.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    hasColumns2: PropTypes.bool,
-    htmlElement: PropTypes.string,
-    isCentered: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-P.defaultProps = {
-    hasColumns2: false,
-    htmlElement: 'p',
-    isCentered: false
-};

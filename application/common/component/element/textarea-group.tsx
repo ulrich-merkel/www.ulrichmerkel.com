@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering a textarea component with a wrapper to be used within a form.
  *
@@ -8,12 +8,24 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { noop } from 'lodash';
 
 import { Textarea } from './textarea';
 import { Label } from './label';
 import { Icon } from './icon';
+
+type Props = {
+    className?: string;
+    id: string;
+    isPristine?: boolean;
+    isValid?: boolean;
+    label?: string;
+    name: string;
+    onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
+};
 
 /**
  * Class representing a component.
@@ -32,7 +44,7 @@ import { Icon } from './icon';
  * @property {Function} [props.onChange=Function.prototype] - The input change handler
  * @property {string} [props.value=''] - The default input value
  */
-export class TextareaGroup extends Component {
+export class TextareaGroup extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -41,13 +53,13 @@ export class TextareaGroup extends Component {
     render() {
         const {
             id,
-            isPristine,
-            isValid,
+            isPristine = false,
+            isValid = true,
             label,
             name,
-            onBlur,
-            onChange,
-            value,
+            onBlur = noop,
+            onChange = noop,
+            value = '',
             ...otherProps
         } = this.props;
 
@@ -89,36 +101,3 @@ export class TextareaGroup extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-TextareaGroup.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    id: PropTypes.string.isRequired,
-    isPristine: PropTypes.bool,
-    isValid: PropTypes.bool,
-    label: PropTypes.string, // eslint-disable-line react/require-default-props
-    name: PropTypes.string.isRequired,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    value: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see TextareaGroup.propTypes
- */
-TextareaGroup.defaultProps = {
-    isPristine: false,
-    isValid: true,
-    onBlur: Function.prototype,
-    onChange: Function.prototype,
-    value: ''
-};

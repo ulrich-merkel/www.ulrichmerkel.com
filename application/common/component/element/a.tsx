@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-let, immutable/no-mutation */
 /**
  * Rendering a html a tag or react-router component.
  *
@@ -18,33 +17,44 @@
  * //  Link text
  * // </a>
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+
+type Props = {
+    activeClassName?: string;
+    children?: ReactNode;
+    className?: string;
+    exact?: boolean;
+    htmlElement?: string;
+    strict?: boolean;
+    title?: string;
+    to: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} props - The current component props
  * @param {string} props.to - The link target/react-router path
  * @param {string} [props.activeClassName='is-active'] - The default is active state css class name
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
- * @param {string} [props.componentType='a'] - The component element type used for React.createElement
+ * @param {string} [props.htmlElement='a'] - The component element type used for React.createElement
  * @param {string} [props.title=''] - The title string to be set on a tag
  * @param {boolean} [props.exact] - Exclusively passed to NavLink
  * @returns {ReactElement} React component markup
  */
-export function A(props) {
+export const A: FunctionComponent<Props> = (props) => {
     const {
-        activeClassName,
+        activeClassName = 'is-active',
         children,
         className,
-        componentType,
         exact,
+        htmlElement = 'a',
         strict,
-        title,
+        title = '',
         to,
         ...otherProps
     } = props;
@@ -60,7 +70,7 @@ export function A(props) {
     };
     const componentClassName = classnames('c-link', className);
 
-    let ComponentType = componentType,
+    let HtmlElement = htmlElement,
         attributes = ancorAttributes;
 
     if (to.includes('www.') || to.includes('http')) {
@@ -71,13 +81,13 @@ export function A(props) {
     }
 
     if (to.charAt(0) === '/') {
-        ComponentType = NavLink;
+        HtmlElement = NavLink;
         attributes = componentAttributes;
     }
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <ComponentType
+        <HtmlElement
             {...attributes}
             className={componentClassName}
             tabIndex="0"
@@ -85,35 +95,6 @@ export function A(props) {
             {...otherProps}
         >
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-A.propTypes = {
-    to: PropTypes.string.isRequired,
-    activeClassName: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    componentType: PropTypes.string,
-    exact: PropTypes.bool, // eslint-disable-line react/require-default-props
-    strict: PropTypes.bool, // eslint-disable-line react/require-default-props
-    title: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-A.defaultProps = {
-    activeClassName: 'is-active',
-    componentType: 'a',
-    title: ''
-};

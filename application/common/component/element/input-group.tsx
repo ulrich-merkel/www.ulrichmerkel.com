@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering a input component with a wrapper to be used within a form.
  *
@@ -8,12 +8,28 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { noop } from 'lodash';
 
 import { Input } from './input';
 import { Label } from './label';
 import { Icon } from './icon';
+
+type Props = {
+    id: string;
+    name: string;
+    className?: string;
+    isLabelVisuallyHidden?: boolean;
+    isPristine?: boolean;
+    isValid?: boolean;
+    itemProp?: string;
+    label?: string;
+    onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder?: string;
+    type?: string;
+    value?: string;
+};
 
 /**
  * Class representing a component.
@@ -35,7 +51,7 @@ import { Icon } from './icon';
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value=''] - The default input value
  */
-export class InputGroup extends Component {
+export class InputGroup extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -44,17 +60,17 @@ export class InputGroup extends Component {
     render() {
         const {
             id,
-            isLabelVisuallyHidden,
-            isPristine,
-            isValid,
+            isLabelVisuallyHidden = false,
+            isPristine = false,
+            isValid = true,
             itemProp,
-            label,
+            label = '',
             name,
-            onBlur,
-            onChange,
+            onBlur = noop,
+            onChange = noop,
             placeholder,
-            type,
-            value,
+            type = 'text',
+            value = '',
             ...otherProps
         } = this.props;
 
@@ -99,42 +115,3 @@ export class InputGroup extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-InputGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isLabelVisuallyHidden: PropTypes.bool,
-    isPristine: PropTypes.bool,
-    isValid: PropTypes.bool,
-    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
-    label: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string, // eslint-disable-line react/require-default-props
-    type: PropTypes.string,
-    value: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-InputGroup.defaultProps = {
-    isLabelVisuallyHidden: false,
-    isPristine: false,
-    isValid: true,
-    label: '',
-    onBlur: Function.prototype,
-    onChange: Function.prototype,
-    type: 'text',
-    value: ''
-};

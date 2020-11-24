@@ -1,4 +1,4 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this, react/prefer-stateless-function */
+/* react/prefer-stateless-function */
 /**
  * Rendering a picture html tag.
  *
@@ -7,14 +7,29 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
+import { noop } from 'lodash';
 
 import { PictureSource } from './picture-source';
 
-const noop = Function.prototype;
+type Props = {
+    alt?: string;
+    children?: ReactNode;
+    className?: string;
+    ext?: 'jpg' | 'png' | '';
+    htmlElement?: string;
+    name?: string;
+    path?: string;
+    pictureRef?: () => void,
+    placeholder?: string;
+    sizes?: {
+        width: number;
+        height: number;
+        minWidth: number;
+    }[]
+};
 
 /**
  * Class representing a component to return a single react child element.
@@ -34,7 +49,7 @@ const noop = Function.prototype;
  * @property {string} [props.placeholder='data:image/gifbase64,...'] - The image placeholder to be set as src to prevent doubled download
  * @property {Array.<object>} [props.sizes='[]'] - The responsive sizes config
  */
-export class Picture extends Component {
+export class Picture extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -42,16 +57,16 @@ export class Picture extends Component {
      */
     render() {
         const {
-            alt,
+            alt = '',
             children,
             className,
-            ext,
-            htmlElement,
-            name,
-            path,
-            pictureRef,
-            placeholder,
-            sizes,
+            ext = '',
+            htmlElement: HtmlElement = 'picture',
+            name = '',
+            path = '',
+            pictureRef = noop,
+            placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+            sizes = [],
             ...otherProps
         } = this.props;
 
@@ -59,11 +74,10 @@ export class Picture extends Component {
             return null;
         }
 
-        const ComponentType = htmlElement;
         const componentClassName = classnames('c-picture', className);
 
         return (
-            <ComponentType
+            <HtmlElement
                 className={componentClassName}
                 itemScope
                 itemType="http://schema.org/ImageObject"
@@ -97,50 +111,7 @@ export class Picture extends Component {
                     srcSet={`${path}${name}.${ext}`}
                 />
                 {children}
-            </ComponentType>
+            </HtmlElement>
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Picture.propTypes = {
-    alt: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    ext: PropTypes.oneOf(['jpg', 'png', '']),
-    htmlElement: PropTypes.string,
-    name: PropTypes.string,
-    path: PropTypes.string,
-    pictureRef: PropTypes.func,
-    placeholder: PropTypes.string,
-    sizes: PropTypes.arrayOf(
-        PropTypes.shape({
-            width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        })
-    )
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Picture.defaultProps = {
-    alt: '',
-    ext: '',
-    htmlElement: 'picture',
-    name: '',
-    path: '',
-    pictureRef: noop,
-    placeholder:
-        'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
-    sizes: []
-};

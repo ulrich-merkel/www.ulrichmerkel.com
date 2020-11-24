@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a progress html tag with fallback.
  *
@@ -7,13 +6,23 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import { string } from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    fallbackClassName?: string;
+    htmlElement?: string;
+    id?: string;
+    max?: string;
+    value?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @param {string} [props.fallbackClassName] - The falllback element css class names
@@ -23,18 +32,17 @@ import classnames from 'classnames';
  * @param {string} [props.value='0'] - Max value for the progress bar
  * @returns {ReactElement} React component markup
  */
-export function Progress(props) {
+export const Progress: FunctionComponent<Props> = (props) => {
     const {
         className,
         fallbackClassName,
-        htmlElement,
-        id,
-        max,
-        value,
+        htmlElement: HtmlElement = 'progress',
+        id = 'm-progress',
+        max = '100',
+        value = '',
         ...otherProps
     } = props;
 
-    const ComponentType = htmlElement;
     const composedClassName = classnames('m-progress', className);
     const composedFallbackClassName = classnames(
         'm-progress__fallback',
@@ -42,7 +50,7 @@ export function Progress(props) {
     );
 
     return (
-        <ComponentType
+        <HtmlElement
             className={composedClassName}
             {...{ id, max, value }}
             // eslint-disable-next-line react/jsx-props-no-spreading
@@ -52,36 +60,6 @@ export function Progress(props) {
                 className={composedFallbackClassName}
                 id={`${id}__fallback`}
             />
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Progress.propTypes = {
-    className: string,
-    fallbackClassName: string,
-    htmlElement: string,
-    id: string,
-    max: string,
-    value: string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Progress.defaultProps = {
-    className: '',
-    fallbackClassName: '',
-    htmlElement: 'progress',
-    id: 'm-progress',
-    max: '100',
-    value: '0'
-};

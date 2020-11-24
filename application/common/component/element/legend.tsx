@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a legend html tag.
  *
@@ -7,20 +6,26 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    isVisuallyHidden?: boolean;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.className] - The legend css class names, will be merged into component default classNames
  * @param {boolean} [props.isVisuallyHidden] - Whether the legend is visually hidden or not
  * @returns {ReactElement} React component markup
  */
-export function Legend(props) {
-    const { className, isVisuallyHidden, ...other } = props;
+export const Legend: FunctionComponent<Props> = (props) => {
+    const { className, isVisuallyHidden = false, ...otherProps } = props;
 
     const composedClassName = classnames('m-form__legend', className, {
         'is-visually-hidden': isVisuallyHidden
@@ -28,27 +33,6 @@ export function Legend(props) {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <legend className={composedClassName} {...other} />
+        <legend className={composedClassName} {...otherProps} />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Legend.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isVisuallyHidden: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Legend.defaultProps = {
-    isVisuallyHidden: false
-};

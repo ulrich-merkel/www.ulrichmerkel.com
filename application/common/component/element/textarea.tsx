@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering a textarea html tag.
  *
@@ -7,9 +7,23 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { noop } from 'lodash';
+
+type Props = {
+    id: string;
+    name: string;
+    className?: string;
+    cols?: string;
+    onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder?: string;
+    required?: boolean;
+    rows?: string;
+    value?: string;
+};
 
 /**
  * Class representing a component.
@@ -29,14 +43,26 @@ import classnames from 'classnames';
  * @property {Function} [props.onBlur=Function.prototype] - The textarea onBlur handler
  * @property {Function} [props.onChange=Function.prototype] - The textarea onChange handler
  */
-export class Textarea extends Component {
+export class Textarea extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
      * @returns {ReactElement} React component markup
      */
     render() {
-        const { className, required, ...other } = this.props;
+        const {
+            id,
+            name,
+            className,
+            cols = '50',
+            onBlur = noop,
+            onChange = noop,
+            placeholder = '',
+            required = false,
+            rows = '4',
+            value,
+            ...other
+        } = this.props;
 
         const composedClassName = classnames(
             'm-form__control--textarea',
@@ -55,6 +81,16 @@ export class Textarea extends Component {
             <textarea
                 className={composedClassName}
                 {...requiredAttributes}
+                {...{
+                    cols,
+                    id,
+                    name,
+                    onBlur,
+                    onChange,
+                    placeholder,
+                    rows,
+                    value
+                }}
                 {...other}
             />
         );
@@ -80,18 +116,3 @@ Textarea.propTypes = {
     value: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see Textarea.propTypes
- */
-Textarea.defaultProps = {
-    cols: '50',
-    onBlur: Function.prototype,
-    onChange: Function.prototype,
-    placeholder: '',
-    required: false,
-    rows: '4'
-};

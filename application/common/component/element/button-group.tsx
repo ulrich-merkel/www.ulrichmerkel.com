@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, immutable/no-mutation, immutable/no-this */
+/* eslint-disable react/prefer-stateless-function */
 /**
  * Rendering a button component with a wrapper to be used within a form.
  *
@@ -8,10 +8,23 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { Button } from './button';
+
+type Props = {
+    btnClassName?: string;
+    className?: string;
+    id: string;
+    isDisabled?: boolean;
+    isPending?: boolean;
+    isPrimary?: boolean;
+    isSecondary?: boolean;
+    label?: string;
+    name: string;
+    title?: string;
+    type?: string;
+};
 
 /**
  * Class representing a component to return a single react child element.
@@ -32,7 +45,7 @@ import { Button } from './button';
  * @property {string} [props.title=''] - The button title attribute
  * @property {string} [props.type='button'] - The button type attribute
  */
-export class ButtonGroup extends Component {
+export class ButtonGroup extends Component<Props> {
     /**
      * The required render function to return a single react child element.
      *
@@ -43,14 +56,14 @@ export class ButtonGroup extends Component {
             btnClassName,
             className,
             id,
-            isDisabled,
-            isPending,
-            isPrimary,
-            isSecondary,
-            label,
+            isDisabled = false,
+            isPending = false,
+            isPrimary = false,
+            isSecondary = false,
+            label = '',
             name,
-            title,
-            type,
+            title = '',
+            type = 'button',
             ...otherProps
         } = this.props;
 
@@ -89,39 +102,3 @@ export class ButtonGroup extends Component {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-ButtonGroup.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    btnClassName: PropTypes.string, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isDisabled: PropTypes.bool,
-    isPending: PropTypes.bool,
-    isPrimary: PropTypes.bool,
-    isSecondary: PropTypes.bool,
-    label: PropTypes.string,
-    title: PropTypes.string,
-    type: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-ButtonGroup.defaultProps = {
-    isDisabled: false,
-    isPending: false,
-    isPrimary: false,
-    isSecondary: false,
-    label: '',
-    title: '',
-    type: 'button'
-};

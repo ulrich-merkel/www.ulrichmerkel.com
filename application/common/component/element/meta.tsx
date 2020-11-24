@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a meta html tag.
  *
@@ -7,12 +6,19 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
+
+type Props = {
+    content?: string;
+    itemProp?: string;
+    name?: string;
+    property?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.content=''] - The meta tag content attribute
  * @param {string} [props.itemProp] - The meta tag itemProp attribute
@@ -20,8 +26,8 @@ import PropTypes from 'prop-types';
  * @param {string} [props.property] - The meta tag property attribute
  * @returns {ReactElement|null} React component markup
  */
-export function Meta(props) {
-    const { content, itemProp, name, property, ...otherProps } = props;
+export const Meta: FunctionComponent<Props> = (props) => {
+    const { content = '', itemProp, name, property, ...otherProps } = props;
 
     if (!content) {
         return null;
@@ -40,26 +46,3 @@ export function Meta(props) {
         />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Meta.propTypes = {
-    content: PropTypes.string,
-    itemProp: PropTypes.string, // eslint-disable-line react/require-default-props
-    name: PropTypes.string, // eslint-disable-line react/require-default-props
-    property: PropTypes.string // eslint-disable-line react/require-default-props
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-Meta.defaultProps = {
-    content: ''
-};

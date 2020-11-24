@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Rendering a fieldset html element.
  *
@@ -7,18 +6,23 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+};
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
-export function Fieldset(props) {
+export const Fieldset: FunctionComponent<Props> = (props) => {
     const { className, ...otherProps } = props;
 
     const componentClassName = classnames('m-form__fieldset', className);
@@ -28,13 +32,3 @@ export function Fieldset(props) {
         <fieldset className={componentClassName} {...otherProps} />
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Fieldset.propTypes = {
-    className: PropTypes.string // eslint-disable-line react/require-default-props
-};
