@@ -25,7 +25,7 @@ type Props = {
     children?: ReactNode;
     colorSchemeSelected: string;
     reducedMotionSelected: string;
-}
+};
 
 /**
  * Apply theming and settings.
@@ -43,7 +43,10 @@ export class LayoutSettings extends Component<Props> {
      * @returns {void}
      */
     componentDidMount() {
-        const { colorSchemeSelected = COLOR_SCHEME_LIGHT, reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE } = this.props;
+        const {
+            colorSchemeSelected = COLOR_SCHEME_LIGHT,
+            reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
+        } = this.props;
 
         PubSub.publish(PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE, colorSchemeSelected);
         PubSub.publish(
@@ -60,7 +63,10 @@ export class LayoutSettings extends Component<Props> {
      * @returns {void}
      */
     componentDidUpdate(prevProps) {
-        const { colorSchemeSelected = COLOR_SCHEME_LIGHT, reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE } = this.props;
+        const {
+            colorSchemeSelected = COLOR_SCHEME_LIGHT,
+            reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
+        } = this.props;
 
         if (colorSchemeSelected !== prevProps.colorSchemeSelected) {
             PubSub.publish(

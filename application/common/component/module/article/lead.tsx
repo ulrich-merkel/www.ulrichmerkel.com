@@ -16,7 +16,7 @@ import { P } from '../../element/paragraph';
 type Props = {
     className?: string;
     text?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -43,4 +43,4 @@ export const ModuleArticleLead: FunctionComponent<Props> = (props) => {
             <strong>{text}</strong>
         </P>
     );
-}
+};

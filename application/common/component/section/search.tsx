@@ -42,4 +42,4 @@ export const SectionSearch: FunctionComponent<Props> = (props) => {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-}
+};

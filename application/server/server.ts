@@ -193,7 +193,7 @@ function createServer(config?: any, callback?: Function) {
             return;
         }
         logServerStarted(serverPort);
-        isFunction(callback) &&  callback();
+        isFunction(callback) && callback();
     });
 }
 

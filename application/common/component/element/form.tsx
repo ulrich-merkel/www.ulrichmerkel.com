@@ -15,7 +15,7 @@ type Props = {
     acceptCharset?: string;
     action: string;
     children?: ReactNode;
-    className?:string;
+    className?: string;
     id: string;
     itemProp?: string;
     itemScope?: boolean;

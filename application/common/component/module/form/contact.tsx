@@ -80,12 +80,12 @@ type Props = {
     storeState?: {
         name: string;
         email: string;
-        subject:string;
-        message:string;
+        subject: string;
+        message: string;
         pristine: boolean;
         namePristine: boolean;
         emailPristine: boolean;
-        websitePristine:boolean;
+        websitePristine: boolean;
         subjectPristine: boolean;
         messagePristine: boolean;
         pending: boolean;
@@ -96,7 +96,7 @@ type Props = {
     handleContactChange?: () => void;
     routerState?: string;
     csrfToken?: string;
-}
+};
 
 type State = {
     name: string;
@@ -113,7 +113,7 @@ type State = {
     success: boolean;
     error: boolean;
     browser: boolean;
-}
+};
 
 /**
  * Scroll to text message, usually for smaller screens after submitting.

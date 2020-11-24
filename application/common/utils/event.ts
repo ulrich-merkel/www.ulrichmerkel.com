@@ -5,13 +5,27 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
- * 
+ *
  * @see {@link https://fettblog.eu/typescript-react/events/}
  */
 import * as React from 'react';
 import { isFunction } from 'lodash';
 
-type Event = React.AnimationEvent | React.ChangeEvent | React.ClipboardEvent | React.CompositionEvent | React.DragEvent | React.FocusEvent | React.FormEvent | React.KeyboardEvent | React.MouseEvent | React.PointerEvent | React.TouchEvent | React.TransitionEvent | React.WheelEvent | React.SyntheticEvent;
+type Event =
+    | React.AnimationEvent
+    | React.ChangeEvent
+    | React.ClipboardEvent
+    | React.CompositionEvent
+    | React.DragEvent
+    | React.FocusEvent
+    | React.FormEvent
+    | React.KeyboardEvent
+    | React.MouseEvent
+    | React.PointerEvent
+    | React.TouchEvent
+    | React.TransitionEvent
+    | React.WheelEvent
+    | React.SyntheticEvent;
 
 /**
  * @type {string}

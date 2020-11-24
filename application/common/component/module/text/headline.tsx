@@ -14,7 +14,7 @@ import { Headline } from '../../element/headline';
 
 type Props = {
     text?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -36,4 +36,4 @@ export const ModuleTextHeadline: FunctionComponent<Props> = (props) => {
             {text}
         </Headline>
     );
-}
+};

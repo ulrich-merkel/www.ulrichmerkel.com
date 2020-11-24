@@ -34,7 +34,7 @@ type Props = {
     isSpaced?: boolean;
     itemType?: string;
     noMargin?: boolean;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -107,4 +107,4 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
             <Meta itemProp="datePublished" content={content.datePublished} />
         </HtmlElement>
     );
-}
+};

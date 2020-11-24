@@ -23,7 +23,7 @@ type Props = {
     label?: string;
     path?: string;
     title?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -89,4 +89,4 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
             {children}
         </li>
     );
-}
+};

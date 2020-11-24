@@ -28,12 +28,12 @@ type Props = {
     content: {
         legend: string;
     };
-    csrfToken: '',
+    csrfToken: '';
     colorSchemeSelectedDarkMode: boolean;
     onToggleReducedMotionSelected: (event: ChangeEvent) => void;
     reducedMotionSelectedReduce: boolean;
     onToggleThemeSelected: (event: ChangeEvent) => void;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -89,7 +89,7 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
             </Fieldset>
         </Form>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

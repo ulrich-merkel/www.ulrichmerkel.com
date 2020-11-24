@@ -59,4 +59,4 @@ export const Toggle: FunctionComponent<Props> = (props) => {
             </Label>
         </HtmlElement>
     );
-}
+};

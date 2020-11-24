@@ -13,7 +13,7 @@ import { addPageView } from '../../state/page/duck';
 
 type Props = {
     handleAddPageView: () => void;
-}
+};
 
 /**
  * The tracking higher order function handling page visits.

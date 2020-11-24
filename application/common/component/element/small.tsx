@@ -37,6 +37,10 @@ export const Small: FunctionComponent<Props> = (props) => {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={composedClassName} {...{ itemProp }} {...otherProps} />
+        <HtmlElement
+            className={composedClassName}
+            {...{ itemProp }}
+            {...otherProps}
+        />
     );
-}
+};

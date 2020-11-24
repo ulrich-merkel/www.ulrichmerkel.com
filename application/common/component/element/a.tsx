@@ -117,4 +117,4 @@ export const A: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};

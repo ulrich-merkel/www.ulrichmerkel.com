@@ -31,4 +31,4 @@ export const Fieldset: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <fieldset className={componentClassName} {...otherProps} />
     );
-}
+};

@@ -22,13 +22,13 @@ type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
     name?: string;
     path?: string;
-    pictureRef?: () => void,
+    pictureRef?: () => void;
     placeholder?: string;
     sizes?: {
         width: number;
         height: number;
         minWidth: number;
-    }[]
+    }[];
 };
 
 /**

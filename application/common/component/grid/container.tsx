@@ -32,4 +32,4 @@ export const GridContainer: FunctionComponent<Props> = (props) => {
     const componentClassName = classnames('l-grid', className);
 
     return <ComponentType className={componentClassName} {...otherProps} />;
-}
+};

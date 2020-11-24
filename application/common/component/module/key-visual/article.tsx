@@ -49,4 +49,4 @@ export const ModuleKeyVisualArticle: FunctionComponent<Props> = (props) => {
             </P>
         </article>
     );
-}
+};

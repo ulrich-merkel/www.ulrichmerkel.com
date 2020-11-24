@@ -49,4 +49,4 @@ export const ModuleKeyVisualButton: FunctionComponent<Props> = (props) => {
             {label}
         </Button>
     );
-}
+};

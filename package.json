@@ -121,11 +121,8 @@
     }
   },
   "lint-staged": {
-    "*.js": "prettier --write && npm run test:eslint",
-    "*.jsx": "prettier --write && npm run test:eslint",
-    "*.ts": "prettier --write && npm run test:eslint",
-    "*.tsx": "prettier --write && npm run test:eslint",
-    "*.css": "prettier --write && npm run test:css"
+    "application/**/*.{js,jsx,ts,tsx}": "prettier --write && npm run test:eslint",
+    "public/**/*.{css,scss}": "prettier --write && npm run test:css"
   },
   "main": "application/server/bootstrap.js",
   "browser": "application/client/bootstrap.js",
@@ -178,7 +175,6 @@
     "picturefill": "3.0.3",
     "postinstall-postinstall": "2.1.0",
     "process": "0.11.10",
-    "prop-types": "15.7.2",
     "pubsub-js": "1.9.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",

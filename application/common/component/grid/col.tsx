@@ -38,4 +38,4 @@ export const GridCol: FunctionComponent<Props> = (props) => {
     const composedClassName = classnames(`l-grid__col--${cols}`, className);
 
     return <ComponentType className={composedClassName} {...otherProps} />;
-}
+};

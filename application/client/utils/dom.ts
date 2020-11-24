@@ -37,7 +37,9 @@ export function getDomNodeById(id: string): Element | null {
  * @param {string} name - The elements tag name
  * @returns {Array<object>|null} The current element or null
  */
-export function getDomNodesByTagName(name: string): HTMLCollectionOf<Element> | null {
+export function getDomNodesByTagName(
+    name: string
+): HTMLCollectionOf<Element> | null {
     const doc = getDocumentDomNode();
     return (doc && doc.getElementsByTagName(name)) || null;
 }

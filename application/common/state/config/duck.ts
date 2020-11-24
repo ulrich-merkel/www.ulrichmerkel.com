@@ -17,7 +17,11 @@ import { xhr } from '../../utils/xhr';
 import { getDateNow } from '../../utils/date';
 import { logger } from '../../utils/logger';
 import { RootState } from '../configure-store';
-import { RequestConfigTranslationActionType, ReceiveConfigContentActionType, ReceiveConfigTranslationActionType } from './types';
+import {
+    RequestConfigTranslationActionType,
+    ReceiveConfigContentActionType,
+    ReceiveConfigTranslationActionType
+} from './types';
 
 /**
  * @type {string}
@@ -114,7 +118,9 @@ export function requestConfigContent(): Action {
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function requestConfigTranslation(locale: string): RequestConfigTranslationActionType {
+export function requestConfigTranslation(
+    locale: string
+): RequestConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_REQUEST,
         locale
@@ -128,7 +134,9 @@ export function requestConfigTranslation(locale: string): RequestConfigTranslati
  * @param {object} data - The api json data
  * @returns {object} Redux action
  */
-export function receiveConfigContent(data: any): ReceiveConfigContentActionType {
+export function receiveConfigContent(
+    data: any
+): ReceiveConfigContentActionType {
     return {
         type: FETCH_CONFIG_CONTENT_SUCCESS,
         receivedAt: getDateNow(),
@@ -144,7 +152,10 @@ export function receiveConfigContent(data: any): ReceiveConfigContentActionType 
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function receiveConfigTranslation(data: any, locale: string): ReceiveConfigTranslationActionType {
+export function receiveConfigTranslation(
+    data: any,
+    locale: string
+): ReceiveConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_SUCCESS,
         receivedAt: getDateNow(),

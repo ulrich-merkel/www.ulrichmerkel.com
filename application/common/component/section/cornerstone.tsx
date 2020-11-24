@@ -44,4 +44,4 @@ export const SectionCornerstone: FunctionComponent<Props> = (props) => {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-}
+};

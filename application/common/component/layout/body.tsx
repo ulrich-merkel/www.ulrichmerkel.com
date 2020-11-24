@@ -37,7 +37,7 @@ type Props = {
     children?: ReactNode;
     content?: any;
     reducedMotionSelectedReduce?: boolean;
-}
+};
 
 /**
  * Class representing a component.

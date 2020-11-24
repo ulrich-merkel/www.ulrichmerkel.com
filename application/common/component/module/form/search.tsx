@@ -32,7 +32,7 @@ type Props = {
     csrfToken: string;
     handleSearchChangeTerm: (event: ChangeEvent) => void;
     searchTerm: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -42,7 +42,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
-    const { content, csrfToken = '', searchTerm = '', handleSearchChangeTerm = noop } = props;
+    const {
+        content,
+        csrfToken = '',
+        searchTerm = '',
+        handleSearchChangeTerm = noop
+    } = props;
 
     return (
         <Form
@@ -61,11 +66,11 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
                 <GridRow>
                     <GridCol cols={12}>
                         <InputGroup
-                            id='search'
+                            id="search"
                             isLabelVisuallyHidden
                             itemProp="query-input"
                             label={content.inputTerm}
-                            name='search'
+                            name="search"
                             onChange={handleSearchChangeTerm}
                             placeholder={content.inputTerm}
                             type="search"
@@ -77,7 +82,7 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
             </Fieldset>
         </Form>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

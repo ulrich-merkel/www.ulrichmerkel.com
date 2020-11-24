@@ -58,7 +58,7 @@ type Props = {
     className?: string;
     content?: {
         menu: any;
-    }
+    };
 };
 
 /**
@@ -237,7 +237,7 @@ export const LayoutHeader: FunctionComponent<Props> = (props) => {
             </Nav>
         </Header>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

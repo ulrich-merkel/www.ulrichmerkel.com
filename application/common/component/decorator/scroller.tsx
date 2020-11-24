@@ -27,7 +27,7 @@ const HEADER_HEIGHT = 61;
 
 type Props = {
     handleChangeScrollHeaderFixed: (headerFixed: boolean) => void;
-    handleChangeScrollHeaderVisible:(headerVisible: boolean) => void;
+    handleChangeScrollHeaderVisible: (headerVisible: boolean) => void;
     location: {
         hash: string;
         key: string;
@@ -36,7 +36,7 @@ type Props = {
         state: any;
     };
     reducedMotionSelected: boolean;
-}
+};
 
 /**
  * The scroller higher order function handling window scrolling.

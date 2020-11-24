@@ -34,14 +34,14 @@ type Props = {
             headline: string;
             lead: string;
             percent: string | number;
-        }[]
+        }[];
     };
     handleChangeDialogVisibleSearch: () => void;
     htmlElement?: keyof JSX.IntrinsicElements;
     intlLocale?: Locale;
     itemType?: string;
     searchTerm?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -117,7 +117,7 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

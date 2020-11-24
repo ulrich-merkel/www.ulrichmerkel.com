@@ -26,55 +26,79 @@ const dateNow = Date.now();
 describe('shouldFetch', function fnDescribe() {
     it('should decide correctly to fetch', function fnIt() {
         expect(shouldFetch()).toBeTruthy();
-        expect(shouldFetch({
-            ...mockedState,
-            config: {
-                content: {
-                    data: null
-                }
-            }
-        }, 'config.content')).toBeTruthy();
-        expect(shouldFetch({
-            ...mockedState,
-            config: {
-                content: {
-                    isFetching: true,
-                    data: { foo: 'bar' }
-                }
-            }
-        }, 'config.content')).toBeFalsy();
-        expect(shouldFetch({
-            ...mockedState,
-            config: {
-                content: {
-                    didInvalidate: false,
-                    isFetching: false,
-                    data: { foo: 'bar' }
-                }
-            }
-        }, 'config.content')).toBeFalsy();
-        expect(shouldFetch({
-            ...mockedState,
-            config: {
-                content: {
-                    didInvalidate: true,
-                    isFetching: false,
-                    data: { foo: 'bar' }
-                }
-            }
-        }, 'config.content')).toBeTruthy();
+        expect(
+            shouldFetch(
+                {
+                    ...mockedState,
+                    config: {
+                        content: {
+                            data: null
+                        }
+                    }
+                },
+                'config.content'
+            )
+        ).toBeTruthy();
+        expect(
+            shouldFetch(
+                {
+                    ...mockedState,
+                    config: {
+                        content: {
+                            isFetching: true,
+                            data: { foo: 'bar' }
+                        }
+                    }
+                },
+                'config.content'
+            )
+        ).toBeFalsy();
+        expect(
+            shouldFetch(
+                {
+                    ...mockedState,
+                    config: {
+                        content: {
+                            didInvalidate: false,
+                            isFetching: false,
+                            data: { foo: 'bar' }
+                        }
+                    }
+                },
+                'config.content'
+            )
+        ).toBeFalsy();
+        expect(
+            shouldFetch(
+                {
+                    ...mockedState,
+                    config: {
+                        content: {
+                            didInvalidate: true,
+                            isFetching: false,
+                            data: { foo: 'bar' }
+                        }
+                    }
+                },
+                'config.content'
+            )
+        ).toBeTruthy();
     });
 });
 
 describe('requestConfigContent', function fnDescribe() {
     it(`should have a type of ${FETCH_CONFIG_CONTENT_REQUEST}`, function fnIt() {
-        expect(requestConfigContent().type).toEqual(FETCH_CONFIG_CONTENT_REQUEST);
+        expect(requestConfigContent().type).toEqual(
+            FETCH_CONFIG_CONTENT_REQUEST
+        );
     });
 });
 
 describe('requestConfigTranslation', function fnDescribe() {
     it(`should have a type of ${FETCH_CONFIG_TRANSLATION_REQUEST}`, function fnIt() {
-        expect(requestConfigTranslation('de-DE').type).toEqual(FETCH_CONFIG_TRANSLATION_REQUEST);
+        expect(requestConfigTranslation('de-DE').type).toEqual(
+            FETCH_CONFIG_TRANSLATION_REQUEST
+        );
     });
     it('should pass on the content value we pass in', function fnIt() {
         const locale = 'de-DE';
@@ -84,7 +108,9 @@ describe('requestConfigTranslation', function fnDescribe() {
 
 describe('receiveConfigContent', function fnDescribe() {
     it(`should have a type of ${FETCH_CONFIG_CONTENT_SUCCESS}`, function fnIt() {
-        expect(receiveConfigContent('de-DE').type).toEqual(FETCH_CONFIG_CONTENT_SUCCESS);
+        expect(receiveConfigContent('de-DE').type).toEqual(
+            FETCH_CONFIG_CONTENT_SUCCESS
+        );
     });
     it('should pass on the content value we pass in', function fnIt() {
         const data = { foo: 'bar' };
@@ -94,7 +120,9 @@ describe('receiveConfigContent', function fnDescribe() {
 
 describe('receiveConfigTranslation', function fnDescribe() {
     it(`should have a type of ${FETCH_CONFIG_TRANSLATION_SUCCESS}`, function fnIt() {
-        expect(receiveConfigTranslation({ foo: 'bar' }, 'de-DE').type).toEqual(FETCH_CONFIG_TRANSLATION_SUCCESS);
+        expect(receiveConfigTranslation({ foo: 'bar' }, 'de-DE').type).toEqual(
+            FETCH_CONFIG_TRANSLATION_SUCCESS
+        );
     });
     it('should pass on the content value we pass in', function fnIt() {
         const data = { foo: 'bar' };
@@ -104,7 +132,9 @@ describe('receiveConfigTranslation', function fnDescribe() {
 
 describe('failedConfigContent', function fnDescribe() {
     it(`should have a type of ${FETCH_CONFIG_CONTENT_FAILURE}`, function fnIt() {
-        expect(failedConfigContent().type).toEqual(FETCH_CONFIG_CONTENT_FAILURE);
+        expect(failedConfigContent().type).toEqual(
+            FETCH_CONFIG_CONTENT_FAILURE
+        );
     });
 });
 

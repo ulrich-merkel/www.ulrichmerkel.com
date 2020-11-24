@@ -23,11 +23,11 @@ type Props = {
     headline: string;
     img: {
         name: string;
-        ext: "" | "jpg" | "png";
+        ext: '' | 'jpg' | 'png';
         path: string;
         alt: string;
         sizes: [];
-    }
+    };
     children: ReactNode;
 };
 
@@ -83,4 +83,4 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
             </A>
         </li>
     );
-}
+};

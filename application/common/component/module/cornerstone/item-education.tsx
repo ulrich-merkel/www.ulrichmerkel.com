@@ -34,7 +34,9 @@ type Props = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (props) => {
+export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
+    props
+) => {
     const {
         cssModifier,
         description,
@@ -88,22 +90,23 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (props) 
                         </time>
                         )
                     </P>
-                    {Array.isArray(description) && description.map(function (text) {
-                        /**
-                         * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
-                         * are not possible to be set via translation strings.
-                         *
-                         * @see {@link https://facebook.github.io/react/tips/dangerously-set-inner-html.html}
-                         */
-                        return (
-                            <P
-                                key={shortid.generate()}
-                                className="m-cornerstone__text"
-                                itemProp="description"
-                                dangerouslySetInnerHTML={{ __html: text }}
-                            />
-                        );
-                    })}
+                    {Array.isArray(description) &&
+                        description.map(function (text) {
+                            /**
+                             * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
+                             * are not possible to be set via translation strings.
+                             *
+                             * @see {@link https://facebook.github.io/react/tips/dangerously-set-inner-html.html}
+                             */
+                            return (
+                                <P
+                                    key={shortid.generate()}
+                                    className="m-cornerstone__text"
+                                    itemProp="description"
+                                    dangerouslySetInnerHTML={{ __html: text }}
+                                />
+                            );
+                        })}
                 </div>
             </div>
             <div className="m-cornerstone__bubble" />
@@ -132,4 +135,4 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (props) 
             </div>
         </li>
     );
-}
+};

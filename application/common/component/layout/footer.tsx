@@ -96,7 +96,7 @@ export const LayoutFooter: FunctionComponent<Props> = (props) => {
             </Nav>
         </footer>
     );
-}
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

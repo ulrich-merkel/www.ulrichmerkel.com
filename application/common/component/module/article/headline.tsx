@@ -17,7 +17,7 @@ type Props = {
     text?: string;
     isMain?: boolean;
     className?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -45,4 +45,4 @@ export const ModuleArticleHeadline: FunctionComponent<Props> = (props) => {
             {text}
         </Headline>
     );
-}
+};

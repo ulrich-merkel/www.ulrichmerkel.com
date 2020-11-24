@@ -18,8 +18,8 @@ type Props = {
         linkTo: string;
         linkLabel: string;
         linkTitle: string;
-    }
-}
+    };
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -55,5 +55,4 @@ export const ModuleTextLink: FunctionComponent<Props> = (props) => {
             </A>
         </div>
     );
-}
-
+};

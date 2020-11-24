@@ -5,7 +5,7 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
- * 
+ *
  * @see {@link https://reactjs.org/docs/higher-order-components.html}
  */
 import { default as React, FunctionComponent, ComponentType } from 'react';
@@ -20,7 +20,7 @@ import { Locale } from '../../state/intl/types';
 type Props = {
     config: any;
     locale: Locale;
-}
+};
 
 /**
  * Higher order function to get translation data.
@@ -35,7 +35,9 @@ export function addContent(configKey: string) {
      * @param {ReactElement} SourceComponent - The react component to be decorated
      * @returns {ReactElement}
      */
-    return function sourceComponent(SourceComponent: ComponentType): ComponentType {
+    return function sourceComponent(
+        SourceComponent: ComponentType
+    ): ComponentType {
         /**
          * Wrapper component to get redux state.
          *
@@ -56,7 +58,7 @@ export function addContent(configKey: string) {
 
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent content={content} {...props} />;
-        }
+        };
 
         /**
          * The component will subscribe to Redux store updates. Any time it updates,

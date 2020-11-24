@@ -47,4 +47,4 @@ export const Routes: FunctionComponent = () => {
             </Switch>
         </LayoutBodyConnected>
     );
-}
+};

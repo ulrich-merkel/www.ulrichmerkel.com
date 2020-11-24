@@ -20,7 +20,10 @@ type Props = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<HTMLDivElement, Props>((props, ref) => {
+export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<
+    HTMLDivElement,
+    Props
+>((props, ref) => {
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (

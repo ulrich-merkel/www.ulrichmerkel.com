@@ -32,8 +32,8 @@ type State = {
         backgroundPosition?: string;
         backgroundSize?: string;
         backgroundImage?: string;
-    }
-}
+    };
+};
 
 /**
  * Class representing a component.

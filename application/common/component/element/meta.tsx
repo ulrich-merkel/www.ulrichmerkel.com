@@ -45,4 +45,4 @@ export const Meta: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
+};

@@ -16,7 +16,7 @@ type Props = {
         timeStart?: string;
         timeEnd?: string;
     };
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -49,4 +49,4 @@ export const ModuleTextTime: FunctionComponent<Props> = (props) => {
             {timeEnd && <time className="c-time">{timeEnd}</time>}
         </div>
     );
-}
+};

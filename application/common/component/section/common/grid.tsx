@@ -1,4 +1,3 @@
-
 /**
  * Es6 module for React Component.
  * Section components combine modules and elements
@@ -58,7 +57,7 @@ export const Grid: FunctionComponent<Props> = (props) => {
             </GridSection>
         </CSSTransition>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

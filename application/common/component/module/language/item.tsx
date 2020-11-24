@@ -19,7 +19,7 @@ type Props = {
     headline?: string;
     lead?: string;
     percent?: number;
-}
+};
 
 /**
  * Helper function to get style classNames for css3 rotate transform.
@@ -28,7 +28,9 @@ type Props = {
  * @param {number} percent - The percent value to be calculated in degrees
  * @returns {object} The classNames config for left and right circle
  */
-function getCssTransformRotate(percent: number): {left: string, right: string} {
+function getCssTransformRotate(
+    percent: number
+): { left: string; right: string } {
     let left = '',
         right = '',
         deg = 0,
@@ -106,4 +108,4 @@ export const ModuleLanguageItem: FunctionComponent<Props> = (props) => {
             </div>
         </GridCol>
     );
-}
+};

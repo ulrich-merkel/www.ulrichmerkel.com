@@ -29,11 +29,11 @@ type Props = {
             metaLinkUrl: string;
             path: string;
             title: string;
-        }[]
+        }[];
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -75,25 +75,26 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
             {...componentSchema}
             {...otherProps}
         >
-            {Array.isArray(content.list) && content.list.map(function (value) {
-                return (
-                    <ModuleMenuItem
-                        key={shortid.generate()}
-                        path={value.path}
-                        title={value.title}
-                        label={value.label}
-                        itemType={value.itemType}
-                        icon={value.icon}
-                        isLabelHidden={value.isLabelHidden}
-                        itemPropA={value.itemPropA}
-                    >
-                        {value.metaLinkUrl && (
-                            <link itemProp="url" href={value.metaLinkUrl} />
-                        )}
-                    </ModuleMenuItem>
-                );
-            })}
+            {Array.isArray(content.list) &&
+                content.list.map(function (value) {
+                    return (
+                        <ModuleMenuItem
+                            key={shortid.generate()}
+                            path={value.path}
+                            title={value.title}
+                            label={value.label}
+                            itemType={value.itemType}
+                            icon={value.icon}
+                            isLabelHidden={value.isLabelHidden}
+                            itemPropA={value.itemPropA}
+                        >
+                            {value.metaLinkUrl && (
+                                <link itemProp="url" href={value.metaLinkUrl} />
+                            )}
+                        </ModuleMenuItem>
+                    );
+                })}
             {children}
         </HtmlElement>
     );
-}
+};

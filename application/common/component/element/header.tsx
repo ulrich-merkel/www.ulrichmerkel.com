@@ -26,7 +26,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Header: FunctionComponent<Props> = (props) => {
-    const { htmlElement: HtmlElement = 'header', className, role = 'banner', ...otherProps } = props;
+    const {
+        htmlElement: HtmlElement = 'header',
+        className,
+        role = 'banner',
+        ...otherProps
+    } = props;
 
     const composedClassName = classnames('c-header', className);
 
@@ -38,4 +43,4 @@ export const Header: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
+};

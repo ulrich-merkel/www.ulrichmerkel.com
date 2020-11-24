@@ -20,7 +20,7 @@ type Props = {
     btnTo?: string;
     className?: string;
     isDialog?: boolean;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -35,7 +35,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const ModuleArticleButton: FunctionComponent<Props> = (props) => {
-    const { btnLabel = '', btnTitle = '', btnTo = '', className, isDialog = false } = props;
+    const {
+        btnLabel = '',
+        btnTitle = '',
+        btnTo = '',
+        className,
+        isDialog = false
+    } = props;
 
     if (!btnTo || !btnLabel || isDialog) {
         return null;
@@ -50,4 +56,4 @@ export const ModuleArticleButton: FunctionComponent<Props> = (props) => {
             </Button>
         </P>
     );
-}
+};

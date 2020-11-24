@@ -58,4 +58,4 @@ export const Headline: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement className={componentClassName} {...otherProps} />
     );
-}
+};

@@ -19,7 +19,7 @@ type Props = {
     lead?: string;
     creator?: string;
     publisher?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -56,4 +56,4 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
             </div>
         </li>
     );
-}
+};

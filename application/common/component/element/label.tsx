@@ -27,7 +27,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Label: FunctionComponent<Props> = (props) => {
-    const { className, htmlFor, isVisuallyHidden = false, ...otherProps } = props;
+    const {
+        className,
+        htmlFor,
+        isVisuallyHidden = false,
+        ...otherProps
+    } = props;
 
     const composedClassName = classnames('m-form__label', className, {
         'is-visually-hidden': isVisuallyHidden
@@ -41,4 +46,4 @@ export const Label: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
+};

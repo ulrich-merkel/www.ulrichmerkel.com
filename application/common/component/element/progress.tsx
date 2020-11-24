@@ -62,4 +62,4 @@ export const Progress: FunctionComponent<Props> = (props) => {
             />
         </HtmlElement>
     );
-}
+};

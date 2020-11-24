@@ -36,9 +36,11 @@ export const SectionKeyVisual: FunctionComponent<Props> = (props) => {
 
     return (
         <SectionCommonGrid>
-            <ModuleKeyVisualConnected {...{ content, className, isCovered, isWork }}>
+            <ModuleKeyVisualConnected
+                {...{ content, className, isCovered, isWork }}
+            >
                 {children}
             </ModuleKeyVisualConnected>
         </SectionCommonGrid>
     );
-}
+};

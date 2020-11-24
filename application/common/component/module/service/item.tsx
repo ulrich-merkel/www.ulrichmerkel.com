@@ -21,7 +21,7 @@ type Props = {
     index?: number;
     icon?: string;
     isClear?: boolean;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -31,8 +31,14 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
-    const { headline = '', text= '', index = 0, icon= '', isClear = false } = props;
-    
+    const {
+        headline = '',
+        text = '',
+        index = 0,
+        icon = '',
+        isClear = false
+    } = props;
+
     if (isClear) {
         return <li className="m-service__item--clear" aria-hidden="true" />;
     }
@@ -64,4 +70,4 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
             </div>
         </li>
     );
-}
+};

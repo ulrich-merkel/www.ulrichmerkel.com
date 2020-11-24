@@ -18,7 +18,7 @@ type Props = {
     content?: string[];
     hasColumns2?: boolean;
     isCentered?: boolean;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -57,4 +57,4 @@ export const ModuleTextContent: FunctionComponent<Props> = (props) => {
             })}
         </div>
     );
-}
+};

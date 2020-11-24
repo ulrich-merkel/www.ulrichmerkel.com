@@ -37,8 +37,9 @@ export const selectStateCsrf = createSelector(
  * @param {object} state - The current redux state
  * @returns {string} The csrf token state
  */
-export const selectStateCsrfToken = createSelector([selectStateCsrf], function (
-    csrf: CsrfStateType
-): string {
-    return get(csrf, 'payload.token', initialState.payload.token);
-});
+export const selectStateCsrfToken = createSelector(
+    [selectStateCsrf],
+    function (csrf: CsrfStateType): string {
+        return get(csrf, 'payload.token', initialState.payload.token);
+    }
+);

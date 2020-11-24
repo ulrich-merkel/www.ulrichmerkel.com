@@ -42,7 +42,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const LayoutHtml: FunctionComponent<Props> = (props) => {
-    const { children, locale, store, cssBase = '', scriptBootstrap = '' } = props;
+    const {
+        children,
+        locale,
+        store,
+        cssBase = '',
+        scriptBootstrap = ''
+    } = props;
     const manifest = configApplication.applicationCache.use
         ? url.cacheManifest
         : null;
@@ -146,7 +152,7 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
             </body>
         </html>
     );
-}
+};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

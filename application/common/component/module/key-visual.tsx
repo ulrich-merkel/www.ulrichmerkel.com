@@ -35,7 +35,7 @@ type Props = {
     isWork?: boolean;
     onClickBtn?: () => void;
     reducedMotionSelected?: boolean;
-}
+};
 
 /**
  * Class representing a component.

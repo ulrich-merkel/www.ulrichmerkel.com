@@ -26,7 +26,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
-}
+};
 
 /**
  * Helper function to insert clear items in array to ease css timeline
@@ -101,4 +101,4 @@ export const ModuleService: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};
