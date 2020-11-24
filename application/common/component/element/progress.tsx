@@ -13,7 +13,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     fallbackClassName?: string;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
     id?: string;
     max?: string;
     value?: string;

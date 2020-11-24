@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,31 +8,52 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleMenuItem } from './menu/item';
 
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    content?: {
+        name?: string;
+        list?: {
+            children: ReactNode;
+            icon: string;
+            isLabelHidden: boolean;
+            itemPropA: string;
+            itemType: string;
+            label: string;
+            metaLinkUrl: string;
+            path: string;
+            title: string;
+        }[]
+    };
+    htmlElement?: keyof JSX.IntrinsicElements;
+    itemType?: string;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
- * @param {string} [props.componentType='ul'] - The component element type used for React.createElement
+ * @param {string} [props.htmlElement='ul'] - The component element type used for React.createElement
  * @param {object} [props.content={}] - The component translation config
  * @param {string} [props.itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
  * @returns {ReactElement|null} React component markup
  */
-export function ModuleMenu(props) {
+export const ModuleMenu: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
-        componentType,
-        content,
-        itemType,
+        content = {},
+        htmlElement: HtmlElement = 'ul',
+        itemType = 'https://schema.org/ItemList',
         ...otherProps
     } = props;
 
@@ -41,7 +61,6 @@ export function ModuleMenu(props) {
         return null;
     }
 
-    const ComponentType = componentType;
     const componentClassName = classnames(
         'm-menu',
         content.name ? `m-menu--${content.name}` : '',
@@ -50,13 +69,13 @@ export function ModuleMenu(props) {
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <ComponentType
+        <HtmlElement
             className={componentClassName}
             role="menu"
             {...componentSchema}
             {...otherProps}
         >
-            {content.list.map((value) => {
+            {Array.isArray(content.list) && content.list.map(function (value) {
                 return (
                     <ModuleMenuItem
                         key={shortid.generate()}
@@ -75,46 +94,6 @@ export function ModuleMenu(props) {
                 );
             })}
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-ModuleMenu.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    componentType: PropTypes.string,
-    content: PropTypes.shape({
-        name: PropTypes.string,
-        list: PropTypes.arrayOf(
-            PropTypes.shape({
-                path: PropTypes.string,
-                title: PropTypes.string,
-                label: PropTypes.string,
-                children: PropTypes.node,
-                itemType: PropTypes.string,
-                icon: PropTypes.string,
-                isLabelHidden: PropTypes.bool,
-                itemPropA: PropTypes.string
-            })
-        )
-    }),
-    itemType: PropTypes.string
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-ModuleMenu.defaultProps = {
-    componentType: 'ul',
-    content: {},
-    itemType: 'https://schema.org/ItemList'
-};

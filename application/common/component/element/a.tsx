@@ -20,14 +20,19 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+import { noop } from 'lodash';
 
 type Props = {
     activeClassName?: string;
     children?: ReactNode;
     className?: string;
     exact?: boolean;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
+    itemScope?: boolean;
+    itemType?: string;
+    onClick?: () => void;
     strict?: boolean;
+    tabIndex?: number;
     title?: string;
     to: string;
 };
@@ -53,7 +58,11 @@ export const A: FunctionComponent<Props> = (props) => {
         className,
         exact,
         htmlElement = 'a',
+        onClick = noop,
         strict,
+        tabIndex = 0,
+        itemType,
+        itemScope,
         title = '',
         to,
         ...otherProps
@@ -90,8 +99,13 @@ export const A: FunctionComponent<Props> = (props) => {
         <HtmlElement
             {...attributes}
             className={componentClassName}
-            tabIndex="0"
-            title={title}
+            {...{
+                itemScope,
+                itemType,
+                onClick,
+                tabIndex,
+                title
+            }}
             {...otherProps}
         >
             {children}

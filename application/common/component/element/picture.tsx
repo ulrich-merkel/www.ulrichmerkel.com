@@ -19,7 +19,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     ext?: 'jpg' | 'png' | '';
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
     name?: string;
     path?: string;
     pictureRef?: () => void,

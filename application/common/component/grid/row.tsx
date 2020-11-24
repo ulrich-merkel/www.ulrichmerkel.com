@@ -15,7 +15,7 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
 };
 
 /**

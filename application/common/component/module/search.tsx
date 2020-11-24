@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,12 +8,12 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import shortid from 'shortid';
-import { get } from 'lodash';
+import { get, noop } from 'lodash';
+
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { selectStateSearchTerm } from '../../state/search/selector';
 import { selectStateConfig } from '../../state/config/selector';
@@ -24,23 +23,43 @@ import { findMatches } from '../../utils/search';
 import { addContent } from '../decorator/add-content';
 import { A } from '../element/a';
 import { Headline } from '../element/headline';
+import { Locale } from '../../state/intl/types';
+
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    config?: any;
+    content?: {
+        list: {
+            headline: string;
+            lead: string;
+            percent: string | number;
+        }[]
+    };
+    handleChangeDialogVisibleSearch: () => void;
+    htmlElement?: keyof JSX.IntrinsicElements;
+    intlLocale?: Locale;
+    itemType?: string;
+    searchTerm?: string;
+}
 
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleSearch(props) {
+export const ModuleSearch: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
         config,
         content,
-        handleChangeDialogVisibleSearch,
-        htmlElement: HtmlElement,
+        handleChangeDialogVisibleSearch = noop,
+        htmlElement: HtmlElement = 'ul',
         intlLocale,
-        itemType,
+        itemType = 'http://schema.org/ItemList',
         searchTerm
     } = props;
 
@@ -99,55 +118,6 @@ export function ModuleSearch(props) {
         </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {object} [config={}] - The application content configuration
- * @property {object} [content={}] - The component translation config
- * @property {Function} [handleChangeDialogVisibleSearch=Function.prototype] - Redux action handler
- * @property {string} [htmlElement='ul'] - The component element type used for React.createElement
- * @property {string} [intlLocale] - The current selected language
- * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
- * @property {string} [searchTerm] - The current search term
- */
-ModuleSearch.propTypes = {
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    config: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    ),
-    handleChangeDialogVisibleSearch: PropTypes.func,
-    htmlElement: PropTypes.string,
-    intlLocale: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemType: PropTypes.string,
-    searchTerm: PropTypes.string // eslint-disable-line react/require-default-props,
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleSearch.propTypes
- */
-ModuleSearch.defaultProps = {
-    config: {},
-    content: {},
-    handleChangeDialogVisibleSearch: Function.prototype,
-    htmlElement: 'ul',
-    itemType: 'http://schema.org/ItemList'
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,

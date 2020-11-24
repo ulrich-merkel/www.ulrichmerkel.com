@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation, immutable/no-this */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,10 +8,10 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, createRef, Component } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import { noop } from 'lodash';
 
 import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { scrollTo } from '../../utils/scroll-to';
@@ -21,13 +20,32 @@ import { ModuleKeyVisualArticle } from './key-visual/article';
 import { ModuleKeyVisualButton } from './key-visual/button';
 import { eventPreventDefault } from '../../utils/event';
 
+type Props = {
+    className?: string;
+    content?: {
+        headline: string;
+        lead: string;
+        btnLabel: string;
+        btnTitle: string;
+        img: any;
+        type: string;
+    };
+    htmlElement?: string;
+    isCovered?: boolean;
+    isWork?: boolean;
+    onClickBtn?: () => void;
+    reducedMotionSelected?: boolean;
+}
+
 /**
  * Class representing a component.
  *
  * @class
  * @augments React.Component
  */
-export class ModuleKeyVisual extends Component {
+export class ModuleKeyVisual extends Component<Props> {
+    private keyVisual = createRef<HTMLDivElement>();
+
     /**
      * Handle button down click event.
      *
@@ -35,15 +53,14 @@ export class ModuleKeyVisual extends Component {
      * @returns {void}
      */
     onClickBtn = (event) => {
-        const { onClickBtn, reducedMotionSelected } = this.props;
-        const { keyVisual } = this;
+        const { onClickBtn = noop, reducedMotionSelected = false } = this.props;
 
         eventPreventDefault(event);
 
-        if (keyVisual) {
-            const innerHeight = keyVisual.clientHeight;
+        if (this.keyVisual) {
+            const innerHeight = this.keyVisual.current.clientHeight;
             const boundingClientRectTop = Math.abs(
-                keyVisual.getBoundingClientRect().top
+                this.keyVisual.current.getBoundingClientRect().top
             );
             const offsetTop = document.body.scrollTop;
 
@@ -62,11 +79,11 @@ export class ModuleKeyVisual extends Component {
      */
     render() {
         const {
-            componentType,
             className,
-            isWork,
-            isCovered,
             content,
+            htmlElement: HtmlElement = 'div',
+            isCovered = false,
+            isWork = false,
             ...otherProps
         } = this.props;
 
@@ -74,18 +91,15 @@ export class ModuleKeyVisual extends Component {
             return null;
         }
 
-        const ComponentType = componentType;
         const componentClassName = classnames(
             isWork ? 'm-key-visual--work' : 'm-key-visual',
             className
         );
 
         return (
-            <ComponentType
+            <HtmlElement
                 className={componentClassName}
-                ref={(ref) => {
-                    this.keyVisual = ref;
-                }}
+                ref={this.keyVisual}
                 {...otherProps}
             >
                 <ModuleKeyVisualPicture
@@ -102,54 +116,10 @@ export class ModuleKeyVisual extends Component {
                     label={content.btnLabel}
                     title={content.btnTitle}
                 />
-            </ComponentType>
+            </HtmlElement>
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [componentType='div'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [isWork=false] - Whether the component has work modifiers or not
- * @property {boolean} [isCovered=false] - Whether the component should be background size covered or not
- * @property {object} [content={}] - The component translation config
- */
-ModuleKeyVisual.propTypes = {
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    componentType: PropTypes.string,
-    content: PropTypes.shape({
-        headline: PropTypes.string,
-        lead: PropTypes.string,
-        btnLabel: PropTypes.string,
-        btnTitle: PropTypes.string,
-        img: PropTypes.object,
-        type: PropTypes.string
-    }),
-    isCovered: PropTypes.bool,
-    isWork: PropTypes.bool,
-    onClickBtn: PropTypes.func,
-    reducedMotionSelected: PropTypes.bool
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleKeyVisual.propTypes
- */
-ModuleKeyVisual.defaultProps = {
-    componentType: 'div',
-    content: {},
-    isCovered: false,
-    isWork: false,
-    onClickBtn: Function.prototype,
-    reducedMotionSelected: false
-};
 
 /**
  * The component will subscribe to Redux store updates. Any time it updates,
@@ -169,6 +139,8 @@ function mapStateToProps(state) {
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
+ *
+ * @type {ReactElement}
  */
 export const ModuleKeyVisualConnected = connect(mapStateToProps)(
     ModuleKeyVisual

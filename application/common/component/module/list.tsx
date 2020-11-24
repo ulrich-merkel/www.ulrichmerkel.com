@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger, immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,27 +8,34 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
 
+type Props = {
+    htmlElement?: keyof JSX.IntrinsicElements;
+    className?: string;
+    itemType?: string;
+    children?: ReactNode;
+    content?: any;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleList(props) {
-    const { componentType, className, itemType, content, children } = props;
+export const ModuleList: FunctionComponent<Props> = (props) => {
+    const { htmlElement: HtmlElement = 'ul', className, itemType = 'http://schema.org/ItemList', content, children } = props;
 
-    const ComponentType = componentType;
     const componentClassName = classnames('m-list--broadcast', className);
 
     return (
-        <ComponentType
+        <HtmlElement
             className={componentClassName}
             itemScope
             itemType={itemType}
@@ -66,45 +72,6 @@ export function ModuleList(props) {
                     );
                 })}
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [componentType='ul'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {string} [itemType='http://schema.org/ItemList'] - The schema.org itemtype url attribute
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {object} [content={}] - The component translation config
- */
-ModuleList.propTypes = {
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemType: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array,
-            PropTypes.object
-        ])
-    )
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleList.propTypes
- */
-ModuleList.defaultProps = {
-    componentType: 'ul',
-    itemType: 'http://schema.org/ItemList',
-    content: {}
-};

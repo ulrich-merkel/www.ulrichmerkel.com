@@ -16,7 +16,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     cols?: number;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
 };
 
 /**
@@ -24,7 +24,7 @@ type Props = {
  *
  * @param {object} [props] - The current component props
  * @param {string} [props.className] - The addition css classNames
- * @param {number|string} [props.cols=12] - The grid column cols
+ * @param {number} [props.cols=12] - The grid column cols
  * @param {string} [props.htmlElement='div'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */

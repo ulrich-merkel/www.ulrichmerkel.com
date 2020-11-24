@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,8 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
@@ -18,19 +16,48 @@ import { Headline } from '../element/headline';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
 
+type Props = {
+    children?: ReactNode;
+    className?: string;
+    content?: {
+        professionalExperience?: string;
+        professionalExperienceList?: {
+            description: string[];
+            headline: string;
+            lead: string;
+            offset: string;
+            timeEnd: string;
+            timeStart: string;
+        }[];
+        academicEducation?: string;
+        academicEducationList?: {
+            description: string[];
+            headline: string;
+            lead: string;
+            offset: string;
+            place: {}
+            timeEnd: string;
+            timeStart: string;
+        }[];
+    };
+    htmlElement?: keyof JSX.IntrinsicElements;
+    itemType?: string;
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModuleCornerstone(props) {
+export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
     const {
-        componentType,
-        className,
-        itemType,
-        content,
         children,
+        className,
+        content,
+        htmlElement: HtmlElement = 'ol',
+        itemType = 'https://schema.org/ItemList',
         ...otherProps
     } = props;
 
@@ -42,12 +69,11 @@ export function ModuleCornerstone(props) {
         return null;
     }
 
-    const ComponentType = componentType;
     const componentClassName = classnames('m-cornerstone', className);
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <ComponentType
+        <HtmlElement
             className={componentClassName}
             role="list"
             {...componentSchema}
@@ -60,7 +86,7 @@ export function ModuleCornerstone(props) {
             </li>
 
             {content.professionalExperienceList &&
-                content.professionalExperienceList.map((value, index) => {
+                content.professionalExperienceList.map(function(value, index) {
                     return (
                         <ModuleCornerstoneItemEmployee
                             key={shortid.generate()}
@@ -82,7 +108,7 @@ export function ModuleCornerstone(props) {
             </li>
 
             {content.academicEducationList &&
-                content.academicEducationList.map((value, index) => {
+                content.academicEducationList.map(function (value, index) {
                     return (
                         <ModuleCornerstoneItemEducation
                             key={shortid.generate()}
@@ -103,60 +129,6 @@ export function ModuleCornerstone(props) {
             </li>
 
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [componentType='article'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names, will be merged into component default classNames
- * @property {string} [itemType='https://schema.org/ItemList'] - The schema.org itemtype url attribute
- * @property {Array|string} [children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
- * @property {object} [content={}] - The component translation config
- */
-ModuleCornerstone.propTypes = {
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    itemType: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    content: PropTypes.shape({
-        professionalExperience: PropTypes.string,
-        professionalExperienceList: PropTypes.arrayOf(
-            PropTypes.shape({
-                headline: PropTypes.string,
-                lead: PropTypes.string,
-                timeStart: PropTypes.string,
-                timeEnd: PropTypes.string,
-                description: PropTypes.arrayOf(PropTypes.string)
-            })
-        ),
-        academicEducation: PropTypes.string,
-        academicEducationList: PropTypes.arrayOf(
-            PropTypes.shape({
-                headline: PropTypes.string,
-                lead: PropTypes.string,
-                timeStart: PropTypes.string,
-                timeEnd: PropTypes.string,
-                description: PropTypes.arrayOf(PropTypes.string),
-                place: PropTypes.object
-            })
-        )
-    })
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModuleCornerstone.propTypes
- */
-ModuleCornerstone.defaultProps = {
-    componentType: 'ol',
-    itemType: 'https://schema.org/ItemList',
-    content: {}
-};

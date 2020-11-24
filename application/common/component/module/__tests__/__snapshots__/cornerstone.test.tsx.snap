@@ -2,8 +2,9 @@
 
 exports[`ModuleCornerstone should render correctly 1`] = `
 <DocumentFragment>
-  <span
+  <ol
     class="m-cornerstone cornerstone"
+    componenttype="span"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -184,14 +185,15 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       />
     </li>
     Module Cornerstone Children
-  </span>
+  </ol>
 </DocumentFragment>
 `;
 
 exports[`ModuleCornerstone should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <span
+  <ol
     class="m-cornerstone cornerstone"
+    componenttype="span"
     role="list"
   >
     <li
@@ -370,7 +372,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       />
     </li>
     Module cornerstone children
-  </span>
+  </ol>
 </DocumentFragment>
 `;
 

@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,33 +8,50 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { P } from '../element/paragraph';
 
+type Props = {
+    htmlElement?: keyof JSX.IntrinsicElements;
+    className?: string;
+    isCentered?: boolean;
+    itemType?: string;
+    children?: ReactNode;
+    content?: {
+        name: string;
+        streetAddress: string;
+        postalCode: string;
+        locality: string;
+        email: string;
+        phone: string;
+        phoneNumbers: string;
+        website: string;
+    }
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export function ModulePerson(props) {
+export const ModulePerson: FunctionComponent<Props> = (props) => {
     const {
-        componentType,
+        children,
         className,
-        itemType,
-        isCentered,
         content,
-        children
+        htmlElement: HtmlElement = 'div',
+        isCentered = false,
+        itemType = 'http://schema.org/Person'
     } = props;
 
     if (!content) {
         return null;
     }
 
-    const ComponentType = componentType;
     const componentClassName = classnames(
         {
             'is-centered': isCentered
@@ -46,7 +62,7 @@ export function ModulePerson(props) {
     const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <ComponentType className={componentClassName} {...componentSchema}>
+        <HtmlElement className={componentClassName} {...componentSchema}>
             {content.name && (
                 <P className="m-person__name">
                     <strong>{content.name}</strong>
@@ -102,51 +118,6 @@ export function ModulePerson(props) {
                 </P>
             )}
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- * @property {string} [componentType='div'] - The component element type used for React.createElement
- * @property {string} [className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [isCentered=true] - Whether the component text should be centered via css or not
- * @property {string} [itemType='http://schema.org/Person'] - The schema.org itemtype url attribute
- * @property {Array|string} [children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {object} [content={}] - The component translation config
- */
-ModulePerson.propTypes = {
-    componentType: PropTypes.string,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    isCentered: PropTypes.bool,
-    itemType: PropTypes.string,
-    children: PropTypes.node, // eslint-disable-line react/require-default-props
-    /* eslint-disable react/no-unused-prop-types, react/require-default-props */
-    content: PropTypes.shape({
-        name: PropTypes.string,
-        streetAddress: PropTypes.string,
-        postalCode: PropTypes.string,
-        locality: PropTypes.string,
-        email: PropTypes.string,
-        phone: PropTypes.string,
-        phoneNumbers: PropTypes.string,
-        website: PropTypes.string
-    })
-    /* eslint-enable react/no-unused-prop-types, react/require-default-props */
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- * @see ModulePerson.propTypes
- */
-ModulePerson.defaultProps = {
-    componentType: 'div',
-    itemType: 'http://schema.org/Person',
-    isCentered: true
-};

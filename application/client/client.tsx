@@ -39,7 +39,7 @@ import { featureDetect } from './feature-detect/feature-detect';
 import { applyColorScheme } from './settings/apply-color-scheme';
 import { applyReducedMotion } from './settings/apply-reduced-motion';
 
-const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID);
+const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID) as HTMLElement;
 const store = configureStore(window.__PRELOADED_STATE__); // eslint-disable-line no-underscore-dangle
 
 if (debug) {

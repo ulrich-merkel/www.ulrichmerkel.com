@@ -2,8 +2,9 @@
 
 exports[`ModuleService should render correctly 1`] = `
 <DocumentFragment>
-  <nav
+  <ul
     class="m-service foo"
+    componenttype="nav"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -106,14 +107,15 @@ exports[`ModuleService should render correctly 1`] = `
       </div>
     </li>
     Module service children
-  </nav>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleService should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <nav
+  <ul
     class="m-service foo"
+    componenttype="nav"
     role="list"
   >
     <li
@@ -214,7 +216,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
       </div>
     </li>
     Module service children
-  </nav>
+  </ul>
 </DocumentFragment>
 `;
 

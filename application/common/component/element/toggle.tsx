@@ -16,7 +16,7 @@ import { Label } from './label';
 type Props = {
     checked?: boolean;
     className?: string;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
     id?: string;
     label?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

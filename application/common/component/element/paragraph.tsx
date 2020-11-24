@@ -24,7 +24,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     hasColumns2?: boolean;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
 };
 
