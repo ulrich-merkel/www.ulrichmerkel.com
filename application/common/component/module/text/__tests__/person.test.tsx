@@ -4,7 +4,16 @@ import { ModuleTextPerson } from '../person';
 
 describe('ModuleTextPerson', function fnDescribe() {
     const defaultProps = {
-        content: 'Module text headline',
+        content: {
+            name: 'name',
+            streetAddress: 'streetAddress',
+            postalCode: '1234',
+            locality: 'locality',
+            email: 'test@test.com',
+            phone: '123 9182 391832',
+            phoneNumbers:'1239182391832',
+            website: 'www.test.de'
+        },
         hasColumns2: true,
         isCentered: true
     };

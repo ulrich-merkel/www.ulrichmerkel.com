@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component module React classes combine elements to
@@ -9,20 +8,28 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { A } from '../../element/a';
 
+type Props = {
+    content?: {
+        linkTo: string;
+        linkLabel: string;
+        linkTitle: string;
+    }
+}
+
 /**
  * Function representing a component to return a single react child element.
  *
+ * @function
  * @param {object} [props] - The current component props
  * @param {object} [props.content={}] - The link content's text
  * @returns {ReactElement|null} React component markup
  */
-export function ModuleTextLink(props) {
+export const ModuleTextLink: FunctionComponent<Props> = (props) => {
     const { content } = props;
 
     if (!content) {
@@ -50,26 +57,3 @@ export function ModuleTextLink(props) {
     );
 }
 
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-ModuleTextLink.propTypes = {
-    content: PropTypes.shape({
-        linkTo: PropTypes.string,
-        linkLabel: PropTypes.string,
-        linkTitle: PropTypes.string
-    })
-};
-
-/**
- * Set defaults if props aren't available.
- *
- * @static
- * @type {object}
- */
-ModuleTextLink.defaultProps = {
-    content: {}
-};

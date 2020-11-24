@@ -20,14 +20,14 @@ type Props = {
     itemType?: string;
     children?: ReactNode;
     content?: {
-        name: string;
-        streetAddress: string;
-        postalCode: string;
-        locality: string;
-        email: string;
-        phone: string;
-        phoneNumbers: string;
-        website: string;
+        name?: string;
+        streetAddress?: string;
+        postalCode?: string;
+        locality?: string;
+        email?: string;
+        phone?: string;
+        phoneNumbers?: string;
+        website?: string;
     }
 }
 

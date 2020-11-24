@@ -4,7 +4,7 @@ import { ModuleTextContent } from '../content';
 
 describe('ModuleTextContent', function fnDescribe() {
     const defaultProps = {
-        content: 'Module text headline',
+        content: ['Module text headline', 'Module text subline'],
         hasColumns2: true,
         isCentered: true
     };
