@@ -48,7 +48,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
         children,
         className,
         htmlElement: HtmlElement = 'article',
-        content = {},
+        content,
         isDialog = false,
         isMain = false,
         isSpaced = false,
@@ -81,29 +81,26 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
         >
             <ModuleArticleHeadline
                 className={composedHeadlineClassName}
-                text={content.headline}
+                text={content?.headline}
                 {...{ isMain }}
             />
             <ModuleArticleLead
                 className={'m-article__lead'}
-                text={content.lead}
+                text={content?.lead}
             />
             <div className="m-article__text" itemProp="text">
                 {children}
             </div>
             <ModuleArticleButton
-                btnTo={content.btnTo}
-                btnLabel={content.btnLabel}
-                btnTitle={content.btnTitle}
+                btnTo={content?.btnTo}
+                btnLabel={content?.btnLabel}
+                btnTitle={content?.btnTitle}
                 className={'m-article__button'}
                 {...{ isDialog }}
             />
-            <Meta itemProp="name" content={content.headline} />
-            <Meta
-                itemProp="author"
-                content={content.author}
-            />
-            <Meta itemProp="datePublished" content={content.datePublished} />
+            <Meta itemProp="name" content={content?.headline} />
+            <Meta itemProp="author" content={content?.author} />
+            <Meta itemProp="datePublished" content={content?.datePublished} />
         </HtmlElement>
     );
 };

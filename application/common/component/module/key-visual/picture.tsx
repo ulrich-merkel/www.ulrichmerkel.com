@@ -17,11 +17,11 @@ import { isBrowser } from '../../../utils/environment';
 
 type Props = {
     img?: {
-        name: string;
-        ext: string;
-        path: string;
-        alt: string;
-        sizes: [];
+        name?: string;
+        ext?: string;
+        path?: string;
+        alt?: string;
+        sizes?: [];
     };
     type?: string;
     isCovered?: boolean;
@@ -86,7 +86,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
     componentDidMount() {
         if (isBrowser()) {
             window.addEventListener('resize', this.onResize);
-            window.dispatchEvent(new CustomEvent('resize'), {});
+            window.dispatchEvent(new CustomEvent('resize'));
         }
     }
 

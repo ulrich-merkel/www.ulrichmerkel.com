@@ -71,7 +71,7 @@ const loggerMiddleware: Function = createLogger();
  * @param {object} [preloadedState={}] - Initial store config to reduce the payload on load
  * @returns {object} The newly created store
  */
-export function configureStore(preloadedState?: RootState = {}): Store {
+export function configureStore(preloadedState?: RootState): Store {
     const middlewares = [
         thunkMiddleware,
         debug && isBrowser() && loggerMiddleware

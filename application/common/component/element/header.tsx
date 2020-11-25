@@ -13,6 +13,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemScope?: boolean;
     role?: string;
 };
 
@@ -27,8 +28,9 @@ type Props = {
  */
 export const Header: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'header',
         className,
+        htmlElement: HtmlElement = 'header',
+        itemScope = false,
         role = 'banner',
         ...otherProps
     } = props;
@@ -39,7 +41,7 @@ export const Header: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={composedClassName}
-            {...{ role }}
+            {...{ itemScope, role }}
             {...otherProps}
         />
     );

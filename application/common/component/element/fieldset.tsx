@@ -24,7 +24,11 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Fieldset: FunctionComponent<Props> = (props) => {
-    const { className, htmlElement: HtmlElement = 'fieldset', ...otherProps } = props;
+    const {
+        className,
+        htmlElement: HtmlElement = 'fieldset',
+        ...otherProps
+    } = props;
 
     const componentClassName = classnames('m-form__fieldset', className);
 

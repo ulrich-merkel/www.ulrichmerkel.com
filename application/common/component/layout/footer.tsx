@@ -27,7 +27,7 @@ import { Small } from '../element/small';
 type Props = {
     className: string;
     content: any;
-    handleScrollTop: (event) => void;
+    handleScrollTop: (event: React.SyntheticEvent) => void;
 };
 
 /**

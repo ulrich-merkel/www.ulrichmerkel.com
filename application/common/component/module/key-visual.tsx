@@ -96,10 +96,7 @@ export class ModuleKeyVisual extends Component<Props> {
         );
 
         return (
-            <HtmlElement
-                className={componentClassName}
-                ref={this.keyVisual}
-            >
+            <HtmlElement className={componentClassName} ref={this.keyVisual}>
                 <ModuleKeyVisualPicture
                     img={content.img}
                     type={content.type}

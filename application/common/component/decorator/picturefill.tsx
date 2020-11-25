@@ -9,6 +9,12 @@
  */
 import { default as React, Component, ComponentType } from 'react';
 
+declare global {
+    interface Window {
+        picturefill: () => void;
+    }
+}
+
 /**
  * Helper function to init picture element polyfill.
  *

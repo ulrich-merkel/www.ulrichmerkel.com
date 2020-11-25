@@ -14,15 +14,19 @@ import shortid from 'shortid';
 
 import { ModuleServiceItem } from './service/item';
 
+type List = {
+    headline?: string;
+    icon?: string;
+    iconClassName?: string;
+    isClear?: boolean;
+    text?: string;
+}[];
+
 type Props = {
     children?: ReactNode;
     className?: string;
     content?: {
-        list?: {
-            iconClassName: string;
-            headline: string;
-            text: string;
-        }[];
+        list?: List;
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
@@ -33,11 +37,11 @@ type Props = {
  * view floating.
  *
  * @private
- * @param {Array} input - The source array
+ * @param {Array} list - The source array
  * @returns {Array} The converted list
  */
-export function insertClearedListItems(input) {
-    let array = Array.from(input); // eslint-disable-line prefer-const
+export function insertClearedListItems(list: List): List {
+    let array = Array.from(list); // eslint-disable-line prefer-const
     const { length } = array;
 
     if (array && length) {

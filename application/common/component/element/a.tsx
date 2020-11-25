@@ -31,7 +31,7 @@ type Props = {
     itemProp?: string;
     itemScope?: boolean;
     itemType?: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent) => void;
     role?: string;
     strict?: boolean;
     tabIndex?: number;

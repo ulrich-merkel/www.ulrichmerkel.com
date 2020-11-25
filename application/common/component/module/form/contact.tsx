@@ -501,7 +501,6 @@ class ModuleFormContact extends Component<Props, State> {
                             <TextareaGroup
                                 id={'message'}
                                 name={'message'}
-                                onBlur={this.onBlur}
                                 onChange={this.onChange}
                                 label={content.inputMessage}
                                 value={state.message}

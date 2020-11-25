@@ -53,7 +53,7 @@ export class LayoutBody extends PureComponent<Props> {
      * @param {object} event - The synthetic react event
      * @returns {void}
      */
-    handleScrollTop = (event) => {
+    handleScrollTop = (event: React.SyntheticEvent): void => {
         const { reducedMotionSelectedReduce = false } = this.props;
 
         eventPreventDefault(event);
