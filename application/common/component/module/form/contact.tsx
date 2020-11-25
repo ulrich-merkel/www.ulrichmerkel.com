@@ -462,24 +462,26 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol cols={6}>
                             <InputGroup
                                 id={'name'}
+                                isPristine={state.namePristine}
+                                isValid={validate(state).name}
+                                label={content.inputName}
                                 name={'name'}
                                 onChange={this.onChange}
-                                label={content.inputName}
+                                required
                                 value={state.name}
-                                isValid={validate(state).name}
-                                isPristine={state.namePristine}
                             />
                         </GridCol>
                         <GridCol cols={6}>
                             <InputGroup
                                 id={'email'}
-                                name={'email'}
-                                type={'email'}
-                                onChange={this.onChange}
-                                label={content.inputEmail}
-                                value={state.email}
-                                isValid={validate(state).email}
                                 isPristine={state.emailPristine}
+                                isValid={validate(state).email}
+                                label={content.inputEmail}
+                                name={'email'}
+                                onChange={this.onChange}
+                                required
+                                type={'email'}
+                                value={state.email}
                             />
                         </GridCol>
                     </GridRow>
@@ -487,12 +489,13 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol>
                             <InputGroup
                                 id={'subject'}
+                                isPristine={state.subjectPristine}
+                                isValid={validate(state).subject}
+                                label={content.inputSubject}
                                 name={'subject'}
                                 onChange={this.onChange}
-                                label={content.inputSubject}
+                                required
                                 value={state.subject}
-                                isValid={validate(state).subject}
-                                isPristine={state.subjectPristine}
                             />
                         </GridCol>
                     </GridRow>
@@ -500,12 +503,13 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol>
                             <TextareaGroup
                                 id={'message'}
+                                isPristine={state.messagePristine}
+                                isValid={validate(state).message}
+                                label={content.inputMessage}
                                 name={'message'}
                                 onChange={this.onChange}
-                                label={content.inputMessage}
+                                required
                                 value={state.message}
-                                isValid={validate(state).message}
-                                isPristine={state.messagePristine}
                             />
                         </GridCol>
                     </GridRow>

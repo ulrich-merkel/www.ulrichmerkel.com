@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { LayoutDialog, LayoutDialogConnected } from '../dialog';
 
 describe('LayoutDialog', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         changeDialogVisible: jest.fn(),
         className: 'test',
         dialogPage: 'foo',
@@ -14,13 +14,13 @@ describe('LayoutDialog', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <LayoutDialog {...defaultProps}>Dialog Children</LayoutDialog>
+            <LayoutDialog {...props}>Dialog Children</LayoutDialog>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
-            <LayoutDialogConnected {...defaultProps}>
+            <LayoutDialogConnected {...props}>
                 Dialog Children
             </LayoutDialogConnected>
         );
@@ -28,7 +28,7 @@ describe('LayoutDialog', function fnDescribe() {
     });
     it('should render null if not visible', function fnIt() {
         const { asFragment } = render(
-            <LayoutDialog {...defaultProps} dialogVisible={false}>
+            <LayoutDialog {...props} dialogVisible={false}>
                 Dialog Children
             </LayoutDialog>
         );

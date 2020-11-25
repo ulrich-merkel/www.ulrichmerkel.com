@@ -24,6 +24,8 @@ type Props = {
     name: string;
     onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    required?: boolean;
+    testId?: string;
     value?: string;
 };
 
@@ -59,6 +61,8 @@ export class TextareaGroup extends Component<Props> {
             name,
             onBlur = noop,
             onChange = noop,
+            required,
+            testId,
             value = '',
             ...otherProps
         } = this.props;
@@ -79,13 +83,14 @@ export class TextareaGroup extends Component<Props> {
             // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Textarea
-                    required
                     className={composedInputClassName}
                     {...{
                         id,
                         name,
                         onBlur,
                         onChange,
+                        required,
+                        testId,
                         value
                     }}
                 />

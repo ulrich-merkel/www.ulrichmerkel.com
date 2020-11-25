@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { LayoutLoader, LayoutLoaderConnected } from '../loader';
 
 describe('LayoutLoader', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         content: {
             headline: 'Headline',
             lead: 'Lorem ipsum'
@@ -12,13 +12,13 @@ describe('LayoutLoader', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <LayoutLoader {...defaultProps}>Loader Children</LayoutLoader>
+            <LayoutLoader {...props}>Loader Children</LayoutLoader>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
-            <LayoutLoaderConnected {...defaultProps}>
+            <LayoutLoaderConnected {...props}>
                 Loader Children
             </LayoutLoaderConnected>
         );

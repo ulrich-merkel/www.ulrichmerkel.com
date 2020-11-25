@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleFormContactConnected } from '../contact';
 
 describe('ModuleFormContact', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'nav',
         className: 'form-contact',
         content: {
@@ -29,25 +29,19 @@ describe('ModuleFormContact', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected {...defaultProps} />
+            <ModuleFormContactConnected {...props} />
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render a success message', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected
-                {...defaultProps}
-                routerState={'success'}
-            />
+            <ModuleFormContactConnected {...props} routerState={'success'} />
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render an error message', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected
-                {...defaultProps}
-                routerState={'error'}
-            />
+            <ModuleFormContactConnected {...props} routerState={'error'} />
         );
         expect(asFragment()).toMatchSnapshot();
     });

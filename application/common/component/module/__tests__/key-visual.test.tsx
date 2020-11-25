@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {
-    fireEvent,
     render,
-    screen
+    screen,
+    userEvent
 } from '../../../../__tests__/utils/test-utils';
 import { ModuleKeyVisual } from '../key-visual';
 
 describe('ModuleKeyVisual', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'nav',
         className: 'key-visual',
         content: {
@@ -28,7 +28,7 @@ describe('ModuleKeyVisual', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleKeyVisual {...defaultProps}>
+            <ModuleKeyVisual {...props}>
                 Module key-visual children
             </ModuleKeyVisual>
         );
@@ -37,7 +37,7 @@ describe('ModuleKeyVisual', function fnDescribe() {
     it('should return null if content image is empty', function fnIt() {
         const { asFragment } = render(
             <ModuleKeyVisual
-                {...defaultProps}
+                {...props}
                 content={{
                     img: null
                 }}
@@ -49,7 +49,7 @@ describe('ModuleKeyVisual', function fnDescribe() {
     });
     it('should render isWork and isCovered css className', function fnIt() {
         const { asFragment } = render(
-            <ModuleKeyVisual {...defaultProps} isWork isCovered>
+            <ModuleKeyVisual {...props} isWork isCovered>
                 Module key-visual children
             </ModuleKeyVisual>
         );
@@ -58,12 +58,12 @@ describe('ModuleKeyVisual', function fnDescribe() {
     it('should trigger onClickBtn', function fnIt() {
         const onClickBtn = jest.fn();
         render(
-            <ModuleKeyVisual {...defaultProps} onClickBtn={onClickBtn}>
+            <ModuleKeyVisual {...props} onClickBtn={onClickBtn}>
                 Module key-visual children
             </ModuleKeyVisual>
         );
 
-        fireEvent.click(screen.getByText(/btnLabel/i));
+        userEvent.click(screen.getByText(/btnLabel/i));
         expect(onClickBtn).toHaveBeenCalled();
     });
 });

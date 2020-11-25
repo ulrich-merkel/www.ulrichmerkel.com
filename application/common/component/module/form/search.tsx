@@ -83,6 +83,7 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
                             name="search"
                             onChange={handleSearchChangeTerm}
                             placeholder={content?.inputTerm}
+                            required
                             type="search"
                             value={searchTerm}
                         />

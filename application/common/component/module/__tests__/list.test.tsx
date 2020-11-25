@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleList } from '../list';
 
 describe('ModuleList', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         content: {
             text: [
                 {
@@ -42,7 +42,7 @@ describe('ModuleList', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleList {...defaultProps}>Module list children</ModuleList>
+            <ModuleList {...props}>Module list children</ModuleList>
         );
         expect(asFragment()).toMatchSnapshot();
     });
