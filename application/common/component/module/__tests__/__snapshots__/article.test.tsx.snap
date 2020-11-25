@@ -33,7 +33,6 @@ exports[`ModuleArticle should render correctly 1`] = `
     />
     <meta
       content="Author"
-      defaultcontent="Ulrich Merkel"
       itemprop="author"
     />
     <meta

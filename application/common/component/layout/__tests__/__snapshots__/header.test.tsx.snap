@@ -3,7 +3,7 @@
 exports[`LayoutHeader should render correctly 1`] = `
 <DocumentFragment>
   <header
-    class="c-header l-header layout-header"
+    class="c-header l-header is-fixed is-visible layout-header"
     itemscope=""
     itemtype="http://schema.org/WPHeader"
     role="banner"

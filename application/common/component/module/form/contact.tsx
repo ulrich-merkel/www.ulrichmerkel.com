@@ -55,27 +55,44 @@ const configApplicationXor = configApplication.xor;
 const xorUse = configApplicationXor.use;
 const xorKey = configApplicationXor.key;
 
+type State = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    pristine: boolean;
+    namePristine: boolean;
+    emailPristine: boolean;
+    websitePristine: boolean;
+    subjectPristine: boolean;
+    messagePristine: boolean;
+    pending: boolean;
+    success: boolean;
+    error: boolean;
+    browser: boolean;
+};
+
 type Props = {
     content?: {
-        legend: string;
-        inputName: string;
-        inputEmail: string;
-        inputWebsite: string;
-        inputSubject: string;
-        inputMessage: string;
-        btnResetTitle: string;
-        btnResetLabel: string;
-        btnSubmitTitle: string;
-        btnSubmitLabel: string;
-        btnRenewTitle: string;
-        btnRenewLabel: string;
-        thankYou: string;
-        errorHeadline: string;
-        errorText: string;
-        btnTryAgainTitle: string;
-        btnTryAgainLabel: string;
-        thankYouHeadline: string;
-        thankYouText: string;
+        legend?: string;
+        inputName?: string;
+        inputEmail?: string;
+        inputWebsite?: string;
+        inputSubject?: string;
+        inputMessage?: string;
+        btnResetTitle?: string;
+        btnResetLabel?: string;
+        btnSubmitTitle?: string;
+        btnSubmitLabel?: string;
+        btnRenewTitle?: string;
+        btnRenewLabel?: string;
+        thankYou?: string;
+        errorHeadline?: string;
+        errorText?: string;
+        btnTryAgainTitle?: string;
+        btnTryAgainLabel?: string;
+        thankYouHeadline?: string;
+        thankYouText?: string;
     };
     storeState?: {
         name: string;
@@ -93,26 +110,9 @@ type Props = {
         error: boolean;
         browser: boolean;
     };
-    handleContactChange?: () => void;
+    onChangeContactForm?: (State) => void;
     routerState?: string;
     csrfToken?: string;
-};
-
-type State = {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-    pristine: boolean;
-    namePristine: boolean;
-    emailPristine: boolean;
-    websitePristine: boolean;
-    subjectPristine: boolean;
-    messagePristine: boolean;
-    pending: boolean;
-    success: boolean;
-    error: boolean;
-    browser: boolean;
 };
 
 /**
@@ -238,8 +238,8 @@ class ModuleFormContact extends Component<Props, State> {
      * @returns {void}
      */
     handleContactChange() {
-        const { handleContactChange = noop } = this.props;
-        handleContactChange(this.state);
+        const { onChangeContactForm = noop } = this.props;
+        onChangeContactForm(this.state);
     }
 
     /**
@@ -570,16 +570,11 @@ function mapStateToProps(state) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function>}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        handleContactChange: (contact) => {
-            dispatch(changeContactForm(contact));
-        }
-    };
-}
+const mapDispatchToProps = {
+    onChangeContactForm: changeContactForm
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

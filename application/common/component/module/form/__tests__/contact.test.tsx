@@ -22,16 +22,14 @@ describe('ModuleFormContact', function fnDescribe() {
             thankYou: 'thankYou'
         },
         storeState: {},
-        handleContactChange: jest.fn(),
+        onChangeContactForm: jest.fn(),
         routerState: '',
         csrfToken: ''
     };
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected {...defaultProps}>
-                Module form contact children
-            </ModuleFormContactConnected>
+            <ModuleFormContactConnected {...defaultProps} />
         );
         expect(asFragment()).toMatchSnapshot();
     });
@@ -40,17 +38,16 @@ describe('ModuleFormContact', function fnDescribe() {
             <ModuleFormContactConnected
                 {...defaultProps}
                 routerState={'success'}
-            >
-                Module form contact success
-            </ModuleFormContactConnected>
+            />
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render an error message', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected {...defaultProps} routerState={'error'}>
-                Module form contact error
-            </ModuleFormContactConnected>
+            <ModuleFormContactConnected
+                {...defaultProps}
+                routerState={'error'}
+            />
         );
         expect(asFragment()).toMatchSnapshot();
     });

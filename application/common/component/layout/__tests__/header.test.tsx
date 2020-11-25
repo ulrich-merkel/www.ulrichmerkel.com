@@ -4,11 +4,15 @@ import { LayoutHeader, LayoutHeaderConnected } from '../header';
 
 describe('LayoutHeader', function fnDescribe() {
     const defaultProps = {
-        handleIntlChangeLocale: jest.fn(),
-        content: {
-            menu: {}
-        },
-        className: 'layout-header'
+        className: 'layout-header',
+        content: {},
+        headerFixed: true,
+        headerVisible: true,
+        intlAvailableLocales: ['DE-de', 'EN-en'],
+        intlLocale: 'DE-de',
+        onChangeDialogVisibleSearch: jest.fn(),
+        onChangeDialogVisibleTheme: jest.fn(),
+        onChangeIntlLocale: jest.fn()
     };
 
     it('should render correctly', function fnIt() {

@@ -9,7 +9,12 @@
  *
  * @see {@link http://maximilianschmitt.me/posts/tutorial-csrf-express-4/}
  */
-import { default as React, ChangeEvent, FunctionComponent } from 'react';
+import {
+    default as React,
+    ChangeEvent,
+    FunctionComponent,
+    useCallback
+} from 'react';
 import { connect } from 'react-redux';
 import { get, noop } from 'lodash';
 
@@ -25,13 +30,13 @@ import { InputGroup } from '../../element/input-group';
 import { Legend } from '../../element/legend';
 
 type Props = {
-    content: {
-        inputTerm: string;
-        legend: string;
+    content?: {
+        inputTerm?: string;
+        legend?: string;
     };
-    csrfToken: string;
-    handleSearchChangeTerm: (event: ChangeEvent) => void;
-    searchTerm: string;
+    csrfToken?: string;
+    onChangeSearchTerm?: (searchTerm: string) => void;
+    searchTerm?: string;
 };
 
 /**
@@ -45,9 +50,14 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
     const {
         content,
         csrfToken = '',
-        searchTerm = '',
-        handleSearchChangeTerm = noop
+        onChangeSearchTerm = noop,
+        searchTerm = ''
     } = props;
+
+    const handleSearchChangeTerm = useCallback((event) => {
+        const searchTerm = get(event, 'target.value');
+        onChangeSearchTerm(searchTerm);
+    }, []);
 
     return (
         <Form
@@ -61,7 +71,7 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
             role="search"
         >
             <Fieldset>
-                <Legend isVisuallyHidden>{content.legend}</Legend>
+                <Legend isVisuallyHidden>{content?.legend}</Legend>
 
                 <GridRow>
                     <GridCol cols={12}>
@@ -69,10 +79,10 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
                             id="search"
                             isLabelVisuallyHidden
                             itemProp="query-input"
-                            label={content.inputTerm}
+                            label={content?.inputTerm}
                             name="search"
                             onChange={handleSearchChangeTerm}
-                            placeholder={content.inputTerm}
+                            placeholder={content?.inputTerm}
                             type="search"
                             value={searchTerm}
                         />
@@ -109,17 +119,11 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function>}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        handleSearchChangeTerm: (event: React.ChangeEvent) => {
-            const searchTerm = get(event, 'target.value');
-            dispatch(changeSearchTerm(searchTerm));
-        }
-    };
-}
+const mapDispatchToProps = {
+    onChangeSearchTerm: changeSearchTerm
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

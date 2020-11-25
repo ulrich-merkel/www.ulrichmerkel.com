@@ -2,7 +2,7 @@
 
 exports[`ModuleReading should render correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <ol
     class="m-list--reading m-reading foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
@@ -85,13 +85,13 @@ exports[`ModuleReading should render correctly 1`] = `
       </div>
     </li>
     Module reading children
-  </menu>
+  </ol>
 </DocumentFragment>
 `;
 
 exports[`ModuleReading should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <menu
+  <ol
     class="m-list--reading m-reading foo"
     role="list"
   >
@@ -172,7 +172,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
       </div>
     </li>
     Module reading children
-  </menu>
+  </ol>
 </DocumentFragment>
 `;
 

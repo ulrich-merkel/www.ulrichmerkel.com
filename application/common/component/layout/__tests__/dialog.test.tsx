@@ -4,10 +4,12 @@ import { LayoutDialog, LayoutDialogConnected } from '../dialog';
 
 describe('LayoutDialog', function fnDescribe() {
     const defaultProps = {
-        dialogVisible: true,
-        page: 'foo',
+        changeDialogVisible: jest.fn(),
+        className: 'test',
         dialogPage: 'foo',
-        content: {}
+        dialogVisible: true,
+        content: {},
+        page: 'foo'
     };
 
     it('should render correctly', function fnIt() {
