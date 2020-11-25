@@ -7,7 +7,7 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { isEmpty } from 'lodash';
-import { isValidString } from "../../common/utils/string";
+import { isValidString } from '../../common/utils/string';
 import { isValidArray } from '../../common/utils/array';
 import { isBrowser } from '../../common/utils/environment';
 
@@ -31,7 +31,7 @@ export function getDocumentDomNode(): Document {
  */
 export function getDomNodeById(id?: string): HTMLElement | null {
     if (!isValidString(id)) {
-        return null
+        return null;
     }
 
     const doc = getDocumentDomNode();
@@ -48,7 +48,7 @@ export function getDomNodesByTagName(
     name?: keyof HTMLElementTagNameMap
 ): HTMLCollectionOf<HTMLElement> | null {
     if (!isValidString(name)) {
-        return null
+        return null;
     }
 
     const doc = getDocumentDomNode();
@@ -61,9 +61,11 @@ export function getDomNodesByTagName(
  * @param {string} [name] - The elements tag name
  * @returns {object|null} The current element or null
  */
-export function getFirstDomNodeByTagName(name?: keyof HTMLElementTagNameMap): HTMLElement | null {
+export function getFirstDomNodeByTagName(
+    name?: keyof HTMLElementTagNameMap
+): HTMLElement | null {
     if (!isValidString(name)) {
-        return null
+        return null;
     }
 
     const domNode = getDomNodesByTagName(name);
@@ -93,7 +95,7 @@ export function setDomNodeAttribute(
     value?: string
 ): void {
     if (!isValidString(name)) {
-        return null
+        return null;
     }
 
     const domNode = getDomNodeById(id);
@@ -124,10 +126,10 @@ export function setDomNodeClassName(
     const { classList } = domNode;
     const containsClassNames = isValidArray(add)
         ? add.every(function someClassName(className) {
-            return classList.contains(className);
-        })
+              return classList.contains(className);
+          })
         : true;
-    
+
     if (isValidArray(remove)) {
         // eslint-disable-next-line prefer-spread
         classList.remove.apply(classList, remove);
@@ -151,7 +153,7 @@ export function createDomNode(
     attributes?: Object
 ): HTMLElement | null {
     if (!isValidString(name)) {
-        return null
+        return null;
     }
 
     const doc = getDocumentDomNode();

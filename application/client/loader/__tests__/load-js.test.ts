@@ -6,7 +6,7 @@ describe('loadJs', function fnDescribe() {
             className: 'test-js',
             id: 'test-js',
             src: ''
-        })
+        });
         expect(document.body).toMatchSnapshot();
     });
     it('should add js files correctly', function fnIt() {
@@ -14,7 +14,7 @@ describe('loadJs', function fnDescribe() {
             className: 'test-js',
             id: 'test-js',
             src: '/js/test.js'
-        })
+        });
         expect(document.body).toMatchSnapshot();
     });
 });

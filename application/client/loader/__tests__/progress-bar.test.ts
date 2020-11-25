@@ -5,19 +5,43 @@ import {
 } from '../progress-bar';
 
 describe('displayProgress', function fnDescribe() {
+    beforeEach(function fnBeforeEach() {
+        document.body.innerHTML = '<div><progress id="m-progress" /></div>';
+    });
+    afterEach(function fnAfterEach() {
+        document.body.innerHTML = '';
+    });
+
     it('should display progress correctly', function fnIt() {
-        expect(displayProgress(23)).toMatchSnapshot();
+        displayProgress('23');
+        expect(document.body.innerHTML).toMatchSnapshot();
     });
 });
 
 describe('displayZeroLoaded', function fnDescribe() {
+    beforeEach(function fnBeforeEach() {
+        document.body.innerHTML = '<div><progress id="m-progress" /></div>';
+    });
+    afterEach(function fnAfterEach() {
+        document.body.innerHTML = '';
+    });
+
     it('should display progress correctly', function fnIt() {
-        expect(displayZeroLoaded()).toMatchSnapshot();
+        displayZeroLoaded();
+        expect(document.body.innerHTML).toMatchSnapshot();
     });
 });
 
 describe('displayAllLoaded', function fnDescribe() {
+    beforeEach(function fnBeforeEach() {
+        document.body.innerHTML = '<div><progress id="m-progress" /></div>';
+    });
+    afterEach(function fnAfterEach() {
+        document.body.innerHTML = '';
+    });
+
     it('should display progress correctly', function fnIt() {
-        expect(displayAllLoaded()).toMatchSnapshot();
+        displayAllLoaded();
+        expect(document.body.innerHTML).toMatchSnapshot();
     });
 });

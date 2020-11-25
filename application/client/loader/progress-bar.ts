@@ -9,6 +9,8 @@
  */
 import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
 
+const PROGRESS_BAR = 'm-progress';
+
 /**
  * Generate an array from [0, 1, ..., 10] and add css className strings.
  *
@@ -28,9 +30,9 @@ const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(
  * @returns {void}
  */
 export function displayProgress(progress: string): void {
-    setDomNodeAttribute('m-progress', 'value', progress);
+    setDomNodeAttribute(PROGRESS_BAR, 'value', progress);
     setDomNodeClassName(
-        'm-progress__fallback',
+        `${PROGRESS_BAR}__fallback`,
         [`has-width--${Math.round(Number.parseInt(progress) / 10) * 10}`],
         hasWidthClasses
     );
