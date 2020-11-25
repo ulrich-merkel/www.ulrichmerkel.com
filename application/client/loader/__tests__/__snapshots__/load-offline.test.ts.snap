@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getApi should return the application cache if available 1`] = `null`;
+
+exports[`loadOffline should handle offline loading 1`] = `undefined`;
+
+exports[`onProgressEvent should handle the progress event 1`] = `undefined`;
+
+exports[`onProgressEvent should handle the progress event 2`] = `undefined`;
+
+exports[`onUpdateReadyEvent should handle the update ready event 1`] = `undefined`;

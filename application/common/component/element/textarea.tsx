@@ -10,17 +10,19 @@
 import { default as React, Component } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
+import { isValidString } from '../../utils/string';
 
 type Props = {
-    id: string;
-    name: string;
     className?: string;
     cols?: number;
+    id: string;
+    name: string;
     onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     required?: boolean;
     rows?: number;
+    testId?: string;
     value?: string;
 };
 
@@ -50,15 +52,16 @@ export class Textarea extends Component<Props> {
      */
     render() {
         const {
-            id,
-            name,
             className,
             cols = 50,
+            id,
+            name,
             onBlur = noop,
             onChange = noop,
             placeholder = '',
             required = false,
             rows = 4,
+            testId,
             value,
             ...other
         } = this.props;
@@ -74,12 +77,16 @@ export class Textarea extends Component<Props> {
                   'aria-required': true
               }
             : null;
+        const testIdAttr = isValidString(testId)
+            ? {
+                  'data-testid': testId
+              }
+            : null;
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
             <textarea
                 className={composedClassName}
-                {...requiredAttributes}
                 {...{
                     cols,
                     id,
@@ -90,6 +97,8 @@ export class Textarea extends Component<Props> {
                     rows,
                     value
                 }}
+                {...requiredAttributes}
+                {...testIdAttr}
                 {...other}
             />
         );

@@ -55,27 +55,44 @@ const configApplicationXor = configApplication.xor;
 const xorUse = configApplicationXor.use;
 const xorKey = configApplicationXor.key;
 
+type State = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    pristine: boolean;
+    namePristine: boolean;
+    emailPristine: boolean;
+    websitePristine: boolean;
+    subjectPristine: boolean;
+    messagePristine: boolean;
+    pending: boolean;
+    success: boolean;
+    error: boolean;
+    browser: boolean;
+};
+
 type Props = {
     content?: {
-        legend: string;
-        inputName: string;
-        inputEmail: string;
-        inputWebsite: string;
-        inputSubject: string;
-        inputMessage: string;
-        btnResetTitle: string;
-        btnResetLabel: string;
-        btnSubmitTitle: string;
-        btnSubmitLabel: string;
-        btnRenewTitle: string;
-        btnRenewLabel: string;
-        thankYou: string;
-        errorHeadline: string;
-        errorText: string;
-        btnTryAgainTitle: string;
-        btnTryAgainLabel: string;
-        thankYouHeadline: string;
-        thankYouText: string;
+        legend?: string;
+        inputName?: string;
+        inputEmail?: string;
+        inputWebsite?: string;
+        inputSubject?: string;
+        inputMessage?: string;
+        btnResetTitle?: string;
+        btnResetLabel?: string;
+        btnSubmitTitle?: string;
+        btnSubmitLabel?: string;
+        btnRenewTitle?: string;
+        btnRenewLabel?: string;
+        thankYou?: string;
+        errorHeadline?: string;
+        errorText?: string;
+        btnTryAgainTitle?: string;
+        btnTryAgainLabel?: string;
+        thankYouHeadline?: string;
+        thankYouText?: string;
     };
     storeState?: {
         name: string;
@@ -93,26 +110,9 @@ type Props = {
         error: boolean;
         browser: boolean;
     };
-    handleContactChange?: () => void;
+    onChangeContactForm?: (State) => void;
     routerState?: string;
     csrfToken?: string;
-};
-
-type State = {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-    pristine: boolean;
-    namePristine: boolean;
-    emailPristine: boolean;
-    websitePristine: boolean;
-    subjectPristine: boolean;
-    messagePristine: boolean;
-    pending: boolean;
-    success: boolean;
-    error: boolean;
-    browser: boolean;
 };
 
 /**
@@ -238,8 +238,8 @@ class ModuleFormContact extends Component<Props, State> {
      * @returns {void}
      */
     handleContactChange() {
-        const { handleContactChange = noop } = this.props;
-        handleContactChange(this.state);
+        const { onChangeContactForm = noop } = this.props;
+        onChangeContactForm(this.state);
     }
 
     /**
@@ -462,24 +462,26 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol cols={6}>
                             <InputGroup
                                 id={'name'}
+                                isPristine={state.namePristine}
+                                isValid={validate(state).name}
+                                label={content.inputName}
                                 name={'name'}
                                 onChange={this.onChange}
-                                label={content.inputName}
+                                required
                                 value={state.name}
-                                isValid={validate(state).name}
-                                isPristine={state.namePristine}
                             />
                         </GridCol>
                         <GridCol cols={6}>
                             <InputGroup
                                 id={'email'}
-                                name={'email'}
-                                type={'email'}
-                                onChange={this.onChange}
-                                label={content.inputEmail}
-                                value={state.email}
-                                isValid={validate(state).email}
                                 isPristine={state.emailPristine}
+                                isValid={validate(state).email}
+                                label={content.inputEmail}
+                                name={'email'}
+                                onChange={this.onChange}
+                                required
+                                type={'email'}
+                                value={state.email}
                             />
                         </GridCol>
                     </GridRow>
@@ -487,12 +489,13 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol>
                             <InputGroup
                                 id={'subject'}
+                                isPristine={state.subjectPristine}
+                                isValid={validate(state).subject}
+                                label={content.inputSubject}
                                 name={'subject'}
                                 onChange={this.onChange}
-                                label={content.inputSubject}
+                                required
                                 value={state.subject}
-                                isValid={validate(state).subject}
-                                isPristine={state.subjectPristine}
                             />
                         </GridCol>
                     </GridRow>
@@ -500,12 +503,13 @@ class ModuleFormContact extends Component<Props, State> {
                         <GridCol>
                             <TextareaGroup
                                 id={'message'}
+                                isPristine={state.messagePristine}
+                                isValid={validate(state).message}
+                                label={content.inputMessage}
                                 name={'message'}
                                 onChange={this.onChange}
-                                label={content.inputMessage}
+                                required
                                 value={state.message}
-                                isValid={validate(state).message}
-                                isPristine={state.messagePristine}
                             />
                         </GridCol>
                     </GridRow>
@@ -570,16 +574,11 @@ function mapStateToProps(state) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function>}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        handleContactChange: (contact) => {
-            dispatch(changeContactForm(contact));
-        }
-    };
-}
+const mapDispatchToProps = {
+    onChangeContactForm: changeContactForm
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

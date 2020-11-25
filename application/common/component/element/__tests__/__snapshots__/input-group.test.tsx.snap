@@ -8,6 +8,7 @@ exports[`InputGroup should render correctly 1`] = `
     <input
       aria-required="true"
       class="m-form__control--text is-pristine"
+      data-testid="test"
       id="input-group"
       name="input"
       placeholder=""
@@ -41,6 +42,7 @@ exports[`InputGroup should render correctly the placeholder 1`] = `
     <input
       aria-required="true"
       class="m-form__control--text is-pristine"
+      data-testid="test"
       id="input-group"
       name="input"
       placeholder="placeholder"
@@ -53,6 +55,36 @@ exports[`InputGroup should render correctly the placeholder 1`] = `
       for="input-group"
     >
       input
+      <i
+        aria-hidden="true"
+        class="c-font-icon--sad m-form__label__icon--error"
+      />
+      <i
+        aria-hidden="true"
+        class="c-font-icon--smile m-form__label__icon--success"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`InputGroup should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <div
+    class="m-form__group"
+  >
+    <input
+      class="m-form__control--text"
+      id="input-group"
+      name="input"
+      placeholder=""
+      type="text"
+      value=""
+    />
+    <label
+      class="m-form__label"
+      for="input-group"
+    >
       <i
         aria-hidden="true"
         class="c-font-icon--sad m-form__label__icon--error"

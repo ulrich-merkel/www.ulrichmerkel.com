@@ -5,7 +5,7 @@ import { ModuleSearch, ModuleSearchConnected } from '../search';
 jest.mock('../../../utils/search');
 
 describe('ModuleSearch', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         config: {},
         content: {},
         className: 'module-list',
@@ -17,13 +17,13 @@ describe('ModuleSearch', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleSearch {...defaultProps}>Module list children</ModuleSearch>
+            <ModuleSearch {...props}>Module list children</ModuleSearch>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
-            <ModuleSearchConnected {...defaultProps}>
+            <ModuleSearchConnected {...props}>
                 Module list children
             </ModuleSearchConnected>
         );

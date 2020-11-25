@@ -30,13 +30,13 @@ import { GridCol } from '../grid/col';
 import { Button } from '../element/button';
 
 type Props = {
-    onClose: () => void;
-    children: ReactNode;
-    className: string;
-    dialogPage: string;
-    dialogVisible: boolean;
-    content: any;
-    page: string;
+    changeDialogVisible?: () => void;
+    children?: ReactNode;
+    className?: string;
+    dialogPage?: string;
+    dialogVisible?: boolean;
+    content?: any;
+    page?: string;
 };
 
 /**
@@ -89,11 +89,25 @@ export class LayoutDialog extends Component<Props> {
      * @returns {void}
      */
     onKeyDown(event) {
-        const { onClose = noop } = this.props;
+        const { changeDialogVisible = noop } = this.props;
 
         if (event && event.keyCode === 27) {
-            onClose();
+            changeDialogVisible(false);
         }
+    }
+
+    /**
+     * Handle button close.
+     *
+     * @private
+     * @param {object} event - Synthetic react event
+     * @returns {void}
+     */
+    onClose(event) {
+        const { changeDialogVisible = noop } = this.props;
+
+        eventPreventDefault(event);
+        changeDialogVisible(false);
     }
 
     /**
@@ -108,7 +122,6 @@ export class LayoutDialog extends Component<Props> {
             content,
             dialogPage = '',
             dialogVisible = false,
-            onClose = noop,
             page = ''
         } = this.props;
 
@@ -133,7 +146,7 @@ export class LayoutDialog extends Component<Props> {
                             <GridCol>
                                 <Button
                                     title={contentSectionNav.btnCloseTitle}
-                                    onClick={onClose}
+                                    onClick={this.onClose}
                                 >
                                     {contentSectionNav.btnCloseLabel}
                                 </Button>
@@ -145,7 +158,7 @@ export class LayoutDialog extends Component<Props> {
                         className="l-dialog__button--close c-font-icon--close"
                         classNameLabel="is-visually-hidden"
                         title={contentSectionNav.btnCloseTitle}
-                        onClick={onClose}
+                        onClick={this.onClose}
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
@@ -182,17 +195,11 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        onClose(event) {
-            eventPreventDefault(event);
-            dispatch(changeDialogVisible(false));
-        }
-    };
-}
+const mapDispatchToProps = {
+    onChangeDialogVisible: changeDialogVisible
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

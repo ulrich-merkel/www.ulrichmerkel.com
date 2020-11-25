@@ -9,7 +9,7 @@
  * @see {@link https://fettblog.eu/typescript-react/events/}
  */
 import * as React from 'react';
-import { isFunction } from 'lodash';
+import { isEmpty, isFunction } from 'lodash';
 
 type Event =
     | React.AnimationEvent
@@ -30,12 +30,12 @@ type Event =
 /**
  * @type {string}
  */
-const PREVENT_DEFAULT = 'preventDefault';
+const PREVENT_DEFAULT: string = 'preventDefault';
 
 /**
  * @type {string}
  */
-const STOP_PROPAGATION = 'stopPropagation';
+const STOP_PROPAGATION: string = 'stopPropagation';
 
 /**
  * Check if we have a valid browser event object
@@ -47,7 +47,7 @@ const STOP_PROPAGATION = 'stopPropagation';
  * @returns {boolean} Whether this is a valid event
  */
 function isValidEvent(event: Event, functionToCall: string): boolean {
-    return event && isFunction(event[functionToCall]);
+    return !isEmpty(event) && isFunction(event[functionToCall]);
 }
 
 /**

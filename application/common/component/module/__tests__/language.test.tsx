@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleLanguage } from '../language';
 
 describe('ModuleLanguage', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'span',
         className: 'foo',
         content: {
@@ -29,16 +29,14 @@ describe('ModuleLanguage', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleLanguage {...defaultProps}>
-                Module language children
-            </ModuleLanguage>
+            <ModuleLanguage {...props}>Module language children</ModuleLanguage>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if no content image is empty', function fnIt() {
         const { asFragment } = render(
             <ModuleLanguage
-                {...defaultProps}
+                {...props}
                 content={{
                     list: null
                 }}
@@ -50,7 +48,7 @@ describe('ModuleLanguage', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleLanguage {...defaultProps} itemType={null}>
+            <ModuleLanguage {...props} itemType={null}>
                 Module language children
             </ModuleLanguage>
         );

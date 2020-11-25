@@ -33,7 +33,7 @@ const sharp = require('sharp');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const assert = require('assert-plus');
-const pictures = require('../application/common/config/pictures');
+const pictures = require('../application/common/config/pictures.ts');
 
 const argv = minimist(process.argv.slice(2));
 const argvSrcFolder = argv.s || './';

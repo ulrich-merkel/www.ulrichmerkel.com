@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loadCss should add css files correctly 1`] = `<body />`;
+
+exports[`loadCss should be fail fafe 1`] = `<body />`;

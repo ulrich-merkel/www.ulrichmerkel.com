@@ -7,13 +7,21 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { isBrowser } from '../../common/utils/environment';
-import { hasCssCustomProperties } from './css-custom-properties';
-import { hasTouchEvents } from './touch-events';
-import { hasPassiveEventListeners } from './passive-event-listeners';
+import { getDomNodesByTagName } from '../utils/dom';
+import { hasCssCustomProperties } from './has-css-custom-properties';
+import { hasTouchEvents } from './has-touch-events';
+import { hasPassiveEventListeners } from './has-passive-event-listeners';
+import { isFunction } from 'lodash';
+
+const featuresToBeDetected = [
+    { fn: hasCssCustomProperties, className: 'customproperties' },
+    { fn: hasTouchEvents, className: 'touchevents' },
+    { fn: hasPassiveEventListeners, className: 'passiveeventlisteners' }
+];
 
 /**
  * Initialize feature detection for browsers and add
- * css classnames to html.
+ * css class names to html element.
  *
  * @returns {void}
  */
@@ -22,34 +30,25 @@ export function featureDetect(): void {
         return;
     }
 
-    const classNamesToAdd = ['js'];
-    const classNamesToRemove = ['no-js'];
+    const { classNamesToAdd, classNamesToRemove } = featuresToBeDetected.reduce(
+        function (accumulator, feature) {
+            const { className, fn } = feature;
+            if (isFunction(fn) && fn()) {
+                accumulator.classNamesToAdd.push(className);
+                accumulator.classNamesToRemove.push(`no-${className}`);
+            } else {
+                accumulator.classNamesToAdd.push(`no-${className}`);
+                accumulator.classNamesToRemove.push(className);
+            }
+            return accumulator;
+        },
+        {
+            classNamesToAdd: ['js'],
+            classNamesToRemove: ['no-js']
+        }
+    );
 
-    if (hasCssCustomProperties()) {
-        classNamesToAdd.push('customproperties');
-        classNamesToRemove.push('no-customproperties');
-    } else {
-        classNamesToAdd.push('no-customproperties');
-        classNamesToRemove.push('customproperties');
-    }
-
-    if (hasTouchEvents()) {
-        classNamesToAdd.push('touchevents');
-        classNamesToRemove.push('no-touchevents');
-    } else {
-        classNamesToAdd.push('no-touchevents');
-        classNamesToRemove.push('touchevents');
-    }
-
-    if (hasPassiveEventListeners()) {
-        classNamesToAdd.push('passiveeventlisteners');
-        classNamesToRemove.push('no-passiveeventlisteners');
-    } else {
-        classNamesToAdd.push('no-passiveeventlisteners');
-        classNamesToRemove.push('passiveeventlisteners');
-    }
-
-    const html = document.getElementsByTagName('html')[0];
+    const html = getDomNodesByTagName('html')[0];
     html.classList.remove(...classNamesToRemove);
     html.classList.add(...classNamesToAdd);
 }

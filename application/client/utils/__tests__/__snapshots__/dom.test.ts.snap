@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createDomNode should create an element 1`] = `null`;
+
+exports[`createDomNode should create an element 2`] = `<button />`;
+
+exports[`createDomNode should create an element 3`] = `
+<button
+  label="click me"
+/>
+`;
+
+exports[`deleteDomNode should delete an element 1`] = `"<div></div>"`;
+
+exports[`getDocumentDomNode should return the document 1`] = `
+Document {
+  "location": Location {
+    "assign": [Function],
+    "hash": "",
+    "host": "localhost",
+    "hostname": "localhost",
+    "href": "http://localhost/",
+    "origin": "http://localhost",
+    "pathname": "/",
+    "port": "",
+    "protocol": "http:",
+    "reload": [Function],
+    "replace": [Function],
+    "search": "",
+    "toString": [Function],
+  },
+  Symbol(DOM SymbolTree): SymbolTreeNode {
+    "cachedIndex": -1,
+    "cachedIndexVersion": NaN,
+    "childIndexCachedUpTo": null,
+    "childrenVersion": 0,
+    "firstChild": null,
+    "lastChild": null,
+    "nextSibling": null,
+    "parent": null,
+    "previousSibling": null,
+  },
+}
+`;
+
+exports[`getDomNodeById should return the correct element 1`] = `null`;
+
+exports[`getDomNodeById should return the correct element 2`] = `null`;
+
+exports[`getDomNodeById should return the correct element 3`] = `
+<button
+  id="button"
+/>
+`;
+
+exports[`getDomNodeById should return the correct element 4`] = `null`;
+
+exports[`getDomNodeById should return the correct element 5`] = `HTMLCollection []`;
+
+exports[`getDomNodeById should return the correct element 6`] = `
+HTMLCollection [
+  <button
+    id="button"
+  />,
+]
+`;
+
+exports[`getFirstDomNodeByTagName should return the correct element 1`] = `null`;
+
+exports[`getFirstDomNodeByTagName should return the correct element 2`] = `null`;
+
+exports[`getFirstDomNodeByTagName should return the correct element 3`] = `
+<button
+  id="button1"
+/>
+`;
+
+exports[`getHeadDomNode should return the head element 1`] = `<head />`;
+
+exports[`setDomNodeAttribute should add attributes 1`] = `"<div><button id=\\"button\\" label=\\"click me\\"></button></div>"`;
+
+exports[`setDomNodeAttribute should be fail safe 1`] = `"<div><button id=\\"button\\"></button></div>"`;
+
+exports[`setDomNodeClassName should add class names 1`] = `"<div><button class=\\"add\\" id=\\"button\\"></button></div>"`;

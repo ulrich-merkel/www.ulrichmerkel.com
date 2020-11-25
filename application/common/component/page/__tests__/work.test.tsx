@@ -5,7 +5,7 @@ import { PageWork } from '../work';
 jest.useFakeTimers();
 
 describe('PageWork', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         locale: 'en-EN',
         match: {
             params: {
@@ -32,14 +32,14 @@ describe('PageWork', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(<PageWork {...defaultProps} />);
+        const { asFragment } = render(<PageWork {...props} />);
         jest.runAllTimers();
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if no work param is given', function fnIt() {
         const { asFragment } = render(
             <PageWork
-                {...defaultProps}
+                {...props}
                 match={{
                     params: {
                         work: ''

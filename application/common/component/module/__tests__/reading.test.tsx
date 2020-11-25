@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleReading } from '../reading';
 
 describe('ModuleReading', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'ol',
         className: 'foo',
         content: {
@@ -26,16 +26,14 @@ describe('ModuleReading', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleReading {...defaultProps}>
-                Module reading children
-            </ModuleReading>
+            <ModuleReading {...props}>Module reading children</ModuleReading>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if no content is given', function fnIt() {
         const { asFragment } = render(
             <ModuleReading
-                {...defaultProps}
+                {...props}
                 content={{
                     list: null
                 }}
@@ -47,7 +45,7 @@ describe('ModuleReading', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleReading {...defaultProps} itemType={null}>
+            <ModuleReading {...props} itemType={null}>
                 Module reading children
             </ModuleReading>
         );

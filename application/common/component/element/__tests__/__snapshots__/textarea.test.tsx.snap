@@ -1,28 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Textarea should call passed callbacks 1`] = `
-<DocumentFragment>
-  <textarea
-    class="m-form__control--textarea"
-    cols="50"
-    id="textarea-callbacks"
-    name="textarea-callbacks"
-    placeholder=""
-    rows="4"
-  />
-</DocumentFragment>
-`;
-
-exports[`Textarea should render correctly with default callbacks 1`] = `
+exports[`Textarea should render correctly 1`] = `
 <DocumentFragment>
   <textarea
     aria-required="true"
     class="m-form__control--textarea textarea"
     cols="50"
+    data-testid="test"
     id="textarea"
     name="textarea"
     placeholder="Test textarea placeholder"
     required=""
+    rows="4"
+  />
+</DocumentFragment>
+`;
+
+exports[`Textarea should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <textarea
+    class="m-form__control--textarea"
+    cols="50"
+    id="input"
+    name="input"
+    placeholder=""
     rows="4"
   />
 </DocumentFragment>

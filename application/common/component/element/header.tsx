@@ -14,6 +14,7 @@ type Props = {
     className?: string;
     htmlElement?: keyof JSX.IntrinsicElements;
     itemScope?: boolean;
+    itemType?: string;
     role?: string;
 };
 
@@ -31,6 +32,7 @@ export const Header: FunctionComponent<Props> = (props) => {
         className,
         htmlElement: HtmlElement = 'header',
         itemScope = false,
+        itemType,
         role = 'banner',
         ...otherProps
     } = props;
@@ -41,7 +43,7 @@ export const Header: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={composedClassName}
-            {...{ itemScope, role }}
+            {...{ itemScope, itemType, role }}
             {...otherProps}
         />
     );

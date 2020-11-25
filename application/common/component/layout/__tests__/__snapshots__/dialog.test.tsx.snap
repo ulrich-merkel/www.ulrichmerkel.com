@@ -3,7 +3,7 @@
 exports[`LayoutDialog should render correctly 1`] = `
 <DocumentFragment>
   <dialog
-    class="l-dialog"
+    class="l-dialog test"
     role="presentation"
   >
     <div
@@ -50,7 +50,7 @@ exports[`LayoutDialog should render correctly 1`] = `
 exports[`LayoutDialog should render correctly the connected version 1`] = `
 <DocumentFragment>
   <dialog
-    class="l-dialog"
+    class="l-dialog test"
     role="presentation"
   >
     <div

@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleKeyVisualPicture } from '../picture';
 
 describe('ModuleKeyVisualPicture', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         img: {
             name: 'keyvisual',
             ext: 'jpg',
@@ -30,15 +30,13 @@ describe('ModuleKeyVisualPicture', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(
-            <ModuleKeyVisualPicture {...defaultProps} />
-        );
+        const { asFragment } = render(<ModuleKeyVisualPicture {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render null if no content is provided', function fnIt() {
         const { asFragment } = render(
             <ModuleKeyVisualPicture
-                {...defaultProps}
+                {...props}
                 img={{
                     alt: 'foo',
                     sizes: [
@@ -65,11 +63,7 @@ describe('ModuleKeyVisualPicture', function fnDescribe() {
     });
     it('should render type and isCovered if given', function fnIt() {
         const { asFragment } = render(
-            <ModuleKeyVisualPicture
-                {...defaultProps}
-                type={'digital'}
-                isCovered
-            />
+            <ModuleKeyVisualPicture {...props} type={'digital'} isCovered />
         );
         expect(asFragment()).toMatchSnapshot();
     });

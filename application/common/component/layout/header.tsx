@@ -8,11 +8,11 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, FunctionComponent } from 'react';
+import { default as React, FunctionComponent, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import classnames from 'classnames';
-import { get } from 'lodash';
+import { get, noop } from 'lodash';
 
 import { url } from '../../config/application';
 import { addContent } from '../decorator/add-content';
@@ -48,17 +48,17 @@ import { Nav } from '../element/nav';
 import { Progress } from '../element/progress';
 
 type Props = {
-    handleIntlChangeLocale: (event) => void;
-    handleChangeDialogVisibleSearch: (event) => void;
-    handleChangeDialogVisibleTheme: (event) => void;
-    intlLocale: Locale;
-    intlAvailableLocales: Locales;
-    headerFixed?: boolean;
-    headerVisible?: boolean;
     className?: string;
     content?: {
-        menu: any;
+        menu?: any;
     };
+    headerFixed?: boolean;
+    headerVisible?: boolean;
+    intlAvailableLocales: Locales;
+    intlLocale: Locale;
+    onChangeDialogVisibleSearch?: (visible: boolean) => void;
+    onChangeDialogVisibleTheme?: (visible: boolean) => void;
+    onChangeIntlLocale?: (locale: string) => void;
 };
 
 /**
@@ -67,7 +67,7 @@ type Props = {
  * @function
  * @param {object} props - The current component props
  * @param {Function} props.handleIntlChangeLocale - Function handling language state changes
- * @param {Function} props.handleChangeDialogVisibleSearch - Function handling dialog state changes
+ * @param {Function} props.onChangeDialogVisibleSearch - Function handling dialog state changes
  * @param {Array.<string>} props.intlAvailableLocales - All available locale strings
  * @param {string} props.intlLocale - The current locale string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
@@ -80,13 +80,13 @@ export const LayoutHeader: FunctionComponent<Props> = (props) => {
     const {
         className,
         content,
-        handleChangeDialogVisibleSearch,
-        handleChangeDialogVisibleTheme,
-        handleIntlChangeLocale,
         headerFixed,
         headerVisible,
         intlAvailableLocales,
-        intlLocale
+        intlLocale,
+        onChangeDialogVisibleSearch = noop,
+        onChangeDialogVisibleTheme = noop,
+        onChangeIntlLocale = noop
     } = props;
     const contentSection = getContentSection(content);
 
@@ -111,6 +111,22 @@ export const LayoutHeader: FunctionComponent<Props> = (props) => {
         'm-nav__toggle-target',
         'm-nav__aside'
     );
+
+    const handleChangeDialogVisibleSearch = useCallback((event) => {
+        eventPreventDefault(event);
+        onChangeDialogVisibleSearch(true);
+    }, []);
+
+    const handleChangeDialogVisibleTheme = useCallback((event) => {
+        eventPreventDefault(event);
+        onChangeDialogVisibleTheme(true);
+    }, []);
+
+    const handleIntlChangeLocale = useCallback((event) => {
+        eventPreventDefault(event);
+        const locale = get(event, 'target.dataset.locale');
+        onChangeIntlLocale(locale);
+    }, []);
 
     return (
         <Header
@@ -270,25 +286,13 @@ function mapStateToProps(state, ownProps) {
  * If a function is passed, it will be given dispatch.
  *
  * @private
- * @param {Function} dispatch - The redux store dispatch function
- * @returns {object}
+ * @type {object<string, Function>}
  */
-function mapDispatchToProps(dispatch) {
-    return {
-        handleIntlChangeLocale(event) {
-            eventPreventDefault(event);
-            dispatch(changeIntlLocale(get(event, 'target.dataset.locale')));
-        },
-        handleChangeDialogVisibleSearch(event) {
-            eventPreventDefault(event);
-            dispatch(changeDialogVisibleSearch(true));
-        },
-        handleChangeDialogVisibleTheme(event) {
-            eventPreventDefault(event);
-            dispatch(changeDialogVisibleTheme(true));
-        }
-    };
-}
+const mapDispatchToProps = {
+    onChangeIntlLocale: changeIntlLocale,
+    onChangeDialogVisibleSearch: changeDialogVisibleSearch,
+    onChangeDialogVisibleTheme: changeDialogVisibleTheme
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

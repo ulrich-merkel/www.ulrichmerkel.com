@@ -8,6 +8,7 @@ exports[`Toggle should render correctly 1`] = `
     <input
       checked=""
       class="m-form__control--text c-toggle__input"
+      data-testid="test"
       id="test"
       name="test"
       placeholder=""
@@ -23,6 +24,31 @@ exports[`Toggle should render correctly 1`] = `
       >
         Test
       </span>
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Toggle should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <div
+    class="c-toggle"
+  >
+    <input
+      class="m-form__control--text c-toggle__input"
+      id="toggle"
+      name="toggle"
+      placeholder=""
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="m-form__label c-toggle__label"
+      for="toggle"
+    >
+      <span
+        class="c-toggle__text"
+      />
     </label>
   </div>
 </DocumentFragment>

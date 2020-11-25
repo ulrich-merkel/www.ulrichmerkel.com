@@ -1,8 +1,7 @@
-/* eslint-disable func-names */
 import { getContentSection, getTranslatedContent } from '../content';
 
-describe('common/utils/content', function () {
-    it('should return a config via getContentSection', function () {
+describe('getContentSection', function fnDescribe() {
+    it('should return a config', function fnIt() {
         expect(
             getContentSection({
                 head: {
@@ -11,7 +10,10 @@ describe('common/utils/content', function () {
             })('head')
         ).toEqual({ foo: 'bar' });
     });
-    it('should return a translated config via getTranslatedContent', function () {
+});
+
+describe('getTranslatedContent', function fnDescribe() {
+    it('should return a translated config', function fnIt() {
         const translatedContent = getTranslatedContent(
             'en-EN',
             {

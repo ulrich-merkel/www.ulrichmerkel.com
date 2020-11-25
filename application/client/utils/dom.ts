@@ -6,6 +6,10 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
+import { isEmpty } from 'lodash';
+import { isValidString } from '../../common/utils/string';
+import { isValidArray } from '../../common/utils/array';
+import { isBrowser } from '../../common/utils/environment';
 
 /**
  * Get basic window document dom node.
@@ -13,7 +17,7 @@
  * @returns {object|null} The current document or null (in isomorph environments)
  */
 export function getDocumentDomNode(): Document {
-    if (typeof window === 'undefined') {
+    if (!isBrowser()) {
         return null;
     }
     return window.document;
@@ -22,11 +26,14 @@ export function getDocumentDomNode(): Document {
 /**
  * Get dom node element by id.
  *
- * @private
- * @param {string} id - The elements tag name
+ * @param {string} [id] - The elements tag name
  * @returns {object|null} The current element or null
  */
-export function getDomNodeById(id: string): Element | null {
+export function getDomNodeById(id?: string): HTMLElement | null {
+    if (!isValidString(id)) {
+        return null;
+    }
+
     const doc = getDocumentDomNode();
     return (doc && doc.getElementById(id)) || null;
 }
@@ -34,12 +41,16 @@ export function getDomNodeById(id: string): Element | null {
 /**
  * Get dom node element by tag name.
  *
- * @param {string} name - The elements tag name
+ * @param {string} [name] - The elements tag name
  * @returns {Array<object>|null} The current element or null
  */
 export function getDomNodesByTagName(
-    name: string
-): HTMLCollectionOf<Element> | null {
+    name?: keyof HTMLElementTagNameMap
+): HTMLCollectionOf<HTMLElement> | null {
+    if (!isValidString(name)) {
+        return null;
+    }
+
     const doc = getDocumentDomNode();
     return (doc && doc.getElementsByTagName(name)) || null;
 }
@@ -47,10 +58,16 @@ export function getDomNodesByTagName(
 /**
  * Get first dom node element by tag name.
  *
- * @param {string} name - The elements tag name
+ * @param {string} [name] - The elements tag name
  * @returns {object|null} The current element or null
  */
-export function getFirstDomNodeByTagName(name: string): Element | null {
+export function getFirstDomNodeByTagName(
+    name?: keyof HTMLElementTagNameMap
+): HTMLElement | null {
+    if (!isValidString(name)) {
+        return null;
+    }
+
     const domNode = getDomNodesByTagName(name);
     return (domNode && domNode[0]) || null;
 }
@@ -60,23 +77,27 @@ export function getFirstDomNodeByTagName(name: string): Element | null {
  *
  * @returns {object|null} The current head dom element or null
  */
-export function getHeadDomNode(): Element | null {
+export function getHeadDomNode(): HTMLHeadElement | null {
     return getFirstDomNodeByTagName('head');
 }
 
 /**
  * Set dom node attribute.
  *
- * @param {string} id - The elements id
- * @param {string} name - The elements attribute name to be set
- * @param {string} value - The elements attribute value to be set
+ * @param {string} [id] - The elements id
+ * @param {string} [name] - The elements attribute name to be set
+ * @param {string} [value] - The elements attribute value to be set
  * @returns {void}
  */
 export function setDomNodeAttribute(
-    id: string,
-    name: string,
-    value: string
+    id?: string,
+    name?: string,
+    value?: string
 ): void {
+    if (!isValidString(name)) {
+        return null;
+    }
+
     const domNode = getDomNodeById(id);
     if (!domNode) {
         return;
@@ -93,36 +114,48 @@ export function setDomNodeAttribute(
  * @returns {void}
  */
 export function setDomNodeClassName(
-    id: string,
-    add: string[],
-    remove: string[]
+    id?: string,
+    add?: string[],
+    remove?: string[]
 ): void {
     const domNode = getDomNodeById(id);
-    if (!domNode || !add) {
+    if (!domNode) {
         return;
     }
 
     const { classList } = domNode;
-    const containsClassNames = add.every(function someClassName(className) {
-        return classList.contains(className);
-    });
-    classList.remove.apply(classList, remove); // eslint-disable-line prefer-spread
-    if (!containsClassNames) {
-        classList.add.apply(classList, add); // eslint-disable-line prefer-spread
+    const containsClassNames = isValidArray(add)
+        ? add.every(function someClassName(className) {
+              return classList.contains(className);
+          })
+        : true;
+
+    if (isValidArray(remove)) {
+        // eslint-disable-next-line prefer-spread
+        classList.remove.apply(classList, remove);
+    }
+
+    if (!containsClassNames && isValidArray(add)) {
+        // eslint-disable-next-line prefer-spread
+        classList.add.apply(classList, add);
     }
 }
 
 /**
  * Create dom node element.
  *
- * @param {string} name - The node element name type
+ * @param {string} [name] - The node element name type
  * @param {object} attributes - Name/value mapping of the element attributes
  * @returns {object|null} The created html object
  */
 export function createDomNode(
-    name: string,
-    attributes: Object
+    name?: keyof HTMLElementTagNameMap,
+    attributes?: Object
 ): HTMLElement | null {
+    if (!isValidString(name)) {
+        return null;
+    }
+
     const doc = getDocumentDomNode();
     if (!doc) {
         return null;
@@ -131,9 +164,9 @@ export function createDomNode(
     const domNode = doc.createElement(name);
 
     // Check for attributes to be set
-    if (attributes) {
-        Object.keys(attributes).forEach(function handleKey(key) {
-            const value = attributes[key];
+    if (!isEmpty(attributes)) {
+        Object.keys(attributes).forEach(function handleKey(key: string) {
+            const value = attributes[key] as string;
 
             if (key && value) {
                 domNode.setAttribute(key, value);
@@ -148,10 +181,10 @@ export function createDomNode(
 /**
  * Delte dom node element.
  *
- * @param {string} id - The elements id
+ * @param {string} [id] - The elements id
  * @returns {void}
  */
-export function deleteDomNode(id: string): void {
+export function deleteDomNode(id?: string): void {
     const domNode = getDomNodeById(id);
     if (!domNode) {
         return;

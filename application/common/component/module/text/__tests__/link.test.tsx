@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleTextLink } from '../link';
 
 describe('ModuleTextLink', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         content: {
             linkTo: '/foo',
             linkLabel: 'Module text link label',
@@ -12,12 +12,12 @@ describe('ModuleTextLink', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(<ModuleTextLink {...defaultProps} />);
+        const { asFragment } = render(<ModuleTextLink {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if content is empty', function fnIt() {
         const { asFragment } = render(
-            <ModuleTextLink {...defaultProps} content={null} />
+            <ModuleTextLink {...props} content={null} />
         );
         expect(asFragment()).toMatchSnapshot();
     });

@@ -1,4 +1,4 @@
-import { hasTouchEvents } from '../touch-events';
+import { hasTouchEvents } from '../has-touch-events';
 
 describe('hasTouchEvents', function fnDescribe() {
     it('should return false in non browser environments', function fnIt() {

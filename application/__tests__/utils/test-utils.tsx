@@ -1,5 +1,6 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import snapshotDiff from 'snapshot-diff';
@@ -51,5 +52,5 @@ function customRender(reactElement: ReactNode, options: any = {}): any {
 
 // Re-export the render method and everything else, if something is missing please
 // add it here...
-export { fireEvent, screen } from '@testing-library/react';
-export { customRender as render, snapshotDiff };
+export { screen } from '@testing-library/react';
+export { customRender as render, snapshotDiff, userEvent };

@@ -12,6 +12,7 @@ import { noop } from 'lodash';
 
 import { Input } from './input';
 import { Label } from './label';
+import { isValidString } from '../../utils/string';
 
 type Props = {
     checked?: boolean;
@@ -20,6 +21,7 @@ type Props = {
     id?: string;
     label?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    testId?: string;
 };
 
 /**
@@ -27,22 +29,26 @@ type Props = {
  *
  * @function
  * @param {object} [props] - The current component props
- * @param {string} [props.className=''] - The component css class names, will be merged into component default classNames
- * @param {string} [props.htmlElement='nav'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
 export const Toggle: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'div',
         checked = false,
         className,
+        htmlElement: HtmlElement = 'div',
         id = 'toggle',
         label = '',
         onChange = noop,
+        testId,
         ...otherProps
     } = props;
 
     const composedClassName = classnames('c-toggle', className);
+    const testIdAttr = isValidString(testId)
+        ? {
+              'data-testid': testId
+          }
+        : null;
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -53,6 +59,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
                 name={id}
                 type="checkbox"
                 {...{ checked, onChange }}
+                {...testIdAttr}
             />
             <Label className="c-toggle__label" htmlFor={id}>
                 <span className="c-toggle__text">{label}</span>

@@ -2,7 +2,7 @@
 import httpMocks from 'node-mocks-http';
 import { middlewareReact } from '../react';
 
-describe('smiddlewareReact', function fnDescribe() {
+describe('middlewareReact', function fnDescribe() {
     let req, res;
 
     beforeEach(function fnBeforeEach() {

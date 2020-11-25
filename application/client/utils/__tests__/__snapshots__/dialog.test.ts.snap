@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`closeDialog should add the correct styles 1`] = `
+<body
+  style=""
+>
+  <div>
+    <button
+      id="button"
+    />
+  </div>
+</body>
+`;
+
+exports[`showDialog should add the correct styles 1`] = `
+<body
+  style="position: fixed;"
+>
+  <div>
+    <button
+      id="button"
+    />
+  </div>
+</body>
+`;

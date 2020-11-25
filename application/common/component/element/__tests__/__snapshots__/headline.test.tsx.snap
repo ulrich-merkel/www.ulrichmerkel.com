@@ -9,3 +9,13 @@ exports[`Headline should render correctly 1`] = `
   </h3>
 </DocumentFragment>
 `;
+
+exports[`Headline should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <h1
+    class="is-centered c-type--h1"
+  >
+    Headline Children
+  </h1>
+</DocumentFragment>
+`;

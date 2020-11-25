@@ -23,3 +23,24 @@ exports[`ButtonGroup should render correctly 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`ButtonGroup should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <div
+    class="m-form__group"
+  >
+    <button
+      class="c-btn m-form__btn"
+      id="button-group"
+      name="button"
+      role="button"
+      title=""
+      type="button"
+    >
+      <span
+        class="c-btn__label"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
