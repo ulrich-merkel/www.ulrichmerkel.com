@@ -121,7 +121,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "echo 'Heeeeellllooooo'"
     }
   },
   "main": "application/server/bootstrap.js",
