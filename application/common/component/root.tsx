@@ -11,8 +11,8 @@ import { Store } from 'redux';
 import { Provider } from 'react-redux';
 
 type RootProps = {
-    children: ReactNode,
-    store: Store
+    children: ReactNode;
+    store: Store;
 };
 
 /**
@@ -28,4 +28,4 @@ export const Root: FunctionComponent<RootProps> = (props) => {
     const { children, store } = props;
 
     return <Provider {...{ store }}>{children}</Provider>;
-}
+};

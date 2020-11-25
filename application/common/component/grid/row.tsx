@@ -33,4 +33,4 @@ export const GridRow: FunctionComponent<Props> = (props) => {
     const componentClassName = classnames('l-grid__row', className);
 
     return <ComponentType className={componentClassName} {...otherProps} />;
-}
+};

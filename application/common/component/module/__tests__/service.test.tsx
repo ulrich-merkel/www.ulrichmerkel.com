@@ -4,7 +4,7 @@ import { ModuleService } from '../service';
 
 describe('ModuleService', function fnDescribe() {
     const defaultProps = {
-        componentType: 'nav',
+        htmlElement: 'nav',
         className: 'foo',
         content: {
             list: [

@@ -108,12 +108,12 @@ class Page extends Component<Props, State> {
      * @returns {void}
      */
     handleRouterParams() {
-        const { match } = this.props;
+        const { match } = this.props;
         const { work } = this.state;
         const locationParamWork = get(match, 'params.work', null);
         const newWork = getWorkContentKey(locationParamWork, configWork);
 
-        if (work === newWork || (!newWork && work === NOT_FOUND)) {
+        if (work === newWork || (!newWork && work === NOT_FOUND)) {
             return;
         }
 

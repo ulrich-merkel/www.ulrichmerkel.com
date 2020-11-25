@@ -35,14 +35,14 @@ type Props = {
             headline: string;
             lead: string;
             offset: string;
-            place: {}
+            place: {};
             timeEnd: string;
             timeStart: string;
         }[];
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -86,7 +86,7 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
             </li>
 
             {content.professionalExperienceList &&
-                content.professionalExperienceList.map(function(value, index) {
+                content.professionalExperienceList.map(function (value, index) {
                     return (
                         <ModuleCornerstoneItemEmployee
                             key={shortid.generate()}
@@ -131,4 +131,4 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};

@@ -48,7 +48,7 @@ type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
     itemType?: string;
-}
+};
 
 /**
  * Class representing a component.

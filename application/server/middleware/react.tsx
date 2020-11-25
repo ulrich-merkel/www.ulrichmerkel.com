@@ -143,7 +143,7 @@ export function middlewareReact(req, res, next) {
     return loadData(req, store, acceptedLocale)
         .then((result) => {
             const rendered = render(req.url, store, result[0], result[1]);
-            const redirectUrl = rendered.context.url;
+            const redirectUrl = rendered?.context?.url;
 
             if (redirectUrl) {
                 return res.redirect(res.status || 302, redirectUrl);

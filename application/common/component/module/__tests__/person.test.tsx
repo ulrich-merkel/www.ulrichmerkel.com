@@ -4,7 +4,7 @@ import { ModulePerson } from '../person';
 
 describe('ModulePerson', function fnDescribe() {
     const defaultProps = {
-        componentType: 'menu',
+        htmlElement: 'menu',
         className: 'foo',
         isCentered: false,
         content: {

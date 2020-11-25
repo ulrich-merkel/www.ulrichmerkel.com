@@ -20,7 +20,7 @@ type Props = {
     itemType?: string;
     children?: ReactNode;
     content?: any;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -30,7 +30,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const ModuleList: FunctionComponent<Props> = (props) => {
-    const { htmlElement: HtmlElement = 'ul', className, itemType = 'http://schema.org/ItemList', content, children } = props;
+    const {
+        htmlElement: HtmlElement = 'ul',
+        className,
+        itemType = 'http://schema.org/ItemList',
+        content,
+        children
+    } = props;
 
     const componentClassName = classnames('m-list--broadcast', className);
 
@@ -74,4 +80,4 @@ export const ModuleList: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};

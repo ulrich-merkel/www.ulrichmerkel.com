@@ -23,7 +23,8 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    htmlElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    itemProp?: string;
     isCentered?: boolean;
 };
 
@@ -57,4 +58,4 @@ export const Headline: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement className={componentClassName} {...otherProps} />
     );
-}
+};

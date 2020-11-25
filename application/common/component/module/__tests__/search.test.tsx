@@ -9,7 +9,7 @@ describe('ModuleSearch', function fnDescribe() {
         config: {},
         content: {},
         className: 'module-list',
-        componentType: 'ol',
+        htmlElement: 'ol',
         searchTerm: 'summer',
         intlLocale: 'en-EN',
         itemType: 'itemType'

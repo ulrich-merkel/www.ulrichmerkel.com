@@ -6,7 +6,7 @@ describe('ModuleArticle', function fnDescribe() {
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
             <ModuleArticle
-                componentType="span"
+                htmlElement="span"
                 className="module-article"
                 isMain
                 noMargin

@@ -30,7 +30,7 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 const Page: FunctionComponent<Props> = (props) => {
-    const { content, isDialog } = props;
+    const { content, isDialog = false } = props;
     const contentSection = getContentSection(content);
 
     if (isDialog) {

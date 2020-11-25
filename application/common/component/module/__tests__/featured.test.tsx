@@ -4,7 +4,7 @@ import { ModuleFeatured } from '../featured';
 
 describe('ModuleFeatured', function fnDescribe() {
     const defaultProps = {
-        componentType: 'span',
+        htmlElement: 'span',
         className: 'foo',
         content: {
             list: [

@@ -1,4 +1,8 @@
-import { FETCH_CONFIG_TRANSLATION_REQUEST, FETCH_CONFIG_CONTENT_SUCCESS, FETCH_CONFIG_TRANSLATION_SUCCESS } from './duck';
+import {
+    FETCH_CONFIG_TRANSLATION_REQUEST,
+    FETCH_CONFIG_CONTENT_SUCCESS,
+    FETCH_CONFIG_TRANSLATION_SUCCESS
+} from './duck';
 
 // export interface ContactFormType {
 //     name: string;
@@ -22,13 +26,13 @@ export interface RequestConfigTranslationActionType {
 
 export interface ReceiveConfigContentActionType {
     type: typeof FETCH_CONFIG_CONTENT_SUCCESS;
-    receivedAt: number,
+    receivedAt: number;
     data: any;
 }
 
 export interface ReceiveConfigTranslationActionType {
     type: typeof FETCH_CONFIG_TRANSLATION_SUCCESS;
-    receivedAt: number,
+    receivedAt: number;
     data: any;
     locale: string;
 }

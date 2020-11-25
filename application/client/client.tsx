@@ -30,7 +30,7 @@ import 'picturefill';
 
 import { Root } from '../common/component/root';
 import { Routes } from '../common/component/routes';
-import { configureStore } from '../common/state/configure-store';
+import { configureStore, RootState } from '../common/state/configure-store';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
 import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../common/state/color-scheme/duck';
@@ -38,6 +38,12 @@ import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../common/state/reduced-mo
 import { featureDetect } from './feature-detect/feature-detect';
 import { applyColorScheme } from './settings/apply-color-scheme';
 import { applyReducedMotion } from './settings/apply-reduced-motion';
+
+declare global {
+    interface Window {
+        __PRELOADED_STATE__: RootState;
+    }
+}
 
 const mountNode = document.getElementById(DOM_ROOT_ELEMENT_ID) as HTMLElement;
 const store = configureStore(window.__PRELOADED_STATE__); // eslint-disable-line no-underscore-dangle

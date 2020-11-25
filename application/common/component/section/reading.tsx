@@ -41,4 +41,4 @@ export const SectionReading: FunctionComponent<Props> = (props) => {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-}
+};

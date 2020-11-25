@@ -27,7 +27,12 @@ type Props = {
  * @returns {ReactElement|null} React component markup
  */
 export const Icon: FunctionComponent<Props> = (props) => {
-    const { htmlElement: HtmlElement = 'i', className, icon = '', ...otherProps } = props;
+    const {
+        htmlElement: HtmlElement = 'i',
+        className,
+        icon = '',
+        ...otherProps
+    } = props;
 
     if (!icon) {
         return null;
@@ -43,4 +48,4 @@ export const Icon: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
+};

@@ -4,7 +4,7 @@ import { ModuleCornerstone } from '../cornerstone';
 
 describe('ModuleCornerstone', function fnDescribe() {
     const defaultProps = {
-        componentType: 'span',
+        htmlElement: 'span',
         className: 'cornerstone',
         content: {
             professionalExperience: 'professionalExperience',

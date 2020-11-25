@@ -23,4 +23,4 @@ type Props = {
  */
 export const GridSection: FunctionComponent<Props> = (props) => {
     return <GridContainer className={'m-section'} {...props} />;
-}
+};

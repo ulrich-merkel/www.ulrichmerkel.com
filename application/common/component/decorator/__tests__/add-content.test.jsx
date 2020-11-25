@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { render } from '../../../../__tests__/utils/test-utils';
 import { addContent } from '../add-content';
 
@@ -13,15 +13,6 @@ describe('addContent', function fnDescribe() {
             </div>
         );
     }
-    // eslint-disable-next-line immutable/no-mutation
-    Page.propTypes = {
-        children: PropTypes.node.isRequired,
-        content: PropTypes.shape({
-            head: PropTypes.shape({
-                title: PropTypes.string
-            })
-        }).isRequired
-    };
 
     it('should render correctly with content', function fnIt() {
         const Result = addContent('PageBroadcast')(Page);

@@ -30,4 +30,4 @@ export const LayoutMain: FunctionComponent<Props> = (props) => {
             {children}
         </main>
     );
-}
+};

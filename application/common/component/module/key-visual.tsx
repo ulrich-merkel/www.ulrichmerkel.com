@@ -35,7 +35,7 @@ type Props = {
     isWork?: boolean;
     onClickBtn?: () => void;
     reducedMotionSelected?: boolean;
-}
+};
 
 /**
  * Class representing a component.
@@ -83,8 +83,7 @@ export class ModuleKeyVisual extends Component<Props> {
             content,
             htmlElement: HtmlElement = 'div',
             isCovered = false,
-            isWork = false,
-            ...otherProps
+            isWork = false
         } = this.props;
 
         if (!content.img) {
@@ -97,11 +96,7 @@ export class ModuleKeyVisual extends Component<Props> {
         );
 
         return (
-            <HtmlElement
-                className={componentClassName}
-                ref={this.keyVisual}
-                {...otherProps}
-            >
+            <HtmlElement className={componentClassName} ref={this.keyVisual}>
                 <ModuleKeyVisualPicture
                     img={content.img}
                     type={content.type}

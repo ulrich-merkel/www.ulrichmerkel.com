@@ -22,4 +22,4 @@ type Props = {
  */
 export const GridSpaced: FunctionComponent<Props> = (props) => {
     return <div className="l-grid__spaced--small" {...props} />;
-}
+};

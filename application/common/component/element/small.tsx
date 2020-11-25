@@ -13,6 +13,7 @@ type Props = {
     children?: ReactNode;
     className?: string;
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemProp?: string;
 };
 
 /**
@@ -25,12 +26,21 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Small: FunctionComponent<Props> = (props) => {
-    const { htmlElement: HtmlElement = 'small', className, ...otherProps } = props;
+    const {
+        htmlElement: HtmlElement = 'small',
+        className,
+        itemProp,
+        ...otherProps
+    } = props;
 
     const composedClassName = classnames('c-type--small', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={composedClassName} {...otherProps} />
+        <HtmlElement
+            className={composedClassName}
+            {...{ itemProp }}
+            {...otherProps}
+        />
     );
-}
+};

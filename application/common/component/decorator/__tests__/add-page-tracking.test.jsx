@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { render } from '../../../../__tests__/utils/test-utils';
 import { addPageTracking } from '../add-page-tracking';
 
@@ -12,10 +12,6 @@ describe('addPageTracking', function fnDescribe() {
             </div>
         );
     }
-    // eslint-disable-next-line immutable/no-mutation
-    Page.propTypes = {
-        children: PropTypes.node.isRequired
-    };
 
     it('should render correctly', function fnIt() {
         const Result = addPageTracking(Page);

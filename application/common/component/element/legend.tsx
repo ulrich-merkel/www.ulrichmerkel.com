@@ -35,4 +35,4 @@ export const Legend: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <legend className={composedClassName} {...otherProps} />
     );
-}
+};

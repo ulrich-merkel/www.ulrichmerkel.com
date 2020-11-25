@@ -27,7 +27,7 @@ import { Small } from '../element/small';
 type Props = {
     className: string;
     content: any;
-    handleScrollTop: (event) => void;
+    handleScrollTop: (event: React.SyntheticEvent) => void;
 };
 
 /**
@@ -96,7 +96,7 @@ export const LayoutFooter: FunctionComponent<Props> = (props) => {
             </Nav>
         </footer>
     );
-}
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

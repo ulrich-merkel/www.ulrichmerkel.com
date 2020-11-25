@@ -15,13 +15,14 @@ type Props = {
     acceptCharset?: string;
     action: string;
     children?: ReactNode;
-    className?:string;
+    className?: string;
     id: string;
     itemProp?: string;
+    itemScope?: boolean;
     itemType?: string;
     method?: string;
     onReset?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    onSubmit?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
     role?: string;
 };
 
@@ -56,6 +57,7 @@ export class Form extends Component<Props> {
             className,
             id,
             itemProp = 'potentialAction',
+            itemScope = false,
             itemType = 'http://schema.org/CommunicateAction',
             method = 'post',
             onReset = noop,
@@ -76,6 +78,7 @@ export class Form extends Component<Props> {
                     action,
                     id,
                     itemProp,
+                    itemScope,
                     itemType,
                     method,
                     role,

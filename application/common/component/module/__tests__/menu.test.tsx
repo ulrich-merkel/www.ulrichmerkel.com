@@ -4,7 +4,7 @@ import { ModuleMenu } from '../menu';
 
 describe('ModuleMenu', function fnDescribe() {
     const defaultProps = {
-        componentType: 'ol',
+        htmlElement: 'ol',
         className: 'module-menu',
         content: {
             name: 'bar',

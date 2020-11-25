@@ -19,7 +19,7 @@ type Props = {
     content: {
         headline: string;
         lead: string;
-    }
+    };
 };
 
 /**
@@ -52,7 +52,7 @@ export const LayoutLoader: FunctionComponent<Props> = (props) => {
             <div className="l-dialog__background" />
         </dialog>
     );
-}
+};
 
 /**
  * Connects a React component to a Redux store. It does not modify the

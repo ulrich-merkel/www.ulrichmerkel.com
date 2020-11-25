@@ -21,12 +21,12 @@ type Props = {
         list: {
             headline: string;
             lead: string;
-            percent: string | number;
-        }[]
+            percent: number;
+        }[];
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -72,4 +72,4 @@ export const ModuleLanguage: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};

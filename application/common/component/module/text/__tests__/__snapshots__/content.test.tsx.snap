@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleTextContent should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="has-columns--2 is-centered m-text__content"
+  >
+    <p
+      class="c-type--p"
+    >
+      Module text headline
+    </p>
+    <p
+      class="c-type--p"
+    >
+      Module text subline
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleTextContent should return null if content is empty 1`] = `<DocumentFragment />`;

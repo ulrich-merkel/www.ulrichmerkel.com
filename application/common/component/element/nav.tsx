@@ -26,7 +26,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Nav: FunctionComponent<Props> = (props) => {
-    const { htmlElement: HtmlElement = 'nav', className, role = 'navigation', ...otherProps } = props;
+    const {
+        htmlElement: HtmlElement = 'nav',
+        className,
+        role = 'navigation',
+        ...otherProps
+    } = props;
 
     const composedClassName = classnames('m-nav', className);
 
@@ -38,5 +43,4 @@ export const Nav: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
-
+};

@@ -39,4 +39,4 @@ export const Image: FunctionComponent<Props> = (props) => {
             {...otherProps}
         />
     );
-}
+};
