@@ -102,7 +102,6 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
             <Meta
                 itemProp="author"
                 content={content.author}
-                defaultContent="Ulrich Merkel"
             />
             <Meta itemProp="datePublished" content={content.datePublished} />
         </HtmlElement>

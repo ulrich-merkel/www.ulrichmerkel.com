@@ -116,8 +116,8 @@
     "watch": "npm-run-all --parallel watch:*"
   },
   "lint-staged": {
-    "application/**/*.{js,jsx,ts,tsx}": ["prettier --write && npm run test:eslint"],
-    "public/**/*.{css,scss}": ["prettier --write && npm run test:css"]
+    "application/**/*.{js,jsx,ts,tsx}": ["prettier --write", "npm run test:eslint"],
+    "public/**/*.{css,scss}": ["prettier --write", "npm run test:css"]
   },
   "husky": {
     "hooks": {

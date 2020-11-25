@@ -19,16 +19,17 @@ import { Picture } from '../../element/picture';
 import { Meta } from '../../element/meta';
 
 type Props = {
-    path: string;
-    headline: string;
-    img: {
+    path?: string;
+    headline?: string;
+    img?: {
         name: string;
         ext: '' | 'jpg' | 'png';
         path: string;
         alt: string;
         sizes: [];
     };
-    children: ReactNode;
+    lead?: string;
+    children?: ReactNode;
 };
 
 /**

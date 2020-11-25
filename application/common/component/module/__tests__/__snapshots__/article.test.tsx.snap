@@ -2,9 +2,8 @@
 
 exports[`ModuleArticle should render correctly 1`] = `
 <DocumentFragment>
-  <article
+  <span
     class="is-main has-no-margin m-article module-article"
-    componenttype="span"
     itemscope=""
     itemtype="https://schema.org/Article"
   >
@@ -41,6 +40,6 @@ exports[`ModuleArticle should render correctly 1`] = `
       content="20161212"
       itemprop="datePublished"
     />
-  </article>
+  </span>
 </DocumentFragment>
 `;

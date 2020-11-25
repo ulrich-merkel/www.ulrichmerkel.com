@@ -2,9 +2,8 @@
 
 exports[`ModuleKeyVisual should render correctly 1`] = `
 <DocumentFragment>
-  <div
+  <nav
     class="m-key-visual key-visual"
-    componenttype="nav"
   >
     <article
       class="m-key-visual__text"
@@ -42,15 +41,14 @@ exports[`ModuleKeyVisual should render correctly 1`] = `
         btnLabel
       </span>
     </button>
-  </div>
+  </nav>
 </DocumentFragment>
 `;
 
 exports[`ModuleKeyVisual should render isWork and isCovered css className 1`] = `
 <DocumentFragment>
-  <div
+  <nav
     class="m-key-visual--work key-visual"
-    componenttype="nav"
   >
     <article
       class="m-key-visual__text"
@@ -88,7 +86,7 @@ exports[`ModuleKeyVisual should render isWork and isCovered css className 1`] = 
         btnLabel
       </span>
     </button>
-  </div>
+  </nav>
 </DocumentFragment>
 `;
 

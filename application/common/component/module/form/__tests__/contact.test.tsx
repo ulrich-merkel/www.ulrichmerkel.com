@@ -4,7 +4,7 @@ import { ModuleFormContactConnected } from '../contact';
 
 describe('ModuleFormContact', function fnDescribe() {
     const defaultProps = {
-        componentType: 'nav',
+        htmlElement: 'nav',
         className: 'form-contact',
         content: {
             legend: 'legend',

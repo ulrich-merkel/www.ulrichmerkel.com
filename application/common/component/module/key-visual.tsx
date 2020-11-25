@@ -83,8 +83,7 @@ export class ModuleKeyVisual extends Component<Props> {
             content,
             htmlElement: HtmlElement = 'div',
             isCovered = false,
-            isWork = false,
-            ...otherProps
+            isWork = false
         } = this.props;
 
         if (!content.img) {
@@ -100,7 +99,6 @@ export class ModuleKeyVisual extends Component<Props> {
             <HtmlElement
                 className={componentClassName}
                 ref={this.keyVisual}
-                {...otherProps}
             >
                 <ModuleKeyVisualPicture
                     img={content.img}

@@ -16,7 +16,7 @@ import { Button } from '../../element/button';
 
 type Props = {
     label?: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent) => void;
     title?: string;
 };
 

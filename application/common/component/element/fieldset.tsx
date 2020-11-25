@@ -12,6 +12,7 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
 };
 
 /**
@@ -23,12 +24,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Fieldset: FunctionComponent<Props> = (props) => {
-    const { className, ...otherProps } = props;
+    const { className, htmlElement: HtmlElement = 'fieldset', ...otherProps } = props;
 
     const componentClassName = classnames('m-form__fieldset', className);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <fieldset className={componentClassName} {...otherProps} />
+        <HtmlElement className={componentClassName} {...otherProps} />
     );
 };

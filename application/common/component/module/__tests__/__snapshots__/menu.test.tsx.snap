@@ -2,9 +2,8 @@
 
 exports[`ModuleMenu should render correctly 1`] = `
 <DocumentFragment>
-  <ul
+  <ol
     class="m-menu m-menu--bar module-menu"
-    componenttype="ol"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="menu"
@@ -80,15 +79,14 @@ exports[`ModuleMenu should render correctly 1`] = `
       </a>
     </li>
     Module menu children
-  </ul>
+  </ol>
 </DocumentFragment>
 `;
 
 exports[`ModuleMenu should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <ul
+  <ol
     class="m-menu m-menu--bar module-menu"
-    componenttype="ol"
     role="menu"
   >
     <li
@@ -162,7 +160,7 @@ exports[`ModuleMenu should render no itemType if unset 1`] = `
       </a>
     </li>
     Module menu children
-  </ul>
+  </ol>
 </DocumentFragment>
 `;
 
