@@ -5,12 +5,7 @@ import { Toggle } from '../toggle';
 describe('Toggle', function fnDescribe() {
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <Toggle
-                checked
-                className='test'
-                id='test'
-                label='Test'
-            />
+            <Toggle checked className="test" id="test" label="Test" />
         );
         expect(asFragment()).toMatchSnapshot();
     });

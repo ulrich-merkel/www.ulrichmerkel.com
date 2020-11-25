@@ -7,7 +7,6 @@ describe('Input', function fnDescribe() {
         const { asFragment } = render(
             <Input
                 className="input"
-                classNameLabel="input-label"
                 id="input"
                 name="input"
                 placeholder="Test input placeholder"

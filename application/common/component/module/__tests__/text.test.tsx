@@ -4,7 +4,7 @@ import { ModuleText, ModuleTextConnected } from '../text';
 
 describe('ModuleText', function fnDescribe() {
     const defaultProps = {
-        componentType: 'div',
+        htmlElement: 'div',
         className: 'module-text',
         hasColumns2: false,
         itemType: 'foo',

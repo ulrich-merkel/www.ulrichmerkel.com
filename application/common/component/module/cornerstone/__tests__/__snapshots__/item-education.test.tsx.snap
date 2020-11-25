@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleCornerstoneItemEducation should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="m-cornerstone__item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EducationEvent"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="name"
+        >
+          Headline item education
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+          itemprop="alternateName"
+        >
+          <strong>
+            Lead  item education
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           - 
+          <time
+            class="c-time"
+            itemprop="endDate"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item education 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item education 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+    <div
+      hidden=""
+      itemprop="location"
+      itemscope=""
+      itemtype="https://schema.org/Place"
+    >
+      <div
+        itemprop="address"
+        itemscope=""
+        itemtype="http://schema.org/PostalAddress"
+      />
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleCornerstoneItemEducation should render cssModifier and offset if passed 1`] = `
+<DocumentFragment>
+  <li
+    class="m-cornerstone__item--education has-offset--100"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EducationEvent"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="name"
+        >
+          Headline item education
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+          itemprop="alternateName"
+        >
+          <strong>
+            Lead  item education
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           - 
+          <time
+            class="c-time"
+            itemprop="endDate"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item education 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item education 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+    <div
+      hidden=""
+      itemprop="location"
+      itemscope=""
+      itemtype="https://schema.org/Place"
+    >
+      <div
+        itemprop="address"
+        itemscope=""
+        itemtype="http://schema.org/PostalAddress"
+      />
+    </div>
+  </li>
+</DocumentFragment>
+`;

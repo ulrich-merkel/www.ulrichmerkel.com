@@ -20,16 +20,16 @@ type Props = {
     itemType?: string;
     children?: ReactNode;
     content?: {
-        name: string;
-        streetAddress: string;
-        postalCode: string;
-        locality: string;
-        email: string;
-        phone: string;
-        phoneNumbers: string;
-        website: string;
-    }
-}
+        name?: string;
+        streetAddress?: string;
+        postalCode?: string;
+        locality?: string;
+        email?: string;
+        phone?: string;
+        phoneNumbers?: string;
+        website?: string;
+    };
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -63,36 +63,41 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
 
     return (
         <HtmlElement className={componentClassName} {...componentSchema}>
-            {content.name && (
+            {content?.name && (
                 <P className="m-person__name">
                     <strong>{content.name}</strong>
                 </P>
             )}
-            {content.streetAddress && content.postalCode && content.locality && (
-                <address
-                    className="m-person__address c-type--address"
-                    itemProp="address"
-                    itemScope
-                    itemType="http://schema.org/Address"
-                >
-                    <span
-                        className="m-person__street-address"
-                        itemProp="street-address"
+            {content?.streetAddress &&
+                content?.postalCode &&
+                content?.locality && (
+                    <address
+                        className="m-person__address c-type--address"
+                        itemProp="address"
+                        itemScope
+                        itemType="http://schema.org/Address"
                     >
-                        {content.streetAddress}
-                    </span>
-                    <span
-                        className="m-person__postal-code"
-                        itemProp="postal-code"
-                    >
-                        {content.postalCode}
-                    </span>
-                    <span className="m-person__locality" itemProp="locality">
-                        {content.locality}
-                    </span>
-                </address>
-            )}
-            {content.email && (
+                        <span
+                            className="m-person__street-address"
+                            itemProp="street-address"
+                        >
+                            {content.streetAddress}
+                        </span>
+                        <span
+                            className="m-person__postal-code"
+                            itemProp="postal-code"
+                        >
+                            {content.postalCode}
+                        </span>
+                        <span
+                            className="m-person__locality"
+                            itemProp="locality"
+                        >
+                            {content.locality}
+                        </span>
+                    </address>
+                )}
+            {content?.email && (
                 <P className="m-person__email">
                     <abbr title="E-Mail address">E.</abbr>{' '}
                     <a href={`mailto:${content.email}`} itemProp="email">
@@ -100,7 +105,7 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
                     </a>
                 </P>
             )}
-            {content.phoneNumbers && content.phone && (
+            {content?.phoneNumbers && content?.phone && (
                 <P className="m-person__phone">
                     <abbr title="Phonenumber">P.</abbr>{' '}
                     <a
@@ -111,7 +116,7 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
                     </a>
                 </P>
             )}
-            {content.website && (
+            {content?.website && (
                 <P className="m-person__website">
                     <abbr title="Website">W.</abbr>{' '}
                     <a href={`${content.website}`}>{content.website}</a>
@@ -120,4 +125,4 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};

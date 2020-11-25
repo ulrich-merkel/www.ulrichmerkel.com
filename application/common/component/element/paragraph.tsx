@@ -26,6 +26,8 @@ type Props = {
     hasColumns2?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
+    itemProp?: string;
+    dangerouslySetInnerHTML?: { __html: string };
 };
 
 /**
@@ -61,4 +63,4 @@ export const P: FunctionComponent<Props> = (props) => {
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement className={componentClassName} {...otherProps} />
     );
-}
+};

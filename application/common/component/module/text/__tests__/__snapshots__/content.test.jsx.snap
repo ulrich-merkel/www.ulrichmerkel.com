@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ModuleTextContent should render correctly 1`] = `<DocumentFragment />`;
-
-exports[`ModuleTextContent should return null if content is empty 1`] = `<DocumentFragment />`;

@@ -4,7 +4,7 @@ import { ModuleLanguage } from '../language';
 
 describe('ModuleLanguage', function fnDescribe() {
     const defaultProps = {
-        componentType: 'span',
+        htmlElement: 'span',
         className: 'foo',
         content: {
             list: [

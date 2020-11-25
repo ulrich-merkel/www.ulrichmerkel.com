@@ -115,14 +115,20 @@
     "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/",
     "watch": "npm-run-all --parallel watch:*"
   },
+  "lint-staged": {
+    "application/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "npm run test:eslint"
+    ],
+    "public/**/*.{css,scss}": [
+      "prettier --write",
+      "npm run test:css"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.js": "prettier --write && npm run test:eslint",
-    "*.css": "prettier --write && npm run test:css"
   },
   "main": "application/server/bootstrap.js",
   "browser": "application/client/bootstrap.js",
@@ -175,13 +181,11 @@
     "picturefill": "3.0.3",
     "postinstall-postinstall": "2.1.0",
     "process": "0.11.10",
-    "prop-types": "15.7.2",
     "pubsub-js": "1.9.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
     "react-redux": "7.2.2",
-    "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-transition-group": "4.4.1",
     "redux": "4.0.5",
@@ -211,7 +215,6 @@
     "@types/node": "14.14.9",
     "@types/react-redux": "7.1.11",
     "@types/react-router": "5.1.8",
-    "@types/react-router-dom": "5.1.6",
     "@types/redux": "3.6.0",
     "@typescript-eslint/eslint-plugin": "4.8.1",
     "@typescript-eslint/parser": "4.8.1",

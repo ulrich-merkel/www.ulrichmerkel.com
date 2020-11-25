@@ -58,9 +58,9 @@ exports[`PageSearch should render correctly 1`] = `
                           <input
                             aria-required="true"
                             class="m-form__control--text"
-                            id="name"
+                            id="search"
                             itemprop="query-input"
-                            name="name"
+                            name="search"
                             placeholder=""
                             required=""
                             type="search"
@@ -68,7 +68,7 @@ exports[`PageSearch should render correctly 1`] = `
                           />
                           <label
                             class="m-form__label is-visually-hidden"
-                            for="name"
+                            for="search"
                           >
                             <i
                               aria-hidden="true"
@@ -157,9 +157,9 @@ exports[`PageSearch should render correctly as dialog 1`] = `
                         <input
                           aria-required="true"
                           class="m-form__control--text"
-                          id="name"
+                          id="search"
                           itemprop="query-input"
-                          name="name"
+                          name="search"
                           placeholder=""
                           required=""
                           type="search"
@@ -167,7 +167,7 @@ exports[`PageSearch should render correctly as dialog 1`] = `
                         />
                         <label
                           class="m-form__label is-visually-hidden"
-                          for="name"
+                          for="search"
                         >
                           <i
                             aria-hidden="true"

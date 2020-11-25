@@ -8,7 +8,7 @@ import { ModuleKeyVisual } from '../key-visual';
 
 describe('ModuleKeyVisual', function fnDescribe() {
     const defaultProps = {
-        componentType: 'nav',
+        htmlElement: 'nav',
         className: 'key-visual',
         content: {
             headline: 'headline',

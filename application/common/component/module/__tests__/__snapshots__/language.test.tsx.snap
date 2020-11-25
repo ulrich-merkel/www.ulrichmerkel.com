@@ -2,9 +2,8 @@
 
 exports[`ModuleLanguage should render correctly 1`] = `
 <DocumentFragment>
-  <ul
+  <span
     class="m-language foo"
-    componenttype="span"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -157,15 +156,14 @@ exports[`ModuleLanguage should render correctly 1`] = `
       </div>
     </li>
     Module language children
-  </ul>
+  </span>
 </DocumentFragment>
 `;
 
 exports[`ModuleLanguage should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <ul
+  <span
     class="m-language foo"
-    componenttype="span"
     role="list"
   >
     <li
@@ -316,7 +314,7 @@ exports[`ModuleLanguage should render no itemType if unset 1`] = `
       </div>
     </li>
     Module language children
-  </ul>
+  </span>
 </DocumentFragment>
 `;
 

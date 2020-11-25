@@ -40,4 +40,4 @@ export const SectionContact: FunctionComponent<Props> = (props) => {
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-}
+};

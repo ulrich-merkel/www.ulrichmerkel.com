@@ -37,7 +37,7 @@ type Props = {
     dialogVisible: boolean;
     content: any;
     page: string;
-}
+};
 
 /**
  * Class representing a component.
@@ -197,7 +197,7 @@ function mapDispatchToProps(dispatch) {
 /**
  * Connects a React component to a Redux store. It does not modify the
  * component class passed to it. Instead, it returns a new, connected component class.
- * 
+ *
  * @type {ReactElement}
  */
 export const LayoutDialogConnected = connect(

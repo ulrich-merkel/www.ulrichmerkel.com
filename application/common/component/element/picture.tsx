@@ -22,13 +22,13 @@ type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
     name?: string;
     path?: string;
-    pictureRef?: () => void,
+    pictureRef?: () => void;
     placeholder?: string;
     sizes?: {
         width: number;
         height: number;
         minWidth: number;
-    }[]
+    }[];
 };
 
 /**
@@ -64,7 +64,7 @@ export class Picture extends Component<Props> {
             htmlElement: HtmlElement = 'picture',
             name = '',
             path = '',
-            pictureRef = noop,
+            pictureRef,
             placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
             sizes = [],
             ...otherProps

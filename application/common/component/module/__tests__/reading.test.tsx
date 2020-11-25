@@ -4,9 +4,8 @@ import { ModuleReading } from '../reading';
 
 describe('ModuleReading', function fnDescribe() {
     const defaultProps = {
-        componentType: 'menu',
+        htmlElement: 'ol',
         className: 'foo',
-        isCentered: true,
         content: {
             list: [
                 {

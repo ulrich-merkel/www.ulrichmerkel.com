@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleTextPerson should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="m-person has-columns--2 is-centered m-text__content"
+    itemscope=""
+    itemtype="http://schema.org/Person"
+  >
+    <p
+      class="c-type--p m-person__name"
+    >
+      <strong>
+        name
+      </strong>
+    </p>
+    <address
+      class="m-person__address c-type--address"
+      itemprop="address"
+      itemscope=""
+      itemtype="http://schema.org/Address"
+    >
+      <span
+        class="m-person__street-address"
+        itemprop="street-address"
+      >
+        streetAddress
+      </span>
+      <span
+        class="m-person__postal-code"
+        itemprop="postal-code"
+      >
+        1234
+      </span>
+      <span
+        class="m-person__locality"
+        itemprop="locality"
+      >
+        locality
+      </span>
+    </address>
+    <p
+      class="c-type--p m-person__email"
+    >
+      <abbr
+        title="E-Mail address"
+      >
+        E.
+      </abbr>
+       
+      <a
+        href="mailto:test@test.com"
+        itemprop="email"
+      >
+        test@test.com
+      </a>
+    </p>
+    <p
+      class="c-type--p m-person__phone"
+    >
+      <abbr
+        title="Phonenumber"
+      >
+        P.
+      </abbr>
+       
+      <a
+        href="tel:1239182391832"
+        itemprop="telephone"
+      >
+        123 9182 391832
+      </a>
+    </p>
+    <p
+      class="c-type--p m-person__website"
+    >
+      <abbr
+        title="Website"
+      >
+        W.
+      </abbr>
+       
+      <a
+        href="www.test.de"
+      >
+        www.test.de
+      </a>
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModuleTextPerson should return null if content is empty 1`] = `<DocumentFragment />`;

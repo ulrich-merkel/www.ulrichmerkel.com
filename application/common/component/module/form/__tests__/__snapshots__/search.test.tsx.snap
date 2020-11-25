@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleFormSearch should render correctly 1`] = `
+<DocumentFragment>
+  <form
+    accept-charset="utf-8"
+    action="/search/"
+    class="m-form m-form--search"
+    id="m-form--search"
+    itemprop="potentialAction"
+    itemscope=""
+    itemtype="http://schema.org/SearchAction"
+    method="post"
+    novalidate=""
+    role="search"
+  >
+    <fieldset
+      class="m-form__fieldset"
+    >
+      <legend
+        class="m-form__legend is-visually-hidden"
+      />
+      <div
+        class="l-grid__row"
+      >
+        <div
+          class="l-grid__col--12"
+        >
+          <div
+            class="m-form__group"
+          >
+            <input
+              aria-required="true"
+              class="m-form__control--text"
+              id="search"
+              itemprop="query-input"
+              name="search"
+              placeholder=""
+              required=""
+              type="search"
+              value=""
+            />
+            <label
+              class="m-form__label is-visually-hidden"
+              for="search"
+            >
+              <i
+                aria-hidden="true"
+                class="c-font-icon--sad m-form__label__icon--error"
+              />
+              <i
+                aria-hidden="true"
+                class="c-font-icon--smile m-form__label__icon--success"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        name="_csrf"
+        type="hidden"
+        value="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+      />
+    </fieldset>
+  </form>
+</DocumentFragment>
+`;

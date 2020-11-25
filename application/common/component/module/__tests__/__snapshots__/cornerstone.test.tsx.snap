@@ -2,9 +2,8 @@
 
 exports[`ModuleCornerstone should render correctly 1`] = `
 <DocumentFragment>
-  <ol
+  <span
     class="m-cornerstone cornerstone"
-    componenttype="span"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -157,24 +156,11 @@ exports[`ModuleCornerstone should render correctly 1`] = `
         itemscope=""
         itemtype="https://schema.org/Place"
       >
-        <meta
-          itemprop="name"
-        />
         <div
           itemprop="address"
           itemscope=""
           itemtype="http://schema.org/PostalAddress"
-        >
-          <meta
-            itemprop="streetAddress"
-          />
-          <meta
-            itemprop="addressLocality"
-          />
-          <meta
-            itemprop="sameAs"
-          />
-        </div>
+        />
       </div>
     </li>
     <li
@@ -185,15 +171,14 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       />
     </li>
     Module Cornerstone Children
-  </ol>
+  </span>
 </DocumentFragment>
 `;
 
 exports[`ModuleCornerstone should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <ol
+  <span
     class="m-cornerstone cornerstone"
-    componenttype="span"
     role="list"
   >
     <li
@@ -344,24 +329,11 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
         itemscope=""
         itemtype="https://schema.org/Place"
       >
-        <meta
-          itemprop="name"
-        />
         <div
           itemprop="address"
           itemscope=""
           itemtype="http://schema.org/PostalAddress"
-        >
-          <meta
-            itemprop="streetAddress"
-          />
-          <meta
-            itemprop="addressLocality"
-          />
-          <meta
-            itemprop="sameAs"
-          />
-        </div>
+        />
       </div>
     </li>
     <li
@@ -372,7 +344,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       />
     </li>
     Module cornerstone children
-  </ol>
+  </span>
 </DocumentFragment>
 `;
 

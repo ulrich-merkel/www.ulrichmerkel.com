@@ -31,15 +31,24 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionText: FunctionComponent<Props> = (props) => {
-    const { children, content, hasColumns2, isCentered, isMain, itemType } = props;
+    const {
+        children,
+        content,
+        hasColumns2,
+        isCentered,
+        isMain,
+        itemType
+    } = props;
 
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle {...{ content, isMain }}>
-                <ModuleTextConnected {...{ content, hasColumns2, isCentered, itemType }}>
+                <ModuleTextConnected
+                    {...{ content, hasColumns2, isCentered, itemType }}
+                >
                     {children}
                 </ModuleTextConnected>
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );
-}
+};

@@ -77,4 +77,4 @@ export const PictureSource: FunctionComponent<Props> = (props) => {
             />
         </Fragment>
     );
-}
+};

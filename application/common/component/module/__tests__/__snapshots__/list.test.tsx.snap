@@ -2,7 +2,7 @@
 
 exports[`ModuleList should render correctly 1`] = `
 <DocumentFragment>
-  <ul
+  <ol
     class="m-list--broadcast module-list"
     itemscope=""
     itemtype="http://schema.org/ItemList"
@@ -74,6 +74,6 @@ exports[`ModuleList should render correctly 1`] = `
       </ul>
     </li>
     Module list children
-  </ul>
+  </ol>
 </DocumentFragment>
 `;

@@ -17,9 +17,15 @@
  * //     <span class="c-btn__label">Show Contact Page</span>
  * // </a>
  */
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import {
+    default as React,
+    FunctionComponent,
+    MouseEvent,
+    ReactNode
+} from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+import { noop } from 'lodash';
 
 type Props = {
     children?: ReactNode;
@@ -33,6 +39,9 @@ type Props = {
     isPrimary?: boolean;
     isSecondary?: boolean;
     isSmall?: boolean;
+    onClick?: (
+        event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+    ) => void;
     role?: string;
     title?: string;
     to?: string;
@@ -74,6 +83,7 @@ export const Button: FunctionComponent<Props> = (props) => {
         isPrimary = false,
         isSecondary = false,
         isSmall = false,
+        onClick = noop,
         role = 'button',
         title = '',
         to,
@@ -103,11 +113,11 @@ export const Button: FunctionComponent<Props> = (props) => {
         <HtmlElement
             className={componentClassName}
             type={htmlElementType}
-            {...{ role, title, to }}
+            {...{ onClick, role, title, to }}
             {...disabledAttr}
             {...otherProps}
         >
             <span className={componentLabelClassName}>{children}</span>
         </HtmlElement>
     );
-}
+};

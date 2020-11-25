@@ -1,4 +1,3 @@
-/* eslint-disable immutable/no-mutation */
 /**
  * Es6 module for React Component.
  * Component grid React classes are small helpers for
@@ -17,6 +16,10 @@ type Props = {
     className?: string;
     cols?: number;
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemProp?: string;
+    itemScope?: boolean;
+    itemType?: string;
+    role?: string;
 };
 
 /**
@@ -35,4 +38,4 @@ export const GridCol: FunctionComponent<Props> = (props) => {
     const composedClassName = classnames(`l-grid__col--${cols}`, className);
 
     return <ComponentType className={composedClassName} {...otherProps} />;
-}
+};

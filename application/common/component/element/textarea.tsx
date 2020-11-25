@@ -7,8 +7,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component, ReactNode } from 'react';
-import PropTypes from 'prop-types';
+import { default as React, Component } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 
@@ -16,12 +15,12 @@ type Props = {
     id: string;
     name: string;
     className?: string;
-    cols?: string;
+    cols?: number;
     onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     required?: boolean;
-    rows?: string;
+    rows?: number;
     value?: string;
 };
 
@@ -54,12 +53,12 @@ export class Textarea extends Component<Props> {
             id,
             name,
             className,
-            cols = '50',
+            cols = 50,
             onBlur = noop,
             onChange = noop,
             placeholder = '',
             required = false,
-            rows = '4',
+            rows = 4,
             value,
             ...other
         } = this.props;
@@ -96,23 +95,3 @@ export class Textarea extends Component<Props> {
         );
     }
 }
-
-/**
- * Validate props via React.PropTypes helpers.
- *
- * @static
- * @type {object}
- */
-Textarea.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    className: PropTypes.string, // eslint-disable-line react/require-default-props
-    cols: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    rows: PropTypes.string,
-    value: PropTypes.string // eslint-disable-line react/require-default-props
-};
-

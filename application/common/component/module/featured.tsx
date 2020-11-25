@@ -24,10 +24,10 @@ type Props = {
             headline: string;
             lead: string;
             img: any;
-        }[]
+        }[];
     };
     itemType?: string;
-}
+};
 
 /**
  * Function representing a component to return a single react child element.
@@ -74,4 +74,4 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
             {children}
         </HtmlElement>
     );
-}
+};
