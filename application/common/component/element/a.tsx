@@ -20,7 +20,8 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
-import { noop } from 'lodash';
+import { isEmpty, noop } from 'lodash';
+import { isValidString } from '../../utils/string';
 
 type Props = {
     activeClassName?: string;
@@ -38,6 +39,75 @@ type Props = {
     title?: string;
     to: string;
 };
+
+type GetAttributesParams = {
+    activeClassName?: string;
+    exact?: boolean;
+    strict?: boolean;
+    to?: string;
+};
+
+/**
+ * Check if rendered element should be a default a element.
+ *
+ * @private
+ * @param {string} [to] - The link target/react-router path
+ * @returns {boolean} Whether this is a default a element
+ */
+export function isLink(to?: string): boolean {
+    if (!isValidString(to)) {
+        return false;
+    }
+    return to.includes('www.') || to.includes('http');
+}
+
+/**
+ * Check if rendered element should be a react-router link.
+ *
+ * @private
+ * @param {string} [to] - The link target/react-router path
+ * @returns {boolean} Whether this is a react-router element
+ */
+export function isNavLink(to?: string): boolean {
+    if (!isValidString(to)) {
+        return false;
+    }
+    return to.startsWith('/');
+}
+
+/**
+ * Get correct attributes for link target/react-router.
+ *
+ * @private
+ * @param {object} params - Some component properties
+ * @returns {object} Attributes depending on link type
+ */
+export function getAttributes(params?: GetAttributesParams) {
+    if (isEmpty(params)) {
+        return {};
+    }
+
+    const { activeClassName, exact, strict, to } = params;
+
+    if (isLink(to)) {
+        return {
+            href: to,
+            rel: 'noopener noreferrer',
+            target: '_blank'
+        };
+    }
+
+    if (isNavLink(to)) {
+        return {
+            activeClassName,
+            exact,
+            strict,
+            to
+        };
+    }
+
+    return {};
+}
 
 /**
  * Function representing a component to return a single react child element.
@@ -72,31 +142,18 @@ export const A: FunctionComponent<Props> = (props) => {
         ...otherProps
     } = props;
 
-    const ancorAttributes = {
-        href: to
-    };
-    const componentAttributes = {
+    if (!isValidString(to)) {
+        return null;
+    }
+
+    const componentClassName = classnames('c-link', className);
+    const HtmlElement = isNavLink(to) ? NavLink : htmlElement;
+    const attributes = getAttributes({
         activeClassName,
         exact,
         strict,
         to
-    };
-    const componentClassName = classnames('c-link', className);
-
-    let HtmlElement = htmlElement,
-        attributes = ancorAttributes;
-
-    if (to.includes('www.') || to.includes('http')) {
-        attributes = Object.assign(attributes, {
-            rel: 'noopener noreferrer',
-            target: '_blank'
-        });
-    }
-
-    if (to.charAt(0) === '/') {
-        HtmlElement = NavLink;
-        attributes = componentAttributes;
-    }
+    });
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading

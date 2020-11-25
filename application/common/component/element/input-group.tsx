@@ -16,17 +16,19 @@ import { Label } from './label';
 import { Icon } from './icon';
 
 type Props = {
-    id: string;
-    name: string;
     className?: string;
+    id: string;
     isLabelVisuallyHidden?: boolean;
     isPristine?: boolean;
     isValid?: boolean;
     itemProp?: string;
     label?: string;
+    name: string;
     onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
+    required?: boolean;
+    testId?: string;
     type?: string;
     value?: string;
 };
@@ -48,6 +50,7 @@ type Props = {
  * @property {string} [props.label=''] - The current label string
  * @property {Function} [props.onBlur=Function.prototype] - The input blur handler
  * @property {Function} [props.onChange=Function.prototype] - The input change handler
+ * @property {string} [props.testId] - Id for test queries
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value=''] - The default input value
  */
@@ -69,6 +72,8 @@ export class InputGroup extends Component<Props> {
             onBlur = noop,
             onChange = noop,
             placeholder,
+            required = false,
+            testId,
             type = 'text',
             value = '',
             ...otherProps
@@ -90,17 +95,18 @@ export class InputGroup extends Component<Props> {
             // eslint-disable-next-line react/jsx-props-no-spreading
             <div className={composedGroupClassName} {...otherProps}>
                 <Input
-                    required
                     className={composedInputClassName}
                     {...{
                         id,
                         itemProp,
                         name,
-                        type,
                         onBlur,
                         onChange,
-                        value,
-                        placeholder
+                        placeholder,
+                        required,
+                        testId,
+                        type,
+                        value
                     }}
                 />
                 <Label htmlFor={id} isVisuallyHidden={isLabelVisuallyHidden}>

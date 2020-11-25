@@ -7,7 +7,7 @@ import { LayoutHtml, LayoutHtmlConnected } from '../html';
 jest.mock('../../../utils/csp');
 
 describe(' LayoutHtml', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         handleScrollTop: jest.fn(),
         content: {
             footer: 'test'
@@ -24,7 +24,7 @@ describe(' LayoutHtml', function fnDescribe() {
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
             <LayoutHtml
-                {...defaultProps}
+                {...props}
                 cssBase={''}
                 scriptBootstrap={''}
                 store={mockedStore}
@@ -35,7 +35,7 @@ describe(' LayoutHtml', function fnDescribe() {
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
             <LayoutHtmlConnected
-                {...defaultProps}
+                {...props}
                 cssBase={''}
                 scriptBootstrap={''}
                 store={mockedStore}

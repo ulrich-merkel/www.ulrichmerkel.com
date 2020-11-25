@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleMenu } from '../menu';
 
 describe('ModuleMenu', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'ol',
         className: 'module-menu',
         content: {
@@ -33,14 +33,14 @@ describe('ModuleMenu', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleMenu {...defaultProps}>Module menu children</ModuleMenu>
+            <ModuleMenu {...props}>Module menu children</ModuleMenu>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if content image is empty', function fnIt() {
         const { asFragment } = render(
             <ModuleMenu
-                {...defaultProps}
+                {...props}
                 content={{
                     list: null
                 }}
@@ -52,7 +52,7 @@ describe('ModuleMenu', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleMenu {...defaultProps} itemType={null}>
+            <ModuleMenu {...props} itemType={null}>
                 Module menu children
             </ModuleMenu>
         );

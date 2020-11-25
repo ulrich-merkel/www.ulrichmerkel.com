@@ -2,11 +2,10 @@
 
 exports[`Fieldset should render correctly 1`] = `
 <DocumentFragment>
-  <fieldset
+  <span
     class="m-form__fieldset fieldset"
-    htmlelement="span"
   >
     Fieldset Children
-  </fieldset>
+  </span>
 </DocumentFragment>
 `;

@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleFeatured } from '../featured';
 
 describe('ModuleFeatured', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'span',
         className: 'foo',
         content: {
@@ -20,16 +20,14 @@ describe('ModuleFeatured', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleFeatured {...defaultProps}>
-                Module Featured Children
-            </ModuleFeatured>
+            <ModuleFeatured {...props}>Module Featured Children</ModuleFeatured>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if no content is empty', function fnIt() {
         const { asFragment } = render(
             <ModuleFeatured
-                {...defaultProps}
+                {...props}
                 content={{
                     list: null
                 }}
@@ -41,7 +39,7 @@ describe('ModuleFeatured', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleFeatured {...defaultProps} itemType={null}>
+            <ModuleFeatured {...props} itemType={null}>
                 Module featured children
             </ModuleFeatured>
         );

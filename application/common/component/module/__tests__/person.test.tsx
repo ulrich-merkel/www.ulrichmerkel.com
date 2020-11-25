@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModulePerson } from '../person';
 
 describe('ModulePerson', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'menu',
         className: 'foo',
         isCentered: false,
@@ -21,16 +21,14 @@ describe('ModulePerson', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModulePerson {...defaultProps}>
-                Module person children
-            </ModulePerson>
+            <ModulePerson {...props}>Module person children</ModulePerson>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render just a name correctly', function fnIt() {
         const { asFragment } = render(
             <ModulePerson
-                {...defaultProps}
+                {...props}
                 content={{
                     name: 'bar'
                 }}
@@ -43,7 +41,7 @@ describe('ModulePerson', function fnDescribe() {
     it('should render just an address correctly', function fnIt() {
         const { asFragment } = render(
             <ModulePerson
-                {...defaultProps}
+                {...props}
                 content={{
                     streetAddress: 'streetAddress',
                     postalCode: 'postalCode',
@@ -58,7 +56,7 @@ describe('ModulePerson', function fnDescribe() {
     it('should render just an email correctly', function fnIt() {
         const { asFragment } = render(
             <ModulePerson
-                {...defaultProps}
+                {...props}
                 content={{
                     email: 'email'
                 }}
@@ -71,7 +69,7 @@ describe('ModulePerson', function fnDescribe() {
     it('should render just a phone number correctly', function fnIt() {
         const { asFragment } = render(
             <ModulePerson
-                {...defaultProps}
+                {...props}
                 content={{
                     phone: 'phone',
                     phoneNumber: 'phoneNumbers'
@@ -85,7 +83,7 @@ describe('ModulePerson', function fnDescribe() {
     it('should render just a website correctly', function fnIt() {
         const { asFragment } = render(
             <ModulePerson
-                {...defaultProps}
+                {...props}
                 content={{
                     website: 'website'
                 }}
@@ -97,7 +95,7 @@ describe('ModulePerson', function fnDescribe() {
     });
     it('should return null if no content is given', function fnIt() {
         const { asFragment } = render(
-            <ModulePerson {...defaultProps} content={null}>
+            <ModulePerson {...props} content={null}>
                 Module person children not rendered
             </ModulePerson>
         );
@@ -105,7 +103,7 @@ describe('ModulePerson', function fnDescribe() {
     });
     it('should render isCentered correctly', function fnIt() {
         const { asFragment } = render(
-            <ModulePerson {...defaultProps} isCentered>
+            <ModulePerson {...props} isCentered>
                 Module person children
             </ModulePerson>
         );
@@ -113,7 +111,7 @@ describe('ModulePerson', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModulePerson {...defaultProps} itemType={null}>
+            <ModulePerson {...props} itemType={null}>
                 Module person children
             </ModulePerson>
         );

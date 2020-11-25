@@ -5,7 +5,17 @@ exports[`Image should render correctly 1`] = `
   <img
     alt="foo"
     class="c-img image"
-    src="span"
+    src="/public/img/test.png"
+  />
+</DocumentFragment>
+`;
+
+exports[`Image should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <img
+    alt=""
+    class="c-img"
+    src="/public/img/test.png"
   />
 </DocumentFragment>
 `;

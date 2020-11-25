@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { LayoutFooter, LayoutFooterConnected } from '../footer';
 
 describe('LayoutFooter', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         handleScrollTop: jest.fn(),
         content: {
             footer: 'test'
@@ -13,13 +13,13 @@ describe('LayoutFooter', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <LayoutFooter {...defaultProps}>Footer Children</LayoutFooter>
+            <LayoutFooter {...props}>Footer Children</LayoutFooter>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
-            <LayoutFooterConnected {...defaultProps}>
+            <LayoutFooterConnected {...props}>
                 Footer Children
             </LayoutFooterConnected>
         );

@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleCornerstoneItemEducation } from '../item-education';
 
 describe('ModuleCornerstoneItemEducation', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         headline: 'Headline item education',
         lead: 'Lead  item education',
         timeStart: '20161212',
@@ -17,14 +17,14 @@ describe('ModuleCornerstoneItemEducation', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleCornerstoneItemEducation {...defaultProps} />
+            <ModuleCornerstoneItemEducation {...props} />
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render cssModifier and offset if passed', function fnIt() {
         const { asFragment } = render(
             <ModuleCornerstoneItemEducation
-                {...defaultProps}
+                {...props}
                 cssModifier={'education'}
                 offset={'100'}
             />

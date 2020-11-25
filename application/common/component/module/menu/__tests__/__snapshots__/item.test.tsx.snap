@@ -10,7 +10,6 @@ exports[`ModuleMenuItem should hide label if isLabelHidden is present 1`] = `
   >
     <a
       class="c-link m-menu__item"
-      href="path"
       itemprop="bar"
       role="menuitem"
       tabindex="0"
@@ -42,7 +41,6 @@ exports[`ModuleMenuItem should render correctly 1`] = `
   >
     <a
       class="c-link m-menu__item"
-      href="path"
       itemprop="bar"
       role="menuitem"
       tabindex="0"

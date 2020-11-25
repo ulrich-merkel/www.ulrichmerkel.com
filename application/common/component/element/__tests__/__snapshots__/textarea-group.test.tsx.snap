@@ -34,3 +34,33 @@ exports[`TextareaGroup should render correctly 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`TextareaGroup should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <div
+    class="m-form__group"
+  >
+    <textarea
+      class="m-form__control--textarea"
+      cols="50"
+      id="input"
+      name="input"
+      placeholder=""
+      rows="4"
+    />
+    <label
+      class="m-form__label"
+      for="input"
+    >
+      <i
+        aria-hidden="true"
+        class="c-font-icon--sad m-form__label__icon--error"
+      />
+      <i
+        aria-hidden="true"
+        class="c-font-icon--smile m-form__label__icon--success"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;

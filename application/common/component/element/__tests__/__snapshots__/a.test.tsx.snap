@@ -62,16 +62,38 @@ exports[`A should handle correct link to relative page 1`] = `
 </DocumentFragment>
 `;
 
-exports[`A should render correctly 1`] = `
+exports[`A should render correctly with defaults 1`] = `
 <DocumentFragment>
   <a
-    class="c-link link-a"
-    href="testpage"
-    lang="de"
+    class="c-link"
+    href="/persona"
     tabindex="0"
-    title="Link title"
+    title=""
   >
     Link Children
   </a>
 </DocumentFragment>
+`;
+
+exports[`A should render nothing without to 1`] = `<DocumentFragment />`;
+
+exports[`getAttributes should create attributes correctly 1`] = `Object {}`;
+
+exports[`getAttributes should create attributes correctly 2`] = `Object {}`;
+
+exports[`getAttributes should create attributes correctly 3`] = `
+Object {
+  "href": "www.foo.bar",
+  "rel": "noopener noreferrer",
+  "target": "_blank",
+}
+`;
+
+exports[`getAttributes should create attributes correctly 4`] = `
+Object {
+  "activeClassName": "test-css",
+  "exact": true,
+  "strict": true,
+  "to": "/foo",
+}
 `;

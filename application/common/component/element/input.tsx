@@ -10,16 +10,18 @@
 import { default as React, Component } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
+import { isValidString } from '../../utils/string';
 
 type Props = {
-    id: string;
-    name: string;
     className?: string;
+    id: string;
     itemProp?: string;
+    name: string;
     onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     required?: boolean;
+    testId?: string;
     type?: string;
     value?: string;
 };
@@ -39,6 +41,7 @@ type Props = {
  * @property {Function} [props.onChange=Function.prototype] - The input onChange handler
  * @property {string} [props.placeholder=''] - The input placeholder attribute
  * @property {boolean} [props.required=false] - The input required attribute
+ * @property {string} [props.testId] - Id for test queries
  * @property {string} [props.type='text'] - The input type attribute
  * @property {string} [props.value] - The input value attribute
  */
@@ -58,6 +61,7 @@ export class Input extends Component<Props> {
             onChange = noop,
             placeholder = '',
             required = false,
+            testId,
             type = 'text',
             value,
             ...other
@@ -72,6 +76,11 @@ export class Input extends Component<Props> {
             ? {
                   required: true,
                   'aria-required': true
+              }
+            : null;
+        const testIdAttr = isValidString(testId)
+            ? {
+                  'data-testid': testId
               }
             : null;
 
@@ -89,6 +98,7 @@ export class Input extends Component<Props> {
                     placeholder
                 }}
                 {...requiredAttr}
+                {...testIdAttr}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...other}
             />

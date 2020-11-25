@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getClassNamesToAdd should add class names correctly 1`] = `Array []`;
+
+exports[`getClassNamesToAdd should add class names correctly 2`] = `
+Array [
+  "dark",
+]
+`;
+
+exports[`getClassNamesToAdd should add class names correctly 3`] = `
+Array [
+  "color-scheme-dark",
+  "color-scheme-light",
+]
+`;

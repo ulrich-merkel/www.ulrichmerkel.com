@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 import {
     MOTION_PREFERENCES,
     toggleReducedMotionSelected,
@@ -9,19 +8,19 @@ import {
     reducerReducedMotion
 } from '../duck';
 
-describe('toggleReducedMotionSelected', function () {
-    it(`should have a type of ${REDUCED_MOTION_TOGGLE_SELECTED}`, function () {
+describe('toggleReducedMotionSelected', function fnDescribe() {
+    it(`should have a type of ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
         expect(toggleReducedMotionSelected().type).toEqual(
             REDUCED_MOTION_TOGGLE_SELECTED
         );
     });
 });
 
-describe('reducer', function () {
-    it('should return the initial state', function () {
+describe('reducer', function fnDescribe() {
+    it('should return the initial state', function fnIt() {
         expect(reducer(undefined, {})).toEqual(initialState);
     });
-    it(`should react to an action with the type ${REDUCED_MOTION_TOGGLE_SELECTED}`, function () {
+    it(`should react to an action with the type ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: REDUCED_MOTION_TOGGLE_SELECTED,
@@ -29,7 +28,7 @@ describe('reducer', function () {
             })
         ).toMatchSnapshot();
     });
-    it('should return the current state if payload is empty', function () {
+    it('should return the current state if payload is empty', function fnIt() {
         expect(
             reducer(initialState, {
                 type: REDUCED_MOTION_TOGGLE_SELECTED
@@ -38,8 +37,8 @@ describe('reducer', function () {
     });
 });
 
-describe('reducerReducedMotion', function () {
-    it(`should have a key of ${REDUCED_MOTION_RESOURCE_NAME}`, function () {
+describe('reducerReducedMotion', function fnDescribe() {
+    it(`should have a key of ${REDUCED_MOTION_RESOURCE_NAME}`, function fnIt() {
         expect(reducerReducedMotion).toEqual(
             expect.objectContaining({
                 [REDUCED_MOTION_RESOURCE_NAME]: reducer

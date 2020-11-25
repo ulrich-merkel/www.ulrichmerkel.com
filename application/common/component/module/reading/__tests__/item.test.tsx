@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleReadingItem } from '../item';
 
 describe('ModuleReadingItem', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         headline: 'Headline reading',
         lead: 'Lead reading',
         creator: 'Creator',
@@ -11,7 +11,7 @@ describe('ModuleReadingItem', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(<ModuleReadingItem {...defaultProps} />);
+        const { asFragment } = render(<ModuleReadingItem {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

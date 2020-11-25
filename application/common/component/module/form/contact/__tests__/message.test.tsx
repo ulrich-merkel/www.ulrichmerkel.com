@@ -3,7 +3,7 @@ import { render } from '../../../../../../__tests__/utils/test-utils';
 import { ModuleFormContactMessage } from '../message';
 
 describe('ModuleFormContactMessage', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         btnLabel: 'click',
         btnTitle: 'title',
         headline: 'headline',
@@ -13,9 +13,7 @@ describe('ModuleFormContactMessage', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(
-            <ModuleFormContactMessage {...defaultProps} />
-        );
+        const { asFragment } = render(<ModuleFormContactMessage {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

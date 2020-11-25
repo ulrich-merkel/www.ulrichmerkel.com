@@ -3,7 +3,7 @@ import { render } from '../../../../../__tests__/utils/test-utils';
 import { ModuleTextPerson } from '../person';
 
 describe('ModuleTextPerson', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         content: {
             name: 'name',
             streetAddress: 'streetAddress',
@@ -19,12 +19,12 @@ describe('ModuleTextPerson', function fnDescribe() {
     };
 
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(<ModuleTextPerson {...defaultProps} />);
+        const { asFragment } = render(<ModuleTextPerson {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if content is empty', function fnIt() {
         const { asFragment } = render(
-            <ModuleTextPerson {...defaultProps} content={null} />
+            <ModuleTextPerson {...props} content={null} />
         );
         expect(asFragment()).toMatchSnapshot();
     });

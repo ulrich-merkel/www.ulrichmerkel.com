@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleService } from '../service';
 
 describe('ModuleService', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'nav',
         className: 'foo',
         content: {
@@ -29,16 +29,14 @@ describe('ModuleService', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleService {...defaultProps}>
-                Module service children
-            </ModuleService>
+            <ModuleService {...props}>Module service children</ModuleService>
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if no content is given', function fnIt() {
         const { asFragment } = render(
             <ModuleService
-                {...defaultProps}
+                {...props}
                 content={{
                     list: null
                 }}
@@ -50,7 +48,7 @@ describe('ModuleService', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleService {...defaultProps} itemType={null}>
+            <ModuleService {...props} itemType={null}>
                 Module service children
             </ModuleService>
         );

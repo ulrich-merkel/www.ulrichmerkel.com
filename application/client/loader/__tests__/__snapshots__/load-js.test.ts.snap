@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loadJs should add js files correctly 1`] = `<body />`;
+
+exports[`loadJs should be fail safe 1`] = `<body />`;

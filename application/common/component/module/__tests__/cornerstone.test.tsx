@@ -3,7 +3,7 @@ import { render } from '../../../../__tests__/utils/test-utils';
 import { ModuleCornerstone } from '../cornerstone';
 
 describe('ModuleCornerstone', function fnDescribe() {
-    const defaultProps = {
+    const props = {
         htmlElement: 'span',
         className: 'cornerstone',
         content: {
@@ -33,7 +33,7 @@ describe('ModuleCornerstone', function fnDescribe() {
 
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
-            <ModuleCornerstone {...defaultProps}>
+            <ModuleCornerstone {...props}>
                 Module Cornerstone Children
             </ModuleCornerstone>
         );
@@ -41,7 +41,7 @@ describe('ModuleCornerstone', function fnDescribe() {
     });
     it('should return null if no content is empty', function fnIt() {
         const { asFragment } = render(
-            <ModuleCornerstone {...defaultProps} content={null}>
+            <ModuleCornerstone {...props} content={null}>
                 Module cornerstone children not rendered
             </ModuleCornerstone>
         );
@@ -49,7 +49,7 @@ describe('ModuleCornerstone', function fnDescribe() {
     });
     it('should render no itemType if unset', function fnIt() {
         const { asFragment } = render(
-            <ModuleCornerstone {...defaultProps} itemType={null}>
+            <ModuleCornerstone {...props} itemType={null}>
                 Module cornerstone children
             </ModuleCornerstone>
         );
