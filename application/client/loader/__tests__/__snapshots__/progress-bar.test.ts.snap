@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displayAllLoaded should display progress correctly 1`] = `undefined`;
+
+exports[`displayProgress should display progress correctly 1`] = `undefined`;
+
+exports[`displayZeroLoaded should display progress correctly 1`] = `undefined`;

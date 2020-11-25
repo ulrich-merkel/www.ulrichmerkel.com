@@ -8,11 +8,15 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { configApplication } from '../common/config/application';
-import './loader/offline';
-import { css, js } from './loader/async';
+import { loadOffline } from './loader/load-offline';
+import { loadJs } from './loader/load-js';
+import { loadCss } from './loader/load-css';
 import { displayAllLoaded } from './loader/progress-bar';
 
-// Register the service worker if available
+// Init application cache if necessary.
+loadOffline();
+
+// Register the service worker if available.
 if (configApplication.serviceWorker.use && navigator.serviceWorker) {
     navigator.serviceWorker
         .register('/service-worker.bundle.js')
@@ -36,10 +40,10 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
         });
 }
 
-// Load assets async to improve performance
-css({
+// Load css and js assets async to improve performance.
+loadCss({
     src: '/css/app.css'
 });
-js({
+loadJs({
     src: '/js/client.bundle.js'
 });

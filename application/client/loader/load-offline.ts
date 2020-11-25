@@ -1,24 +1,13 @@
 /**
- * Es6 module for handling initial file loading.
+ * Es6 module for handling initial offline file loading.
  *
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.3
- *
- * @requires common/config/application
- * @requires common/utils/logger
- * @requires common/utils/environment
- * @requires client/loader/progress-bar
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
  * @see {@link http://www.bennadel.com/blog/2029-using-html5-offline-application-cache-events-in-javascript.htm}
  * @see {@link http://www.html5rocks.com/de/tutorials/appcache/beginner/}
- *
- * @changelog
- * - 0.0.3 Move progress bar helpers to own file
- * - 0.0.2 Improve code style
- * - 0.0.1 Basic functions and structure
  */
 import { debug } from '../../common/config/application';
 import { logger } from '../../common/utils/logger';
@@ -30,12 +19,12 @@ import {
 } from './progress-bar';
 
 /**
- * Get application cache api.
+ * Get application cache api if available.
  *
  * @private
  * @returns {object|null} The api if available
  */
-function getApi() {
+export function getApi() {
     return (isBrowser() && window.applicationCache) || null;
 }
 
@@ -43,28 +32,29 @@ function getApi() {
  * Handle application cache progress event.
  *
  * @private
- * @param {object} e - The event object
+ * @param {object} [event] - The event object
  * @returns {void}
  */
-function onProgressEvent(e) {
-    if (e && e.lengthComputable) {
-        displayProgress(Math.round((100 * e.loaded) / e.total));
+export function onProgressEvent(event?: ProgressEvent): void {
+    if (event && event.lengthComputable) {
+        const progress = String(Math.round((100 * event.loaded) / event.total));
+        displayProgress(progress);
         return;
     }
 
-    displayProgress(0);
+    displayProgress('0');
 }
 
 /**
- * Handle application cache update ready event.
+ * Handle application cache update ready event. Avoid errors in browsers
+ * that are not capable of swapCache.
  *
  * @private
  * @returns {void}
  */
-function onUpdateReadyEvent() {
+export function onUpdateReadyEvent(): void {
     const appCache = getApi();
 
-    // Avoid errors in browsers that are not capable of swapCache
     try {
         appCache.swapCache();
     } catch (ignore) {
@@ -73,18 +63,15 @@ function onUpdateReadyEvent() {
         }
     }
 
-    // @TODO Find growl solution to notify for updates
-    // if (confirm('New version available - reload page?')) {
-    // window.location.reload(true);
-    // }
+    window.location.reload(true);
 }
 
 /**
- * Init application cache events, main function.
+ * Init application cache events.
  *
  * @returns {void}
  */
-const main = (function iife() {
+export function loadOffline() {
     const appCache = getApi();
     if (!appCache) {
         return;
@@ -142,6 +129,4 @@ const main = (function iife() {
         default:
             break;
     }
-})();
-
-export default main;
+}

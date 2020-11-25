@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loadCss should add css files correctly 1`] = `undefined`;
+
+exports[`loadCss should add css files correctly 2`] = `undefined`;
+
+exports[`loadCss should add css files correctly 3`] = `undefined`;

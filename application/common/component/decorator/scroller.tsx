@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { throttle } from 'lodash';
 
-import { hasPassiveEventListeners } from '../../../client/feature-detect/passive-event-listeners';
+import { hasPassiveEventListeners } from '../../../client/feature-detect/has-passive-event-listeners';
 import {
     changeScrollHeaderFixed,
     changeScrollHeaderVisible

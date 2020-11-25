@@ -5,13 +5,7 @@
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @requires client/utils/dom
- *
- * @changelog
- * - 0.0.1 Basic functions and structure
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { setDomNodeAttribute, setDomNodeClassName } from '../utils/dom';
 
@@ -30,14 +24,14 @@ const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(
 /**
  * Set progress bar values.
  *
- * @param {number} value - The progress value to be set
+ * @param {string} value - The (number as string!) progress value to be set
  * @returns {void}
  */
-function displayProgress(value) {
-    setDomNodeAttribute('m-progress', 'value', value);
+export function displayProgress(progress: string): void {
+    setDomNodeAttribute('m-progress', 'value', progress);
     setDomNodeClassName(
         'm-progress__fallback',
-        [`has-width--${Math.round(value / 10) * 10}`],
+        [`has-width--${Math.round(Number.parseInt(progress) / 10) * 10}`],
         hasWidthClasses
     );
 }
@@ -47,8 +41,8 @@ function displayProgress(value) {
  *
  * @returns {void}
  */
-function displayZeroLoaded() {
-    displayProgress(0);
+export function displayZeroLoaded(): void {
+    displayProgress('0');
 }
 
 /**
@@ -56,8 +50,6 @@ function displayZeroLoaded() {
  *
  * @returns {void}
  */
-function displayAllLoaded() {
-    displayProgress(100);
+export function displayAllLoaded(): void {
+    displayProgress('100');
 }
-
-export { displayProgress, displayZeroLoaded, displayAllLoaded };

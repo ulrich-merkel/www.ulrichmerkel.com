@@ -1,17 +1,9 @@
 /**
- * Es6 module for handling constants for initial file loading.
+ * Es6 module for constant definitions.
  *
  * @file
  * @module
  *
- * @author hello@ulrichmerkel.com (Ulrich Merkel), 2016
- * @version 0.0.1
- *
- * @changelog
- * - 0.0.1
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-const constants = {
-    IS_LAZY_LOADED: 'is-lazy-loaded'
-};
-
-export default constants;
+export const CLASSNAME_IS_LAZY_LOADED: 'is-lazy-loaded';

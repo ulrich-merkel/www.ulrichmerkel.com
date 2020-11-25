@@ -1,10 +1,10 @@
 /* eslint-disable lodash/prefer-constant */
 import { featureDetect } from '../feature-detect';
-import { hasCssCustomProperties } from '../css-custom-properties';
-import { hasTouchEvents } from '../touch-events';
+import { hasCssCustomProperties } from '../has-css-custom-properties';
+import { hasTouchEvents } from '../has-touch-events';
 
-jest.mock('../css-custom-properties');
-jest.mock('../touch-events');
+jest.mock('../has-css-custom-properties');
+jest.mock('../has-touch-events');
 
 const globalWindow = global.window;
 

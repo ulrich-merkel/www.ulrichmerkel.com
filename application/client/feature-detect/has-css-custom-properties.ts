@@ -6,7 +6,6 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { isFunction } from 'lodash';
 import { isBrowser } from '../../common/utils/environment';
 
 /**
@@ -24,7 +23,7 @@ export function hasCssCustomProperties(): boolean {
     }
 
     const color = 'rgb(255, 198, 0)';
-    var testElement = document.createElement('span');
+    const testElement = document.createElement('span');
 
     testElement.style.setProperty('--color', color);
     testElement.style.setProperty('background', 'var(--color)');

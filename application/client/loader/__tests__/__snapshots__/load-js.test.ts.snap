@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loadJs should add js files correctly 1`] = `undefined`;
+
+exports[`loadJs should add js files correctly 2`] = `undefined`;
+
+exports[`loadJs should add js files correctly 3`] = `
+<script
+  async="true"
+  classname="test-js"
+  id="test-js"
+  src="/js/test.js"
+/>
+`;
