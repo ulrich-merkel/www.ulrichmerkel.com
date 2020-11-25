@@ -20,7 +20,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html progress element.
  *
  * @function
  * @param {object} [props] - The current component props

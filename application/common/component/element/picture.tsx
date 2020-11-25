@@ -12,6 +12,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 import { noop } from 'lodash';
 
+import { isValidArray } from '../../utils/array';
 import { PictureSource } from './picture-source';
 
 type Props = {
@@ -32,7 +33,7 @@ type Props = {
 };
 
 /**
- * Class representing a component to return a single react child element.
+ * Class representing a html picture element.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
@@ -64,7 +65,7 @@ export class Picture extends Component<Props> {
             htmlElement: HtmlElement = 'picture',
             name = '',
             path = '',
-            pictureRef,
+            pictureRef = noop,
             placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
             sizes = [],
             ...otherProps
@@ -85,8 +86,8 @@ export class Picture extends Component<Props> {
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             >
-                {sizes &&
-                    sizes.map((value) => {
+                {isValidArray(sizes) &&
+                    sizes.map(function (value) {
                         const { height, minWidth, width } = value;
 
                         return (

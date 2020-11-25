@@ -10,7 +10,9 @@
 import { default as React, Component } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
-import { isValidString } from '../../utils/string';
+
+import { getRequiredAttributes } from '../utils/required';
+import { getTestIdAttributes } from '../utils/test-id';
 
 type Props = {
     className?: string;
@@ -27,7 +29,7 @@ type Props = {
 };
 
 /**
- * Class representing a component to return a single react child element.
+ * Class representing a form input element.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
@@ -71,18 +73,8 @@ export class Input extends Component<Props> {
             'm-form__control--text',
             className
         );
-
-        const requiredAttr = required
-            ? {
-                  required: true,
-                  'aria-required': true
-              }
-            : null;
-        const testIdAttr = isValidString(testId)
-            ? {
-                  'data-testid': testId
-              }
-            : null;
+        const requiredAttributes = getRequiredAttributes(required);
+        const testIdAttributes = getTestIdAttributes(testId);
 
         return (
             <input
@@ -97,8 +89,8 @@ export class Input extends Component<Props> {
                     onChange,
                     placeholder
                 }}
-                {...requiredAttr}
-                {...testIdAttr}
+                {...requiredAttributes}
+                {...testIdAttributes}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...other}
             />

@@ -24,6 +24,28 @@ type JsOptions = {
 };
 
 /**
+ * 'script's that are dynamically created and added to the document are async by default,
+ * they don’t block rendering and execute as soon as they download.
+ * We set this value here just to be sure it's async, but it's normally not neccesary.
+ *
+ * @param {object} options - The loading options
+ * @returns {object} The generated script element
+ */
+export function createScriptElement(options: JsOptions): HTMLScriptElement {
+    const { className, id } = options;
+
+    return createDomNode('script', {
+        async: 'true',
+        className: []
+            .concat(CLASSNAME_IS_LAZY_LOADED, className)
+            .filter(Boolean)
+            .join(' '),
+        id,
+        src: ''
+    });
+}
+
+/**
  * Append javascript files async.
  *
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
@@ -40,7 +62,7 @@ export function loadJs(options: JsOptions, callback = noop) {
         return;
     }
 
-    const { className, id, src } = options;
+    const { src } = options;
     const headDomNode = getHeadDomNode();
     const refDomNode = getFirstDomNodeByTagName('script');
 
@@ -48,20 +70,7 @@ export function loadJs(options: JsOptions, callback = noop) {
         return callFn(callback, false);
     }
 
-    /**
-     * 'script's that are dynamically created and added to the document are async by default,
-     * they don’t block rendering and execute as soon as they download.
-     * We set this value here just to be sure it's async, but it's normally not neccesary.
-     */
-    const scriptDomNode = createDomNode('script', {
-        async: 'true',
-        className: []
-            .concat(CLASSNAME_IS_LAZY_LOADED, className)
-            .filter(Boolean)
-            .join(' '),
-        id,
-        src: ''
-    });
+    const scriptDomNode = createScriptElement(options);
     if (!scriptDomNode) {
         return callFn(callback, false);
     }
@@ -95,7 +104,8 @@ export function loadJs(options: JsOptions, callback = noop) {
 
     // Append script to according dom node.
     if (refDomNode) {
-        return refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
+        refDomNode.parentNode.insertBefore(scriptDomNode, refDomNode);
+    } else {
+        headDomNode.appendChild(scriptDomNode);
     }
-    return headDomNode.appendChild(scriptDomNode);
 }

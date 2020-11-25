@@ -30,7 +30,7 @@ type Props = {
 };
 
 /**
- * Class representing a component.
+ * Class representing a textarea group component.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.

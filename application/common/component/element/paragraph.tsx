@@ -23,15 +23,15 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
+    dangerouslySetInnerHTML?: { __html: string };
     hasColumns2?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
     itemProp?: string;
-    dangerouslySetInnerHTML?: { __html: string };
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html p tag element.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -47,6 +47,8 @@ export const P: FunctionComponent<Props> = (props) => {
         hasColumns2 = false,
         htmlElement: HtmlElement = 'p',
         isCentered = false,
+        dangerouslySetInnerHTML,
+        itemProp,
         ...otherProps
     } = props;
 
@@ -61,6 +63,13 @@ export const P: FunctionComponent<Props> = (props) => {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={componentClassName} {...otherProps} />
+        <HtmlElement
+            className={componentClassName}
+            {...{
+                dangerouslySetInnerHTML,
+                itemProp
+            }}
+            {...otherProps}
+        />
     );
 };

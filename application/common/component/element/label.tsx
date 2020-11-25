@@ -11,13 +11,13 @@ import classnames from 'classnames';
 
 type Props = {
     children?: ReactNode;
-    htmlFor: string;
     className?: string;
+    htmlFor: string;
     isVisuallyHidden?: boolean;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html form label element.
  *
  * @function
  * @param {object} [props] - The current component props

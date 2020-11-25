@@ -10,7 +10,9 @@
 import { default as React, Component } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
-import { isValidString } from '../../utils/string';
+
+import { getRequiredAttributes } from '../utils/required';
+import { getTestIdAttributes } from '../utils/test-id';
 
 type Props = {
     className?: string;
@@ -27,7 +29,7 @@ type Props = {
 };
 
 /**
- * Class representing a component.
+ * Class representing a html input element.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
@@ -70,18 +72,8 @@ export class Textarea extends Component<Props> {
             'm-form__control--textarea',
             className
         );
-
-        const requiredAttributes = required
-            ? {
-                  required: true,
-                  'aria-required': true
-              }
-            : null;
-        const testIdAttr = isValidString(testId)
-            ? {
-                  'data-testid': testId
-              }
-            : null;
+        const requiredAttributes = getRequiredAttributes(required);
+        const testIdAttributes = getTestIdAttributes(testId);
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
@@ -98,7 +90,7 @@ export class Textarea extends Component<Props> {
                     value
                 }}
                 {...requiredAttributes}
-                {...testIdAttr}
+                {...testIdAttributes}
                 {...other}
             />
         );
