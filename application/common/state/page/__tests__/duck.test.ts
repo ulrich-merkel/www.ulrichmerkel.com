@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 import {
     addPageView,
     initialState,
@@ -8,17 +7,17 @@ import {
     reducerPage
 } from '../duck';
 
-describe('addPageView', function () {
-    it(`should have a type of ${PAGE_INCREASE_VIEWS}`, function () {
+describe('addPageView', function fnDescribe() {
+    it(`should have a type of ${PAGE_INCREASE_VIEWS}`, function fnIt() {
         expect(addPageView().type).toEqual(PAGE_INCREASE_VIEWS);
     });
 });
 
-describe('reducer', function () {
-    it('should return the initial state', function () {
+describe('reducer', function fnDescribe() {
+    it('should return the initial state', function fnIt() {
         expect(reducer(undefined, {})).toEqual(initialState);
     });
-    it(`should react to an action with the type ${PAGE_INCREASE_VIEWS}`, function () {
+    it(`should react to an action with the type ${PAGE_INCREASE_VIEWS}`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: PAGE_INCREASE_VIEWS
@@ -27,8 +26,8 @@ describe('reducer', function () {
     });
 });
 
-describe('reducerPage', function () {
-    it(`should have a key of ${PAGE_RESOURCE_NAME}`, function () {
+describe('reducerPage', function fnDescribe() {
+    it(`should have a key of ${PAGE_RESOURCE_NAME}`, function fnIt() {
         expect(reducerPage).toEqual(
             expect.objectContaining({
                 [PAGE_RESOURCE_NAME]: reducer

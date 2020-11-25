@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 import {
     AVAILABLE_LOCALES,
     changeIntlLocale,
@@ -10,21 +9,21 @@ import {
     reducerIntl
 } from '../duck';
 
-describe('changeIntlLocale', function () {
-    it(`should have a type of ${INTL_CHANGE_LOCALE}`, function () {
+describe('changeIntlLocale', function fnDescribe() {
+    it(`should have a type of ${INTL_CHANGE_LOCALE}`, function fnIt() {
         expect(changeIntlLocale().type).toEqual(INTL_CHANGE_LOCALE);
     });
-    it('should pass on the locale value we pass in', function () {
+    it('should pass on the locale value we pass in', function fnIt() {
         const locale = INTL_LOCALE_DE_DE;
         expect(changeIntlLocale(locale).locale).toEqual(locale);
     });
 });
 
-describe('reducer', function () {
-    it('should return the initial state', function () {
+describe('reducer', function fnDescribe() {
+    it('should return the initial state', function fnIt() {
         expect(reducer(undefined, {})).toEqual(initialState);
     });
-    it(`should react to an action with the type ${INTL_CHANGE_LOCALE}`, function () {
+    it(`should react to an action with the type ${INTL_CHANGE_LOCALE}`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: INTL_CHANGE_LOCALE,
@@ -32,7 +31,7 @@ describe('reducer', function () {
             })
         ).toMatchSnapshot();
     });
-    it(`should not react to an action with the type ${INTL_CHANGE_LOCALE} and unknown locale`, function () {
+    it(`should not react to an action with the type ${INTL_CHANGE_LOCALE} and unknown locale`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: INTL_CHANGE_LOCALE,
@@ -40,7 +39,7 @@ describe('reducer', function () {
             })
         ).toMatchSnapshot();
     });
-    it(`should react to an action with the type ${INTL_CHANGE_LOCALE}, unknown locale and fallback`, function () {
+    it(`should react to an action with the type ${INTL_CHANGE_LOCALE}, unknown locale and fallback`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: INTL_CHANGE_LOCALE,
@@ -49,7 +48,7 @@ describe('reducer', function () {
             })
         ).toMatchSnapshot();
     });
-    it('should return the current state if payload is empty', function () {
+    it('should return the current state if payload is empty', function fnIt() {
         expect(
             reducer(initialState, {
                 type: INTL_CHANGE_LOCALE
@@ -58,8 +57,8 @@ describe('reducer', function () {
     });
 });
 
-describe('reducerIntl', function () {
-    it(`should have a key of ${INTL_RESOURCE_NAME}`, function () {
+describe('reducerIntl', function fnDescribe() {
+    it(`should have a key of ${INTL_RESOURCE_NAME}`, function fnIt() {
         expect(reducerIntl).toEqual(
             expect.objectContaining({
                 [INTL_RESOURCE_NAME]: reducer

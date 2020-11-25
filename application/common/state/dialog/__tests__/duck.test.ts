@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 import {
     changeDialogVisible,
     changeDialogVisibleBroadcast,
@@ -14,72 +13,72 @@ import {
     reducerDialog
 } from '../duck';
 
-describe('changeDialogVisible', function () {
-    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function () {
+describe('changeDialogVisible', function fnDescribe() {
+    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(changeDialogVisible(true).type).toEqual(DIALOG_VISIBLE_CHANGE);
     });
-    it('should pass on the visible value we pass in', function () {
+    it('should pass on the visible value we pass in', function fnIt() {
         const visible = true;
         expect(changeDialogVisible(visible).visible).toEqual(visible);
     });
 });
 
-describe('changeDialogVisibleBroadcast', function () {
-    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function () {
+describe('changeDialogVisibleBroadcast', function fnDescribe() {
+    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(changeDialogVisibleBroadcast(true).type).toEqual(
             DIALOG_VISIBLE_CHANGE
         );
     });
-    it(`should have a page of ${DIALOG_CONTENT_BROADCAST}`, function () {
+    it(`should have a page of ${DIALOG_CONTENT_BROADCAST}`, function fnIt() {
         expect(changeDialogVisibleBroadcast(true).content).toEqual(
             DIALOG_CONTENT_BROADCAST
         );
     });
-    it('should pass on the visible value we pass in', function () {
+    it('should pass on the visible value we pass in', function fnIt() {
         const visible = true;
         expect(changeDialogVisibleBroadcast(visible).visible).toEqual(visible);
     });
 });
 
-describe('changeDialogVisibleSearch', function () {
-    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function () {
+describe('changeDialogVisibleSearch', function fnDescribe() {
+    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(changeDialogVisibleSearch(true).type).toEqual(
             DIALOG_VISIBLE_CHANGE
         );
     });
-    it(`should have a page of ${DIALOG_CONTENT_SEARCH}`, function () {
+    it(`should have a page of ${DIALOG_CONTENT_SEARCH}`, function fnIt() {
         expect(changeDialogVisibleSearch(true).content).toEqual(
             DIALOG_CONTENT_SEARCH
         );
     });
-    it('should pass on the visible value we pass in', function () {
+    it('should pass on the visible value we pass in', function fnIt() {
         const visible = true;
         expect(changeDialogVisibleSearch(visible).visible).toEqual(visible);
     });
 });
 
-describe('changeDialogVisibleTheme', function () {
-    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function () {
+describe('changeDialogVisibleTheme', function fnDescribe() {
+    it(`should have a type of ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(changeDialogVisibleTheme(true).type).toEqual(
             DIALOG_VISIBLE_CHANGE
         );
     });
-    it(`should have a page of ${DIALOG_CONTENT_THEME}`, function () {
+    it(`should have a page of ${DIALOG_CONTENT_THEME}`, function fnIt() {
         expect(changeDialogVisibleTheme(true).content).toEqual(
             DIALOG_CONTENT_THEME
         );
     });
-    it('should pass on the visible value we pass in', function () {
+    it('should pass on the visible value we pass in', function fnIt() {
         const visible = true;
         expect(changeDialogVisibleTheme(visible).visible).toEqual(visible);
     });
 });
 
-describe('reducer', function () {
-    it('should return the initial state', function () {
+describe('reducer', function fnDescribe() {
+    it('should return the initial state', function fnIt() {
         expect(reducer(undefined, {})).toEqual(initialState);
     });
-    it(`should react to an action with the type ${DIALOG_VISIBLE_CHANGE}`, function () {
+    it(`should react to an action with the type ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(
             reducer(undefined, {
                 type: DIALOG_VISIBLE_CHANGE
@@ -95,8 +94,8 @@ describe('reducer', function () {
     });
 });
 
-describe('reducerDialog', function () {
-    it(`should have a key of ${DIALOG_RESOURCE_NAME}`, function () {
+describe('reducerDialog', function fnDescribe() {
+    it(`should have a key of ${DIALOG_RESOURCE_NAME}`, function fnIt() {
         expect(reducerDialog).toEqual(
             expect.objectContaining({
                 [DIALOG_RESOURCE_NAME]: reducer

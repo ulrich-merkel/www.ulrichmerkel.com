@@ -1,9 +1,8 @@
-/* eslint-disable func-names */
 import * as React from 'react';
 import { render } from '../../../../__tests__/utils/test-utils';
 import { PageSearch } from '../search';
 
-describe('PageSearch', function () {
+describe('PageSearch', function fnDescribe() {
     const props = {
         content: {
             head: {},
@@ -12,13 +11,13 @@ describe('PageSearch', function () {
         }
     };
 
-    it('should render correctly', function () {
+    it('should render correctly', function fnIt() {
         const { asFragment } = render(
             <PageSearch {...props}>Page search children</PageSearch>
         );
         expect(asFragment()).toMatchSnapshot();
     });
-    it('should render correctly as dialog', function () {
+    it('should render correctly as dialog', function fnIt() {
         const { asFragment } = render(
             <PageSearch {...props} isDialog>
                 Page search children as dialog
