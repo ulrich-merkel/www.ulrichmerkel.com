@@ -12,13 +12,13 @@ import { default as React, Fragment, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 type Props = {
+    className?: string;
     ext: 'jpg' | 'png' | '';
+    height: number;
+    minWidth: number;
     name: string;
     path: string;
     width: number;
-    height: number;
-    minWidth: number;
-    className?: string;
 };
 
 /**
@@ -28,7 +28,7 @@ type Props = {
  * @param {string} ext - The file extension
  * @returns {string} The source element's type description
  */
-function getType(ext: string) {
+export function getType(ext: string) {
     switch (ext) {
         case 'jpg':
             return 'image/jpeg';
@@ -38,16 +38,16 @@ function getType(ext: string) {
 }
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a source element to used in html pictures.
  *
  * @function
  * @param {object} props - The current component props
  * @param {string} props.ext - The image extension (jpg, png)
  * @param {string} props.name - The image name
  * @param {string} props.path - The image path (folder)
- * @param {string|number} props.width - The image width (for dynamically creating names)
- * @param {string|number} props.height - The image height (for dynamically creating names)
- * @param {string|number} props.minWidth - The mediaquery min-width value
+ * @param {number} props.width - The image width (for dynamically creating names)
+ * @param {number} props.height - The image height (for dynamically creating names)
+ * @param {number} props.minWidth - The mediaquery min-width value
  * @param {string} [props.className] - The component css class names, will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
@@ -55,7 +55,6 @@ export const PictureSource: FunctionComponent<Props> = (props) => {
     const { className, ext, height, minWidth, name, path, width } = props;
 
     const composedClassName = classnames('c-picture__source', className);
-
     const srcSet = `${path}${name}@${width}x${height}`;
     const media = `(min-width: ${minWidth}px)`;
 

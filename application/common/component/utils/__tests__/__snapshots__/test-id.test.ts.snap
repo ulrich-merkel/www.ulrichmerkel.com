@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTestIdAttributes should return the correct attributes 1`] = `null`;
+
+exports[`getTestIdAttributes should return the correct attributes 2`] = `
+Object {
+  "data-testid": "test-element",
+}
+`;

@@ -1,3 +1,11 @@
+/**
+ * Es6 module for handling function related utilities.
+ *
+ * @file
+ * @module
+ *
+ * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
+ */
 import { isFunction } from 'lodash';
 
 /**
@@ -7,7 +15,7 @@ import { isFunction } from 'lodash';
  * @param {*} [result] - The optional function parameter
  * @returns {void}
  */
-export function callFn(callback: Function, result) {
+export function callFn(callback: Function, result?) {
     if (isFunction(callback)) {
         callback.call(result);
     }

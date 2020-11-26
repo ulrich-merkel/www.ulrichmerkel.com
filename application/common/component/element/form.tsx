@@ -27,7 +27,7 @@ type Props = {
 };
 
 /**
- * Class representing a component to return a single react child element.
+ * Class representing a html form element.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.

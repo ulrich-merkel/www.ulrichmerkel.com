@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`createStyleElement should create a script element 1`] = `
+<link
+  classname="test-css"
+  disabled="disabled"
+  href="/css/test.css"
+  id="test-css"
+  media="only x"
+  rel="stylesheet"
+  type="text/css"
+/>
+`;
+
 exports[`loadCss should add css files correctly 1`] = `<body />`;
 
 exports[`loadCss should be fail fafe 1`] = `<body />`;

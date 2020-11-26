@@ -17,7 +17,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a font-icon component.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -28,8 +28,8 @@ type Props = {
  */
 export const Icon: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'i',
         className,
+        htmlElement: HtmlElement = 'i',
         icon = '',
         ...otherProps
     } = props;

@@ -1,0 +1,59 @@
+{
+    "version": "2",
+    "checks": {
+        "argument-count": {
+            "config": {
+                "threshold": 5
+            }
+        },
+        "complex-logic": {
+            "config": {
+                "threshold": 4
+            }
+        },
+        "file-lines": {
+            "config": {
+                "threshold": 250
+            }
+        },
+        "method-complexity": {
+            "config": {
+                "threshold": 5
+            }
+        },
+        "method-count": {
+            "config": {
+                "threshold": 20
+            }
+        },
+        "method-lines": {
+            "config": {
+                "threshold": 40
+            }
+        },
+        "nested-control-flow": {
+            "config": {
+                "threshold": 4
+            }
+        },
+        "return-statements": {
+            "config": {
+                "threshold": 4
+            }
+        }
+    },
+    "plugins": {
+        "eslint": {
+            "enabled": true,
+            "config": {
+                "config": "config/eslint.config.js"
+            }
+        }
+    },
+    "exclude_patterns": [
+        "config/",
+        "application/common/vendor/",
+        "**/__tests__/",
+        "**/__mocks__/"
+    ]
+}
