@@ -29,7 +29,7 @@
  */
 import { isEmpty } from 'lodash';
 
-interface NonceConfig {
+export interface NonceConfig {
     style: {
         base: string;
     };
@@ -46,7 +46,7 @@ interface NonceConfig {
  * @param {number} length - The generated number length
  * @returns {string} The string to be used once
  */
-export function getNonce(length: number = 40): string {
+export function getNonce(length = 40): string {
     const possibleChars =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const text = [];

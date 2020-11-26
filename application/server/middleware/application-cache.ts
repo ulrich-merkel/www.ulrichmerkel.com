@@ -8,6 +8,7 @@
  */
 import { EOL } from 'os';
 import assert from 'assert-plus';
+import { Request, Response } from 'express';
 
 import { configApplication } from '../../common/config/application';
 import configPictures from '../../common/config/pictures';
@@ -15,13 +16,19 @@ import { getDateNow } from '../../common/utils/date';
 
 const configApplicationCache = configApplication.applicationCache;
 
+type Size = {
+    width: number;
+    height: number;
+    minWidth: number;
+};
+
 /**
  * Get cache timestamp to ease updates.
  *
  * @private
- * @returns {string} The timestamp to be used
+ * @returns {number} The timestamp to be used
  */
-function getTimeStamp() {
+function getTimeStamp(): number {
     if (configApplicationCache.timeStamp) {
         return configApplicationCache.timeStamp;
     }
@@ -35,10 +42,15 @@ function getTimeStamp() {
  * @param {string} path - The image path
  * @param {Array.<string>} sizes - The responsive image sizes
  * @param {string} fallbackSize - The fallback size if no picture is supported
- * @param {string} extension - The image file extension
+ * @param {string} [extension='jpg'] - The image file extension
  * @returns {string} The manifest entry
  */
-function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
+function addPictureSizes(
+    path: string,
+    sizes: Size[],
+    fallbackSize: string,
+    extension = 'jpg'
+) {
     assert.string(path, 'path');
     assert.array(sizes, 'sizes');
     assert.string(fallbackSize, 'fallbackSize');
@@ -66,7 +78,7 @@ function addPictureSizes(path, sizes, fallbackSize, extension = 'jpg') {
  * @private
  * @returns {string} The manifest content
  */
-function getApplicationCacheResponse() {
+function getApplicationCacheResponse(): string {
     const {
         sizes: {
             keyvisual: pictureSizesKeyvisual,
@@ -230,11 +242,14 @@ function getApplicationCacheResponse() {
  * @param {object} res - The result object
  * @returns {Future}
  */
-export function middlewareApplicationCache(req, res) {
+export function middlewareApplicationCache(
+    req: Request,
+    res: Response
+): Promise<Response> {
     assert.object(req, 'req');
     assert.object(res, 'res');
 
-    // delete previously store caches by sending 404
+    // Delete previously store caches by sending 404
     if (!configApplicationCache.use) {
         return res.status(404).send('Not found.');
     }

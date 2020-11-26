@@ -1,3 +1,4 @@
+/* eslint-disable immutable/no-mutation */
 import {
     displayProgress,
     displayZeroLoaded,

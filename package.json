@@ -90,7 +90,7 @@
     "test:dependencies": "if which yarn ; then yarn list ; else npm list ; fi; exit 0;",
     "test:eslint:fix": "npm run test:eslint -- --fix",
     "test:eslint:init": "eslint --init",
-    "test:eslint": "eslint --config $npm_package_directories_config/eslint.config.js --ignore-path .eslintignore --ext \".js,.jsx\" --cache --cache-location $npm_package_directories_report/.eslintcache $npm_package_directories_source_root",
+    "test:eslint": "eslint --config $npm_package_directories_config/eslint.config.js --ignore-path .eslintignore --ext \".js,.jsx,.tsx,.ts\" --cache --cache-location $npm_package_directories_report/.eslintcache $npm_package_directories_source_root",
     "test:legal": "tldrlegal; exit 0;",
     "test:types": "tsc --noEmit; exit 0;",
     "test:license": "license; exit 0;",
@@ -111,17 +111,17 @@
     "watch:css": "npm run css -- --watch",
     "watch:server": "npm run transpile:server -- --watch",
     "watch:static": "npm run static -- --watch",
-    "prettier:write": "prettier --write $npm_package_directories_source_application && prettier --write $npm_package_directories_source_public/scss/",
-    "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/",
+    "prettier:write": "prettier --write $npm_package_directories_source_application && prettier --write $npm_package_directories_source_public/scss/ && prettier --write $npm_package_directories_config",
+    "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/ && prettier --check $npm_package_directories_config",
     "watch": "npm-run-all --parallel watch:*"
   },
   "lint-staged": {
     "application/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write",
+      "npm run prettier:write",
       "npm run test:eslint"
     ],
     "public/**/*.{css,scss}": [
-      "prettier --write",
+      "npm run prettier:write",
       "npm run test:css"
     ]
   },
@@ -186,6 +186,7 @@
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
     "react-redux": "7.2.2",
+    "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-transition-group": "4.4.1",
     "redux": "4.0.5",

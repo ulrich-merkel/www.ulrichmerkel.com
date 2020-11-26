@@ -21,8 +21,9 @@ import { RootState } from '../../common/state/configure-store';
  * @returns {ReactElement} The component to be rendered
  */
 const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
-    const children = props?.children;
     const store = getMockedStore(state);
+    // eslint-disable-next-line react/destructuring-assignment
+    const children = props?.children;
 
     return (
         <Provider {...{ store }}>

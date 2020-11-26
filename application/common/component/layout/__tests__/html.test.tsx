@@ -25,8 +25,8 @@ describe(' LayoutHtml', function fnDescribe() {
         const { asFragment } = render(
             <LayoutHtml
                 {...props}
-                cssBase={''}
-                scriptBootstrap={''}
+                cssBase=""
+                scriptBootstrap=""
                 store={mockedStore}
             />
         );
@@ -36,8 +36,8 @@ describe(' LayoutHtml', function fnDescribe() {
         const { asFragment } = render(
             <LayoutHtmlConnected
                 {...props}
-                cssBase={''}
-                scriptBootstrap={''}
+                cssBase=""
+                scriptBootstrap=""
                 store={mockedStore}
             />
         );

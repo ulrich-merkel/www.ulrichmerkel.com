@@ -14,6 +14,7 @@ import shortid from 'shortid';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
+import { isValidArray } from '../../../utils/array';
 
 type Props = {
     cssModifier?: string;
@@ -81,8 +82,8 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                         </time>{' '}
                         -<time className="c-time">{timeEnd}</time>)
                     </P>
-                    {Array.isArray(description) &&
-                        description.map(function (value) {
+                    {isValidArray(description) &&
+                        description.map(function fnMap(value) {
                             /**
                              * DangerouslySetInnerHTML due to reacts double escaping. Otherwise html elements
                              * are not possible to be set via translation strings.

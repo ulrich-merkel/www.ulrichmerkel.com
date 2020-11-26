@@ -7,9 +7,8 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
-import { noop } from 'lodash';
 
 import { Input } from './input';
 import { Label } from './label';
@@ -60,7 +59,7 @@ export class InputGroup extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             id,
             isLabelVisuallyHidden = false,
@@ -69,8 +68,8 @@ export class InputGroup extends Component<Props> {
             itemProp,
             label = '',
             name,
-            onBlur = noop,
-            onChange = noop,
+            onBlur,
+            onChange,
             placeholder,
             required = false,
             testId,

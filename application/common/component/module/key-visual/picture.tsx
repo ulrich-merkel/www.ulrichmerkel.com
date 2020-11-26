@@ -8,7 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component, createRef } from 'react';
+import { default as React, Component, createRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 
@@ -50,7 +50,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
      * @param {object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
 
         /**
@@ -83,7 +83,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
      *
      * @returns {void}
      */
-    componentDidMount() {
+    componentDidMount(): void {
         if (isBrowser()) {
             window.addEventListener('resize', this.onResize);
             window.dispatchEvent(new CustomEvent('resize'));
@@ -95,7 +95,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
      *
      * @returns {void}
      */
-    componentWillUnmount() {
+    componentWillUnmount(): void {
         if (isBrowser()) {
             window.removeEventListener('resize', this.onResize);
         }
@@ -108,7 +108,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
      *
      * @returns {void}
      */
-    onResize() {
+    onResize(): void {
         const { isCovered = false } = this.props;
 
         if (isCovered && this.pictureRef) {
@@ -140,7 +140,7 @@ export class ModuleKeyVisualPicture extends Component<Props, State> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const { img, type = 'digital' } = this.props;
         const { pictureStyle } = this.state;
 

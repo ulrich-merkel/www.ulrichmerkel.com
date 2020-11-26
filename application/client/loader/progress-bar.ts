@@ -26,14 +26,14 @@ const hasWidthClasses = Array.from(Array(11).keys()).map(function mapNumbers(
 /**
  * Set progress bar values.
  *
- * @param {string} value - The (number as string!) progress value to be set
+ * @param {string} progress - The (number as string!) progress value to be set
  * @returns {void}
  */
 export function displayProgress(progress: string): void {
     setDomNodeAttribute(PROGRESS_BAR, 'value', progress);
     setDomNodeClassName(
         `${PROGRESS_BAR}__fallback`,
-        [`has-width--${Math.round(Number.parseInt(progress) / 10) * 10}`],
+        [`has-width--${Math.round(Number.parseInt(progress, 10) / 10) * 10}`],
         hasWidthClasses
     );
 }

@@ -20,7 +20,7 @@ import { ModuleSearchConnected } from '../module/search';
 import { ModuleFormSearchConnected } from '../module/form/search';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
     isDialog?: boolean;
 };
 

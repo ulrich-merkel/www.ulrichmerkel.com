@@ -33,17 +33,16 @@ function getCssTransformRotate(
 ): { left: string; right: string } {
     let left = '',
         right = '',
-        deg = 0,
-        perc = percent;
+        deg = 0;
 
-    if (perc <= 50) {
+    if (percent <= 50) {
         // eslint-disable-next-line no-mixed-operators
-        deg = Math.round(180 - (perc / 100) * 360);
+        deg = Math.round(180 - (percent / 100) * 360);
         left = 'is-hidden';
         right = `is-rotated-${deg}`;
     } else {
         // eslint-disable-next-line no-mixed-operators
-        deg = Math.round(180 - ((perc - 50) / 100) * 360);
+        deg = Math.round(180 - ((percent - 50) / 100) * 360);
         left = `is-rotated-${deg}`;
     }
 

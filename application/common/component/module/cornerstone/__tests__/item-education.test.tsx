@@ -25,8 +25,8 @@ describe('ModuleCornerstoneItemEducation', function fnDescribe() {
         const { asFragment } = render(
             <ModuleCornerstoneItemEducation
                 {...props}
-                cssModifier={'education'}
-                offset={'100'}
+                cssModifier="education"
+                offset="100"
             />
         );
         expect(asFragment()).toMatchSnapshot();

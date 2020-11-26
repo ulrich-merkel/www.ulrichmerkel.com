@@ -57,7 +57,7 @@ export function createScriptElement(options: JsOptions): HTMLScriptElement {
  * @param {Function} [callback=noop] - The success/error handler for async loading
  * @returns {void}
  */
-export function loadJs(options: JsOptions, callback = noop) {
+export function loadJs(options: JsOptions, callback = noop): void {
     if (isEmpty(options)) {
         return;
     }
@@ -67,16 +67,18 @@ export function loadJs(options: JsOptions, callback = noop) {
     const refDomNode = getFirstDomNodeByTagName('script');
 
     if (!isValidString(src) || !headDomNode) {
-        return callFn(callback, false);
+        callFn(callback, false);
+        return;
     }
 
     const scriptDomNode = createScriptElement(options);
     if (!scriptDomNode) {
-        return callFn(callback, false);
+        callFn(callback, false);
+        return;
     }
 
     // Add script event listeners when loaded.
-    /* eslint-disable immutable/no-mutation, immutable/no-this */
+    /* eslint-disable immutable/no-mutation, immutable/no-this, no-multi-assign */
     scriptDomNode.onreadystatechange = scriptDomNode.onload = function handleEvent() {
         if (
             !this.readyState ||

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * Es6 module for Redux Architecture.
  *
@@ -20,8 +21,10 @@ import { RootState } from '../configure-store';
 import {
     RequestConfigTranslationActionType,
     ReceiveConfigContentActionType,
-    ReceiveConfigTranslationActionType
+    ReceiveConfigTranslationActionType,
+    FailedConfigTranslationActionType
 } from './types';
+import { Locale } from '../intl/types';
 
 /**
  * @type {string}
@@ -86,7 +89,7 @@ export const CONFIG_TRANSLATION_INVALIDATE = `${CONFIG_RESOURCE_NAME}/CONFIG_TRA
  * @param {string} [stateKey] - The state key as input for lodash's get
  * @returns {boolean}
  */
-export function shouldFetch(state?: RootState, stateKey?: string) {
+export function shouldFetch(state?: RootState, stateKey?: string): boolean {
     const stateData = get(state, stateKey);
 
     if (!stateData || !stateData.data) {
@@ -183,7 +186,9 @@ export function failedConfigContent(): Action {
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function failedConfigTranslation(locale) {
+export function failedConfigTranslation(
+    locale: Locale
+): FailedConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_FAILURE,
         locale

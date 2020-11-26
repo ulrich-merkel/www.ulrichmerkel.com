@@ -95,7 +95,7 @@ export function setDomNodeAttribute(
     value?: string
 ): void {
     if (!isValidString(name)) {
-        return null;
+        return;
     }
 
     const domNode = getDomNodeById(id);
@@ -150,7 +150,7 @@ export function setDomNodeClassName(
  */
 export function createDomNode(
     name?: keyof HTMLElementTagNameMap,
-    attributes?: Object
+    attributes?: Record<string, string>
 ): HTMLElement | null {
     if (!isValidString(name)) {
         return null;

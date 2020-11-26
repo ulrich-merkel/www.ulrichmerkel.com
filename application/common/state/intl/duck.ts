@@ -9,7 +9,12 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
+import {
+    ChangeIntlActionType,
+    IntlActionTypes,
+    IntlStateType,
+    Locale
+} from './types';
 
 /**
  * @type {string}
@@ -34,7 +39,7 @@ export const INTL_CHANGE_LOCALE = `${INTL_RESOURCE_NAME}/INTL_CHANGE_LOCALE`;
 /**
  * @type {Array<string>}
  */
-export const AVAILABLE_LOCALES: string[] = [INTL_LOCALE_EN_EN];
+export const AVAILABLE_LOCALES: Locale[] = [INTL_LOCALE_EN_EN];
 
 /**
  * @type {object}

@@ -17,7 +17,7 @@ import { get, noop } from 'lodash';
 import { url } from '../../../config/application';
 import { addContent } from '../../decorator/add-content';
 import { getContentSection } from '../../../utils/content';
-import { eventPreventDefault } from '../../../utils/event';
+import { Event, eventPreventDefault } from '../../../utils/event';
 import {
     selectStateIntlLocale,
     selectStateIntlAvailableLocales
@@ -93,21 +93,30 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
         className
     );
 
-    const handleChangeDialogVisibleSearch = useCallback(function (event) {
+    const handleChangeDialogVisibleSearch = useCallback(function fnCallback(
+        event: Event
+    ) {
         eventPreventDefault(event);
         onChangeDialogVisibleSearch(true);
-    }, []);
+    },
+    []);
 
-    const handleChangeDialogVisibleTheme = useCallback(function (event) {
+    const handleChangeDialogVisibleTheme = useCallback(function fnCallback(
+        event: Event
+    ) {
         eventPreventDefault(event);
         onChangeDialogVisibleTheme(true);
-    }, []);
+    },
+    []);
 
-    const handleIntlChangeLocale = useCallback(function (event) {
+    const handleIntlChangeLocale = useCallback(function fnCallback(
+        event: Event
+    ) {
         eventPreventDefault(event);
         const locale = get(event, 'target.dataset.locale');
         onChangeIntlLocale(locale);
-    }, []);
+    },
+    []);
 
     return (
         <ul
@@ -160,7 +169,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                     className="m-menu__item--search c-btn--small c-btn--clear"
                     to={url.search}
                     onClick={handleChangeDialogVisibleSearch}
-                    title={'Search'}
+                    title="Search"
                 >
                     <span className="c-btn__label">
                         <Icon className="c-btn__icon" icon="search" />
@@ -177,7 +186,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                     className="m-menu__item--theme c-btn--small c-btn--clear"
                     to={url.settings}
                     onClick={handleChangeDialogVisibleTheme}
-                    title={''}
+                    title=""
                 >
                     <span className="c-btn__label">
                         <Icon className="c-btn__icon" icon="cog" />

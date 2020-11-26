@@ -55,9 +55,11 @@ export function scroller(SourceComponent: ComponentType): ComponentType {
      * @property {object} props.location - Current router location properties
      */
     class Scroller extends Component<Props> {
-        previousScrollY: number = 0;
-        headerFixed: boolean = true;
-        headerVisible: boolean = true;
+        previousScrollY = 0;
+
+        headerFixed = true;
+
+        headerVisible = true;
 
         /**
          * The actual class constructor.

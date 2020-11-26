@@ -26,7 +26,7 @@ export function hasPassiveEventListeners(): boolean {
 
     try {
         const opts = Object.defineProperty({}, 'passive', {
-            get: function () {
+            get: function handleGet() {
                 supportsPassiveEventListeners = true;
             }
         });

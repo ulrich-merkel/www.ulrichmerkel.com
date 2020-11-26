@@ -16,7 +16,7 @@ import { isFunction } from 'lodash';
  * @class
  */
 class WebStorage {
-    isSupported: boolean = false;
+    isSupported = false;
 
     /**
      * The actual class constructor.
@@ -26,9 +26,10 @@ class WebStorage {
      */
     constructor() {
         // Additionally for globally checking test for getItem method
+        // eslint-disable-next-line immutable/no-mutation
         this.isSupported =
             typeof localStorage !== 'undefined' &&
-            localStorage &&
+            !!localStorage &&
             isFunction(localStorage.getItem);
 
         // Try to save item, to make sure it really works,
@@ -37,7 +38,8 @@ class WebStorage {
             try {
                 localStorage.setItem('test', 'abc');
                 localStorage.removeItem('test');
-            } catch (e) {
+            } catch (ignore) {
+                // eslint-disable-next-line immutable/no-mutation
                 this.isSupported = false;
             }
         }

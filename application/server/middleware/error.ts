@@ -10,6 +10,7 @@
  * @see {@link http://expressjs.com/de/guide/error-handling.html}
  */
 import assert from 'assert-plus';
+import { NextFunction, Request, Response } from 'express';
 
 import { logger } from '../../common/utils/logger';
 import { errorCodes } from '../constants/error-codes';
@@ -25,7 +26,12 @@ import { errorCodes } from '../constants/error-codes';
  * @param {Function} next - The next iteration middleware function
  * @returns {void}
  */
-export function middlewareError(err, req, res, next) {
+export function middlewareError(
+    err: Error,
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response> {
     assert.object(err, 'err');
     assert.object(req, 'req');
     assert.object(res, 'res');

@@ -63,6 +63,8 @@ exports[`LayoutBody should render correctly 1`] = `
               aria-label="Menu"
               class="m-nav__toggle c-font-icon--menu"
               data-label="Menu"
+              id="menu-toggle"
+              name="menu-toggle"
               type="checkbox"
             />
             <ul
@@ -155,14 +157,12 @@ exports[`LayoutBody should render correctly 1`] = `
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
                   role="button"
-                  title="Switch to english"
+                  title=""
                   type="button"
                 >
                   <span
                     class="c-btn__label"
-                  >
-                    en
-                  </span>
+                  />
                 </button>
               </li>
               <li
@@ -175,14 +175,12 @@ exports[`LayoutBody should render correctly 1`] = `
                   class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
                   role="button"
-                  title="Sprache in deutsch ändern"
+                  title=""
                   type="button"
                 >
                   <span
                     class="c-btn__label"
-                  >
-                    de
-                  </span>
+                  />
                 </button>
               </li>
               <li

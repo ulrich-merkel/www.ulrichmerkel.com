@@ -70,7 +70,7 @@ export class LayoutBody extends PureComponent<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const { children, content } = this.props;
 
         return (

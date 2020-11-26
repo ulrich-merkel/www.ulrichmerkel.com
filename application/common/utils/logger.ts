@@ -18,20 +18,20 @@
  * @see {@link https://github.com/cwebbdesign/isomorphic-logger/blob/master/index.js}
  * @see {@link https://github.com/aurajs/aura/blob/master/lib/logger.js}
  */
+import { noop } from 'lodash';
+
 import { debug } from '../config/application';
 import { getDateNow } from './date';
 
-const noop = Function.prototype;
-
 interface LoggerType {
-    setName: Function;
-    isEnabled: Function;
-    enable: Function;
-    write: Function;
-    log: Function;
-    info: Function;
-    warn: Function;
-    error: Function;
+    setName: (name: string) => void;
+    isEnabled: () => void;
+    enable: (shouldBeEnabled: boolean) => void;
+    write: (output: Console, args: any) => void;
+    log: () => void;
+    info: () => void;
+    warn: () => void;
+    error: () => void;
 }
 
 /**
@@ -120,7 +120,7 @@ Logger.prototype = {
      * @param {object} args - The messages to be logged
      * @returns {void}
      */
-    write: function writeFn(output: Object, args: Object): void {
+    write: function writeFn(output: Console, args: any): void {
         if (!this._enabled) {
             return;
         }

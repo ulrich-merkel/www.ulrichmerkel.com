@@ -24,7 +24,7 @@ import {
  * @private
  * @returns {object|null} The api if available
  */
-export function getApi() {
+export function getApi(): ApplicationCache | null {
     return (isBrowser() && window.applicationCache) || null;
 }
 
@@ -71,7 +71,7 @@ export function onUpdateReadyEvent(): void {
  *
  * @returns {void}
  */
-export function loadOffline() {
+export function loadOffline(): void {
     const appCache = getApi();
     if (!appCache) {
         return;

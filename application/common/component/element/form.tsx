@@ -50,7 +50,7 @@ export class Form extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             acceptCharset = 'utf-8',
             action,

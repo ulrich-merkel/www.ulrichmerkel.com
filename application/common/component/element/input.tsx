@@ -7,7 +7,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 
@@ -53,7 +53,7 @@ export class Input extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             className,
             id,

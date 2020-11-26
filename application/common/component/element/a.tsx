@@ -82,7 +82,9 @@ export function isNavLink(to?: string): boolean {
  * @param {object} params - Some component properties
  * @returns {object} Attributes depending on link type
  */
-export function getAttributes(params?: GetAttributesParams) {
+export function getAttributes(
+    params?: GetAttributesParams
+): Record<string, string | boolean> {
     if (isEmpty(params)) {
         return {};
     }

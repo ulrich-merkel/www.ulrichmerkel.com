@@ -20,9 +20,9 @@ import { SectionContact } from '../section/contact';
 import { ModuleFormContactConnected } from '../module/form/contact';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
     params?: {
-        state: {};
+        state: Record<string, unknown>;
     };
 };
 

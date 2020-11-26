@@ -25,7 +25,7 @@ import { ScrollStateType } from './types';
  */
 export const selectStateScroll = createSelector(
     [(state: RootState) => state?.[SCROLL_RESOURCE_NAME]],
-    function (scroll: ScrollStateType): ScrollStateType {
+    function resultFunc(scroll: ScrollStateType): ScrollStateType {
         return isEmpty(scroll) ? initialState : scroll;
     }
 );
@@ -39,7 +39,7 @@ export const selectStateScroll = createSelector(
  */
 export const selectStateScrollIsHeaderFixed = createSelector(
     [selectStateScroll],
-    function (scroll: ScrollStateType): boolean {
+    function resultFunc(scroll: ScrollStateType): boolean {
         return get(
             scroll,
             'payload.isHeaderFixed',
@@ -57,7 +57,7 @@ export const selectStateScrollIsHeaderFixed = createSelector(
  */
 export const selectStateScrollIsHeaderVisible = createSelector(
     [selectStateScroll],
-    function (scroll: ScrollStateType): boolean {
+    function resultFunc(scroll: ScrollStateType): boolean {
         return get(
             scroll,
             'payload.isHeaderVisible',

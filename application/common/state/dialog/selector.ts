@@ -24,7 +24,7 @@ import { DialogStateType } from './types';
  */
 export const selectStateDialog = createSelector(
     [(state: RootState) => state?.[DIALOG_RESOURCE_NAME]],
-    function (dialog: DialogStateType): DialogStateType {
+    function resultFunc(dialog: DialogStateType): DialogStateType {
         return isEmpty(dialog) ? initialState : dialog;
     }
 );
@@ -38,7 +38,7 @@ export const selectStateDialog = createSelector(
  */
 export const selectStateDialogVisible = createSelector(
     [selectStateDialog],
-    function (dialog: DialogStateType): boolean {
+    function resultFunc(dialog: DialogStateType): boolean {
         return get(dialog, 'payload.visible', initialState.payload.visible);
     }
 );
@@ -52,7 +52,7 @@ export const selectStateDialogVisible = createSelector(
  */
 export const selectStateDialogContent = createSelector(
     [selectStateDialog],
-    function (dialog: DialogStateType): boolean {
+    function resultFunc(dialog: DialogStateType): boolean {
         return get(dialog, 'payload.content', initialState.payload.content);
     }
 );

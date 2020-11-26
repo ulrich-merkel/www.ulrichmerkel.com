@@ -32,7 +32,7 @@ type Props = {
             work: string;
         };
     };
-    config: any;
+    config: Record<string, unknown>;
 };
 
 type State = {

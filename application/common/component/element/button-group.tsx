@@ -7,7 +7,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { Button } from './button';
@@ -51,7 +51,7 @@ export class ButtonGroup extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             btnClassName,
             className,

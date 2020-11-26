@@ -22,7 +22,7 @@
 import 'babel-polyfill';
 
 import fs from 'fs';
-import express from 'express';
+import { default as express, Application } from 'express';
 import requestLanguage from 'express-request-language';
 import hpp from 'hpp';
 import helmet from 'helmet';
@@ -34,7 +34,6 @@ import morgan from 'morgan';
 import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
-import { isFunction } from 'lodash';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import { logger } from '../common/utils/logger';
@@ -44,6 +43,17 @@ import { middlewareError } from './middleware/error';
 import { middlewareReact } from './middleware/react';
 import { middlewareApi } from './middleware/api';
 import { middlewareApplicationCache } from './middleware/application-cache';
+import { callFn } from '../common/utils/function';
+
+type Config = {
+    url: string;
+    port: string;
+    sessionSecret: string;
+    morganLogPath: string;
+    staticPath: string;
+};
+
+type Callback = () => void;
 
 /**
  * Called when express.js app starts on given port w/o errors.
@@ -71,7 +81,7 @@ function logServerStarted(portNumber: string) {
  * @param {Function} [callback] - Called when server started listening
  * @returns {object} The newly created and running server object
  */
-function createServer(config?: any, callback?: Function) {
+function createServer(config?: Config, callback?: Callback): Application {
     assert.optionalObject(config, 'config');
     assert.optionalFunc(callback, 'callback');
 
@@ -189,11 +199,11 @@ function createServer(config?: any, callback?: Function) {
     return app.listen(serverPort, function serverStarted(error) {
         if (error) {
             logger.error(error.message);
-            isFunction(callback) && callback(error);
+            callFn(callback, error);
             return;
         }
         logServerStarted(serverPort);
-        isFunction(callback) && callback();
+        callFn(callback);
     });
 }
 
@@ -204,7 +214,7 @@ function createServer(config?: any, callback?: Function) {
  * @param {Function} [callback] - Called when server started listening
  * @returns {object} The newly created and running server object
  */
-export function server(config?: any, callback?: Function) {
+export function server(config?: Config, callback?: Callback): Application {
     assert.optionalObject(config, 'config');
     assert.optionalFunc(callback, 'callback');
 

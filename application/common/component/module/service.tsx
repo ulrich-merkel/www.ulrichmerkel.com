@@ -90,7 +90,10 @@ export const ModuleService: FunctionComponent<Props> = (props) => {
             {...componentSchema}
             {...otherProps}
         >
-            {insertClearedListItems(content.list).map(function (value, index) {
+            {insertClearedListItems(content.list).map(function fnMap(
+                value,
+                index
+            ) {
                 return (
                     <ModuleServiceItem
                         key={shortid.generate()}
