@@ -34,7 +34,10 @@ function traverseArray(source: [], callback: any): any {
  * @param {Function} callback - The ready callback
  * @returns {object}
  */
-function traverseObject(source: Record<string, unknown>, callback): Record<string, unknown> {
+function traverseObject(
+    source: Record<string, unknown>,
+    callback
+): Record<string, unknown> {
     const result = {};
     Object.keys(source).forEach(function fnForEach(key) {
         // eslint-disable-next-line no-use-before-define, immutable/no-mutation
@@ -74,7 +77,10 @@ function traverse(source: any, callback: any): any {
  * @param {string} configTranslation - The complete content translation
  * @returns {object}
  */
-function translateContent(configContent: Record<string, unknown>, configTranslation: Record<string, unknown>): Record<string, unknown> {
+function translateContent(
+    configContent: Record<string, unknown>,
+    configTranslation: Record<string, unknown>
+): Record<string, unknown> {
     if (!configTranslation) {
         return configContent;
     }
@@ -92,7 +98,9 @@ function translateContent(configContent: Record<string, unknown>, configTranslat
  * @param {object} config - The translated config
  * @returns {Function}
  */
-function getContentSection(config: Record<string, unknown>): (key: string) => any {
+function getContentSection(
+    config: Record<string, unknown>
+): (key: string) => any {
     return function getContentSectionByKey(key) {
         return get(config, key);
     };

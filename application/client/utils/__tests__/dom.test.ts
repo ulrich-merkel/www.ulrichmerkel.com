@@ -31,7 +31,7 @@ describe('getDomNodeById', function fnDescribe() {
     });
 });
 
-describe('getDomNodeById', function fnDescribe() {
+describe('getDomNodesByTagName', function fnDescribe() {
     beforeEach(function fnBeforeEach() {
         document.body.innerHTML = '<div><button id="button" /></div>';
     });

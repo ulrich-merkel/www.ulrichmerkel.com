@@ -31,7 +31,10 @@ interface ScrollToOptions {
     top?: number;
 }
 
-const hasWindowScrollTo = isFunction(window?.scrollTo);
+const hasWindowScrollTo = isBrowser() && isFunction(window?.scrollTo);
+const hasRequestAnimationFrame =
+    isBrowser() &&
+    !!(window?.requestAnimationFrame && window?.cancelAnimationFrame);
 
 /**
  * Quad easing function - acceleration until halfway, then deceleration.
@@ -93,11 +96,7 @@ export function getPageOffset(): number {
  */
 function animate(options: AnimateOptions): void {
     const { callback, duration, easing, render } = options;
-    const { requestAnimationFrame } = window;
-    const { cancelAnimationFrame } = window;
-    const hasRequestAnimationFrame = !!(
-        requestAnimationFrame && cancelAnimationFrame
-    );
+    const { cancelAnimationFrame, requestAnimationFrame } = window;
     const start = getDateNow();
 
     let requestId;

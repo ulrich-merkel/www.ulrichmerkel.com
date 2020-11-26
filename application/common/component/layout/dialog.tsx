@@ -103,12 +103,12 @@ export class LayoutDialog extends Component<Props> {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    onClose(event: Event): void {
+    onClose = (event: Event): void => {
         const { onChangeDialogVisible = noop } = this.props;
 
         eventPreventDefault(event);
         onChangeDialogVisible(false);
-    }
+    };
 
     /**
      * The required render function to return a single react child element.
