@@ -5345,11 +5345,6 @@ eslint-plugin-security@1.4.0:
   dependencies:
     safe-regex "^1.1.0"
 
-eslint-plugin-tree-shaking@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-tree-shaking/-/eslint-plugin-tree-shaking-1.8.0.tgz#6ac08485481a5406142d0652bf894e45c46f3d5d"
-  integrity sha512-5jrqlyka6MCaV8efwAIIo/3cvmhurA4gUaFoTWoWw6wLhmHUS0/42NDKubKOMlQJXm5Z7/i4hbzyIcDXbHAnVw==
-
 eslint-plugin-xss@0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/eslint-plugin-xss/-/eslint-plugin-xss-0.1.10.tgz#4d2dd121475cfd73c0062883f33e330c0c3db5ee"

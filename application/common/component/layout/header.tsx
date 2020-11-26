@@ -103,15 +103,12 @@ export const LayoutHeader: FunctionComponent<Props> = (props) => {
  *
  * @private
  * @param {object.<*>} state - The redux store state
- * @param {object.<*>} [ownProps] - The current component props
  * @returns {object}
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        headerFixed:
-            selectStateScrollIsHeaderFixed(state) || ownProps.headerFixed,
-        headerVisible:
-            selectStateScrollIsHeaderVisible(state) || ownProps.headerVisible
+        headerFixed: selectStateScrollIsHeaderFixed(state),
+        headerVisible: selectStateScrollIsHeaderVisible(state)
     };
 }
 

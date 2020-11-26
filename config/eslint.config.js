@@ -36,7 +36,6 @@ module.exports = {
         'promise',
         'react',
         'security',
-        'tree-shaking',
         'xss',
         'prettier'
     ],
@@ -70,7 +69,7 @@ module.exports = {
         'jsdoc/check-tag-names': [
             'warn',
             {
-                definedTags: ['changelog', 'TODO', 'flow']
+                definedTags: ['changelog', 'TODO']
             }
         ],
         'jsdoc/check-types': 'warn',
@@ -182,7 +181,9 @@ module.exports = {
         'security/detect-object-injection': 'off',
         'security/detect-possible-timing-attacks': 'error',
         'security/detect-pseudoRandomBytes': 'error',
-        'security/detect-unsafe-regex': 'error'
+        'security/detect-unsafe-regex': 'error',
+        'xss/no-location-href-assign': 2,
+        'xss/no-mixed-html': 0
     },
     overrides: [
         {

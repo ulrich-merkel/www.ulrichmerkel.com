@@ -63,7 +63,8 @@ describe('ModuleKeyVisual', function fnDescribe() {
             </ModuleKeyVisual>
         );
 
-        userEvent.click(screen.getByText(/btnLabel/i));
+        const button = screen.getByTestId('button-key-visual');
+        userEvent.click(button);
         expect(onClickBtn).toHaveBeenCalled();
     });
 });

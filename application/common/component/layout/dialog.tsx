@@ -88,7 +88,7 @@ export class LayoutDialog extends Component<Props> {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    onKeyDown(event: Event): void {
+    onKeyDown(event: KeyboardEvent): void {
         const { onChangeDialogVisible = noop } = this.props;
 
         if (event && event.keyCode === 27) {
@@ -145,6 +145,7 @@ export class LayoutDialog extends Component<Props> {
                         <GridRow>
                             <GridCol>
                                 <Button
+                                    testId="button-close"
                                     title={contentSectionNav.btnCloseTitle}
                                     onClick={this.onClose}
                                 >
@@ -157,6 +158,7 @@ export class LayoutDialog extends Component<Props> {
                     <Button
                         className="l-dialog__button--close c-font-icon--close"
                         classNameLabel="is-visually-hidden"
+                        testId="button-x"
                         title={contentSectionNav.btnCloseTitle}
                         onClick={this.onClose}
                     >

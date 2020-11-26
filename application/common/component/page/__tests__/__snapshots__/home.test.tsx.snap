@@ -119,6 +119,7 @@ exports[`PageHome should render correctly 1`] = `
             </article>
             <button
               class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+              data-testid="button-key-visual"
               role="button"
               title="Scroll down"
               type="button"

@@ -156,6 +156,7 @@ exports[`Routes should render correctly 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
+                  data-testid="button-language-en"
                   role="button"
                   title=""
                   type="button"
@@ -174,6 +175,7 @@ exports[`Routes should render correctly 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
+                  data-testid="button-language-de"
                   role="button"
                   title=""
                   type="button"
@@ -191,6 +193,7 @@ exports[`Routes should render correctly 1`] = `
               >
                 <a
                   class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  data-testid="button-search"
                   href="/search"
                   tabindex="0"
                   title="Search"
@@ -213,9 +216,10 @@ exports[`Routes should render correctly 1`] = `
               >
                 <a
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  data-testid="button-settings"
                   href="/settings"
                   tabindex="0"
-                  title=""
+                  title="Settings"
                 >
                   <span
                     class="c-btn__label"
@@ -350,6 +354,7 @@ exports[`Routes should render correctly 1`] = `
             </article>
             <button
               class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+              data-testid="button-key-visual"
               role="button"
               title="Scroll down"
               type="button"
@@ -1733,6 +1738,7 @@ exports[`Routes should render correctly 1`] = `
   >
     <button
       class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      data-testid="button-scroll-top"
       role="button"
       title="Scroll to top"
       type="button"
