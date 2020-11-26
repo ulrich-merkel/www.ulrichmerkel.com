@@ -21,6 +21,30 @@ type CssOptions = {
 };
 
 /**
+ * Temporarily set media to something non-matching ('only x') to ensure
+ * it'll fetch without blocking render.
+ *
+ * @param {object} options - The loading options
+ * @returns {object} The generated style element
+ */
+export function createStyleElement(options: CssOptions): HTMLStyleElement {
+    const { className, id, src } = options;
+
+    return createDomNode('link', {
+        className: []
+            .concat(CLASSNAME_IS_LAZY_LOADED, className)
+            .filter(Boolean)
+            .join(' '),
+        disabled: 'disabled',
+        href: src,
+        id,
+        media: 'only x',
+        rel: 'stylesheet',
+        type: 'text/css'
+    });
+}
+
+/**
  * Append css files async.
  *
  * @see {@link https://github.com/ulrich-merkel/client-side-cache/}
@@ -37,30 +61,14 @@ export function loadCss(options: CssOptions, callback: Function = noop) {
         return;
     }
 
-    const { className, id, src } = options;
+    const { src } = options;
     const headDomNode = getHeadDomNode();
 
     if (!isValidString(src) || !headDomNode) {
         return callFn(callback, false);
     }
 
-    /**
-     * Temporarily set media to something non-matching ('only x') to ensure
-     * it'll fetch without blocking render.
-     */
-    const styleDomNode = createDomNode('link', {
-        className: []
-            .concat(CLASSNAME_IS_LAZY_LOADED, className)
-            .filter(Boolean)
-            .join(' '),
-        disabled: 'disabled',
-        href: src,
-        id,
-        media: 'only x',
-        rel: 'stylesheet',
-        type: 'text/css'
-    });
-
+    const styleDomNode = createStyleElement(options);
     if (!styleDomNode) {
         return void callFn(callback, false);
     }

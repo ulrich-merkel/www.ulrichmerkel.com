@@ -19,12 +19,10 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html header element.
  *
  * @function
  * @param {object} [props] - The current component props
- * @param {string} [props.className] - The component css class names, will be merged into component default classNames
- * @param {string} [props.htmlElement='header'] - The component element type used for React.createElement
  * @returns {ReactElement} React component markup
  */
 export const Header: FunctionComponent<Props> = (props) => {

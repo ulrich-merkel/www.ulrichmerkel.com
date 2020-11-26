@@ -10,13 +10,13 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 type Props = {
-    src: string;
     alt?: string;
     className?: string;
+    src: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html image element.
  *
  * @function
  * @param {object} props - The current component props
@@ -26,7 +26,7 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Image: FunctionComponent<Props> = (props) => {
-    const { className, alt = '', src, ...otherProps } = props;
+    const { alt = '', className, src, ...otherProps } = props;
 
     const componentClassName = classnames('c-img', className);
 

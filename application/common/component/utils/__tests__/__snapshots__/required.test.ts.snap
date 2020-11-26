@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getRequiredAttributes should return the correct attributes 1`] = `null`;
+
+exports[`getRequiredAttributes should return the correct attributes 2`] = `null`;
+
+exports[`getRequiredAttributes should return the correct attributes 3`] = `
+Object {
+  "aria-required": true,
+  "required": true,
+}
+`;

@@ -1,5 +1,5 @@
 /**
- * Rendering a small html tag.
+ * Rendering a checkbox toggle.
  *
  * @file
  * @module
@@ -10,9 +10,9 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 
+import { getTestIdAttributes } from '../utils/test-id';
 import { Input } from './input';
 import { Label } from './label';
-import { isValidString } from '../../utils/string';
 
 type Props = {
     checked?: boolean;
@@ -25,7 +25,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a toggle checkbox with label.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -44,11 +44,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
     } = props;
 
     const composedClassName = classnames('c-toggle', className);
-    const testIdAttr = isValidString(testId)
-        ? {
-              'data-testid': testId
-          }
-        : null;
+    const testIdAttributes = getTestIdAttributes(testId);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -59,7 +55,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
                 name={id}
                 type="checkbox"
                 {...{ checked, onChange }}
-                {...testIdAttr}
+                {...testIdAttributes}
             />
             <Label className="c-toggle__label" htmlFor={id}>
                 <span className="c-toggle__text">{label}</span>

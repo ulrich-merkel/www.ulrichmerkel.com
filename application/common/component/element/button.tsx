@@ -49,7 +49,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html button element.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -94,7 +94,6 @@ export const Button: FunctionComponent<Props> = (props) => {
     const componentLabelClassName = classnames('c-btn__label', classNameLabel, {
         'is-visually-hidden': isLabelHidden
     });
-
     const componentClassName = classnames('c-btn', className, {
         'c-btn--primary': isPrimary,
         'c-btn--secondary': isSecondary,
@@ -106,7 +105,7 @@ export const Button: FunctionComponent<Props> = (props) => {
 
     const HtmlElement = to ? NavLink : htmlElement;
     const htmlElementType = !to ? type : null;
-    const disabledAttr = isDisabled ? { disabled: 'disabled' } : null;
+    const disabledAttributes = isDisabled ? { disabled: 'disabled' } : null;
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -114,7 +113,7 @@ export const Button: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             type={htmlElementType}
             {...{ onClick, role, title, to }}
-            {...disabledAttr}
+            {...disabledAttributes}
             {...otherProps}
         >
             <span className={componentLabelClassName}>{children}</span>

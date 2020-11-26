@@ -16,3 +16,7 @@ exports[`PictureSource should render correctly 1`] = `
   />
 </DocumentFragment>
 `;
+
+exports[`getType should return the correct extension 1`] = `"image/jpeg"`;
+
+exports[`getType should return the correct extension 2`] = `"image/webp"`;

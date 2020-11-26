@@ -27,7 +27,7 @@ type Props = {
 };
 
 /**
- * Class representing a component to return a single react child element.
+ * Class representing a form button group.
  *
  * We can't use a stateless plain JavaScript function here,
  * because we want to use refs for this component.
@@ -68,7 +68,6 @@ export class ButtonGroup extends Component<Props> {
         } = this.props;
 
         const composedGroupClassName = classnames('m-form__group', className);
-
         const composedButtonClassName = classnames(
             {
                 'is-pending': isPending

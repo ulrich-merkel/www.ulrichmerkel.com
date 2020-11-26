@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`createScriptElement should create a script element 1`] = `
+<script
+  async="true"
+  classname="test-js"
+  id="test-js"
+/>
+`;
+
 exports[`loadJs should add js files correctly 1`] = `<body />`;
 
 exports[`loadJs should be fail safe 1`] = `<body />`;

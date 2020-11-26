@@ -16,11 +16,10 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html fieldset element.
  *
  * @function
  * @param {object} [props] - The current component props
- * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @returns {ReactElement} React component markup
  */
 export const Fieldset: FunctionComponent<Props> = (props) => {

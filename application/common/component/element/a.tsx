@@ -110,7 +110,7 @@ export function getAttributes(params?: GetAttributesParams) {
 }
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a html link component.
  *
  * @function
  * @param {object} props - The current component props
