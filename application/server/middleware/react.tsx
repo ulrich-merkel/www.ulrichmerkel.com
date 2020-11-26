@@ -13,6 +13,7 @@
  * @see {@link https://github.com/reactjs/redux/issues/723}
  */
 import * as React from 'react';
+import path from 'path';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { get } from 'lodash';
@@ -116,8 +117,8 @@ function loadData(req, store, acceptedLocale) {
     const { dispatch } = store;
 
     return Promise.all([
-        readFile(aboveTheFold.cssBase),
-        readFile(aboveTheFold.scriptBootstrap),
+        readFile(path.join(__dirname, aboveTheFold.cssBase)),
+        readFile(path.join(__dirname, aboveTheFold.scriptBootstrap)),
         dispatch(fetchConfigContentIfNeeded()),
         dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
         dispatch(changeCsrfToken(req.csrfToken && req.csrfToken()))

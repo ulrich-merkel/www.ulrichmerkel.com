@@ -8,7 +8,6 @@
  *
  * @see {@link https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/config.js}
  */
-import path from 'path';
 import { toBoolean } from '../utils/parse';
 
 const configEnvironment = {
@@ -19,11 +18,8 @@ const configEnvironment = {
     production: {},
     test: {
         aboveTheFold: {
-            cssBase: path.join(__dirname, '../../../build/public/css/base.css'),
-            scriptBootstrap: path.join(
-                __dirname,
-                '../../../build/public/js/bootstrap.bundle.js'
-            )
+            cssBase: '/css/base.css',
+            scriptBootstrap: '/js/bootstrap.bundle.js'
         }
     }
 }[process.env.NODE_ENV || 'development'];
@@ -63,11 +59,8 @@ export const configApplication = {
     },
     isProduction: true,
     aboveTheFold: {
-        cssBase: path.join(__dirname, '../../../public/css/base.css'),
-        scriptBootstrap: path.join(
-            __dirname,
-            '../../../public/js/bootstrap.bundle.js'
-        )
+        cssBase: '../../../public/css/base.css',
+        scriptBootstrap: '../../../public/js/bootstrap.bundle.js'
     },
     email: 'hello@ulrichmerkel.com',
     xor: {

@@ -9,7 +9,6 @@ module.exports = {
         jest: true
     },
     extends: [
-        'prettier/@typescript-eslint',
         'airbnb',
         'eslint:recommended',
         'plugin:lodash/recommended',
@@ -25,6 +24,7 @@ module.exports = {
     },
     plugins: [
         '@babel',
+        '@typescript-eslint',
         'compat',
         'flowtype',
         'immutable',
@@ -49,8 +49,8 @@ module.exports = {
         }
     },
     rules: {
-        'arrow-body-style': 0,
-        'comma-dangle': ['error', 'never'],
+        // 'arrow-body-style': 0,
+        // 'comma-dangle': ['error', 'never'],
         'import/extensions': [
             'error',
             'ignorePackages',
@@ -61,18 +61,18 @@ module.exports = {
                 tsx: 'never'
             }
         ],
-        'immutable/no-let': 2,
-        'immutable/no-this': 0,
+        // 'immutable/no-let': 2,
+        // 'immutable/no-this': 0,
         'immutable/no-mutation': 2,
-        indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
-        'import/no-named-default': 0,
+        // indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
+        // 'import/no-named-default': 0,
         'import/prefer-default-export': 0,
-        'jest/no-large-snapshots': [
-            'warn',
-            {
-                maxSize: 12
-            }
-        ],
+        // 'jest/no-large-snapshots': [
+        //     'warn',
+        //     {
+        //         maxSize: 12
+        //     }
+        // ],
         'jsdoc/check-param-names': 1,
         'jsdoc/check-tag-names': [
             1,
@@ -98,25 +98,25 @@ module.exports = {
             }
         ],
         'jsx-a11y/href-no-hash': 'off', // @see {@link https://github.com/facebookincubator/create-react-app/issues/2631}
-        'jsx-quotes': 0,
-        'linebreak-style': ['error', 'unix'],
+        // 'jsx-quotes': 0,
+        // 'linebreak-style': ['error', 'unix'],
         'lodash/import-scope': 0,
-        'lodash/prefer-noop': 0,
+        // 'lodash/prefer-noop': 0,
         'lodash/prefer-lodash-method': 0,
-        'max-len': [1, 220],
-        'no-mixed-operators': ['error', { allowSamePrecedence: true }],
-        'no-void': 1,
-        'one-var': [
-            2,
-            {
-                var: 'always',
-                let: 'always',
-                const: 'never'
-            }
-        ],
-        'operator-assignment': ['error', 'never'],
-        'padded-blocks': 0,
-        'prefer-arrow-callback': 0,
+        // 'max-len': [1, 220],
+        // 'no-mixed-operators': ['error', { allowSamePrecedence: true }],
+        // 'no-void': 1,
+        // 'one-var': [
+        //     2,
+        //     {
+        //         var: 'always',
+        //         let: 'always',
+        //         const: 'never'
+        //     }
+        // ],
+        // 'operator-assignment': ['error', 'never'],
+        // 'padded-blocks': 0,
+        'prefer-arrow-callback': 1,
         'promise/always-return': 'error',
         'promise/avoid-new': 'warn',
         'promise/catch-or-return': 'error',
@@ -126,20 +126,20 @@ module.exports = {
         'promise/no-promise-in-callback': 'warn',
         'promise/no-return-wrap': 'error',
         'promise/param-names': 'error',
-        quotes: 0,
-        'react/forbid-prop-types': 1,
-        'react/jsx-curly-brace-presence': [
-            'off',
-            {
-                props: 'always',
-                children: 'ignore'
-            }
-        ],
-        'react/jsx-fragments': 0,
+        // 'react/forbid-prop-types': 1,
+        // 'react/jsx-curly-brace-presence': [
+        //     'off',
+        //     {
+        //         props: 'always',
+        //         children: 'ignore'
+        //     }
+        // ],
+        // 'react/jsx-fragments': 0,
+        'react/jsx-closing-tag-location': 0,
         'react/jsx-indent-props': ['error', 4],
         'react/jsx-indent': [2, 4],
-        'react/jsx-one-expression-per-line': 0,
-        'react/jsx-props-no-spreading': 0,
+        // 'react/jsx-one-expression-per-line': 0,
+        // 'react/jsx-props-no-spreading': 0,
         'security/detect-buffer-noassert': 2,
         'security/detect-child-process': 2,
         'security/detect-eval-with-expression': 2,
@@ -150,16 +150,15 @@ module.exports = {
         'security/detect-object-injection': 0,
         'security/detect-possible-timing-attacks': 2,
         'security/detect-pseudoRandomBytes': 2,
-        'security/detect-unsafe-regex': 2,
-        semi: ['error', 'always']
+        'security/detect-unsafe-regex': 2
     },
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],
-            parser: 'typescript-eslint-parser',
-            rules: {
-                'no-undef': 'off'
-            }
+            extends: [
+                'plugin:@typescript-eslint/recommended'
+            ],
+            parser: '@typescript-eslint/parser'
         }
     ]
 };
