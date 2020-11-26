@@ -42,14 +42,6 @@
             }
         }
     },
-    "plugins": {
-        "eslint": {
-            "enabled": true,
-            "config": {
-                "config": "config/eslint.config.js"
-            }
-        }
-    },
     "exclude_patterns": [
         "*/**/__mocks__/",
         "*/**/__tests__/",
