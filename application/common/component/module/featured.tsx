@@ -23,7 +23,7 @@ type Props = {
             path: string;
             headline: string;
             lead: string;
-            img: any;
+            img: Record<string, unknown>;
         }[];
     };
     itemType?: string;

@@ -52,7 +52,9 @@ export const initialState: ContactStateType = {
  * @param {object} form - The contact form values
  * @returns {object} The redux action playload
  */
-export function changeContactForm(form: object): ContactActionTypes {
+export function changeContactForm(
+    form: Record<string, unknown>
+): ContactActionTypes {
     return {
         type: CHANGE_CONTACT_FORM,
         form

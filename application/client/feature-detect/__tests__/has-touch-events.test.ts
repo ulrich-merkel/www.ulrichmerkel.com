@@ -13,7 +13,7 @@ describe('hasTouchEvents', function fnDescribe() {
         const windowSpy = jest.spyOn(global, 'window', 'get');
         windowSpy.mockImplementation(() => ({
             ...originalWindow,
-            ontouchstart: function () {
+            ontouchstart: function fnOntouchstart() {
                 return true;
             }
         }));

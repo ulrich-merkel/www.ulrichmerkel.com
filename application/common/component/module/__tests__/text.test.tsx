@@ -25,7 +25,7 @@ describe('ModuleText', function fnDescribe() {
             btnTitle: 'Button title',
             btnLabel: 'Button label'
         },
-        handleChangeDialogVisible: () => {}
+        handleChangeDialogVisible: jest.fn()
     };
 
     it('should render correctly', function fnIt() {

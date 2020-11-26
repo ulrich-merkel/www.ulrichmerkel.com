@@ -85,7 +85,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
                 {...{ isMain }}
             />
             <ModuleArticleLead
-                className={'m-article__lead'}
+                className="m-article__lead"
                 text={content?.lead}
             />
             <div className="m-article__text" itemProp="text">
@@ -95,7 +95,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
                 btnTo={content?.btnTo}
                 btnLabel={content?.btnLabel}
                 btnTitle={content?.btnTitle}
-                className={'m-article__button'}
+                className="m-article__button"
                 {...{ isDialog }}
             />
             <Meta itemProp="name" content={content?.headline} />

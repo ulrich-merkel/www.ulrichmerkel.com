@@ -51,9 +51,14 @@
         }
     },
     "exclude_patterns": [
-        "config/",
-        "application/common/vendor/",
+        "**/__mocks__/",
         "**/__tests__/",
-        "**/__mocks__/"
+        "**/node_modules/",
+        "application/common/vendor/",
+        "build/",
+        "config/",
+        "doc/",
+        "patches/",
+        "report/"
     ]
 }

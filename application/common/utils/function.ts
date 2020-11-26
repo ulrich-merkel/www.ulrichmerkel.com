@@ -15,7 +15,8 @@ import { isFunction } from 'lodash';
  * @param {*} [result] - The optional function parameter
  * @returns {void}
  */
-export function callFn(callback: Function, result?) {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function callFn(callback: Function, result?: any): void {
     if (isFunction(callback)) {
         callback.call(result);
     }

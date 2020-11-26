@@ -28,7 +28,9 @@ import { ColorSchemeStateType } from './types';
  */
 export const selectStateColorScheme = createSelector(
     [(state: RootState) => state?.[COLOR_SCHEME_RESOURCE_NAME]],
-    function (colorScheme: ColorSchemeStateType): ColorSchemeStateType {
+    function resultFunc(
+        colorScheme: ColorSchemeStateType
+    ): ColorSchemeStateType {
         return isEmpty(colorScheme) ? initialState : colorScheme;
     }
 );
@@ -42,7 +44,7 @@ export const selectStateColorScheme = createSelector(
  */
 export const selectStateColorSchemeSelected = createSelector(
     [selectStateColorScheme],
-    function (colorScheme: ColorSchemeStateType): string {
+    function resultFunc(colorScheme: ColorSchemeStateType): string {
         return get(
             colorScheme,
             'payload.selected',
@@ -60,7 +62,7 @@ export const selectStateColorSchemeSelected = createSelector(
  */
 export const selectStateColorSchemeSelectedDarkMode = createSelector(
     [selectStateColorSchemeSelected],
-    function (colorSchemeSelected: string): boolean {
+    function resultFunc(colorSchemeSelected: string): boolean {
         return colorSchemeSelected === COLOR_SCHEME_DARK;
     }
 );

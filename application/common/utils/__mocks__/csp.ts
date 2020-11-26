@@ -3,11 +3,13 @@
  * for reusing existing functions. We just need to mock
  * getNonce here...
  */
-function getNonce() {
+import { NonceConfig } from '../csp';
+
+export function getNonce(): string {
     return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 }
 
-function getNonceConfig() {
+export function getNonceConfig(): NonceConfig {
     return {
         style: {
             base: getNonce()
@@ -19,7 +21,7 @@ function getNonceConfig() {
     };
 }
 
-function getCspRules(nonceConfig) {
+export function getCspRules(nonceConfig?: NonceConfig): string {
     const rules = [];
     /* eslint-disable quotes */
     rules.push(`default-src 'self' www.ulrichmerkel.com;`);
@@ -36,5 +38,3 @@ function getCspRules(nonceConfig) {
 
     return rules.join('');
 }
-
-export { getNonceConfig, getCspRules };

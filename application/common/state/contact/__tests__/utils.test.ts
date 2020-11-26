@@ -1,7 +1,7 @@
 import { validate, isValid, canSendForm } from '../utils';
 
-describe('validate', function () {
-    it('should return the correct result', function () {
+describe('validate', function fnDescribe() {
+    it('should return the correct result', function fnIt() {
         expect(validate()).toMatchSnapshot();
         expect(
             validate({
@@ -30,8 +30,8 @@ describe('validate', function () {
     });
 });
 
-describe('isValid', function () {
-    it('should return the correct result', function () {
+describe('isValid', function fnDescribe() {
+    it('should return the correct result', function fnIt() {
         expect(isValid()).toMatchSnapshot();
         expect(
             isValid({
@@ -60,8 +60,8 @@ describe('isValid', function () {
     });
 });
 
-describe('canSendForm', function () {
-    it('should return the correct result', function () {
+describe('canSendForm', function fnDescribe() {
+    it('should return the correct result', function fnIt() {
         expect(canSendForm()).toMatchSnapshot();
         expect(
             canSendForm({

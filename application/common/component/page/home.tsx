@@ -21,7 +21,7 @@ import { SectionService } from '../section/service';
 import { SectionFeatured } from '../section/featured';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
 };
 
 /**

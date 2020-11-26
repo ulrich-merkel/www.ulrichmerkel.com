@@ -62,7 +62,7 @@ export const rootReducer = combineReducers({
 export type RootState = ReturnType<typeof rootReducer>;
 
 // Neat middleware that logs actions
-const loggerMiddleware: Function = createLogger();
+const loggerMiddleware = createLogger();
 
 /**
  * Creates a Redux store that holds the complete state tree of your app.

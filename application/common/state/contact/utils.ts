@@ -51,10 +51,9 @@ export function isValid(contactForm: ContactFormType): boolean {
 export function canSendForm(contactForm: ContactFormType): boolean {
     const isStateValid = isValid(contactForm);
 
-    return (
-        isStateValid &&
-        contactForm.pristine &&
-        !contactForm.pending &&
-        isBrowser(contactForm)
-    );
+    if (!isBrowser()) {
+        return false;
+    }
+
+    return isStateValid && contactForm.pristine && !contactForm.pending;
 }

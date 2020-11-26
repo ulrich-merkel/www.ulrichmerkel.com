@@ -19,7 +19,7 @@ import { SectionSettings } from '../section/settings';
 import { ModuleFormSettingsConnected } from '../module/form/settings';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
     isDialog?: boolean;
 };
 

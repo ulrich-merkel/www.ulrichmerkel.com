@@ -110,7 +110,7 @@ type Props = {
         error: boolean;
         browser: boolean;
     };
-    onChangeContactForm?: (State) => void;
+    onChangeContactForm?: (state: State) => void;
     routerState?: string;
     csrfToken?: string;
 };
@@ -143,7 +143,7 @@ function scrollToTextMessage(textMessage) {
  * @param {string} [csrfToken=''] - The csrf token string to be validated
  * @returns {Future}
  */
-function send(data, csrfToken: string = ''): Promise<Response> {
+function send(data, csrfToken = ''): Promise<Response> {
     const bodyData = xorUse
         ? encrypt(JSON.stringify(data), xorKey)
         : JSON.stringify(data);
@@ -156,7 +156,7 @@ function send(data, csrfToken: string = ''): Promise<Response> {
         })
     };
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function fnPromise(resolve, reject) {
         xhr(url.contact, xhrData).then(resolve).catch(reject);
     });
 }
@@ -461,11 +461,11 @@ class ModuleFormContact extends Component<Props, State> {
                     <GridRow>
                         <GridCol cols={6}>
                             <InputGroup
-                                id={'name'}
+                                id="name"
                                 isPristine={state.namePristine}
                                 isValid={validate(state).name}
                                 label={content.inputName}
-                                name={'name'}
+                                name="name"
                                 onChange={this.onChange}
                                 required
                                 value={state.name}
@@ -473,14 +473,14 @@ class ModuleFormContact extends Component<Props, State> {
                         </GridCol>
                         <GridCol cols={6}>
                             <InputGroup
-                                id={'email'}
+                                id="email"
                                 isPristine={state.emailPristine}
                                 isValid={validate(state).email}
                                 label={content.inputEmail}
-                                name={'email'}
+                                name="email"
                                 onChange={this.onChange}
                                 required
-                                type={'email'}
+                                type="email"
                                 value={state.email}
                             />
                         </GridCol>
@@ -488,11 +488,11 @@ class ModuleFormContact extends Component<Props, State> {
                     <GridRow>
                         <GridCol>
                             <InputGroup
-                                id={'subject'}
+                                id="subject"
                                 isPristine={state.subjectPristine}
                                 isValid={validate(state).subject}
                                 label={content.inputSubject}
-                                name={'subject'}
+                                name="subject"
                                 onChange={this.onChange}
                                 required
                                 value={state.subject}
@@ -502,11 +502,11 @@ class ModuleFormContact extends Component<Props, State> {
                     <GridRow>
                         <GridCol>
                             <TextareaGroup
-                                id={'message'}
+                                id="message"
                                 isPristine={state.messagePristine}
                                 isValid={validate(state).message}
                                 label={content.inputMessage}
-                                name={'message'}
+                                name="message"
                                 onChange={this.onChange}
                                 required
                                 value={state.message}
@@ -516,27 +516,25 @@ class ModuleFormContact extends Component<Props, State> {
                     <GridRow>
                         <GridCol cols={6}>
                             <ButtonGroup
-                                id={'reset'}
-                                name={'reset'}
-                                type={'reset'}
+                                id="reset"
+                                name="reset"
+                                type="reset"
                                 title={content.btnResetTitle}
                                 label={content.btnResetLabel}
-                                className={'m-form__group--reset hide-on-print'}
+                                className="m-form__group--reset hide-on-print"
                                 isSecondary
                                 isDisabled={state.pending}
                             />
                         </GridCol>
                         <GridCol cols={6}>
                             <ButtonGroup
-                                id={'submit'}
-                                name={'submit'}
-                                type={'submit'}
+                                id="submit"
+                                name="submit"
+                                type="submit"
                                 title={content.btnSubmitTitle}
                                 label={content.btnSubmitLabel}
-                                className={
-                                    'm-form__group--submit hide-on-print'
-                                }
-                                btnClassName={'c-btn--submit'}
+                                className="m-form__group--submit hide-on-print"
+                                btnClassName="c-btn--submit"
                                 isPrimary
                                 isDisabled={!canSendForm(state)}
                                 isPending={state.pending}

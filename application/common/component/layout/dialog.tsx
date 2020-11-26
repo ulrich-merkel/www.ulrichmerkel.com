@@ -20,7 +20,7 @@ import {
 import { changeDialogVisible } from '../../state/dialog/duck';
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
-import { eventPreventDefault } from '../../utils/event';
+import { Event, eventPreventDefault } from '../../utils/event';
 import { isBrowser } from '../../utils/environment';
 import { closeDialog, showDialog } from '../../../client/utils/dialog';
 
@@ -30,12 +30,12 @@ import { GridCol } from '../grid/col';
 import { Button } from '../element/button';
 
 type Props = {
-    changeDialogVisible?: () => void;
+    onChangeDialogVisible?: () => void;
     children?: ReactNode;
     className?: string;
     dialogPage?: string;
     dialogVisible?: boolean;
-    content?: any;
+    content?: Record<string, unknown>;
     page?: string;
 };
 
@@ -52,7 +52,7 @@ export class LayoutDialog extends Component<Props> {
      * @param {object} [props] - The initial class properties
      * @returns {void}
      */
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
 
         this.onKeyDown = throttle(this.onKeyDown.bind(this), 100);
@@ -64,7 +64,7 @@ export class LayoutDialog extends Component<Props> {
      *
      * @returns {void}
      */
-    componentDidMount() {
+    componentDidMount(): void {
         if (isBrowser()) {
             window.addEventListener('keydown', this.onKeyDown, false);
         }
@@ -75,7 +75,7 @@ export class LayoutDialog extends Component<Props> {
      *
      * @returns {void}
      */
-    componentWillUnmount() {
+    componentWillUnmount(): void {
         if (isBrowser()) {
             window.removeEventListener('keydown', this.onKeyDown, false);
         }
@@ -88,11 +88,11 @@ export class LayoutDialog extends Component<Props> {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    onKeyDown(event) {
-        const { changeDialogVisible = noop } = this.props;
+    onKeyDown(event: Event): void {
+        const { onChangeDialogVisible = noop } = this.props;
 
         if (event && event.keyCode === 27) {
-            changeDialogVisible(false);
+            onChangeDialogVisible(false);
         }
     }
 
@@ -103,11 +103,11 @@ export class LayoutDialog extends Component<Props> {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    onClose(event) {
-        const { changeDialogVisible = noop } = this.props;
+    onClose(event: Event): void {
+        const { onChangeDialogVisible = noop } = this.props;
 
         eventPreventDefault(event);
-        changeDialogVisible(false);
+        onChangeDialogVisible(false);
     }
 
     /**
@@ -115,7 +115,7 @@ export class LayoutDialog extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             children,
             className,

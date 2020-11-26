@@ -28,7 +28,7 @@ import { Locale } from '../../state/intl/types';
 type Props = {
     children?: ReactNode;
     className?: string;
-    config?: any;
+    config?: Record<string, unknown>;
     content?: {
         list: {
             headline: string;

@@ -35,13 +35,13 @@ describe('ModuleFormContact', function fnDescribe() {
     });
     it('should render a success message', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected {...props} routerState={'success'} />
+            <ModuleFormContactConnected {...props} routerState="success" />
         );
         expect(asFragment()).toMatchSnapshot();
     });
     it('should render an error message', function fnIt() {
         const { asFragment } = render(
-            <ModuleFormContactConnected {...props} routerState={'error'} />
+            <ModuleFormContactConnected {...props} routerState="error" />
         );
         expect(asFragment()).toMatchSnapshot();
     });

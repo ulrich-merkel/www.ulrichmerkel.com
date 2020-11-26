@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`selectStateConfig should return an empty object if state isn't found 1`] = `Object {}`;
+exports[`selectStateConfig should return an empty object if state isn't found 1`] = `
+Object {
+  "content": Object {
+    "didInvalidate": false,
+    "isFetching": false,
+  },
+}
+`;
 
 exports[`selectStateConfig should return the correct state 1`] = `
 Object {

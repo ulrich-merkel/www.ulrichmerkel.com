@@ -24,7 +24,7 @@ import { PageStateType } from './types';
  */
 export const selectStatePage = createSelector(
     [(state: RootState) => state?.[PAGE_RESOURCE_NAME]],
-    function (page: PageStateType): PageStateType {
+    function resultFunc(page: PageStateType): PageStateType {
         return isEmpty(page) ? initialState : page;
     }
 );
@@ -38,7 +38,7 @@ export const selectStatePage = createSelector(
  */
 export const selectStatePageViewsAfterReload = createSelector(
     [selectStatePage],
-    function (page: PageStateType): number {
+    function resultFunc(page: PageStateType): number {
         return get(
             page,
             'payload.viewsAfterReload',

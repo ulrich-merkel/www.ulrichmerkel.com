@@ -1,4 +1,9 @@
-import { default as React, forwardRef, FunctionComponent } from 'react';
+import {
+    default as React,
+    ElementRef,
+    forwardRef,
+    FunctionComponent
+} from 'react';
 
 import { P } from '../../../element/paragraph';
 import { Button } from '../../../element/button';
@@ -20,10 +25,11 @@ type Props = {
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
+// eslint-disable-next-line react/display-name
 export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<
     HTMLDivElement,
     Props
->((props, ref) => {
+>((props: Props, ref: ElementRef<any>) => {
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (

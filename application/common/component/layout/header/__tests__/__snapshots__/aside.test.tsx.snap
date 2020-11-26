@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutHeaderAside should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-menu--aside m-nav__toggle-target m-nav__aside layout-header"
+    itemscope=""
+    itemtype="http://schema.org/ItemList"
+    role="menu"
+  >
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <button
+        class="c-btn m-menu__item m-menu__item--en c-btn--small c-btn--clear"
+        data-locale="en-EN"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label"
+        />
+      </button>
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <button
+        class="c-btn m-menu__item m-menu__item--de is-active c-btn--small c-btn--clear"
+        data-locale="de-DE"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label"
+        />
+      </button>
+    </li>
+    <li
+      class="m-menu__list-item--search always-float"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item--search c-btn--small c-btn--clear"
+        href="/search"
+        tabindex="0"
+        title="Search"
+      >
+        <span
+          class="c-btn__label"
+        >
+          <i
+            aria-hidden="true"
+            class="c-font-icon--search c-btn__icon"
+          />
+        </span>
+      </a>
+    </li>
+    <li
+      class="m-menu__list-item--theme always-float"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+        href="/settings"
+        tabindex="0"
+        title=""
+      >
+        <span
+          class="c-btn__label"
+        >
+          <i
+            aria-hidden="true"
+            class="c-font-icon--cog c-btn__icon"
+          />
+        </span>
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`LayoutHeaderAside should render correctly the connected version 1`] = `
+<DocumentFragment>
+  <ul
+    class="m-menu--aside m-nav__toggle-target m-nav__aside layout-header"
+    itemscope=""
+    itemtype="http://schema.org/ItemList"
+    role="menu"
+  >
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <button
+        class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
+        data-locale="en-EN"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label"
+        />
+      </button>
+    </li>
+    <li
+      class="m-menu__list-item"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <button
+        class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+        data-locale="de-DE"
+        role="button"
+        title=""
+        type="button"
+      >
+        <span
+          class="c-btn__label"
+        />
+      </button>
+    </li>
+    <li
+      class="m-menu__list-item--search always-float"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item--search c-btn--small c-btn--clear"
+        href="/search"
+        tabindex="0"
+        title="Search"
+      >
+        <span
+          class="c-btn__label"
+        >
+          <i
+            aria-hidden="true"
+            class="c-font-icon--search c-btn__icon"
+          />
+        </span>
+      </a>
+    </li>
+    <li
+      class="m-menu__list-item--theme always-float"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="http://www.schema.org/SiteNavigationElement"
+    >
+      <a
+        class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+        href="/settings"
+        tabindex="0"
+        title=""
+      >
+        <span
+          class="c-btn__label"
+        >
+          <i
+            aria-hidden="true"
+            class="c-font-icon--cog c-btn__icon"
+          />
+        </span>
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

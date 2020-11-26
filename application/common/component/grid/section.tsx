@@ -22,5 +22,5 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const GridSection: FunctionComponent<Props> = (props) => {
-    return <GridContainer className={'m-section'} {...props} />;
+    return <GridContainer className="m-section" {...props} />;
 };

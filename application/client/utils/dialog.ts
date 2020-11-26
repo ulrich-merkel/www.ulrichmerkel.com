@@ -13,7 +13,7 @@ import { getDocumentDomNode } from './dom';
 /**
  * @type {number}
  */
-let showTimer: number = 0;
+let showTimer = 0;
 
 /**
  * Adding some body css to prevent scrolling while the dialog
@@ -23,7 +23,7 @@ let showTimer: number = 0;
  */
 export function showDialog(): void {
     clearTimeout(showTimer);
-    showTimer = setTimeout(function () {
+    showTimer = setTimeout(function fnSetTimeout() {
         const document = getDocumentDomNode();
         if (!document) {
             return;
@@ -32,7 +32,7 @@ export function showDialog(): void {
         const scrollY = document.documentElement.style.getPropertyValue(
             '--scroll-y'
         );
-        const body = document.body;
+        const { body } = document;
         body.style.position = 'fixed';
         body.style.top = `-${scrollY}`;
     }, 500);
@@ -49,7 +49,7 @@ export function closeDialog(): void {
         return;
     }
 
-    const body = document.body;
+    const { body } = document;
     body.style.position = '';
     body.style.top = '';
 }

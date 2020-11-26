@@ -18,7 +18,7 @@ import { LayoutMain } from '../layout/main';
 import { SectionList } from '../section/list';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
     isDialog?: boolean;
 };
 

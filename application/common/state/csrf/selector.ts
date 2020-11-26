@@ -25,7 +25,7 @@ import { CsrfStateType } from './types';
  */
 export const selectStateCsrf = createSelector(
     [(state: RootState) => state?.[CSRF_RESOURCE_NAME]],
-    function (csrf: CsrfStateType): CsrfStateType {
+    function resultFunc(csrf: CsrfStateType): CsrfStateType {
         return isEmpty(csrf) ? initialState : csrf;
     }
 );
@@ -39,7 +39,7 @@ export const selectStateCsrf = createSelector(
  */
 export const selectStateCsrfToken = createSelector(
     [selectStateCsrf],
-    function (csrf: CsrfStateType): string {
+    function resultFunc(csrf: CsrfStateType): string {
         return get(csrf, 'payload.token', initialState.payload.token);
     }
 );

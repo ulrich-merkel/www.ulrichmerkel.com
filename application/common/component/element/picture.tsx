@@ -56,7 +56,7 @@ export class Picture extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             alt = '',
             children,
@@ -87,7 +87,7 @@ export class Picture extends Component<Props> {
                 {...otherProps}
             >
                 {isValidArray(sizes) &&
-                    sizes.map(function (value) {
+                    sizes.map(function fnMap(value) {
                         const { height, minWidth, width } = value;
 
                         return (

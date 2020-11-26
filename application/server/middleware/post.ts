@@ -10,6 +10,7 @@
  */
 import nodemailer from 'nodemailer';
 import assert from 'assert-plus';
+import { Request, Response } from 'express';
 import { isEmpty } from 'lodash';
 
 import { configApplication, url } from '../../common/config/application';
@@ -28,9 +29,13 @@ const xorKey = configApplication.xor.key;
  * @param {object} req - The current request object
  * @param {object} res - The express/http result to be send
  * @param {string} [message=''] - Additional message to be send
- * @returns {Function} The new routing result
+ * @returns {Promise}
  */
-function sendSuccess(req, res, message = '') {
+function sendSuccess(
+    req: Request,
+    res: Response,
+    message = ''
+): Promise<Response> {
     assert.object(req, 'req');
     assert.object(res, 'res');
     // assert.optionalString(message, 'message');
@@ -55,9 +60,13 @@ function sendSuccess(req, res, message = '') {
  * @param {object} req - The current request object
  * @param {object} res - The express/http result to be send
  * @param {string} [message=''] - Additional message to be send
- * @returns {Function} The new routing result
+ * @returns {Promise}
  */
-function sendError(req, res, message = '') {
+function sendError(
+    req: Request,
+    res: Response,
+    message = ''
+): Promise<Response> {
     assert.object(req, 'req');
     assert.object(res, 'res');
     // assert.optionalString(message, 'message');
@@ -79,9 +88,9 @@ function sendError(req, res, message = '') {
  *
  * @param {object} req - The current request object
  * @param {object} res - The express/http result to be send
- * @returns {Future}
+ * @returns {Promise}
  */
-export function middlewarePost(req, res) {
+export function middlewarePost(req: Request, res: Response): Promise<Response> {
     assert.object(req, 'req');
     assert.object(res, 'res');
 

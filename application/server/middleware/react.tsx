@@ -13,8 +13,11 @@
  * @see {@link https://github.com/reactjs/redux/issues/723}
  */
 import * as React from 'react';
+import path from 'path';
+import { NextFunction, Request, Response } from 'express';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
+import { Store } from 'redux';
 import { get } from 'lodash';
 import assert from 'assert-plus';
 
@@ -26,6 +29,7 @@ import { Routes } from '../../common/component/routes';
 import { LayoutHtmlConnected } from '../../common/component/layout/html';
 import { configureStore } from '../../common/state/configure-store';
 import { changeIntlLocale } from '../../common/state/intl/duck';
+import { Locale } from '../../common/state/intl/types';
 import { selectStateIntlLocale } from '../../common/state/intl/selector';
 import {
     fetchConfigContentIfNeeded,
@@ -34,6 +38,11 @@ import {
 import { changeCsrfToken } from '../../common/state/csrf/duck';
 
 const { aboveTheFold } = configApplication;
+
+type Rendered = {
+    html: string;
+    context: Record<string, unknown>;
+};
 
 /**
  * Create the final html result to be send to the client.
@@ -47,9 +56,14 @@ const { aboveTheFold } = configApplication;
  * @param {object} store - The created redux store
  * @param {string} [cssBase=''] - The file contents from base.css
  * @param {string} [scriptBootstrap=''] - The file contents from loader.js
- * @returns {string} The rendered html string
+ * @returns {object} Containing the rendered html string
  */
-function render(url, store, cssBase = '', scriptBootstrap = '') {
+function render(
+    url: string,
+    store: Store,
+    cssBase = '',
+    scriptBootstrap = ''
+): Rendered {
     assert.string(url, 'url');
     assert.object(store, 'store');
     assert.optionalString(cssBase, 'cssBase');
@@ -82,7 +96,7 @@ function render(url, store, cssBase = '', scriptBootstrap = '') {
  * @param {object} store - The complete redux store
  * @returns {string} The currently accepted locale
  */
-function getLocale(req, store) {
+function getLocale(req: Request, store: Store): Locale {
     assert.object(req, 'req');
     assert.object(store, 'store');
 
@@ -109,15 +123,19 @@ function getLocale(req, store) {
  * @param {string} acceptedLocale - The currently accepted locale
  * @returns {Promise} Async state when initial data is loaded
  */
-function loadData(req, store, acceptedLocale) {
+function loadData(
+    req: Request,
+    store: Store,
+    acceptedLocale: Locale
+): Promise<[]> {
     assert.object(req, 'req');
     assert.object(store, 'store');
     assert.string(acceptedLocale, 'acceptedLocale');
     const { dispatch } = store;
 
     return Promise.all([
-        readFile(aboveTheFold.cssBase),
-        readFile(aboveTheFold.scriptBootstrap),
+        readFile(path.join(__dirname, aboveTheFold.cssBase)),
+        readFile(path.join(__dirname, aboveTheFold.scriptBootstrap)),
         dispatch(fetchConfigContentIfNeeded()),
         dispatch(fetchConfigTranslationIfNeeded(acceptedLocale)),
         dispatch(changeCsrfToken(req.csrfToken && req.csrfToken()))
@@ -130,9 +148,13 @@ function loadData(req, store, acceptedLocale) {
  * @param {object} req - The current request object
  * @param {object} res - The result object
  * @param {Function} next - The next iteration middleware function
- * @returns {void}
+ * @returns {Promise}
  */
-export function middlewareReact(req, res, next) {
+export function middlewareReact(
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response> {
     assert.object(req, 'req');
     assert.object(res, 'res');
     assert.optionalFunc(next, 'next');

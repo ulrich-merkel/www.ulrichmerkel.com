@@ -35,7 +35,7 @@ import { PageSettings } from '../page/settings';
 
 type Props = {
     children?: ReactNode;
-    content?: any;
+    content?: Record<string, unknown>;
     reducedMotionSelectedReduce?: boolean;
 };
 
@@ -70,7 +70,7 @@ export class LayoutBody extends PureComponent<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const { children, content } = this.props;
 
         return (

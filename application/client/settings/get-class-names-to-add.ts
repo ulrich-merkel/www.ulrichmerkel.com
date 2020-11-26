@@ -24,7 +24,7 @@ export function getClassNamesToAdd(
     }
 
     return classNamesToAdd
-        .reduce(function (accumulator, className) {
+        .reduce(function fnReduce(accumulator, className) {
             const combined = [classNamePrefix, className]
                 .filter(Boolean)
                 .join('-');
