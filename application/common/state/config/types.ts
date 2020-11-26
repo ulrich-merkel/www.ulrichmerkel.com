@@ -18,12 +18,12 @@ export interface FailedConfigTranslationActionType {
 export interface ReceiveConfigContentActionType {
     type: typeof FETCH_CONFIG_CONTENT_SUCCESS;
     receivedAt: number;
-    data: any;
+    data: Record<string, unknown>;
 }
 
 export interface ReceiveConfigTranslationActionType {
     type: typeof FETCH_CONFIG_TRANSLATION_SUCCESS;
     receivedAt: number;
-    data: any;
+    data: Record<string, unknown>;
     locale: Locale;
 }

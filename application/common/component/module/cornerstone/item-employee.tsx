@@ -22,7 +22,7 @@ type Props = {
     headline?: string;
     lead?: string;
     offset?: string;
-    place?: any;
+    place?: Record<string, unknown>;
     timeEnd?: string;
     timeStart?: string;
 };

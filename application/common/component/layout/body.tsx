@@ -35,7 +35,7 @@ import { PageSettings } from '../page/settings';
 
 type Props = {
     children?: ReactNode;
-    content?: any;
+    content?: Record<string, unknown>;
     reducedMotionSelectedReduce?: boolean;
 };
 

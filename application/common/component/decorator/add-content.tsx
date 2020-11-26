@@ -18,7 +18,7 @@ import { selectStateConfig } from '../../state/config/selector';
 import { Locale } from '../../state/intl/types';
 
 type Props = {
-    config: any;
+    config: Record<string, unknown>;
     locale: Locale;
 };
 

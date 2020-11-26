@@ -41,7 +41,7 @@ const { aboveTheFold } = configApplication;
 
 type Rendered = {
     html: string;
-    context: any;
+    context: Record<string, unknown>;
 };
 
 /**

@@ -16,7 +16,7 @@ import { ModuleArticle } from '../module/article';
 
 type Props = {
     children: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
     isMain?: boolean;
 };
 

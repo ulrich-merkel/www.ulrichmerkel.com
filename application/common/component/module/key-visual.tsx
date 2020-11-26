@@ -27,7 +27,7 @@ type Props = {
         lead: string;
         btnLabel: string;
         btnTitle: string;
-        img: any;
+        img: Record<string, unknown>;
         type: string;
     };
     htmlElement?: string;

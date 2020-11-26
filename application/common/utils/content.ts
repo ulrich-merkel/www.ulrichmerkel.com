@@ -34,7 +34,7 @@ function traverseArray(source: [], callback: any): any {
  * @param {Function} callback - The ready callback
  * @returns {object}
  */
-function traverseObject(source: Record<string, unknown>, callback): any {
+function traverseObject(source: Record<string, unknown>, callback): Record<string, unknown> {
     const result = {};
     Object.keys(source).forEach(function fnForEach(key) {
         // eslint-disable-next-line no-use-before-define, immutable/no-mutation
@@ -74,7 +74,7 @@ function traverse(source: any, callback: any): any {
  * @param {string} configTranslation - The complete content translation
  * @returns {object}
  */
-function translateContent(configContent: any, configTranslation: any): any {
+function translateContent(configContent: Record<string, unknown>, configTranslation: Record<string, unknown>): Record<string, unknown> {
     if (!configTranslation) {
         return configContent;
     }
@@ -92,7 +92,7 @@ function translateContent(configContent: any, configTranslation: any): any {
  * @param {object} config - The translated config
  * @returns {Function}
  */
-function getContentSection(config: any): (key: string) => any {
+function getContentSection(config: Record<string, unknown>): (key: string) => any {
     return function getContentSectionByKey(key) {
         return get(config, key);
     };
@@ -108,9 +108,9 @@ function getContentSection(config: any): (key: string) => any {
  */
 function getTranslatedContent(
     locale: Locale = AVAILABLE_LOCALES[0],
-    config: any,
+    config: Record<string, unknown>,
     configKey: string
-): any {
+): Record<string, unknown> {
     const configContent = get(config, 'content.data');
     const configContentByKey = get(configContent, configKey, configContent);
     const configTranslation = get(config, `${locale.toLowerCase()}.data`);

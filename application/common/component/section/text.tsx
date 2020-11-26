@@ -17,7 +17,7 @@ import { ModuleTextConnected } from '../module/text';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
     hasColumns2?: boolean;
     isCentered?: boolean;
     isMain?: boolean;

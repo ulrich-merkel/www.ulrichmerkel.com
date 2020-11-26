@@ -17,7 +17,7 @@ import { ModuleCornerstone } from '../module/cornerstone';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
 };
 
 /**

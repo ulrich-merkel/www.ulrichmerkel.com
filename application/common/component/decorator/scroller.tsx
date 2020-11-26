@@ -33,7 +33,7 @@ type Props = {
         key: string;
         pathname: string;
         search: string;
-        state: any;
+        state: Record<string, unknown>;
     };
     reducedMotionSelected: boolean;
 };

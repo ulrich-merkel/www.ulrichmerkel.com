@@ -11,7 +11,7 @@
 import * as React from 'react';
 import { isEmpty, isFunction } from 'lodash';
 
-type Event =
+export type Event =
     | React.AnimationEvent
     | React.ChangeEvent
     | React.ClipboardEvent

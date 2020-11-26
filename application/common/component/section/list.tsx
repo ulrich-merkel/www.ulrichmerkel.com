@@ -17,7 +17,7 @@ import { ModuleList } from '../module/list';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
     isDialog?: boolean;
     isMain?: boolean;
 };

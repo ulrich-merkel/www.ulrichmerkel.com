@@ -18,8 +18,8 @@ import {
 import { CLASSNAME_IS_LAZY_LOADED } from './constants';
 
 type JsOptions = {
-    className: string;
-    id: string;
+    className?: string;
+    id?: string;
     src: string;
 };
 

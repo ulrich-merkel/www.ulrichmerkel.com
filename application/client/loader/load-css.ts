@@ -17,7 +17,7 @@ import { CLASSNAME_IS_LAZY_LOADED } from './constants';
 type CssOptions = {
     className?: string;
     id?: string;
-    src?: string;
+    src: string;
 };
 
 type Callback = () => void;

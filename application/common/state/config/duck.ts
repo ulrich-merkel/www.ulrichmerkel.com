@@ -122,7 +122,7 @@ export function requestConfigContent(): Action {
  * @returns {object} Redux action
  */
 export function requestConfigTranslation(
-    locale: string
+    locale: Locale
 ): RequestConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_REQUEST,
@@ -138,7 +138,7 @@ export function requestConfigTranslation(
  * @returns {object} Redux action
  */
 export function receiveConfigContent(
-    data: any
+    data: Record<string, unknown>
 ): ReceiveConfigContentActionType {
     return {
         type: FETCH_CONFIG_CONTENT_SUCCESS,
@@ -156,8 +156,8 @@ export function receiveConfigContent(
  * @returns {object} Redux action
  */
 export function receiveConfigTranslation(
-    data: any,
-    locale: string
+    data: Record<string, unknown>,
+    locale: Locale
 ): ReceiveConfigTranslationActionType {
     return {
         type: FETCH_CONFIG_TRANSLATION_SUCCESS,
@@ -216,7 +216,7 @@ export function addConfigContent(data) {
  * @param {string} locale - The current language locale
  * @returns {object} Redux action
  */
-export function addConfigTranslation(data, locale) {
+export function addConfigTranslation(data, locale: Locale) {
     return {
         type: CONFIG_TRANSLATION_ADD,
         receivedAt: getDateNow(),
@@ -256,7 +256,7 @@ export function fetchConfigContent() {
  * @param {string} locale - The current language locale
  * @returns {Function}
  */
-export function fetchConfigTranslation(locale) {
+export function fetchConfigTranslation(locale: Locale) {
     return function reduxThunk(dispatch) {
         dispatch(requestConfigTranslation(locale));
 
@@ -295,7 +295,7 @@ export function fetchConfigContentIfNeeded() {
  * @param {string} loc - The current language locale
  * @returns {Function}
  */
-export function fetchConfigTranslationIfNeeded(loc) {
+export function fetchConfigTranslationIfNeeded(loc: Locale) {
     return function reduxThunk(dispatch, getState) {
         if (!loc) {
             return dispatch(failedConfigTranslation(loc));

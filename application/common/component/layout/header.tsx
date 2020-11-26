@@ -29,7 +29,7 @@ import { LayoutHeaderAsideConnected } from './header/aside';
 type Props = {
     className?: string;
     content?: {
-        menu?: any;
+        menu?: Record<string, unknown>;
     };
     headerFixed?: boolean;
     headerVisible?: boolean;

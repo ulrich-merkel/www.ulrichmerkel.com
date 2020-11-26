@@ -1,4 +1,4 @@
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import { default as React, FunctionComponent, ReactElement } from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
@@ -42,7 +42,7 @@ const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
  * @param {object} [options={}] - Testing library options
  * @returns {object} The test render result
  */
-function customRender(reactElement: ReactNode, options: any = {}): any {
+function customRender(reactElement: ReactElement, options: Record<string, unknown> = {}): Record<string, unknown> {
     const { state, ...otherOptions } = options;
 
     return render(reactElement, {

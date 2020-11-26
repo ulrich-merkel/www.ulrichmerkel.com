@@ -35,7 +35,7 @@ type Props = {
     className?: string;
     dialogPage?: string;
     dialogVisible?: boolean;
-    content?: any;
+    content?: Record<string, unknown>;
     page?: string;
 };
 

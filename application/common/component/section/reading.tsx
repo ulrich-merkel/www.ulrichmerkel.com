@@ -17,7 +17,7 @@ import { ModuleReading } from '../module/reading';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
 };
 
 /**

@@ -40,7 +40,7 @@ import { isValidArray } from '../../../utils/array';
 type Props = {
     className?: string;
     content?: {
-        menu?: any;
+        menu?: Record<string, unknown>;
     };
     intlAvailableLocales: Locales;
     intlLocale: Locale;
