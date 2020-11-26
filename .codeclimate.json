@@ -53,11 +53,11 @@
     "exclude_patterns": [
         "*/**/__mocks__/",
         "*/**/__tests__/",
-        "node_modules/",
         "application/common/vendor/",
         "build/",
         "config/",
         "doc/",
+        "node_modules/",
         "patches/",
         "report/"
     ]
