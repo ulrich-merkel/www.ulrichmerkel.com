@@ -10,6 +10,7 @@ exports[`LayoutFooter should render correctly 1`] = `
   >
     <button
       class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      data-testid="button-scroll-top"
       role="button"
       title=""
       type="button"
@@ -74,6 +75,72 @@ exports[`LayoutFooter should render correctly the connected version 1`] = `
   >
     <button
       class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      data-testid="button-scroll-top"
+      role="button"
+      title=""
+      type="button"
+    >
+      <span
+        class="c-btn__label is-visually-hidden"
+      />
+    </button>
+    <nav
+      class="m-nav"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__spaced--small"
+        >
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            />
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            />
+          </div>
+          <div
+            class="l-grid__row"
+          >
+            <div
+              class="l-grid__col--12"
+            >
+              <small
+                class="c-type--small"
+              >
+                © 
+                <strong />
+                 
+              </small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`LayoutFooter should render correctly with default props 1`] = `
+<DocumentFragment>
+  <footer
+    class="l-footer"
+    itemscope=""
+    itemtype="http://schema.org/WPFooter"
+    role="contentinfo"
+  >
+    <button
+      class="c-btn l-footer__button--up c-font-icon--chevron-up"
+      data-testid="button-scroll-top"
       role="button"
       title=""
       type="button"

@@ -27,6 +27,8 @@ import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 
+import { getTestIdAttributes } from '../utils/test-id';
+
 type Props = {
     children?: ReactNode;
     className?: string;
@@ -43,6 +45,7 @@ type Props = {
         event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>
     ) => void;
     role?: string;
+    testId?: string;
     title?: string;
     to?: string;
     type?: string;
@@ -65,6 +68,7 @@ type Props = {
  * @param {boolean} [props.isSecondary=false] - Whether the button is secondary styled or not
  * @param {boolean} [props.isSmall=false] - Whether the button is small styled or not
  * @param {string} [props.role='button'] - The element role attribute
+ * @param {string} [props.testId] - Id for test queries
  * @param {string} [props.title=''] - The element title attribute
  * @param {string} [props.to=''] - The react-router url target
  * @param {string} [props.type='button'] - The element type attribute
@@ -85,6 +89,7 @@ export const Button: FunctionComponent<Props> = (props) => {
         isSmall = false,
         onClick = noop,
         role = 'button',
+        testId,
         title = '',
         to,
         type = 'button',
@@ -106,6 +111,7 @@ export const Button: FunctionComponent<Props> = (props) => {
     const HtmlElement = to ? NavLink : htmlElement;
     const htmlElementType = !to ? type : null;
     const disabledAttributes = isDisabled ? { disabled: 'disabled' } : null;
+    const testIdAttributes = getTestIdAttributes(testId);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -114,6 +120,7 @@ export const Button: FunctionComponent<Props> = (props) => {
             type={htmlElementType}
             {...{ onClick, role, title, to }}
             {...disabledAttributes}
+            {...testIdAttributes}
             {...otherProps}
         >
             <span className={componentLabelClassName}>{children}</span>

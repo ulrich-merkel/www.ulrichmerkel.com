@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { render, userEvent } from '../../../../__tests__/utils/test-utils';
+import {
+    render,
+    screen,
+    userEvent
+} from '../../../../__tests__/utils/test-utils';
 import { A, isLink, isNavLink, getAttributes } from '../a';
 
 describe('A', function fnDescribe() {
@@ -56,13 +60,13 @@ describe('A', function fnDescribe() {
     });
     it('should handle events correctly', function fnIt() {
         const onClick = jest.fn();
-        const { getByText } = render(
+        render(
             <A {...props} to="/persona" onClick={onClick}>
                 Link Children
             </A>
         );
 
-        userEvent.click(getByText('Link Children'));
+        userEvent.click(screen.getByText('Link Children'));
         expect(onClick).toHaveBeenCalled();
     });
 });

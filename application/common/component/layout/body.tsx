@@ -12,13 +12,14 @@
 import { default as React, PureComponent, ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { noop } from 'lodash';
 
 import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { pictureFill } from '../decorator/picturefill';
 import { scroller } from '../decorator/scroller';
 import { addContent } from '../decorator/add-content';
 import { getPageOffset, scrollTo } from '../../utils/scroll-to';
-import { eventPreventDefault } from '../../utils/event';
+import { Event, eventPreventDefault } from '../../utils/event';
 import {
     DIALOG_CONTENT_BROADCAST,
     DIALOG_CONTENT_SEARCH,
@@ -36,13 +37,14 @@ import { PageSettings } from '../page/settings';
 type Props = {
     children?: ReactNode;
     content?: Record<string, unknown>;
+    onScrollTop: () => void;
     reducedMotionSelectedReduce?: boolean;
 };
 
 /**
  * Class representing a component.
  *
- * @augments React.Component
+ * @augments React.PureComponent
  * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @property {object} [props.content={}] - The component content config
  */
@@ -53,8 +55,11 @@ export class LayoutBody extends PureComponent<Props> {
      * @param {object} event - The synthetic react event
      * @returns {void}
      */
-    handleScrollTop = (event: React.SyntheticEvent): void => {
-        const { reducedMotionSelectedReduce = false } = this.props;
+    handleScrollTop = (event: Event): void => {
+        const {
+            onScrollTop = noop,
+            reducedMotionSelectedReduce = false
+        } = this.props;
 
         eventPreventDefault(event);
         if (getPageOffset()) {
@@ -63,6 +68,7 @@ export class LayoutBody extends PureComponent<Props> {
                 top: 0
             });
         }
+        onScrollTop();
     };
 
     /**

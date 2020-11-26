@@ -53,6 +53,7 @@ exports[`LayoutHeader should render correctly 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
+                  data-testid="button-language-en"
                   role="button"
                   title=""
                   type="button"
@@ -71,6 +72,7 @@ exports[`LayoutHeader should render correctly 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
+                  data-testid="button-language-de"
                   role="button"
                   title=""
                   type="button"
@@ -88,6 +90,7 @@ exports[`LayoutHeader should render correctly 1`] = `
               >
                 <a
                   class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  data-testid="button-search"
                   href="/search"
                   tabindex="0"
                   title="Search"
@@ -110,9 +113,10 @@ exports[`LayoutHeader should render correctly 1`] = `
               >
                 <a
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  data-testid="button-settings"
                   href="/settings"
                   tabindex="0"
-                  title=""
+                  title="Settings"
                 >
                   <span
                     class="c-btn__label"
@@ -186,6 +190,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
+                  data-testid="button-language-en"
                   role="button"
                   title=""
                   type="button"
@@ -204,6 +209,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
                 <button
                   class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
+                  data-testid="button-language-de"
                   role="button"
                   title=""
                   type="button"
@@ -221,6 +227,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
               >
                 <a
                   class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  data-testid="button-search"
                   href="/search"
                   tabindex="0"
                   title="Search"
@@ -243,9 +250,147 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
               >
                 <a
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  data-testid="button-settings"
                   href="/settings"
                   tabindex="0"
+                  title="Settings"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--cog c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`LayoutHeader should render correctly with default props 1`] = `
+<DocumentFragment>
+  <header
+    class="c-header l-header"
+    itemscope=""
+    itemtype="http://schema.org/WPHeader"
+    role="banner"
+  >
+    <progress
+      class="m-progress"
+      id="m-progress"
+      max="100"
+      value=""
+    >
+      <span
+        class="m-progress__fallback"
+        id="m-progress__fallback"
+      />
+    </progress>
+    <nav
+      class="m-nav m-nav--main"
+      role="navigation"
+    >
+      <section
+        class="l-grid"
+      >
+        <div
+          class="l-grid__row"
+        >
+          <div
+            class="l-grid__col--12"
+          >
+            <input
+              class="m-nav__toggle c-font-icon--menu"
+              id="menu-toggle"
+              name="menu-toggle"
+              type="checkbox"
+            />
+            <ul
+              class="m-menu--aside m-nav__toggle-target m-nav__aside"
+              itemscope=""
+              itemtype="http://schema.org/ItemList"
+              role="menu"
+            >
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
+                  data-locale="en-EN"
+                  data-testid="button-language-en"
+                  role="button"
                   title=""
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  />
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <button
+                  class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+                  data-locale="de-DE"
+                  data-testid="button-language-de"
+                  role="button"
+                  title=""
+                  type="button"
+                >
+                  <span
+                    class="c-btn__label"
+                  />
+                </button>
+              </li>
+              <li
+                class="m-menu__list-item--search always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--search c-btn--small c-btn--clear"
+                  data-testid="button-search"
+                  href="/search"
+                  tabindex="0"
+                  title="Search"
+                >
+                  <span
+                    class="c-btn__label"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="c-font-icon--search c-btn__icon"
+                    />
+                  </span>
+                </a>
+              </li>
+              <li
+                class="m-menu__list-item--theme always-float"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="http://www.schema.org/SiteNavigationElement"
+              >
+                <a
+                  class="c-link m-menu__item--theme c-btn--small c-btn--clear"
+                  data-testid="button-settings"
+                  href="/settings"
+                  tabindex="0"
+                  title="Settings"
                 >
                   <span
                     class="c-btn__label"

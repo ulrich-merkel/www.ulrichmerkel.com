@@ -53,11 +53,11 @@ exports[`getDomNodeById should return the correct element 3`] = `
 />
 `;
 
-exports[`getDomNodeById should return the correct element 4`] = `null`;
+exports[`getDomNodesByTagName should return the correct element 1`] = `null`;
 
-exports[`getDomNodeById should return the correct element 5`] = `HTMLCollection []`;
+exports[`getDomNodesByTagName should return the correct element 2`] = `HTMLCollection []`;
 
-exports[`getDomNodeById should return the correct element 6`] = `
+exports[`getDomNodesByTagName should return the correct element 3`] = `
 HTMLCollection [
   <button
     id="button"

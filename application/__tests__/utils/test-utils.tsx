@@ -42,7 +42,10 @@ const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
  * @param {object} [options={}] - Testing library options
  * @returns {object} The test render result
  */
-function customRender(reactElement: ReactElement, options: Record<string, unknown> = {}): Record<string, unknown> {
+function customRender(
+    reactElement: ReactElement,
+    options: Record<string, unknown> = {}
+): Record<string, unknown> {
     const { state, ...otherOptions } = options;
 
     return render(reactElement, {

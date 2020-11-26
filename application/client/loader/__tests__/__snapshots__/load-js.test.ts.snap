@@ -3,7 +3,7 @@
 exports[`createScriptElement should create a script element 1`] = `
 <script
   async="true"
-  classname="test-js"
+  classname="is-lazy-loaded test-js"
   id="test-js"
 />
 `;

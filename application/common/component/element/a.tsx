@@ -21,7 +21,9 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { isEmpty, noop } from 'lodash';
+
 import { isValidString } from '../../utils/string';
+import { getTestIdAttributes } from '../utils/test-id';
 
 type Props = {
     activeClassName?: string;
@@ -36,6 +38,7 @@ type Props = {
     role?: string;
     strict?: boolean;
     tabIndex?: number;
+    testId?: string;
     title?: string;
     to: string;
 };
@@ -121,6 +124,7 @@ export function getAttributes(
  * @param {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
  * @param {string} [props.className] - The component css class names - will be merged into component default classNames
  * @param {string} [props.htmlElement='a'] - The component element type used for React.createElement
+ * @param {string} [props.testId] - Id for test queries
  * @param {string} [props.title=''] - The title string to be set on a tag
  * @param {boolean} [props.exact] - Exclusively passed to NavLink
  * @returns {ReactElement} React component markup
@@ -139,6 +143,7 @@ export const A: FunctionComponent<Props> = (props) => {
         role,
         strict,
         tabIndex = 0,
+        testId,
         title = '',
         to,
         ...otherProps
@@ -156,6 +161,7 @@ export const A: FunctionComponent<Props> = (props) => {
         strict,
         to
     });
+    const testIdAttributes = getTestIdAttributes(testId);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -171,6 +177,7 @@ export const A: FunctionComponent<Props> = (props) => {
                 tabIndex,
                 title
             }}
+            {...testIdAttributes}
             {...otherProps}
         >
             {children}

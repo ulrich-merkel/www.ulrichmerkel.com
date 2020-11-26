@@ -31,6 +31,7 @@ exports[`ModuleKeyVisual should render correctly 1`] = `
     </article>
     <button
       class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+      data-testid="button-key-visual"
       role="button"
       title="btnTitle"
       type="button"
@@ -76,6 +77,7 @@ exports[`ModuleKeyVisual should render isWork and isCovered css className 1`] = 
     </article>
     <button
       class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+      data-testid="button-key-visual"
       role="button"
       title="btnTitle"
       type="button"

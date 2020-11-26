@@ -134,6 +134,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <Button
                     className={buttonEnClassName}
                     data-locale={INTL_LOCALE_EN_EN}
+                    testId="button-language-en"
                     title={contentSection('menu.language.list[0].title')}
                     onClick={handleIntlChangeLocale}
                     isSmall
@@ -151,6 +152,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <Button
                     className={buttonDeClassName}
                     data-locale={INTL_LOCALE_DE_DE}
+                    testId="button-language-de"
                     title={contentSection('menu.language.list[1].title')}
                     onClick={handleIntlChangeLocale}
                     isSmall
@@ -167,9 +169,10 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             >
                 <A
                     className="m-menu__item--search c-btn--small c-btn--clear"
-                    to={url.search}
                     onClick={handleChangeDialogVisibleSearch}
+                    testId="button-search"
                     title="Search"
+                    to={url.search}
                 >
                     <span className="c-btn__label">
                         <Icon className="c-btn__icon" icon="search" />
@@ -184,9 +187,10 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             >
                 <A
                     className="m-menu__item--theme c-btn--small c-btn--clear"
-                    to={url.settings}
                     onClick={handleChangeDialogVisibleTheme}
-                    title=""
+                    testId="button-settings"
+                    title="Settings"
+                    to={url.settings}
                 >
                     <span className="c-btn__label">
                         <Icon className="c-btn__icon" icon="cog" />

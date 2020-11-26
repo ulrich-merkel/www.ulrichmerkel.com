@@ -11,3 +11,5 @@ exports[`LayoutSettings should render correctly the connected version 1`] = `
   Hello
 </DocumentFragment>
 `;
+
+exports[`LayoutSettings should render correctly with default props 1`] = `<DocumentFragment />`;
