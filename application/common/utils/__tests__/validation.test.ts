@@ -9,7 +9,7 @@ describe('email', function fnDescribe() {
 });
 
 describe('required', function fnDescribe() {
-    it('should validated a required field', function () {
+    it('should validated a required field', function fnIt() {
         expect(required('something')).toBeTruthy();
         expect(required()).toBeFalsy();
         expect(required('')).toBeFalsy();

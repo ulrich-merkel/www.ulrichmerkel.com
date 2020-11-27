@@ -1,55 +1,29 @@
+import { Locale } from '../intl/types';
 import {
     FETCH_CONFIG_TRANSLATION_REQUEST,
     FETCH_CONFIG_CONTENT_SUCCESS,
-    FETCH_CONFIG_TRANSLATION_SUCCESS
+    FETCH_CONFIG_TRANSLATION_SUCCESS,
+    FETCH_CONFIG_TRANSLATION_FAILURE
 } from './duck';
-
-// export interface ContactFormType {
-//     name: string;
-//     email: string;
-//     subject: string;
-//     message: string;
-//     pristine: boolean;
-//     namePristine: boolean;
-//     emailPristine: boolean;
-//     subjectPristine: boolean;
-//     messagePristine: boolean;
-//     pending: boolean;
-//     success: boolean;
-//     error: boolean;
-// }
 
 export interface RequestConfigTranslationActionType {
     type: typeof FETCH_CONFIG_TRANSLATION_REQUEST;
-    locale: string;
+    locale: Locale;
 }
 
+export interface FailedConfigTranslationActionType {
+    type: typeof FETCH_CONFIG_TRANSLATION_FAILURE;
+    locale: Locale;
+}
 export interface ReceiveConfigContentActionType {
     type: typeof FETCH_CONFIG_CONTENT_SUCCESS;
     receivedAt: number;
-    data: any;
+    data: Record<string, unknown>;
 }
 
 export interface ReceiveConfigTranslationActionType {
     type: typeof FETCH_CONFIG_TRANSLATION_SUCCESS;
     receivedAt: number;
-    data: any;
-    locale: string;
+    data: Record<string, unknown>;
+    locale: Locale;
 }
-// export type ContactActionTypes = ChangeContactFormActionType;
-
-// export interface ContactStateType {
-//     meta: {
-//         isInitial: boolean;
-//     };
-//     payload: {
-//         form: ContactFormType;
-//     };
-// }
-
-// export interface ValidateType {
-//     email: boolean;
-//     message: boolean;
-//     name: boolean;
-//     subject: boolean;
-// }

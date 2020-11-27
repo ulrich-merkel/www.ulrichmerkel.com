@@ -16,7 +16,7 @@ import { noop } from 'lodash';
 
 import { changeDialogVisibleBroadcast } from '../../state/dialog/duck';
 import { isBrowser } from '../../utils/environment';
-import { eventPreventDefault } from '../../utils/event';
+import { Event, eventPreventDefault } from '../../utils/event';
 import { ModuleTextHeadline } from './text/headline';
 import { ModuleTextContent } from './text/content';
 import { ModuleTextPerson } from './text/person';
@@ -70,7 +70,7 @@ export class ModuleText extends Component<Props> {
      *
      * @returns {void}
      */
-    componentDidMount() {
+    componentDidMount(): void {
         this.bindDialogOpen();
     }
 
@@ -80,7 +80,7 @@ export class ModuleText extends Component<Props> {
      *
      * @returns {void}
      */
-    componentDidUpdate() {
+    componentDidUpdate(): void {
         this.unbindDialogOpen();
         this.bindDialogOpen();
     }
@@ -90,7 +90,7 @@ export class ModuleText extends Component<Props> {
      *
      * @returns {void}
      */
-    componentWillUnmount() {
+    componentWillUnmount(): void {
         this.unbindDialogOpen();
     }
 
@@ -101,7 +101,7 @@ export class ModuleText extends Component<Props> {
      * @param {object} event - Synthetic react event
      * @returns {void}
      */
-    openDialog = (event) => {
+    openDialog = (event: Event): void => {
         const { handleChangeDialogVisible = noop } = this.props;
 
         eventPreventDefault(event);
@@ -114,7 +114,7 @@ export class ModuleText extends Component<Props> {
      * @private
      * @returns {void}
      */
-    bindDialogOpen() {
+    bindDialogOpen(): void {
         if (!isBrowser()) {
             return;
         }
@@ -135,7 +135,7 @@ export class ModuleText extends Component<Props> {
      * @private
      * @returns {void}
      */
-    unbindDialogOpen() {
+    unbindDialogOpen(): void {
         if (!isBrowser()) {
             return;
         }
@@ -155,7 +155,7 @@ export class ModuleText extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             children,
             className,

@@ -21,6 +21,10 @@ describe('LayoutHeader', function fnDescribe() {
         );
         expect(asFragment()).toMatchSnapshot();
     });
+    it('should render correctly with default props', function fnIt() {
+        const { asFragment } = render(<LayoutHeader />);
+        expect(asFragment()).toMatchSnapshot();
+    });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
             <LayoutHeaderConnected {...props}>

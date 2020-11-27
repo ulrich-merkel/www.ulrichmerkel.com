@@ -7,9 +7,8 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component } from 'react';
+import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
-import { noop } from 'lodash';
 
 import { Textarea } from './textarea';
 import { Label } from './label';
@@ -52,15 +51,15 @@ export class TextareaGroup extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             id,
             isPristine = false,
             isValid = true,
             label,
             name,
-            onBlur = noop,
-            onChange = noop,
+            onBlur,
+            onChange,
             required,
             testId,
             value = '',

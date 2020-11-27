@@ -1,4 +1,5 @@
 import MockDate from 'mockdate';
+import { noop } from 'lodash';
 import { getDateNow } from '../date';
 
 describe('getDateNow', function fnDescribe() {
@@ -12,7 +13,7 @@ describe('getDateNow', function fnDescribe() {
 
     it('should return a date via date', function fnIt() {
         const windowSpy = jest.spyOn(global, 'performance', 'get');
-        windowSpy.mockImplementation(() => {});
+        windowSpy.mockImplementation(noop);
 
         expect(getDateNow()).toEqual(974851200000);
         windowSpy.mockRestore();

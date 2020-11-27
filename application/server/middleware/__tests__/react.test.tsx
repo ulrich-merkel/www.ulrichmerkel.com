@@ -14,7 +14,7 @@ describe('middlewareReact', function fnDescribe() {
             method: 'GET',
             url: '/contact/'
         });
-        middlewareReact(req, res);
+        middlewareReact(req, res, jest.fn());
         expect(res.statusCode).toEqual(200);
     });
 

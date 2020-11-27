@@ -26,7 +26,7 @@ import { Small } from '../element/small';
 
 type Props = {
     className: string;
-    content: any;
+    content: Record<string, unknown>;
     handleScrollTop: (event: React.SyntheticEvent) => void;
 };
 
@@ -56,6 +56,7 @@ export const LayoutFooter: FunctionComponent<Props> = (props) => {
                 className="l-footer__button--up c-font-icon--chevron-up"
                 classNameLabel="is-visually-hidden"
                 onClick={handleScrollTop}
+                testId="button-scroll-top"
                 title={contentSection('btnTitle')}
                 type="button"
                 role="button"

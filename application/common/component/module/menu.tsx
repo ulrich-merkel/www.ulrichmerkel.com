@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleMenuItem } from './menu/item';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -57,7 +58,7 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
         ...otherProps
     } = props;
 
-    if (!Array.isArray(content.list) || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
@@ -75,25 +76,24 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
             {...componentSchema}
             {...otherProps}
         >
-            {Array.isArray(content.list) &&
-                content.list.map(function (value) {
-                    return (
-                        <ModuleMenuItem
-                            key={shortid.generate()}
-                            path={value.path}
-                            title={value.title}
-                            label={value.label}
-                            itemType={value.itemType}
-                            icon={value.icon}
-                            isLabelHidden={value.isLabelHidden}
-                            itemPropA={value.itemPropA}
-                        >
-                            {value.metaLinkUrl && (
-                                <link itemProp="url" href={value.metaLinkUrl} />
-                            )}
-                        </ModuleMenuItem>
-                    );
-                })}
+            {content.list.map(function fnMap(value) {
+                return (
+                    <ModuleMenuItem
+                        key={shortid.generate()}
+                        path={value.path}
+                        title={value.title}
+                        label={value.label}
+                        itemType={value.itemType}
+                        icon={value.icon}
+                        isLabelHidden={value.isLabelHidden}
+                        itemPropA={value.itemPropA}
+                    >
+                        {value.metaLinkUrl && (
+                            <link itemProp="url" href={value.metaLinkUrl} />
+                        )}
+                    </ModuleMenuItem>
+                );
+            })}
             {children}
         </HtmlElement>
     );

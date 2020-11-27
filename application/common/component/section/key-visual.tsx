@@ -16,7 +16,7 @@ import { ModuleKeyVisualConnected } from '../module/key-visual';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
     className?: string;
     isCovered?: boolean;
     isWork?: boolean;

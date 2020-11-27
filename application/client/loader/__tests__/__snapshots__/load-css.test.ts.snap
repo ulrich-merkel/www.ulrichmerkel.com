@@ -2,7 +2,7 @@
 
 exports[`createStyleElement should create a script element 1`] = `
 <link
-  classname="test-css"
+  classname="is-lazy-loaded test-css"
   disabled="disabled"
   href="/css/test.css"
   id="test-css"

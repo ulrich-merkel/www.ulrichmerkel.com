@@ -42,9 +42,12 @@ export const ModuleKeyVisualButton: FunctionComponent<Props> = (props) => {
     return (
         <Button
             className={componentButtonClassName}
-            onClick={onClick}
-            title={title}
             isLabelHidden
+            testId="button-key-visual"
+            {...{
+                onClick,
+                title
+            }}
         >
             {label}
         </Button>

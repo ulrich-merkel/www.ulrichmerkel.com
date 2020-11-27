@@ -75,7 +75,7 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
                     path={img.path}
                     alt={img.alt}
                     sizes={img.sizes}
-                    className={'m-featured__picture'}
+                    className="m-featured__picture"
                 />
 
                 {children}

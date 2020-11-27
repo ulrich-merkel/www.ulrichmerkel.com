@@ -17,8 +17,10 @@ import { CLASSNAME_IS_LAZY_LOADED } from './constants';
 type CssOptions = {
     className?: string;
     id?: string;
-    src?: string;
+    src: string;
 };
+
+type Callback = () => void;
 
 /**
  * Temporarily set media to something non-matching ('only x') to ensure
@@ -56,7 +58,7 @@ export function createStyleElement(options: CssOptions): HTMLStyleElement {
  * @param {Function} [callback=noop] - The success/error handler for async loading
  * @returns {void}
  */
-export function loadCss(options: CssOptions, callback: Function = noop) {
+export function loadCss(options: CssOptions, callback: Callback = noop): void {
     if (isEmpty(options)) {
         return;
     }
@@ -65,12 +67,14 @@ export function loadCss(options: CssOptions, callback: Function = noop) {
     const headDomNode = getHeadDomNode();
 
     if (!isValidString(src) || !headDomNode) {
-        return callFn(callback, false);
+        callFn(callback, false);
+        return;
     }
 
     const styleDomNode = createStyleElement(options);
     if (!styleDomNode) {
-        return void callFn(callback, false);
+        callFn(callback, false);
+        return;
     }
 
     // Http loading starts here.

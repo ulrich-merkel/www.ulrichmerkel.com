@@ -11,7 +11,7 @@
 import * as React from 'react';
 import { isEmpty, isFunction } from 'lodash';
 
-type Event =
+export type Event =
     | React.AnimationEvent
     | React.ChangeEvent
     | React.ClipboardEvent
@@ -30,12 +30,12 @@ type Event =
 /**
  * @type {string}
  */
-const PREVENT_DEFAULT: string = 'preventDefault';
+const PREVENT_DEFAULT = 'preventDefault';
 
 /**
  * @type {string}
  */
-const STOP_PROPAGATION: string = 'stopPropagation';
+const STOP_PROPAGATION = 'stopPropagation';
 
 /**
  * Check if we have a valid browser event object

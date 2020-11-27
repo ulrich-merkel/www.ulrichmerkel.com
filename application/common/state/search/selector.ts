@@ -25,7 +25,7 @@ import { SearchStateType } from './types';
  */
 export const selectStateSearch = createSelector(
     [(state: RootState) => state?.[SEARCH_RESOURCE_NAME]],
-    function (search: SearchStateType): SearchStateType {
+    function resultFunc(search: SearchStateType): SearchStateType {
         return isEmpty(search) ? initialState : search;
     }
 );
@@ -39,7 +39,7 @@ export const selectStateSearch = createSelector(
  */
 export const selectStateSearchTerm = createSelector(
     [selectStateSearch],
-    function (search: SearchStateType): string {
+    function resultFunc(search: SearchStateType): string {
         return get(search, 'payload.term', initialState.payload.term);
     }
 );

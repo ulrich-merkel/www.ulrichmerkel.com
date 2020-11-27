@@ -1,4 +1,5 @@
 /* eslint-disable immutable/no-mutation */
+// @see {@link https://stackoverflow.com/questions/62953124/configure-eslint-to-parse-ts-and-tsx-as-typescript-and-js-and-jsx-as-ecmascr}
 module.exports = {
     env: {
         browser: true,
@@ -9,7 +10,6 @@ module.exports = {
         jest: true
     },
     extends: [
-        'prettier/@typescript-eslint',
         'airbnb',
         'eslint:recommended',
         'plugin:lodash/recommended',
@@ -26,7 +26,6 @@ module.exports = {
     plugins: [
         '@babel',
         'compat',
-        'flowtype',
         'immutable',
         'import',
         'jest',
@@ -37,7 +36,6 @@ module.exports = {
         'promise',
         'react',
         'security',
-        'tree-shaking',
         'xss',
         'prettier'
     ],
@@ -49,8 +47,6 @@ module.exports = {
         }
     },
     rules: {
-        'arrow-body-style': 0,
-        'comma-dangle': ['error', 'never'],
         'import/extensions': [
             'error',
             'ignorePackages',
@@ -61,34 +57,32 @@ module.exports = {
                 tsx: 'never'
             }
         ],
-        'immutable/no-let': 2,
-        'immutable/no-this': 0,
-        'immutable/no-mutation': 2,
-        indent: 0, // @see {@link https://stackoverflow.com/questions/56337176/prettier-and-eslint-indents-not-working-together}
-        'import/no-named-default': 0,
-        'import/prefer-default-export': 0,
-        'jest/no-large-snapshots': [
+        'immutable/no-mutation': 'off',
+        'import/no-named-default': 'off',
+        'import/prefer-default-export': 'off',
+        'jest/no-disabled-tests': 'warn',
+        'jest/no-focused-tests': 'error',
+        'jest/no-identical-title': 'warn',
+        'jest/prefer-to-have-length': 'warn',
+        'jest/valid-expect': 'warn',
+        'jsdoc/check-param-names': 'warn',
+        'jsdoc/check-tag-names': [
             'warn',
             {
-                maxSize: 12
+                definedTags: ['changelog', 'TODO']
             }
         ],
-        'jsdoc/check-param-names': 1,
-        'jsdoc/check-tag-names': [
-            1,
-            {
-                definedTags: ['changelog', 'TODO', 'flow']
-            }
-        ],
-        'jsdoc/check-types': 1,
-        'jsdoc/newline-after-description': 1,
-        'jsdoc/require-description-complete-sentence': 0,
-        'jsdoc/require-hyphen-before-param-description': 1,
-        'jsdoc/require-param': 1,
-        'jsdoc/require-param-description': 1,
-        'jsdoc/require-param-type': 1,
-        'jsdoc/require-returns-description': 0,
-        'jsdoc/require-returns-type': 1,
+        'jsdoc/check-types': 'warn',
+        'jsdoc/newline-after-description': 'warn',
+        'jsdoc/require-description-complete-sentence': 'off',
+        'jsdoc/require-hyphen-before-param-description': 'warn',
+        'jsdoc/require-param': 'warn',
+        'jsdoc/require-param-description': 'warn',
+        'jsdoc/require-param-type': 'warn',
+        'jsdoc/require-returns-description': 'off',
+        'jsdoc/require-returns-type': 'warn',
+        'jsx-a11y/alt-text': 'error',
+        'jsx-a11y/anchor-has-content': 'error',
         'jsx-a11y/anchor-is-valid': [
             'error',
             {
@@ -97,17 +91,57 @@ module.exports = {
                 aspects: ['noHref', 'invalidHref', 'preferButton']
             }
         ],
-        'jsx-a11y/href-no-hash': 'off', // @see {@link https://github.com/facebookincubator/create-react-app/issues/2631}
-        'jsx-quotes': 0,
+        'jsx-a11y/aria-props': 'error',
+        'jsx-a11y/aria-proptypes': 'error',
+        'jsx-a11y/aria-role': 'error',
+        'jsx-a11y/aria-unsupported-elements': 'error',
+        'jsx-a11y/autocomplete-valid': 'error',
+        'jsx-a11y/click-events-have-key-events': 'error',
+        'jsx-a11y/heading-has-content': [
+            'error',
+            {
+                components: ['Headlint']
+            }
+        ],
+        'jsx-a11y/html-has-lang': 'error',
+        'jsx-a11y/img-redundant-alt': 'error',
+        'jsx-a11y/interactive-supports-focus': 'error',
+        'jsx-a11y/label-has-associated-control': 'error',
+        'jsx-a11y/lang': 'error',
+        'jsx-a11y/mouse-events-have-key-events': 'error',
+        'jsx-a11y/no-access-key': 'error',
+        'jsx-a11y/no-autofocus': 'error',
+        'jsx-a11y/no-distracting-elements': [
+            'error',
+            {
+                elements: ['marquee', 'blink']
+            }
+        ],
+        'jsx-a11y/no-interactive-element-to-noninteractive-role': 'error',
+        'jsx-a11y/no-noninteractive-element-interactions': 'error',
+        'jsx-a11y/no-noninteractive-element-to-interactive-role': 'error',
+        'jsx-a11y/no-noninteractive-tabindex': 'error',
+        'jsx-a11y/no-onchange': 'error',
+        'jsx-a11y/no-redundant-roles': [
+            'error',
+            {
+                nav: ['navigation']
+            }
+        ],
+        'jsx-a11y/no-static-element-interactions': 'error',
+        'jsx-a11y/role-has-required-aria-props': 'error',
+        'jsx-a11y/role-supports-aria-props': 'error',
+        'jsx-a11y/scope': 'error',
+        'jsx-a11y/tabindex-no-positive': 'error',
         'linebreak-style': ['error', 'unix'],
-        'lodash/import-scope': 0,
-        'lodash/prefer-noop': 0,
-        'lodash/prefer-lodash-method': 0,
-        'max-len': [1, 220],
+        'lodash/import-scope': 'off',
+        'lodash/prefer-constant': 'off',
+        'lodash/prefer-lodash-method': 'off',
         'no-mixed-operators': ['error', { allowSamePrecedence: true }],
-        'no-void': 1,
+        'no-void': 'warn',
+        'no-use-before-define': 'off',
         'one-var': [
-            2,
+            'error',
             {
                 var: 'always',
                 let: 'always',
@@ -115,8 +149,7 @@ module.exports = {
             }
         ],
         'operator-assignment': ['error', 'never'],
-        'padded-blocks': 0,
-        'prefer-arrow-callback': 0,
+        'prefer-arrow-callback': 'off',
         'promise/always-return': 'error',
         'promise/avoid-new': 'warn',
         'promise/catch-or-return': 'error',
@@ -126,39 +159,51 @@ module.exports = {
         'promise/no-promise-in-callback': 'warn',
         'promise/no-return-wrap': 'error',
         'promise/param-names': 'error',
-        quotes: 0,
-        'react/forbid-prop-types': 1,
-        'react/jsx-curly-brace-presence': [
-            'off',
-            {
-                props: 'always',
-                children: 'ignore'
-            }
-        ],
-        'react/jsx-fragments': 0,
+        'react/jsx-fragments': 'off',
+        'react/jsx-closing-tag-location': 'off',
         'react/jsx-indent-props': ['error', 4],
-        'react/jsx-indent': [2, 4],
-        'react/jsx-one-expression-per-line': 0,
-        'react/jsx-props-no-spreading': 0,
-        'security/detect-buffer-noassert': 2,
-        'security/detect-child-process': 2,
-        'security/detect-eval-with-expression': 2,
-        'security/detect-no-csrf-before-method-override': 2,
-        'security/detect-non-literal-fs-filename': 2,
-        'security/detect-non-literal-regexp': 2,
-        'security/detect-non-literal-require': 2,
-        'security/detect-object-injection': 0,
-        'security/detect-possible-timing-attacks': 2,
-        'security/detect-pseudoRandomBytes': 2,
-        'security/detect-unsafe-regex': 2,
-        semi: ['error', 'always']
+        'react/jsx-indent': ['error', 4],
+        'react/jsx-filename-extension': [
+            'warn',
+            { extensions: ['.js', '.jsx', '.tsx', '.ts'] }
+        ],
+        'react/prop-types': 'off',
+        'react/jsx-one-expression-per-line': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'react/no-danger': 'off',
+        'security/detect-buffer-noassert': 'error',
+        'security/detect-child-process': 'error',
+        'security/detect-eval-with-expression': 'error',
+        'security/detect-no-csrf-before-method-override': 'error',
+        'security/detect-non-literal-fs-filename': 'off',
+        'security/detect-non-literal-regexp': 'error',
+        'security/detect-non-literal-require': 'error',
+        'security/detect-object-injection': 'off',
+        'security/detect-possible-timing-attacks': 'error',
+        'security/detect-pseudoRandomBytes': 'error',
+        'security/detect-unsafe-regex': 'error',
+        'xss/no-location-href-assign': 2,
+        'xss/no-mixed-html': 0
     },
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],
-            parser: 'typescript-eslint-parser',
+            extends: [
+                'plugin:@typescript-eslint/eslint-recommended',
+                'plugin:@typescript-eslint/recommended',
+                'prettier/@typescript-eslint',
+                'plugin:prettier/recommended'
+            ],
+            parser: '@typescript-eslint/parser',
+            plugins: ['@typescript-eslint'],
             rules: {
-                'no-undef': 'off'
+                '@typescript-eslint/no-explicit-any': 'off',
+                '@typescript-eslint/explicit-module-boundary-types': [
+                    'error',
+                    {
+                        allowArgumentsExplicitlyTypedAsAny: true
+                    }
+                ]
             }
         }
     ]

@@ -63,7 +63,7 @@ describe('ModuleKeyVisualPicture', function fnDescribe() {
     });
     it('should render type and isCovered if given', function fnIt() {
         const { asFragment } = render(
-            <ModuleKeyVisualPicture {...props} type={'digital'} isCovered />
+            <ModuleKeyVisualPicture {...props} type="digital" isCovered />
         );
         expect(asFragment()).toMatchSnapshot();
     });

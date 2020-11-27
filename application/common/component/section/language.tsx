@@ -17,7 +17,7 @@ import { ModuleLanguage } from '../module/language';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
 };
 
 /**

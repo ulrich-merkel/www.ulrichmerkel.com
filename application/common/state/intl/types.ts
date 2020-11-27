@@ -14,7 +14,7 @@ export type IntlActionTypes = ChangeIntlActionType;
 
 export type Locale = typeof INTL_LOCALE_EN_EN | typeof INTL_LOCALE_DE_DE;
 
-export type Locales = [typeof INTL_LOCALE_EN_EN, typeof INTL_LOCALE_DE_DE];
+export type Locales = [typeof INTL_LOCALE_EN_EN];
 
 export interface IntlStateType {
     meta: {

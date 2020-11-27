@@ -15,6 +15,7 @@ import shortid from 'shortid';
 import { Headline } from '../element/headline';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -35,7 +36,7 @@ type Props = {
             headline: string;
             lead: string;
             offset: string;
-            place: {};
+            place: Record<string, unknown>;
             timeEnd: string;
             timeStart: string;
         }[];
@@ -85,8 +86,11 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                 </Headline>
             </li>
 
-            {content.professionalExperienceList &&
-                content.professionalExperienceList.map(function (value, index) {
+            {isValidArray(content.professionalExperienceList) &&
+                content.professionalExperienceList.map(function fnMap(
+                    value,
+                    index
+                ) {
                     return (
                         <ModuleCornerstoneItemEmployee
                             key={shortid.generate()}
@@ -107,8 +111,8 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                 </Headline>
             </li>
 
-            {content.academicEducationList &&
-                content.academicEducationList.map(function (value, index) {
+            {isValidArray(content.academicEducationList) &&
+                content.academicEducationList.map(function fnMap(value, index) {
                     return (
                         <ModuleCornerstoneItemEducation
                             key={shortid.generate()}

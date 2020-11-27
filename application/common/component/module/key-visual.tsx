@@ -8,7 +8,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, createRef, Component } from 'react';
+import { default as React, createRef, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { noop } from 'lodash';
@@ -18,7 +18,7 @@ import { scrollTo } from '../../utils/scroll-to';
 import { ModuleKeyVisualPicture } from './key-visual/picture';
 import { ModuleKeyVisualArticle } from './key-visual/article';
 import { ModuleKeyVisualButton } from './key-visual/button';
-import { eventPreventDefault } from '../../utils/event';
+import { Event, eventPreventDefault } from '../../utils/event';
 
 type Props = {
     className?: string;
@@ -27,7 +27,7 @@ type Props = {
         lead: string;
         btnLabel: string;
         btnTitle: string;
-        img: any;
+        img: Record<string, unknown>;
         type: string;
     };
     htmlElement?: string;
@@ -52,7 +52,7 @@ export class ModuleKeyVisual extends Component<Props> {
      * @param {object} event - Click event object
      * @returns {void}
      */
-    onClickBtn = (event) => {
+    onClickBtn = (event: Event): void => {
         const { onClickBtn = noop, reducedMotionSelected = false } = this.props;
 
         eventPreventDefault(event);
@@ -77,7 +77,7 @@ export class ModuleKeyVisual extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const {
             className,
             content,

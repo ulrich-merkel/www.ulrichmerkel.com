@@ -54,9 +54,9 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
         searchTerm = ''
     } = props;
 
-    const handleSearchChangeTerm = useCallback((event) => {
-        const searchTerm = get(event, 'target.value');
-        onChangeSearchTerm(searchTerm);
+    const handleSearchChangeTerm = useCallback((event: ChangeEvent) => {
+        const updatedSearchTerm = get(event, 'target.value');
+        onChangeSearchTerm(updatedSearchTerm);
     }, []);
 
     return (

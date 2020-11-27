@@ -17,7 +17,7 @@ import { ModuleCornerstone } from '../module/cornerstone';
 
 type Props = {
     children?: ReactNode;
-    content: any;
+    content: Record<string, unknown>;
 };
 
 /**
@@ -35,7 +35,7 @@ export const SectionCornerstone: FunctionComponent<Props> = (props) => {
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle
-                itemType={'https://schema.org/Article'}
+                itemType="https://schema.org/Article"
                 {...{ content }}
             >
                 <ModuleCornerstone {...{ content }} {...otherProps}>

@@ -161,12 +161,11 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
  *
  * @private
  * @param {object.<*>} state - The redux store state
- * @param {object.<*>} [ownProps] - The current component props
  * @returns {object}
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        locale: selectStateIntlLocale(state) || get(ownProps, 'locale')
+        locale: selectStateIntlLocale(state)
     };
 }
 

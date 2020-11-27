@@ -28,7 +28,9 @@ import { ReducedMotionStateType } from './types';
  */
 export const selectStateReducedMotion = createSelector(
     [(state: RootState) => state?.[REDUCED_MOTION_RESOURCE_NAME]],
-    function (reducedMotion: ReducedMotionStateType): ReducedMotionStateType {
+    function resultFunc(
+        reducedMotion: ReducedMotionStateType
+    ): ReducedMotionStateType {
         return isEmpty(reducedMotion) ? initialState : reducedMotion;
     }
 );
@@ -42,7 +44,7 @@ export const selectStateReducedMotion = createSelector(
  */
 export const selectStateReducedMotionSelected = createSelector(
     [selectStateReducedMotion],
-    function (reducedMotion: ReducedMotionStateType): string {
+    function resultFunc(reducedMotion: ReducedMotionStateType): string {
         return get(
             reducedMotion,
             'payload.selected',
@@ -60,7 +62,7 @@ export const selectStateReducedMotionSelected = createSelector(
  */
 export const selectStateReducedMotionSelectedReduce = createSelector(
     [selectStateReducedMotionSelected],
-    function (reducedMotionSelected: string): boolean {
+    function resultFunc(reducedMotionSelected: string): boolean {
         return reducedMotionSelected === MOTION_PREFERENCES_REDUCE;
     }
 );

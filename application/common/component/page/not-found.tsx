@@ -18,7 +18,7 @@ import { LayoutMain } from '../layout/main';
 import { SectionText } from '../section/text';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
 };
 
 /**

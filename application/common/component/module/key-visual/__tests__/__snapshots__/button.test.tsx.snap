@@ -4,6 +4,7 @@ exports[`ModuleKeyVisualButton should render correctly 1`] = `
 <DocumentFragment>
   <button
     class="c-btn m-key-visual__button--down c-font-icon--chevron-down"
+    data-testid="button-key-visual"
     role="button"
     title="title"
     type="button"

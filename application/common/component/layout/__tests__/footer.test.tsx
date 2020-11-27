@@ -17,6 +17,10 @@ describe('LayoutFooter', function fnDescribe() {
         );
         expect(asFragment()).toMatchSnapshot();
     });
+    it('should render correctly with default props', function fnIt() {
+        const { asFragment } = render(<LayoutFooter />);
+        expect(asFragment()).toMatchSnapshot();
+    });
     it('should render correctly the connected version', function fnIt() {
         const { asFragment } = render(
             <LayoutFooterConnected {...props}>

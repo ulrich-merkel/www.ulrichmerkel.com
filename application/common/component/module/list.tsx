@@ -19,7 +19,7 @@ type Props = {
     className?: string;
     itemType?: string;
     children?: ReactNode;
-    content?: any;
+    content?: Record<string, unknown>;
 };
 
 /**

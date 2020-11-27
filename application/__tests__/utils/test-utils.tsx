@@ -1,4 +1,4 @@
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import { default as React, FunctionComponent, ReactElement } from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
@@ -21,8 +21,9 @@ import { RootState } from '../../common/state/configure-store';
  * @returns {ReactElement} The component to be rendered
  */
 const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
-    const children = props?.children;
     const store = getMockedStore(state);
+    // eslint-disable-next-line react/destructuring-assignment
+    const children = props?.children;
 
     return (
         <Provider {...{ store }}>
@@ -41,7 +42,10 @@ const AllTestProviders: FunctionComponent<RootState> = (state?, props?) => {
  * @param {object} [options={}] - Testing library options
  * @returns {object} The test render result
  */
-function customRender(reactElement: ReactNode, options: any = {}): any {
+function customRender(
+    reactElement: ReactElement,
+    options: Record<string, unknown> = {}
+): Record<string, unknown> {
     const { state, ...otherOptions } = options;
 
     return render(reactElement, {

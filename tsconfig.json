@@ -1,3 +1,5 @@
+// @see {@link https://www.typescriptlang.org/docs/handbook/compiler-options.html}
+// @see {@link https://github.com/microsoft/TypeScript-Babel-Starter}
 {
     "compilerOptions": {
       /* Basic Options */

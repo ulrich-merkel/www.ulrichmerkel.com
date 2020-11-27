@@ -22,7 +22,7 @@ import { SectionService } from '../section/service';
 import { SectionText } from '../section/text';
 
 type Props = {
-    content: {};
+    content: Record<string, unknown>;
 };
 
 /**

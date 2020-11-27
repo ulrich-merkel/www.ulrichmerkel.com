@@ -25,7 +25,7 @@ import { ContactStateType } from './types';
  */
 export const selectStateContact = createSelector(
     [(state: RootState) => state?.[CONTACT_RESOURCE_NAME]],
-    function (contact: ContactStateType): ContactStateType {
+    function resultFunc(contact: ContactStateType): ContactStateType {
         return isEmpty(contact) ? initialState : contact;
     }
 );
@@ -39,7 +39,7 @@ export const selectStateContact = createSelector(
  */
 export const selectStateContactForm = createSelector(
     [selectStateContact],
-    function (contact: ContactStateType): string {
+    function resultFunc(contact: ContactStateType): string {
         return get(contact, 'payload.form', initialState.payload.form);
     }
 );

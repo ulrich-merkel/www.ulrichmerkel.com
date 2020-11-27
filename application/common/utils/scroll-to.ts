@@ -9,38 +9,47 @@
  *
  * @see {@link http://stackoverflow.com/questions/8917921/cross-browser-javascript-not-jquery-scroll-to-top-animation}
  * @see {@link https://github.com/danro/easing-js/blob/master/easing.js}
- * @see {@link  https://github.com/cferdinandi/smooth-scroll/blob/master/src/js/smooth-scroll.js}
+ * @see {@link https://github.com/cferdinandi/smooth-scroll/blob/master/src/js/smooth-scroll.js}
  */
-import { isFunction } from 'lodash';
+import { isFunction, noop } from 'lodash';
 
 import { isBrowser } from './environment';
 import { getDateNow } from './date';
+import { callFn } from './function';
 
 interface AnimateOptions {
+    callback?: () => void;
     duration?: number;
-    easing?: Function;
-    callback?: Function;
-    render?: Function;
+    easing?: (progress: number) => number;
+    render?: (progress: number) => void;
 }
 
 interface ScrollToOptions {
-    top?: number;
+    callback?: () => void;
     duration?: number;
-    easing?: Function;
-    callback?: Function;
+    easing?: (progress: number) => number;
+    top?: number;
 }
+
+const hasWindowScrollTo = isBrowser() && isFunction(window?.scrollTo);
+const hasRequestAnimationFrame =
+    isBrowser() &&
+    !!(window?.requestAnimationFrame && window?.cancelAnimationFrame);
 
 /**
  * Quad easing function - acceleration until halfway, then deceleration.
+ * Only considering the progress value for the range [0, 1] => [0, 1]
  *
  * @see https://gist.github.com/gre/1650294
  *
- * @param {number} t - The current animation process running from 0 to 1
+ * @param {number} progress - The current animation process running from 0 to 1
  * @returns {number} The next process value
  */
-export function easeInOutQuad(t: number): number {
+export function easeInOutQuad(progress: number): number {
     // eslint-disable-next-line no-mixed-operators
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    return progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
 }
 
 /**
@@ -58,6 +67,7 @@ export function getPageOffset(): number {
     if (!isBrowser()) {
         return 0;
     }
+
     const currentScrollY =
         window.pageYOffset ||
         window.scrollY ||
@@ -85,12 +95,8 @@ export function getPageOffset(): number {
  * @returns {void}
  */
 function animate(options: AnimateOptions): void {
-    const { render, duration, easing, callback } = options;
-    const { requestAnimationFrame } = window;
-    const { cancelAnimationFrame } = window;
-    const hasRequestAnimationFrame = !!(
-        requestAnimationFrame && cancelAnimationFrame
-    );
+    const { callback, duration, easing, render } = options;
+    const { cancelAnimationFrame, requestAnimationFrame } = window;
     const start = getDateNow();
 
     let requestId;
@@ -99,8 +105,9 @@ function animate(options: AnimateOptions): void {
         const progress = (getDateNow() - start) / duration;
 
         if (progress >= 1) {
+            cancelAnimationFrame(requestId);
             render(1);
-            callback();
+            callFn(callback);
         } else {
             if (hasRequestAnimationFrame) {
                 requestId = requestAnimationFrame(loop);
@@ -108,7 +115,7 @@ function animate(options: AnimateOptions): void {
                 requestId = setTimeout(loop, 1000 / 60);
             }
 
-            render(easing(progress), requestId);
+            render(easing(progress));
         }
     })();
 }
@@ -125,40 +132,40 @@ function animate(options: AnimateOptions): void {
  */
 export function scrollTo(opts: ScrollToOptions = {}): void {
     const options = {
-        top: 0,
+        callback: noop,
         duration: 300,
         easing: easeInOutQuad,
-        callback: Function.prototype,
+        top: 0,
         ...opts
     };
+    const { callback, duration, easing, top } = options;
 
     if (!isBrowser()) {
-        options.callback.call(null, options);
+        callFn(callback);
         return;
     }
-    const hasWindowScrollTo = isFunction(window.scrollTo);
 
-    if (!options.duration) {
+    if (!duration) {
         if (hasWindowScrollTo) {
-            window.scrollTo(0, options.top);
+            window.scrollTo(0, top);
         }
-        options.callback.call(null, options);
+        callFn(callback);
         return;
     }
 
     const scrollTopCurrent = getPageOffset();
     animate({
-        render: function stepFunction(time) {
-            const top = Math.floor(
+        callback,
+        duration,
+        easing,
+        render: function stepFunction(progress: number) {
+            const target = Math.floor(
                 // eslint-disable-next-line no-mixed-operators
-                scrollTopCurrent + (options.top - scrollTopCurrent) * time
+                scrollTopCurrent + (top - scrollTopCurrent) * progress
             );
             if (hasWindowScrollTo) {
-                window.scrollTo(0, top);
+                window.scrollTo(0, target);
             }
-        },
-        duration: options.duration,
-        easing: options.easing,
-        callback: options.callback.bind(null, options)
+        }
     });
 }

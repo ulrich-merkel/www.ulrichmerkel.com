@@ -14,7 +14,7 @@ import { get, isEmpty } from 'lodash';
 
 import { RootState } from '../configure-store';
 import { initialState, INTL_RESOURCE_NAME } from './duck';
-import { IntlStateType } from './types';
+import { IntlStateType, Locale, Locales } from './types';
 
 /**
  * Select complete intl state from redux store.
@@ -25,7 +25,7 @@ import { IntlStateType } from './types';
  */
 export const selectStateIntl = createSelector(
     [(state: RootState) => state?.[INTL_RESOURCE_NAME]],
-    function (intl: IntlStateType): IntlStateType {
+    function resultFunc(intl: IntlStateType): IntlStateType {
         return isEmpty(intl) ? initialState : intl;
     }
 );
@@ -39,7 +39,7 @@ export const selectStateIntl = createSelector(
  */
 export const selectStateIntlLocale = createSelector(
     [selectStateIntl],
-    function (intl: IntlStateType): string {
+    function resultFunc(intl: IntlStateType): Locale {
         return get(intl, 'payload.locale', initialState.payload.locale);
     }
 );
@@ -53,7 +53,7 @@ export const selectStateIntlLocale = createSelector(
  */
 export const selectStateIntlAvailableLocales = createSelector(
     [selectStateIntl],
-    function (intl: IntlStateType): string[] {
+    function resultFunc(intl: IntlStateType): Locales[] {
         return get(
             intl,
             'payload.availableLocales',

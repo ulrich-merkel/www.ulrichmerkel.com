@@ -97,3 +97,47 @@ exports[` LayoutHtml should render correctly the connected version 1`] = `
   </script>
 </DocumentFragment>
 `;
+
+exports[` LayoutHtml should render correctly with default props 1`] = `
+<DocumentFragment>
+  <meta
+    charset="utf-8"
+  />
+  <meta
+    content="IE=edge"
+    http-equiv="X-UA-Compatible"
+  />
+  <meta
+    content="width=device-width"
+    name="viewport"
+  />
+  <meta
+    content="default-src 'self' www.ulrichmerkel.com;script-src 'self' www.ulrichmerkel.com 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'unsafe-inline';style-src 'self' www.ulrichmerkel.com 'nonce-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' 'unsafe-inline';img-src 'self' www.ulrichmerkel.com data:;child-src 'none';object-src 'none';"
+    http-equiv="Content-Security-Policy"
+  />
+  <link
+    as="style"
+    href="/css/app.css"
+    rel="preload"
+  />
+  <link
+    as="script"
+    href="/js/client.bundle.js"
+    rel="preload"
+  />
+  <title
+    data-react-helmet="true"
+  />
+  <style
+    nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+  />
+  <noscript />
+  <div
+    class="l-react"
+    id="l-react"
+  />
+  <script
+    nonce="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+  />
+</DocumentFragment>
+`;

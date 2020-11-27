@@ -1,8 +1,10 @@
 /* eslint-disable  no-use-before-define */
 import { get, isArray, isObject, isString, isEmpty } from 'lodash';
 import { url } from '../config/application';
+import { Locale } from '../state/intl/types';
 import { logger } from './logger';
 
+const { assign, keys, values } = Object;
 const PAGES = {
     PageHome: url.home,
     PageWorkOptikLudewig: `${url.work}${url.workOptikLudewig}`,
@@ -21,9 +23,11 @@ const PAGES = {
 };
 const CACHE = {};
 
-const { values } = Object;
-const { keys } = Object;
-const { assign } = Object;
+type Match = {
+    url: string;
+    title: string;
+    label: string;
+};
 
 /**
  * Helper function for recursiv array reduce.
@@ -124,7 +128,7 @@ function translateIndex(locale, config, index) {
  * @param {object} config - The current untranslated content config
  * @returns {Array<string>} The cached (or created) index
  */
-function getCachedIndex(locale, config) {
+function getCachedIndex(locale: Locale, config) {
     if (!CACHE[locale] || isEmpty(CACHE[locale])) {
         // Just save index to cache if there are valid results returned
         const translatedIndex = translateIndex(
@@ -149,7 +153,11 @@ function getCachedIndex(locale, config) {
  * @param {object} config - The (untranslated) redux config state
  * @returns {Array<object>} The search results to be displayed
  */
-function findMatches(searchTerm, locale, config = {}) {
+export function findMatches(
+    searchTerm: string,
+    locale: Locale,
+    config = {}
+): Match[] {
     const escapedInput =
         isString(searchTerm) && searchTerm.trim().toLowerCase();
     if (!escapedInput) {
@@ -181,5 +189,3 @@ function findMatches(searchTerm, locale, config = {}) {
         })
         .slice(0, 10);
 }
-
-export { findMatches };

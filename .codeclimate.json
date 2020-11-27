@@ -42,18 +42,15 @@
             }
         }
     },
-    "plugins": {
-        "eslint": {
-            "enabled": true,
-            "config": {
-                "config": "config/eslint.config.js"
-            }
-        }
-    },
     "exclude_patterns": [
-        "config/",
+        "*/**/__mocks__/",
+        "*/**/__tests__/",
         "application/common/vendor/",
-        "**/__tests__/",
-        "**/__mocks__/"
+        "build/",
+        "config/",
+        "doc/",
+        "node_modules/",
+        "patches/",
+        "report/"
     ]
 }

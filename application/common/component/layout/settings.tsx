@@ -42,7 +42,7 @@ export class LayoutSettings extends Component<Props> {
      *
      * @returns {void}
      */
-    componentDidMount() {
+    componentDidMount(): void {
         const {
             colorSchemeSelected = COLOR_SCHEME_LIGHT,
             reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
@@ -62,7 +62,7 @@ export class LayoutSettings extends Component<Props> {
      * @param {object} prevProps - The old component properties
      * @returns {void}
      */
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: Props): void {
         const {
             colorSchemeSelected = COLOR_SCHEME_LIGHT,
             reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
@@ -87,7 +87,7 @@ export class LayoutSettings extends Component<Props> {
      *
      * @returns {ReactElement} React component markup
      */
-    render() {
+    render(): ReactNode {
         const { children } = this.props;
 
         return <Fragment>{children}</Fragment>;

@@ -6,12 +6,13 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
+import { isFunction } from 'lodash';
+
 import { isBrowser } from '../../common/utils/environment';
 import { getDomNodesByTagName } from '../utils/dom';
 import { hasCssCustomProperties } from './has-css-custom-properties';
 import { hasTouchEvents } from './has-touch-events';
 import { hasPassiveEventListeners } from './has-passive-event-listeners';
-import { isFunction } from 'lodash';
 
 const featuresToBeDetected = [
     { fn: hasCssCustomProperties, className: 'customproperties' },
@@ -31,7 +32,7 @@ export function featureDetect(): void {
     }
 
     const { classNamesToAdd, classNamesToRemove } = featuresToBeDetected.reduce(
-        function (accumulator, feature) {
+        function fnReduce(accumulator, feature) {
             const { className, fn } = feature;
             if (isFunction(fn) && fn()) {
                 accumulator.classNamesToAdd.push(className);

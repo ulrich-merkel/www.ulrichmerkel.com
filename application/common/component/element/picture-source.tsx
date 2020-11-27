@@ -28,7 +28,7 @@ type Props = {
  * @param {string} ext - The file extension
  * @returns {string} The source element's type description
  */
-export function getType(ext: string) {
+export function getType(ext: string): string {
     switch (ext) {
         case 'jpg':
             return 'image/jpeg';
