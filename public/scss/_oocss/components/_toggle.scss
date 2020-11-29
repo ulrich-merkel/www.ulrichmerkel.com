@@ -20,8 +20,10 @@ $block: '#{$config-ns}c-toggle';
             .no-touchevents &:hover,
             .no-js &:hover,
             &:focus {
-                @include var(color, --config-theme-link-color-hover);
-                text-decoration: none;
+                .#{$block}__label {
+                    @include var(color, --config-theme-link-color-hover);
+                    text-decoration: none;
+                }
             }
         }
 
@@ -31,13 +33,17 @@ $block: '#{$config-ns}c-toggle';
             visibility: hidden;
         }
 
-        .#{$block}__label {
+        .#{$block}__label,
+        [class^='#{$block}__label--'],
+        [class*=' #{$block}__label--'] {
             cursor: pointer;
             display: inline-block;
             font-size: 90%;
             margin: 0;
             padding: 0;
             position: relative;
+            top: 0;
+            @include var(color, --config-theme-link-color);
         }
 
         .#{$block}__label::before {

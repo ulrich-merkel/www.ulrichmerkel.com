@@ -235,6 +235,14 @@ $block: '#{$config-ns}m-form';
         }
     }
 
+    .#{$block}--settings {
+        .c-toggle {
+            // @include breakpoint($config-grid--breakpoint-xsmall) {
+            //     text-align: center;
+            // }
+        }
+    }
+
     // ----------------------------
     // Success feedback
     // ----------------------------
@@ -291,18 +299,6 @@ $block: '#{$config-ns}m-form';
         .#{$block}__label {
             // Important due to css pristine floating labels
             @include var(color, --theme-module-form-invalid-color);
-        }
-    }
-
-    .#{$block}--theme {
-        .c-btn {
-            width: 100%;
-            height: 200px;
-
-            &.is-active {
-                // pointer-events: none;
-                opacity: 0.5;
-            }
         }
     }
 }

@@ -54,9 +54,9 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
 
     return (
         <Form
-            action="/theme/"
-            className="m-form--theme"
-            id="m-form--theme"
+            action="/settings/"
+            className="m-form--settings"
+            id="m-form--settings"
             itemProp="potentialAction"
             itemScope
             itemType="http://schema.org/Action"
