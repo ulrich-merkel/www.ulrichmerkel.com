@@ -158,6 +158,7 @@ function createServer(config?: Config, callback?: Callback): Application {
     app.use(
         hostValidation({
             hosts: [
+                `0.0.0.0:${serverPort}`,
                 `127.0.0.1:${serverPort}`,
                 `localhost:${serverPort}`,
                 'ulrichmerkel.com',

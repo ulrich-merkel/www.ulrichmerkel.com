@@ -106,6 +106,7 @@
     "transpile:server": "babel $npm_package_directories_source_application -d $npm_package_directories_build_application -x \".js,.jsx,.ts,.tsx\" --ignore \"*/**/__tests__/,*/**/__mocks__/\"",
     "transpile": "npm-run-all --parallel transpile:*",
     "travis": "rimraf $npm_package_directories_build_root && npm test --silent && npm run doc && npm run build --silent",
+    "uberspace": "NODE_ENV=production node $npm_package_main",
     "upgrade": "if which yarn ; then yarn upgrade-interactive --latest --ignore-engines; else npm outdated ; fi",
     "watch:client": "npm run transpile:client -- --watch",
     "watch:css": "npm run css -- --watch",
@@ -146,9 +147,9 @@
     "url": "https://github.com/ulrich-merkel/www.ulrichmerkel.com/issues"
   },
   "engines": {
-    "node": "12.18.1",
-    "npm": "6.14.5",
-    "yarn": "1.22.4"
+    "node": ">=12.18",
+    "npm": ">=6.14",
+    "yarn": ">=1.22"
   },
   "dependencies": {
     "@babel/polyfill": "7.12.1",
@@ -194,7 +195,6 @@
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
     "serialize-javascript": "5.0.1",
-    "sharp": "0.26.3",
     "shortid": "2.2.16",
     "snyk": "1.431.1",
     "url": "0.11.0",
@@ -274,9 +274,10 @@
     "rimraf": "3.0.2",
     "sassdoc": "2.7.3",
     "service-worker-mock": "2.0.5",
+    "sharp": "0.26.3",
     "snapshot-diff": "0.8.1",
-    "stylelint": "13.8.0",
     "stylelint-prettier": "1.1.2",
+    "stylelint": "13.8.0",
     "tldrlegal": "1.0.11",
     "typescript": "4.1.2",
     "uglify-js": "3.12.0",
