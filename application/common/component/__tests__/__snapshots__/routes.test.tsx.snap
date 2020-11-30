@@ -157,7 +157,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
                   data-testid="button-language-en"
-                  role="button"
+                  role="menuitem"
                   title=""
                   type="button"
                 >
@@ -176,7 +176,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
                   data-testid="button-language-de"
-                  role="button"
+                  role="menuitem"
                   title=""
                   type="button"
                 >
@@ -195,6 +195,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-link m-menu__item--search c-btn--small c-btn--clear"
                   data-testid="button-search"
                   href="/search"
+                  role="menuitem"
                   tabindex="0"
                   title="Search"
                 >
@@ -218,6 +219,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
                   data-testid="button-settings"
                   href="/settings"
+                  role="menuitem"
                   tabindex="0"
                   title="Settings"
                 >

@@ -30,9 +30,9 @@ exports[`PageSettings should render correctly 1`] = `
               >
                 <form
                   accept-charset="utf-8"
-                  action="/theme/"
-                  class="m-form m-form--theme"
-                  id="m-form--theme"
+                  action="/settings/"
+                  class="m-form m-form--settings"
+                  id="m-form--settings"
                   itemprop="potentialAction"
                   itemscope=""
                   itemtype="http://schema.org/Action"
@@ -50,7 +50,7 @@ exports[`PageSettings should render correctly 1`] = `
                       class="l-grid__row"
                     >
                       <div
-                        class="l-grid__col--6"
+                        class="l-grid__col--12"
                       >
                         <div
                           class="c-toggle"
@@ -80,7 +80,7 @@ exports[`PageSettings should render correctly 1`] = `
                       class="l-grid__row"
                     >
                       <div
-                        class="l-grid__col--6"
+                        class="l-grid__col--12"
                       >
                         <div
                           class="c-toggle"

@@ -236,10 +236,9 @@ $block: '#{$config-ns}m-form';
     }
 
     .#{$block}--settings {
-        .c-toggle {
-            // @include breakpoint($config-grid--breakpoint-xsmall) {
-            //     text-align: center;
-            // }
+        .#{$block}__fieldset {
+            padding: rem-calc($config-theme-grid-vertical-spacing * 2) 0 0 0;
+            text-align: center;
         }
     }
 

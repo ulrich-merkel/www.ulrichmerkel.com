@@ -99,7 +99,8 @@ export function middlewarePost(req: Request, res: Response): Promise<Response> {
     if (isEmpty(postData)) {
         return sendError(req, res, 'No data recieved');
     }
-    // use req.xhr flag to determine if data is (maybe) xor encoded
+
+    // Use req.xhr flag to determine if data is (maybe) xor encoded
     if (req.xhr && postData.data) {
         postData = JSON.parse(
             xorUse ? decrypt(postData.data, xorKey) : postData.data
@@ -118,9 +119,9 @@ export function middlewarePost(req: Request, res: Response): Promise<Response> {
     return transporter.sendMail(
         {
             from: postData.email,
-            to: configApplication.email,
             subject: postData.subject,
-            text: `${postData.name}\n ${postData.message}`
+            text: `${postData.name}\n ${postData.message}`,
+            to: configApplication.email
         },
         function handleResponse(error, info) {
             transporter.close();

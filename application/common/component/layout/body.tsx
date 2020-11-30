@@ -99,7 +99,7 @@ export class LayoutBody extends PureComponent<Props> {
                     <PageBroadcast isDialog />
                 </LayoutDialogConnected>
                 <LayoutDialogConnected
-                    className="l-dialog--theme"
+                    className="l-dialog--settings"
                     page={DIALOG_CONTENT_THEME}
                 >
                     <PageSettings isDialog />

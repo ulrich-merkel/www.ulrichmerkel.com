@@ -66,7 +66,7 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
                 <Legend isVisuallyHidden>{content?.legend}</Legend>
 
                 <GridRow>
-                    <GridCol cols={6}>
+                    <GridCol cols={12}>
                         <Toggle
                             id="dark-mode"
                             label="Dark mode"
@@ -76,7 +76,7 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
                     </GridCol>
                 </GridRow>
                 <GridRow>
-                    <GridCol cols={6}>
+                    <GridCol cols={12}>
                         <Toggle
                             id="reduced-motion-toggle"
                             label="Reduced motion"

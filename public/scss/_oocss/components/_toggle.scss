@@ -11,8 +11,7 @@ $block: '#{$config-ns}c-toggle';
 // Below the fold css, could be lazy loaded
 @if ($config-non-critical-css) {
     .#{$block} {
-        display: block;
-        text-align: left;
+        display: inline-block;
         margin-bottom: rem-calc($config-theme-grid-vertical-spacing * 2);
 
         @if ($config-support-hovers) {
@@ -31,6 +30,8 @@ $block: '#{$config-ns}c-toggle';
             height: 0;
             width: 0;
             visibility: hidden;
+            padding: 0;
+            margin: 0;
         }
 
         .#{$block}__label,
@@ -42,8 +43,8 @@ $block: '#{$config-ns}c-toggle';
             margin: 0;
             padding: 0;
             position: relative;
-            top: 0;
-            @include var(color, --config-theme-link-color);
+            top: 0 !important;
+            @include var(color, --config-theme-link-color, true);
         }
 
         .#{$block}__label::before {

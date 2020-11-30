@@ -20,7 +20,9 @@ import { isValidString } from '../utils/string';
  * @returns {string} The according config entry
  */
 function getConfigString(processEnv: string, fallback: string): string {
-    return isValidString(process.env[processEnv]) ? process.env[processEnv] : fallback;
+    return isValidString(process.env[processEnv])
+        ? process.env[processEnv]
+        : fallback;
 }
 
 /**
@@ -32,7 +34,9 @@ function getConfigString(processEnv: string, fallback: string): string {
  * @returns {boolean} The according config entry
  */
 function getConfigBoolean(processEnv: string, fallback: boolean): boolean {
-    return isValidString(process.env[processEnv]) ? toBoolean(process.env[processEnv]) : fallback;
+    return isValidString(process.env[processEnv])
+        ? toBoolean(process.env[processEnv])
+        : fallback;
 }
 
 const configEnvironment = {
@@ -93,7 +97,7 @@ export const configApplication = {
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        use: getConfigBoolean('CSP', true),
+        use: getConfigBoolean('CSP', true)
     },
     serviceWorker: {
         use: getConfigBoolean('SERVICEWORKER', true),

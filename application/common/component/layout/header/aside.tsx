@@ -134,11 +134,12 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <Button
                     className={buttonEnClassName}
                     data-locale={INTL_LOCALE_EN_EN}
+                    isClear
+                    isSmall
+                    onClick={handleIntlChangeLocale}
+                    role="menuitem"
                     testId="button-language-en"
                     title={contentSection('menu.language.list[0].title')}
-                    onClick={handleIntlChangeLocale}
-                    isSmall
-                    isClear
                 >
                     {contentSection('menu.language.list[0].label')}
                 </Button>
@@ -152,11 +153,12 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <Button
                     className={buttonDeClassName}
                     data-locale={INTL_LOCALE_DE_DE}
+                    isClear
+                    isSmall
+                    onClick={handleIntlChangeLocale}
+                    role="menuitem"
                     testId="button-language-de"
                     title={contentSection('menu.language.list[1].title')}
-                    onClick={handleIntlChangeLocale}
-                    isSmall
-                    isClear
                 >
                     {contentSection('menu.language.list[1].label')}
                 </Button>
@@ -170,6 +172,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <A
                     className="m-menu__item--search c-btn--small c-btn--clear"
                     onClick={handleChangeDialogVisibleSearch}
+                    role="menuitem"
                     testId="button-search"
                     title="Search"
                     to={url.search}
@@ -188,6 +191,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 <A
                     className="m-menu__item--theme c-btn--small c-btn--clear"
                     onClick={handleChangeDialogVisibleTheme}
+                    role="menuitem"
                     testId="button-settings"
                     title="Settings"
                     to={url.settings}
