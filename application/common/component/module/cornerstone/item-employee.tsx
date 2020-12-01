@@ -15,6 +15,7 @@ import shortid from 'shortid';
 import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
+import { Time } from '../../element/time';
 import { View } from '../../element/view';
 import { isValidArray } from '../../../utils/array';
 
@@ -76,10 +77,10 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                     </P>
                     <P className="m-cornerstone__time" itemProp="description">
                         (
-                        <time className="c-time" itemProp="startDate">
+                        <Time itemProp="startDate">
                             {timeStart}
-                        </time>{' '}
-                        -<time className="c-time">{timeEnd}</time>)
+                        </Time>{' '}
+                        -<Time itemProp="endDate">{timeEnd}</Time>)
                     </P>
                     {isValidArray(description) &&
                         description.map(function fnMap(value) {

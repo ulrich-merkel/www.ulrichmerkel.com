@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleMenuItem } from './menu/item';
+import { ModuleMenuListItem } from './menu/list-item';
 import { isValidArray } from '../../utils/array';
 import { getItemTypeAttributes } from '../utils/micro-data';
 
@@ -79,20 +80,23 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
         >
             {content.list.map(function fnMap(value) {
                 return (
-                    <ModuleMenuItem
+                    <ModuleMenuListItem
                         key={shortid.generate()}
-                        path={value.path}
-                        title={value.title}
-                        label={value.label}
                         itemType={value.itemType}
-                        icon={value.icon}
-                        isLabelHidden={value.isLabelHidden}
-                        itemPropA={value.itemPropA}
                     >
-                        {value.metaLinkUrl && (
-                            <link itemProp="url" href={value.metaLinkUrl} />
-                        )}
-                    </ModuleMenuItem>
+                        <ModuleMenuItem
+                            path={value.path}
+                            title={value.title}
+                            label={value.label}
+                            icon={value.icon}
+                            isLabelHidden={value.isLabelHidden}
+                            itemPropA={value.itemPropA}
+                        >
+                            {value.metaLinkUrl && (
+                                <link itemProp="url" href={value.metaLinkUrl} />
+                            )}
+                        </ModuleMenuItem>
+                    </ModuleMenuListItem>
                 );
             })}
             {children}

@@ -34,7 +34,7 @@ exports[`LayoutHeaderAside should render correctly 1`] = `
       itemtype="http://www.schema.org/SiteNavigationElement"
     >
       <button
-        class="c-btn m-menu__item m-menu__item--de is-active c-btn--small c-btn--clear"
+        class="c-btn m-menu__item m-menu__item--en is-active c-btn--small c-btn--clear"
         data-locale="de-DE"
         data-testid="button-language-de"
         role="menuitem"
@@ -47,7 +47,7 @@ exports[`LayoutHeaderAside should render correctly 1`] = `
       </button>
     </li>
     <li
-      class="c-list-item m-menu__list-item--search always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--search always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"
@@ -71,7 +71,7 @@ exports[`LayoutHeaderAside should render correctly 1`] = `
       </a>
     </li>
     <li
-      class="c-list-item m-menu__list-item--theme always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--theme always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"
@@ -132,7 +132,7 @@ exports[`LayoutHeaderAside should render correctly the connected version 1`] = `
       itemtype="http://www.schema.org/SiteNavigationElement"
     >
       <button
-        class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+        class="c-btn m-menu__item m-menu__item--en is-hidden c-btn--small c-btn--clear"
         data-locale="de-DE"
         data-testid="button-language-de"
         role="menuitem"
@@ -145,7 +145,7 @@ exports[`LayoutHeaderAside should render correctly the connected version 1`] = `
       </button>
     </li>
     <li
-      class="c-list-item m-menu__list-item--search always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--search always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"
@@ -169,7 +169,7 @@ exports[`LayoutHeaderAside should render correctly the connected version 1`] = `
       </a>
     </li>
     <li
-      class="c-list-item m-menu__list-item--theme always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--theme always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"
@@ -230,7 +230,7 @@ exports[`LayoutHeaderAside should render correctly with default props 1`] = `
       itemtype="http://www.schema.org/SiteNavigationElement"
     >
       <button
-        class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+        class="c-btn m-menu__item m-menu__item--en is-hidden c-btn--small c-btn--clear"
         data-locale="de-DE"
         data-testid="button-language-de"
         role="menuitem"
@@ -243,7 +243,7 @@ exports[`LayoutHeaderAside should render correctly with default props 1`] = `
       </button>
     </li>
     <li
-      class="c-list-item m-menu__list-item--search always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--search always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"
@@ -267,7 +267,7 @@ exports[`LayoutHeaderAside should render correctly with default props 1`] = `
       </a>
     </li>
     <li
-      class="c-list-item m-menu__list-item--theme always-float"
+      class="c-list-item m-menu__list-item m-menu__list-item--theme always-float"
       itemprop="itemListElement"
       itemscope=""
       itemtype="http://www.schema.org/SiteNavigationElement"

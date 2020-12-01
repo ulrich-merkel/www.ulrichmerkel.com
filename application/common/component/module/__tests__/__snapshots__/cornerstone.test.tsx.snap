@@ -56,6 +56,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
              -
             <time
               class="c-time"
+              itemprop="endDate"
             >
               20161224
             </time>
@@ -229,6 +230,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
              -
             <time
               class="c-time"
+              itemprop="endDate"
             >
               20161224
             </time>

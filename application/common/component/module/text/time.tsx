@@ -11,6 +11,7 @@
 import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
+import { Time } from '../../element/time';
 import { View } from '../../element/view';
 
 type Props = {
@@ -44,11 +45,11 @@ export const ModuleTextTime: FunctionComponent<Props> = (props) => {
 
     return (
         <View className={componentTextContentClassName}>
-            {timeStart && <time className="c-time">{timeStart}</time>}
+            {timeStart && <Time itemProp="startDate">{timeStart}</Time>}
             {timeStart && timeEnd && (
                 <span className="c-time--separator">-</span>
             )}
-            {timeEnd && <time className="c-time">{timeEnd}</time>}
+            {timeEnd && <Time itemProp="endDate">{timeEnd}</Time>}
         </View>
     );
 };

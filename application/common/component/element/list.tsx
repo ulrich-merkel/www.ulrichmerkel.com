@@ -1,5 +1,5 @@
 /**
- * Rendering a small html tag.
+ * Rendering a list html tag.
  *
  * @file
  * @module

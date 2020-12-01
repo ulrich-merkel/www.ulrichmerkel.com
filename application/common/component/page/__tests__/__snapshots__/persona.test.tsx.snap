@@ -210,6 +210,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             Today
                           </time>
@@ -277,6 +278,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2016
                           </time>
@@ -346,6 +348,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2012
                           </time>
@@ -429,6 +432,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2009
                           </time>

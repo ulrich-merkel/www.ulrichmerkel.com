@@ -16,6 +16,7 @@ import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Meta } from '../../element/meta';
+import { Time } from '../../element/time';
 import { View } from '../../element/view';
 import { isValidArray } from '../../../utils/array';
 
@@ -81,13 +82,13 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
                     </P>
                     <P className="m-cornerstone__time">
                         (
-                        <time className="c-time" itemProp="startDate">
+                        <Time itemProp="startDate">
                             {timeStart}
-                        </time>{' '}
+                        </Time>{' '}
                         -{' '}
-                        <time className="c-time" itemProp="endDate">
+                        <Time itemProp="endDate">
                             {timeEnd}
-                        </time>
+                        </Time>
                         )
                     </P>
                     {isValidArray(description) &&

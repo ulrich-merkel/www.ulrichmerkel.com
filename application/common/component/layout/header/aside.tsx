@@ -36,7 +36,7 @@ import { A } from '../../element/a';
 import { Button } from '../../element/button';
 import { Icon } from '../../element/icon';
 import { List } from '../../element/list';
-import { ListItem } from '../../element/list-item';
+import { ModuleMenuListItem } from '../../module/menu/list-item';
 import { isValidArray } from '../../../utils/array';
 
 type Props = {
@@ -50,6 +50,28 @@ type Props = {
     onChangeDialogVisibleTheme?: (visible: boolean) => void;
     onChangeIntlLocale?: (locale: string) => void;
 };
+
+/**
+ * Get language button class names.
+ *
+ * @private
+ * @param {string} intlLocale - The current selected locale
+ * @param {string} buttonLocale - The buttons locale
+ * @param {Array<string>} intlAvailableLocales - All available locales
+ * @returns {string} The combined button class names
+ */
+function getIntlButtonClassNames(
+    intlLocale: Locale,
+    buttonLocale: Locale,
+    intlAvailableLocales: Locales
+): string {
+    return classnames('m-menu__item', 'm-menu__item--en', {
+        'is-active': intlLocale === buttonLocale,
+        'is-hidden':
+            !isValidArray(intlAvailableLocales) ||
+            intlAvailableLocales.length < 2
+    });
+}
 
 /**
  * Function representing a component to return a single react child element.
@@ -76,18 +98,16 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
     } = props;
 
     const contentSection = getContentSection(content);
-    const buttonEnClassName = classnames('m-menu__item', 'm-menu__item--en', {
-        'is-active': intlLocale === INTL_LOCALE_EN_EN,
-        'is-hidden':
-            !isValidArray(intlAvailableLocales) ||
-            intlAvailableLocales.length < 2
-    });
-    const buttonDeClassName = classnames('m-menu__item', 'm-menu__item--de', {
-        'is-active': intlLocale === INTL_LOCALE_DE_DE,
-        'is-hidden':
-            !isValidArray(intlAvailableLocales) ||
-            intlAvailableLocales.length < 2
-    });
+    const buttonEnClassName = getIntlButtonClassNames(
+        intlLocale,
+        INTL_LOCALE_EN_EN,
+        intlAvailableLocales
+    );
+    const buttonDeClassName = getIntlButtonClassNames(
+        intlLocale,
+        INTL_LOCALE_DE_DE,
+        intlAvailableLocales
+    );
     const componentClassName = classnames(
         'm-menu--aside',
         'm-nav__toggle-target',
@@ -126,11 +146,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             itemType="http://schema.org/ItemList"
             role="menu"
         >
-            <ListItem
-                className="m-menu__list-item"
-                itemProp="itemListElement"
-                itemType="http://www.schema.org/SiteNavigationElement"
-            >
+            <ModuleMenuListItem>
                 <Button
                     className={buttonEnClassName}
                     dataLocale={INTL_LOCALE_EN_EN}
@@ -143,12 +159,8 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 >
                     {contentSection('menu.language.list[0].label')}
                 </Button>
-            </ListItem>
-            <ListItem
-                className="m-menu__list-item"
-                itemProp="itemListElement"
-                itemType="http://www.schema.org/SiteNavigationElement"
-            >
+            </ModuleMenuListItem>
+            <ModuleMenuListItem>
                 <Button
                     className={buttonDeClassName}
                     dataLocale={INTL_LOCALE_DE_DE}
@@ -161,12 +173,8 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 >
                     {contentSection('menu.language.list[1].label')}
                 </Button>
-            </ListItem>
-            <ListItem
-                className="m-menu__list-item--search always-float"
-                itemProp="itemListElement"
-                itemType="http://www.schema.org/SiteNavigationElement"
-            >
+            </ModuleMenuListItem>
+            <ModuleMenuListItem className="m-menu__list-item--search always-float">
                 <A
                     className="m-menu__item--search c-btn--small c-btn--clear"
                     onClick={handleChangeDialogVisibleSearch}
@@ -179,12 +187,8 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                         <Icon className="c-btn__icon" icon="search" />
                     </span>
                 </A>
-            </ListItem>
-            <ListItem
-                className="m-menu__list-item--theme always-float"
-                itemProp="itemListElement"
-                itemType="http://www.schema.org/SiteNavigationElement"
-            >
+            </ModuleMenuListItem>
+            <ModuleMenuListItem className="m-menu__list-item--theme always-float">
                 <A
                     className="m-menu__item--theme c-btn--small c-btn--clear"
                     onClick={handleChangeDialogVisibleTheme}
@@ -197,7 +201,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                         <Icon className="c-btn__icon" icon="cog" />
                     </span>
                 </A>
-            </ListItem>
+            </ModuleMenuListItem>
         </List>
     );
 };
