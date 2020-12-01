@@ -9,7 +9,7 @@ exports[`ModuleFeatured should render correctly 1`] = `
     role="list"
   >
     <li
-      class="m-featured__list-item"
+      class="c-list m-featured__list-item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/SiteNavigationElement"
@@ -57,7 +57,7 @@ exports[`ModuleFeatured should render no itemType if unset 1`] = `
     role="list"
   >
     <li
-      class="m-featured__list-item"
+      class="c-list m-featured__list-item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/SiteNavigationElement"

@@ -13,7 +13,7 @@ import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
-import { getItemTypeAttributes } from '../../utils/micro-data';
+import { ListItem } from '../../element/list-item';
 
 type Props = {
     children?: ReactNode;
@@ -50,8 +50,7 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
         itemType = 'http://www.schema.org/SiteNavigationElement',
         label = '',
         path = '',
-        title = '',
-        ...otherProps
+        title = ''
     } = props;
 
     if (!path) {
@@ -65,14 +64,12 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
         },
         'm-menu__label'
     );
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <li
+        <ListItem
             className={componentListItemClassName}
             itemProp="itemListElement"
-            {...itemTypeAttributes}
-            {...otherProps}
+            {...{ itemType }}
         >
             <A
                 itemProp={itemPropA}
@@ -88,6 +85,6 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
                 </span>
             </A>
             {children}
-        </li>
+        </ListItem>
     );
 };

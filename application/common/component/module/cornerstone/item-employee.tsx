@@ -13,9 +13,9 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { isValidArray } from '../../../utils/array';
-import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     cssModifier?: string;
@@ -57,10 +57,10 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
     );
 
     return (
-        <li
+        <ListItem
             className={composedListItemClassName}
             itemProp="itemListElement"
-            {...getItemTypeAttributes('https://schema.org/EmployeeRole')}
+            itemType="https://schema.org/EmployeeRole"
             {...otherProps}
         >
             <div className="m-cornerstone__description">
@@ -102,6 +102,6 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                 </div>
             </div>
             <div className="m-cornerstone__bubble" />
-        </li>
+        </ListItem>
     );
 };

@@ -3,7 +3,7 @@
 exports[`ModuleServiceItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-service__item--right"
+    class="c-list m-service__item--right"
     itemprop="itemListElement"
   >
     <div
@@ -39,7 +39,7 @@ exports[`ModuleServiceItem should render correctly 1`] = `
 exports[`ModuleServiceItem should render isClear correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-service__item--right"
+    class="c-list m-service__item--right"
     itemprop="itemListElement"
   >
     <div

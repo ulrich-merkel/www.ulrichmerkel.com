@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should render correctly 1`] = `
+<DocumentFragment>
+  <ol
+    class="c-list test"
+    itemprop="menu"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="menu"
+  >
+    <li>
+      Test Child
+    </li>
+  </ol>
+</DocumentFragment>
+`;
+
+exports[`ListItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <ul
+    class="c-list"
+  >
+    <li>
+      Test Child
+    </li>
+  </ul>
+</DocumentFragment>
+`;

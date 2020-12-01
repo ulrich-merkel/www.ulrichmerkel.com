@@ -23,6 +23,7 @@ import { findMatches } from '../../utils/search';
 import { addContent } from '../decorator/add-content';
 import { A } from '../element/a';
 import { Headline } from '../element/headline';
+import { ListItem } from '../element/list-item';
 import { Locale } from '../../state/intl/types';
 import { isValidArray } from '../../utils/array';
 import { getItemTypeAttributes } from '../utils/micro-data';
@@ -89,7 +90,7 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         >
             {matches.map(function fnMap(entry) {
                 return (
-                    <li
+                    <ListItem
                         className="m-list__list-item"
                         itemProp="itemListElement"
                         key={shortid.generate()}
@@ -118,7 +119,7 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
                                 )}`}
                             </small>
                         </A>
-                    </li>
+                    </ListItem>
                 );
             })}
             {children}

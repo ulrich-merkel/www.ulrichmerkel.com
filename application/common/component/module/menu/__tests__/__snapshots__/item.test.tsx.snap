@@ -3,7 +3,7 @@
 exports[`ModuleMenuItem should hide label if isLabelHidden is present 1`] = `
 <DocumentFragment>
   <li
-    class="m-menu__list-item"
+    class="c-list m-menu__list-item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="itemType"
@@ -34,7 +34,7 @@ exports[`ModuleMenuItem should hide label if isLabelHidden is present 1`] = `
 exports[`ModuleMenuItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-menu__list-item"
+    class="c-list m-menu__list-item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="itemType"

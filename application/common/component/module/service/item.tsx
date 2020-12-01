@@ -12,6 +12,7 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Icon } from '../../element/icon';
 
@@ -40,7 +41,9 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
     } = props;
 
     if (isClear) {
-        return <li className="m-service__item--clear" aria-hidden="true" />;
+        return (
+            <ListItem className="m-service__item--clear" ariaHidden />
+        );
     }
 
     const componentListItemClassName = classnames({
@@ -50,7 +53,10 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
     const componentListItemIconClassName = classnames('m-service__icon-font');
 
     return (
-        <li className={componentListItemClassName} itemProp="itemListElement">
+        <ListItem
+            className={componentListItemClassName}
+            itemProp="itemListElement"
+        >
             <div className="m-service__content">
                 <div className="m-service__icon">
                     <Icon
@@ -68,6 +74,6 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
                     />
                 </div>
             </div>
-        </li>
+        </ListItem>
     );
 };

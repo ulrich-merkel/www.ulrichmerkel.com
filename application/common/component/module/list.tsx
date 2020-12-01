@@ -13,8 +13,10 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
+import { ListItem } from '../element/list-item';
 import { getItemTypeAttributes } from '../utils/micro-data';
 import { isValidArray } from '../../utils/array';
+import { List } from '../element/list';
 
 type Props = {
     children?: ReactNode;
@@ -57,7 +59,7 @@ export const ModuleList: FunctionComponent<Props> = (props) => {
         >
             {content.text.map(function fnMap(entry) {
                 return (
-                    <li className="m-list__item" key={shortid.generate()}>
+                    <ListItem className="m-list__item" key={shortid.generate()}>
                         <Headline
                             className="m-list__alt-headline"
                             isCentered={false}
@@ -65,12 +67,12 @@ export const ModuleList: FunctionComponent<Props> = (props) => {
                         >
                             {entry.headline}
                         </Headline>
-                        <ul className="m-list">
+                        <List className="m-list">
                             {isValidArray(entry.list) &&
                                 entry.list.map(function fnMapJob(job) {
                                     const text = `${job.name}, ${job.job} - ${job.place}`;
                                     return (
-                                        <li
+                                        <ListItem
                                             key={shortid.generate()}
                                             className="m-list__item"
                                             itemProp="itemListElement"
@@ -80,8 +82,8 @@ export const ModuleList: FunctionComponent<Props> = (props) => {
                                         />
                                     );
                                 })}
-                        </ul>
-                    </li>
+                        </List>
+                    </ListItem>
                 );
             })}
             {children}

@@ -9,7 +9,7 @@ exports[`ModuleList should render correctly 1`] = `
     role="list"
   >
     <li
-      class="m-list__item"
+      class="c-list m-list__item"
     >
       <h3
         class="c-type--h3 m-list__alt-headline"
@@ -17,10 +17,10 @@ exports[`ModuleList should render correctly 1`] = `
         2012
       </h3>
       <ul
-        class="m-list"
+        class="c-list m-list"
       >
         <li
-          class="m-list__item"
+          class="c-list m-list__item"
           itemprop="itemListElement"
         >
           <a
@@ -35,7 +35,7 @@ exports[`ModuleList should render correctly 1`] = `
       </ul>
     </li>
     <li
-      class="m-list__item"
+      class="c-list m-list__item"
     >
       <h3
         class="c-type--h3 m-list__alt-headline"
@@ -43,10 +43,10 @@ exports[`ModuleList should render correctly 1`] = `
         2011
       </h3>
       <ul
-        class="m-list"
+        class="c-list m-list"
       >
         <li
-          class="m-list__item"
+          class="c-list m-list__item"
           itemprop="itemListElement"
         >
           <a
@@ -59,7 +59,7 @@ exports[`ModuleList should render correctly 1`] = `
           , intl-broadcast-virtual-graphics - Germany
         </li>
         <li
-          class="m-list__item"
+          class="c-list m-list__item"
           itemprop="itemListElement"
         >
           <a

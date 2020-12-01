@@ -3,7 +3,7 @@
 exports[`ModuleCornerstoneItemEducation should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-cornerstone__item"
+    class="c-list m-cornerstone__item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/EducationEvent"
@@ -83,7 +83,7 @@ exports[`ModuleCornerstoneItemEducation should render correctly 1`] = `
 exports[`ModuleCornerstoneItemEducation should render cssModifier and offset if passed 1`] = `
 <DocumentFragment>
   <li
-    class="m-cornerstone__item--education has-offset--100"
+    class="c-list m-cornerstone__item--education has-offset--100"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/EducationEvent"

@@ -15,9 +15,9 @@ import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
+import { ListItem } from '../../element/list-item';
 import { Picture } from '../../element/picture';
 import { Meta } from '../../element/meta';
-import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     path?: string;
@@ -46,12 +46,10 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
     const componentListItemClassName = classnames('m-featured__item');
 
     return (
-        <li
+        <ListItem
             className="m-featured__list-item"
             itemProp="itemListElement"
-            {...getItemTypeAttributes(
-                'https://schema.org/SiteNavigationElement'
-            )}
+            itemType="https://schema.org/SiteNavigationElement"
         >
             <A
                 to={`/work/${path}`}
@@ -84,6 +82,6 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
 
                 <Meta itemProp="name" content={headline} />
             </A>
-        </li>
+        </ListItem>
     );
 };

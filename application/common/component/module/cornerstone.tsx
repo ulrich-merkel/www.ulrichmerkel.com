@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
+import { ListItem } from '../element/list-item';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
 import { isValidArray } from '../../utils/array';
@@ -67,8 +68,8 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
 
     if (
         !content ||
-        !content.academicEducationList ||
-        !content.professionalExperienceList
+        (!isValidArray(content.academicEducationList) &&
+            !isValidArray(content.professionalExperienceList))
     ) {
         return null;
     }
@@ -79,16 +80,15 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
     return (
         <HtmlElement
             className={componentClassName}
-            role="list"
             {...itemTypeAttributes}
             {...{ role }}
             {...otherProps}
         >
-            <li className="m-cornerstone__item--center">
+            <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.professionalExperience}
                 </Headline>
-            </li>
+            </ListItem>
 
             {isValidArray(content.professionalExperienceList) &&
                 content.professionalExperienceList.map(function fnMap(
@@ -109,11 +109,11 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                     );
                 })}
 
-            <li className="m-cornerstone__item--center">
+            <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.academicEducation}
                 </Headline>
-            </li>
+            </ListItem>
 
             {isValidArray(content.academicEducationList) &&
                 content.academicEducationList.map(function fnMap(value, index) {
@@ -132,9 +132,9 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                     );
                 })}
 
-            <li className="m-cornerstone__item--start">
+            <ListItem className="m-cornerstone__item--start">
                 <div className="m-cornerstone__bubble c-font-icon--bookmark2" />
-            </li>
+            </ListItem>
 
             {children}
         </HtmlElement>

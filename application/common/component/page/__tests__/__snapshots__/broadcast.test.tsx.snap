@@ -49,7 +49,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   role="list"
                 >
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -57,10 +57,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2012
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -75,7 +75,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -83,10 +83,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2011
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -99,7 +99,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -114,7 +114,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -122,10 +122,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2010
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -138,7 +138,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          track and field athletics, Virtual Graphics - Croatia (Split)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -151,7 +151,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -164,7 +164,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , TV Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -179,7 +179,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -187,10 +187,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2009
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -203,7 +203,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          ice hockey, TV Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -216,13 +216,13 @@ exports[`PageBroadcast should render correctly 1`] = `
                          Championships, Virtual Graphics & TV Graphics - Australien (Sydney & Hobart)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         German Athletics Championships, TV Graphics - Germany (Ulm)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -235,7 +235,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          and international soccer matches, Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -248,7 +248,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , TV Graphics & GPS Tracking - USA (Washington), Spain (Madrid)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Ski-jump Worldcup & 
@@ -264,7 +264,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -272,10 +272,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2008
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Olympia 
@@ -289,7 +289,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Teamleader & Virtual Graphics for Swimming championships - China (Beijing)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -302,19 +302,19 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - India (Pune)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         European Soccer Championship, Virtual Graphics - Switzerland
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         American Swimming Championships, Virtual Graphics - USA (Omaha)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         World 
@@ -328,7 +328,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Great Britain (Manchester)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         European 
@@ -342,7 +342,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Netherlands (Eindhoven)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Short lane 
@@ -356,7 +356,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Croatia (Rijeka)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -369,7 +369,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          and international soccer matches, Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Ski-jump Worldcup & 
@@ -385,7 +385,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -393,16 +393,16 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2007
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Universiade, Technical Supervisor - Thailand (Bangkog)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Short lane 
@@ -416,7 +416,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Sweden (Stockholm)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -429,7 +429,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          track and field athletics, Virtual Graphics - France, Italy, Switzerland
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -442,7 +442,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Australia (Sydney & Melbourne)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -455,7 +455,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          and international soccer matches, Virtual Graphics - Great Britain, Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Ski-jump Worldcup & 
@@ -471,7 +471,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -479,16 +479,16 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2006
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Asian Games Doha, Swimming & track and field athletics, Virtual Graphics - Qatar (Doha)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -501,7 +501,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Timing & Support - Italy (Turino)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -514,13 +514,13 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         European Swimming Championships, Virtual Graphics - Hungary (Budapest)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -535,7 +535,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -543,10 +543,10 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2005
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -559,19 +559,19 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , Virtual Graphics - Australia (Sydney & Melbourne)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Mexican Soccer League, Virtual Graphics - Mexico (Mexico City, Guadalajara)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Universiade, TV Graphics - Italy (Turino)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -584,7 +584,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          and international soccer matches, Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -597,7 +597,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                         , TV Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Ski-jump Worldcup & 
@@ -613,7 +613,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </ul>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list m-list__item"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -621,16 +621,16 @@ exports[`PageBroadcast should render correctly 1`] = `
                       2004
                     </h3>
                     <ul
-                      class="m-list"
+                      class="c-list m-list"
                     >
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         World Swimming Championships, Virtual Graphics - Canada (Montreal)
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         <a
@@ -643,7 +643,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                          and international soccer matches, Virtual Graphics - Germany
                       </li>
                       <li
-                        class="m-list__item"
+                        class="c-list m-list__item"
                         itemprop="itemListElement"
                       >
                         Ski-jump Worldcup & 

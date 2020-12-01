@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Meta } from '../../element/meta';
 import { isValidArray } from '../../../utils/array';
@@ -59,10 +60,10 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
     );
 
     return (
-        <li
+        <ListItem
             className={composedListItemClassName}
             itemProp="itemListElement"
-            {...getItemTypeAttributes('https://schema.org/EducationEvent')}
+            itemType="https://schema.org/EducationEvent"
             {...otherProps}
         >
             <div className="m-cornerstone__description">
@@ -134,6 +135,6 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
                     <Meta itemProp="sameAs" content={place.sameAs} />
                 </div>
             </div>
-        </li>
+        </ListItem>
     );
 };

@@ -35,8 +35,9 @@ import {
 import { A } from '../../element/a';
 import { Button } from '../../element/button';
 import { Icon } from '../../element/icon';
+import { List } from '../../element/list';
+import { ListItem } from '../../element/list-item';
 import { isValidArray } from '../../../utils/array';
-import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     className?: string;
@@ -120,17 +121,15 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
     []);
 
     return (
-        <ul
+        <List
             className={componentClassName}
+            itemType="http://schema.org/ItemList"
             role="menu"
-            {...getItemTypeAttributes('http://schema.org/ItemList')}
         >
-            <li
+            <ListItem
                 className="m-menu__list-item"
                 itemProp="itemListElement"
-                {...getItemTypeAttributes(
-                    'http://www.schema.org/SiteNavigationElement'
-                )}
+                itemType="http://www.schema.org/SiteNavigationElement"
             >
                 <Button
                     className={buttonEnClassName}
@@ -144,13 +143,11 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 >
                     {contentSection('menu.language.list[0].label')}
                 </Button>
-            </li>
-            <li
+            </ListItem>
+            <ListItem
                 className="m-menu__list-item"
                 itemProp="itemListElement"
-                {...getItemTypeAttributes(
-                    'http://www.schema.org/SiteNavigationElement'
-                )}
+                itemType="http://www.schema.org/SiteNavigationElement"
             >
                 <Button
                     className={buttonDeClassName}
@@ -164,13 +161,11 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                 >
                     {contentSection('menu.language.list[1].label')}
                 </Button>
-            </li>
-            <li
+            </ListItem>
+            <ListItem
                 className="m-menu__list-item--search always-float"
                 itemProp="itemListElement"
-                {...getItemTypeAttributes(
-                    'http://www.schema.org/SiteNavigationElement'
-                )}
+                itemType="http://www.schema.org/SiteNavigationElement"
             >
                 <A
                     className="m-menu__item--search c-btn--small c-btn--clear"
@@ -184,13 +179,11 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                         <Icon className="c-btn__icon" icon="search" />
                     </span>
                 </A>
-            </li>
-            <li
+            </ListItem>
+            <ListItem
                 className="m-menu__list-item--theme always-float"
                 itemProp="itemListElement"
-                {...getItemTypeAttributes(
-                    'http://www.schema.org/SiteNavigationElement'
-                )}
+                itemType="http://www.schema.org/SiteNavigationElement"
             >
                 <A
                     className="m-menu__item--theme c-btn--small c-btn--clear"
@@ -204,8 +197,8 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
                         <Icon className="c-btn__icon" icon="cog" />
                     </span>
                 </A>
-            </li>
-        </ul>
+            </ListItem>
+        </List>
     );
 };
 

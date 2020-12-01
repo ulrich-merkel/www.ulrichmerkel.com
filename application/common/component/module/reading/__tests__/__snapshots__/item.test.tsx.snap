@@ -3,7 +3,7 @@
 exports[`ModuleReadingItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-list__item"
+    class="c-list m-list__item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/Book"

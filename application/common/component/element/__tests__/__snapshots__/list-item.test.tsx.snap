@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    aria-hidden="false"
+    class="c-list test"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+    role="listitem"
+  >
+    Test Child
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ListItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list"
+  >
+    Test Child
+  </li>
+</DocumentFragment>
+`;
