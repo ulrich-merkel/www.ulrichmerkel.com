@@ -4,7 +4,7 @@ exports[`ListItem should render correctly 1`] = `
 <DocumentFragment>
   <li
     aria-hidden="false"
-    class="c-list test"
+    class="c-list-item test"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/EmployeeRole"
@@ -18,7 +18,7 @@ exports[`ListItem should render correctly 1`] = `
 exports[`ListItem should render correctly with defaults 1`] = `
 <DocumentFragment>
   <li
-    class="c-list"
+    class="c-list-item"
   >
     Test Child
   </li>

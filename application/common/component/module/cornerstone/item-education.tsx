@@ -16,8 +16,8 @@ import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Meta } from '../../element/meta';
+import { View } from '../../element/view';
 import { isValidArray } from '../../../utils/array';
-import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     cssModifier?: string;
@@ -66,8 +66,8 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
             itemType="https://schema.org/EducationEvent"
             {...otherProps}
         >
-            <div className="m-cornerstone__description">
-                <div className="m-cornerstone__description-content">
+            <View className="m-cornerstone__description">
+                <View className="m-cornerstone__description-content">
                     <Headline
                         className="m-cornerstone__headline"
                         itemProp="name"
@@ -109,20 +109,18 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
                                 />
                             );
                         })}
-                </div>
-            </div>
-            <div className="m-cornerstone__bubble" />
-            <div
+                </View>
+            </View>
+            <View className="m-cornerstone__bubble" />
+            <View
                 hidden
                 itemProp="location"
-                {...getItemTypeAttributes('https://schema.org/Place')}
+                itemType="https://schema.org/Place"
             >
                 <Meta itemProp="name" content={place.name} />
-                <div
+                <View
                     itemProp="address"
-                    {...getItemTypeAttributes(
-                        'https://schema.org/PostalAddress'
-                    )}
+                    itemType="https://schema.org/PostalAddress"
                 >
                     <Meta
                         itemProp="streetAddress"
@@ -133,8 +131,8 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
                         content={place.addressLocality}
                     />
                     <Meta itemProp="sameAs" content={place.sameAs} />
-                </div>
-            </div>
+                </View>
+            </View>
         </ListItem>
     );
 };

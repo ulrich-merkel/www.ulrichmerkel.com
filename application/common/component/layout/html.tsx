@@ -20,6 +20,7 @@ import serialize from 'serialize-javascript';
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { configApplication, url, csp } from '../../config/application';
 import { getNonceConfig, getCspRules } from '../../utils/csp';
+import { View } from '../element/view';
 
 type Props = {
     locale: string;
@@ -135,9 +136,9 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
                 </noscript>
             </head>
             <body itemScope itemType="http://schema.org/WebPage">
-                <div id="l-react" className="l-react">
+                <View id="l-react" className="l-react">
                     {children}
-                </div>
+                </View>
                 <script
                     nonce={get(nonceConfig, 'script.bootstrap')}
                     dangerouslySetInnerHTML={{

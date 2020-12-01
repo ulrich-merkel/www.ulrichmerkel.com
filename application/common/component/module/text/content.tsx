@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { P } from '../../element/paragraph';
+import { View } from '../../element/view';
 
 type Props = {
     content?: string[];
@@ -46,7 +47,7 @@ export const ModuleTextContent: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        <div className={componentTextContentClassName}>
+        <View className={componentTextContentClassName}>
             {content.map(function mapContent(html) {
                 return (
                     <P
@@ -55,6 +56,6 @@ export const ModuleTextContent: FunctionComponent<Props> = (props) => {
                     />
                 );
             })}
-        </div>
+        </View>
     );
 };

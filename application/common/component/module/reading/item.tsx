@@ -14,6 +14,7 @@ import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Small } from '../../element/small';
+import { View } from '../../element/view';
 
 type Props = {
     headline?: string;
@@ -38,7 +39,7 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
             itemProp="itemListElement"
             itemType="https://schema.org/Book"
         >
-            <div className="c-reading">
+            <View className="c-reading">
                 <Headline
                     className="c-reading__name"
                     itemProp="name"
@@ -53,7 +54,7 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
                     <span className="c-reading__source-creator">{creator}</span>
                     <em className="c-reading__source-publisher">{publisher}</em>
                 </Small>
-            </div>
+            </View>
         </ListItem>
     );
 };

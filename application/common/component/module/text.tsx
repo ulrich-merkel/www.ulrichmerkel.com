@@ -24,6 +24,7 @@ import { ModuleTextTime } from './text/time';
 import { ModuleTextLink } from './text/link';
 import { getItemTypeAttributes } from '../utils/micro-data';
 import { isValidArray } from '../../utils/array';
+import { View } from '../element/view';
 
 type Props = {
     children?: ReactNode;
@@ -180,7 +181,7 @@ export class ModuleText extends Component<Props> {
             <HtmlElement className={componentClassName} {...itemTypeAttributes}>
                 {content.text.map((value) => {
                     return (
-                        <div
+                        <View
                             key={shortid.generate()}
                             className={componentTextBlockClassName}
                         >
@@ -200,7 +201,7 @@ export class ModuleText extends Component<Props> {
                                 isCentered={isCentered}
                                 hasColumns2={hasColumns2}
                             />
-                        </div>
+                        </View>
                     );
                 })}
                 <ModuleTextTime content={content} />

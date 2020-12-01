@@ -9,7 +9,7 @@ exports[`ModuleReading should render correctly 1`] = `
     role="list"
   >
     <li
-      class="c-list m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -47,7 +47,7 @@ exports[`ModuleReading should render correctly 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -96,7 +96,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
     role="list"
   >
     <li
-      class="c-list m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -134,7 +134,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"

@@ -14,6 +14,7 @@ import { default as React, FunctionComponent } from 'react';
 
 import { addContent } from '../decorator/add-content';
 import { getContentSection } from '../../utils/content';
+import { View } from '../element/view';
 
 type Props = {
     content: {
@@ -41,15 +42,17 @@ export const LayoutLoader: FunctionComponent<Props> = (props) => {
             role="alert"
             aria-live="assertive"
         >
-            <div className="l-dialog__content">
-                <div className="c-flip">
-                    <div className="c-flip__front">
+            <View className="l-dialog__content">
+                <View className="c-flip">
+                    <View className="c-flip__front">
                         {contentSection('headline')}
-                    </div>
-                    <div className="c-flip__back">{contentSection('lead')}</div>
-                </div>
-            </div>
-            <div className="l-dialog__background" />
+                    </View>
+                    <View className="c-flip__back">
+                        {contentSection('lead')}
+                    </View>
+                </View>
+            </View>
+            <View className="l-dialog__background" />
         </dialog>
     );
 };

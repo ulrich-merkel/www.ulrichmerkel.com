@@ -9,7 +9,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
     role="list"
   >
     <li
-      class="c-list m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -18,7 +18,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       </h3>
     </li>
     <li
-      class="c-list m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EmployeeRole"
@@ -80,7 +80,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       />
     </li>
     <li
-      class="c-list m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -89,7 +89,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       </h3>
     </li>
     <li
-      class="c-list m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EducationEvent"
@@ -164,7 +164,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-cornerstone__item--start"
+      class="c-list-item m-cornerstone__item--start"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"
@@ -182,7 +182,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
     role="list"
   >
     <li
-      class="c-list m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -191,7 +191,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       </h3>
     </li>
     <li
-      class="c-list m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EmployeeRole"
@@ -253,7 +253,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       />
     </li>
     <li
-      class="c-list m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -262,7 +262,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       </h3>
     </li>
     <li
-      class="c-list m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EducationEvent"
@@ -337,7 +337,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-cornerstone__item--start"
+      class="c-list-item m-cornerstone__item--start"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"

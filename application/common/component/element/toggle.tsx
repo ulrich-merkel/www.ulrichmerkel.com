@@ -13,6 +13,7 @@ import { noop } from 'lodash';
 import { getTestIdAttributes } from '../utils/test-id';
 import { Input } from './input';
 import { Label } from './label';
+import { View } from './view';
 
 type Props = {
     checked?: boolean;
@@ -35,7 +36,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
     const {
         checked = false,
         className,
-        htmlElement: HtmlElement = 'div',
+        htmlElement,
         id = 'toggle',
         label = '',
         onChange = noop,
@@ -48,7 +49,11 @@ export const Toggle: FunctionComponent<Props> = (props) => {
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={composedClassName} {...otherProps}>
+        <View
+            className={composedClassName}
+            {...{ htmlElement }}
+            {...otherProps}
+        >
             <Input
                 className="c-toggle__input"
                 id={id}
@@ -60,6 +65,6 @@ export const Toggle: FunctionComponent<Props> = (props) => {
             <Label className="c-toggle__label" htmlFor={id}>
                 <span className="c-toggle__text">{label}</span>
             </Label>
-        </HtmlElement>
+        </View>
     );
 };

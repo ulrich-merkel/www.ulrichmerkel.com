@@ -14,6 +14,7 @@ import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
 import { ListItem } from '../element/list-item';
+import { View } from '../element/view';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
 import { isValidArray } from '../../utils/array';
@@ -133,7 +134,7 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                 })}
 
             <ListItem className="m-cornerstone__item--start">
-                <div className="m-cornerstone__bubble c-font-icon--bookmark2" />
+                <View className="m-cornerstone__bubble c-font-icon--bookmark2" />
             </ListItem>
 
             {children}

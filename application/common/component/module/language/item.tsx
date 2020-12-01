@@ -14,6 +14,7 @@ import classnames from 'classnames';
 import { GridCol } from '../../grid/col';
 import { Headline } from '../../element/headline';
 import { Meta } from '../../element/meta';
+import { View } from '../../element/view';
 import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
@@ -73,38 +74,38 @@ export const ModuleLanguageItem: FunctionComponent<Props> = (props) => {
             role="listitem"
             {...getItemTypeAttributes('https://schema.org/Language')}
         >
-            <div className="c-box">
+            <View className="c-box">
                 <Headline className="c-box__header" htmlElement="h3">
                     {headline}
                 </Headline>
-                <div className="c-box__content">
-                    <div className="c-pie">
-                        <div
+                <View className="c-box__content">
+                    <View className="c-pie">
+                        <View
                             className="c-pie__circle"
                             data-percent={percent}
                             data-text={lead}
                         >
-                            <div className="c-pie__left">
+                            <View className="c-pie__left">
                                 <span
                                     className={classnames(
                                         'c-pie__mask',
                                         rotatedCssTransform.left
                                     )}
                                 />
-                            </div>
-                            <div className="c-pie__right">
+                            </View>
+                            <View className="c-pie__right">
                                 <span
                                     className={classnames(
                                         'c-pie__mask',
                                         rotatedCssTransform.right
                                     )}
                                 />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            </View>
+                        </View>
+                    </View>
+                </View>
                 <Meta itemProp="name" content={headline} />
-            </div>
+            </View>
         </GridCol>
     );
 };

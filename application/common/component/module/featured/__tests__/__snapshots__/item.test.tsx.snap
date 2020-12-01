@@ -3,7 +3,7 @@
 exports[`ModuleFeaturedItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="c-list m-featured__list-item"
+    class="c-list-item m-featured__list-item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/SiteNavigationElement"

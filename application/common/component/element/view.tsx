@@ -7,50 +7,48 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, FunctionComponent, ReactNode } from 'react';
-import classnames from 'classnames';
 import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
-    ariaHidden?: boolean;
     children?: ReactNode;
     className?: string;
-    dangerouslySetInnerHTML?: {
-        __html: string;
-    };
+    hidden?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
+    id?: string;
     itemProp?: string;
     itemType?: string;
+    ref?: HTMLElement;
     role?: string;
 };
 
 /**
- * Function representing a html list item element.
+ * Function representing a html view.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export const ListItem: FunctionComponent<Props> = (props) => {
+export const View: FunctionComponent<Props> = (props) => {
     const {
-        ariaHidden,
         children,
         className,
-        dangerouslySetInnerHTML,
-        htmlElement: HtmlElement = 'li',
+        hidden,
+        htmlElement: HtmlElement = 'div',
+        id,
         itemProp,
         itemType,
-        role
+        ref,
+        role,
+        ...otherProps
     } = props;
 
-    const composedClassName = classnames('c-list-item', className);
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
-            aria-hidden={ariaHidden}
-            className={composedClassName}
-            {...{ dangerouslySetInnerHTML, itemProp, role }}
+            {...{ className, hidden, id, itemProp, ref, role }}
             {...itemTypeAttributes}
+            {...otherProps}
         >
             {children}
         </HtmlElement>

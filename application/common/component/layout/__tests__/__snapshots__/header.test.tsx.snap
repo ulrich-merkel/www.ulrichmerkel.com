@@ -45,7 +45,7 @@ exports[`LayoutHeader should render correctly 1`] = `
               role="menu"
             >
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -64,7 +64,7 @@ exports[`LayoutHeader should render correctly 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -83,7 +83,7 @@ exports[`LayoutHeader should render correctly 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item--search always-float"
+                class="c-list-item m-menu__list-item--search always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -107,7 +107,7 @@ exports[`LayoutHeader should render correctly 1`] = `
                 </a>
               </li>
               <li
-                class="c-list m-menu__list-item--theme always-float"
+                class="c-list-item m-menu__list-item--theme always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -184,7 +184,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
               role="menu"
             >
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -203,7 +203,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -222,7 +222,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item--search always-float"
+                class="c-list-item m-menu__list-item--search always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -246,7 +246,7 @@ exports[`LayoutHeader should render correctly the connected version 1`] = `
                 </a>
               </li>
               <li
-                class="c-list m-menu__list-item--theme always-float"
+                class="c-list-item m-menu__list-item--theme always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -323,7 +323,7 @@ exports[`LayoutHeader should render correctly with default props 1`] = `
               role="menu"
             >
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -342,7 +342,7 @@ exports[`LayoutHeader should render correctly with default props 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -361,7 +361,7 @@ exports[`LayoutHeader should render correctly with default props 1`] = `
                 </button>
               </li>
               <li
-                class="c-list m-menu__list-item--search always-float"
+                class="c-list-item m-menu__list-item--search always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -385,7 +385,7 @@ exports[`LayoutHeader should render correctly with default props 1`] = `
                 </a>
               </li>
               <li
-                class="c-list m-menu__list-item--theme always-float"
+                class="c-list-item m-menu__list-item--theme always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"

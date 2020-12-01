@@ -15,6 +15,7 @@ import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Icon } from '../../element/icon';
+import { View } from '../../element/view';
 
 type Props = {
     headline?: string;
@@ -41,9 +42,7 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
     } = props;
 
     if (isClear) {
-        return (
-            <ListItem className="m-service__item--clear" ariaHidden />
-        );
+        return <ListItem className="m-service__item--clear" ariaHidden />;
     }
 
     const componentListItemClassName = classnames({
@@ -57,14 +56,14 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
             className={componentListItemClassName}
             itemProp="itemListElement"
         >
-            <div className="m-service__content">
-                <div className="m-service__icon">
+            <View className="m-service__content">
+                <View className="m-service__icon">
                     <Icon
                         className={componentListItemIconClassName}
                         icon={icon}
                     />
-                </div>
-                <div className="m-service__description">
+                </View>
+                <View className="m-service__description">
                     <Headline className="m-service__headline" htmlElement="h3">
                         {headline}
                     </Headline>
@@ -72,8 +71,8 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
                         className="m-service__text"
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
-                </div>
-            </div>
+                </View>
+            </View>
         </ListItem>
     );
 };

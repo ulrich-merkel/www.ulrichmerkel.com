@@ -11,6 +11,7 @@ import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { Button } from './button';
+import { View } from './view';
 
 type Props = {
     btnClassName?: string;
@@ -82,7 +83,7 @@ export class ButtonGroup extends Component<Props> {
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <div className={composedGroupClassName} {...otherProps}>
+            <View className={composedGroupClassName} {...otherProps}>
                 <Button
                     {...isButtonPrimary}
                     {...isButtonSecondary}
@@ -97,7 +98,7 @@ export class ButtonGroup extends Component<Props> {
                 >
                     {label}
                 </Button>
-            </div>
+            </View>
         );
     }
 }

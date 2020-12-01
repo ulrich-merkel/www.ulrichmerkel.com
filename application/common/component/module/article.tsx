@@ -15,6 +15,7 @@ import { ModuleArticleHeadline } from './article/headline';
 import { ModuleArticleLead } from './article/lead';
 import { ModuleArticleButton } from './article/button';
 import { Meta } from '../element/meta';
+import { View } from '../element/view';
 import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
@@ -89,9 +90,9 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
                 className="m-article__lead"
                 text={content?.lead}
             />
-            <div className="m-article__text" itemProp="text">
+            <View className="m-article__text" itemProp="text">
                 {children}
-            </div>
+            </View>
             <ModuleArticleButton
                 btnTo={content?.btnTo}
                 btnLabel={content?.btnLabel}

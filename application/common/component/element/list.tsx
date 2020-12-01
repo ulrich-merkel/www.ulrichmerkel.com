@@ -44,6 +44,8 @@ export const List: FunctionComponent<Props> = (props) => {
             className={composedClassName}
             {...{ itemProp, role }}
             {...itemTypeAttributes}
-        >{children}</HtmlElement>
+        >
+            {children}
+        </HtmlElement>
     );
 };

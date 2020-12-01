@@ -9,7 +9,7 @@ exports[`ModuleService should render correctly 1`] = `
     role="list"
   >
     <li
-      class="c-list m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -40,7 +40,7 @@ exports[`ModuleService should render correctly 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-service__item--right"
+      class="c-list-item m-service__item--right"
       itemprop="itemListElement"
     >
       <div
@@ -72,10 +72,10 @@ exports[`ModuleService should render correctly 1`] = `
     </li>
     <li
       aria-hidden="true"
-      class="c-list m-service__item--clear"
+      class="c-list-item m-service__item--clear"
     />
     <li
-      class="c-list m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -117,7 +117,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
     role="list"
   >
     <li
-      class="c-list m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -148,7 +148,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
       </div>
     </li>
     <li
-      class="c-list m-service__item--right"
+      class="c-list-item m-service__item--right"
       itemprop="itemListElement"
     >
       <div
@@ -180,10 +180,10 @@ exports[`ModuleService should render no itemType if unset 1`] = `
     </li>
     <li
       aria-hidden="true"
-      class="c-list m-service__item--clear"
+      class="c-list-item m-service__item--clear"
     />
     <li
-      class="c-list m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div

@@ -12,6 +12,7 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { A } from '../../element/a';
+import { View } from '../../element/view';
 
 type Props = {
     content?: {
@@ -48,11 +49,11 @@ export const ModuleTextLink: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        <div className={componentTextContentClassName}>
+        <View className={componentTextContentClassName}>
             <A to={linkTo} title={linkTitle}>
                 <i aria-hidden="true" className="c-font-icon--earth" />
                 {linkLabel}
             </A>
-        </div>
+        </View>
     );
 };

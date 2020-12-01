@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import { Input } from './input';
 import { Label } from './label';
 import { Icon } from './icon';
+import { View } from './view';
 
 type Props = {
     className?: string;
@@ -92,7 +93,7 @@ export class InputGroup extends Component<Props> {
 
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <div className={composedGroupClassName} {...otherProps}>
+            <View className={composedGroupClassName} {...otherProps}>
                 <Input
                     className={composedInputClassName}
                     {...{
@@ -116,7 +117,7 @@ export class InputGroup extends Component<Props> {
                         icon="smile"
                     />
                 </Label>
-            </div>
+            </View>
         );
     }
 }

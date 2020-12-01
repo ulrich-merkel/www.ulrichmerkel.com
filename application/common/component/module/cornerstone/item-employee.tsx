@@ -15,6 +15,7 @@ import shortid from 'shortid';
 import { Headline } from '../../element/headline';
 import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
+import { View } from '../../element/view';
 import { isValidArray } from '../../../utils/array';
 
 type Props = {
@@ -63,8 +64,8 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
             itemType="https://schema.org/EmployeeRole"
             {...otherProps}
         >
-            <div className="m-cornerstone__description">
-                <div className="m-cornerstone__description-content">
+            <View className="m-cornerstone__description">
+                <View className="m-cornerstone__description-content">
                     <Headline
                         className="m-cornerstone__headline"
                         itemProp="roleName"
@@ -99,9 +100,9 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                                 />
                             );
                         })}
-                </div>
-            </div>
-            <div className="m-cornerstone__bubble" />
+                </View>
+            </View>
+            <View className="m-cornerstone__bubble" />
         </ListItem>
     );
 };
