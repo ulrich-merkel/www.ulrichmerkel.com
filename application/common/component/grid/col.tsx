@@ -33,11 +33,13 @@ type Props = {
  */
 export const GridCol: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         cols = 12,
         htmlElement = 'div',
+        itemProp,
         itemType,
-        ...otherProps
+        role
     } = props;
 
     const ComponentType = htmlElement;
@@ -48,7 +50,9 @@ export const GridCol: FunctionComponent<Props> = (props) => {
         <ComponentType
             className={composedClassName}
             {...itemTypeAttributes}
-            {...otherProps}
-        />
+            {...{ itemProp, role }}
+        >
+            {children}
+        </ComponentType>
     );
 };

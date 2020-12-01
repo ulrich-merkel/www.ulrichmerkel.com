@@ -26,10 +26,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const GridContainer: FunctionComponent<Props> = (props) => {
-    const { className, htmlElement = 'section', ...otherProps } = props;
+    const { children, className, htmlElement = 'section' } = props;
 
     const ComponentType = htmlElement;
     const componentClassName = classnames('l-grid', className);
 
-    return <ComponentType className={componentClassName} {...otherProps} />;
+    return (
+        <ComponentType className={componentClassName}>{children}</ComponentType>
+    );
 };

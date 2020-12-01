@@ -15,7 +15,6 @@ import { GridCol } from '../../grid/col';
 import { Headline } from '../../element/headline';
 import { Meta } from '../../element/meta';
 import { View } from '../../element/view';
-import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     headline?: string;
@@ -71,8 +70,8 @@ export const ModuleLanguageItem: FunctionComponent<Props> = (props) => {
             cols={4}
             htmlElement="li"
             itemProp="itemListElement"
+            itemType="https://schema.org/Language"
             role="listitem"
-            {...getItemTypeAttributes('https://schema.org/Language')}
         >
             <View className="c-box">
                 <Headline className="c-box__header" htmlElement="h3">

@@ -40,20 +40,14 @@ export const Toggle: FunctionComponent<Props> = (props) => {
         id = 'toggle',
         label = '',
         onChange = noop,
-        testId,
-        ...otherProps
+        testId
     } = props;
 
     const composedClassName = classnames('c-toggle', className);
     const testIdAttributes = getTestIdAttributes(testId);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <View
-            className={composedClassName}
-            {...{ htmlElement }}
-            {...otherProps}
-        >
+        <View className={composedClassName} {...{ htmlElement }}>
             <Input
                 className="c-toggle__input"
                 id={id}
