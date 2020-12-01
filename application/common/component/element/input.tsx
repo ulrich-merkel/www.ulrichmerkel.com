@@ -15,6 +15,7 @@ import { getRequiredAttributes } from '../utils/required';
 import { getTestIdAttributes } from '../utils/test-id';
 
 type Props = {
+    checked?: boolean;
     className?: string;
     id: string;
     itemProp?: string;
@@ -55,6 +56,7 @@ export class Input extends Component<Props> {
      */
     render(): ReactNode {
         const {
+            checked,
             className,
             id,
             itemProp,
@@ -65,8 +67,7 @@ export class Input extends Component<Props> {
             required = false,
             testId,
             type = 'text',
-            value,
-            ...other
+            value
         } = this.props;
 
         const composedClassName = classnames(
@@ -80,19 +81,18 @@ export class Input extends Component<Props> {
             <input
                 className={composedClassName}
                 {...{
-                    type,
+                    checked,
                     id,
                     itemProp,
                     name,
-                    value,
                     onBlur,
                     onChange,
-                    placeholder
+                    placeholder,
+                    type,
+                    value
                 }}
                 {...requiredAttributes}
                 {...testIdAttributes}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...other}
             />
         );
     }

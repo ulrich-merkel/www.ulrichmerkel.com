@@ -10,7 +10,6 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 
-import { getTestIdAttributes } from '../utils/test-id';
 import { Input } from './input';
 import { Label } from './label';
 import { View } from './view';
@@ -44,7 +43,6 @@ export const Toggle: FunctionComponent<Props> = (props) => {
     } = props;
 
     const composedClassName = classnames('c-toggle', className);
-    const testIdAttributes = getTestIdAttributes(testId);
 
     return (
         <View className={composedClassName} {...{ htmlElement }}>
@@ -53,8 +51,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
                 id={id}
                 name={id}
                 type="checkbox"
-                {...{ checked, onChange }}
-                {...testIdAttributes}
+                {...{ checked, onChange, testId }}
             />
             <Label className="c-toggle__label" htmlFor={id}>
                 <span className="c-toggle__text">{label}</span>
