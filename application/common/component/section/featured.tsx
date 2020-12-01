@@ -29,14 +29,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionFeatured: FunctionComponent<Props> = (props) => {
-    const { children, content, ...otherProps } = props;
+    const { children, content } = props;
 
     return (
         <SectionCommonGrid>
             <ModuleArticle {...{ content }} isSpaced noMargin>
-                <ModuleFeatured {...{ content }} {...otherProps}>
-                    {children}
-                </ModuleFeatured>
+                <ModuleFeatured {...{ content }}>{children}</ModuleFeatured>
             </ModuleArticle>
         </SectionCommonGrid>
     );

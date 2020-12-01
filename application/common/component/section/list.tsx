@@ -34,14 +34,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionList: FunctionComponent<Props> = (props) => {
-    const { children, content, isDialog, isMain, ...otherProps } = props;
+    const { children, content, isDialog, isMain } = props;
 
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle {...{ content, isMain, isDialog }}>
-                <ModuleList {...{ content }} {...otherProps}>
-                    {children}
-                </ModuleList>
+                <ModuleList {...{ content }}>{children}</ModuleList>
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );

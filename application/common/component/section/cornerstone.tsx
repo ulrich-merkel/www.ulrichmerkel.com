@@ -30,7 +30,7 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionCornerstone: FunctionComponent<Props> = (props) => {
-    const { children, content, ...otherProps } = props;
+    const { children, content } = props;
 
     return (
         <SectionCommonGridSpaced>
@@ -38,7 +38,7 @@ export const SectionCornerstone: FunctionComponent<Props> = (props) => {
                 itemType="https://schema.org/Article"
                 {...{ content }}
             >
-                <ModuleCornerstone {...{ content }} {...otherProps}>
+                <ModuleCornerstone {...{ content }}>
                     {children}
                 </ModuleCornerstone>
             </ModuleArticle>

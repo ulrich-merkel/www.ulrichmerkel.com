@@ -46,8 +46,7 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
         lead,
         offset,
         timeEnd,
-        timeStart,
-        ...otherProps
+        timeStart
     } = props;
 
     const composedListItemClassName = classnames(
@@ -62,7 +61,6 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
             className={composedListItemClassName}
             itemProp="itemListElement"
             itemType="https://schema.org/EmployeeRole"
-            {...otherProps}
         >
             <View className="m-cornerstone__description">
                 <View className="m-cornerstone__description-content">
