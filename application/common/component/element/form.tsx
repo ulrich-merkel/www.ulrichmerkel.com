@@ -17,10 +17,11 @@ type Props = {
     action: string;
     children?: ReactNode;
     className?: string;
-    id: string;
+    id?: string;
     itemProp?: string;
     itemType?: string;
     method?: string;
+    noValidate?: boolean;
     onReset?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
     role?: string;
@@ -54,15 +55,16 @@ export class Form extends Component<Props> {
         const {
             acceptCharset = 'utf-8',
             action,
+            children,
             className,
             id,
             itemProp = 'potentialAction',
             itemType = 'http://schema.org/CommunicateAction',
             method = 'post',
+            noValidate = true,
             onReset = noop,
             onSubmit = noop,
-            role = 'form',
-            ...otherProps
+            role = 'form'
         } = this.props;
 
         const composedClassName = classnames('m-form', className);
@@ -71,7 +73,6 @@ export class Form extends Component<Props> {
         return (
             <form
                 className={composedClassName}
-                noValidate
                 {...itemTypeAttributes}
                 {...{
                     acceptCharset,
@@ -79,13 +80,14 @@ export class Form extends Component<Props> {
                     id,
                     itemProp,
                     method,
-                    role,
+                    noValidate,
+                    onReset,
                     onSubmit,
-                    onReset
+                    role
                 }}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...otherProps}
-            />
+            >
+                {children}
+            </form>
         );
     }
 }

@@ -27,23 +27,23 @@ type Props = {
  */
 export const Header: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         htmlElement: HtmlElement = 'header',
         itemType,
-        role = 'banner',
-        ...otherProps
+        role = 'banner'
     } = props;
 
     const composedClassName = classnames('c-header', className);
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={composedClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
-        />
+        >
+            {children}
+        </HtmlElement>
     );
 };
