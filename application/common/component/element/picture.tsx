@@ -32,6 +32,7 @@ type Props = {
         height: number;
         minWidth: number;
     }[];
+    style: CSSStyleDeclaration;
 };
 
 /**
@@ -71,7 +72,7 @@ export class Picture extends Component<Props> {
             pictureRef = noop,
             placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
             sizes = [],
-            ...otherProps
+            style
         } = this.props;
 
         if (!name) {
@@ -86,8 +87,7 @@ export class Picture extends Component<Props> {
                 className={componentClassName}
                 ref={pictureRef}
                 {...itemTypeAttributes}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...otherProps}
+                {...{ style }}
             >
                 {isValidArray(sizes) &&
                     sizes.map(function fnMap(value) {

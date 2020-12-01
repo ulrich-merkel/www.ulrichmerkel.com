@@ -63,8 +63,7 @@ export class TextareaGroup extends Component<Props> {
             onChange,
             required,
             testId,
-            value = '',
-            ...otherProps
+            value = ''
         } = this.props;
 
         const composedGroupClassName = classnames(
@@ -80,8 +79,7 @@ export class TextareaGroup extends Component<Props> {
         });
 
         return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <View className={composedGroupClassName} {...otherProps}>
+            <View className={composedGroupClassName}>
                 <Textarea
                     className={composedInputClassName}
                     {...{

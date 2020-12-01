@@ -25,13 +25,11 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Legend: FunctionComponent<Props> = (props) => {
-    const { children, className, isVisuallyHidden = false} = props;
+    const { children, className, isVisuallyHidden = false } = props;
 
     const composedClassName = classnames('m-form__legend', className, {
         'is-visually-hidden': isVisuallyHidden
     });
 
-    return (
-    <legend className={composedClassName}>{children}</legend>
-    );
+    return <legend className={composedClassName}>{children}</legend>;
 };

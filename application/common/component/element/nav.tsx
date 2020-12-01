@@ -27,20 +27,17 @@ type Props = {
  */
 export const Nav: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         htmlElement: HtmlElement = 'nav',
-        role = 'navigation',
-        ...otherProps
+        role = 'navigation'
     } = props;
 
     const composedClassName = classnames('m-nav', className);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement
-            className={composedClassName}
-            {...{ role }}
-            {...otherProps}
-        />
+        <HtmlElement className={composedClassName} {...{ role }}>
+            {children}
+        </HtmlElement>
     );
 };

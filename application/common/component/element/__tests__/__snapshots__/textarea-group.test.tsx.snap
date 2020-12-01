@@ -3,7 +3,7 @@
 exports[`TextareaGroup should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="textarea-group"
+    class="is-valid m-form__group"
   >
     <textarea
       aria-required="true"
