@@ -25,14 +25,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Legend: FunctionComponent<Props> = (props) => {
-    const { className, isVisuallyHidden = false, ...otherProps } = props;
+    const { children, className, isVisuallyHidden = false} = props;
 
     const composedClassName = classnames('m-form__legend', className, {
         'is-visually-hidden': isVisuallyHidden
     });
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <legend className={composedClassName} {...otherProps} />
+    <legend className={composedClassName}>{children}</legend>
     );
 };

@@ -27,7 +27,7 @@ type Props = {
  * @returns {ReactElement|null} React component markup
  */
 export const Meta: FunctionComponent<Props> = (props) => {
-    const { content = '', itemProp, name, property, ...otherProps } = props;
+    const { content = '', itemProp, name, property } = props;
 
     if (!content) {
         return null;
@@ -36,13 +36,11 @@ export const Meta: FunctionComponent<Props> = (props) => {
     return (
         <meta
             {...{
+                content,
                 itemProp,
                 name,
-                property,
-                content
+                property
             }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...otherProps}
         />
     );
 };

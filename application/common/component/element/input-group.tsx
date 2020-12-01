@@ -75,8 +75,7 @@ export class InputGroup extends Component<Props> {
             required = false,
             testId,
             type = 'text',
-            value = '',
-            ...otherProps
+            value = ''
         } = this.props;
 
         const composedGroupClassName = classnames(
@@ -92,8 +91,7 @@ export class InputGroup extends Component<Props> {
         });
 
         return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <View className={composedGroupClassName} {...otherProps}>
+            <View className={composedGroupClassName}>
                 <Input
                     className={composedInputClassName}
                     {...{
