@@ -48,7 +48,7 @@
     "backstop:reference": "cross-env NODE_ENV=production PORT=9002 APPCACHE=false node $npm_package_directories_bin/backstop --run=reference --config $npm_package_directories_config/backstop/config.js",
     "backstop:test": "cross-env NODE_ENV=production PORT=9002 APPCACHE=false node $npm_package_directories_bin/backstop --run=test --config $npm_package_directories_config/backstop/config.js",
     "build:client": "cross-env NODE_ENV=production npm run transpile:client",
-    "build:css": "npm run css -- --output-style compressed",
+    "build:css": "npm run css -- --output-style compressed -- --omit-source-map-url",
     "build:server": "cross-env NODE_ENV=production npm run transpile:server",
     "build:static": "npm run static",
     "build": "npm run mkdir && npm-run-all build:* && npm-run-all minify:*",
