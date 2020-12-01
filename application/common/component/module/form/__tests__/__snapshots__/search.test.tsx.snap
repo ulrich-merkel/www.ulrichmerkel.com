@@ -15,7 +15,7 @@ exports[`ModuleFormSearch should render correctly 1`] = `
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"
@@ -81,7 +81,7 @@ exports[`ModuleFormSearch should render correctly the connected version 1`] = `
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"
@@ -147,7 +147,7 @@ exports[`ModuleFormSearch should render correctly without content 1`] = `
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"

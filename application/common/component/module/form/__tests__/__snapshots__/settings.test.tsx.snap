@@ -15,7 +15,7 @@ exports[`ModuleFormSettings should render correctly 1`] = `
     role="form"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"

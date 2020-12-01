@@ -41,7 +41,7 @@ exports[`PageSearch should render correctly 1`] = `
                   role="search"
                 >
                   <fieldset
-                    class="m-form__fieldset"
+                    class="c-fieldset m-form__fieldset"
                   >
                     <legend
                       class="m-form__legend is-visually-hidden"
@@ -140,7 +140,7 @@ exports[`PageSearch should render correctly as dialog 1`] = `
                 role="search"
               >
                 <fieldset
-                  class="m-form__fieldset"
+                  class="c-fieldset m-form__fieldset"
                 >
                   <legend
                     class="m-form__legend is-visually-hidden"

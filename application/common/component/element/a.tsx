@@ -34,6 +34,7 @@ type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
     itemType?: string;
+    lang?: string;
     onClick?: (event: React.MouseEvent) => void;
     role?: string;
     strict?: boolean;
@@ -138,14 +139,14 @@ export const A: FunctionComponent<Props> = (props) => {
         htmlElement = 'a',
         itemProp,
         itemType,
+        lang,
         onClick = noop,
         role,
         strict,
         tabIndex = 0,
         testId,
         title = '',
-        to,
-        ...otherProps
+        to
     } = props;
 
     if (!isValidString(to)) {
@@ -164,20 +165,19 @@ export const A: FunctionComponent<Props> = (props) => {
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
+            className={componentClassName}
             {...attributes}
             {...itemTypeAttributes}
-            className={componentClassName}
             {...{
                 itemProp,
+                lang,
                 onClick,
                 role,
                 tabIndex,
                 title
             }}
             {...testIdAttributes}
-            {...otherProps}
         >
             {children}
         </HtmlElement>

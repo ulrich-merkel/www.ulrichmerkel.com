@@ -133,7 +133,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             >
                 <Button
                     className={buttonEnClassName}
-                    data-locale={INTL_LOCALE_EN_EN}
+                    dataLocale={INTL_LOCALE_EN_EN}
                     isClear
                     isSmall
                     onClick={handleIntlChangeLocale}
@@ -151,7 +151,7 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             >
                 <Button
                     className={buttonDeClassName}
-                    data-locale={INTL_LOCALE_DE_DE}
+                    dataLocale={INTL_LOCALE_DE_DE}
                     isClear
                     isSmall
                     onClick={handleIntlChangeLocale}
