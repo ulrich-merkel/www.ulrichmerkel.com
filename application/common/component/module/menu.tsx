@@ -57,8 +57,7 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
         content = {},
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
-        role = 'menu',
-        ...otherProps
+        role = 'menu'
     } = props;
 
     if (!isValidArray(content?.list)) {
@@ -77,7 +76,6 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
             {content.list.map(function fnMap(value) {
                 return (

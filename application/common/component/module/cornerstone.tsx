@@ -63,8 +63,7 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ol',
         itemType = 'https://schema.org/ItemList',
-        role = 'list',
-        ...otherProps
+        role = 'list'
     } = props;
 
     if (
@@ -83,7 +82,6 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
             <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">

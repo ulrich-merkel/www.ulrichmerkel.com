@@ -76,8 +76,7 @@ export const ModuleService: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
-        role = 'list',
-        ...otherProps
+        role = 'list'
     } = props;
 
     if (!isValidArray(content?.list)) {
@@ -92,7 +91,6 @@ export const ModuleService: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
             {insertClearedListItems(content.list).map(function fnMap(
                 value,

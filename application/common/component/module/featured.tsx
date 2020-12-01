@@ -14,6 +14,7 @@ import shortid from 'shortid';
 
 import { ModuleFeaturedItem } from './featured/item';
 import { getItemTypeAttributes } from '../utils/micro-data';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -45,11 +46,10 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
-        role = 'list',
-        ...otherProps
+        role = 'list'
     } = props;
 
-    if (!content || !content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
@@ -61,9 +61,8 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
-            {content.list.map((value) => {
+            {content.list.map(function fnMap(value) {
                 return (
                     <ModuleFeaturedItem
                         key={shortid.generate()}

@@ -14,6 +14,7 @@ import shortid from 'shortid';
 
 import { ModuleLanguageItem } from './language/item';
 import { getItemTypeAttributes } from '../utils/micro-data';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -44,11 +45,10 @@ export const ModuleLanguage: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
-        role = 'list',
-        ...otherProps
+        role = 'list'
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
@@ -60,9 +60,8 @@ export const ModuleLanguage: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
-            {content.list.map((value) => {
+            {content.list.map(function fnMap(value) {
                 return (
                     <ModuleLanguageItem
                         key={shortid.generate()}

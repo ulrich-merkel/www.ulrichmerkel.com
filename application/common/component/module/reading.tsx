@@ -46,8 +46,7 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
-        role = 'list',
-        ...otherProps
+        role = 'list'
     } = props;
 
     if (!isValidArray(content?.list)) {
@@ -66,7 +65,6 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
             className={componentClassName}
             {...itemTypeAttributes}
             {...{ role }}
-            {...otherProps}
         >
             {content.list.map(function fnMap(value) {
                 const { creator, headline, lead, publisher } = value;

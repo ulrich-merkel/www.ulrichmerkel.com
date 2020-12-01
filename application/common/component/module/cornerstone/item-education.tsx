@@ -48,8 +48,7 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
         offset,
         place,
         timeEnd,
-        timeStart,
-        ...otherProps
+        timeStart
     } = props;
 
     const composedListItemClassName = classnames(
@@ -64,7 +63,6 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
             className={composedListItemClassName}
             itemProp="itemListElement"
             itemType="https://schema.org/EducationEvent"
-            {...otherProps}
         >
             <View className="m-cornerstone__description">
                 <View className="m-cornerstone__description-content">

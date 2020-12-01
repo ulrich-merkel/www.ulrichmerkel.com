@@ -55,8 +55,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
         isMain = false,
         isSpaced = false,
         itemType = 'https://schema.org/Article',
-        noMargin = false,
-        ...otherProps
+        noMargin = false
     } = props;
 
     const componentClassName = classnames(
@@ -76,11 +75,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            {...itemTypeAttributes}
-            {...otherProps}
-        >
+        <HtmlElement className={componentClassName} {...itemTypeAttributes}>
             <ModuleArticleHeadline
                 className={composedHeadlineClassName}
                 text={content?.headline}
