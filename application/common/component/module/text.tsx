@@ -22,6 +22,8 @@ import { ModuleTextContent } from './text/content';
 import { ModuleTextPerson } from './text/person';
 import { ModuleTextTime } from './text/time';
 import { ModuleTextLink } from './text/link';
+import { getItemTypeAttributes } from '../utils/micro-data';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -166,16 +168,16 @@ export class ModuleText extends Component<Props> {
             itemType
         } = this.props;
 
-        if (!content.text || !content.text.length) {
+        if (!isValidArray(content?.text)) {
             return null;
         }
 
         const componentClassName = classnames('m-text', className);
         const componentTextBlockClassName = classnames('m-text__block');
-        const componentSchema = itemType ? { itemScope: true, itemType } : null;
+        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
-            <HtmlElement className={componentClassName} {...componentSchema}>
+            <HtmlElement className={componentClassName} {...itemTypeAttributes}>
                 {content.text.map((value) => {
                     return (
                         <div

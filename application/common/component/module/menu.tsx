@@ -14,6 +14,7 @@ import shortid from 'shortid';
 
 import { ModuleMenuItem } from './menu/item';
 import { isValidArray } from '../../utils/array';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -34,6 +35,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -55,6 +57,7 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
         content = {},
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
+        role = 'menu',
         ...otherProps
     } = props;
 
@@ -67,13 +70,13 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
         content.name ? `m-menu--${content.name}` : '',
         className
     );
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            role="menu"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
             {content.list.map(function fnMap(value) {

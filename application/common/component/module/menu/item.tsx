@@ -13,6 +13,7 @@ import classnames from 'classnames';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -64,13 +65,13 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
         },
         'm-menu__label'
     );
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <li
             className={componentListItemClassName}
             itemProp="itemListElement"
-            itemScope
-            itemType={itemType}
+            {...itemTypeAttributes}
             {...otherProps}
         >
             <A

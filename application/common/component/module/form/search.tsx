@@ -28,6 +28,7 @@ import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { InputGroup } from '../../element/input-group';
 import { Legend } from '../../element/legend';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     content?: {
@@ -64,11 +65,9 @@ export const ModuleFormSearch: FunctionComponent<Props> = (props) => {
             action="/search/"
             className="m-form--search"
             id="m-form--search"
-            itemProp="potentialAction"
-            itemScope
-            itemType="http://schema.org/SearchAction"
             onSubmit={eventPreventDefault}
             role="search"
+            {...getItemTypeAttributes('https://schema.org/SearchAction')}
         >
             <Fieldset>
                 <Legend isVisuallyHidden>{content?.legend}</Legend>

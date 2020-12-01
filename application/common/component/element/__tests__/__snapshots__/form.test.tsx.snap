@@ -9,6 +9,7 @@ exports[`Form should render correctly 1`] = `
     data-test="form-data"
     id="form"
     itemprop="potentialAction"
+    itemscope=""
     itemtype="http://schema.org/CommunicateAction"
     method="post"
     novalidate=""

@@ -23,11 +23,14 @@ import { ModuleMenu } from '../module/menu';
 import { Nav } from '../element/nav';
 import { Button } from '../element/button';
 import { Small } from '../element/small';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
-    className: string;
-    content: Record<string, unknown>;
-    handleScrollTop: (event: React.SyntheticEvent) => void;
+    className?: string;
+    content?: Record<string, unknown>;
+    handleScrollTop?: (event: React.SyntheticEvent) => void;
+    itemType?: string;
+    role?: string;
 };
 
 /**
@@ -40,17 +43,23 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const LayoutFooter: FunctionComponent<Props> = (props) => {
-    const { className, content, handleScrollTop = noop } = props;
+    const {
+        className,
+        content,
+        handleScrollTop = noop,
+        itemType = 'http://schema.org/WPFooter',
+        role = 'contentinfo'
+    } = props;
 
     const contentSection = getContentSection(content);
     const componentClassName = classnames('l-footer', className);
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <footer
             className={componentClassName}
-            itemScope
-            itemType="http://schema.org/WPFooter"
-            role="contentinfo"
+            {...itemTypeAttributes}
+            {...{ role }}
         >
             <Button
                 className="l-footer__button--up c-font-icon--chevron-up"

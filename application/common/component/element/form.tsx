@@ -10,6 +10,7 @@
 import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     acceptCharset?: string;
@@ -18,7 +19,6 @@ type Props = {
     className?: string;
     id: string;
     itemProp?: string;
-    itemScope?: boolean;
     itemType?: string;
     method?: string;
     onReset?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -57,7 +57,6 @@ export class Form extends Component<Props> {
             className,
             id,
             itemProp = 'potentialAction',
-            itemScope = false,
             itemType = 'http://schema.org/CommunicateAction',
             method = 'post',
             onReset = noop,
@@ -67,19 +66,18 @@ export class Form extends Component<Props> {
         } = this.props;
 
         const composedClassName = classnames('m-form', className);
+        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
             <form
                 className={composedClassName}
                 noValidate
-                itemScope
+                {...itemTypeAttributes}
                 {...{
                     acceptCharset,
                     action,
                     id,
                     itemProp,
-                    itemScope,
-                    itemType,
                     method,
                     role,
                     onSubmit,

@@ -32,14 +32,7 @@ describe('ModuleReading', function fnDescribe() {
     });
     it('should return null if no content is given', function fnIt() {
         const { asFragment } = render(
-            <ModuleReading
-                {...props}
-                content={{
-                    list: null
-                }}
-            >
-                Module reading children not rendered
-            </ModuleReading>
+            <ModuleReading>Module reading children not rendered</ModuleReading>
         );
         expect(asFragment()).toMatchSnapshot();
     });

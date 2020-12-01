@@ -16,6 +16,7 @@ import { Headline } from '../element/headline';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
 import { isValidArray } from '../../utils/array';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -43,6 +44,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -59,6 +61,7 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ol',
         itemType = 'https://schema.org/ItemList',
+        role = 'list',
         ...otherProps
     } = props;
 
@@ -71,13 +74,14 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
     }
 
     const componentClassName = classnames('m-cornerstone', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
             role="list"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
             <li className="m-cornerstone__item--center">

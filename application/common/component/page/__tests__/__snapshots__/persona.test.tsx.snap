@@ -581,7 +581,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Karl-Liebknecht-Straße 132"
@@ -687,7 +687,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Gutenbergplatz 8"
@@ -773,7 +773,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Nicolaiplatz"
@@ -853,7 +853,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Humboldtstraße 7"
@@ -933,7 +933,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Ernst-Reinsdorf-Straße 3"

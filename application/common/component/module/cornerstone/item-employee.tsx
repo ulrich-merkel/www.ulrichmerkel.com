@@ -15,6 +15,7 @@ import shortid from 'shortid';
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 import { isValidArray } from '../../../utils/array';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     cssModifier?: string;
@@ -59,8 +60,7 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
         <li
             className={composedListItemClassName}
             itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/EmployeeRole"
+            {...getItemTypeAttributes('https://schema.org/EmployeeRole')}
             {...otherProps}
         >
             <div className="m-cornerstone__description">

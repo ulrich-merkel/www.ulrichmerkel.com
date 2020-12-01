@@ -173,6 +173,15 @@ export const configIntlEnEn = {
     'intl-page-persona-section5-headline': 'Recommended reading',
     'intl-page-persona-section5-lead':
         'Some books i read and could recommend to you',
+    'intl-page-persona-section5-list-11-headline': 'Typescript',
+    'intl-page-persona-section5-list-11-lead': 'In 50 Lessons',
+    'intl-page-persona-section5-list-11-creator': 'Baumgartner, Stefan',
+    'intl-page-persona-section5-list-11-publisher': 'Smashing Magazine 2020',
+    'intl-page-persona-section5-list-10-headline':
+        'New frontiers in Web Design',
+    'intl-page-persona-section5-list-10-lead': 'Smashing Book #6',
+    'intl-page-persona-section5-list-10-creator': '',
+    'intl-page-persona-section5-list-10-publisher': 'Smashing Magazine 2018',
     'intl-page-persona-section5-list-1-headline': "You don't know JS",
     'intl-page-persona-section5-list-1-lead': 'ES6 and beyond',
     'intl-page-persona-section5-list-1-creator': 'Simpson, Kyle',

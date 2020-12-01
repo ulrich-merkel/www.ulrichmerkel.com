@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleFeaturedItem } from './featured/item';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -27,6 +28,7 @@ type Props = {
         }[];
     };
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -43,6 +45,7 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
+        role = 'list',
         ...otherProps
     } = props;
 
@@ -51,13 +54,13 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
     }
 
     const componentClassName = classnames('m-featured', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            role="list"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
             {content.list.map((value) => {

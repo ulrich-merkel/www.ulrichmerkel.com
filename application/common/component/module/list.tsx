@@ -13,13 +13,16 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../element/headline';
+import { getItemTypeAttributes } from '../utils/micro-data';
+import { isValidArray } from '../../utils/array';
 
 type Props = {
-    htmlElement?: keyof JSX.IntrinsicElements;
-    className?: string;
-    itemType?: string;
     children?: ReactNode;
+    className?: string;
     content?: Record<string, unknown>;
+    htmlElement?: keyof JSX.IntrinsicElements;
+    itemType?: string;
+    role?: string;
 };
 
 /**
@@ -31,52 +34,56 @@ type Props = {
  */
 export const ModuleList: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'ul',
+        children,
         className,
-        itemType = 'http://schema.org/ItemList',
         content,
-        children
+        htmlElement: HtmlElement = 'ul',
+        itemType = 'http://schema.org/ItemList',
+        role = 'list'
     } = props;
 
     const componentClassName = classnames('m-list--broadcast', className);
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
+
+    if (!isValidArray(content?.text)) {
+        return null;
+    }
 
     return (
         <HtmlElement
             className={componentClassName}
-            itemScope
-            itemType={itemType}
-            role="list"
+            {...itemTypeAttributes}
+            {...{ role }}
         >
-            {content.text &&
-                content.text.map((entry) => {
-                    return (
-                        <li className="m-list__item" key={shortid.generate()}>
-                            <Headline
-                                className="m-list__alt-headline"
-                                isCentered={false}
-                                htmlElement="h3"
-                            >
-                                {entry.headline}
-                            </Headline>
-                            <ul className="m-list">
-                                {entry.list &&
-                                    entry.list.map((job) => {
-                                        const text = `${job.name}, ${job.job} - ${job.place}`;
-                                        return (
-                                            <li
-                                                key={shortid.generate()}
-                                                className="m-list__item"
-                                                itemProp="itemListElement"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: text
-                                                }}
-                                            />
-                                        );
-                                    })}
-                            </ul>
-                        </li>
-                    );
-                })}
+            {content.text.map(function fnMap(entry) {
+                return (
+                    <li className="m-list__item" key={shortid.generate()}>
+                        <Headline
+                            className="m-list__alt-headline"
+                            isCentered={false}
+                            htmlElement="h3"
+                        >
+                            {entry.headline}
+                        </Headline>
+                        <ul className="m-list">
+                            {isValidArray(entry.list) &&
+                                entry.list.map(function fnMapJob(job) {
+                                    const text = `${job.name}, ${job.job} - ${job.place}`;
+                                    return (
+                                        <li
+                                            key={shortid.generate()}
+                                            className="m-list__item"
+                                            itemProp="itemListElement"
+                                            dangerouslySetInnerHTML={{
+                                                __html: text
+                                            }}
+                                        />
+                                    );
+                                })}
+                        </ul>
+                    </li>
+                );
+            })}
             {children}
         </HtmlElement>
     );

@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleLanguageItem } from './language/item';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -26,6 +27,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -42,6 +44,7 @@ export const ModuleLanguage: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
+        role = 'list',
         ...otherProps
     } = props;
 
@@ -50,13 +53,13 @@ export const ModuleLanguage: FunctionComponent<Props> = (props) => {
     }
 
     const componentClassName = classnames('m-language', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            role="list"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
             {content.list.map((value) => {

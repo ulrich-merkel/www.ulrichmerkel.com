@@ -15,6 +15,7 @@ import { ModuleArticleHeadline } from './article/headline';
 import { ModuleArticleLead } from './article/lead';
 import { ModuleArticleButton } from './article/button';
 import { Meta } from '../element/meta';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -71,12 +72,12 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
         },
         'm-article__headline'
     );
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            itemScope
-            itemType={itemType}
+            {...itemTypeAttributes}
             {...otherProps}
         >
             <ModuleArticleHeadline

@@ -17,6 +17,7 @@ import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
 import { Picture } from '../../element/picture';
 import { Meta } from '../../element/meta';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     path?: string;
@@ -48,8 +49,9 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
         <li
             className="m-featured__list-item"
             itemProp="itemListElement"
-            itemScope
-            itemType="http://schema.org/SiteNavigationElement"
+            {...getItemTypeAttributes(
+                'https://schema.org/SiteNavigationElement'
+            )}
         >
             <A
                 to={`/work/${path}`}

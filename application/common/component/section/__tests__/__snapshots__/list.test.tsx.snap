@@ -22,16 +22,7 @@ exports[`SectionList should render correctly 1`] = `
             <div
               class="m-article__text"
               itemprop="text"
-            >
-              <ul
-                class="m-list--broadcast"
-                itemscope=""
-                itemtype="http://schema.org/ItemList"
-                role="list"
-              >
-                Section list children
-              </ul>
-            </div>
+            />
           </article>
         </div>
       </div>

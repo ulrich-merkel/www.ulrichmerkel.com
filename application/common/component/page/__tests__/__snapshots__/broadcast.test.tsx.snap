@@ -712,14 +712,7 @@ exports[`PageBroadcast should render correctly as dialog 1`] = `
             <div
               class="m-article__text"
               itemprop="text"
-            >
-              <ul
-                class="m-list--broadcast"
-                itemscope=""
-                itemtype="http://schema.org/ItemList"
-                role="list"
-              />
-            </div>
+            />
           </article>
         </div>
       </div>

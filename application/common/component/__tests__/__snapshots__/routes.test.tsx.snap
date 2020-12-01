@@ -703,7 +703,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -849,7 +849,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -995,7 +995,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1141,7 +1141,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1287,7 +1287,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1433,7 +1433,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1579,7 +1579,7 @@ exports[`Routes should render correctly 1`] = `
                   class="m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"

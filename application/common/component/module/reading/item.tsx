@@ -13,6 +13,7 @@ import { default as React, FunctionComponent } from 'react';
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 import { Small } from '../../element/small';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     headline?: string;
@@ -35,8 +36,7 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
         <li
             className="m-list__item"
             itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/Book"
+            {...getItemTypeAttributes('https://schema.org/Book')}
         >
             <div className="c-reading">
                 <Headline

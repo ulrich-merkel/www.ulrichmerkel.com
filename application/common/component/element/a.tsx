@@ -24,6 +24,7 @@ import { isEmpty, noop } from 'lodash';
 
 import { isValidString } from '../../utils/string';
 import { getTestIdAttributes } from '../utils/test-id';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     activeClassName?: string;
@@ -32,7 +33,6 @@ type Props = {
     exact?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
-    itemScope?: boolean;
     itemType?: string;
     onClick?: (event: React.MouseEvent) => void;
     role?: string;
@@ -137,7 +137,6 @@ export const A: FunctionComponent<Props> = (props) => {
         exact,
         htmlElement = 'a',
         itemProp,
-        itemScope,
         itemType,
         onClick = noop,
         role,
@@ -162,16 +161,16 @@ export const A: FunctionComponent<Props> = (props) => {
         to
     });
     const testIdAttributes = getTestIdAttributes(testId);
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             {...attributes}
+            {...itemTypeAttributes}
             className={componentClassName}
             {...{
                 itemProp,
-                itemScope,
-                itemType,
                 onClick,
                 role,
                 tabIndex,

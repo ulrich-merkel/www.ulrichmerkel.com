@@ -12,6 +12,7 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import { P } from '../element/paragraph';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
@@ -59,10 +60,10 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
         'm-person',
         className
     );
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement className={componentClassName} {...componentSchema}>
+        <HtmlElement className={componentClassName} {...itemTypeAttributes}>
             {content?.name && (
                 <P className="m-person__name">
                     <strong>{content.name}</strong>

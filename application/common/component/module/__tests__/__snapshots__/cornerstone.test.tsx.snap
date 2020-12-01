@@ -159,7 +159,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
         <div
           itemprop="address"
           itemscope=""
-          itemtype="http://schema.org/PostalAddress"
+          itemtype="https://schema.org/PostalAddress"
         />
       </div>
     </li>
@@ -332,7 +332,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
         <div
           itemprop="address"
           itemscope=""
-          itemtype="http://schema.org/PostalAddress"
+          itemtype="https://schema.org/PostalAddress"
         />
       </div>
     </li>

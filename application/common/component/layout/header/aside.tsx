@@ -36,6 +36,7 @@ import { A } from '../../element/a';
 import { Button } from '../../element/button';
 import { Icon } from '../../element/icon';
 import { isValidArray } from '../../../utils/array';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     className?: string;
@@ -122,14 +123,14 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
         <ul
             className={componentClassName}
             role="menu"
-            itemScope
-            itemType="http://schema.org/ItemList"
+            {...getItemTypeAttributes('http://schema.org/ItemList')}
         >
             <li
                 className="m-menu__list-item"
                 itemProp="itemListElement"
-                itemScope
-                itemType="http://www.schema.org/SiteNavigationElement"
+                {...getItemTypeAttributes(
+                    'http://www.schema.org/SiteNavigationElement'
+                )}
             >
                 <Button
                     className={buttonEnClassName}
@@ -147,8 +148,9 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             <li
                 className="m-menu__list-item"
                 itemProp="itemListElement"
-                itemScope
-                itemType="http://www.schema.org/SiteNavigationElement"
+                {...getItemTypeAttributes(
+                    'http://www.schema.org/SiteNavigationElement'
+                )}
             >
                 <Button
                     className={buttonDeClassName}
@@ -166,8 +168,9 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             <li
                 className="m-menu__list-item--search always-float"
                 itemProp="itemListElement"
-                itemScope
-                itemType="http://www.schema.org/SiteNavigationElement"
+                {...getItemTypeAttributes(
+                    'http://www.schema.org/SiteNavigationElement'
+                )}
             >
                 <A
                     className="m-menu__item--search c-btn--small c-btn--clear"
@@ -185,8 +188,9 @@ export const LayoutHeaderAside: FunctionComponent<Props> = (props) => {
             <li
                 className="m-menu__list-item--theme always-float"
                 itemProp="itemListElement"
-                itemScope
-                itemType="http://www.schema.org/SiteNavigationElement"
+                {...getItemTypeAttributes(
+                    'http://www.schema.org/SiteNavigationElement'
+                )}
             >
                 <A
                     className="m-menu__item--theme c-btn--small c-btn--clear"

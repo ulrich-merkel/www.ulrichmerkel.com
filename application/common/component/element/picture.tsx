@@ -14,6 +14,7 @@ import { noop } from 'lodash';
 
 import { isValidArray } from '../../utils/array';
 import { PictureSource } from './picture-source';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     alt?: string;
@@ -21,6 +22,7 @@ type Props = {
     className?: string;
     ext?: 'jpg' | 'png' | '';
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemType?: string;
     name?: string;
     path?: string;
     pictureRef?: () => void;
@@ -63,6 +65,7 @@ export class Picture extends Component<Props> {
             className,
             ext = '',
             htmlElement: HtmlElement = 'picture',
+            itemType = 'http://schema.org/ImageObject',
             name = '',
             path = '',
             pictureRef = noop,
@@ -76,13 +79,13 @@ export class Picture extends Component<Props> {
         }
 
         const componentClassName = classnames('c-picture', className);
+        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
             <HtmlElement
                 className={componentClassName}
-                itemScope
-                itemType="http://schema.org/ImageObject"
                 ref={pictureRef}
+                {...itemTypeAttributes}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...otherProps}
             >

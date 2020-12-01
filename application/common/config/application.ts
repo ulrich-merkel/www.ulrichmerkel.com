@@ -101,11 +101,11 @@ export const configApplication = {
     },
     serviceWorker: {
         use: getConfigBoolean('SERVICEWORKER', true),
-        timeStamp: '2020-11-30'
+        timeStamp: '2020-12-01'
     },
     applicationCache: {
         use: getConfigBoolean('APPCACHE', false),
-        timeStamp: '2020-11-30'
+        timeStamp: '2020-12-01'
     },
     ...configEnvironment
 };

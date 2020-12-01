@@ -13,6 +13,8 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleServiceItem } from './service/item';
+import { getItemTypeAttributes } from '../utils/micro-data';
+import { isValidArray } from '../../utils/array';
 
 type List = {
     headline?: string;
@@ -30,6 +32,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -73,21 +76,22 @@ export const ModuleService: FunctionComponent<Props> = (props) => {
         content,
         htmlElement: HtmlElement = 'ul',
         itemType = 'https://schema.org/ItemList',
+        role = 'list',
         ...otherProps
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
     const componentClassName = classnames('m-service', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            role="list"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
             {insertClearedListItems(content.list).map(function fnMap(

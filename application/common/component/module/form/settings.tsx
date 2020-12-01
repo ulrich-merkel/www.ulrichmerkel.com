@@ -23,6 +23,7 @@ import { Toggle } from '../../element/toggle';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { Legend } from '../../element/legend';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     content: {
@@ -57,10 +58,8 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
             action="/settings/"
             className="m-form--settings"
             id="m-form--settings"
-            itemProp="potentialAction"
-            itemScope
-            itemType="http://schema.org/Action"
             onSubmit={eventPreventDefault}
+            {...getItemTypeAttributes('http://schema.org/Action')}
         >
             <Fieldset>
                 <Legend isVisuallyHidden>{content?.legend}</Legend>

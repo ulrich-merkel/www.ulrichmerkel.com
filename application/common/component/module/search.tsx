@@ -24,6 +24,8 @@ import { addContent } from '../decorator/add-content';
 import { A } from '../element/a';
 import { Headline } from '../element/headline';
 import { Locale } from '../../state/intl/types';
+import { isValidArray } from '../../utils/array';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -36,10 +38,11 @@ type Props = {
             percent: string | number;
         }[];
     };
-    handleChangeDialogVisibleSearch: () => void;
+    handleChangeDialogVisibleSearch?: () => void;
     htmlElement?: keyof JSX.IntrinsicElements;
     intlLocale?: Locale;
     itemType?: string;
+    role?: string;
     searchTerm?: string;
 };
 
@@ -60,13 +63,15 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         htmlElement: HtmlElement = 'ul',
         intlLocale,
         itemType = 'http://schema.org/ItemList',
+        role = 'list',
         searchTerm
     } = props;
 
     const componentClassName = classnames('m-list--search', className);
     const contentSection = getContentSection(content);
     const matches = findMatches(searchTerm, intlLocale, config);
-    if (!matches || !matches.length) {
+
+    if (!isValidArray(matches)) {
         return (
             <Headline htmlElement="h3">
                 {contentSection('PageSearch.section1.noResults')}
@@ -74,27 +79,29 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         );
     }
 
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
+
     return (
         <HtmlElement
             className={componentClassName}
-            itemScope
-            itemType={itemType}
-            role="list"
+            {...itemTypeAttributes}
+            {...{ role }}
         >
-            {matches.map((entry) => {
+            {matches.map(function fnMap(entry) {
                 return (
                     <li
-                        key={shortid.generate()}
                         className="m-list__list-item"
                         itemProp="itemListElement"
+                        key={shortid.generate()}
                     >
                         <A
-                            to={entry.url}
-                            title={entry.title}
                             className="c-type--h4 m-list__item"
                             onClick={handleChangeDialogVisibleSearch}
-                            itemScope
-                            itemType="http://www.schema.org/SiteNavigationElement"
+                            title={entry.title}
+                            to={entry.url}
+                            {...getItemTypeAttributes(
+                                'http://www.schema.org/SiteNavigationElement'
+                            )}
                         >
                             <span className="m-menu__label">
                                 {`${get(

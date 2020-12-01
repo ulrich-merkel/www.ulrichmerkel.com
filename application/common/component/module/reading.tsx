@@ -13,6 +13,8 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleReadingItem } from './reading/item';
+import { isValidArray } from '../../utils/array';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -27,6 +29,7 @@ type Props = {
     };
     htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -38,15 +41,16 @@ type Props = {
  */
 export const ModuleReading: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'ul',
-        className,
-        itemType = 'https://schema.org/ItemList',
-        content,
         children,
+        className,
+        content,
+        htmlElement: HtmlElement = 'ul',
+        itemType = 'https://schema.org/ItemList',
+        role = 'list',
         ...otherProps
     } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
@@ -55,23 +59,26 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
         'm-reading',
         className
     );
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={componentClassName}
-            role="list"
-            {...componentSchema}
+            {...itemTypeAttributes}
+            {...{ role }}
             {...otherProps}
         >
-            {content.list.map((value) => {
+            {content.list.map(function fnMap(value) {
+                const { creator, headline, lead, publisher } = value;
                 return (
                     <ModuleReadingItem
                         key={shortid.generate()}
-                        headline={value.headline}
-                        lead={value.lead}
-                        creator={value.creator}
-                        publisher={value.publisher}
+                        {...{
+                            creator,
+                            headline,
+                            lead,
+                            publisher
+                        }}
                     />
                 );
             })}

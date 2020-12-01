@@ -22,20 +22,22 @@
 import { configApplication } from '../common/config/application';
 import { getDateNow } from '../common/utils/date';
 
-const configApplicationCache = configApplication.applicationCache;
+const configApplicationCache = configApplication.serviceWorker;
 const STATIC_FILES = ['./css/app.css', './js/client.bundle.js'];
 const BLACKLIST_URLS = ['/panel/'];
 const PREFER_FETCH = ['text/html'];
+
+let CACHE_KEY = `CACHE_KEY-${getTimeStamp()}`;
 
 /**
  * Get cache timestamp to ease updates.
  *
  * @private
- * @returns {string} The timestamp to be used
+ * @returns {number} The timestamp to be used
  */
-function getTimeStamp() {
+function getTimeStamp(): number {
     if (configApplicationCache.timeStamp) {
-        return configApplicationCache.timeStamp;
+        return new Date(configApplicationCache.timeStamp).getTime();
     }
     return getDateNow();
 }
@@ -47,8 +49,9 @@ function getTimeStamp() {
  * @param {string} reason - The error reason to log
  * @returns {void}
  */
-function handleError(reason) {
-    console.warn(reason); // eslint-disable-line no-console
+function handleError(reason: string): void {
+    // eslint-disable-next-line no-console
+    console.warn(reason);
 }
 
 /**
@@ -62,7 +65,7 @@ function handleError(reason) {
 function preCache() {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     return caches
-        .open(self.CACHE)
+        .open(CACHE_KEY)
         .then(function handleOpen(cache) {
             if (!cache.addAll) {
                 return true;
@@ -81,15 +84,15 @@ function preCache() {
  * @param {object} request - The event's request
  * @returns {Promise}
  */
-function fromCache(request) {
+function fromCache(request: Request) {
     return new Promise(function (resolve, reject) {
         if (!request) {
             return reject();
         }
         // eslint-disable-next-line security/detect-non-literal-fs-filename
-        return caches.open(self.CACHE).then(function handleOpen() {
+        return caches.open(CACHE_KEY).then(function handleOpen() {
             // eslint-disable-next-line promise/no-nesting
-            return caches.match(request).then(function (response) {
+            return caches.match(request).then(function (response: Response) {
                 if (response) {
                     return resolve(response);
                 }
@@ -111,7 +114,7 @@ function fromCache(request) {
  * @param {object} [options] - The fetch handler options
  * @returns {Promise}
  */
-function fromNetwork(request, timeout = 20000, options) {
+function fromNetwork(request: Request, timeout = 20000, options?) {
     return new Promise(function (resolve, reject) {
         if (!request) {
             return reject();
@@ -137,10 +140,13 @@ function fromNetwork(request, timeout = 20000, options) {
             ...options
         });
 
-        return fetch(requestObject).then(function handleFetch(response) {
+        return fetch(requestObject).then(function handleFetch(
+            response: Response
+        ) {
             clearTimeout(timeoutId);
             return resolve(response);
-        }, reject);
+        },
+        reject);
     });
 }
 
@@ -151,10 +157,12 @@ function fromNetwork(request, timeout = 20000, options) {
  * @param {object} request - The event's request
  * @returns {Promise}
  */
-function fetchAndCache(request) {
-    return fromNetwork(request).then(function handleFromNetwork(response) {
+function fetchAndCache(request: Request) {
+    return fromNetwork(request).then(function handleFromNetwork(
+        response: Response
+    ) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename, promise/no-nesting
-        return caches.open(self.CACHE).then(function handleCacheOpen(cache) {
+        return caches.open(CACHE_KEY).then(function handleCacheOpen(cache) {
             // Because the response is a stream and can just be consumed
             // once we need to clone it here to add it to the cache
             cache.put(request, response.clone());
@@ -174,7 +182,7 @@ function clearCaches() {
         return Promise.all(
             keys
                 .filter(function (key) {
-                    return key.indexOf(self.CACHE) !== 0;
+                    return key.indexOf(CACHE_KEY) !== 0;
                 })
                 .map(function (key) {
                     return caches.delete(key);
@@ -192,7 +200,7 @@ function clearCaches() {
  * @param {object} request - The event's request
  * @returns {boolean}
  */
-function isHandledByServiceWorker(request) {
+function isHandledByServiceWorker(request: Request) {
     // Prevent caching for form post requests
     if (request.method === 'POST') {
         return false;
@@ -283,19 +291,18 @@ function onActivate(event) {
  * @param {object} event - Service worker event
  * @returns {void}
  */
-function onMessage(event) {
+function onMessage(event): void {
     if (event && event.data) {
         const data = JSON.parse(event.data);
         const modified = data.modified || null;
 
         if (modified) {
             // eslint-disable-next-line immutable/no-mutation
-            self.CACHE = `CACHE-${modified}`;
+            CACHE_KEY = `CACHE_KEY-${modified}`;
         }
     }
 }
 
-self.CACHE = `CACHE-${getTimeStamp()}`; // eslint-disable-line immutable/no-mutation
 self.addEventListener('install', onInstall);
 self.addEventListener('fetch', onFetch);
 self.addEventListener('activate', onActivate);

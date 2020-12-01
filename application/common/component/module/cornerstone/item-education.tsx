@@ -16,6 +16,7 @@ import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
 import { Meta } from '../../element/meta';
 import { isValidArray } from '../../../utils/array';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     cssModifier?: string;
@@ -61,8 +62,7 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
         <li
             className={composedListItemClassName}
             itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/EducationEvent"
+            {...getItemTypeAttributes('https://schema.org/EducationEvent')}
             {...otherProps}
         >
             <div className="m-cornerstone__description">
@@ -114,14 +114,14 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
             <div
                 hidden
                 itemProp="location"
-                itemScope
-                itemType="https://schema.org/Place"
+                {...getItemTypeAttributes('https://schema.org/Place')}
             >
                 <Meta itemProp="name" content={place.name} />
                 <div
                     itemProp="address"
-                    itemScope
-                    itemType="http://schema.org/PostalAddress"
+                    {...getItemTypeAttributes(
+                        'https://schema.org/PostalAddress'
+                    )}
                 >
                     <Meta
                         itemProp="streetAddress"
