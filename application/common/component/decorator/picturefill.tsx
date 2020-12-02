@@ -56,7 +56,7 @@ export function pictureFill(SourceComponent: ComponentType): ComponentType {
      * @class
      * @augments React.Component
      */
-    return class PictureFill extends Component {
+    class PictureFill extends Component {
         /**
          * Invoked once, only on the client (not on the server),
          * immediately after the initial rendering occurs.
@@ -86,5 +86,7 @@ export function pictureFill(SourceComponent: ComponentType): ComponentType {
             // eslint-disable-next-line react/jsx-props-no-spreading
             return <SourceComponent {...this.props} />;
         }
-    };
+    }
+
+    return PictureFill;
 }

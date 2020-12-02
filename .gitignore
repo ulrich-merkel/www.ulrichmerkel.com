@@ -1,20 +1,18 @@
 # Don't check auto-generated stuff into git
 build
+doc
 node_modules
 report
-doc
 
 # Cruft
-.DS_Store
-npm-debug.log
-yarn-error.log
-selenium-debug.log
-.idea
-.env
-.eslintcache
-.shutterrc
 .coveralls.yml
+.DS_Store
+.env
 .htaccess
+.idea
 google*.html
+npm-debug.log
+package-lock.json
+selenium-debug.log
 TODO.md
-.eslintcache
+yarn-error.log
