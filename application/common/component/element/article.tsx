@@ -1,5 +1,5 @@
 /**
- * Rendering a list html tag.
+ * Rendering an article html tag.
  *
  * @file
  * @module
@@ -8,6 +8,7 @@
  */
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+
 import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
@@ -16,34 +17,32 @@ type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
     itemType?: string;
-    role?: string;
 };
 
 /**
- * Function representing a html list (ul/ol) element.
+ * Function representing a html article element.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
-export const List: FunctionComponent<Props> = (props) => {
+export const Article: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
-        htmlElement: HtmlElement = 'ul',
+        htmlElement: HtmlElement = 'article',
         itemProp,
-        itemType = 'https://schema.org/ItemList',
-        role = 'list'
+        itemType = 'https://schema.org/Article'
     } = props;
 
-    const composedClassName = classnames('c-list', className);
+    const composedClassName = classnames('c-type--article', className);
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <HtmlElement
             className={composedClassName}
-            {...{ itemProp, role }}
             {...itemTypeAttributes}
+            {...{ itemProp }}
         >
             {children}
         </HtmlElement>

@@ -10,6 +10,7 @@ exports[`ModuleList should render correctly 1`] = `
   >
     <li
       class="c-list-item m-list__item"
+      itemprop="itemListElement"
     >
       <h3
         class="c-type--h3 m-list__alt-headline"
@@ -18,6 +19,9 @@ exports[`ModuleList should render correctly 1`] = `
       </h3>
       <ul
         class="c-list m-list"
+        itemscope=""
+        itemtype="https://schema.org/ItemList"
+        role="list"
       >
         <li
           class="c-list-item m-list__item"
@@ -36,6 +40,7 @@ exports[`ModuleList should render correctly 1`] = `
     </li>
     <li
       class="c-list-item m-list__item"
+      itemprop="itemListElement"
     >
       <h3
         class="c-type--h3 m-list__alt-headline"
@@ -44,6 +49,9 @@ exports[`ModuleList should render correctly 1`] = `
       </h3>
       <ul
         class="c-list m-list"
+        itemscope=""
+        itemtype="https://schema.org/ItemList"
+        role="list"
       >
         <li
           class="c-list-item m-list__item"

@@ -20,7 +20,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -134,7 +134,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -156,14 +156,15 @@ exports[`PagePersona should render correctly 1`] = `
                 class="m-article__text"
                 itemprop="text"
               >
-                <ol
-                  class="m-cornerstone"
+                <ul
+                  class="c-list m-cornerstone"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
                     class="c-list-item m-cornerstone__item--center"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="is-centered c-type--h3 m-cornerstone__headline"
@@ -492,6 +493,7 @@ exports[`PagePersona should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-cornerstone__item--center"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="is-centered c-type--h3 m-cornerstone__headline"
@@ -956,12 +958,13 @@ exports[`PagePersona should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-cornerstone__item--start"
+                    itemprop="itemListElement"
                   >
                     <div
                       class="m-cornerstone__bubble c-font-icon--bookmark2"
                     />
                   </li>
-                </ol>
+                </ul>
               </div>
               <meta
                 content="Personal Timeline"
@@ -985,7 +988,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -1113,6 +1116,7 @@ exports[`PagePersona should render correctly 1`] = `
                   <li
                     aria-hidden="true"
                     class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
                     class="c-list-item m-service__item--left"
@@ -1184,6 +1188,7 @@ exports[`PagePersona should render correctly 1`] = `
                   <li
                     aria-hidden="true"
                     class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
                     class="c-list-item m-service__item--left"
@@ -1268,6 +1273,7 @@ exports[`PagePersona should render correctly 1`] = `
                   <li
                     aria-hidden="true"
                     class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                 </ul>
               </div>
@@ -1293,7 +1299,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -1492,7 +1498,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >

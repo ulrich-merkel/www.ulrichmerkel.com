@@ -2,14 +2,15 @@
 
 exports[`ModuleCornerstone should render correctly 1`] = `
 <DocumentFragment>
-  <span
-    class="m-cornerstone cornerstone"
+  <ul
+    class="c-list m-cornerstone cornerstone"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
       class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -82,6 +83,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
     </li>
     <li
       class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -166,24 +168,26 @@ exports[`ModuleCornerstone should render correctly 1`] = `
     </li>
     <li
       class="c-list-item m-cornerstone__item--start"
+      itemprop="itemListElement"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"
       />
     </li>
     Module Cornerstone Children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleCornerstone should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <span
-    class="m-cornerstone cornerstone"
+  <ul
+    class="c-list m-cornerstone cornerstone"
     role="list"
   >
     <li
       class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -256,6 +260,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
     </li>
     <li
       class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -340,13 +345,14 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
     </li>
     <li
       class="c-list-item m-cornerstone__item--start"
+      itemprop="itemListElement"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"
       />
     </li>
     Module cornerstone children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 

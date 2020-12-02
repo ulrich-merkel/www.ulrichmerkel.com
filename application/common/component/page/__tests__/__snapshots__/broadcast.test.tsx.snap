@@ -20,7 +20,7 @@ exports[`PageBroadcast should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -50,6 +50,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                 >
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -58,6 +59,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -76,6 +80,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -84,6 +89,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -115,6 +123,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -123,6 +132,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -180,6 +192,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -188,6 +201,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -265,6 +281,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -273,6 +290,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -386,6 +406,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -394,6 +415,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -472,6 +496,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -480,6 +505,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -536,6 +564,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -544,6 +573,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -614,6 +646,7 @@ exports[`PageBroadcast should render correctly 1`] = `
                   </li>
                   <li
                     class="c-list-item m-list__item"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="c-type--h3 m-list__alt-headline"
@@ -622,6 +655,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                     </h3>
                     <ul
                       class="c-list m-list"
+                      itemscope=""
+                      itemtype="https://schema.org/ItemList"
+                      role="list"
                     >
                       <li
                         class="c-list-item m-list__item"
@@ -705,7 +741,7 @@ exports[`PageBroadcast should render correctly as dialog 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="is-main m-article"
+            class="c-type--article is-main m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >

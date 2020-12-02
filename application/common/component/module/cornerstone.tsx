@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a cornerstone module.
  *
  * @file
  * @module
@@ -12,13 +10,13 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
+import { isValidArray } from '../../utils/array';
 import { Headline } from '../element/headline';
+import { List } from '../element/list';
 import { ListItem } from '../element/list-item';
 import { View } from '../element/view';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
-import { isValidArray } from '../../utils/array';
-import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -44,27 +42,19 @@ type Props = {
             timeStart: string;
         }[];
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
     role?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a cornerstone module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ol',
-        itemType = 'https://schema.org/ItemList',
-        role = 'list'
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
     if (
         !content ||
@@ -75,14 +65,9 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
     }
 
     const componentClassName = classnames('m-cornerstone', className);
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            {...itemTypeAttributes}
-            {...{ role }}
-        >
+        <List className={componentClassName} {...{ itemType, role }}>
             <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.professionalExperience}
@@ -136,6 +121,6 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
             </ListItem>
 
             {children}
-        </HtmlElement>
+        </List>
     );
 };

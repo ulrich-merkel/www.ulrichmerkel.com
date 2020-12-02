@@ -20,6 +20,9 @@ exports[`ListItem should render correctly with defaults 1`] = `
 <DocumentFragment>
   <ul
     class="c-list"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="list"
   >
     <li>
       Test Child

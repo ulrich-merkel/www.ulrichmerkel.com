@@ -19,6 +19,7 @@ exports[`ListItem should render correctly with defaults 1`] = `
 <DocumentFragment>
   <li
     class="c-list-item"
+    itemprop="itemListElement"
   >
     Test Child
   </li>

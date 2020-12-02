@@ -2,8 +2,8 @@
 
 exports[`ModuleFeatured should render correctly 1`] = `
 <DocumentFragment>
-  <span
-    class="m-featured foo"
+  <ul
+    class="c-list m-featured foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -46,14 +46,14 @@ exports[`ModuleFeatured should render correctly 1`] = `
       </a>
     </li>
     Module Featured Children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleFeatured should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <span
-    class="m-featured foo"
+  <ul
+    class="c-list m-featured foo"
     role="list"
   >
     <li
@@ -94,7 +94,7 @@ exports[`ModuleFeatured should render no itemType if unset 1`] = `
       </a>
     </li>
     Module featured children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 

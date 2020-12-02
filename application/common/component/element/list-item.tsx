@@ -37,7 +37,7 @@ export const ListItem: FunctionComponent<Props> = (props) => {
         className,
         dangerouslySetInnerHTML,
         htmlElement: HtmlElement = 'li',
-        itemProp,
+        itemProp = 'itemListElement',
         itemType,
         role
     } = props;

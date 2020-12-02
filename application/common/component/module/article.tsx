@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for an article module.
  *
  * @file
  * @module
@@ -16,6 +14,7 @@ import { ModuleArticleLead } from './article/lead';
 import { ModuleArticleButton } from './article/button';
 import { Meta } from '../element/meta';
 import { View } from '../element/view';
+import { Article } from '../element/article';
 import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
@@ -39,7 +38,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing an article module.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -49,12 +48,10 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
-        htmlElement: HtmlElement = 'article',
         content,
         isDialog = false,
         isMain = false,
         isSpaced = false,
-        itemType = 'https://schema.org/Article',
         noMargin = false
     } = props;
 
@@ -72,10 +69,9 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
         },
         'm-article__headline'
     );
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement className={componentClassName} {...itemTypeAttributes}>
+        <Article className={componentClassName}>
             <ModuleArticleHeadline
                 className={composedHeadlineClassName}
                 text={content?.headline}
@@ -98,6 +94,6 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
             <Meta itemProp="name" content={content?.headline} />
             <Meta itemProp="author" content={content?.author} />
             <Meta itemProp="datePublished" content={content?.datePublished} />
-        </HtmlElement>
+        </Article>
     );
 };

@@ -73,6 +73,7 @@ exports[`ModuleService should render correctly 1`] = `
     <li
       aria-hidden="true"
       class="c-list-item m-service__item--clear"
+      itemprop="itemListElement"
     />
     <li
       class="c-list-item m-service__item--left"
@@ -181,6 +182,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
     <li
       aria-hidden="true"
       class="c-list-item m-service__item--clear"
+      itemprop="itemListElement"
     />
     <li
       class="c-list-item m-service__item--left"

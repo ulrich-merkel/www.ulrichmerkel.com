@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a featured module.
  *
  * @file
  * @module
@@ -12,14 +10,13 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import { ModuleFeaturedItem } from './featured/item';
-import { getItemTypeAttributes } from '../utils/micro-data';
 import { isValidArray } from '../../utils/array';
+import { List } from '../element/list';
+import { ModuleFeaturedItem } from './featured/item';
 
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     content?: {
         list: {
             path: string;
@@ -33,35 +30,23 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a featured module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleFeatured: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ul',
-        itemType = 'https://schema.org/ItemList',
-        role = 'list'
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
     if (!isValidArray(content?.list)) {
         return null;
     }
 
     const componentClassName = classnames('m-featured', className);
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            {...itemTypeAttributes}
-            {...{ role }}
-        >
+        <List className={componentClassName} {...{ itemType, role }}>
             {content.list.map(function fnMap(value) {
                 return (
                     <ModuleFeaturedItem
@@ -74,6 +59,6 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };
