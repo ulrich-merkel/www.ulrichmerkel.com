@@ -42,19 +42,21 @@ type Props = {
  * @param {Array} list - The source array
  * @returns {Array} The converted list
  */
-export function insertClearedListItems(list: ContentList): ContentList {
-    let array = Array.from(list); // eslint-disable-line prefer-const
+export function insertClearedListItems(list?: ContentList): ContentList {
+    // eslint-disable-next-line prefer-const
+    let array = Array.isArray(list) && Array.from(list);
+    if (!isValidArray(array)) {
+        return [];
+    }
+
     const { length } = array;
+    const lengthAfterInsert = length * 1.5;
 
-    if (array && length) {
-        const lengthAfterInsert = length * 1.5;
-
-        if (length >= 2) {
-            for (let i = 2; i < lengthAfterInsert; i = i + 3) {
-                array.splice(i, 0, {
-                    isClear: true
-                });
-            }
+    if (length >= 2) {
+        for (let i = 2; i < lengthAfterInsert; i = i + 3) {
+            array.splice(i, 0, {
+                isClear: true
+            });
         }
     }
 

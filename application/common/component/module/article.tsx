@@ -28,7 +28,6 @@ type Props = {
         datePublished: string;
         author: string;
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     isDialog?: boolean;
     isMain?: boolean;
     isSpaced?: boolean;

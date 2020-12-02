@@ -12,7 +12,6 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
 };
 
 /**
@@ -23,11 +22,7 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Fieldset: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        htmlElement: HtmlElement = 'fieldset'
-    } = props;
+    const { children, className } = props;
 
     const componentClassName = classnames(
         'c-fieldset',
@@ -35,5 +30,5 @@ export const Fieldset: FunctionComponent<Props> = (props) => {
         className
     );
 
-    return <HtmlElement className={componentClassName}>{children}</HtmlElement>;
+    return <fieldset className={componentClassName}>{children}</fieldset>;
 };

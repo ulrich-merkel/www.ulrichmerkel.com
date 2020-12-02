@@ -20,7 +20,6 @@ type Props = {
     children?: ReactNode;
     className?: string;
     hidden?: boolean;
-    htmlElement?: keyof JSX.IntrinsicElements;
     id?: string;
     itemProp?: string;
     itemType?: string;
@@ -40,7 +39,6 @@ export const View: FunctionComponent<Props> = forwardRef<HTMLDivElement, Props>(
             children,
             className,
             hidden,
-            htmlElement: HtmlElement = 'div',
             id,
             itemProp,
             itemType,
@@ -51,13 +49,13 @@ export const View: FunctionComponent<Props> = forwardRef<HTMLDivElement, Props>(
         const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
-            <HtmlElement
+            <div
                 {...{ className, hidden, id, itemProp, ref, role }}
                 {...itemTypeAttributes}
                 {...otherProps}
             >
                 {children}
-            </HtmlElement>
+            </div>
         );
     }
 );

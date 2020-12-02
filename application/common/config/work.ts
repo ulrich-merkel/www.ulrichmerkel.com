@@ -10,6 +10,10 @@ import { url } from './application';
 
 const work = [
     {
+        intlKey: 'PageWorkLikeArchitecture',
+        routerPath: url.workLikeArchitecture
+    },
+    {
         intlKey: 'PageWorkOptikLudewig',
         routerPath: url.workOptikLudewig
     },

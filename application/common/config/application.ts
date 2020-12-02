@@ -80,6 +80,7 @@ export const configApplication = {
         work: '/work',
         workGedankenKollektiv: '/gedanken-kollektiv',
         workLebensweltSchule: '/lebenswelt-schule',
+        workLikeArchitecture: '/like-architecture',
         workMomentariness: '/momentariness',
         workOptikLudewig: '/optik-ludewig',
         workRevolution: '/revolution',

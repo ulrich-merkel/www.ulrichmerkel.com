@@ -4,9 +4,7 @@ import { Picture } from '../picture';
 
 describe('Picture', function fnDescribe() {
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(
-            <Picture htmlElement="div" className="picture" />
-        );
+        const { asFragment } = render(<Picture className="picture" />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

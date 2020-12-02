@@ -12,7 +12,6 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
 };
 
@@ -24,18 +23,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Time: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        htmlElement: HtmlElement = 'time',
-        itemProp
-    } = props;
+    const { children, className, itemProp } = props;
 
     const composedClassName = classnames('c-time', className);
 
     return (
-        <HtmlElement className={composedClassName} {...{ itemProp }}>
+        <time className={composedClassName} {...{ itemProp }}>
             {children}
-        </HtmlElement>
+        </time>
     );
 };

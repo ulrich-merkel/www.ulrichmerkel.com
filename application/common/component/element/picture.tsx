@@ -21,7 +21,6 @@ type Props = {
     children?: ReactNode;
     className?: string;
     ext?: 'jpg' | 'png' | '';
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
     name?: string;
     path?: string;
@@ -46,7 +45,6 @@ type Props = {
  * @property {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @property {string} [props.className] - The component css class names, will be merged into component default classNames
  * @property {string} [props.ext=''] - The image extension
- * @property {string} [props.htmlElement='picture'] - The component element type used for React.createElement
  * @property {string} [props.name=''] - The image name
  * @property {string} [props.path=''] - The image path (folder)
  * @property {Function} [props.pictureRef=noop] - Custom callback to get the img dom node
@@ -65,7 +63,6 @@ export class Picture extends Component<Props> {
             children,
             className,
             ext = '',
-            htmlElement: HtmlElement = 'picture',
             itemType = 'http://schema.org/ImageObject',
             name = '',
             path = '',
@@ -83,7 +80,7 @@ export class Picture extends Component<Props> {
         const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
-            <HtmlElement
+            <picture
                 className={componentClassName}
                 ref={pictureRef}
                 {...itemTypeAttributes}
@@ -115,7 +112,7 @@ export class Picture extends Component<Props> {
                     srcSet={`${path}${name}.${ext}`}
                 />
                 {children}
-            </HtmlElement>
+            </picture>
         );
     }
 }

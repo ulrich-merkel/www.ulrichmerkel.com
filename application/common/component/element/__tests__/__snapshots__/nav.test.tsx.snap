@@ -2,7 +2,7 @@
 
 exports[`Nav should render correctly 1`] = `
 <DocumentFragment>
-  <div
+  <nav
     class="m-nav nav"
     role="navigation"
   />

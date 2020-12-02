@@ -14,7 +14,6 @@ import { getItemTypeAttributes } from '../utils/micro-data';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
     itemType?: string;
 };
@@ -30,7 +29,6 @@ export const Article: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
-        htmlElement: HtmlElement = 'article',
         itemProp,
         itemType = 'https://schema.org/Article'
     } = props;
@@ -39,12 +37,12 @@ export const Article: FunctionComponent<Props> = (props) => {
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
+        <article
             className={composedClassName}
             {...itemTypeAttributes}
             {...{ itemProp }}
         >
             {children}
-        </HtmlElement>
+        </article>
     );
 };

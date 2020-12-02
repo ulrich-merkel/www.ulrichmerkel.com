@@ -5,7 +5,6 @@ import { Article } from '../article';
 describe('Article', function fnDescribe() {
     const props = {
         className: 'test',
-        htmlElement: 'div',
         itemProp: 'itemProp',
         itemType: 'itemType'
     };

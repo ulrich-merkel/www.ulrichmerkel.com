@@ -12,6 +12,7 @@
  */
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+import { isEmpty } from 'lodash';
 
 import { A } from '../../element/a';
 import { Icon } from '../../element/icon';
@@ -69,14 +70,16 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
                     </span>
                 </span>
 
-                <Picture
-                    name={img.name}
-                    ext={img.ext}
-                    path={img.path}
-                    alt={img.alt}
-                    sizes={img.sizes}
-                    className="m-featured__picture"
-                />
+                {!isEmpty(img) && (
+                    <Picture
+                        name={img.name}
+                        ext={img.ext}
+                        path={img.path}
+                        alt={img.alt}
+                        sizes={img.sizes}
+                        className="m-featured__picture"
+                    />
+                )}
 
                 {children}
 

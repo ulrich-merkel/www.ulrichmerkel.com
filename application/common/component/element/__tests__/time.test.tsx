@@ -5,7 +5,6 @@ import { Time } from '../time';
 describe('Time', function fnDescribe() {
     const props = {
         className: 'test',
-        htmlElement: 'time',
         itemProp: 'startDate'
     };
 

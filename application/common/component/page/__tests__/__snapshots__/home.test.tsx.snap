@@ -94,7 +94,9 @@ exports[`PageHome should render correctly 1`] = `
               />
             </picture>
             <article
-              class="m-key-visual__text"
+              class="c-type--article m-key-visual__text"
+              itemscope=""
+              itemtype="https://schema.org/Article"
             >
               <h3
                 class="is-centered c-type--h3 m-key-visual__headline"

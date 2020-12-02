@@ -2,10 +2,10 @@
 
 exports[`Fieldset should render correctly 1`] = `
 <DocumentFragment>
-  <span
+  <fieldset
     class="c-fieldset m-form__fieldset fieldset"
   >
     Fieldset Children
-  </span>
+  </fieldset>
 </DocumentFragment>
 `;

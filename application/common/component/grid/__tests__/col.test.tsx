@@ -13,7 +13,7 @@ describe('GridCol', function fnDescribe() {
     });
     it('should render custom col width', function fnIt() {
         const { asFragment } = render(
-            <GridCol col="4">Grid Col Children</GridCol>
+            <GridCol cols={4}>Grid Col Children</GridCol>
         );
         expect(asFragment()).toMatchSnapshot();
     });

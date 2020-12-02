@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '../../../../__tests__/utils/test-utils';
-import { ModuleService } from '../service';
+import { ModuleService, insertClearedListItems } from '../service';
 
 describe('ModuleService', function fnDescribe() {
     const props = {
@@ -52,5 +52,33 @@ describe('ModuleService', function fnDescribe() {
             </ModuleService>
         );
         expect(asFragment()).toMatchSnapshot();
+    });
+});
+
+describe('insertClearedListItems', function fnDescribe() {
+    it('should return the correct result', function fnIt() {
+        expect(insertClearedListItems()).toMatchSnapshot();
+        expect(
+            insertClearedListItems([
+                {
+                    headline: 'headline',
+                    icon: 'icon',
+                    iconClassName: 'iconClassName',
+                    text: 'text'
+                },
+                {
+                    headline: 'headline',
+                    icon: 'icon',
+                    iconClassName: 'iconClassName',
+                    text: 'text'
+                },
+                {
+                    headline: 'headline',
+                    icon: 'icon',
+                    iconClassName: 'iconClassName',
+                    text: 'text'
+                }
+            ])
+        ).toMatchSnapshot();
     });
 });

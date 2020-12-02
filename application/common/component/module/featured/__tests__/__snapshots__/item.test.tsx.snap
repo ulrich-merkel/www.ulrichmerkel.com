@@ -42,3 +42,40 @@ exports[`ModuleFeaturedItem should render correctly 1`] = `
   </li>
 </DocumentFragment>
 `;
+
+exports[`ModuleFeaturedItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-featured__list-item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/SiteNavigationElement"
+  >
+    <a
+      class="c-link m-featured__item"
+      href="/work/"
+      tabindex="0"
+      title=""
+    >
+      <span
+        class="m-featured__hover"
+      >
+        <span
+          class="m-featured__text"
+        >
+          <span
+            aria-level="3"
+            class="m-featured__headline"
+            role="heading"
+          />
+          <i
+            aria-hidden="true"
+            class="c-font-icon--plus m-featured__icon"
+          />
+        </span>
+      </span>
+      Module featured item children
+    </a>
+  </li>
+</DocumentFragment>
+`;

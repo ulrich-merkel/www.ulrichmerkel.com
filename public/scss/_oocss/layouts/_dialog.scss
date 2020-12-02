@@ -213,18 +213,13 @@ $block: '#{$config-ns}l-dialog';
             }
         }
 
-        .c-btn {
-            @include breakpoint($config-grid--breakpoint-xsmall) {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-
         .m-menu__description {
             @include var(color, --theme-layout-dialog-text-color);
         }
     }
 
+    .#{$block}--broadcast,
+    .#{$block}--search,
     .#{$block}--settings {
         .c-btn {
             @include breakpoint($config-grid--breakpoint-xsmall) {

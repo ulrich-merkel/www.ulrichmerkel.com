@@ -17,4 +17,12 @@ describe('ModuleFeaturedItem', function fnDescribe() {
         );
         expect(asFragment()).toMatchSnapshot();
     });
+    it('should render correctly with defaults', function fnIt() {
+        const { asFragment } = render(
+            <ModuleFeaturedItem>
+                Module featured item children
+            </ModuleFeaturedItem>
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

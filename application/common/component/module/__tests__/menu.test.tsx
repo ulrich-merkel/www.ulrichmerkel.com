@@ -5,6 +5,7 @@ import { ModuleMenu } from '../menu';
 describe('ModuleMenu', function fnDescribe() {
     const props = {
         className: 'module-menu',
+        name: 'test',
         content: {
             name: 'bar',
             list: [
