@@ -64,8 +64,7 @@ export class Textarea extends Component<Props> {
             required = false,
             rows = 4,
             testId,
-            value,
-            ...other
+            value
         } = this.props;
 
         const composedClassName = classnames(
@@ -76,7 +75,6 @@ export class Textarea extends Component<Props> {
         const testIdAttributes = getTestIdAttributes(testId);
 
         return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
             <textarea
                 className={composedClassName}
                 {...{
@@ -91,7 +89,6 @@ export class Textarea extends Component<Props> {
                 }}
                 {...requiredAttributes}
                 {...testIdAttributes}
-                {...other}
             />
         );
     }

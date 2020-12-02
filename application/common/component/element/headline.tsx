@@ -24,8 +24,8 @@ type Props = {
     children?: ReactNode;
     className?: string;
     htmlElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    itemProp?: string;
     isCentered?: boolean;
+    itemProp?: string;
 };
 
 /**
@@ -40,10 +40,11 @@ type Props = {
  */
 export const Headline: FunctionComponent<Props> = (props) => {
     const {
-        htmlElement: HtmlElement = 'h1',
+        children,
         className,
+        htmlElement: HtmlElement = 'h1',
         isCentered = true,
-        ...otherProps
+        itemProp
     } = props;
 
     const componentClassName = classnames(
@@ -55,7 +56,8 @@ export const Headline: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={componentClassName} {...otherProps} />
+        <HtmlElement className={componentClassName} {...{ itemProp }}>
+            {children}
+        </HtmlElement>
     );
 };

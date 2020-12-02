@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Abbr should render correctly 1`] = `
+<DocumentFragment>
+  <abbr
+    class="c-type--abbr test"
+    itemprop="itemProp"
+    title="title"
+  >
+    Test Child
+  </abbr>
+</DocumentFragment>
+`;
+
+exports[`Abbr should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <abbr
+    class="c-type--abbr"
+  >
+    Test Child
+  </abbr>
+</DocumentFragment>
+`;

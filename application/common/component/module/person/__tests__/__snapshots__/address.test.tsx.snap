@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModulePersonAddress should render correctly 1`] = `
+<DocumentFragment>
+  <address
+    class="m-person__address c-type--address"
+    itemprop="address"
+    itemscope=""
+    itemtype="http://schema.org/Address"
+  >
+    <span
+      class="m-person__street-address"
+      itemprop="street-address"
+    >
+      Street number 123
+    </span>
+    <span
+      class="m-person__postal-code"
+      itemprop="postal-code"
+    >
+      01234
+    </span>
+    <span
+      class="m-person__locality"
+      itemprop="locality"
+    >
+      City
+    </span>
+  </address>
+</DocumentFragment>
+`;
+
+exports[`ModulePersonAddress should return null if content is empty 1`] = `<DocumentFragment />`;

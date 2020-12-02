@@ -8,6 +8,7 @@ import {
 import { P } from '../../../element/paragraph';
 import { Button } from '../../../element/button';
 import { Headline } from '../../../element/headline';
+import { View } from '../../../element/view';
 
 type Props = {
     btnLabel: string;
@@ -33,14 +34,14 @@ export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<
     const { btnLabel, btnTitle, headline, text, onReset, resetUrl } = props;
 
     return (
-        <div
+        <View
             className="m-article__text"
             id="m-form--contact-success"
             itemProp="text"
             ref={ref}
         >
             <Headline htmlElement="h3">{headline}</Headline>
-            <div
+            <View
                 className="m-article__description is-centered"
                 itemProp="description"
             >
@@ -56,7 +57,7 @@ export const ModuleFormContactMessage: FunctionComponent<Props> = forwardRef<
                         {btnLabel}
                     </Button>
                 </P>
-            </div>
-        </div>
+            </View>
+        </View>
     );
 });

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getItemTypeAttributes should return the correct attributes 1`] = `null`;
+
+exports[`getItemTypeAttributes should return the correct attributes 2`] = `
+Object {
+  "itemScope": true,
+  "itemType": "https://schema.org/Book",
+}
+`;

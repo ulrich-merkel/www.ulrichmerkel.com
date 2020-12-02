@@ -20,7 +20,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -134,7 +134,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -156,14 +156,15 @@ exports[`PagePersona should render correctly 1`] = `
                 class="m-article__text"
                 itemprop="text"
               >
-                <ol
-                  class="m-cornerstone"
+                <ul
+                  class="c-list m-cornerstone"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
-                    class="m-cornerstone__item--center"
+                    class="c-list-item m-cornerstone__item--center"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="is-centered c-type--h3 m-cornerstone__headline"
@@ -172,7 +173,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </h3>
                   </li>
                   <li
-                    class="m-cornerstone__item--left"
+                    class="c-list-item m-cornerstone__item--left"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EmployeeRole"
@@ -210,6 +211,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             Today
                           </time>
@@ -239,7 +241,7 @@ exports[`PagePersona should render correctly 1`] = `
                     />
                   </li>
                   <li
-                    class="m-cornerstone__item--right has-offset--100"
+                    class="c-list-item m-cornerstone__item--right has-offset--100"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EmployeeRole"
@@ -277,6 +279,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2016
                           </time>
@@ -308,7 +311,7 @@ exports[`PagePersona should render correctly 1`] = `
                     />
                   </li>
                   <li
-                    class="m-cornerstone__item--left has-offset--50"
+                    class="c-list-item m-cornerstone__item--left has-offset--50"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EmployeeRole"
@@ -346,6 +349,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2012
                           </time>
@@ -391,7 +395,7 @@ exports[`PagePersona should render correctly 1`] = `
                     />
                   </li>
                   <li
-                    class="m-cornerstone__item--right"
+                    class="c-list-item m-cornerstone__item--right"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EmployeeRole"
@@ -429,6 +433,7 @@ exports[`PagePersona should render correctly 1`] = `
                            -
                           <time
                             class="c-time"
+                            itemprop="endDate"
                           >
                             2009
                           </time>
@@ -487,7 +492,8 @@ exports[`PagePersona should render correctly 1`] = `
                     />
                   </li>
                   <li
-                    class="m-cornerstone__item--center"
+                    class="c-list-item m-cornerstone__item--center"
+                    itemprop="itemListElement"
                   >
                     <h3
                       class="is-centered c-type--h3 m-cornerstone__headline"
@@ -496,7 +502,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </h3>
                   </li>
                   <li
-                    class="m-cornerstone__item--left"
+                    class="c-list-item m-cornerstone__item--left"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EducationEvent"
@@ -581,7 +587,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Karl-Liebknecht-Straße 132"
@@ -599,7 +605,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-cornerstone__item--right has-offset--100"
+                    class="c-list-item m-cornerstone__item--right has-offset--100"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EducationEvent"
@@ -687,7 +693,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Gutenbergplatz 8"
@@ -705,7 +711,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-cornerstone__item--left"
+                    class="c-list-item m-cornerstone__item--left"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EducationEvent"
@@ -773,7 +779,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Nicolaiplatz"
@@ -791,7 +797,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-cornerstone__item--right"
+                    class="c-list-item m-cornerstone__item--right"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EducationEvent"
@@ -853,7 +859,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Humboldtstraße 7"
@@ -871,7 +877,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-cornerstone__item--left"
+                    class="c-list-item m-cornerstone__item--left"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/EducationEvent"
@@ -933,7 +939,7 @@ exports[`PagePersona should render correctly 1`] = `
                       <div
                         itemprop="address"
                         itemscope=""
-                        itemtype="http://schema.org/PostalAddress"
+                        itemtype="https://schema.org/PostalAddress"
                       >
                         <meta
                           content="Ernst-Reinsdorf-Straße 3"
@@ -951,13 +957,14 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-cornerstone__item--start"
+                    class="c-list-item m-cornerstone__item--start"
+                    itemprop="itemListElement"
                   >
                     <div
                       class="m-cornerstone__bubble c-font-icon--bookmark2"
                     />
                   </li>
-                </ol>
+                </ul>
               </div>
               <meta
                 content="Personal Timeline"
@@ -981,7 +988,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -1004,13 +1011,13 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-service"
+                  class="c-list m-service"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1052,7 +1059,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1108,10 +1115,11 @@ exports[`PagePersona should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1142,7 +1150,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1179,10 +1187,11 @@ exports[`PagePersona should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1225,7 +1234,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -1263,7 +1272,8 @@ exports[`PagePersona should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                 </ul>
               </div>
@@ -1289,7 +1299,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -1312,7 +1322,7 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-language"
+                  class="c-list m-language"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
@@ -1488,7 +1498,7 @@ exports[`PagePersona should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -1511,13 +1521,13 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-list--reading m-reading"
+                  class="c-list m-list--reading m-reading"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1555,7 +1565,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1591,7 +1601,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1629,7 +1639,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1665,7 +1675,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1703,7 +1713,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1739,7 +1749,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1777,7 +1787,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"
@@ -1815,7 +1825,7 @@ exports[`PagePersona should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-list__item"
+                    class="c-list-item m-list__item"
                     itemprop="itemListElement"
                     itemscope=""
                     itemtype="https://schema.org/Book"

@@ -11,7 +11,12 @@
 /// @see https://blog.mariano.io/stateful-theming-css-custom-properties-3b30b40669d9
 /// @param {string} $property
 /// @param {string|number} $variable
-@mixin var($property, $variable) {
-    #{$property}: map-get($theme-default, $variable);
-    #{$property}: var($variable);
+@mixin var($property, $variable, $is-important: false) {
+    @if $is-important {
+        #{$property}: map-get($theme-default, $variable) !important;
+        #{$property}: var($variable) !important;
+    } @else {
+        #{$property}: map-get($theme-default, $variable);
+        #{$property}: var($variable);
+    }
 }

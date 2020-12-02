@@ -27,23 +27,15 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Label: FunctionComponent<Props> = (props) => {
-    const {
-        className,
-        htmlFor,
-        isVisuallyHidden = false,
-        ...otherProps
-    } = props;
+    const { children, className, htmlFor, isVisuallyHidden = false } = props;
 
     const composedClassName = classnames('m-form__label', className, {
         'is-visually-hidden': isVisuallyHidden
     });
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading, jsx-a11y/label-has-for,  jsx-a11y/label-has-associated-control
-        <label
-            className={composedClassName}
-            htmlFor={htmlFor}
-            {...otherProps}
-        />
+        <label className={composedClassName} htmlFor={htmlFor}>
+            {children}
+        </label>
     );
 };

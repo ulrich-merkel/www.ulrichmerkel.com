@@ -4,12 +4,12 @@ import { ModuleMenuItem } from '../item';
 
 describe('ModuleMenuItem', function fnDescribe() {
     const props = {
-        path: 'path',
-        title: 'Menu item title',
-        label: 'Menu item label',
-        itemType: 'itemType',
         icon: 'foo',
-        itemPropA: 'bar'
+        itemProp: 'bar',
+        itemType: 'itemType',
+        label: 'Menu item label',
+        path: 'path',
+        title: 'Menu item title'
     };
 
     it('should render correctly', function fnIt() {
@@ -20,7 +20,12 @@ describe('ModuleMenuItem', function fnDescribe() {
         );
         expect(asFragment()).toMatchSnapshot();
     });
-
+    it('should render correctly with defaults', function fnIt() {
+        const { asFragment } = render(
+            <ModuleMenuItem>Module menu item children</ModuleMenuItem>
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
     it('should return null if no path is given', function fnIt() {
         const { asFragment } = render(
             <ModuleMenuItem {...props} path={null}>

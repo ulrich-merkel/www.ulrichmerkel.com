@@ -3,7 +3,7 @@
 exports[`Fieldset should render correctly 1`] = `
 <DocumentFragment>
   <span
-    class="m-form__fieldset fieldset"
+    class="c-fieldset m-form__fieldset fieldset"
   >
     Fieldset Children
   </span>

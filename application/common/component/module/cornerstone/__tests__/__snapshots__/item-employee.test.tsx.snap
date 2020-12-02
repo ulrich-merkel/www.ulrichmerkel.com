@@ -3,7 +3,7 @@
 exports[`ModuleCornerstoneItemEmployee should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-cornerstone__item"
+    class="c-list-item m-cornerstone__item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/EmployeeRole"
@@ -41,6 +41,7 @@ exports[`ModuleCornerstoneItemEmployee should render correctly 1`] = `
            -
           <time
             class="c-time"
+            itemprop="endDate"
           >
             20161224
           </time>
@@ -70,7 +71,7 @@ exports[`ModuleCornerstoneItemEmployee should render correctly 1`] = `
 exports[`ModuleCornerstoneItemEmployee should render cssModifier and offset if passed 1`] = `
 <DocumentFragment>
   <li
-    class="m-cornerstone__item--employee has-offset--200"
+    class="c-list-item m-cornerstone__item--employee has-offset--200"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/EmployeeRole"
@@ -108,6 +109,7 @@ exports[`ModuleCornerstoneItemEmployee should render cssModifier and offset if p
            -
           <time
             class="c-time"
+            itemprop="endDate"
           >
             20161224
           </time>

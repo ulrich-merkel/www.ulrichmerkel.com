@@ -224,4 +224,13 @@ $block: '#{$config-ns}l-dialog';
             @include var(color, --theme-layout-dialog-text-color);
         }
     }
+
+    .#{$block}--settings {
+        .c-btn {
+            @include breakpoint($config-grid--breakpoint-xsmall) {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
 }

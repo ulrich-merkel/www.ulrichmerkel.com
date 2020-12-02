@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="c-type--article test"
+    itemprop="itemProp"
+    itemscope=""
+    itemtype="itemType"
+  >
+    Small Children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Article should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <article
+    class="c-type--article"
+    itemscope=""
+    itemtype="https://schema.org/Article"
+  >
+    Small Children
+  </article>
+</DocumentFragment>
+`;

@@ -53,3 +53,51 @@ exports[`ModuleLanguageItem should render correctly 1`] = `
   </li>
 </DocumentFragment>
 `;
+
+exports[`ModuleLanguageItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <li
+    class="l-grid__col--4"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/Language"
+    role="listitem"
+  >
+    <div
+      class="c-box"
+    >
+      <h3
+        class="is-centered c-type--h3 c-box__header"
+      />
+      <div
+        class="c-box__content"
+      >
+        <div
+          class="c-pie"
+        >
+          <div
+            class="c-pie__circle"
+            data-percent="0"
+            data-text=""
+          >
+            <div
+              class="c-pie__left"
+            >
+              <span
+                class="c-pie__mask is-hidden"
+              />
+            </div>
+            <div
+              class="c-pie__right"
+            >
+              <span
+                class="c-pie__mask is-rotated-180"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

@@ -4,7 +4,6 @@ import { ModuleLanguage } from '../language';
 
 describe('ModuleLanguage', function fnDescribe() {
     const props = {
-        htmlElement: 'span',
         className: 'foo',
         content: {
             list: [

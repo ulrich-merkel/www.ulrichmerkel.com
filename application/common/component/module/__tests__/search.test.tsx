@@ -7,9 +7,10 @@ jest.mock('../../../utils/search');
 describe('ModuleSearch', function fnDescribe() {
     const props = {
         config: {},
-        content: {},
+        content: {
+            list: []
+        },
         className: 'module-list',
-        htmlElement: 'ol',
         searchTerm: 'summer',
         intlLocale: 'en-EN',
         itemType: 'itemType'
@@ -18,6 +19,12 @@ describe('ModuleSearch', function fnDescribe() {
     it('should render correctly', function fnIt() {
         const { asFragment } = render(
             <ModuleSearch {...props}>Module list children</ModuleSearch>
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
+    it('should render correctly without content', function fnIt() {
+        const { asFragment } = render(
+            <ModuleSearch>Module list children</ModuleSearch>
         );
         expect(asFragment()).toMatchSnapshot();
     });

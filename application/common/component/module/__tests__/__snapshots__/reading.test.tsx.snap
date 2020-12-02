@@ -2,14 +2,14 @@
 
 exports[`ModuleReading should render correctly 1`] = `
 <DocumentFragment>
-  <ol
-    class="m-list--reading m-reading foo"
+  <ul
+    class="c-list m-list--reading m-reading foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
-      class="m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -47,7 +47,7 @@ exports[`ModuleReading should render correctly 1`] = `
       </div>
     </li>
     <li
-      class="m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -85,18 +85,18 @@ exports[`ModuleReading should render correctly 1`] = `
       </div>
     </li>
     Module reading children
-  </ol>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleReading should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <ol
-    class="m-list--reading m-reading foo"
+  <ul
+    class="c-list m-list--reading m-reading foo"
     role="list"
   >
     <li
-      class="m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -134,7 +134,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
       </div>
     </li>
     <li
-      class="m-list__item"
+      class="c-list-item m-list__item"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/Book"
@@ -172,7 +172,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
       </div>
     </li>
     Module reading children
-  </ol>
+  </ul>
 </DocumentFragment>
 `;
 

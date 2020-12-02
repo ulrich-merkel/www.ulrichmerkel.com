@@ -9,11 +9,40 @@
  * @see {@link https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/config.js}
  */
 import { toBoolean } from '../utils/parse';
+import { isValidString } from '../utils/string';
+
+/**
+ * Get config string entry based on process env if available.
+ *
+ * @private
+ * @param {string} processEnv - The process.env variable to be checked
+ * @param {string} fallback - The fallback value to be used
+ * @returns {string} The according config entry
+ */
+function getConfigString(processEnv: string, fallback: string): string {
+    return isValidString(process.env[processEnv])
+        ? process.env[processEnv]
+        : fallback;
+}
+
+/**
+ * Get config boolean entry based on process env if available.
+ *
+ * @private
+ * @param {string} processEnv - The process.env variable to be checked
+ * @param {boolean} fallback - The fallback value to be used
+ * @returns {boolean} The according config entry
+ */
+function getConfigBoolean(processEnv: string, fallback: boolean): boolean {
+    return isValidString(process.env[processEnv])
+        ? toBoolean(process.env[processEnv])
+        : fallback;
+}
 
 const configEnvironment = {
     development: {
         isProduction: false,
-        debug: toBoolean(process.env.DEBUG) || true
+        debug: getConfigBoolean('DEBUG', true)
     },
     production: {},
     test: {
@@ -25,10 +54,10 @@ const configEnvironment = {
 }[process.env.NODE_ENV || 'development'];
 
 export const configApplication = {
-    host: process.env.HOST || 'localhost',
-    port: process.env.PORT || 3000,
-    sessionSecret: process.env.SESSION_SECTRET || 'secret',
-    debug: toBoolean(process.env.DEBUG) || false,
+    host: getConfigString('HOST', 'localhost'),
+    port: getConfigString('PORT', '62608'),
+    sessionSecret: getConfigString('SESSION_SECTRET', 'secret'),
+    debug: getConfigBoolean('DEBUG', false),
     url: {
         api: '/api',
         apiConfig: '/config',
@@ -64,19 +93,19 @@ export const configApplication = {
     },
     email: 'hello@ulrichmerkel.com',
     xor: {
-        use: toBoolean(process.env.XOR) || true,
+        use: getConfigBoolean('XOR', true),
         key: 'd41d8cd98f00b204e9800998ecf8427e'
     },
     csp: {
-        use: toBoolean(process.env.CSP) || true
+        use: getConfigBoolean('CSP', true)
     },
     serviceWorker: {
-        use: toBoolean(process.env.SERVICEWORKER) || false,
-        timeStamp: '2020-11-30'
+        use: getConfigBoolean('SERVICEWORKER', true),
+        timeStamp: '2020-12-01'
     },
     applicationCache: {
-        use: toBoolean(process.env.APPCACHE) || false,
-        timeStamp: '2020-11-30'
+        use: getConfigBoolean('APPCACHE', false),
+        timeStamp: '2020-12-01'
     },
     ...configEnvironment
 };

@@ -20,7 +20,7 @@ exports[`PageContact should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -48,13 +48,14 @@ exports[`PageContact should render correctly 1`] = `
                   class="m-form m-form--contact"
                   id="m-form--contact"
                   itemprop="potentialAction"
+                  itemscope=""
                   itemtype="http://schema.org/CommunicateAction"
                   method="post"
                   novalidate=""
                   role="form"
                 >
                   <fieldset
-                    class="m-form__fieldset"
+                    class="c-fieldset m-form__fieldset"
                   >
                     <legend
                       class="m-form__legend is-visually-hidden"

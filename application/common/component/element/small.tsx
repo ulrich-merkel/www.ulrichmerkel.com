@@ -27,20 +27,17 @@ type Props = {
  */
 export const Small: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         htmlElement: HtmlElement = 'small',
-        itemProp,
-        ...otherProps
+        itemProp
     } = props;
 
     const composedClassName = classnames('c-type--small', className);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement
-            className={composedClassName}
-            {...{ itemProp }}
-            {...otherProps}
-        />
+        <HtmlElement className={composedClassName} {...{ itemProp }}>
+            {children}
+        </HtmlElement>
     );
 };

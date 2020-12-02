@@ -15,3 +15,11 @@ exports[`ModuleSearch should render correctly the connected version 1`] = `
   />
 </DocumentFragment>
 `;
+
+exports[`ModuleSearch should render correctly without content 1`] = `
+<DocumentFragment>
+  <h3
+    class="is-centered c-type--h3"
+  />
+</DocumentFragment>
+`;

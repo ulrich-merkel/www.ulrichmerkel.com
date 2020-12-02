@@ -9,13 +9,13 @@ exports[`ModuleFormSearch should render correctly 1`] = `
     id="m-form--search"
     itemprop="potentialAction"
     itemscope=""
-    itemtype="http://schema.org/SearchAction"
+    itemtype="https://schema.org/SearchAction"
     method="post"
     novalidate=""
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"
@@ -75,13 +75,13 @@ exports[`ModuleFormSearch should render correctly the connected version 1`] = `
     id="m-form--search"
     itemprop="potentialAction"
     itemscope=""
-    itemtype="http://schema.org/SearchAction"
+    itemtype="https://schema.org/SearchAction"
     method="post"
     novalidate=""
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"
@@ -141,13 +141,13 @@ exports[`ModuleFormSearch should render correctly without content 1`] = `
     id="m-form--search"
     itemprop="potentialAction"
     itemscope=""
-    itemtype="http://schema.org/SearchAction"
+    itemtype="https://schema.org/SearchAction"
     method="post"
     novalidate=""
     role="search"
   >
     <fieldset
-      class="m-form__fieldset"
+      class="c-fieldset m-form__fieldset"
     >
       <legend
         class="m-form__legend is-visually-hidden"

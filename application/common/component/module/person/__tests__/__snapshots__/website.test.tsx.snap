@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModulePersonWebsite should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="c-type--p m-person__website"
+  >
+    <abbr
+      class="c-type--abbr"
+      title="Website"
+    >
+      W.
+    </abbr>
+     
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModulePersonWebsite should return null if content is empty 1`] = `<DocumentFragment />`;

@@ -1,7 +1,7 @@
 {
   "name": "ulrichmerkel.com",
   "version": "4.0.1",
-  "private": true,
+  "private": false,
   "author": {
     "name": "Ulrich Merkel",
     "url": "https://www.ulrichmerkel.com"
@@ -31,24 +31,25 @@
     "Ulrich Merkel"
   ],
   "keywords": [
-    "javascript",
     "babel",
-    "offline",
-    "npm scripts",
-    "responsive",
-    "react",
-    "react-router",
-    "redux",
-    "webpack",
+    "javascript",
     "jest",
-    "universal"
+    "npm scripts",
+    "offline",
+    "react-router",
+    "react",
+    "redux",
+    "responsive",
+    "typescript",
+    "universal",
+    "webpack"
   ],
   "scripts": {
     "backstop:open": "node $npm_package_directories_bin/backstop --run=open --config $npm_package_directories_config/backstop/config.js",
     "backstop:reference": "cross-env NODE_ENV=production PORT=9002 APPCACHE=false node $npm_package_directories_bin/backstop --run=reference --config $npm_package_directories_config/backstop/config.js",
     "backstop:test": "cross-env NODE_ENV=production PORT=9002 APPCACHE=false node $npm_package_directories_bin/backstop --run=test --config $npm_package_directories_config/backstop/config.js",
     "build:client": "cross-env NODE_ENV=production npm run transpile:client",
-    "build:css": "npm run css -- --output-style compressed",
+    "build:css": "npm run css -- --output-style compressed -- --omit-source-map-url",
     "build:server": "cross-env NODE_ENV=production npm run transpile:server",
     "build:static": "npm run static",
     "build": "npm run mkdir && npm-run-all build:* && npm-run-all minify:*",
@@ -86,43 +87,44 @@
     "static:copy": "node $npm_package_directories_bin/cpx -d $npm_package_directories_build_root",
     "static:images": "node $npm_package_directories_bin/sharp -d $npm_package_directories_build_root",
     "static": "npm run static:copy && npm run static:images",
+    "test:audit": "npm i --package-lock-only && npm audit --audit-level=high; exit 0;",
+    "test:css:fix": "npm run test:css -- --fix",
     "test:css": "stylelint --config $npm_package_directories_config/stylelint.config.js --syntax scss \"**/*.scss\"",
     "test:dependencies": "if which yarn ; then yarn list ; else npm list ; fi; exit 0;",
     "test:eslint:fix": "npm run test:eslint -- --fix",
     "test:eslint:init": "eslint --init",
     "test:eslint": "eslint --config $npm_package_directories_config/eslint.config.js --ignore-path .eslintignore --ext \".js,.jsx,.tsx,.ts\" --cache --cache-location $npm_package_directories_report/.eslintcache $npm_package_directories_source_root",
     "test:legal": "tldrlegal; exit 0;",
-    "test:types": "tsc --noEmit; exit 0;",
     "test:license": "license; exit 0;",
     "test:node-version": "node $npm_package_directories_bin/version --node --version=$(node --version) --silent",
     "test:npm-version": "node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
-    "test:nsp": "nsp check; exit 0;",
+    "test:package": "npmPkgJsonLint -c $npm_package_directories_config/.npmpackagejsonlintrc.json .",
+    "test:types": "tsc --noEmit; exit 0;",
     "test:unit": "cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/jest.config.js --maxWorkers=4",
-    "test:optional:audit": "npm audit; exit 0;",
-    "test:optional:package": "npmPkgJsonLint --rules-file $npm_package_directories_config/.npmpackagejsonlintrc.json",
     "test:retire": "retire --ignorefile $npm_package_directories_config/retireignore.json; exit 0;",
     "test": "npm-run-all test:*",
     "transpile:client": "webpack --config $npm_package_directories_config/webpack.config.js",
     "transpile:server": "babel $npm_package_directories_source_application -d $npm_package_directories_build_application -x \".js,.jsx,.ts,.tsx\" --ignore \"*/**/__tests__/,*/**/__mocks__/\"",
     "transpile": "npm-run-all --parallel transpile:*",
     "travis": "rimraf $npm_package_directories_build_root && npm test --silent && npm run doc && npm run build --silent",
+    "uberspace": "NODE_ENV=production node $npm_package_main",
     "upgrade": "if which yarn ; then yarn upgrade-interactive --latest --ignore-engines; else npm outdated ; fi",
     "watch:client": "npm run transpile:client -- --watch",
     "watch:css": "npm run css -- --watch",
     "watch:server": "npm run transpile:server -- --watch",
     "watch:static": "npm run static -- --watch",
-    "prettier:write": "prettier --write $npm_package_directories_source_application && prettier --write $npm_package_directories_source_public/scss/ && prettier --write $npm_package_directories_config",
-    "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/ && prettier --check $npm_package_directories_config",
+    "prettier:write": "prettier --write $npm_package_directories_source_application && prettier --write $npm_package_directories_source_public/scss/ && prettier --write $npm_package_directories_config && prettier --write $npm_package_directories_bin",
+    "prettier:check": "prettier --check $npm_package_directories_source_application && prettier --check $npm_package_directories_source_public/scss/ && prettier --check $npm_package_directories_config && prettier --check $npm_package_directories_bin",
     "watch": "npm-run-all --parallel watch:*"
   },
   "lint-staged": {
     "application/**/*.{js,jsx,ts,tsx}": [
       "npm run prettier:write",
-      "npm run test:eslint"
+      "npm run test:eslint:fix"
     ],
     "public/**/*.{css,scss}": [
       "npm run prettier:write",
-      "npm run test:css"
+      "npm run test:css:fix"
     ]
   },
   "husky": {
@@ -134,9 +136,9 @@
   "browser": "application/client/bootstrap.js",
   "files": [
     "*.md",
+    "bin",
     "doc",
-    "lib",
-    "bin"
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -146,9 +148,9 @@
     "url": "https://github.com/ulrich-merkel/www.ulrichmerkel.com/issues"
   },
   "engines": {
-    "node": "12.18.1",
-    "npm": "6.14.5",
-    "yarn": "1.22.4"
+    "node": ">=12.18",
+    "npm": ">=6.14",
+    "yarn": ">=1.22"
   },
   "dependencies": {
     "@babel/polyfill": "7.12.1",
@@ -160,7 +162,7 @@
     "classnames": "2.2.6",
     "compression": "1.7.4",
     "cookie-parser": "1.4.5",
-    "cross-env": "7.0.2",
+    "cross-env": "7.0.3",
     "csurf": "1.11.0",
     "dotenv": "8.2.0",
     "express": "4.17.1",
@@ -194,9 +196,8 @@
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
     "serialize-javascript": "5.0.1",
-    "sharp": "0.26.3",
     "shortid": "2.2.16",
-    "snyk": "1.431.1",
+    "snyk": "1.433.0",
     "url": "0.11.0",
     "winston": "3.3.3"
   },
@@ -212,19 +213,18 @@
     "@babel/preset-typescript": "7.12.7",
     "@testing-library/dom": "7.28.1",
     "@testing-library/react": "11.2.2",
-    "@testing-library/user-event": "12.2.2",
-    "@types/jest": "26.0.15",
+    "@testing-library/user-event": "12.3.0",
+    "@types/jest": "26.0.16",
     "@types/lodash": "4.14.165",
     "@types/node": "14.14.10",
     "@types/react-redux": "7.1.11",
     "@types/react-router": "5.1.8",
-    "@types/redux": "3.6.0",
-    "@typescript-eslint/eslint-plugin": "4.8.2",
-    "@typescript-eslint/parser": "4.8.2",
-    "autoprefixer": "10.0.2",
+    "@typescript-eslint/eslint-plugin": "4.9.0",
+    "@typescript-eslint/parser": "4.9.0",
+    "autoprefixer": "10.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "26.6.3",
-    "babel-loader": "8.2.1",
+    "babel-loader": "8.2.2",
     "backstopjs": "5.0.7",
     "coveralls": "3.1.0",
     "cpx": "1.5.0",
@@ -261,12 +261,10 @@
     "node-sass": "4.14.1",
     "npm-package-json-lint": "5.1.0",
     "npm-run-all": "4.1.5",
-    "nsp": "3.2.1",
-    "opn-cli": "5.0.0",
     "postcss-cli": "8.3.0",
     "postcss-cssnext": "3.1.0",
     "postcss-epub": "3.0.1",
-    "prettier": "2.2.0",
+    "prettier": "2.2.1",
     "promise": "8.1.0",
     "psi": "4.0.1",
     "redux-mock-store": "1.5.4",
@@ -274,13 +272,14 @@
     "rimraf": "3.0.2",
     "sassdoc": "2.7.3",
     "service-worker-mock": "2.0.5",
+    "sharp": "0.26.3",
     "snapshot-diff": "0.8.1",
     "stylelint": "13.8.0",
     "stylelint-prettier": "1.1.2",
     "tldrlegal": "1.0.11",
     "typescript": "4.1.2",
-    "uglify-js": "3.12.0",
-    "webpack": "5.6.0",
+    "uglify-js": "3.12.1",
+    "webpack": "5.9.0",
     "webpack-cli": "4.2.0"
   },
   "snyk": true

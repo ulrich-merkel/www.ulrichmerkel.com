@@ -15,7 +15,7 @@ exports[`SectionReading should render correctly 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="m-article"
+            class="c-type--article m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >

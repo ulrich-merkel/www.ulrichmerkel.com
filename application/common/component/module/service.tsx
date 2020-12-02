@@ -13,8 +13,10 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { ModuleServiceItem } from './service/item';
+import { isValidArray } from '../../utils/array';
+import { List } from '../element/list';
 
-type List = {
+type ContentList = {
     headline?: string;
     icon?: string;
     iconClassName?: string;
@@ -26,10 +28,10 @@ type Props = {
     children?: ReactNode;
     className?: string;
     content?: {
-        list?: List;
+        list?: ContentList;
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
@@ -40,7 +42,7 @@ type Props = {
  * @param {Array} list - The source array
  * @returns {Array} The converted list
  */
-export function insertClearedListItems(list: List): List {
+export function insertClearedListItems(list: ContentList): ContentList {
     let array = Array.from(list); // eslint-disable-line prefer-const
     const { length } = array;
 
@@ -67,45 +69,36 @@ export function insertClearedListItems(list: List): List {
  * @returns {ReactElement} React component markup
  */
 export const ModuleService: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ul',
-        itemType = 'https://schema.org/ItemList',
-        ...otherProps
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
     const componentClassName = classnames('m-service', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            role="list"
-            {...componentSchema}
-            {...otherProps}
-        >
+        <List className={componentClassName} {...{ itemType, role }}>
             {insertClearedListItems(content.list).map(function fnMap(
                 value,
                 index
             ) {
+                const { headline, icon, isClear, text } = value;
+
                 return (
                     <ModuleServiceItem
                         key={shortid.generate()}
-                        headline={value.headline}
-                        text={value.text}
-                        isClear={value.isClear}
                         index={index}
-                        icon={value.icon}
+                        {...{
+                            headline,
+                            icon,
+                            isClear,
+                            text
+                        }}
                     />
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };

@@ -10,6 +10,7 @@
  */
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -17,7 +18,6 @@ type Props = {
     cols?: number;
     htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
-    itemScope?: boolean;
     itemType?: string;
     role?: string;
 };
@@ -32,10 +32,27 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const GridCol: FunctionComponent<Props> = (props) => {
-    const { className, cols = 12, htmlElement = 'div', ...otherProps } = props;
+    const {
+        children,
+        className,
+        cols = 12,
+        htmlElement = 'div',
+        itemProp,
+        itemType,
+        role
+    } = props;
 
     const ComponentType = htmlElement;
     const composedClassName = classnames(`l-grid__col--${cols}`, className);
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
-    return <ComponentType className={composedClassName} {...otherProps} />;
+    return (
+        <ComponentType
+            className={composedClassName}
+            {...itemTypeAttributes}
+            {...{ itemProp, role }}
+        >
+            {children}
+        </ComponentType>
+    );
 };

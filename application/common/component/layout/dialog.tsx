@@ -28,6 +28,7 @@ import { GridSpaced } from '../grid/spaced';
 import { GridRow } from '../grid/row';
 import { GridCol } from '../grid/col';
 import { Button } from '../element/button';
+import { View } from '../element/view';
 
 type Props = {
     onChangeDialogVisible?: () => void;
@@ -138,7 +139,7 @@ export class LayoutDialog extends Component<Props> {
 
         return (
             <dialog className={composedClassName} role="presentation">
-                <div className="l-dialog__content">
+                <View className="l-dialog__content">
                     {children}
 
                     <GridSpaced>
@@ -164,7 +165,7 @@ export class LayoutDialog extends Component<Props> {
                     >
                         {contentSectionNav.btnCloseLabel}
                     </Button>
-                </div>
+                </View>
             </dialog>
         );
     }

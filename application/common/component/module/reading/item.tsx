@@ -11,13 +11,15 @@
 import { default as React, FunctionComponent } from 'react';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Small } from '../../element/small';
+import { View } from '../../element/view';
 
 type Props = {
+    creator?: string;
     headline?: string;
     lead?: string;
-    creator?: string;
     publisher?: string;
 };
 
@@ -32,13 +34,12 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
     const { headline = '', lead = '', creator = '', publisher = '' } = props;
 
     return (
-        <li
+        <ListItem
             className="m-list__item"
             itemProp="itemListElement"
-            itemScope
             itemType="https://schema.org/Book"
         >
-            <div className="c-reading">
+            <View className="c-reading">
                 <Headline
                     className="c-reading__name"
                     itemProp="name"
@@ -53,7 +54,7 @@ export const ModuleReadingItem: FunctionComponent<Props> = (props) => {
                     <span className="c-reading__source-creator">{creator}</span>
                     <em className="c-reading__source-publisher">{publisher}</em>
                 </Small>
-            </div>
-        </li>
+            </View>
+        </ListItem>
     );
 };

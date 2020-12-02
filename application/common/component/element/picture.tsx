@@ -14,6 +14,7 @@ import { noop } from 'lodash';
 
 import { isValidArray } from '../../utils/array';
 import { PictureSource } from './picture-source';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     alt?: string;
@@ -21,6 +22,7 @@ type Props = {
     className?: string;
     ext?: 'jpg' | 'png' | '';
     htmlElement?: keyof JSX.IntrinsicElements;
+    itemType?: string;
     name?: string;
     path?: string;
     pictureRef?: () => void;
@@ -30,6 +32,7 @@ type Props = {
         height: number;
         minWidth: number;
     }[];
+    style: CSSStyleDeclaration;
 };
 
 /**
@@ -63,12 +66,13 @@ export class Picture extends Component<Props> {
             className,
             ext = '',
             htmlElement: HtmlElement = 'picture',
+            itemType = 'http://schema.org/ImageObject',
             name = '',
             path = '',
             pictureRef = noop,
             placeholder = 'data:image/gifbase64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
             sizes = [],
-            ...otherProps
+            style
         } = this.props;
 
         if (!name) {
@@ -76,15 +80,14 @@ export class Picture extends Component<Props> {
         }
 
         const componentClassName = classnames('c-picture', className);
+        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
             <HtmlElement
                 className={componentClassName}
-                itemScope
-                itemType="http://schema.org/ImageObject"
                 ref={pictureRef}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...otherProps}
+                {...itemTypeAttributes}
+                {...{ style }}
             >
                 {isValidArray(sizes) &&
                     sizes.map(function fnMap(value) {

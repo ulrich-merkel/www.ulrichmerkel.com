@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModulePersonTelephone should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="c-type--p m-person__phone"
+  >
+    <abbr
+      class="c-type--abbr"
+      title="Phonenumber"
+    >
+      P.
+    </abbr>
+     
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModulePersonTelephone should return null if content is empty 1`] = `<DocumentFragment />`;

@@ -38,6 +38,8 @@ if (configApplication.serviceWorker.use && navigator.serviceWorker) {
         .catch(function catchRegisterServiceWorker(err) {
             console.warn('Error whilst registering service worker', err); // eslint-disable-line no-console
         });
+} else {
+    displayAllLoaded();
 }
 
 // Load css and js assets async to improve performance.

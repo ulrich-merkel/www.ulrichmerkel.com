@@ -4,7 +4,6 @@ import { ModulePerson } from '../person';
 
 describe('ModulePerson', function fnDescribe() {
     const props = {
-        htmlElement: 'menu',
         className: 'foo',
         isCentered: false,
         content: {

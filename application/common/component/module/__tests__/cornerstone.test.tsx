@@ -4,7 +4,6 @@ import { ModuleCornerstone } from '../cornerstone';
 
 describe('ModuleCornerstone', function fnDescribe() {
     const props = {
-        htmlElement: 'span',
         className: 'cornerstone',
         content: {
             professionalExperience: 'professionalExperience',

@@ -145,18 +145,18 @@ export const configIntlEnEn = {
     'intl-page-persona-section3-lead': 'Some detailed technical skills',
     'intl-page-persona-section3-list-1-headline': 'HTML5',
     'intl-page-persona-section3-list-1-text':
-        "Mobile, Offline, <abbr title='Accessible Rich Internet Applications'>ARIA</abbr>, Microdata, Performance, <abbr title='Search Engine Optimization'>SEO</abbr>",
+        "<abbr title='Progressive Web App'>PWA</abbr>, Mobile, <abbr title='Accessible Rich Internet Applications'>ARIA</abbr>, Microdata, Performance, <abbr title='Search Engine Optimization'>SEO</abbr>",
     'intl-page-persona-section3-list-2-headline': 'CSS3',
     'intl-page-persona-section3-list-2-text':
         "Responsive, <abbr title='Syntactically Awesome Style Sheets'>SCSS</abbr>/Less, <abbr title='Block, Element, Modifier methodology'>BEM</abbr>, <abbr title='Scalable and Modular Architecture for CSS'>SMACSS</abbr>, <abbr title='Object Oriented CSS'>OOCSS</abbr>, Foundation, Bootstrap",
     'intl-page-persona-section3-list-3-headline': 'JavaScript',
     'intl-page-persona-section3-list-3-text':
-        'React, React Native, jQuery, Angular, Backbone, NodeJs, object-oriented/functional',
+        'React, React Native, Typescript, jQuery, Angular, Backbone, NodeJs',
     'intl-page-persona-section3-list-4-headline': 'Backend',
-    'intl-page-persona-section3-list-4-text': `${PHP}, Zend, Kirby, MySQL, Ruby`,
+    'intl-page-persona-section3-list-4-text': `${PHP}, Zend, Kirby, MySQL, Ruby, NodeJs`,
     'intl-page-persona-section3-list-5-headline': 'Workflow',
     'intl-page-persona-section3-list-5-text':
-        "Jest, Karma, Jasmine,QUnit, Webpack, Grunt/Gulp, Git/<abbr title='Apache Subversion'>SVN</abbr>, <abbr title='Node Package Manager'>NPM</abbr>, Bower, Vagrant, Styleguides",
+        "Jest, Karma, Jasmine, Webpack, Grunt/Gulp, Git/<abbr title='Apache Subversion'>SVN</abbr>, <abbr title='Node Package Manager'>NPM</abbr>, Bower, Vagrant, Styleguides",
     'intl-page-persona-section3-list-6-headline': 'Design and UX',
     'intl-page-persona-section3-list-6-text':
         "Adobe <abbr title='Creative Cloud'>CC</abbr> like Photoshop, Illustrator, Fireworks, InDesign, After Effects",
@@ -173,6 +173,15 @@ export const configIntlEnEn = {
     'intl-page-persona-section5-headline': 'Recommended reading',
     'intl-page-persona-section5-lead':
         'Some books i read and could recommend to you',
+    'intl-page-persona-section5-list-11-headline': 'Typescript',
+    'intl-page-persona-section5-list-11-lead': 'In 50 Lessons',
+    'intl-page-persona-section5-list-11-creator': 'Baumgartner, Stefan',
+    'intl-page-persona-section5-list-11-publisher': 'Smashing Magazine 2020',
+    'intl-page-persona-section5-list-10-headline':
+        'New frontiers in Web Design',
+    'intl-page-persona-section5-list-10-lead': 'Smashing Book #6',
+    'intl-page-persona-section5-list-10-creator': '',
+    'intl-page-persona-section5-list-10-publisher': 'Smashing Magazine 2018',
     'intl-page-persona-section5-list-1-headline': "You don't know JS",
     'intl-page-persona-section5-list-1-lead': 'ES6 and beyond',
     'intl-page-persona-section5-list-1-creator': 'Simpson, Kyle',
@@ -377,7 +386,7 @@ export const configIntlEnEn = {
         <i aria-hidden='true' class='c-font-icon--earth'></i> http://www.adrian-kuehne.de/ (Adrian Kühne)
         </a>`,
     'intl-page-imprint-section1-text-3-headline': 'Technology',
-    'intl-page-imprint-section1-text-3-content-1': `This website is build with React.js, Node.js, ${HTML5}, ${CSS3}, love and 100% recycled pixels.
+    'intl-page-imprint-section1-text-3-content-1': `This website is build with React, NodeJs, ${HTML5}, ${CSS3}, love and 100% recycled pixels. No animals where harmed in the making of this website.
         View <a href='https://github.com/ulrich-merkel/www.ulrichmerkel.com' target='_blank' title='Show source code on GitHub' rel='noopener noreferrer'>source code</a> on Github.`,
 
     // Page Notfound

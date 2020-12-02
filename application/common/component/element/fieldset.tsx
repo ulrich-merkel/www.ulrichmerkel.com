@@ -24,15 +24,16 @@ type Props = {
  */
 export const Fieldset: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
-        htmlElement: HtmlElement = 'fieldset',
-        ...otherProps
+        htmlElement: HtmlElement = 'fieldset'
     } = props;
 
-    const componentClassName = classnames('m-form__fieldset', className);
-
-    return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement className={componentClassName} {...otherProps} />
+    const componentClassName = classnames(
+        'c-fieldset',
+        'm-form__fieldset',
+        className
     );
+
+    return <HtmlElement className={componentClassName}>{children}</HtmlElement>;
 };

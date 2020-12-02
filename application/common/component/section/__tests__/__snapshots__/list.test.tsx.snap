@@ -15,23 +15,14 @@ exports[`SectionList should render correctly 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="is-main m-article"
+            class="c-type--article is-main m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >
             <div
               class="m-article__text"
               itemprop="text"
-            >
-              <ul
-                class="m-list--broadcast"
-                itemscope=""
-                itemtype="http://schema.org/ItemList"
-                role="list"
-              >
-                Section list children
-              </ul>
-            </div>
+            />
           </article>
         </div>
       </div>

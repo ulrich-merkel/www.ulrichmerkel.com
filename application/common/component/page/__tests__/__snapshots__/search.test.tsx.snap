@@ -20,7 +20,7 @@ exports[`PageSearch should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -35,13 +35,13 @@ exports[`PageSearch should render correctly 1`] = `
                   id="m-form--search"
                   itemprop="potentialAction"
                   itemscope=""
-                  itemtype="http://schema.org/SearchAction"
+                  itemtype="https://schema.org/SearchAction"
                   method="post"
                   novalidate=""
                   role="search"
                 >
                   <fieldset
-                    class="m-form__fieldset"
+                    class="c-fieldset m-form__fieldset"
                   >
                     <legend
                       class="m-form__legend is-visually-hidden"
@@ -119,7 +119,7 @@ exports[`PageSearch should render correctly as dialog 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="is-main m-article"
+            class="c-type--article is-main m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >
@@ -134,13 +134,13 @@ exports[`PageSearch should render correctly as dialog 1`] = `
                 id="m-form--search"
                 itemprop="potentialAction"
                 itemscope=""
-                itemtype="http://schema.org/SearchAction"
+                itemtype="https://schema.org/SearchAction"
                 method="post"
                 novalidate=""
                 role="search"
               >
                 <fieldset
-                  class="m-form__fieldset"
+                  class="c-fieldset m-form__fieldset"
                 >
                   <legend
                     class="m-form__legend is-visually-hidden"
