@@ -85,12 +85,12 @@ export const ModuleMenu: FunctionComponent<Props> = (props) => {
                         itemType={value.itemType}
                     >
                         <ModuleMenuItem
-                            path={value.path}
-                            title={value.title}
-                            label={value.label}
                             icon={value.icon}
                             isLabelHidden={value.isLabelHidden}
-                            itemPropA={value.itemPropA}
+                            itemProp={value.itemPropA}
+                            label={value.label}
+                            path={value.path}
+                            title={value.title}
                         >
                             {value.metaLinkUrl && (
                                 <link itemProp="url" href={value.metaLinkUrl} />

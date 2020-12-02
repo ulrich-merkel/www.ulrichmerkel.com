@@ -48,4 +48,6 @@ exports[`ModuleMenuItem should render correctly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`ModuleMenuItem should render correctly with defaults 1`] = `<DocumentFragment />`;
+
 exports[`ModuleMenuItem should return null if no path is given 1`] = `<DocumentFragment />`;

@@ -21,7 +21,7 @@ type Props = {
     children?: ReactNode;
     icon?: string;
     isLabelHidden?: boolean;
-    itemPropA?: string;
+    itemProp?: string;
     label?: string;
     path?: string;
     title?: string;
@@ -35,7 +35,7 @@ type Props = {
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
  * @param {boolean} [props.isLabelHidden=false] - Whether the label is hidden or not
- * @param {string} [props.itemPropA='url'] - The link element itemProp attribute
+ * @param {string} [props.itemProp='url'] - The link element itemProp attribute
  * @param {string} [props.label=''] - The items label content
  * @param {string} [props.path=''] - The react-router link
  * @param {string} [props.title=''] - The items title content
@@ -46,7 +46,7 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
         children,
         icon = '',
         isLabelHidden = false,
-        itemPropA = 'url',
+        itemProp = 'url',
         label = '',
         path = '',
         title = ''
@@ -66,12 +66,14 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
     return (
         <Fragment>
             <A
-                itemProp={itemPropA}
                 to={path}
-                title={title}
                 className="m-menu__item"
                 role="menuitem"
                 exact
+                {...{
+                    itemProp,
+                    title
+                }}
             >
                 <Icon className="m-menu__icon" icon={icon} />
                 <span className={labelClassName} itemProp="name">

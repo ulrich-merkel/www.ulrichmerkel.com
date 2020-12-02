@@ -14,9 +14,7 @@ describe('ModuleTextContent', function fnDescribe() {
         expect(asFragment()).toMatchSnapshot();
     });
     it('should return null if content is empty', function fnIt() {
-        const { asFragment } = render(
-            <ModuleTextContent {...props} content={null} />
-        );
+        const { asFragment } = render(<ModuleTextContent />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

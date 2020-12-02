@@ -17,9 +17,9 @@ import { Small } from '../../element/small';
 import { View } from '../../element/view';
 
 type Props = {
+    creator?: string;
     headline?: string;
     lead?: string;
-    creator?: string;
     publisher?: string;
 };
 

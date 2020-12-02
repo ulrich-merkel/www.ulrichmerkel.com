@@ -13,4 +13,8 @@ describe('ModuleLanguageItem', function fnDescribe() {
         const { asFragment } = render(<ModuleLanguageItem {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
+    it('should render correctly with defaults', function fnIt() {
+        const { asFragment } = render(<ModuleLanguageItem />);
+        expect(asFragment()).toMatchSnapshot();
+    });
 });
