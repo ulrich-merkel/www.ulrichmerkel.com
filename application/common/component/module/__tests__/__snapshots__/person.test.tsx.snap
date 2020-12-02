@@ -43,32 +43,23 @@ exports[`ModulePerson should render correctly 1`] = `
       class="c-type--p m-person__email"
     >
       <abbr
+        class="c-type--abbr"
         title="E-Mail address"
       >
         E.
       </abbr>
        
-      <a
-        href="mailto:email"
-        itemprop="email"
-      >
-        email
-      </a>
     </p>
     <p
       class="c-type--p m-person__website"
     >
       <abbr
+        class="c-type--abbr"
         title="Website"
       >
         W.
       </abbr>
        
-      <a
-        href="website"
-      >
-        website
-      </a>
     </p>
     Module person children
   </div>
@@ -118,32 +109,23 @@ exports[`ModulePerson should render isCentered correctly 1`] = `
       class="c-type--p m-person__email"
     >
       <abbr
+        class="c-type--abbr"
         title="E-Mail address"
       >
         E.
       </abbr>
        
-      <a
-        href="mailto:email"
-        itemprop="email"
-      >
-        email
-      </a>
     </p>
     <p
       class="c-type--p m-person__website"
     >
       <abbr
+        class="c-type--abbr"
         title="Website"
       >
         W.
       </abbr>
        
-      <a
-        href="website"
-      >
-        website
-      </a>
     </p>
     Module person children
   </div>
@@ -192,16 +174,12 @@ exports[`ModulePerson should render just a website correctly 1`] = `
       class="c-type--p m-person__website"
     >
       <abbr
+        class="c-type--abbr"
         title="Website"
       >
         W.
       </abbr>
        
-      <a
-        href="website"
-      >
-        website
-      </a>
     </p>
     Module person children not rendered
   </div>
@@ -256,17 +234,12 @@ exports[`ModulePerson should render just an email correctly 1`] = `
       class="c-type--p m-person__email"
     >
       <abbr
+        class="c-type--abbr"
         title="E-Mail address"
       >
         E.
       </abbr>
        
-      <a
-        href="mailto:email"
-        itemprop="email"
-      >
-        email
-      </a>
     </p>
     Module person children not rendered
   </div>
@@ -314,32 +287,23 @@ exports[`ModulePerson should render no itemType if unset 1`] = `
       class="c-type--p m-person__email"
     >
       <abbr
+        class="c-type--abbr"
         title="E-Mail address"
       >
         E.
       </abbr>
        
-      <a
-        href="mailto:email"
-        itemprop="email"
-      >
-        email
-      </a>
     </p>
     <p
       class="c-type--p m-person__website"
     >
       <abbr
+        class="c-type--abbr"
         title="Website"
       >
         W.
       </abbr>
        
-      <a
-        href="website"
-      >
-        website
-      </a>
     </p>
     Module person children
   </div>

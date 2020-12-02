@@ -6,17 +6,12 @@ exports[`ModulePersonEmail should render correctly 1`] = `
     class="c-type--p m-person__email"
   >
     <abbr
+      class="c-type--abbr"
       title="E-Mail address"
     >
       E.
     </abbr>
      
-    <a
-      href="mailto:foo@bar.com"
-      itemprop="email"
-    >
-      foo@bar.com
-    </a>
   </p>
 </DocumentFragment>
 `;

@@ -1,4 +1,4 @@
-// eslint-disable react/require-default-props, react/display-name
+/* eslint-disable react/require-default-props, react/display-name */
 /**
  * Rendering a default view html tag.
  *

@@ -6,16 +6,12 @@ exports[`ModulePersonWebsite should render correctly 1`] = `
     class="c-type--p m-person__website"
   >
     <abbr
+      class="c-type--abbr"
       title="Website"
     >
       W.
     </abbr>
      
-    <a
-      href="www.foobar.com"
-    >
-      www.foobar.com
-    </a>
   </p>
 </DocumentFragment>
 `;

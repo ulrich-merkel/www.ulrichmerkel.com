@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from '../../../../__tests__/utils/test-utils';
 import { List } from '../list';
 
-describe('ListItem', function fnDescribe() {
+describe('List', function fnDescribe() {
     const props = {
         className: 'test',
         htmlElement: 'ol',

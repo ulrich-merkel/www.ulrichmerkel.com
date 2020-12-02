@@ -9,6 +9,8 @@
 import { default as React, FunctionComponent } from 'react';
 
 import { isValidString } from '../../../utils/string';
+import { A } from '../../element/a';
+import { Abbr } from '../../element/abbr';
 import { P } from '../../element/paragraph';
 
 type Props = {
@@ -37,10 +39,10 @@ export const ModulePersonTelephone: FunctionComponent<Props> = (props) => {
 
     return (
         <P className="m-person__phone">
-            <abbr title="Phonenumber">P.</abbr>{' '}
-            <a href={`tel:${content.phoneNumbers}`} itemProp="telephone">
+            <Abbr title="Phonenumber">P.</Abbr>{' '}
+            <A href={`tel:${content.phoneNumbers}`} itemProp="telephone">
                 {content.phone}
-            </a>
+            </A>
         </P>
     );
 };

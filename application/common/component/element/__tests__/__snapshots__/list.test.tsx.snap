@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListItem should render correctly 1`] = `
+exports[`List should render correctly 1`] = `
 <DocumentFragment>
   <ol
     class="c-list test"
@@ -16,7 +16,7 @@ exports[`ListItem should render correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ListItem should render correctly with defaults 1`] = `
+exports[`List should render correctly with defaults 1`] = `
 <DocumentFragment>
   <ul
     class="c-list"

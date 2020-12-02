@@ -9,6 +9,8 @@
 import { default as React, FunctionComponent } from 'react';
 
 import { isValidString } from '../../../utils/string';
+import { A } from '../../element/a';
+import { Abbr } from '../../element/abbr';
 import { P } from '../../element/paragraph';
 
 type Props = {
@@ -33,8 +35,10 @@ export const ModulePersonWebsite: FunctionComponent<Props> = (props) => {
 
     return (
         <P className="m-person__website">
-            <abbr title="Website">W.</abbr>{' '}
-            <a href={`${content.website}`}>{content.website}</a>
+            <Abbr title="Website">W.</Abbr>{' '}
+            <A href={content.website} title="Open website in new tab">
+                {content.website}
+            </A>
         </P>
     );
 };

@@ -43,48 +43,34 @@ exports[`ModuleTextPerson should render correctly 1`] = `
       class="c-type--p m-person__email"
     >
       <abbr
+        class="c-type--abbr"
         title="E-Mail address"
       >
         E.
       </abbr>
        
-      <a
-        href="mailto:test@test.com"
-        itemprop="email"
-      >
-        test@test.com
-      </a>
     </p>
     <p
       class="c-type--p m-person__phone"
     >
       <abbr
+        class="c-type--abbr"
         title="Phonenumber"
       >
         P.
       </abbr>
        
-      <a
-        href="tel:1239182391832"
-        itemprop="telephone"
-      >
-        123 9182 391832
-      </a>
     </p>
     <p
       class="c-type--p m-person__website"
     >
       <abbr
+        class="c-type--abbr"
         title="Website"
       >
         W.
       </abbr>
        
-      <a
-        href="www.test.de"
-      >
-        www.test.de
-      </a>
     </p>
   </div>
 </DocumentFragment>
