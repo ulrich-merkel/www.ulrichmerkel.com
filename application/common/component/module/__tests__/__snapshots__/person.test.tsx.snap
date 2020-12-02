@@ -2,7 +2,7 @@
 
 exports[`ModulePerson should render correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -71,13 +71,13 @@ exports[`ModulePerson should render correctly 1`] = `
       </a>
     </p>
     Module person children
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render isCentered correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="is-centered m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -146,13 +146,13 @@ exports[`ModulePerson should render isCentered correctly 1`] = `
       </a>
     </p>
     Module person children
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render just a name correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -165,25 +165,25 @@ exports[`ModulePerson should render just a name correctly 1`] = `
       </strong>
     </p>
     Module person children not rendered
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render just a phone number correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
   >
     Module person children not rendered
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render just a website correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -204,13 +204,13 @@ exports[`ModulePerson should render just a website correctly 1`] = `
       </a>
     </p>
     Module person children not rendered
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render just an address correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -241,13 +241,13 @@ exports[`ModulePerson should render just an address correctly 1`] = `
       </span>
     </address>
     Module person children not rendered
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render just an email correctly 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
     itemscope=""
     itemtype="http://schema.org/Person"
@@ -269,13 +269,13 @@ exports[`ModulePerson should render just an email correctly 1`] = `
       </a>
     </p>
     Module person children not rendered
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`ModulePerson should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <menu
+  <div
     class="m-person foo"
   >
     <p
@@ -342,7 +342,7 @@ exports[`ModulePerson should render no itemType if unset 1`] = `
       </a>
     </p>
     Module person children
-  </menu>
+  </div>
 </DocumentFragment>
 `;
 

@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for rendering information about a person.
  *
  * @file
  * @module
@@ -11,8 +9,12 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
-import { P } from '../element/paragraph';
-import { getItemTypeAttributes } from '../utils/micro-data';
+import { View } from '../element/view';
+import { ModulePersonAddress } from './person/address';
+import { ModulePersonEmail } from './person/email';
+import { ModulePersonName } from './person/name';
+import { ModulePersonTelephone } from './person/telephone';
+import { ModulePersonWebsite } from './person/website';
 
 type Props = {
     htmlElement?: keyof JSX.IntrinsicElements;
@@ -33,7 +35,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing some information about a single person.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -44,7 +46,6 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
         children,
         className,
         content,
-        htmlElement: HtmlElement = 'div',
         isCentered = false,
         itemType = 'http://schema.org/Person'
     } = props;
@@ -60,70 +61,15 @@ export const ModulePerson: FunctionComponent<Props> = (props) => {
         'm-person',
         className
     );
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement className={componentClassName} {...itemTypeAttributes}>
-            {content?.name && (
-                <P className="m-person__name">
-                    <strong>{content.name}</strong>
-                </P>
-            )}
-            {content?.streetAddress &&
-                content?.postalCode &&
-                content?.locality && (
-                    <address
-                        className="m-person__address c-type--address"
-                        itemProp="address"
-                        itemScope
-                        itemType="http://schema.org/Address"
-                    >
-                        <span
-                            className="m-person__street-address"
-                            itemProp="street-address"
-                        >
-                            {content.streetAddress}
-                        </span>
-                        <span
-                            className="m-person__postal-code"
-                            itemProp="postal-code"
-                        >
-                            {content.postalCode}
-                        </span>
-                        <span
-                            className="m-person__locality"
-                            itemProp="locality"
-                        >
-                            {content.locality}
-                        </span>
-                    </address>
-                )}
-            {content?.email && (
-                <P className="m-person__email">
-                    <abbr title="E-Mail address">E.</abbr>{' '}
-                    <a href={`mailto:${content.email}`} itemProp="email">
-                        {content.email}
-                    </a>
-                </P>
-            )}
-            {content?.phoneNumbers && content?.phone && (
-                <P className="m-person__phone">
-                    <abbr title="Phonenumber">P.</abbr>{' '}
-                    <a
-                        href={`tel:${content.phoneNumbers}`}
-                        itemProp="telephone"
-                    >
-                        {content.phone}
-                    </a>
-                </P>
-            )}
-            {content?.website && (
-                <P className="m-person__website">
-                    <abbr title="Website">W.</abbr>{' '}
-                    <a href={`${content.website}`}>{content.website}</a>
-                </P>
-            )}
+        <View className={componentClassName} {...{ itemType }}>
+            <ModulePersonName {...{ content }} />
+            <ModulePersonAddress {...{ content }} />
+            <ModulePersonEmail {...{ content }} />
+            <ModulePersonTelephone {...{ content }} />
+            <ModulePersonWebsite {...{ content }} />
             {children}
-        </HtmlElement>
+        </View>
     );
 };

@@ -81,15 +81,8 @@ export const ModuleCornerstoneItemEducation: FunctionComponent<Props> = (
                         <strong>{lead}</strong>
                     </P>
                     <P className="m-cornerstone__time">
-                        (
-                        <Time itemProp="startDate">
-                            {timeStart}
-                        </Time>{' '}
-                        -{' '}
-                        <Time itemProp="endDate">
-                            {timeEnd}
-                        </Time>
-                        )
+                        (<Time itemProp="startDate">{timeStart}</Time> -{' '}
+                        <Time itemProp="endDate">{timeEnd}</Time>)
                     </P>
                     {isValidArray(description) &&
                         description.map(function fnMap(text) {
