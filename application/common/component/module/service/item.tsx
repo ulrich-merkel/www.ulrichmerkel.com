@@ -12,8 +12,10 @@ import { default as React, FunctionComponent } from 'react';
 import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
 import { Icon } from '../../element/icon';
+import { View } from '../../element/view';
 
 type Props = {
     headline?: string;
@@ -40,7 +42,7 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
     } = props;
 
     if (isClear) {
-        return <li className="m-service__item--clear" aria-hidden="true" />;
+        return <ListItem className="m-service__item--clear" ariaHidden />;
     }
 
     const componentListItemClassName = classnames({
@@ -50,15 +52,18 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
     const componentListItemIconClassName = classnames('m-service__icon-font');
 
     return (
-        <li className={componentListItemClassName} itemProp="itemListElement">
-            <div className="m-service__content">
-                <div className="m-service__icon">
+        <ListItem
+            className={componentListItemClassName}
+            itemProp="itemListElement"
+        >
+            <View className="m-service__content">
+                <View className="m-service__icon">
                     <Icon
                         className={componentListItemIconClassName}
                         icon={icon}
                     />
-                </div>
-                <div className="m-service__description">
+                </View>
+                <View className="m-service__description">
                     <Headline className="m-service__headline" htmlElement="h3">
                         {headline}
                     </Headline>
@@ -66,8 +71,8 @@ export const ModuleServiceItem: FunctionComponent<Props> = (props) => {
                         className="m-service__text"
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
-                </div>
-            </div>
-        </li>
+                </View>
+            </View>
+        </ListItem>
     );
 };

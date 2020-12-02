@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a reading module.
  *
  * @file
  * @module
@@ -12,6 +10,8 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
+import { isValidArray } from '../../utils/array';
+import { List } from '../element/list';
 import { ModuleReadingItem } from './reading/item';
 
 type Props = {
@@ -25,28 +25,21 @@ type Props = {
             publisher: string;
         }[];
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a reading module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleReading: FunctionComponent<Props> = (props) => {
-    const {
-        htmlElement: HtmlElement = 'ul',
-        className,
-        itemType = 'https://schema.org/ItemList',
-        content,
-        children,
-        ...otherProps
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
-    if (!content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
@@ -55,27 +48,25 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
         'm-reading',
         className
     );
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            role="list"
-            {...componentSchema}
-            {...otherProps}
-        >
-            {content.list.map((value) => {
+        <List className={componentClassName} {...{ itemType, role }}>
+            {content.list.map(function fnMap(value) {
+                const { creator, headline, lead, publisher } = value;
+
                 return (
                     <ModuleReadingItem
                         key={shortid.generate()}
-                        headline={value.headline}
-                        lead={value.lead}
-                        creator={value.creator}
-                        publisher={value.publisher}
+                        {...{
+                            creator,
+                            headline,
+                            lead,
+                            publisher
+                        }}
                     />
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };

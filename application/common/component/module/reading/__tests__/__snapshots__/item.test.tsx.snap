@@ -3,7 +3,7 @@
 exports[`ModuleReadingItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-list__item"
+    class="c-list-item m-list__item"
     itemprop="itemListElement"
     itemscope=""
     itemtype="https://schema.org/Book"
@@ -37,6 +37,41 @@ exports[`ModuleReadingItem should render correctly 1`] = `
         >
           Publisher
         </em>
+      </small>
+    </div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleReadingItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-list__item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/Book"
+  >
+    <div
+      class="c-reading"
+    >
+      <h3
+        class="is-centered c-type--h3 c-reading__name"
+        itemprop="name"
+      />
+      <p
+        class="c-type--p c-reading__description"
+        itemprop="alternateName"
+      />
+      <small
+        class="c-type--small c-reading__source"
+        itemprop="creator"
+      >
+        <span
+          class="c-reading__source-creator"
+        />
+        <em
+          class="c-reading__source-publisher"
+        />
       </small>
     </div>
   </li>

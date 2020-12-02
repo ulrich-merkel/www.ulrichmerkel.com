@@ -83,9 +83,9 @@ $theme-default: (
     --theme-component-pie-circle-before-background-color: $config-color-white,
     --theme-component-pie-mask-background-color: $config-color-cinnabar,
     // Component reading
-    --theme-component-reading-font-weight: $config-font-weight-light,
+    --theme-component-reading-font-weight: $config-font-weight-lighter,
     // Component time
-    --theme-component-time-font-weight: $config-font-weight-light,
+    --theme-component-time-font-weight: $config-font-weight-lighter,
     // Component Toggle
     --config-theme-c-toggle-background: $config-color-dove-grey,
     --config-theme-c-toggle-background-active: $config-color-mountain-meadow,
@@ -98,7 +98,7 @@ $theme-default: (
         $config-color-black,
     --theme-component-type-h-line-height: 1.4,
     --theme-component-type-h-small-font-size: $config-font-small-size,
-    --theme-component-type-p-font-weight: $config-font-weight-light,
+    --theme-component-type-p-font-weight: $config-font-weight-lighter,
     // Layout dialog
     --theme-layout-dialog-background-background: rgba(255, 255, 255, 0.97),
     --theme-layout-dialog-text-color: $config-color-pickled-bluewood,

@@ -23,6 +23,7 @@ import { Toggle } from '../../element/toggle';
 import { Fieldset } from '../../element/fieldset';
 import { Form } from '../../element/form';
 import { Legend } from '../../element/legend';
+import { getItemTypeAttributes } from '../../utils/micro-data';
 
 type Props = {
     content: {
@@ -54,19 +55,17 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
 
     return (
         <Form
-            action="/theme/"
-            className="m-form--theme"
-            id="m-form--theme"
-            itemProp="potentialAction"
-            itemScope
-            itemType="http://schema.org/Action"
+            action="/settings/"
+            className="m-form--settings"
+            id="m-form--settings"
             onSubmit={eventPreventDefault}
+            {...getItemTypeAttributes('http://schema.org/Action')}
         >
             <Fieldset>
                 <Legend isVisuallyHidden>{content?.legend}</Legend>
 
                 <GridRow>
-                    <GridCol cols={6}>
+                    <GridCol cols={12}>
                         <Toggle
                             id="dark-mode"
                             label="Dark mode"
@@ -76,7 +75,7 @@ export const ModuleFormSettings: FunctionComponent<Props> = (props) => {
                     </GridCol>
                 </GridRow>
                 <GridRow>
-                    <GridCol cols={6}>
+                    <GridCol cols={12}>
                         <Toggle
                             id="reduced-motion-toggle"
                             label="Reduced motion"

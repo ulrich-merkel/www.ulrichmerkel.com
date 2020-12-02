@@ -14,8 +14,8 @@ describe('ModuleServiceItem', function fnDescribe() {
         const { asFragment } = render(<ModuleServiceItem {...props} />);
         expect(asFragment()).toMatchSnapshot();
     });
-    it('should render isClear correctly', function fnIt() {
-        const { asFragment } = render(<ModuleServiceItem {...props} />);
+    it('should render correctly with defaults', function fnIt() {
+        const { asFragment } = render(<ModuleServiceItem />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

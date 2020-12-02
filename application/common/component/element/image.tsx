@@ -26,17 +26,9 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Image: FunctionComponent<Props> = (props) => {
-    const { alt = '', className, src, ...otherProps } = props;
+    const { alt = '', className, src } = props;
 
     const componentClassName = classnames('c-img', className);
 
-    return (
-        <img
-            alt={alt}
-            className={componentClassName}
-            src={src}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...otherProps}
-        />
-    );
+    return <img alt={alt} className={componentClassName} src={src} />;
 };

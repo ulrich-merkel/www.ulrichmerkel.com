@@ -30,14 +30,12 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionService: FunctionComponent<Props> = (props) => {
-    const { children, content, ...otherProps } = props;
+    const { children, content } = props;
 
     return (
         <SectionCommonGridSpaced>
             <ModuleArticle {...{ content }}>
-                <ModuleService {...{ content }} {...otherProps}>
-                    {children}
-                </ModuleService>
+                <ModuleService {...{ content }}>{children}</ModuleService>
             </ModuleArticle>
         </SectionCommonGridSpaced>
     );

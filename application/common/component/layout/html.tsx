@@ -20,6 +20,7 @@ import serialize from 'serialize-javascript';
 import { selectStateIntlLocale } from '../../state/intl/selector';
 import { configApplication, url, csp } from '../../config/application';
 import { getNonceConfig, getCspRules } from '../../utils/csp';
+import { View } from '../element/view';
 
 type Props = {
     locale: string;
@@ -110,6 +111,13 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
                 )}
                 <link rel="preload" href="/css/app.css" as="style" />
                 <link rel="preload" href="/js/client.bundle.js" as="script" />
+                <link
+                    as="font"
+                    crossOrigin="true"
+                    href="/font/icomoon/icomoon.woff?41546266"
+                    rel="preload"
+                    type="font/woff2"
+                />
                 {helmet.meta.toComponent()}
                 {helmet.title.toComponent()}
                 {helmet.link.toComponent()}
@@ -120,17 +128,17 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
                 {helmet.style.toComponent()}
                 <noscript>
                     <link
-                        rel="stylesheet"
                         href="/css/app.css"
-                        type="text/css"
                         media="all"
+                        rel="stylesheet"
+                        type="text/css"
                     />
                 </noscript>
             </head>
             <body itemScope itemType="http://schema.org/WebPage">
-                <div id="l-react" className="l-react">
+                <View id="l-react" className="l-react">
                     {children}
-                </div>
+                </View>
                 <script
                     nonce={get(nonceConfig, 'script.bootstrap')}
                     dangerouslySetInnerHTML={{
@@ -141,7 +149,7 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
                     <script
                         nonce={get(nonceConfig, 'script.config')}
                         dangerouslySetInnerHTML={{
-                            __html: `__PRELOADED_STATE__=${serialize(
+                            __html: `window.__PRELOADED_STATE__=${serialize(
                                 preloadedState,
                                 { isJSON: true }
                             )};`

@@ -147,7 +147,7 @@ exports[`PageHome should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -238,7 +238,7 @@ exports[`PageHome should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -261,13 +261,13 @@ exports[`PageHome should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-service"
+                  class="c-list m-service"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -321,7 +321,7 @@ exports[`PageHome should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -353,10 +353,11 @@ exports[`PageHome should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -387,7 +388,7 @@ exports[`PageHome should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -419,7 +420,8 @@ exports[`PageHome should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                 </ul>
               </div>
@@ -442,7 +444,7 @@ exports[`PageHome should render correctly 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="has-no-margin m-article"
+            class="c-type--article has-no-margin m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >
@@ -457,16 +459,16 @@ exports[`PageHome should render correctly 1`] = `
               itemprop="text"
             >
               <ul
-                class="m-featured"
+                class="c-list m-featured"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="list"
               >
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -609,10 +611,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -755,10 +757,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -901,10 +903,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1047,10 +1049,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1193,10 +1195,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1339,10 +1341,10 @@ exports[`PageHome should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"

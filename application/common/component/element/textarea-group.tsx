@@ -13,6 +13,7 @@ import classnames from 'classnames';
 import { Textarea } from './textarea';
 import { Label } from './label';
 import { Icon } from './icon';
+import { View } from './view';
 
 type Props = {
     className?: string;
@@ -62,8 +63,7 @@ export class TextareaGroup extends Component<Props> {
             onChange,
             required,
             testId,
-            value = '',
-            ...otherProps
+            value = ''
         } = this.props;
 
         const composedGroupClassName = classnames(
@@ -79,8 +79,7 @@ export class TextareaGroup extends Component<Props> {
         });
 
         return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <div className={composedGroupClassName} {...otherProps}>
+            <View className={composedGroupClassName}>
                 <Textarea
                     className={composedInputClassName}
                     {...{
@@ -101,7 +100,7 @@ export class TextareaGroup extends Component<Props> {
                         icon="smile"
                     />
                 </Label>
-            </div>
+            </View>
         );
     }
 }

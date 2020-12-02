@@ -24,6 +24,7 @@ import { isEmpty, noop } from 'lodash';
 
 import { isValidString } from '../../utils/string';
 import { getTestIdAttributes } from '../utils/test-id';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     activeClassName?: string;
@@ -32,8 +33,8 @@ type Props = {
     exact?: boolean;
     htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
-    itemScope?: boolean;
     itemType?: string;
+    lang?: string;
     onClick?: (event: React.MouseEvent) => void;
     role?: string;
     strict?: boolean;
@@ -137,16 +138,15 @@ export const A: FunctionComponent<Props> = (props) => {
         exact,
         htmlElement = 'a',
         itemProp,
-        itemScope,
         itemType,
+        lang,
         onClick = noop,
         role,
         strict,
         tabIndex = 0,
         testId,
         title = '',
-        to,
-        ...otherProps
+        to
     } = props;
 
     if (!isValidString(to)) {
@@ -162,23 +162,22 @@ export const A: FunctionComponent<Props> = (props) => {
         to
     });
     const testIdAttributes = getTestIdAttributes(testId);
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
-            {...attributes}
             className={componentClassName}
+            {...attributes}
+            {...itemTypeAttributes}
             {...{
                 itemProp,
-                itemScope,
-                itemType,
+                lang,
                 onClick,
                 role,
                 tabIndex,
                 title
             }}
             {...testIdAttributes}
-            {...otherProps}
         >
             {children}
         </HtmlElement>

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModulePersonEmail should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="c-type--p m-person__email"
+  >
+    <abbr
+      class="c-type--abbr"
+      title="E-Mail address"
+    >
+      E.
+    </abbr>
+     
+  </p>
+</DocumentFragment>
+`;
+
+exports[`ModulePersonEmail should return null if content is empty 1`] = `<DocumentFragment />`;

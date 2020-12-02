@@ -2,64 +2,52 @@
 
 exports[`ModuleMenuItem should hide label if isLabelHidden is present 1`] = `
 <DocumentFragment>
-  <li
-    class="m-menu__list-item"
-    itemprop="itemListElement"
-    itemscope=""
-    itemtype="itemType"
+  <a
+    class="c-link m-menu__item"
+    itemprop="bar"
+    role="menuitem"
+    tabindex="0"
+    title="Menu item title"
   >
-    <a
-      class="c-link m-menu__item"
-      itemprop="bar"
-      role="menuitem"
-      tabindex="0"
-      title="Menu item title"
+    <i
+      aria-hidden="true"
+      class="c-font-icon--foo m-menu__icon"
+    />
+    <span
+      class="is-visually-hidden m-menu__label"
+      itemprop="name"
     >
-      <i
-        aria-hidden="true"
-        class="c-font-icon--foo m-menu__icon"
-      />
-      <span
-        class="is-visually-hidden m-menu__label"
-        itemprop="name"
-      >
-        Menu item label
-      </span>
-    </a>
-    Module menu item children
-  </li>
+      Menu item label
+    </span>
+  </a>
+  Module menu item children
 </DocumentFragment>
 `;
 
 exports[`ModuleMenuItem should render correctly 1`] = `
 <DocumentFragment>
-  <li
-    class="m-menu__list-item"
-    itemprop="itemListElement"
-    itemscope=""
-    itemtype="itemType"
+  <a
+    class="c-link m-menu__item"
+    itemprop="bar"
+    role="menuitem"
+    tabindex="0"
+    title="Menu item title"
   >
-    <a
-      class="c-link m-menu__item"
-      itemprop="bar"
-      role="menuitem"
-      tabindex="0"
-      title="Menu item title"
+    <i
+      aria-hidden="true"
+      class="c-font-icon--foo m-menu__icon"
+    />
+    <span
+      class="m-menu__label"
+      itemprop="name"
     >
-      <i
-        aria-hidden="true"
-        class="c-font-icon--foo m-menu__icon"
-      />
-      <span
-        class="m-menu__label"
-        itemprop="name"
-      >
-        Menu item label
-      </span>
-    </a>
-    Module menu item children
-  </li>
+      Menu item label
+    </span>
+  </a>
+  Module menu item children
 </DocumentFragment>
 `;
+
+exports[`ModuleMenuItem should render correctly with defaults 1`] = `<DocumentFragment />`;
 
 exports[`ModuleMenuItem should return null if no path is given 1`] = `<DocumentFragment />`;

@@ -45,6 +45,13 @@
             "density": "4.0"
         },
         {
+            "src": "/img/share/icon@196x196.png",
+            "sizes": "196x196",
+            "type": "image/png",
+            "density": "4.0",
+            "purpose": "any maskable"
+        },
+        {
             "src": "/img/share/icon@256x256.png",
             "sizes": "256x256",
             "type": "image/png"

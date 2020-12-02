@@ -9,6 +9,7 @@
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
 import { default as React, FunctionComponent, ReactNode } from 'react';
+import { View } from '../element/view';
 
 type Props = {
     children?: ReactNode;
@@ -21,5 +22,5 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const GridSpaced: FunctionComponent<Props> = (props) => {
-    return <div className="l-grid__spaced--small" {...props} />;
+    return <View className="l-grid__spaced--small" {...props} />;
 };

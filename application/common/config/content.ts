@@ -921,7 +921,7 @@ export const configContent = {
                 {
                     headline:
                         'intl-page-persona-section2-professional-experience-list-1-headline',
-                    lead: 'TomTom Telematics',
+                    lead: 'Webfleet Solutions',
                     timeStart: '2016',
                     timeEnd: 'intl-today',
                     description: [
@@ -1110,6 +1110,18 @@ export const configContent = {
             headline: 'intl-page-persona-section5-headline',
             lead: 'intl-page-persona-section5-lead',
             list: [
+                {
+                    headline: 'intl-page-persona-section5-list-11-headline',
+                    lead: 'intl-page-persona-section5-list-11-lead',
+                    creator: 'intl-page-persona-section5-list-11-creator',
+                    publisher: 'intl-page-persona-section5-list-11-publisher'
+                },
+                {
+                    headline: 'intl-page-persona-section5-list-10-headline',
+                    lead: 'intl-page-persona-section5-list-10-lead',
+                    creator: 'intl-page-persona-section5-list-10-creator',
+                    publisher: 'intl-page-persona-section5-list-10-publisher'
+                },
                 {
                     headline: 'intl-page-persona-section5-list-1-headline',
                     lead: 'intl-page-persona-section5-list-1-lead',

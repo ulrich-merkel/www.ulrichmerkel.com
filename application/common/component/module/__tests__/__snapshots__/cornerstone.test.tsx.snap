@@ -2,14 +2,15 @@
 
 exports[`ModuleCornerstone should render correctly 1`] = `
 <DocumentFragment>
-  <span
-    class="m-cornerstone cornerstone"
+  <ul
+    class="c-list m-cornerstone cornerstone"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
-      class="m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -18,7 +19,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       </h3>
     </li>
     <li
-      class="m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EmployeeRole"
@@ -56,6 +57,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
              -
             <time
               class="c-time"
+              itemprop="endDate"
             >
               20161224
             </time>
@@ -80,7 +82,8 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       />
     </li>
     <li
-      class="m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -89,7 +92,7 @@ exports[`ModuleCornerstone should render correctly 1`] = `
       </h3>
     </li>
     <li
-      class="m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EducationEvent"
@@ -159,30 +162,32 @@ exports[`ModuleCornerstone should render correctly 1`] = `
         <div
           itemprop="address"
           itemscope=""
-          itemtype="http://schema.org/PostalAddress"
+          itemtype="https://schema.org/PostalAddress"
         />
       </div>
     </li>
     <li
-      class="m-cornerstone__item--start"
+      class="c-list-item m-cornerstone__item--start"
+      itemprop="itemListElement"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"
       />
     </li>
     Module Cornerstone Children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleCornerstone should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <span
-    class="m-cornerstone cornerstone"
+  <ul
+    class="c-list m-cornerstone cornerstone"
     role="list"
   >
     <li
-      class="m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -191,7 +196,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       </h3>
     </li>
     <li
-      class="m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EmployeeRole"
@@ -229,6 +234,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
              -
             <time
               class="c-time"
+              itemprop="endDate"
             >
               20161224
             </time>
@@ -253,7 +259,8 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       />
     </li>
     <li
-      class="m-cornerstone__item--center"
+      class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
     >
       <h3
         class="is-centered c-type--h3 m-cornerstone__headline"
@@ -262,7 +269,7 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
       </h3>
     </li>
     <li
-      class="m-cornerstone__item--left"
+      class="c-list-item m-cornerstone__item--left"
       itemprop="itemListElement"
       itemscope=""
       itemtype="https://schema.org/EducationEvent"
@@ -332,19 +339,20 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
         <div
           itemprop="address"
           itemscope=""
-          itemtype="http://schema.org/PostalAddress"
+          itemtype="https://schema.org/PostalAddress"
         />
       </div>
     </li>
     <li
-      class="m-cornerstone__item--start"
+      class="c-list-item m-cornerstone__item--start"
+      itemprop="itemListElement"
     >
       <div
         class="m-cornerstone__bubble c-font-icon--bookmark2"
       />
     </li>
     Module cornerstone children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 

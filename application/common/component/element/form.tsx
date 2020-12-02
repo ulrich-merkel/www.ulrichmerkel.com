@@ -10,17 +10,18 @@
 import { default as React, Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { noop } from 'lodash';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     acceptCharset?: string;
     action: string;
     children?: ReactNode;
     className?: string;
-    id: string;
+    id?: string;
     itemProp?: string;
-    itemScope?: boolean;
     itemType?: string;
     method?: string;
+    noValidate?: boolean;
     onReset?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
     role?: string;
@@ -54,40 +55,39 @@ export class Form extends Component<Props> {
         const {
             acceptCharset = 'utf-8',
             action,
+            children,
             className,
             id,
             itemProp = 'potentialAction',
-            itemScope = false,
             itemType = 'http://schema.org/CommunicateAction',
             method = 'post',
+            noValidate = true,
             onReset = noop,
             onSubmit = noop,
-            role = 'form',
-            ...otherProps
+            role = 'form'
         } = this.props;
 
         const composedClassName = classnames('m-form', className);
+        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
             <form
                 className={composedClassName}
-                noValidate
-                itemScope
+                {...itemTypeAttributes}
                 {...{
                     acceptCharset,
                     action,
                     id,
                     itemProp,
-                    itemScope,
-                    itemType,
                     method,
-                    role,
+                    noValidate,
+                    onReset,
                     onSubmit,
-                    onReset
+                    role
                 }}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...otherProps}
-            />
+            >
+                {children}
+            </form>
         );
     }
 }

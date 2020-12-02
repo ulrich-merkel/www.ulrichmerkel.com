@@ -43,13 +43,13 @@ type Props = {
  */
 export const P: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         hasColumns2 = false,
         htmlElement: HtmlElement = 'p',
         isCentered = false,
         dangerouslySetInnerHTML,
-        itemProp,
-        ...otherProps
+        itemProp
     } = props;
 
     const componentClassName = classnames(
@@ -62,14 +62,14 @@ export const P: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={componentClassName}
             {...{
                 dangerouslySetInnerHTML,
                 itemProp
             }}
-            {...otherProps}
-        />
+        >
+            {children}
+        </HtmlElement>
     );
 };

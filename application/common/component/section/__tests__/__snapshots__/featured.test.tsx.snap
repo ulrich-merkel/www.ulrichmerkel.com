@@ -12,7 +12,7 @@ exports[`SectionFeatured should render correctly 1`] = `
         class="l-grid__col--12"
       >
         <article
-          class="has-no-margin m-article"
+          class="c-type--article has-no-margin m-article"
           itemscope=""
           itemtype="https://schema.org/Article"
         >

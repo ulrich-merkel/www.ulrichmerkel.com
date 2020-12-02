@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleMenuListItem should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-menu__list-item test"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://www.schema.org/SiteNavigationElement"
+  >
+    List item
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleMenuListItem should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-menu__list-item"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="http://www.schema.org/SiteNavigationElement"
+  >
+    List item
+  </li>
+</DocumentFragment>
+`;

@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a key visual module.
  *
  * @file
  * @module
@@ -15,10 +13,11 @@ import { noop } from 'lodash';
 
 import { selectStateReducedMotionSelectedReduce } from '../../state/reduced-motion/selector';
 import { scrollTo } from '../../utils/scroll-to';
+import { Event, eventPreventDefault } from '../../utils/event';
+import { View } from '../element/view';
 import { ModuleKeyVisualPicture } from './key-visual/picture';
 import { ModuleKeyVisualArticle } from './key-visual/article';
 import { ModuleKeyVisualButton } from './key-visual/button';
-import { Event, eventPreventDefault } from '../../utils/event';
 
 type Props = {
     className?: string;
@@ -30,7 +29,6 @@ type Props = {
         img: Record<string, unknown>;
         type: string;
     };
-    htmlElement?: string;
     isCovered?: boolean;
     isWork?: boolean;
     onClickBtn?: () => void;
@@ -81,7 +79,6 @@ export class ModuleKeyVisual extends Component<Props> {
         const {
             className,
             content,
-            htmlElement: HtmlElement = 'div',
             isCovered = false,
             isWork = false
         } = this.props;
@@ -96,7 +93,7 @@ export class ModuleKeyVisual extends Component<Props> {
         );
 
         return (
-            <HtmlElement className={componentClassName} ref={this.keyVisual}>
+            <View className={componentClassName} ref={this.keyVisual}>
                 <ModuleKeyVisualPicture
                     img={content.img}
                     type={content.type}
@@ -111,7 +108,7 @@ export class ModuleKeyVisual extends Component<Props> {
                     label={content.btnLabel}
                     title={content.btnTitle}
                 />
-            </HtmlElement>
+            </View>
         );
     }
 }

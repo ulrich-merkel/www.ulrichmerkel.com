@@ -2,17 +2,17 @@
 
 exports[`ModuleFeatured should render correctly 1`] = `
 <DocumentFragment>
-  <span
-    class="m-featured foo"
+  <ul
+    class="c-list m-featured foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
-      class="m-featured__list-item"
+      class="c-list-item m-featured__list-item"
       itemprop="itemListElement"
       itemscope=""
-      itemtype="http://schema.org/SiteNavigationElement"
+      itemtype="https://schema.org/SiteNavigationElement"
     >
       <a
         class="c-link m-featured__item"
@@ -46,21 +46,21 @@ exports[`ModuleFeatured should render correctly 1`] = `
       </a>
     </li>
     Module Featured Children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleFeatured should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <span
-    class="m-featured foo"
+  <ul
+    class="c-list m-featured foo"
     role="list"
   >
     <li
-      class="m-featured__list-item"
+      class="c-list-item m-featured__list-item"
       itemprop="itemListElement"
       itemscope=""
-      itemtype="http://schema.org/SiteNavigationElement"
+      itemtype="https://schema.org/SiteNavigationElement"
     >
       <a
         class="c-link m-featured__item"
@@ -94,7 +94,7 @@ exports[`ModuleFeatured should render no itemType if unset 1`] = `
       </a>
     </li>
     Module featured children
-  </span>
+  </ul>
 </DocumentFragment>
 `;
 

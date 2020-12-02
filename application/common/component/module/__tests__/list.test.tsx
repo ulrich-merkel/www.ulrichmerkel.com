@@ -36,8 +36,7 @@ describe('ModuleList', function fnDescribe() {
                 }
             ]
         },
-        className: 'module-list',
-        htmlElement: 'ol'
+        className: 'module-list'
     };
 
     it('should render correctly', function fnIt() {

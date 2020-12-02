@@ -45,12 +45,7 @@ describe('ModuleText', function fnDescribe() {
 
     it('should return null if no content is given', function fnIt() {
         const { asFragment } = render(
-            <ModuleTextConnected
-                {...props}
-                content={{
-                    text: null
-                }}
-            >
+            <ModuleTextConnected>
                 Module text children not rendered
             </ModuleTextConnected>
         );

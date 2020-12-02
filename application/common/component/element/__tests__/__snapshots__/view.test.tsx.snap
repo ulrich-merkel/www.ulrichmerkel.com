@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="test"
+    itemprop="test"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="banner"
+  >
+    Test Child
+  </div>
+</DocumentFragment>
+`;
+
+exports[`View should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <div>
+    Test Child
+  </div>
+</DocumentFragment>
+`;

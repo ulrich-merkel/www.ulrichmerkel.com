@@ -25,6 +25,7 @@ import { Header } from '../element/header';
 import { Nav } from '../element/nav';
 import { Progress } from '../element/progress';
 import { LayoutHeaderAsideConnected } from './header/aside';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     className?: string;
@@ -33,6 +34,8 @@ type Props = {
     };
     headerFixed?: boolean;
     headerVisible?: boolean;
+    itemType?: string;
+    role?: string;
 };
 
 /**
@@ -47,7 +50,14 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const LayoutHeader: FunctionComponent<Props> = (props) => {
-    const { className, content, headerFixed, headerVisible } = props;
+    const {
+        className,
+        content,
+        headerFixed,
+        headerVisible,
+        itemType = 'http://schema.org/WPHeader',
+        role = 'banner'
+    } = props;
 
     const contentSection = getContentSection(content);
     const componentClassName = classnames(
@@ -58,13 +68,13 @@ export const LayoutHeader: FunctionComponent<Props> = (props) => {
         },
         className
     );
+    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
         <Header
             className={componentClassName}
-            itemScope
-            itemType="http://schema.org/WPHeader"
-            role="banner"
+            {...itemTypeAttributes}
+            {...{ role }}
         >
             <Progress />
             <Nav className="m-nav--main">

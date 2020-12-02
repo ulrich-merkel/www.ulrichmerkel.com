@@ -68,13 +68,13 @@ exports[`Routes should render correctly 1`] = `
               type="checkbox"
             />
             <ul
-              class="m-menu m-menu--main m-nav__toggle-target"
+              class="c-list m-menu m-menu--main m-nav__toggle-target"
               itemscope=""
               itemtype="https://schema.org/ItemList"
               role="menu"
             >
               <li
-                class="m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -97,7 +97,7 @@ exports[`Routes should render correctly 1`] = `
                 </a>
               </li>
               <li
-                class="m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -119,7 +119,7 @@ exports[`Routes should render correctly 1`] = `
                 </a>
               </li>
               <li
-                class="m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -142,13 +142,13 @@ exports[`Routes should render correctly 1`] = `
               </li>
             </ul>
             <ul
-              class="m-menu--aside m-nav__toggle-target m-nav__aside"
+              class="c-list m-menu--aside m-nav__toggle-target m-nav__aside"
               itemscope=""
               itemtype="http://schema.org/ItemList"
               role="menu"
             >
               <li
-                class="m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -157,7 +157,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-btn m-menu__item m-menu__item--en is-active is-hidden c-btn--small c-btn--clear"
                   data-locale="en-EN"
                   data-testid="button-language-en"
-                  role="button"
+                  role="menuitem"
                   title=""
                   type="button"
                 >
@@ -167,16 +167,16 @@ exports[`Routes should render correctly 1`] = `
                 </button>
               </li>
               <li
-                class="m-menu__list-item"
+                class="c-list-item m-menu__list-item"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
               >
                 <button
-                  class="c-btn m-menu__item m-menu__item--de is-hidden c-btn--small c-btn--clear"
+                  class="c-btn m-menu__item m-menu__item--en is-hidden c-btn--small c-btn--clear"
                   data-locale="de-DE"
                   data-testid="button-language-de"
-                  role="button"
+                  role="menuitem"
                   title=""
                   type="button"
                 >
@@ -186,7 +186,7 @@ exports[`Routes should render correctly 1`] = `
                 </button>
               </li>
               <li
-                class="m-menu__list-item--search always-float"
+                class="c-list-item m-menu__list-item m-menu__list-item--search always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -195,6 +195,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-link m-menu__item--search c-btn--small c-btn--clear"
                   data-testid="button-search"
                   href="/search"
+                  role="menuitem"
                   tabindex="0"
                   title="Search"
                 >
@@ -209,7 +210,7 @@ exports[`Routes should render correctly 1`] = `
                 </a>
               </li>
               <li
-                class="m-menu__list-item--theme always-float"
+                class="c-list-item m-menu__list-item m-menu__list-item--theme always-float"
                 itemprop="itemListElement"
                 itemscope=""
                 itemtype="http://www.schema.org/SiteNavigationElement"
@@ -218,6 +219,7 @@ exports[`Routes should render correctly 1`] = `
                   class="c-link m-menu__item--theme c-btn--small c-btn--clear"
                   data-testid="button-settings"
                   href="/settings"
+                  role="menuitem"
                   tabindex="0"
                   title="Settings"
                 >
@@ -382,7 +384,7 @@ exports[`Routes should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="is-main m-article"
+              class="c-type--article is-main m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -473,7 +475,7 @@ exports[`Routes should render correctly 1`] = `
             class="l-grid__col--12"
           >
             <article
-              class="m-article"
+              class="c-type--article m-article"
               itemscope=""
               itemtype="https://schema.org/Article"
             >
@@ -496,13 +498,13 @@ exports[`Routes should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-service"
+                  class="c-list m-service"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -556,7 +558,7 @@ exports[`Routes should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -588,10 +590,11 @@ exports[`Routes should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                   <li
-                    class="m-service__item--left"
+                    class="c-list-item m-service__item--left"
                     itemprop="itemListElement"
                   >
                     <div
@@ -622,7 +625,7 @@ exports[`Routes should render correctly 1`] = `
                     </div>
                   </li>
                   <li
-                    class="m-service__item--right"
+                    class="c-list-item m-service__item--right"
                     itemprop="itemListElement"
                   >
                     <div
@@ -654,7 +657,8 @@ exports[`Routes should render correctly 1`] = `
                   </li>
                   <li
                     aria-hidden="true"
-                    class="m-service__item--clear"
+                    class="c-list-item m-service__item--clear"
+                    itemprop="itemListElement"
                   />
                 </ul>
               </div>
@@ -677,7 +681,7 @@ exports[`Routes should render correctly 1`] = `
           class="l-grid__col--12"
         >
           <article
-            class="has-no-margin m-article"
+            class="c-type--article has-no-margin m-article"
             itemscope=""
             itemtype="https://schema.org/Article"
           >
@@ -692,16 +696,16 @@ exports[`Routes should render correctly 1`] = `
               itemprop="text"
             >
               <ul
-                class="m-featured"
+                class="c-list m-featured"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="list"
               >
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -844,10 +848,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -990,10 +994,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1136,10 +1140,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1282,10 +1286,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1428,10 +1432,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1574,10 +1578,10 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-featured__list-item"
+                  class="c-list-item m-featured__list-item"
                   itemprop="itemListElement"
                   itemscope=""
-                  itemtype="http://schema.org/SiteNavigationElement"
+                  itemtype="https://schema.org/SiteNavigationElement"
                 >
                   <a
                     class="c-link m-featured__item"
@@ -1766,13 +1770,13 @@ exports[`Routes should render correctly 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--imprint"
+                class="c-list m-menu m-menu--imprint"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
               >
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://www.schema.org/SiteNavigationElement"
@@ -1794,7 +1798,7 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://www.schema.org/SiteNavigationElement"
@@ -1816,7 +1820,7 @@ exports[`Routes should render correctly 1`] = `
                   </a>
                 </li>
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://www.schema.org/SiteNavigationElement"
@@ -1847,13 +1851,13 @@ exports[`Routes should render correctly 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--social"
+                class="c-list m-menu m-menu--social"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
               >
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://schema.org/Organization"
@@ -1885,7 +1889,7 @@ exports[`Routes should render correctly 1`] = `
                   />
                 </li>
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://schema.org/Organization"
@@ -1917,7 +1921,7 @@ exports[`Routes should render correctly 1`] = `
                   />
                 </li>
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://schema.org/Organization"
@@ -1949,7 +1953,7 @@ exports[`Routes should render correctly 1`] = `
                   />
                 </li>
                 <li
-                  class="m-menu__list-item"
+                  class="c-list-item m-menu__list-item"
                   itemprop="itemListElement"
                   itemscope=""
                   itemtype="http://schema.org/Organization"

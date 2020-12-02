@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a cornerstone module.
  *
  * @file
  * @module
@@ -12,10 +10,13 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
+import { isValidArray } from '../../utils/array';
 import { Headline } from '../element/headline';
+import { List } from '../element/list';
+import { ListItem } from '../element/list-item';
+import { View } from '../element/view';
 import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
 import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
-import { isValidArray } from '../../utils/array';
 
 type Props = {
     children?: ReactNode;
@@ -41,98 +42,108 @@ type Props = {
             timeStart: string;
         }[];
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
+    role?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a cornerstone module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ol',
-        itemType = 'https://schema.org/ItemList',
-        ...otherProps
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
     if (
         !content ||
-        !content.academicEducationList ||
-        !content.professionalExperienceList
+        (!isValidArray(content.academicEducationList) &&
+            !isValidArray(content.professionalExperienceList))
     ) {
         return null;
     }
 
     const componentClassName = classnames('m-cornerstone', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            role="list"
-            {...componentSchema}
-            {...otherProps}
-        >
-            <li className="m-cornerstone__item--center">
+        <List className={componentClassName} {...{ itemType, role }}>
+            <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.professionalExperience}
                 </Headline>
-            </li>
+            </ListItem>
 
             {isValidArray(content.professionalExperienceList) &&
                 content.professionalExperienceList.map(function fnMap(
                     value,
                     index
                 ) {
+                    const {
+                        description,
+                        headline,
+                        lead,
+                        offset,
+                        timeEnd,
+                        timeStart
+                    } = value;
+
                     return (
                         <ModuleCornerstoneItemEmployee
                             key={shortid.generate()}
-                            headline={value.headline}
-                            lead={value.lead}
-                            timeStart={value.timeStart}
-                            timeEnd={value.timeEnd}
-                            description={value.description}
-                            offset={value.offset}
                             cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                            {...{
+                                description,
+                                headline,
+                                lead,
+                                offset,
+                                timeEnd,
+                                timeStart
+                            }}
                         />
                     );
                 })}
 
-            <li className="m-cornerstone__item--center">
+            <ListItem className="m-cornerstone__item--center">
                 <Headline className="m-cornerstone__headline" htmlElement="h3">
                     {content.academicEducation}
                 </Headline>
-            </li>
+            </ListItem>
 
             {isValidArray(content.academicEducationList) &&
                 content.academicEducationList.map(function fnMap(value, index) {
+                    const {
+                        description,
+                        headline,
+                        lead,
+                        offset,
+                        place,
+                        timeEnd,
+                        timeStart
+                    } = value;
+
                     return (
                         <ModuleCornerstoneItemEducation
                             key={shortid.generate()}
-                            headline={value.headline}
-                            lead={value.lead}
-                            timeStart={value.timeStart}
-                            timeEnd={value.timeEnd}
-                            description={value.description}
-                            place={value.place}
-                            offset={value.offset}
                             cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                            {...{
+                                description,
+                                headline,
+                                lead,
+                                offset,
+                                place,
+                                timeEnd,
+                                timeStart
+                            }}
                         />
                     );
                 })}
 
-            <li className="m-cornerstone__item--start">
-                <div className="m-cornerstone__bubble c-font-icon--bookmark2" />
-            </li>
+            <ListItem className="m-cornerstone__item--start">
+                <View className="m-cornerstone__bubble c-font-icon--bookmark2" />
+            </ListItem>
 
             {children}
-        </HtmlElement>
+        </List>
     );
 };

@@ -3,7 +3,7 @@
 exports[`ModuleServiceItem should render correctly 1`] = `
 <DocumentFragment>
   <li
-    class="m-service__item--right"
+    class="c-list-item m-service__item--right"
     itemprop="itemListElement"
   >
     <div
@@ -36,10 +36,10 @@ exports[`ModuleServiceItem should render correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ModuleServiceItem should render isClear correctly 1`] = `
+exports[`ModuleServiceItem should render correctly with defaults 1`] = `
 <DocumentFragment>
   <li
-    class="m-service__item--right"
+    class="c-list-item m-service__item--left"
     itemprop="itemListElement"
   >
     <div
@@ -47,25 +47,16 @@ exports[`ModuleServiceItem should render isClear correctly 1`] = `
     >
       <div
         class="m-service__icon"
-      >
-        <i
-          aria-hidden="true"
-          class="c-font-icon--foo m-service__icon-font"
-        />
-      </div>
+      />
       <div
         class="m-service__description"
       >
         <h3
           class="is-centered c-type--h3 m-service__headline"
-        >
-          Headline service
-        </h3>
+        />
         <p
           class="c-type--p m-service__text"
-        >
-          Text service
-        </p>
+        />
       </div>
     </div>
   </li>

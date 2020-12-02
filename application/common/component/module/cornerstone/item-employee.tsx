@@ -13,7 +13,10 @@ import classnames from 'classnames';
 import shortid from 'shortid';
 
 import { Headline } from '../../element/headline';
+import { ListItem } from '../../element/list-item';
 import { P } from '../../element/paragraph';
+import { Time } from '../../element/time';
+import { View } from '../../element/view';
 import { isValidArray } from '../../../utils/array';
 
 type Props = {
@@ -44,8 +47,7 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
         lead,
         offset,
         timeEnd,
-        timeStart,
-        ...otherProps
+        timeStart
     } = props;
 
     const composedListItemClassName = classnames(
@@ -56,15 +58,13 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
     );
 
     return (
-        <li
+        <ListItem
             className={composedListItemClassName}
             itemProp="itemListElement"
-            itemScope
             itemType="https://schema.org/EmployeeRole"
-            {...otherProps}
         >
-            <div className="m-cornerstone__description">
-                <div className="m-cornerstone__description-content">
+            <View className="m-cornerstone__description">
+                <View className="m-cornerstone__description-content">
                     <Headline
                         className="m-cornerstone__headline"
                         itemProp="roleName"
@@ -76,11 +76,8 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                         <strong>{lead}</strong>
                     </P>
                     <P className="m-cornerstone__time" itemProp="description">
-                        (
-                        <time className="c-time" itemProp="startDate">
-                            {timeStart}
-                        </time>{' '}
-                        -<time className="c-time">{timeEnd}</time>)
+                        (<Time itemProp="startDate">{timeStart}</Time> -
+                        <Time itemProp="endDate">{timeEnd}</Time>)
                     </P>
                     {isValidArray(description) &&
                         description.map(function fnMap(value) {
@@ -99,9 +96,9 @@ export const ModuleCornerstoneItemEmployee: FunctionComponent<Props> = (
                                 />
                             );
                         })}
-                </div>
-            </div>
-            <div className="m-cornerstone__bubble" />
-        </li>
+                </View>
+            </View>
+            <View className="m-cornerstone__bubble" />
+        </ListItem>
     );
 };

@@ -9,6 +9,8 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
+import { View } from './view';
+
 type Props = {
     children?: ReactNode;
     className?: string;
@@ -39,8 +41,7 @@ export const Progress: FunctionComponent<Props> = (props) => {
         htmlElement: HtmlElement = 'progress',
         id = 'm-progress',
         max = '100',
-        value = '',
-        ...otherProps
+        value = ''
     } = props;
 
     const composedClassName = classnames('m-progress', className);
@@ -50,14 +51,10 @@ export const Progress: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        <HtmlElement
-            className={composedClassName}
-            {...{ id, max, value }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...otherProps}
-        >
-            <span
+        <HtmlElement className={composedClassName} {...{ id, max, value }}>
+            <View
                 className={composedFallbackClassName}
+                htmlElement="span"
                 id={`${id}__fallback`}
             />
         </HtmlElement>

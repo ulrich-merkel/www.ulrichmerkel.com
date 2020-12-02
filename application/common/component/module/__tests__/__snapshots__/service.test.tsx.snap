@@ -2,14 +2,14 @@
 
 exports[`ModuleService should render correctly 1`] = `
 <DocumentFragment>
-  <nav
-    class="m-service foo"
+  <ul
+    class="c-list m-service foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
-      class="m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -40,7 +40,7 @@ exports[`ModuleService should render correctly 1`] = `
       </div>
     </li>
     <li
-      class="m-service__item--right"
+      class="c-list-item m-service__item--right"
       itemprop="itemListElement"
     >
       <div
@@ -72,10 +72,11 @@ exports[`ModuleService should render correctly 1`] = `
     </li>
     <li
       aria-hidden="true"
-      class="m-service__item--clear"
+      class="c-list-item m-service__item--clear"
+      itemprop="itemListElement"
     />
     <li
-      class="m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -106,18 +107,18 @@ exports[`ModuleService should render correctly 1`] = `
       </div>
     </li>
     Module service children
-  </nav>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleService should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <nav
-    class="m-service foo"
+  <ul
+    class="c-list m-service foo"
     role="list"
   >
     <li
-      class="m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -148,7 +149,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
       </div>
     </li>
     <li
-      class="m-service__item--right"
+      class="c-list-item m-service__item--right"
       itemprop="itemListElement"
     >
       <div
@@ -180,10 +181,11 @@ exports[`ModuleService should render no itemType if unset 1`] = `
     </li>
     <li
       aria-hidden="true"
-      class="m-service__item--clear"
+      class="c-list-item m-service__item--clear"
+      itemprop="itemListElement"
     />
     <li
-      class="m-service__item--left"
+      class="c-list-item m-service__item--left"
       itemprop="itemListElement"
     >
       <div
@@ -214,7 +216,7 @@ exports[`ModuleService should render no itemType if unset 1`] = `
       </div>
     </li>
     Module service children
-  </nav>
+  </ul>
 </DocumentFragment>
 `;
 

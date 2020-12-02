@@ -31,13 +31,11 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const SectionContact: FunctionComponent<Props> = (props) => {
-    const { children, content, isMain, ...otherProps } = props;
+    const { children, content, isMain } = props;
 
     return (
         <SectionCommonGridSpaced>
-            <ModuleArticle {...{ content, isMain }} {...otherProps}>
-                {children}
-            </ModuleArticle>
+            <ModuleArticle {...{ content, isMain }}>{children}</ModuleArticle>
         </SectionCommonGridSpaced>
     );
 };

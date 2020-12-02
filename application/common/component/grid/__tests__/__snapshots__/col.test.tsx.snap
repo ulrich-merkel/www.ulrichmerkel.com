@@ -14,7 +14,6 @@ exports[`GridCol should render custom col width 1`] = `
 <DocumentFragment>
   <div
     class="l-grid__col--12"
-    col="4"
   >
     Grid Col Children
   </div>

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time should render correctly 1`] = `
+<DocumentFragment>
+  <time
+    class="c-time test"
+    itemprop="startDate"
+  >
+    Small Children
+  </time>
+</DocumentFragment>
+`;
+
+exports[`Time should render correctly with defaults 1`] = `
+<DocumentFragment>
+  <time
+    class="c-time"
+  >
+    Small Children
+  </time>
+</DocumentFragment>
+`;

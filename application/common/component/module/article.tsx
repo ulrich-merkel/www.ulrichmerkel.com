@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for an article module.
  *
  * @file
  * @module
@@ -11,10 +9,12 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
+import { Meta } from '../element/meta';
+import { View } from '../element/view';
+import { Article } from '../element/article';
 import { ModuleArticleHeadline } from './article/headline';
 import { ModuleArticleLead } from './article/lead';
 import { ModuleArticleButton } from './article/button';
-import { Meta } from '../element/meta';
 
 type Props = {
     children?: ReactNode;
@@ -37,7 +37,7 @@ type Props = {
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing an article module.
  *
  * @function
  * @param {object} [props] - The current component props
@@ -47,14 +47,11 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
     const {
         children,
         className,
-        htmlElement: HtmlElement = 'article',
         content,
         isDialog = false,
         isMain = false,
         isSpaced = false,
-        itemType = 'https://schema.org/Article',
-        noMargin = false,
-        ...otherProps
+        noMargin = false
     } = props;
 
     const componentClassName = classnames(
@@ -73,12 +70,7 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            itemScope
-            itemType={itemType}
-            {...otherProps}
-        >
+        <Article className={componentClassName}>
             <ModuleArticleHeadline
                 className={composedHeadlineClassName}
                 text={content?.headline}
@@ -88,9 +80,9 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
                 className="m-article__lead"
                 text={content?.lead}
             />
-            <div className="m-article__text" itemProp="text">
+            <View className="m-article__text" itemProp="text">
                 {children}
-            </div>
+            </View>
             <ModuleArticleButton
                 btnTo={content?.btnTo}
                 btnLabel={content?.btnLabel}
@@ -101,6 +93,6 @@ export const ModuleArticle: FunctionComponent<Props> = (props) => {
             <Meta itemProp="name" content={content?.headline} />
             <Meta itemProp="author" content={content?.author} />
             <Meta itemProp="datePublished" content={content?.datePublished} />
-        </HtmlElement>
+        </Article>
     );
 };

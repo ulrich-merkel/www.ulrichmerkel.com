@@ -1,14 +1,17 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a menu item.
  *
  * @file
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import {
+    default as React,
+    Fragment,
+    FunctionComponent,
+    ReactNode
+} from 'react';
 import classnames from 'classnames';
 
 import { A } from '../../element/a';
@@ -18,23 +21,21 @@ type Props = {
     children?: ReactNode;
     icon?: string;
     isLabelHidden?: boolean;
-    itemPropA?: string;
-    itemType?: string;
+    itemProp?: string;
     label?: string;
     path?: string;
     title?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a menu item.
  *
  * @function
  * @param {object} [props] - The current component props
  * @param {Array|string} [props.children] - The component dom node childs, usally an array of components, if there is only a single child it's a string
  * @param {string} [props.icon=''] - The icon type
  * @param {boolean} [props.isLabelHidden=false] - Whether the label is hidden or not
- * @param {string} [props.itemPropA='url'] - The link element itemProp attribute
- * @param {string} [props.itemType='http://www.schema.org/SiteNavigationElement'] - The schema.org itemtype url attribute
+ * @param {string} [props.itemProp='url'] - The link element itemProp attribute
  * @param {string} [props.label=''] - The items label content
  * @param {string} [props.path=''] - The react-router link
  * @param {string} [props.title=''] - The items title content
@@ -45,19 +46,16 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
         children,
         icon = '',
         isLabelHidden = false,
-        itemPropA = 'url',
-        itemType = 'http://www.schema.org/SiteNavigationElement',
+        itemProp = 'url',
         label = '',
         path = '',
-        title = '',
-        ...otherProps
+        title = ''
     } = props;
 
     if (!path) {
         return null;
     }
 
-    const componentListItemClassName = classnames('m-menu__list-item');
     const labelClassName = classnames(
         {
             'is-visually-hidden': isLabelHidden
@@ -66,20 +64,16 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
     );
 
     return (
-        <li
-            className={componentListItemClassName}
-            itemProp="itemListElement"
-            itemScope
-            itemType={itemType}
-            {...otherProps}
-        >
+        <Fragment>
             <A
-                itemProp={itemPropA}
                 to={path}
-                title={title}
                 className="m-menu__item"
                 role="menuitem"
                 exact
+                {...{
+                    itemProp,
+                    title
+                }}
             >
                 <Icon className="m-menu__icon" icon={icon} />
                 <span className={labelClassName} itemProp="name">
@@ -87,6 +81,6 @@ export const ModuleMenuItem: FunctionComponent<Props> = (props) => {
                 </span>
             </A>
             {children}
-        </li>
+        </Fragment>
     );
 };

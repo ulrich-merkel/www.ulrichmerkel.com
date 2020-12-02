@@ -28,12 +28,15 @@ import classnames from 'classnames';
 import { noop } from 'lodash';
 
 import { getTestIdAttributes } from '../utils/test-id';
+import { isValidString } from '../../utils/string';
 
 type Props = {
     children?: ReactNode;
     className?: string;
     classNameLabel?: string;
+    dataLocale?: string;
     htmlElement?: string;
+    id?: string;
     isClear?: boolean;
     isDisabled?: boolean;
     isLabelHidden?: boolean;
@@ -41,6 +44,7 @@ type Props = {
     isPrimary?: boolean;
     isSecondary?: boolean;
     isSmall?: boolean;
+    name?: string;
     onClick?: (
         event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>
     ) => void;
@@ -79,7 +83,9 @@ export const Button: FunctionComponent<Props> = (props) => {
         children,
         className,
         classNameLabel,
+        dataLocale,
         htmlElement = 'button',
+        id,
         isClear = false,
         isDisabled = false,
         isLabelHidden = false,
@@ -87,13 +93,13 @@ export const Button: FunctionComponent<Props> = (props) => {
         isPrimary = false,
         isSecondary = false,
         isSmall = false,
+        name,
         onClick = noop,
         role = 'button',
         testId,
         title = '',
         to,
-        type = 'button',
-        ...otherProps
+        type = 'button'
     } = props;
 
     const componentLabelClassName = classnames('c-btn__label', classNameLabel, {
@@ -110,18 +116,20 @@ export const Button: FunctionComponent<Props> = (props) => {
 
     const HtmlElement = to ? NavLink : htmlElement;
     const htmlElementType = !to ? type : null;
+    const dataAttributes = isValidString(dataLocale)
+        ? { 'data-locale': dataLocale }
+        : null;
     const disabledAttributes = isDisabled ? { disabled: 'disabled' } : null;
     const testIdAttributes = getTestIdAttributes(testId);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
         <HtmlElement
             className={componentClassName}
             type={htmlElementType}
-            {...{ onClick, role, title, to }}
+            {...{ id, name, onClick, role, title, to }}
+            {...dataAttributes}
             {...disabledAttributes}
             {...testIdAttributes}
-            {...otherProps}
         >
             <span className={componentLabelClassName}>{children}</span>
         </HtmlElement>

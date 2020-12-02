@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a featured module.
  *
  * @file
  * @module
@@ -12,12 +10,13 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
+import { isValidArray } from '../../utils/array';
+import { List } from '../element/list';
 import { ModuleFeaturedItem } from './featured/item';
 
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     content?: {
         list: {
             path: string;
@@ -27,51 +26,43 @@ type Props = {
         }[];
     };
     itemType?: string;
+    role?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a featured module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleFeatured: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ul',
-        itemType = 'https://schema.org/ItemList',
-        ...otherProps
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
-    if (!content || !content.list || !content.list.length) {
+    if (!isValidArray(content?.list)) {
         return null;
     }
 
     const componentClassName = classnames('m-featured', className);
-    const componentSchema = itemType ? { itemScope: true, itemType } : null;
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            role="list"
-            {...componentSchema}
-            {...otherProps}
-        >
-            {content.list.map((value) => {
+        <List className={componentClassName} {...{ itemType, role }}>
+            {content.list.map(function fnMap(value) {
+                const { headline, img, lead, path } = value;
+
                 return (
                     <ModuleFeaturedItem
                         key={shortid.generate()}
-                        path={value.path}
-                        headline={value.headline}
-                        lead={value.lead}
-                        img={value.img}
+                        {...{
+                            headline,
+                            img,
+                            lead,
+                            path
+                        }}
                     />
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };

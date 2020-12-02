@@ -28,10 +28,10 @@ type Props = {
  */
 export const Icon: FunctionComponent<Props> = (props) => {
     const {
+        children,
         className,
         htmlElement: HtmlElement = 'i',
-        icon = '',
-        ...otherProps
+        icon = ''
     } = props;
 
     if (!icon) {
@@ -41,11 +41,8 @@ export const Icon: FunctionComponent<Props> = (props) => {
     const componentClassName = classnames(`c-font-icon--${icon}`, className);
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <HtmlElement
-            className={componentClassName}
-            aria-hidden="true"
-            {...otherProps}
-        />
+        <HtmlElement className={componentClassName} aria-hidden="true">
+            {children}
+        </HtmlElement>
     );
 };

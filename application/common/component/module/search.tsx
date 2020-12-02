@@ -23,7 +23,11 @@ import { findMatches } from '../../utils/search';
 import { addContent } from '../decorator/add-content';
 import { A } from '../element/a';
 import { Headline } from '../element/headline';
+import { ListItem } from '../element/list-item';
+import { List } from '../element/list';
 import { Locale } from '../../state/intl/types';
+import { isValidArray } from '../../utils/array';
+import { getItemTypeAttributes } from '../utils/micro-data';
 
 type Props = {
     children?: ReactNode;
@@ -36,10 +40,10 @@ type Props = {
             percent: string | number;
         }[];
     };
-    handleChangeDialogVisibleSearch: () => void;
-    htmlElement?: keyof JSX.IntrinsicElements;
+    handleChangeDialogVisibleSearch?: () => void;
     intlLocale?: Locale;
     itemType?: string;
+    role?: string;
     searchTerm?: string;
 };
 
@@ -57,16 +61,17 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         config,
         content,
         handleChangeDialogVisibleSearch = noop,
-        htmlElement: HtmlElement = 'ul',
         intlLocale,
-        itemType = 'http://schema.org/ItemList',
+        itemType,
+        role,
         searchTerm
     } = props;
 
     const componentClassName = classnames('m-list--search', className);
     const contentSection = getContentSection(content);
     const matches = findMatches(searchTerm, intlLocale, config);
-    if (!matches || !matches.length) {
+
+    if (!isValidArray(matches)) {
         return (
             <Headline htmlElement="h3">
                 {contentSection('PageSearch.section1.noResults')}
@@ -75,26 +80,22 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
     }
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            itemScope
-            itemType={itemType}
-            role="list"
-        >
-            {matches.map((entry) => {
+        <List className={componentClassName} {...{ itemType, role }}>
+            {matches.map(function fnMap(entry) {
                 return (
-                    <li
-                        key={shortid.generate()}
+                    <ListItem
                         className="m-list__list-item"
                         itemProp="itemListElement"
+                        key={shortid.generate()}
                     >
                         <A
-                            to={entry.url}
-                            title={entry.title}
                             className="c-type--h4 m-list__item"
                             onClick={handleChangeDialogVisibleSearch}
-                            itemScope
-                            itemType="http://www.schema.org/SiteNavigationElement"
+                            title={entry.title}
+                            to={entry.url}
+                            {...getItemTypeAttributes(
+                                'http://www.schema.org/SiteNavigationElement'
+                            )}
                         >
                             <span className="m-menu__label">
                                 {`${get(
@@ -111,11 +112,11 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
                                 )}`}
                             </small>
                         </A>
-                    </li>
+                    </ListItem>
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };
 

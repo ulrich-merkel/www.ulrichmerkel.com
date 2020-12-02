@@ -4,7 +4,6 @@ import { ModuleFeatured } from '../featured';
 
 describe('ModuleFeatured', function fnDescribe() {
     const props = {
-        htmlElement: 'span',
         className: 'foo',
         content: {
             list: [

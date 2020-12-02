@@ -15,13 +15,14 @@ $block: '#{$config-ns}c-font-icon';
     /* stylelint-disable declaration-colon-newline-after */
     @font-face {
         font-family: 'fonticons';
+        font-display: swap;
+        font-style: normal;
+        font-weight: $config-font-weight-normal;
         src: url('#{$fonticons}.eot?41546266');
         src: url('#{$fonticons}.eot?41546266#iefix') format('embedded-opentype'),
             url('#{$fonticons}.woff?41546266') format('woff'),
             url('#{$fonticons}.ttf?41546266') format('truetype'),
             url('#{$fonticons}.svg?41546266#fonticons') format('svg');
-        font-style: normal;
-        font-weight: $config-font-weight-normal;
     }
     /* stylelint-enable declaration-colon-newline-after */
 
