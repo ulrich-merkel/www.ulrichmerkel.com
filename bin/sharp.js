@@ -267,7 +267,6 @@ function main(config) {
     }
 
     console.log(chalk.grey(`Start resizing for ${images.length} images`));
-    console.log({images})
     return void images.forEach(function handleForEachImages(image) {
         const { name } = image;
         const { path } = image;
