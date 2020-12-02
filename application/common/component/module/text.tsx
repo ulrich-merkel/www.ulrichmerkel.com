@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a text module.
  *
  * @file
  * @module
@@ -17,14 +15,13 @@ import { noop } from 'lodash';
 import { changeDialogVisibleBroadcast } from '../../state/dialog/duck';
 import { isBrowser } from '../../utils/environment';
 import { Event, eventPreventDefault } from '../../utils/event';
+import { isValidArray } from '../../utils/array';
+import { View } from '../element/view';
 import { ModuleTextHeadline } from './text/headline';
 import { ModuleTextContent } from './text/content';
 import { ModuleTextPerson } from './text/person';
 import { ModuleTextTime } from './text/time';
 import { ModuleTextLink } from './text/link';
-import { getItemTypeAttributes } from '../utils/micro-data';
-import { isValidArray } from '../../utils/array';
-import { View } from '../element/view';
 
 type Props = {
     children?: ReactNode;
@@ -48,23 +45,14 @@ type Props = {
     };
     handleChangeDialogVisible?: () => void;
     hasColumns2?: boolean;
-    htmlElement?: keyof JSX.IntrinsicElements;
     isCentered?: boolean;
     itemType?: string;
 };
 
 /**
- * Class representing a component.
+ * Class representing a a text module.
  *
  * @augments React.Component
- * @property {Function} [props.handleChangeDialogVisible=Function.prototype] - The redux action for handling the dialog
- * @property {string} [props.htmlElement='div'] - The component element type used for React.createElement
- * @property {string} [props.className] - The component css class names - will be merged into component default classNames
- * @property {boolean} [props.isCentered=false] - Whether the component text should be centered via css or not
- * @property {boolean} [props.hasColumns2=true] - Whether the component text should be clusted in columns via css or not
- * @property {string} [props.itemType=''] - The schema.org itemtype url attribute
- * @property {Array|string} [props.children] - The component dom node childs - usally an array of components, if there is only a single child it's a string
- * @property {object} [props.content={}] - The component translation config
  */
 export class ModuleText extends Component<Props> {
     /**
@@ -162,7 +150,6 @@ export class ModuleText extends Component<Props> {
         const {
             children,
             className,
-            htmlElement: HtmlElement = 'div',
             content,
             hasColumns2 = true,
             isCentered = false,
@@ -175,29 +162,35 @@ export class ModuleText extends Component<Props> {
 
         const componentClassName = classnames('m-text', className);
         const componentTextBlockClassName = classnames('m-text__block');
-        const itemTypeAttributes = getItemTypeAttributes(itemType);
 
         return (
-            <HtmlElement className={componentClassName} {...itemTypeAttributes}>
+            <View className={componentClassName} {...{ itemType }}>
                 {content.text.map((value) => {
+                    const {
+                        content: valueContent,
+                        headline,
+                        person,
+                        small
+                    } = value;
+
                     return (
                         <View
                             key={shortid.generate()}
                             className={componentTextBlockClassName}
                         >
-                            <ModuleTextHeadline text={value.headline} />
+                            <ModuleTextHeadline text={headline} />
                             <ModuleTextContent
-                                content={value.content}
+                                content={valueContent}
                                 isCentered={isCentered}
                                 hasColumns2={hasColumns2}
                             />
                             <ModuleTextPerson
-                                content={value.person}
+                                content={person}
                                 isCentered={isCentered}
                                 hasColumns2={hasColumns2}
                             />
                             <ModuleTextContent
-                                content={value.small}
+                                content={small}
                                 isCentered={isCentered}
                                 hasColumns2={hasColumns2}
                             />
@@ -207,7 +200,7 @@ export class ModuleText extends Component<Props> {
                 <ModuleTextTime content={content} />
                 <ModuleTextLink content={content} />
                 {children}
-            </HtmlElement>
+            </View>
         );
     }
 }

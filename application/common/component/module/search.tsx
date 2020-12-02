@@ -24,6 +24,7 @@ import { addContent } from '../decorator/add-content';
 import { A } from '../element/a';
 import { Headline } from '../element/headline';
 import { ListItem } from '../element/list-item';
+import { List } from '../element/list';
 import { Locale } from '../../state/intl/types';
 import { isValidArray } from '../../utils/array';
 import { getItemTypeAttributes } from '../utils/micro-data';
@@ -40,7 +41,6 @@ type Props = {
         }[];
     };
     handleChangeDialogVisibleSearch?: () => void;
-    htmlElement?: keyof JSX.IntrinsicElements;
     intlLocale?: Locale;
     itemType?: string;
     role?: string;
@@ -61,10 +61,9 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         config,
         content,
         handleChangeDialogVisibleSearch = noop,
-        htmlElement: HtmlElement = 'ul',
         intlLocale,
-        itemType = 'http://schema.org/ItemList',
-        role = 'list',
+        itemType,
+        role,
         searchTerm
     } = props;
 
@@ -80,14 +79,8 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
         );
     }
 
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
-
     return (
-        <HtmlElement
-            className={componentClassName}
-            {...itemTypeAttributes}
-            {...{ role }}
-        >
+        <List className={componentClassName} {...{ itemType, role }}>
             {matches.map(function fnMap(entry) {
                 return (
                     <ListItem
@@ -123,7 +116,7 @@ export const ModuleSearch: FunctionComponent<Props> = (props) => {
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };
 

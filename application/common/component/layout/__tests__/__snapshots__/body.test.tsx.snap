@@ -68,7 +68,7 @@ exports[`LayoutBody should render correctly 1`] = `
               type="checkbox"
             />
             <ul
-              class="m-menu m-menu--main m-nav__toggle-target"
+              class="c-list m-menu m-menu--main m-nav__toggle-target"
               itemscope=""
               itemtype="https://schema.org/ItemList"
               role="menu"
@@ -276,7 +276,7 @@ exports[`LayoutBody should render correctly 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--imprint"
+                class="c-list m-menu m-menu--imprint"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
@@ -357,7 +357,7 @@ exports[`LayoutBody should render correctly 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--social"
+                class="c-list m-menu m-menu--social"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
@@ -585,7 +585,7 @@ exports[`LayoutBody should render correctly the connected version 1`] = `
               type="checkbox"
             />
             <ul
-              class="m-menu m-menu--main m-nav__toggle-target"
+              class="c-list m-menu m-menu--main m-nav__toggle-target"
               itemscope=""
               itemtype="https://schema.org/ItemList"
               role="menu"
@@ -793,7 +793,7 @@ exports[`LayoutBody should render correctly the connected version 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--imprint"
+                class="c-list m-menu m-menu--imprint"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
@@ -874,7 +874,7 @@ exports[`LayoutBody should render correctly the connected version 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--social"
+                class="c-list m-menu m-menu--social"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
@@ -1102,7 +1102,7 @@ exports[`LayoutBody should render correctly with default props 1`] = `
               type="checkbox"
             />
             <ul
-              class="m-menu m-menu--main m-nav__toggle-target"
+              class="c-list m-menu m-menu--main m-nav__toggle-target"
               itemscope=""
               itemtype="https://schema.org/ItemList"
               role="menu"
@@ -1309,7 +1309,7 @@ exports[`LayoutBody should render correctly with default props 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--imprint"
+                class="c-list m-menu m-menu--imprint"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"
@@ -1390,7 +1390,7 @@ exports[`LayoutBody should render correctly with default props 1`] = `
               class="l-grid__col--12"
             >
               <ul
-                class="m-menu m-menu--social"
+                class="c-list m-menu m-menu--social"
                 itemscope=""
                 itemtype="https://schema.org/ItemList"
                 role="menu"

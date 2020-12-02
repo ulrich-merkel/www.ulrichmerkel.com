@@ -8,7 +8,6 @@ import { ModuleKeyVisual } from '../key-visual';
 
 describe('ModuleKeyVisual', function fnDescribe() {
     const props = {
-        htmlElement: 'nav',
         className: 'key-visual',
         content: {
             headline: 'headline',

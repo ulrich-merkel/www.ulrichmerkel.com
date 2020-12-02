@@ -4,7 +4,6 @@ import { ModuleService } from '../service';
 
 describe('ModuleService', function fnDescribe() {
     const props = {
-        htmlElement: 'nav',
         className: 'foo',
         content: {
             list: [

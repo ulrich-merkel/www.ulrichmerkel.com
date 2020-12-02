@@ -79,16 +79,27 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
                     value,
                     index
                 ) {
+                    const {
+                        description,
+                        headline,
+                        lead,
+                        offset,
+                        timeEnd,
+                        timeStart
+                    } = value;
+
                     return (
                         <ModuleCornerstoneItemEmployee
                             key={shortid.generate()}
-                            headline={value.headline}
-                            lead={value.lead}
-                            timeStart={value.timeStart}
-                            timeEnd={value.timeEnd}
-                            description={value.description}
-                            offset={value.offset}
                             cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                            {...{
+                                description,
+                                headline,
+                                lead,
+                                offset,
+                                timeEnd,
+                                timeStart
+                            }}
                         />
                     );
                 })}
@@ -101,17 +112,29 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
 
             {isValidArray(content.academicEducationList) &&
                 content.academicEducationList.map(function fnMap(value, index) {
+                    const {
+                        description,
+                        headline,
+                        lead,
+                        offset,
+                        place,
+                        timeEnd,
+                        timeStart
+                    } = value;
+
                     return (
                         <ModuleCornerstoneItemEducation
                             key={shortid.generate()}
-                            headline={value.headline}
-                            lead={value.lead}
-                            timeStart={value.timeStart}
-                            timeEnd={value.timeEnd}
-                            description={value.description}
-                            place={value.place}
-                            offset={value.offset}
                             cssModifier={index % 2 === 0 ? 'left' : 'right'}
+                            {...{
+                                description,
+                                headline,
+                                lead,
+                                offset,
+                                place,
+                                timeEnd,
+                                timeStart
+                            }}
                         />
                     );
                 })}

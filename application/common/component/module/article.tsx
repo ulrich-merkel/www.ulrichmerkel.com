@@ -9,13 +9,12 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
-import { ModuleArticleHeadline } from './article/headline';
-import { ModuleArticleLead } from './article/lead';
-import { ModuleArticleButton } from './article/button';
 import { Meta } from '../element/meta';
 import { View } from '../element/view';
 import { Article } from '../element/article';
-import { getItemTypeAttributes } from '../utils/micro-data';
+import { ModuleArticleHeadline } from './article/headline';
+import { ModuleArticleLead } from './article/lead';
+import { ModuleArticleButton } from './article/button';
 
 type Props = {
     children?: ReactNode;

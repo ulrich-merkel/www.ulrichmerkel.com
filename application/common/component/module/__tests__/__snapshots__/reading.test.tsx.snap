@@ -2,8 +2,8 @@
 
 exports[`ModuleReading should render correctly 1`] = `
 <DocumentFragment>
-  <ol
-    class="m-list--reading m-reading foo"
+  <ul
+    class="c-list m-list--reading m-reading foo"
     itemscope=""
     itemtype="https://schema.org/ItemList"
     role="list"
@@ -85,14 +85,14 @@ exports[`ModuleReading should render correctly 1`] = `
       </div>
     </li>
     Module reading children
-  </ol>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`ModuleReading should render no itemType if unset 1`] = `
 <DocumentFragment>
-  <ol
-    class="m-list--reading m-reading foo"
+  <ul
+    class="c-list m-list--reading m-reading foo"
     role="list"
   >
     <li
@@ -172,7 +172,7 @@ exports[`ModuleReading should render no itemType if unset 1`] = `
       </div>
     </li>
     Module reading children
-  </ol>
+  </ul>
 </DocumentFragment>
 `;
 

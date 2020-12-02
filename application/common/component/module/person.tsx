@@ -17,7 +17,6 @@ import { ModulePersonTelephone } from './person/telephone';
 import { ModulePersonWebsite } from './person/website';
 
 type Props = {
-    htmlElement?: keyof JSX.IntrinsicElements;
     className?: string;
     isCentered?: boolean;
     itemType?: string;

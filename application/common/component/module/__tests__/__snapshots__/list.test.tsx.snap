@@ -2,10 +2,10 @@
 
 exports[`ModuleList should render correctly 1`] = `
 <DocumentFragment>
-  <ol
-    class="m-list--broadcast module-list"
+  <ul
+    class="c-list m-list--broadcast module-list"
     itemscope=""
-    itemtype="http://schema.org/ItemList"
+    itemtype="https://schema.org/ItemList"
     role="list"
   >
     <li
@@ -82,6 +82,6 @@ exports[`ModuleList should render correctly 1`] = `
       </ul>
     </li>
     Module list children
-  </ol>
+  </ul>
 </DocumentFragment>
 `;

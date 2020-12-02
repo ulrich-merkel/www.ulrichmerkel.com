@@ -261,7 +261,7 @@ exports[`PageHome should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-service"
+                  class="c-list m-service"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"

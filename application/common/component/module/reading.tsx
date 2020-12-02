@@ -1,7 +1,5 @@
 /**
- * Es6 module for React Component.
- * Component module React classes combine elements to
- * bigger parts of the page.
+ * Es6 module for a reading module.
  *
  * @file
  * @module
@@ -12,9 +10,9 @@ import { default as React, FunctionComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import shortid from 'shortid';
 
-import { ModuleReadingItem } from './reading/item';
 import { isValidArray } from '../../utils/array';
-import { getItemTypeAttributes } from '../utils/micro-data';
+import { List } from '../element/list';
+import { ModuleReadingItem } from './reading/item';
 
 type Props = {
     children?: ReactNode;
@@ -27,27 +25,19 @@ type Props = {
             publisher: string;
         }[];
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
     role?: string;
 };
 
 /**
- * Function representing a component to return a single react child element.
+ * Function representing a reading module.
  *
  * @function
  * @param {object} [props] - The current component props
  * @returns {ReactElement} React component markup
  */
 export const ModuleReading: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        content,
-        htmlElement: HtmlElement = 'ul',
-        itemType = 'https://schema.org/ItemList',
-        role = 'list'
-    } = props;
+    const { children, className, content, itemType, role } = props;
 
     if (!isValidArray(content?.list)) {
         return null;
@@ -58,16 +48,12 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
         'm-reading',
         className
     );
-    const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
-            className={componentClassName}
-            {...itemTypeAttributes}
-            {...{ role }}
-        >
+        <List className={componentClassName} {...{ itemType, role }}>
             {content.list.map(function fnMap(value) {
                 const { creator, headline, lead, publisher } = value;
+
                 return (
                     <ModuleReadingItem
                         key={shortid.generate()}
@@ -81,6 +67,6 @@ export const ModuleReading: FunctionComponent<Props> = (props) => {
                 );
             })}
             {children}
-        </HtmlElement>
+        </List>
     );
 };

@@ -43,9 +43,9 @@ exports[`PageBroadcast should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-list--broadcast"
+                  class="c-list m-list--broadcast"
                   itemscope=""
-                  itemtype="http://schema.org/ItemList"
+                  itemtype="https://schema.org/ItemList"
                   role="list"
                 >
                   <li

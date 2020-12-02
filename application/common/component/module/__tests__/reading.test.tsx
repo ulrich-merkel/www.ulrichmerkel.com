@@ -4,7 +4,6 @@ import { ModuleReading } from '../reading';
 
 describe('ModuleReading', function fnDescribe() {
     const props = {
-        htmlElement: 'ol',
         className: 'foo',
         content: {
             list: [

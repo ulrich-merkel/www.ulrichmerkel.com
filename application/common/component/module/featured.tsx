@@ -48,13 +48,17 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
     return (
         <List className={componentClassName} {...{ itemType, role }}>
             {content.list.map(function fnMap(value) {
+                const { headline, img, lead, path } = value;
+
                 return (
                     <ModuleFeaturedItem
                         key={shortid.generate()}
-                        path={value.path}
-                        headline={value.headline}
-                        lead={value.lead}
-                        img={value.img}
+                        {...{
+                            headline,
+                            img,
+                            lead,
+                            path
+                        }}
                     />
                 );
             })}

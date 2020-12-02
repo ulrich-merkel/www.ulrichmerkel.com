@@ -11,7 +11,6 @@ describe('ModuleSearch', function fnDescribe() {
             list: []
         },
         className: 'module-list',
-        htmlElement: 'ol',
         searchTerm: 'summer',
         intlLocale: 'en-EN',
         itemType: 'itemType'

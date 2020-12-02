@@ -1011,7 +1011,7 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-service"
+                  class="c-list m-service"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
@@ -1322,7 +1322,7 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-language"
+                  class="c-list m-language"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
@@ -1521,7 +1521,7 @@ exports[`PagePersona should render correctly 1`] = `
                 itemprop="text"
               >
                 <ul
-                  class="m-list--reading m-reading"
+                  class="c-list m-list--reading m-reading"
                   itemscope=""
                   itemtype="https://schema.org/ItemList"
                   role="list"
