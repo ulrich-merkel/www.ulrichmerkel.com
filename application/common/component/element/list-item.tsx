@@ -17,7 +17,6 @@ type Props = {
     dangerouslySetInnerHTML?: {
         __html: string;
     };
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
     itemType?: string;
     role?: string;
@@ -36,7 +35,6 @@ export const ListItem: FunctionComponent<Props> = (props) => {
         children,
         className,
         dangerouslySetInnerHTML,
-        htmlElement: HtmlElement = 'li',
         itemProp = 'itemListElement',
         itemType,
         role
@@ -46,13 +44,13 @@ export const ListItem: FunctionComponent<Props> = (props) => {
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
+        <li
             aria-hidden={ariaHidden}
             className={composedClassName}
             {...{ dangerouslySetInnerHTML, itemProp, role }}
             {...itemTypeAttributes}
         >
             {children}
-        </HtmlElement>
+        </li>
     );
 };

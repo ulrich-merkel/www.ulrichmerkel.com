@@ -27,12 +27,9 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const GridRow: FunctionComponent<Props> = (props) => {
-    const { children, className, htmlElement = 'div' } = props;
+    const { children, className, htmlElement: HtmlElement = 'div' } = props;
 
-    const ComponentType = htmlElement;
     const componentClassName = classnames('l-grid__row', className);
 
-    return (
-        <ComponentType className={componentClassName}>{children}</ComponentType>
-    );
+    return <HtmlElement className={componentClassName}>{children}</HtmlElement>;
 };

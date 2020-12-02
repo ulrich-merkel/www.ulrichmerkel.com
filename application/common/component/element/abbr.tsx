@@ -12,7 +12,6 @@ import classnames from 'classnames';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemProp?: string;
     title?: string;
 };
@@ -25,19 +24,13 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Abbr: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        htmlElement: HtmlElement = 'abbr',
-        itemProp,
-        title
-    } = props;
+    const { children, className, itemProp, title } = props;
 
     const composedClassName = classnames('c-type--abbr', className);
 
     return (
-        <HtmlElement className={composedClassName} {...{ itemProp, title }}>
+        <abbr className={composedClassName} {...{ itemProp, title }}>
             {children}
-        </HtmlElement>
+        </abbr>
     );
 };

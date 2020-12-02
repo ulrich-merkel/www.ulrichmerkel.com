@@ -2,14 +2,14 @@
 
 exports[`Article should render correctly 1`] = `
 <DocumentFragment>
-  <div
+  <article
     class="c-type--article test"
     itemprop="itemProp"
     itemscope=""
     itemtype="itemType"
   >
     Small Children
-  </div>
+  </article>
 </DocumentFragment>
 `;
 

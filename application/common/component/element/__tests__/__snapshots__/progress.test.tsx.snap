@@ -8,7 +8,7 @@ exports[`Progress should render correctly 1`] = `
     max="80"
     value="20"
   >
-    <span
+    <div
       class="m-progress__fallback"
       id="m-progress__fallback"
     />

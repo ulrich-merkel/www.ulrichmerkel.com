@@ -54,7 +54,6 @@ export const Progress: FunctionComponent<Props> = (props) => {
         <HtmlElement className={composedClassName} {...{ id, max, value }}>
             <View
                 className={composedFallbackClassName}
-                htmlElement="span"
                 id={`${id}__fallback`}
             />
         </HtmlElement>
