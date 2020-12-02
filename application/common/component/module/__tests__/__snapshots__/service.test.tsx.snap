@@ -221,3 +221,31 @@ exports[`ModuleService should render no itemType if unset 1`] = `
 `;
 
 exports[`ModuleService should return null if no content is given 1`] = `<DocumentFragment />`;
+
+exports[`insertClearedListItems should return the correct result 1`] = `Array []`;
+
+exports[`insertClearedListItems should return the correct result 2`] = `
+Array [
+  Object {
+    "headline": "headline",
+    "icon": "icon",
+    "iconClassName": "iconClassName",
+    "text": "text",
+  },
+  Object {
+    "headline": "headline",
+    "icon": "icon",
+    "iconClassName": "iconClassName",
+    "text": "text",
+  },
+  Object {
+    "isClear": true,
+  },
+  Object {
+    "headline": "headline",
+    "icon": "icon",
+    "iconClassName": "iconClassName",
+    "text": "text",
+  },
+]
+`;

@@ -179,85 +179,14 @@ exports[`ModuleCornerstone should render correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ModuleCornerstone should render no itemType if unset 1`] = `
+exports[`ModuleCornerstone should render correctly for education only 1`] = `
 <DocumentFragment>
   <ul
     class="c-list m-cornerstone cornerstone"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
     role="list"
   >
-    <li
-      class="c-list-item m-cornerstone__item--center"
-      itemprop="itemListElement"
-    >
-      <h3
-        class="is-centered c-type--h3 m-cornerstone__headline"
-      >
-        professionalExperience
-      </h3>
-    </li>
-    <li
-      class="c-list-item m-cornerstone__item--left"
-      itemprop="itemListElement"
-      itemscope=""
-      itemtype="https://schema.org/EmployeeRole"
-    >
-      <div
-        class="m-cornerstone__description"
-      >
-        <div
-          class="m-cornerstone__description-content"
-        >
-          <h4
-            class="is-centered c-type--h4 m-cornerstone__headline"
-            itemprop="roleName"
-          >
-            headline
-          </h4>
-          <p
-            class="c-type--p m-cornerstone__company"
-          >
-            <strong>
-              lead
-            </strong>
-          </p>
-          <p
-            class="c-type--p m-cornerstone__time"
-            itemprop="description"
-          >
-            (
-            <time
-              class="c-time"
-              itemprop="startDate"
-            >
-              20161212
-            </time>
-             -
-            <time
-              class="c-time"
-              itemprop="endDate"
-            >
-              20161224
-            </time>
-            )
-          </p>
-          <p
-            class="c-type--p m-cornerstone__text"
-            itemprop="description"
-          >
-            description1
-          </p>
-          <p
-            class="c-type--p m-cornerstone__text"
-            itemprop="description"
-          >
-            description2
-          </p>
-        </div>
-      </div>
-      <div
-        class="m-cornerstone__bubble"
-      />
-    </li>
     <li
       class="c-list-item m-cornerstone__item--center"
       itemprop="itemListElement"
@@ -342,6 +271,100 @@ exports[`ModuleCornerstone should render no itemType if unset 1`] = `
           itemtype="https://schema.org/PostalAddress"
         />
       </div>
+    </li>
+    <li
+      class="c-list-item m-cornerstone__item--start"
+      itemprop="itemListElement"
+    >
+      <div
+        class="m-cornerstone__bubble c-font-icon--bookmark2"
+      />
+    </li>
+    Module cornerstone children
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`ModuleCornerstone should render correctly for employee only 1`] = `
+<DocumentFragment>
+  <ul
+    class="c-list m-cornerstone cornerstone"
+    itemscope=""
+    itemtype="https://schema.org/ItemList"
+    role="list"
+  >
+    <li
+      class="c-list-item m-cornerstone__item--center"
+      itemprop="itemListElement"
+    >
+      <h3
+        class="is-centered c-type--h3 m-cornerstone__headline"
+      >
+        professionalExperience
+      </h3>
+    </li>
+    <li
+      class="c-list-item m-cornerstone__item--left"
+      itemprop="itemListElement"
+      itemscope=""
+      itemtype="https://schema.org/EmployeeRole"
+    >
+      <div
+        class="m-cornerstone__description"
+      >
+        <div
+          class="m-cornerstone__description-content"
+        >
+          <h4
+            class="is-centered c-type--h4 m-cornerstone__headline"
+            itemprop="roleName"
+          >
+            headline
+          </h4>
+          <p
+            class="c-type--p m-cornerstone__company"
+          >
+            <strong>
+              lead
+            </strong>
+          </p>
+          <p
+            class="c-type--p m-cornerstone__time"
+            itemprop="description"
+          >
+            (
+            <time
+              class="c-time"
+              itemprop="startDate"
+            >
+              20161212
+            </time>
+             -
+            <time
+              class="c-time"
+              itemprop="endDate"
+            >
+              20161224
+            </time>
+            )
+          </p>
+          <p
+            class="c-type--p m-cornerstone__text"
+            itemprop="description"
+          >
+            description1
+          </p>
+          <p
+            class="c-type--p m-cornerstone__text"
+            itemprop="description"
+          >
+            description2
+          </p>
+        </div>
+      </div>
+      <div
+        class="m-cornerstone__bubble"
+      />
     </li>
     <li
       class="c-list-item m-cornerstone__item--start"

@@ -46,6 +46,7 @@
         "*/**/__mocks__/",
         "*/**/__tests__/",
         "application/common/vendor/",
+        "bin/",
         "build/",
         "config/",
         "doc/",
