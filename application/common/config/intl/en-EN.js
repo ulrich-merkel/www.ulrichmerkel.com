@@ -398,6 +398,16 @@ export const configIntlEnEn = {
         "We can't find the page you are looking for",
 
     // Page
+    'intl-work-like-architecture-head-title': 'Like Architecture Website',
+    'intl-work-like-architecture-headline': 'Like Architecture',
+    'intl-work-like-architecture-subline': 'Webdevelopment & Design',
+    'intl-work-like-architecture-lead': 'Some coding and design',
+    'intl-work-like-architecture-description':
+        'Image heavy and clean website for a german based architecture und design studio, with focus on performance and microdata for good search rankings.',
+    'intl-work-like-architecture-alt': 'Like Architecture website',
+    'intl-work-like-architecture-link-title': 'Show Like Architecture website',
+
+    // Page
     'intl-work-optik-ludewig-head-title': 'Optik Ludewig Website',
     'intl-work-optik-ludewig-headline': 'Optik Ludewig',
     'intl-work-optik-ludewig-subline': 'Webdevelopment & Design',

@@ -76,6 +76,12 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
                 sizes: pictureSizesKeyvisual
             },
             {
+                name: 'featured--like-architecture',
+                ext: 'jpg',
+                path: 'content/home/',
+                sizes: pictureSizesFeatured
+            },
+            {
                 name: 'featured--gedanken-kollektiv',
                 ext: 'jpg',
                 path: 'content/home/',
@@ -116,6 +122,12 @@ function getConfig(sizesConfig, srcFolder, destFolder, imageFolder) {
                 ext: 'jpg',
                 path: 'content/home/',
                 sizes: pictureSizesFeatured
+            },
+            {
+                name: 'like-architecture--keyvisual',
+                ext: 'png',
+                path: 'content/work/like-architecture/',
+                sizes: pictureSizesKeyvisualWork
             },
             {
                 name: 'optik-ludewig--keyvisual',
@@ -255,6 +267,7 @@ function main(config) {
     }
 
     console.log(chalk.grey(`Start resizing for ${images.length} images`));
+    console.log({images})
     return void images.forEach(function handleForEachImages(image) {
         const { name } = image;
         const { path } = image;
