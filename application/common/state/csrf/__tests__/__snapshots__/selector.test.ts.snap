@@ -3,7 +3,7 @@
 exports[`selectStateCsrf should return the correct state 1`] = `
 Object {
   "meta": Object {
-    "isInitial": false,
+    "isInitial": true,
   },
   "payload": Object {
     "token": "da39a3ee5e6b4b0d3255bfef95601890afd80709",

@@ -12,7 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import { initialState, SEARCH_RESOURCE_NAME } from './duck';
 import { SearchStateType } from './types';
 

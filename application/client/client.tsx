@@ -30,7 +30,8 @@ import 'picturefill';
 
 import { Root } from '../common/component/root';
 import { Routes } from '../common/component/routes';
-import { configureStore, RootState } from '../common/state/configure-store';
+import { configureStore } from '../common/state/configure-store';
+import { RootState } from '../common/state/root-reducer';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
 import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../common/state/color-scheme/constants';

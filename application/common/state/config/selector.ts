@@ -11,8 +11,8 @@
 import { createSelector } from 'reselect';
 import { isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { CONFIG_RESOURCE_NAME, initialState } from './duck';
+import { RootState } from '../root-reducer';
+import { CONFIG_RESOURCE_NAME, INITIAL_STATE } from './constants';
 
 /**
  * Select config state from redux store.
@@ -24,6 +24,6 @@ import { CONFIG_RESOURCE_NAME, initialState } from './duck';
 export const selectStateConfig = createSelector(
     [(state: RootState) => state?.[CONFIG_RESOURCE_NAME]],
     function resultFunc(config) {
-        return isEmpty(config) ? initialState : config;
+        return isEmpty(config) ? INITIAL_STATE : config;
     }
 );

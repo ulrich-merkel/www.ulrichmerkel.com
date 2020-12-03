@@ -14,7 +14,7 @@ import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
 import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import {
     AVAILABLE_COLOR_SCHEMES,
     COLOR_SCHEME_RESOURCE_NAME,

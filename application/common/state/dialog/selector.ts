@@ -11,7 +11,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import { initialState, DIALOG_RESOURCE_NAME } from './duck';
 import { DialogStateType } from './types';
 

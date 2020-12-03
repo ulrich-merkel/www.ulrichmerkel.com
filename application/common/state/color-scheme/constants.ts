@@ -6,7 +6,6 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { ColorSchemeStateType } from './types';
 
 /**
  * @type {string}
@@ -36,7 +35,7 @@ export const PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE = `${COLOR_SCHEME_RESOURCE_NAME}
 /**
  * @type {object}
  */
-export const INITIAL_STATE: ColorSchemeStateType = {
+export const INITIAL_STATE = {
     meta: {
         isInitial: true
     },

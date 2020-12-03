@@ -12,7 +12,7 @@ import { configApplication } from '../config/application';
 import { decrypt, encrypt } from '../utils/xor';
 import { logger } from '../utils/logger';
 import { WebStorage } from '../utils/web-storage';
-import { RootState } from './configure-store';
+import { RootState } from './root-reducer';
 
 const webStorage = new WebStorage();
 const xorUse = configApplication.xor.use;

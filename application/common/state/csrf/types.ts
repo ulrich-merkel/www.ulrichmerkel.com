@@ -1,4 +1,4 @@
-import { CHANGE_CSRF_TOKEN } from './duck';
+import { CHANGE_CSRF_TOKEN } from './constants';
 
 export interface ChangeSearchTermActionType {
     type: typeof CHANGE_CSRF_TOKEN;

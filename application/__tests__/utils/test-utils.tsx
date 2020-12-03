@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import snapshotDiff from 'snapshot-diff';
 
 import { getMockedStore } from './get-mocked-store';
-import { RootState } from '../../common/state/configure-store';
+import { RootState } from '../../common/state/root-reducer';
 
 /**
  * A custom wrapper where all additional providers can be defined (Redux, Theme, ....).

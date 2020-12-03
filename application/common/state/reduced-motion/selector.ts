@@ -11,7 +11,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import {
     AVAILABLE_MOTION_PREFERENCES,
     INITIAL_STATE,

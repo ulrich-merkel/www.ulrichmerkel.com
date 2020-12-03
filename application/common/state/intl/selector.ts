@@ -12,7 +12,7 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import { initialState, INTL_RESOURCE_NAME } from './duck';
 import { IntlStateType, Locale, Locales } from './types';
 
