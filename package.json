@@ -88,7 +88,7 @@
     "static:images": "node $npm_package_directories_bin/sharp -d $npm_package_directories_build_root",
     "static": "npm run static:copy && npm run static:images",
     "test:audit": "npm i --package-lock-only && npm audit --audit-level=high; exit 0;",
-    "test:circular": "madge --extensions js,jsx,ts,tsx --circular $npm_package_directories_source_application",
+    "test:circular": "madge --extensions js,jsx,ts,tsx --circular $npm_package_directories_source_application; exit 0;",
     "test:css:fix": "npm run test:css -- --fix",
     "test:css": "stylelint --config $npm_package_directories_config/stylelint.config.js --syntax scss \"**/*.scss\"",
     "test:dependencies": "if which yarn ; then yarn list ; else npm list ; fi; exit 0;",
