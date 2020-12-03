@@ -11,39 +11,17 @@
  */
 import { isBoolean } from 'lodash';
 import {
+    INITIAL_STATE,
+    SCROLL_RESOURCE_NAME,
+    SCROLL_HEADER_FIXED,
+    SCROLL_HEADER_VISIBLE
+} from './constants';
+import {
     ScrollStateType,
     ScrollActionTypes,
     HeaderFixedActionType,
     HeaderVisibleActionType
 } from './types';
-
-/**
- * @type {string}
- */
-export const SCROLL_RESOURCE_NAME = 'scroll';
-
-/**
- * @type {string}
- */
-export const SCROLL_HEADER_FIXED = `${SCROLL_RESOURCE_NAME}/SCROLL_HEADER_FIXED`;
-
-/**
- * @type {string}
- */
-export const SCROLL_HEADER_VISIBLE = `${SCROLL_RESOURCE_NAME}/SCROLL_HEADER_VISIBLE`;
-
-/**
- * @type {object}
- */
-export const initialState: ScrollStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        isHeaderFixed: true,
-        isHeaderVisible: true
-    }
-};
 
 /**
  * Handle header fixed state change.
@@ -79,19 +57,19 @@ export function changeScrollHeaderVisible(
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: ScrollStateType = initialState,
+    state: ScrollStateType = INITIAL_STATE,
     action: ScrollActionTypes
 ): ScrollStateType {
     switch (action.type) {
         case SCROLL_HEADER_FIXED: {
             const isHeaderFixed = isBoolean(action.isHeaderFixed)
                 ? !!action.isHeaderFixed
-                : initialState.payload.isHeaderFixed;
+                : INITIAL_STATE.payload.isHeaderFixed;
             return {
                 meta: {
                     ...state.meta,
@@ -106,7 +84,7 @@ export function reducer(
         case SCROLL_HEADER_VISIBLE: {
             const isHeaderVisible = isBoolean(action.isHeaderVisible)
                 ? !!action.isHeaderVisible
-                : initialState.payload.isHeaderVisible;
+                : INITIAL_STATE.payload.isHeaderVisible;
             return {
                 meta: {
                     ...state.meta,

@@ -20,8 +20,8 @@ import { DIALOG_RESOURCE_NAME } from '../../common/state/dialog/constants';
 import { INTL_RESOURCE_NAME } from '../../common/state/intl/constants';
 import { PAGE_RESOURCE_NAME } from '../../common/state/page/constants';
 import { REDUCED_MOTION_RESOURCE_NAME } from '../../common/state/reduced-motion/constants';
-import { SCROLL_RESOURCE_NAME } from '../../common/state/scroll/duck';
-import { SEARCH_RESOURCE_NAME } from '../../common/state/search/duck';
+import { SCROLL_RESOURCE_NAME } from '../../common/state/scroll/constants';
+import { SEARCH_RESOURCE_NAME } from '../../common/state/search/constants';
 
 import { RootState } from '../../common/state/root-reducer';
 

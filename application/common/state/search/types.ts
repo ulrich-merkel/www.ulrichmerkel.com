@@ -1,4 +1,4 @@
-import { SEARCH_CHANGE_TERM } from './duck';
+import { SEARCH_CHANGE_TERM } from './constants';
 
 export interface ChangeSearchTermActionType {
     type: typeof SEARCH_CHANGE_TERM;

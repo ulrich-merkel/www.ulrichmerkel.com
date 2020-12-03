@@ -6,7 +6,6 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { ReducedMotionStateType } from './types';
 
 /**
  * @type {string}
@@ -36,7 +35,7 @@ export const PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE = `${REDUCED_MOTION_RESOURCE_N
 /**
  * @type {object}
  */
-export const INITIAL_STATE: ReducedMotionStateType = {
+export const INITIAL_STATE = {
     meta: {
         isInitial: true
     },

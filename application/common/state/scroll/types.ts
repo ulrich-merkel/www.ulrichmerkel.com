@@ -1,4 +1,4 @@
-import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './duck';
+import { SCROLL_HEADER_FIXED, SCROLL_HEADER_VISIBLE } from './constants';
 
 export interface HeaderFixedActionType {
     type: typeof SCROLL_HEADER_FIXED;

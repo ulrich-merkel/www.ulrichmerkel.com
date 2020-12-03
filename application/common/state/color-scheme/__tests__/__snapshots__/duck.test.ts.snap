@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducer should react to an action with the type colorScheme/COLOR_SCHEME_TOGGLE_SELECTED 1`] = `
+exports[`reducer should return the current state if payload is empty 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,
@@ -11,13 +11,35 @@ Object {
 }
 `;
 
-exports[`reducer should return the current state if payload is empty 1`] = `
+exports[`reducer should should toggle with system settings 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,
   },
   "payload": Object {
     "selected": "dark",
+  },
+}
+`;
+
+exports[`reducer should toggle to dark 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "selected": "dark",
+  },
+}
+`;
+
+exports[`reducer should toggle to light 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "selected": "light",
   },
 }
 `;
