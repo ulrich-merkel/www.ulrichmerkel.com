@@ -10,10 +10,10 @@ import { default as React, Component, Fragment, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
-import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../../state/color-scheme/duck';
+import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../../state/color-scheme/constants';
 import { selectStateColorSchemeSelected } from '../../state/color-scheme/selector';
 import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
-import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../../state/reduced-motion/duck';
+import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../../state/reduced-motion/constants';
 import { AvailableColorSchemesType } from '../../state/color-scheme/types';
 import { AvailableReducedMotionsType } from '../../state/reduced-motion/types';
 

@@ -11,48 +11,17 @@
  */
 import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 import {
+    AVAILABLE_MOTION_PREFERENCES,
+    INITIAL_STATE,
+    REDUCED_MOTION_RESOURCE_NAME,
+    REDUCED_MOTION_TOGGLE_SELECTED
+} from './constants';
+import {
     ChangeReducedMotionSelectedActionType,
     ReducedMotionActionTypes,
     ReducedMotionStateType,
     AvailableReducedMotionsType
 } from './types';
-
-/**
- * @type {string}
- */
-export const REDUCED_MOTION_RESOURCE_NAME = 'reducedMotion';
-
-/**
- * @type {string}
- */
-export const REDUCED_MOTION_TOGGLE_SELECTED = `${REDUCED_MOTION_RESOURCE_NAME}/REDUCED_MOTION_TOGGLE_SELECTED`;
-
-/**
- * @type {enum}
- */
-export const AVAILABLE_MOTION_PREFERENCES = {
-    NO_PREFERENCE: 'no-preference',
-    REDUCE: 'reduce'
-};
-
-/**
- * Define pubsub message name for theme change.
- *
- * @type {string}
- */
-export const PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE = `${REDUCED_MOTION_RESOURCE_NAME}/REDUCED_MOTION_CHANGE_MESSAGE`;
-
-/**
- * @type {object}
- */
-export const initialState: ReducedMotionStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        selected: undefined
-    }
-};
 
 /**
  * Handle theme switch state change.
@@ -83,12 +52,12 @@ export function toggleSelected(
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: ReducedMotionStateType = initialState,
+    state: ReducedMotionStateType = INITIAL_STATE,
     action: ReducedMotionActionTypes
 ): ReducedMotionStateType {
     switch (action.type) {
@@ -98,7 +67,7 @@ export function reducer(
                 ? AVAILABLE_MOTION_PREFERENCES.REDUCE
                 : AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE;
             const selected =
-                currentSelected === initialState.payload.selected
+                currentSelected === INITIAL_STATE.payload.selected
                     ? toggleSelected(systemSetting)
                     : toggleSelected(currentSelected);
 

@@ -1,4 +1,4 @@
-import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/duck';
+import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/constants';
 import { AvailableColorSchemesType } from '../../common/state/color-scheme/types';
 import { matchMedia } from '../utils/match-media';
 

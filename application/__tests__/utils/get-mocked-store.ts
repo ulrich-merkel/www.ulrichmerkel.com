@@ -12,14 +12,14 @@ import { reducedMotionStateData } from '../data/reduced-motion-state-data';
 import { scrollStateData } from '../data/scroll-state-data';
 import { searchStateData } from '../data/search-state-data';
 
-import { COLOR_SCHEME_RESOURCE_NAME } from '../../common/state/color-scheme/duck';
+import { COLOR_SCHEME_RESOURCE_NAME } from '../../common/state/color-scheme/constants';
 import { CONFIG_RESOURCE_NAME } from '../../common/state/config/duck';
 import { CONTACT_RESOURCE_NAME } from '../../common/state/contact/duck';
 import { CSRF_RESOURCE_NAME } from '../../common/state/csrf/duck';
 import { DIALOG_RESOURCE_NAME } from '../../common/state/dialog/duck';
 import { INTL_RESOURCE_NAME } from '../../common/state/intl/duck';
 import { PAGE_RESOURCE_NAME } from '../../common/state/page/duck';
-import { REDUCED_MOTION_RESOURCE_NAME } from '../../common/state/reduced-motion/duck';
+import { REDUCED_MOTION_RESOURCE_NAME } from '../../common/state/reduced-motion/constants';
 import { SCROLL_RESOURCE_NAME } from '../../common/state/scroll/duck';
 import { SEARCH_RESOURCE_NAME } from '../../common/state/search/duck';
 

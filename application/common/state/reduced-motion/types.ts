@@ -1,7 +1,7 @@
 import {
     REDUCED_MOTION_TOGGLE_SELECTED,
     AVAILABLE_MOTION_PREFERENCES
-} from './duck';
+} from './constants';
 
 export interface ChangeReducedMotionSelectedActionType {
     type: typeof REDUCED_MOTION_TOGGLE_SELECTED;

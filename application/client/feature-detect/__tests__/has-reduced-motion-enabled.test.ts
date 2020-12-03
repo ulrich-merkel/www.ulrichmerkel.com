@@ -1,5 +1,5 @@
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { AVAILABLE_MOTION_PREFERENCES } from '../../../common/state/reduced-motion/duck';
+import { AVAILABLE_MOTION_PREFERENCES } from '../../../common/state/reduced-motion/constants';
 import {
     hasReducedMotionEnabled,
     getSelectedPrefersReducedMotion
@@ -42,12 +42,12 @@ describe('hasReducedMotionEnabled', function fnDescribe() {
         matchMediaMock.clear();
     });
 
-    it(`should return the correct browser settings for ${REDUCE} mode`, function fnIt() {
-        const mediaQuery = `(prefers-reduced-motion: ${REDUCE})`;
+    it(`should return the correct browser settings for ${NO_PREFERENCE} mode`, function fnIt() {
+        const mediaQuery = `(prefers-reduced-motion: ${NO_PREFERENCE})`;
         matchMediaMock.useMediaQuery(mediaQuery);
         expect(hasReducedMotionEnabled()).toBeFalsy();
     });
-    it(`should return the correct browser settings for ${NO_PREFERENCE} mode`, function fnIt() {
+    it(`should return the correct browser settings for ${REDUCE} mode`, function fnIt() {
         const mediaQuery = `(prefers-reduced-motion: ${REDUCE})`;
         matchMediaMock.useMediaQuery(mediaQuery);
         expect(hasReducedMotionEnabled()).toBeTruthy();

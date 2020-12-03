@@ -16,10 +16,10 @@ import { get, isEmpty } from 'lodash';
 import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
 import { RootState } from '../configure-store';
 import {
-    initialState,
+    AVAILABLE_COLOR_SCHEMES,
     COLOR_SCHEME_RESOURCE_NAME,
-    AVAILABLE_COLOR_SCHEMES
-} from './duck';
+    INITIAL_STATE
+} from './constants';
 import { AvailableColorSchemesType, ColorSchemeStateType } from './types';
 
 /**
@@ -34,7 +34,7 @@ export const selectStateColorScheme = createSelector(
     function resultFunc(
         colorScheme: ColorSchemeStateType
     ): ColorSchemeStateType {
-        return isEmpty(colorScheme) ? initialState : colorScheme;
+        return isEmpty(colorScheme) ? INITIAL_STATE : colorScheme;
     }
 );
 
@@ -53,7 +53,7 @@ export const selectStateColorSchemeSelected = createSelector(
         return get(
             colorScheme,
             'payload.selected',
-            initialState.payload.selected
+            INITIAL_STATE.payload.selected
         );
     }
 );
@@ -70,7 +70,7 @@ export const selectStateColorSchemeSelectedDarkMode = createSelector(
     function resultFunc(
         colorSchemeSelected: AvailableColorSchemesType
     ): boolean {
-        if (colorSchemeSelected === initialState.payload.selected) {
+        if (colorSchemeSelected === INITIAL_STATE.payload.selected) {
             return hasDarkModeEnabled();
         }
 

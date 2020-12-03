@@ -1,4 +1,7 @@
-import { COLOR_SCHEME_TOGGLE_SELECTED, AVAILABLE_COLOR_SCHEMES } from './duck';
+import {
+    COLOR_SCHEME_TOGGLE_SELECTED,
+    AVAILABLE_COLOR_SCHEMES
+} from './constants';
 
 export interface ChangeThemeSelectedActionType {
     type: typeof COLOR_SCHEME_TOGGLE_SELECTED;

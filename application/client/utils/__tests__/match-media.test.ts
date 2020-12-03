@@ -1,5 +1,5 @@
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { AVAILABLE_COLOR_SCHEMES } from '../../../common/state/color-scheme/duck';
+import { AVAILABLE_COLOR_SCHEMES } from '../../../common/state/color-scheme/constants';
 import { matchMedia } from '../match-media';
 
 describe('matchMedia', function fnDescribe() {

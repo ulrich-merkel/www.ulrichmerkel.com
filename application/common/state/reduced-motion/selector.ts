@@ -13,10 +13,10 @@ import { get, isEmpty } from 'lodash';
 
 import { RootState } from '../configure-store';
 import {
-    initialState,
-    REDUCED_MOTION_RESOURCE_NAME,
-    AVAILABLE_MOTION_PREFERENCES
-} from './duck';
+    AVAILABLE_MOTION_PREFERENCES,
+    INITIAL_STATE,
+    REDUCED_MOTION_RESOURCE_NAME
+} from './constants';
 import { AvailableReducedMotionsType, ReducedMotionStateType } from './types';
 import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 
@@ -32,7 +32,7 @@ export const selectStateReducedMotion = createSelector(
     function resultFunc(
         reducedMotion: ReducedMotionStateType
     ): ReducedMotionStateType {
-        return isEmpty(reducedMotion) ? initialState : reducedMotion;
+        return isEmpty(reducedMotion) ? INITIAL_STATE : reducedMotion;
     }
 );
 
@@ -51,7 +51,7 @@ export const selectStateReducedMotionSelected = createSelector(
         return get(
             reducedMotion,
             'payload.selected',
-            initialState.payload.selected
+            INITIAL_STATE.payload.selected
         );
     }
 );
@@ -68,7 +68,7 @@ export const selectStateReducedMotionSelectedReduce = createSelector(
     function resultFunc(
         reducedMotionSelected: AvailableReducedMotionsType
     ): boolean {
-        if (reducedMotionSelected === initialState.payload.selected) {
+        if (reducedMotionSelected === INITIAL_STATE.payload.selected) {
             return hasReducedMotionEnabled();
         }
         return reducedMotionSelected === AVAILABLE_MOTION_PREFERENCES.REDUCE;

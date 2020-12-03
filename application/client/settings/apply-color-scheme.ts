@@ -6,7 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/duck';
+import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/constants';
 import { AvailableColorSchemesType } from '../../common/state/color-scheme/types';
 import { isBrowser } from '../../common/utils/environment';
 import { setDomNodeClassName } from '../utils/dom';

@@ -1,10 +1,8 @@
-import { AVAILABLE_MOTION_PREFERENCES } from '../../common/state/reduced-motion/duck';
+import { AVAILABLE_MOTION_PREFERENCES } from '../../common/state/reduced-motion/constants';
 import { AvailableReducedMotionsType } from '../../common/state/reduced-motion/types';
 import { matchMedia } from '../utils/match-media';
 
-const availableMotionPreferences = Object.values(
-    AVAILABLE_MOTION_PREFERENCES
-);
+const availableMotionPreferences = Object.values(AVAILABLE_MOTION_PREFERENCES);
 
 /**
  * Detects user’s preferences for reduced motion using CSS3 Media Queries level 5

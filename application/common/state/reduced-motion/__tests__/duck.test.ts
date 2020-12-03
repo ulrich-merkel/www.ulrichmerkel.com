@@ -1,11 +1,13 @@
 import {
     AVAILABLE_MOTION_PREFERENCES,
-    toggleReducedMotionSelected,
-    initialState,
-    reducer,
+    INITIAL_STATE,
     REDUCED_MOTION_RESOURCE_NAME,
-    REDUCED_MOTION_TOGGLE_SELECTED,
-    reducerReducedMotion
+    REDUCED_MOTION_TOGGLE_SELECTED
+} from '../constants';
+import {
+    reducer,
+    reducerReducedMotion,
+    toggleReducedMotionSelected
 } from '../duck';
 
 describe('toggleReducedMotionSelected', function fnDescribe() {
@@ -18,7 +20,7 @@ describe('toggleReducedMotionSelected', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
         expect(
@@ -30,7 +32,7 @@ describe('reducer', function fnDescribe() {
     });
     it('should return the current state if payload is empty', function fnIt() {
         expect(
-            reducer(initialState, {
+            reducer(INITIAL_STATE, {
                 type: REDUCED_MOTION_TOGGLE_SELECTED
             })
         ).toMatchSnapshot();

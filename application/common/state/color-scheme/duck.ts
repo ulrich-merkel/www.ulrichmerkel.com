@@ -12,48 +12,17 @@
  */
 import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
 import {
+    AVAILABLE_COLOR_SCHEMES,
+    COLOR_SCHEME_RESOURCE_NAME,
+    COLOR_SCHEME_TOGGLE_SELECTED,
+    INITIAL_STATE
+} from './constants';
+import {
     AvailableColorSchemesType,
     ChangeThemeSelectedActionType,
     ColorSchemeActionTypes,
     ColorSchemeStateType
 } from './types';
-
-/**
- * @type {string}
- */
-export const COLOR_SCHEME_RESOURCE_NAME = 'colorScheme';
-
-/**
- * @type {string}
- */
-export const COLOR_SCHEME_TOGGLE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_TOGGLE_SELECTED`;
-
-/**
- * @type {enum}
- */
-export const AVAILABLE_COLOR_SCHEMES = {
-    DARK: 'dark',
-    LIGHT: 'light'
-};
-
-/**
- * Define pubsub message name for theme change.
- *
- * @type {string}
- */
-export const PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_CHANGE_MESSAGE`;
-
-/**
- * @type {object}
- */
-export const initialState: ColorSchemeStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        selected: undefined
-    }
-};
 
 /**
  * Handle theme switch state change.
@@ -84,12 +53,12 @@ export function toggleSelected(
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: ColorSchemeStateType = initialState,
+    state: ColorSchemeStateType = INITIAL_STATE,
     action: ColorSchemeActionTypes
 ): ColorSchemeStateType {
     switch (action.type) {
@@ -99,7 +68,7 @@ export function reducer(
                 ? AVAILABLE_COLOR_SCHEMES.DARK
                 : AVAILABLE_COLOR_SCHEMES.LIGHT;
             const selected =
-                currentSelected === initialState.payload.selected
+                currentSelected === INITIAL_STATE.payload.selected
                     ? toggleSelected(systemSetting)
                     : toggleSelected(currentSelected);
 
