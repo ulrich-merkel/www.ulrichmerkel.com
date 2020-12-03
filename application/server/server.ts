@@ -34,6 +34,7 @@ import morgan from 'morgan';
 import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
+import gnuTP from 'gnu-terry-pratchett';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import { logger } from '../common/utils/logger';
@@ -146,6 +147,10 @@ function createServer(config?: Config, callback?: Callback): Application {
 
     // Secure server by setting various HTTP headers
     app.use(helmet());
+
+    // Add a X-Clacks-Overhead header for GNU John Dearheart
+    // @see {@link https://xclacksoverhead.org/}
+    app.use(gnuTP())
 
     // Prevent HTTP query parameter pollution
     app.use(hpp());

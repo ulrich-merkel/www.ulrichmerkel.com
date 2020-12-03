@@ -168,6 +168,7 @@
     "express": "4.17.1",
     "express-request-language": "1.1.15",
     "fastclick": "1.0.6",
+    "gnu-terry-pratchett": "0.0.2",
     "helmet": "3.13.0",
     "history": "5.0.0",
     "host-validation": "2.0.1",

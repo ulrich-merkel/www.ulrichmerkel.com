@@ -7,6 +7,8 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
+ *
+ * @see {@link https://www.joshwcomeau.com/react/dark-mode/}
  */
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
