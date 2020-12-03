@@ -5,7 +5,6 @@ import { Abbr } from '../abbr';
 describe('Abbr', function fnDescribe() {
     const props = {
         className: 'test',
-        htmlElement: 'abbr',
         itemProp: 'itemProp',
         title: 'title'
     };

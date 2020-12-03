@@ -13,7 +13,6 @@ import { getItemTypeAttributes } from '../utils/micro-data';
 type Props = {
     children?: ReactNode;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     itemType?: string;
     role?: string;
 };
@@ -26,24 +25,18 @@ type Props = {
  * @returns {ReactElement} React component markup
  */
 export const Header: FunctionComponent<Props> = (props) => {
-    const {
-        children,
-        className,
-        htmlElement: HtmlElement = 'header',
-        itemType,
-        role = 'banner'
-    } = props;
+    const { children, className, itemType, role = 'banner' } = props;
 
     const composedClassName = classnames('c-header', className);
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <HtmlElement
+        <header
             className={composedClassName}
             {...itemTypeAttributes}
             {...{ role }}
         >
             {children}
-        </HtmlElement>
+        </header>
     );
 };

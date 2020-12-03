@@ -6,7 +6,6 @@ describe('ListItem', function fnDescribe() {
     const props = {
         ariaHidden: false,
         className: 'test',
-        htmlElement: 'li',
         itemProp: 'itemListElement',
         itemType: 'https://schema.org/EmployeeRole',
         role: 'listitem'

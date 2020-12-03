@@ -19,9 +19,9 @@ $block: '#{$config-ns}c-box';
 
     .#{$block}__header {
         display: block;
-        width: 100%;
         margin: 0;
         padding: rem-calc($config-grid--gutter) 0;
+        width: 100%;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;
@@ -29,13 +29,13 @@ $block: '#{$config-ns}c-box';
     }
 
     .#{$block}__content {
-        position: relative;
         box-sizing: border-box;
         display: block;
-        width: 100%;
         height: auto;
         min-height: rem-calc($config-type-scale-9);
         padding: rem-calc($config-grid--gutter / 2);
+        position: relative;
+        width: 100%;
 
         @include breakpoint($config-grid--breakpoint-xsmall) {
             text-align: center;

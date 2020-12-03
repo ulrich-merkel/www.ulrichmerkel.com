@@ -17,7 +17,6 @@ import { View } from './view';
 type Props = {
     checked?: boolean;
     className?: string;
-    htmlElement?: keyof JSX.IntrinsicElements;
     id?: string;
     label?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -35,7 +34,6 @@ export const Toggle: FunctionComponent<Props> = (props) => {
     const {
         checked = false,
         className,
-        htmlElement,
         id = 'toggle',
         label = '',
         onChange = noop,
@@ -45,7 +43,7 @@ export const Toggle: FunctionComponent<Props> = (props) => {
     const composedClassName = classnames('c-toggle', className);
 
     return (
-        <View className={composedClassName} {...{ htmlElement }}>
+        <View className={composedClassName}>
             <Input
                 className="c-toggle__input"
                 id={id}

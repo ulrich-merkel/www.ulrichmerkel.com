@@ -13,6 +13,7 @@ import classnames from 'classnames';
 
 import { Headline } from '../../element/headline';
 import { P } from '../../element/paragraph';
+import { Article } from '../../element/article';
 
 type Props = {
     headline?: string;
@@ -36,7 +37,7 @@ export const ModuleKeyVisualArticle: FunctionComponent<Props> = (props) => {
     const componentArticleClassName = classnames('m-key-visual__text');
 
     return (
-        <article className={componentArticleClassName}>
+        <Article className={componentArticleClassName}>
             <Headline
                 className="m-key-visual__headline"
                 itemProp="headline"
@@ -47,6 +48,6 @@ export const ModuleKeyVisualArticle: FunctionComponent<Props> = (props) => {
             <P className="m-key-visual__lead" itemProp="description">
                 <span className="m-key-visual__boxed">{lead}</span>
             </P>
-        </article>
+        </Article>
     );
 };

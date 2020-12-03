@@ -6,17 +6,22 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, FunctionComponent, ReactNode } from 'react';
+import {
+    default as React,
+    Fragment,
+    FunctionComponent,
+    ReactNode
+} from 'react';
 import classnames from 'classnames';
-import shortid from 'shortid';
+import { isEmpty } from 'lodash';
 
 import { isValidArray } from '../../utils/array';
-import { Headline } from '../element/headline';
 import { List } from '../element/list';
 import { ListItem } from '../element/list-item';
 import { View } from '../element/view';
-import { ModuleCornerstoneItemEmployee } from './cornerstone/item-employee';
-import { ModuleCornerstoneItemEducation } from './cornerstone/item-education';
+import { ModuleCornerstoneHeadline } from './cornerstone/headline';
+import { ModuleCornerstoneEmployee } from './cornerstone/employee';
+import { ModuleCornerstoneEducation } from './cornerstone/education';
 
 type Props = {
     children?: ReactNode;
@@ -24,22 +29,27 @@ type Props = {
     content?: {
         professionalExperience?: string;
         professionalExperienceList?: {
-            description: string[];
-            headline: string;
-            lead: string;
-            offset: string;
-            timeEnd: string;
-            timeStart: string;
+            description?: string[];
+            headline?: string;
+            lead?: string;
+            offset?: string;
+            timeEnd?: string;
+            timeStart?: string;
         }[];
         academicEducation?: string;
         academicEducationList?: {
-            description: string[];
-            headline: string;
-            lead: string;
-            offset: string;
-            place: Record<string, unknown>;
-            timeEnd: string;
-            timeStart: string;
+            description?: string[];
+            headline?: string;
+            lead?: string;
+            offset?: string;
+            place?: {
+                name?: string;
+                streetAddress?: string;
+                addressLocality?: string;
+                sameAs?: string;
+            };
+            timeEnd?: string;
+            timeStart?: string;
         }[];
     };
     itemType?: string;
@@ -57,7 +67,7 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
     const { children, className, content, itemType, role } = props;
 
     if (
-        !content ||
+        isEmpty(content) ||
         (!isValidArray(content.academicEducationList) &&
             !isValidArray(content.professionalExperienceList))
     ) {
@@ -68,76 +78,27 @@ export const ModuleCornerstone: FunctionComponent<Props> = (props) => {
 
     return (
         <List className={componentClassName} {...{ itemType, role }}>
-            <ListItem className="m-cornerstone__item--center">
-                <Headline className="m-cornerstone__headline" htmlElement="h3">
-                    {content.professionalExperience}
-                </Headline>
-            </ListItem>
+            {isValidArray(content.professionalExperienceList) && (
+                <Fragment>
+                    <ModuleCornerstoneHeadline
+                        headline={content.professionalExperience}
+                    />
+                    <ModuleCornerstoneEmployee
+                        list={content.professionalExperienceList}
+                    />
+                </Fragment>
+            )}
 
-            {isValidArray(content.professionalExperienceList) &&
-                content.professionalExperienceList.map(function fnMap(
-                    value,
-                    index
-                ) {
-                    const {
-                        description,
-                        headline,
-                        lead,
-                        offset,
-                        timeEnd,
-                        timeStart
-                    } = value;
-
-                    return (
-                        <ModuleCornerstoneItemEmployee
-                            key={shortid.generate()}
-                            cssModifier={index % 2 === 0 ? 'left' : 'right'}
-                            {...{
-                                description,
-                                headline,
-                                lead,
-                                offset,
-                                timeEnd,
-                                timeStart
-                            }}
-                        />
-                    );
-                })}
-
-            <ListItem className="m-cornerstone__item--center">
-                <Headline className="m-cornerstone__headline" htmlElement="h3">
-                    {content.academicEducation}
-                </Headline>
-            </ListItem>
-
-            {isValidArray(content.academicEducationList) &&
-                content.academicEducationList.map(function fnMap(value, index) {
-                    const {
-                        description,
-                        headline,
-                        lead,
-                        offset,
-                        place,
-                        timeEnd,
-                        timeStart
-                    } = value;
-
-                    return (
-                        <ModuleCornerstoneItemEducation
-                            key={shortid.generate()}
-                            cssModifier={index % 2 === 0 ? 'left' : 'right'}
-                            {...{
-                                description,
-                                headline,
-                                lead,
-                                offset,
-                                place,
-                                timeEnd,
-                                timeStart
-                            }}
-                        />
-                    );
-                })}
+            {isValidArray(content.academicEducationList) && (
+                <Fragment>
+                    <ModuleCornerstoneHeadline
+                        headline={content.academicEducation}
+                    />
+                    <ModuleCornerstoneEducation
+                        list={content.academicEducationList}
+                    />
+                </Fragment>
+            )}
 
             <ListItem className="m-cornerstone__item--start">
                 <View className="m-cornerstone__bubble c-font-icon--bookmark2" />

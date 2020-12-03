@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleCornerstoneHeadline should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-cornerstone__item--center"
+    itemprop="itemListElement"
+  >
+    <h3
+      class="is-centered c-type--h3 m-cornerstone__headline"
+    >
+      headline
+    </h3>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleCornerstoneHeadline should render correctly with defaults 1`] = `<DocumentFragment />`;

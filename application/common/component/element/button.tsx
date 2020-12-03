@@ -35,7 +35,7 @@ type Props = {
     className?: string;
     classNameLabel?: string;
     dataLocale?: string;
-    htmlElement?: string;
+    htmlElement?: keyof JSX.IntrinsicElements;
     id?: string;
     isClear?: boolean;
     isDisabled?: boolean;

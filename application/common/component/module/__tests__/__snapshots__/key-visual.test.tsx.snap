@@ -6,7 +6,9 @@ exports[`ModuleKeyVisual should render correctly 1`] = `
     class="m-key-visual key-visual"
   >
     <article
-      class="m-key-visual__text"
+      class="c-type--article m-key-visual__text"
+      itemscope=""
+      itemtype="https://schema.org/Article"
     >
       <h3
         class="is-centered c-type--h3 m-key-visual__headline"
@@ -52,7 +54,9 @@ exports[`ModuleKeyVisual should render isWork and isCovered css className 1`] = 
     class="m-key-visual--work key-visual"
   >
     <article
-      class="m-key-visual__text"
+      class="c-type--article m-key-visual__text"
+      itemscope=""
+      itemtype="https://schema.org/Article"
     >
       <h3
         class="is-centered c-type--h3 m-key-visual__headline"

@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleCornerstoneEmployee should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="c-list-item m-cornerstone__item--left"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="roleName"
+        >
+          Headline item employee
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+        >
+          <strong>
+            Lead  item employee
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+          itemprop="description"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           -
+          <time
+            class="c-time"
+            itemprop="endDate"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+  </li>
+  <li
+    class="c-list-item m-cornerstone__item--right"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="roleName"
+        >
+          Headline item employee
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+        >
+          <strong>
+            Lead  item employee
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+          itemprop="description"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           -
+          <time
+            class="c-time"
+            itemprop="endDate"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+  </li>
+  <li
+    class="c-list-item m-cornerstone__item--left"
+    itemprop="itemListElement"
+    itemscope=""
+    itemtype="https://schema.org/EmployeeRole"
+  >
+    <div
+      class="m-cornerstone__description"
+    >
+      <div
+        class="m-cornerstone__description-content"
+      >
+        <h4
+          class="is-centered c-type--h4 m-cornerstone__headline"
+          itemprop="roleName"
+        >
+          Headline item employee
+        </h4>
+        <p
+          class="c-type--p m-cornerstone__company"
+        >
+          <strong>
+            Lead  item employee
+          </strong>
+        </p>
+        <p
+          class="c-type--p m-cornerstone__time"
+          itemprop="description"
+        >
+          (
+          <time
+            class="c-time"
+            itemprop="startDate"
+          >
+            20161212
+          </time>
+           -
+          <time
+            class="c-time"
+            itemprop="endDate"
+          >
+            20161224
+          </time>
+          )
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 1
+        </p>
+        <p
+          class="c-type--p m-cornerstone__text"
+          itemprop="description"
+        >
+          Description item employee 2
+        </p>
+      </div>
+    </div>
+    <div
+      class="m-cornerstone__bubble"
+    />
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ModuleCornerstoneEmployee should render correctly with defaults 1`] = `<DocumentFragment />`;

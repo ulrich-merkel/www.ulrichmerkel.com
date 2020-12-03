@@ -46,9 +46,46 @@ describe('ModuleCornerstone', function fnDescribe() {
         );
         expect(asFragment()).toMatchSnapshot();
     });
-    it('should render no itemType if unset', function fnIt() {
+    it('should render correctly for education only', function fnIt() {
         const { asFragment } = render(
-            <ModuleCornerstone {...props} itemType={null}>
+            <ModuleCornerstone
+                {...props}
+                content={{
+                    academicEducation: 'academicEducation',
+                    academicEducationList: [
+                        {
+                            headline: 'headline',
+                            lead: 'lead',
+                            timeStart: '20161212',
+                            timeEnd: '20161224',
+                            description: ['description1', 'description2'],
+                            place: {}
+                        }
+                    ]
+                }}
+            >
+                Module cornerstone children
+            </ModuleCornerstone>
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
+    it('should render correctly for employee only', function fnIt() {
+        const { asFragment } = render(
+            <ModuleCornerstone
+                {...props}
+                content={{
+                    professionalExperience: 'professionalExperience',
+                    professionalExperienceList: [
+                        {
+                            headline: 'headline',
+                            lead: 'lead',
+                            timeStart: '20161212',
+                            timeEnd: '20161224',
+                            description: ['description1', 'description2']
+                        }
+                    ]
+                }}
+            >
                 Module cornerstone children
             </ModuleCornerstone>
         );

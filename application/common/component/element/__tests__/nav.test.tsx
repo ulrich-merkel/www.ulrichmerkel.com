@@ -4,9 +4,7 @@ import { Nav } from '../nav';
 
 describe('Nav', function fnDescribe() {
     it('should render correctly', function fnIt() {
-        const { asFragment } = render(
-            <Nav htmlElement="div" className="nav" />
-        );
+        const { asFragment } = render(<Nav className="nav" />);
         expect(asFragment()).toMatchSnapshot();
     });
 });

@@ -36,23 +36,22 @@ export const GridCol: FunctionComponent<Props> = (props) => {
         children,
         className,
         cols = 12,
-        htmlElement = 'div',
+        htmlElement: HtmlElement = 'div',
         itemProp,
         itemType,
         role
     } = props;
 
-    const ComponentType = htmlElement;
     const composedClassName = classnames(`l-grid__col--${cols}`, className);
     const itemTypeAttributes = getItemTypeAttributes(itemType);
 
     return (
-        <ComponentType
+        <HtmlElement
             className={composedClassName}
             {...itemTypeAttributes}
             {...{ itemProp, role }}
         >
             {children}
-        </ComponentType>
+        </HtmlElement>
     );
 };

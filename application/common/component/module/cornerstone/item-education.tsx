@@ -26,7 +26,12 @@ type Props = {
     headline?: string;
     lead?: string;
     offset?: string;
-    place?: Record<string, unknown>;
+    place?: {
+        name?: string;
+        streetAddress?: string;
+        addressLocality?: string;
+        sameAs?: string;
+    };
     timeEnd?: string;
     timeStart?: string;
 };
