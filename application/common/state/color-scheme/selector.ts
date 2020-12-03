@@ -13,13 +13,14 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
+import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
 import { RootState } from '../configure-store';
 import {
     initialState,
     COLOR_SCHEME_RESOURCE_NAME,
-    COLOR_SCHEME_DARK
+    AVAILABLE_COLOR_SCHEMES
 } from './duck';
-import { ColorSchemeStateType } from './types';
+import { AvailableColorSchemesType, ColorSchemeStateType } from './types';
 
 /**
  * Select complete color scheme state from redux store.
@@ -46,7 +47,9 @@ export const selectStateColorScheme = createSelector(
  */
 export const selectStateColorSchemeSelected = createSelector(
     [selectStateColorScheme],
-    function resultFunc(colorScheme: ColorSchemeStateType): string {
+    function resultFunc(
+        colorScheme: ColorSchemeStateType
+    ): AvailableColorSchemesType {
         return get(
             colorScheme,
             'payload.selected',
@@ -64,7 +67,13 @@ export const selectStateColorSchemeSelected = createSelector(
  */
 export const selectStateColorSchemeSelectedDarkMode = createSelector(
     [selectStateColorSchemeSelected],
-    function resultFunc(colorSchemeSelected: string): boolean {
-        return colorSchemeSelected === COLOR_SCHEME_DARK;
+    function resultFunc(
+        colorSchemeSelected: AvailableColorSchemesType
+    ): boolean {
+        if (colorSchemeSelected === undefined) {
+            return hasDarkModeEnabled();
+        }
+
+        return colorSchemeSelected === AVAILABLE_COLOR_SCHEMES.DARK;
     }
 );

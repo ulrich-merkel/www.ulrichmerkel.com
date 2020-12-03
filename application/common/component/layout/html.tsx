@@ -95,7 +95,7 @@ export const LayoutHtml: FunctionComponent<Props> = (props) => {
         <html
             className="no-js"
             dir="ltr"
-            id="doc-root"
+            id="html"
             lang={lang}
             manifest={manifest}
         >

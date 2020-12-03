@@ -6,6 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  *
+ * @see {@link https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme}
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
@@ -23,22 +24,15 @@ export const COLOR_SCHEME_RESOURCE_NAME = 'colorScheme';
 /**
  * @type {string}
  */
-export const COLOR_SCHEME_LIGHT = 'light';
-
-/**
- * @type {string}
- */
-export const COLOR_SCHEME_DARK = 'dark';
-
-/**
- * @type {string}
- */
 export const COLOR_SCHEME_TOGGLE_SELECTED = `${COLOR_SCHEME_RESOURCE_NAME}/COLOR_SCHEME_TOGGLE_SELECTED`;
 
 /**
- * @type {Array<string>}
+ * @type {enum}
  */
-export const AVAILABLE_COLOR_SCHEMES = [COLOR_SCHEME_LIGHT, COLOR_SCHEME_DARK];
+export const AVAILABLE_COLOR_SCHEMES = {
+    DARK: 'dark',
+    LIGHT: 'light'
+};
 
 /**
  * Define pubsub message name for theme change.
@@ -55,7 +49,7 @@ export const initialState: ColorSchemeStateType = {
         isInitial: true
     },
     payload: {
-        selected: COLOR_SCHEME_LIGHT
+        selected: undefined
     }
 };
 
@@ -85,9 +79,9 @@ export function reducer(
     switch (action.type) {
         case COLOR_SCHEME_TOGGLE_SELECTED: {
             const selected =
-                state.payload.selected === COLOR_SCHEME_LIGHT
-                    ? COLOR_SCHEME_DARK
-                    : COLOR_SCHEME_LIGHT;
+                state.payload.selected === AVAILABLE_COLOR_SCHEMES.LIGHT
+                    ? AVAILABLE_COLOR_SCHEMES.DARK
+                    : AVAILABLE_COLOR_SCHEMES.LIGHT;
             return {
                 meta: {
                     ...state.meta,

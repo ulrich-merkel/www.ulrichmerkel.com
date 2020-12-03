@@ -35,5 +35,5 @@ export function applyReducedMotion(
         classNamePrefix
     );
 
-    setDomNodeClassName('doc-root', add, remove);
+    setDomNodeClassName('html', add, remove);
 }

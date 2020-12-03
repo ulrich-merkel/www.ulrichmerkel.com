@@ -150,7 +150,7 @@ function createServer(config?: Config, callback?: Callback): Application {
 
     // Add a X-Clacks-Overhead header for GNU John Dearheart
     // @see {@link https://xclacksoverhead.org/}
-    app.use(gnuTP())
+    app.use(gnuTP());
 
     // Prevent HTTP query parameter pollution
     app.use(hpp());

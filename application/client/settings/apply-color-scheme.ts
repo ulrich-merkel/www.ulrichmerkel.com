@@ -36,5 +36,5 @@ export function applyColorScheme(
         classNamePrefix
     );
 
-    setDomNodeClassName('doc-root', add, remove);
+    setDomNodeClassName('html', add, remove);
 }
