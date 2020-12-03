@@ -12,7 +12,7 @@ import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
 import { RootState } from '../root-reducer';
-import { initialState, DIALOG_RESOURCE_NAME } from './duck';
+import { INITIAL_STATE, DIALOG_RESOURCE_NAME } from './constants';
 import { DialogStateType } from './types';
 
 /**
@@ -25,7 +25,7 @@ import { DialogStateType } from './types';
 export const selectStateDialog = createSelector(
     [(state: RootState) => state?.[DIALOG_RESOURCE_NAME]],
     function resultFunc(dialog: DialogStateType): DialogStateType {
-        return isEmpty(dialog) ? initialState : dialog;
+        return isEmpty(dialog) ? INITIAL_STATE : dialog;
     }
 );
 
@@ -39,7 +39,7 @@ export const selectStateDialog = createSelector(
 export const selectStateDialogVisible = createSelector(
     [selectStateDialog],
     function resultFunc(dialog: DialogStateType): boolean {
-        return get(dialog, 'payload.visible', initialState.payload.visible);
+        return get(dialog, 'payload.visible', INITIAL_STATE.payload.visible);
     }
 );
 
@@ -53,6 +53,6 @@ export const selectStateDialogVisible = createSelector(
 export const selectStateDialogContent = createSelector(
     [selectStateDialog],
     function resultFunc(dialog: DialogStateType): boolean {
-        return get(dialog, 'payload.content', initialState.payload.content);
+        return get(dialog, 'payload.content', INITIAL_STATE.payload.content);
     }
 );

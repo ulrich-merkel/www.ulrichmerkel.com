@@ -23,9 +23,11 @@ import {
     selectStateIntlAvailableLocales
 } from '../../../state/intl/selector';
 import {
-    changeIntlLocale,
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
+} from '../../../state/intl/constants';
+import {
+    changeIntlLocale
 } from '../../../state/intl/duck';
 import { Locale, Locales } from '../../../state/intl/types';
 import {

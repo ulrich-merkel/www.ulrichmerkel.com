@@ -1,13 +1,11 @@
 import {
     AVAILABLE_LOCALES,
-    changeIntlLocale,
-    initialState,
-    reducer,
+    INITIAL_STATE,
     INTL_RESOURCE_NAME,
     INTL_CHANGE_LOCALE,
-    INTL_LOCALE_DE_DE,
-    reducerIntl
-} from '../duck';
+    INTL_LOCALE_DE_DE
+} from '../constants';
+import { changeIntlLocale, reducer, reducerIntl } from '../duck';
 
 describe('changeIntlLocale', function fnDescribe() {
     it(`should have a type of ${INTL_CHANGE_LOCALE}`, function fnIt() {
@@ -21,7 +19,7 @@ describe('changeIntlLocale', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${INTL_CHANGE_LOCALE}`, function fnIt() {
         expect(
@@ -50,10 +48,10 @@ describe('reducer', function fnDescribe() {
     });
     it('should return the current state if payload is empty', function fnIt() {
         expect(
-            reducer(initialState, {
+            reducer(INITIAL_STATE, {
                 type: INTL_CHANGE_LOCALE
             })
-        ).toEqual(initialState);
+        ).toEqual(INITIAL_STATE);
     });
 });
 

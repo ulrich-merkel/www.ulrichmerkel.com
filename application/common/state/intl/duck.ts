@@ -10,49 +10,12 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import {
-    ChangeIntlActionType,
-    IntlActionTypes,
-    IntlStateType,
-    Locale
-} from './types';
-
-/**
- * @type {string}
- */
-export const INTL_RESOURCE_NAME = 'intl';
-
-/**
- * @type {string}
- */
-export const INTL_LOCALE_EN_EN = 'en-EN';
-
-/**
- * @type {string}
- */
-export const INTL_LOCALE_DE_DE = 'de-DE';
-
-/**
- * @type {string}
- */
-export const INTL_CHANGE_LOCALE = `${INTL_RESOURCE_NAME}/INTL_CHANGE_LOCALE`;
-
-/**
- * @type {Array<string>}
- */
-export const AVAILABLE_LOCALES: Locale[] = [INTL_LOCALE_EN_EN];
-
-/**
- * @type {object}
- */
-export const initialState: IntlStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        locale: AVAILABLE_LOCALES[0],
-        availableLocales: AVAILABLE_LOCALES
-    }
-};
+    INTL_RESOURCE_NAME,
+    INTL_CHANGE_LOCALE,
+    AVAILABLE_LOCALES,
+    INITIAL_STATE
+} from './constants';
+import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
 
 /**
  * Handle locale string state change.
@@ -76,12 +39,12 @@ export function changeIntlLocale(
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: IntlStateType = initialState,
+    state: IntlStateType = INITIAL_STATE,
     action: IntlActionTypes
 ): IntlStateType {
     switch (action.type) {

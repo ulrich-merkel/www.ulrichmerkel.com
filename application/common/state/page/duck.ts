@@ -9,29 +9,12 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import {
+    INITIAL_STATE,
+    PAGE_RESOURCE_NAME,
+    PAGE_INCREASE_VIEWS
+} from './constants';
 import { AddPageViewActionType, PageActionTypes, PageStateType } from './types';
-
-/**
- * @type {string}
- */
-export const PAGE_RESOURCE_NAME = 'page';
-
-/**
- * @type {string}
- */
-export const PAGE_INCREASE_VIEWS = `${PAGE_RESOURCE_NAME}/PAGE_INCREASE_VIEWS`;
-
-/**
- * @type {object}
- */
-export const initialState: PageStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        viewsAfterReload: 0
-    }
-};
 
 /**
  * Handle page view increment state change.
@@ -48,12 +31,12 @@ export function addPageView(): AddPageViewActionType {
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: PageStateType = initialState,
+    state: PageStateType = INITIAL_STATE,
     action: PageActionTypes
 ): PageStateType {
     switch (action.type) {
