@@ -1,5 +1,5 @@
 import {
-    MOTION_PREFERENCES,
+    AVAILABLE_MOTION_PREFERENCES,
     toggleReducedMotionSelected,
     initialState,
     reducer,
@@ -24,7 +24,7 @@ describe('reducer', function fnDescribe() {
         expect(
             reducer(undefined, {
                 type: REDUCED_MOTION_TOGGLE_SELECTED,
-                selected: MOTION_PREFERENCES[1]
+                selected: AVAILABLE_MOTION_PREFERENCES.REDUCE
             })
         ).toMatchSnapshot();
     });

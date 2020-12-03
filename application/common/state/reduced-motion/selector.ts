@@ -15,9 +15,10 @@ import { RootState } from '../configure-store';
 import {
     initialState,
     REDUCED_MOTION_RESOURCE_NAME,
-    MOTION_PREFERENCES_REDUCE
+    AVAILABLE_MOTION_PREFERENCES
 } from './duck';
-import { ReducedMotionStateType } from './types';
+import { AvailableReducedMotionsType, ReducedMotionStateType } from './types';
+import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 
 /**
  * Select complete color scheme state from redux store.
@@ -44,7 +45,9 @@ export const selectStateReducedMotion = createSelector(
  */
 export const selectStateReducedMotionSelected = createSelector(
     [selectStateReducedMotion],
-    function resultFunc(reducedMotion: ReducedMotionStateType): string {
+    function resultFunc(
+        reducedMotion: ReducedMotionStateType
+    ): AvailableReducedMotionsType {
         return get(
             reducedMotion,
             'payload.selected',
@@ -62,7 +65,12 @@ export const selectStateReducedMotionSelected = createSelector(
  */
 export const selectStateReducedMotionSelectedReduce = createSelector(
     [selectStateReducedMotionSelected],
-    function resultFunc(reducedMotionSelected: string): boolean {
-        return reducedMotionSelected === MOTION_PREFERENCES_REDUCE;
+    function resultFunc(
+        reducedMotionSelected: AvailableReducedMotionsType
+    ): boolean {
+        if (reducedMotionSelected === initialState.payload.selected) {
+            return hasReducedMotionEnabled();
+        }
+        return reducedMotionSelected === AVAILABLE_MOTION_PREFERENCES.REDUCE;
     }
 );

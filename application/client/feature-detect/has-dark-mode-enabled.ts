@@ -2,6 +2,8 @@ import { AVAILABLE_COLOR_SCHEMES } from '../../common/state/color-scheme/duck';
 import { AvailableColorSchemesType } from '../../common/state/color-scheme/types';
 import { matchMedia } from '../utils/match-media';
 
+const availableColorSchemes = Object.values(AVAILABLE_COLOR_SCHEMES);
+
 /**
  * Detects user’s color scheme preference using CSS3 Media Queries level 5
  * specification for `'prefers-color-scheme'`.
@@ -11,22 +13,22 @@ import { matchMedia } from '../utils/match-media';
  *
  * @returns {string|null} Either 'dark', 'light' or null
  */
-export function selectedPrefersColorScheme(): AvailableColorSchemesType | null {
-    const matchedColorSchemes = Object.values(AVAILABLE_COLOR_SCHEMES).find(
-        function fnFind(colorScheme) {
-            return matchMedia('prefers-color-scheme', colorScheme);
-        }
-    );
+export function getSelectedPrefersColorScheme(): AvailableColorSchemesType | null {
+    const matchedColorSchemes = availableColorSchemes.find(function fnFind(
+        colorScheme
+    ) {
+        return matchMedia('prefers-color-scheme', colorScheme);
+    });
 
     return matchedColorSchemes || null;
 }
 
 /**
- * Check if we should reduce animation timings.
+ * Check if we should use dark mode color scheme.
  *
- * @returns {boolean} Whether motion is reduced in system settings
+ * @returns {boolean} Whether dark mode color scheme is enabled in system settings
  */
 export function hasDarkModeEnabled(): boolean {
-    const colorScheme = selectedPrefersColorScheme();
-    return colorScheme === AVAILABLE_COLOR_SCHEMES.DARK;
+    const selectedPrefersColorScheme = getSelectedPrefersColorScheme();
+    return selectedPrefersColorScheme === AVAILABLE_COLOR_SCHEMES.DARK;
 }

@@ -1,7 +1,6 @@
 import {
     REDUCED_MOTION_TOGGLE_SELECTED,
-    MOTION_PREFERENCES_NO_PREFERENCE,
-    MOTION_PREFERENCES_REDUCE
+    AVAILABLE_MOTION_PREFERENCES
 } from './duck';
 
 export interface ChangeReducedMotionSelectedActionType {
@@ -10,15 +9,13 @@ export interface ChangeReducedMotionSelectedActionType {
 
 export type ReducedMotionActionTypes = ChangeReducedMotionSelectedActionType;
 
-export type AvailableReducedMotionsType =
-    | typeof MOTION_PREFERENCES_NO_PREFERENCE
-    | typeof MOTION_PREFERENCES_REDUCE;
+export type AvailableReducedMotionsType = typeof AVAILABLE_MOTION_PREFERENCES[keyof typeof AVAILABLE_MOTION_PREFERENCES];
 
 export interface ReducedMotionStateType {
     meta: {
         isInitial: boolean;
     };
     payload: {
-        selected: string;
+        selected: AvailableReducedMotionsType | undefined;
     };
 }

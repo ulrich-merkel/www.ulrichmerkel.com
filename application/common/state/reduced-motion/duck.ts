@@ -9,10 +9,12 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 import {
     ChangeReducedMotionSelectedActionType,
     ReducedMotionActionTypes,
-    ReducedMotionStateType
+    ReducedMotionStateType,
+    AvailableReducedMotionsType
 } from './types';
 
 /**
@@ -23,25 +25,15 @@ export const REDUCED_MOTION_RESOURCE_NAME = 'reducedMotion';
 /**
  * @type {string}
  */
-export const MOTION_PREFERENCES_NO_PREFERENCE = 'no-preference';
-
-/**
- * @type {string}
- */
-export const MOTION_PREFERENCES_REDUCE = 'reduce';
-
-/**
- * @type {string}
- */
 export const REDUCED_MOTION_TOGGLE_SELECTED = `${REDUCED_MOTION_RESOURCE_NAME}/REDUCED_MOTION_TOGGLE_SELECTED`;
 
 /**
- * @type {Array<string>}
+ * @type {enum}
  */
-export const MOTION_PREFERENCES = [
-    MOTION_PREFERENCES_NO_PREFERENCE,
-    MOTION_PREFERENCES_REDUCE
-];
+export const AVAILABLE_MOTION_PREFERENCES = {
+    NO_PREFERENCE: 'no-preference',
+    REDUCE: 'reduce'
+};
 
 /**
  * Define pubsub message name for theme change.
@@ -58,7 +50,7 @@ export const initialState: ReducedMotionStateType = {
         isInitial: true
     },
     payload: {
-        selected: MOTION_PREFERENCES_NO_PREFERENCE
+        selected: undefined
     }
 };
 
@@ -71,6 +63,20 @@ export function toggleReducedMotionSelected(): ChangeReducedMotionSelectedAction
     return {
         type: REDUCED_MOTION_TOGGLE_SELECTED
     };
+}
+
+/**
+ * Get new selected motion type.
+ *
+ * @param {string} currentSelected - The previous/current selected motion type
+ * @returns {string} The new selected motion type
+ */
+export function toggleSelected(
+    currentSelected: AvailableReducedMotionsType
+): AvailableReducedMotionsType {
+    return currentSelected === AVAILABLE_MOTION_PREFERENCES.REDUCE
+        ? AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE
+        : AVAILABLE_MOTION_PREFERENCES.REDUCE;
 }
 
 /**
@@ -87,10 +93,15 @@ export function reducer(
 ): ReducedMotionStateType {
     switch (action.type) {
         case REDUCED_MOTION_TOGGLE_SELECTED: {
+            const currentSelected = state.payload.selected;
+            const systemSetting = hasReducedMotionEnabled()
+                ? AVAILABLE_MOTION_PREFERENCES.REDUCE
+                : AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE;
             const selected =
-                state.payload.selected === MOTION_PREFERENCES_REDUCE
-                    ? MOTION_PREFERENCES_NO_PREFERENCE
-                    : MOTION_PREFERENCES_REDUCE;
+                currentSelected === initialState.payload.selected
+                    ? toggleSelected(systemSetting)
+                    : toggleSelected(currentSelected);
+
             return {
                 meta: {
                     ...state.meta,

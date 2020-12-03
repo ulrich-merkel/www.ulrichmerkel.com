@@ -70,7 +70,7 @@ export const selectStateColorSchemeSelectedDarkMode = createSelector(
     function resultFunc(
         colorSchemeSelected: AvailableColorSchemesType
     ): boolean {
-        if (colorSchemeSelected === undefined) {
+        if (colorSchemeSelected === initialState.payload.selected) {
             return hasDarkModeEnabled();
         }
 
