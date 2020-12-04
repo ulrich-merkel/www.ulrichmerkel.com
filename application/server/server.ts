@@ -38,7 +38,7 @@ import gnuTP from 'gnu-terry-pratchett';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import { logger } from '../common/utils/logger';
-import { AVAILABLE_LOCALES } from '../common/state/intl/duck';
+import { AVAILABLE_LOCALES } from '../common/state/intl/constants';
 import { middlewarePost } from './middleware/post';
 import { middlewareError } from './middleware/error';
 import { middlewareReact } from './middleware/react';

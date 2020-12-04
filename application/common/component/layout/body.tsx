@@ -24,7 +24,7 @@ import {
     DIALOG_CONTENT_BROADCAST,
     DIALOG_CONTENT_SEARCH,
     DIALOG_CONTENT_THEME
-} from '../../state/dialog/duck';
+} from '../../state/dialog/constants';
 import { LayoutHeaderConnected } from './header';
 import { LayoutFooterConnected } from './footer';
 import { LayoutSettingsConnected } from './settings';

@@ -109,6 +109,17 @@ exports[`PageImprint should render correctly 1`] = `
                           E.
                         </abbr>
                          
+                        <a
+                          class="c-link"
+                          href="mailto:hello@ulrichmerkel.com"
+                          itemprop="email"
+                          rel="noopener noreferrer"
+                          tabindex="0"
+                          target="_blank"
+                          title="Write a message"
+                        >
+                          hello@ulrichmerkel.com
+                        </a>
                       </p>
                       <p
                         class="c-type--p m-person__website"
@@ -120,6 +131,16 @@ exports[`PageImprint should render correctly 1`] = `
                           W.
                         </abbr>
                          
+                        <a
+                          class="c-link"
+                          href="http://www.ulrichmerkel.com"
+                          rel="noopener noreferrer"
+                          tabindex="0"
+                          target="_blank"
+                          title="Open website in new tab"
+                        >
+                          http://www.ulrichmerkel.com
+                        </a>
                       </p>
                     </div>
                     <div

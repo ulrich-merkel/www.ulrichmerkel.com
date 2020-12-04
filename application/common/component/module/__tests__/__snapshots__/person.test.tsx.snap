@@ -49,6 +49,17 @@ exports[`ModulePerson should render correctly 1`] = `
         E.
       </abbr>
        
+      <a
+        class="c-link"
+        href="mailto:email"
+        itemprop="email"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Write a message"
+      >
+        email
+      </a>
     </p>
     <p
       class="c-type--p m-person__website"
@@ -60,6 +71,13 @@ exports[`ModulePerson should render correctly 1`] = `
         W.
       </abbr>
        
+      <a
+        class="c-link"
+        tabindex="0"
+        title="Open website in new tab"
+      >
+        website
+      </a>
     </p>
     Module person children
   </div>
@@ -115,6 +133,17 @@ exports[`ModulePerson should render isCentered correctly 1`] = `
         E.
       </abbr>
        
+      <a
+        class="c-link"
+        href="mailto:email"
+        itemprop="email"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Write a message"
+      >
+        email
+      </a>
     </p>
     <p
       class="c-type--p m-person__website"
@@ -126,6 +155,13 @@ exports[`ModulePerson should render isCentered correctly 1`] = `
         W.
       </abbr>
        
+      <a
+        class="c-link"
+        tabindex="0"
+        title="Open website in new tab"
+      >
+        website
+      </a>
     </p>
     Module person children
   </div>
@@ -180,6 +216,13 @@ exports[`ModulePerson should render just a website correctly 1`] = `
         W.
       </abbr>
        
+      <a
+        class="c-link"
+        tabindex="0"
+        title="Open website in new tab"
+      >
+        website
+      </a>
     </p>
     Module person children not rendered
   </div>
@@ -240,6 +283,17 @@ exports[`ModulePerson should render just an email correctly 1`] = `
         E.
       </abbr>
        
+      <a
+        class="c-link"
+        href="mailto:email"
+        itemprop="email"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Write a message"
+      >
+        email
+      </a>
     </p>
     Module person children not rendered
   </div>
@@ -293,6 +347,17 @@ exports[`ModulePerson should render no itemType if unset 1`] = `
         E.
       </abbr>
        
+      <a
+        class="c-link"
+        href="mailto:email"
+        itemprop="email"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Write a message"
+      >
+        email
+      </a>
     </p>
     <p
       class="c-type--p m-person__website"
@@ -304,6 +369,13 @@ exports[`ModulePerson should render no itemType if unset 1`] = `
         W.
       </abbr>
        
+      <a
+        class="c-link"
+        tabindex="0"
+        title="Open website in new tab"
+      >
+        website
+      </a>
     </p>
     Module person children
   </div>

@@ -40,7 +40,7 @@ export const ModulePersonTelephone: FunctionComponent<Props> = (props) => {
     return (
         <P className="m-person__phone">
             <Abbr title="Phonenumber">P.</Abbr>{' '}
-            <A href={`tel:${content.phoneNumbers}`} itemProp="telephone">
+            <A to={`tel:${content.phoneNumbers}`} itemProp="telephone">
                 {content.phone}
             </A>
         </P>

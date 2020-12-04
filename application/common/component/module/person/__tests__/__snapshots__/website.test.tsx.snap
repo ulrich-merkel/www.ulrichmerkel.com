@@ -12,6 +12,16 @@ exports[`ModulePersonWebsite should render correctly 1`] = `
       W.
     </abbr>
      
+    <a
+      class="c-link"
+      href="www.foobar.com"
+      rel="noopener noreferrer"
+      tabindex="0"
+      target="_blank"
+      title="Open website in new tab"
+    >
+      www.foobar.com
+    </a>
   </p>
 </DocumentFragment>
 `;
