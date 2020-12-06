@@ -36,7 +36,7 @@ export const ModulePersonWebsite: FunctionComponent<Props> = (props) => {
     return (
         <P className="m-person__website">
             <Abbr title="Website">W.</Abbr>{' '}
-            <A href={content.website} title="Open website in new tab">
+            <A to={content.website} title="Open website in new tab">
                 {content.website}
             </A>
         </P>

@@ -9,42 +9,12 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import {
+    CONTACT_RESOURCE_NAME,
+    CHANGE_CONTACT_FORM,
+    INITIAL_STATE
+} from './constants';
 import { ContactStateType, ContactActionTypes } from './types';
-
-/**
- * @type {string}
- */
-export const CONTACT_RESOURCE_NAME = 'contact';
-
-/**
- * @type {string}
- */
-export const CHANGE_CONTACT_FORM = `${CONTACT_RESOURCE_NAME}/CHANGE_CONTACT_FORM`;
-
-/**
- * @type {object}
- */
-export const initialState: ContactStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        form: {
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
-            pristine: false,
-            namePristine: false,
-            emailPristine: false,
-            subjectPristine: false,
-            messagePristine: false,
-            pending: false,
-            success: false,
-            error: false
-        }
-    }
-};
 
 /**
  * Handle contact form values changes.
@@ -65,12 +35,12 @@ export function changeContactForm(
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: ContactStateType = initialState,
+    state: ContactStateType = INITIAL_STATE,
     action: ContactActionTypes
 ): ContactStateType {
     switch (action.type) {

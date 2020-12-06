@@ -12,8 +12,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { initialState, SEARCH_RESOURCE_NAME } from './duck';
+import { RootState } from '../root-reducer';
+import { INITIAL_STATE, SEARCH_RESOURCE_NAME } from './constants';
 import { SearchStateType } from './types';
 
 /**
@@ -26,7 +26,7 @@ import { SearchStateType } from './types';
 export const selectStateSearch = createSelector(
     [(state: RootState) => state?.[SEARCH_RESOURCE_NAME]],
     function resultFunc(search: SearchStateType): SearchStateType {
-        return isEmpty(search) ? initialState : search;
+        return isEmpty(search) ? INITIAL_STATE : search;
     }
 );
 
@@ -40,6 +40,6 @@ export const selectStateSearch = createSelector(
 export const selectStateSearchTerm = createSelector(
     [selectStateSearch],
     function resultFunc(search: SearchStateType): string {
-        return get(search, 'payload.term', initialState.payload.term);
+        return get(search, 'payload.term', INITIAL_STATE.payload.term);
     }
 );

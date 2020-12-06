@@ -62,7 +62,12 @@ export function isLink(to?: string): boolean {
     if (!isValidString(to)) {
         return false;
     }
-    return to.includes('www.') || to.includes('http');
+
+    return ['http://', 'https://', 'mailto:', 'tel:', 'www.'].some(
+        function fnSome(pattern) {
+            return to.includes(pattern);
+        }
+    );
 }
 
 /**
@@ -136,6 +141,7 @@ export const A: FunctionComponent<Props> = (props) => {
         children,
         className,
         exact,
+        href,
         htmlElement = 'a',
         itemProp,
         itemType,
@@ -158,6 +164,7 @@ export const A: FunctionComponent<Props> = (props) => {
     const attributes = getAttributes({
         activeClassName,
         exact,
+        href,
         strict,
         to
     });

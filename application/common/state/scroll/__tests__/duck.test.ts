@@ -1,10 +1,12 @@
 import {
-    changeScrollHeaderFixed,
-    changeScrollHeaderVisible,
-    initialState,
+    INITIAL_STATE,
     SCROLL_HEADER_FIXED,
     SCROLL_HEADER_VISIBLE,
-    SCROLL_RESOURCE_NAME,
+    SCROLL_RESOURCE_NAME
+} from '../constants';
+import {
+    changeScrollHeaderFixed,
+    changeScrollHeaderVisible,
     reducerScroll,
     reducer
 } from '../duck';
@@ -35,7 +37,7 @@ describe('changeScrollHeaderVisible', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${SCROLL_HEADER_FIXED}`, function fnIt() {
         expect(

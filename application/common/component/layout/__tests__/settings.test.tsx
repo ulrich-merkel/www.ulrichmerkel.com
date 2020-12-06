@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PubSub from 'pubsub-js';
 import { render } from '../../../../__tests__/utils/test-utils';
-import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../../../state/color-scheme/duck';
+import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../../../state/color-scheme/constants';
 import { LayoutSettings, LayoutSettingsConnected } from '../settings';
-import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../../../state/reduced-motion/duck';
+import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../../../state/reduced-motion/constants';
 
 jest.useFakeTimers();
 

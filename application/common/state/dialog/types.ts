@@ -1,4 +1,4 @@
-import { DIALOG_VISIBLE_CHANGE } from './duck';
+import { DIALOG_VISIBLE_CHANGE } from './constants';
 
 export interface DialogVisibleChangeActionType {
     type: typeof DIALOG_VISIBLE_CHANGE;

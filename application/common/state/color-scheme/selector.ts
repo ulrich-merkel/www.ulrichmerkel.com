@@ -7,17 +7,20 @@
  * @module
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
+ *
+ * @see {@link https://www.joshwcomeau.com/react/dark-mode/}
  */
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
+import { RootState } from '../root-reducer';
 import {
-    initialState,
+    AVAILABLE_COLOR_SCHEMES,
     COLOR_SCHEME_RESOURCE_NAME,
-    COLOR_SCHEME_DARK
-} from './duck';
-import { ColorSchemeStateType } from './types';
+    INITIAL_STATE
+} from './constants';
+import { AvailableColorSchemesType, ColorSchemeStateType } from './types';
 
 /**
  * Select complete color scheme state from redux store.
@@ -31,7 +34,7 @@ export const selectStateColorScheme = createSelector(
     function resultFunc(
         colorScheme: ColorSchemeStateType
     ): ColorSchemeStateType {
-        return isEmpty(colorScheme) ? initialState : colorScheme;
+        return isEmpty(colorScheme) ? INITIAL_STATE : colorScheme;
     }
 );
 
@@ -44,11 +47,13 @@ export const selectStateColorScheme = createSelector(
  */
 export const selectStateColorSchemeSelected = createSelector(
     [selectStateColorScheme],
-    function resultFunc(colorScheme: ColorSchemeStateType): string {
+    function resultFunc(
+        colorScheme: ColorSchemeStateType
+    ): AvailableColorSchemesType {
         return get(
             colorScheme,
             'payload.selected',
-            initialState.payload.selected
+            INITIAL_STATE.payload.selected
         );
     }
 );
@@ -62,7 +67,13 @@ export const selectStateColorSchemeSelected = createSelector(
  */
 export const selectStateColorSchemeSelectedDarkMode = createSelector(
     [selectStateColorSchemeSelected],
-    function resultFunc(colorSchemeSelected: string): boolean {
-        return colorSchemeSelected === COLOR_SCHEME_DARK;
+    function resultFunc(
+        colorSchemeSelected: AvailableColorSchemesType
+    ): boolean {
+        if (colorSchemeSelected === INITIAL_STATE.payload.selected) {
+            return hasDarkModeEnabled();
+        }
+
+        return colorSchemeSelected === AVAILABLE_COLOR_SCHEMES.DARK;
     }
 );

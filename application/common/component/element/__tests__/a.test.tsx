@@ -76,6 +76,9 @@ describe('isLink', function fnDescribe() {
         expect(isLink()).toBeFalsy();
         expect(isLink('/foo')).toBeFalsy();
         expect(isLink('www.foo.bar')).toBeTruthy();
+        expect(isLink('http://foo.bar')).toBeTruthy();
+        expect(isLink('https://foo.bar')).toBeTruthy();
+        expect(isLink('tel:123918238129')).toBeTruthy();
     });
 });
 

@@ -17,7 +17,7 @@ import { url } from '../../config/application';
 import { xhr } from '../../utils/xhr';
 import { getDateNow } from '../../utils/date';
 import { logger } from '../../utils/logger';
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import {
     RequestConfigTranslationActionType,
     ReceiveConfigContentActionType,
@@ -25,61 +25,18 @@ import {
     FailedConfigTranslationActionType
 } from './types';
 import { Locale } from '../intl/types';
-
-/**
- * @type {string}
- */
-export const CONFIG_RESOURCE_NAME = 'config';
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_CONTENT_REQUEST = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_CONTENT_REQUEST`;
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_CONTENT_FAILURE = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_CONTENT_FAILURE`;
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_CONTENT_SUCCESS = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_CONTENT_SUCCESS`;
-
-/**
- * @type {string}
- */
-export const CONFIG_CONTENT_ADD = `${CONFIG_RESOURCE_NAME}/CONFIG_CONTENT_ADD`;
-
-/**
- * @type {string}
- */
-export const CONFIG_CONTENT_INVALIDATE = `${CONFIG_RESOURCE_NAME}/CONFIG_CONTENT_INVALIDATE`;
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_TRANSLATION_REQUEST = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_TRANSLATION_REQUEST`;
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_TRANSLATION_FAILURE = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_TRANSLATION_FAILURE`;
-
-/**
- * @type {string}
- */
-export const FETCH_CONFIG_TRANSLATION_SUCCESS = `${CONFIG_RESOURCE_NAME}/FETCH_CONFIG_TRANSLATION_SUCCESS`;
-
-/**
- * @type {string}
- */
-export const CONFIG_TRANSLATION_ADD = `${CONFIG_RESOURCE_NAME}/CONFIG_TRANSLATION_ADD`;
-
-/**
- * @type {string}
- */
-export const CONFIG_TRANSLATION_INVALIDATE = `${CONFIG_RESOURCE_NAME}/CONFIG_TRANSLATION_INVALIDATE`;
+import {
+    CONFIG_RESOURCE_NAME,
+    FETCH_CONFIG_CONTENT_REQUEST,
+    FETCH_CONFIG_CONTENT_FAILURE,
+    FETCH_CONFIG_CONTENT_SUCCESS,
+    FETCH_CONFIG_TRANSLATION_REQUEST,
+    FETCH_CONFIG_TRANSLATION_FAILURE,
+    FETCH_CONFIG_TRANSLATION_SUCCESS,
+    CONFIG_TRANSLATION_ADD,
+    INITIAL_STATE,
+    CONFIG_CONTENT_ADD
+} from './constants';
 
 /**
  * Check if async data needs to be loaded from server.
@@ -341,25 +298,15 @@ function getAsyncStateObject(action) {
 }
 
 /**
- * @type {object}
- */
-export const initialState = {
-    content: {
-        isFetching: false,
-        didInvalidate: false
-    }
-};
-
-/**
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
  * @function
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
-export function reducer(state = initialState, action) {
+export function reducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case CONFIG_CONTENT_ADD:
             return updateStateObject(state, {

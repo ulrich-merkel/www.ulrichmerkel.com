@@ -1,23 +1,25 @@
 /* eslint-disable func-names, immutable/no-mutation */
 import { mockedState } from '../../../../__tests__/utils/get-mocked-store';
 import {
-    shouldFetch,
     CONFIG_CONTENT_ADD,
     CONFIG_TRANSLATION_ADD,
-    receiveConfigContent,
-    requestConfigContent,
-    receiveConfigTranslation,
-    addConfigContent,
-    initialState,
-    requestConfigTranslation,
-    failedConfigContent,
-    reducer,
-    addConfigTranslation,
+    INITIAL_STATE,
     FETCH_CONFIG_CONTENT_REQUEST,
     FETCH_CONFIG_CONTENT_FAILURE,
     FETCH_CONFIG_CONTENT_SUCCESS,
     FETCH_CONFIG_TRANSLATION_REQUEST,
     FETCH_CONFIG_TRANSLATION_SUCCESS
+} from '../constants';
+import {
+    shouldFetch,
+    receiveConfigContent,
+    requestConfigContent,
+    receiveConfigTranslation,
+    addConfigContent,
+    requestConfigTranslation,
+    failedConfigContent,
+    reducer,
+    addConfigTranslation
 } from '../duck';
 
 Date.now = jest.fn().mockReturnValue(1234567890);
@@ -161,7 +163,7 @@ describe('addConfigTranslation', function () {
 
 describe('reducer', function () {
     it('should return the initial state', function () {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     describe('config content', function () {
         it(`should react to an action with the type ${CONFIG_CONTENT_ADD}`, function () {
@@ -238,7 +240,7 @@ describe('reducer', function () {
                     receivedAt: dateNow,
                     locale
                 })
-            ).toEqual({ ...initialState, [locale]: actionData });
+            ).toEqual({ ...INITIAL_STATE, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_REQUEST}`, function () {
             const actionData = {
@@ -250,7 +252,7 @@ describe('reducer', function () {
                     type: FETCH_CONFIG_TRANSLATION_REQUEST,
                     locale
                 })
-            ).toEqual({ ...initialState, [locale]: actionData });
+            ).toEqual({ ...INITIAL_STATE, [locale]: actionData });
         });
         it(`should react to an action with the type ${FETCH_CONFIG_TRANSLATION_SUCCESS}`, function () {
             const data = {
@@ -269,7 +271,7 @@ describe('reducer', function () {
                     receivedAt: dateNow,
                     locale
                 })
-            ).toEqual({ ...initialState, [locale]: actionData });
+            ).toEqual({ ...INITIAL_STATE, [locale]: actionData });
         });
     });
 });

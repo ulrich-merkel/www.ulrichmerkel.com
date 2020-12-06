@@ -11,13 +11,14 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
+import { RootState } from '../root-reducer';
 import {
-    initialState,
-    REDUCED_MOTION_RESOURCE_NAME,
-    MOTION_PREFERENCES_REDUCE
-} from './duck';
-import { ReducedMotionStateType } from './types';
+    AVAILABLE_MOTION_PREFERENCES,
+    INITIAL_STATE,
+    REDUCED_MOTION_RESOURCE_NAME
+} from './constants';
+import { AvailableReducedMotionsType, ReducedMotionStateType } from './types';
+import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 
 /**
  * Select complete color scheme state from redux store.
@@ -31,7 +32,7 @@ export const selectStateReducedMotion = createSelector(
     function resultFunc(
         reducedMotion: ReducedMotionStateType
     ): ReducedMotionStateType {
-        return isEmpty(reducedMotion) ? initialState : reducedMotion;
+        return isEmpty(reducedMotion) ? INITIAL_STATE : reducedMotion;
     }
 );
 
@@ -44,11 +45,13 @@ export const selectStateReducedMotion = createSelector(
  */
 export const selectStateReducedMotionSelected = createSelector(
     [selectStateReducedMotion],
-    function resultFunc(reducedMotion: ReducedMotionStateType): string {
+    function resultFunc(
+        reducedMotion: ReducedMotionStateType
+    ): AvailableReducedMotionsType {
         return get(
             reducedMotion,
             'payload.selected',
-            initialState.payload.selected
+            INITIAL_STATE.payload.selected
         );
     }
 );
@@ -62,7 +65,12 @@ export const selectStateReducedMotionSelected = createSelector(
  */
 export const selectStateReducedMotionSelectedReduce = createSelector(
     [selectStateReducedMotionSelected],
-    function resultFunc(reducedMotionSelected: string): boolean {
-        return reducedMotionSelected === MOTION_PREFERENCES_REDUCE;
+    function resultFunc(
+        reducedMotionSelected: AvailableReducedMotionsType
+    ): boolean {
+        if (reducedMotionSelected === INITIAL_STATE.payload.selected) {
+            return hasReducedMotionEnabled();
+        }
+        return reducedMotionSelected === AVAILABLE_MOTION_PREFERENCES.REDUCE;
     }
 );

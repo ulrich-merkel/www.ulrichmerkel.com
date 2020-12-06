@@ -12,8 +12,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { initialState, SCROLL_RESOURCE_NAME } from './duck';
+import { RootState } from '../root-reducer';
+import { INITIAL_STATE, SCROLL_RESOURCE_NAME } from './constants';
 import { ScrollStateType } from './types';
 
 /**
@@ -26,7 +26,7 @@ import { ScrollStateType } from './types';
 export const selectStateScroll = createSelector(
     [(state: RootState) => state?.[SCROLL_RESOURCE_NAME]],
     function resultFunc(scroll: ScrollStateType): ScrollStateType {
-        return isEmpty(scroll) ? initialState : scroll;
+        return isEmpty(scroll) ? INITIAL_STATE : scroll;
     }
 );
 
@@ -43,7 +43,7 @@ export const selectStateScrollIsHeaderFixed = createSelector(
         return get(
             scroll,
             'payload.isHeaderFixed',
-            initialState.payload.isHeaderFixed
+            INITIAL_STATE.payload.isHeaderFixed
         );
     }
 );
@@ -61,7 +61,7 @@ export const selectStateScrollIsHeaderVisible = createSelector(
         return get(
             scroll,
             'payload.isHeaderVisible',
-            initialState.payload.isHeaderVisible
+            INITIAL_STATE.payload.isHeaderVisible
         );
     }
 );

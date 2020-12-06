@@ -1,12 +1,24 @@
 import {
-    MOTION_PREFERENCES,
-    toggleReducedMotionSelected,
-    initialState,
-    reducer,
+    AVAILABLE_MOTION_PREFERENCES,
+    INITIAL_STATE,
     REDUCED_MOTION_RESOURCE_NAME,
-    REDUCED_MOTION_TOGGLE_SELECTED,
-    reducerReducedMotion
+    REDUCED_MOTION_TOGGLE_SELECTED
+} from '../constants';
+import {
+    reducer,
+    reducerReducedMotion,
+    toggleReducedMotionSelected,
+    toggleSelected
 } from '../duck';
+
+const { NO_PREFERENCE, REDUCE } = AVAILABLE_MOTION_PREFERENCES;
+
+describe('toggleSelected', function fnDescribe() {
+    it('should return the correct result', function fnIt() {
+        expect(toggleSelected(NO_PREFERENCE)).toEqual(REDUCE);
+        expect(toggleSelected(REDUCE)).toEqual(NO_PREFERENCE);
+    });
+});
 
 describe('toggleReducedMotionSelected', function fnDescribe() {
     it(`should have a type of ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
@@ -18,21 +30,47 @@ describe('toggleReducedMotionSelected', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
-    });
-    it(`should react to an action with the type ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
         expect(
             reducer(undefined, {
-                type: REDUCED_MOTION_TOGGLE_SELECTED,
-                selected: MOTION_PREFERENCES[1]
+                type: ''
+            })
+        ).toEqual(INITIAL_STATE);
+    });
+    it(`should should toggle with system settings`, function fnIt() {
+        expect(
+            reducer(INITIAL_STATE, {
+                type: REDUCED_MOTION_TOGGLE_SELECTED
             })
         ).toMatchSnapshot();
     });
-    it('should return the current state if payload is empty', function fnIt() {
+    it(`should should toggle to ${REDUCE}`, function fnIt() {
         expect(
-            reducer(initialState, {
-                type: REDUCED_MOTION_TOGGLE_SELECTED
-            })
+            reducer(
+                {
+                    ...INITIAL_STATE,
+                    payload: {
+                        selected: NO_PREFERENCE
+                    }
+                },
+                {
+                    type: REDUCED_MOTION_TOGGLE_SELECTED
+                }
+            )
+        ).toMatchSnapshot();
+    });
+    it(`should should toggle to ${NO_PREFERENCE}`, function fnIt() {
+        expect(
+            reducer(
+                {
+                    ...INITIAL_STATE,
+                    payload: {
+                        selected: REDUCE
+                    }
+                },
+                {
+                    type: REDUCED_MOTION_TOGGLE_SELECTED
+                }
+            )
         ).toMatchSnapshot();
     });
 });
