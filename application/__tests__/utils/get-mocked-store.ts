@@ -12,18 +12,18 @@ import { reducedMotionStateData } from '../data/reduced-motion-state-data';
 import { scrollStateData } from '../data/scroll-state-data';
 import { searchStateData } from '../data/search-state-data';
 
-import { COLOR_SCHEME_RESOURCE_NAME } from '../../common/state/color-scheme/duck';
-import { CONFIG_RESOURCE_NAME } from '../../common/state/config/duck';
-import { CONTACT_RESOURCE_NAME } from '../../common/state/contact/duck';
-import { CSRF_RESOURCE_NAME } from '../../common/state/csrf/duck';
-import { DIALOG_RESOURCE_NAME } from '../../common/state/dialog/duck';
-import { INTL_RESOURCE_NAME } from '../../common/state/intl/duck';
-import { PAGE_RESOURCE_NAME } from '../../common/state/page/duck';
-import { REDUCED_MOTION_RESOURCE_NAME } from '../../common/state/reduced-motion/duck';
-import { SCROLL_RESOURCE_NAME } from '../../common/state/scroll/duck';
-import { SEARCH_RESOURCE_NAME } from '../../common/state/search/duck';
+import { COLOR_SCHEME_RESOURCE_NAME } from '../../common/state/color-scheme/constants';
+import { CONFIG_RESOURCE_NAME } from '../../common/state/config/constants';
+import { CONTACT_RESOURCE_NAME } from '../../common/state/contact/constants';
+import { CSRF_RESOURCE_NAME } from '../../common/state/csrf/constants';
+import { DIALOG_RESOURCE_NAME } from '../../common/state/dialog/constants';
+import { INTL_RESOURCE_NAME } from '../../common/state/intl/constants';
+import { PAGE_RESOURCE_NAME } from '../../common/state/page/constants';
+import { REDUCED_MOTION_RESOURCE_NAME } from '../../common/state/reduced-motion/constants';
+import { SCROLL_RESOURCE_NAME } from '../../common/state/scroll/constants';
+import { SEARCH_RESOURCE_NAME } from '../../common/state/search/constants';
 
-import { RootState } from '../../common/state/configure-store';
+import { RootState } from '../../common/state/root-reducer';
 
 /**
  * Create a "fake" redux state with mocked test data.

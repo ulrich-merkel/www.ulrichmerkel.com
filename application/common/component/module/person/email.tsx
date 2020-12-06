@@ -37,7 +37,7 @@ export const ModulePersonEmail: FunctionComponent<Props> = (props) => {
         <P className="m-person__email">
             <Abbr title="E-Mail address">E.</Abbr>{' '}
             <A
-                href={`mailto:${content.email}`}
+                to={`mailto:${content.email}`}
                 itemProp="email"
                 title="Write a message"
             >

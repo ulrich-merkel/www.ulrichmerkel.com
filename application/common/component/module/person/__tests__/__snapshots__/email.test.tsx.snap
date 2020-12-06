@@ -12,6 +12,17 @@ exports[`ModulePersonEmail should render correctly 1`] = `
       E.
     </abbr>
      
+    <a
+      class="c-link"
+      href="mailto:foo@bar.com"
+      itemprop="email"
+      rel="noopener noreferrer"
+      tabindex="0"
+      target="_blank"
+      title="Write a message"
+    >
+      foo@bar.com
+    </a>
   </p>
 </DocumentFragment>
 `;

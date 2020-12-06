@@ -30,11 +30,12 @@ import 'picturefill';
 
 import { Root } from '../common/component/root';
 import { Routes } from '../common/component/routes';
-import { configureStore, RootState } from '../common/state/configure-store';
+import { configureStore } from '../common/state/configure-store';
+import { RootState } from '../common/state/root-reducer';
 import { debug } from '../common/config/application';
 import { DOM_ROOT_ELEMENT_ID } from '../common/constants/dom';
-import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../common/state/color-scheme/duck';
-import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../common/state/reduced-motion/duck';
+import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../common/state/color-scheme/constants';
+import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../common/state/reduced-motion/constants';
 import { featureDetect } from './feature-detect/feature-detect';
 import { applyColorScheme } from './settings/apply-color-scheme';
 import { applyReducedMotion } from './settings/apply-reduced-motion';

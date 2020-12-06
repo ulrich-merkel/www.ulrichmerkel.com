@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducer should react to an action with the type reducedMotion/REDUCED_MOTION_TOGGLE_SELECTED 1`] = `
+exports[`reducer should should toggle to no-preference 1`] = `
+Object {
+  "meta": Object {
+    "isInitial": false,
+  },
+  "payload": Object {
+    "selected": "no-preference",
+  },
+}
+`;
+
+exports[`reducer should should toggle to reduce 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,
@@ -11,7 +22,7 @@ Object {
 }
 `;
 
-exports[`reducer should return the current state if payload is empty 1`] = `
+exports[`reducer should should toggle with system settings 1`] = `
 Object {
   "meta": Object {
     "isInitial": false,

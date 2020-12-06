@@ -1,4 +1,4 @@
-import { CHANGE_CONTACT_FORM } from './duck';
+import { CHANGE_CONTACT_FORM } from './constants';
 
 export interface ContactFormType {
     name: string;

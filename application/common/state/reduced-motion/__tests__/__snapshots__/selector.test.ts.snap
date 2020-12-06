@@ -17,7 +17,7 @@ Object {
     "isInitial": true,
   },
   "payload": Object {
-    "selected": "no-preference",
+    "selected": undefined,
   },
 }
 `;
@@ -28,7 +28,7 @@ Object {
     "isInitial": true,
   },
   "payload": Object {
-    "selected": "no-preference",
+    "selected": undefined,
   },
 }
 `;

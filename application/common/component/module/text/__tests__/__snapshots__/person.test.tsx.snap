@@ -49,6 +49,17 @@ exports[`ModuleTextPerson should render correctly 1`] = `
         E.
       </abbr>
        
+      <a
+        class="c-link"
+        href="mailto:test@test.com"
+        itemprop="email"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Write a message"
+      >
+        test@test.com
+      </a>
     </p>
     <p
       class="c-type--p m-person__phone"
@@ -60,6 +71,17 @@ exports[`ModuleTextPerson should render correctly 1`] = `
         P.
       </abbr>
        
+      <a
+        class="c-link"
+        href="tel:1239182391832"
+        itemprop="telephone"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title=""
+      >
+        123 9182 391832
+      </a>
     </p>
     <p
       class="c-type--p m-person__website"
@@ -71,6 +93,16 @@ exports[`ModuleTextPerson should render correctly 1`] = `
         W.
       </abbr>
        
+      <a
+        class="c-link"
+        href="www.test.de"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+        title="Open website in new tab"
+      >
+        www.test.de
+      </a>
     </p>
   </div>
 </DocumentFragment>

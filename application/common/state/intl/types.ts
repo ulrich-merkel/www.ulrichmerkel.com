@@ -2,7 +2,7 @@ import {
     INTL_CHANGE_LOCALE,
     INTL_LOCALE_EN_EN,
     INTL_LOCALE_DE_DE
-} from './duck';
+} from './constants';
 
 export interface ChangeIntlActionType {
     type: typeof INTL_CHANGE_LOCALE;

@@ -1,11 +1,9 @@
 import {
-    addPageView,
-    initialState,
-    reducer,
+    INITIAL_STATE,
     PAGE_RESOURCE_NAME,
-    PAGE_INCREASE_VIEWS,
-    reducerPage
-} from '../duck';
+    PAGE_INCREASE_VIEWS
+} from '../constants';
+import { addPageView, reducer, reducerPage } from '../duck';
 
 describe('addPageView', function fnDescribe() {
     it(`should have a type of ${PAGE_INCREASE_VIEWS}`, function fnIt() {
@@ -15,7 +13,7 @@ describe('addPageView', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${PAGE_INCREASE_VIEWS}`, function fnIt() {
         expect(

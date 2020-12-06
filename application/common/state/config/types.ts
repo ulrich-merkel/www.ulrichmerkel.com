@@ -4,7 +4,7 @@ import {
     FETCH_CONFIG_CONTENT_SUCCESS,
     FETCH_CONFIG_TRANSLATION_SUCCESS,
     FETCH_CONFIG_TRANSLATION_FAILURE
-} from './duck';
+} from './constants';
 
 export interface RequestConfigTranslationActionType {
     type: typeof FETCH_CONFIG_TRANSLATION_REQUEST;

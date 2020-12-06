@@ -12,8 +12,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { initialState, INTL_RESOURCE_NAME } from './duck';
+import { RootState } from '../root-reducer';
+import { INITIAL_STATE, INTL_RESOURCE_NAME } from './constants';
 import { IntlStateType, Locale, Locales } from './types';
 
 /**
@@ -26,7 +26,7 @@ import { IntlStateType, Locale, Locales } from './types';
 export const selectStateIntl = createSelector(
     [(state: RootState) => state?.[INTL_RESOURCE_NAME]],
     function resultFunc(intl: IntlStateType): IntlStateType {
-        return isEmpty(intl) ? initialState : intl;
+        return isEmpty(intl) ? INITIAL_STATE : intl;
     }
 );
 
@@ -40,7 +40,7 @@ export const selectStateIntl = createSelector(
 export const selectStateIntlLocale = createSelector(
     [selectStateIntl],
     function resultFunc(intl: IntlStateType): Locale {
-        return get(intl, 'payload.locale', initialState.payload.locale);
+        return get(intl, 'payload.locale', INITIAL_STATE.payload.locale);
     }
 );
 
@@ -57,7 +57,7 @@ export const selectStateIntlAvailableLocales = createSelector(
         return get(
             intl,
             'payload.availableLocales',
-            initialState.payload.availableLocales
+            INITIAL_STATE.payload.availableLocales
         );
     }
 );

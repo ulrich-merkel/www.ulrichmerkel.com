@@ -1,11 +1,9 @@
 import {
-    changeCsrfToken,
-    initialState,
+    INITIAL_STATE,
     CHANGE_CSRF_TOKEN,
-    CSRF_RESOURCE_NAME,
-    reducerCsrf,
-    reducer
-} from '../duck';
+    CSRF_RESOURCE_NAME
+} from '../constants';
+import { changeCsrfToken, reducerCsrf, reducer } from '../duck';
 
 describe('changeCsrfToken', function fnDescribe() {
     it(`should have a type of ${CHANGE_CSRF_TOKEN}`, function fnIt() {
@@ -19,7 +17,7 @@ describe('changeCsrfToken', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${CHANGE_CSRF_TOKEN}`, function fnIt() {
         expect(

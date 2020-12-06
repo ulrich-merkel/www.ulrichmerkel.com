@@ -1,15 +1,17 @@
 import {
-    changeDialogVisible,
-    changeDialogVisibleBroadcast,
-    changeDialogVisibleSearch,
-    changeDialogVisibleTheme,
-    initialState,
-    reducer,
+    INITIAL_STATE,
     DIALOG_RESOURCE_NAME,
     DIALOG_VISIBLE_CHANGE,
     DIALOG_CONTENT_BROADCAST,
     DIALOG_CONTENT_SEARCH,
-    DIALOG_CONTENT_THEME,
+    DIALOG_CONTENT_THEME
+} from '../constants';
+import {
+    changeDialogVisible,
+    changeDialogVisibleBroadcast,
+    changeDialogVisibleSearch,
+    changeDialogVisibleTheme,
+    reducer,
     reducerDialog
 } from '../duck';
 
@@ -76,7 +78,7 @@ describe('changeDialogVisibleTheme', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${DIALOG_VISIBLE_CHANGE}`, function fnIt() {
         expect(

@@ -12,8 +12,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { initialState, CONTACT_RESOURCE_NAME } from './duck';
+import { RootState } from '../root-reducer';
+import { INITIAL_STATE, CONTACT_RESOURCE_NAME } from './constants';
 import { ContactStateType } from './types';
 
 /**
@@ -26,7 +26,7 @@ import { ContactStateType } from './types';
 export const selectStateContact = createSelector(
     [(state: RootState) => state?.[CONTACT_RESOURCE_NAME]],
     function resultFunc(contact: ContactStateType): ContactStateType {
-        return isEmpty(contact) ? initialState : contact;
+        return isEmpty(contact) ? INITIAL_STATE : contact;
     }
 );
 
@@ -40,6 +40,6 @@ export const selectStateContact = createSelector(
 export const selectStateContactForm = createSelector(
     [selectStateContact],
     function resultFunc(contact: ContactStateType): string {
-        return get(contact, 'payload.form', initialState.payload.form);
+        return get(contact, 'payload.form', INITIAL_STATE.payload.form);
     }
 );

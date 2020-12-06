@@ -10,29 +10,12 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import { isString } from 'lodash';
+import {
+    SEARCH_RESOURCE_NAME,
+    SEARCH_CHANGE_TERM,
+    INITIAL_STATE
+} from './constants';
 import { SearchStateType, SearchActionTypes } from './types';
-
-/**
- * @type {string}
- */
-export const SEARCH_RESOURCE_NAME = 'search';
-
-/**
- * @type {string}
- */
-export const SEARCH_CHANGE_TERM = `${SEARCH_RESOURCE_NAME}/SEARCH_CHANGE_TERM`;
-
-/**
- * @type {object}
- */
-export const initialState: SearchStateType = {
-    meta: {
-        isInitial: true
-    },
-    payload: {
-        term: ''
-    }
-};
 
 /**
  * Handle search term state change.
@@ -51,12 +34,12 @@ export function changeSearchTerm(term: string): SearchActionTypes {
  * Used to reduce a stream of actions coming from the dispatcher into a
  * single state object. This will handle merge and clear actions for this resource.
  *
- * @param {object} [state=initialState] - The current state
+ * @param {object} [state=INITIAL_STATE] - The current state
  * @param {object} action - The action sent by the dispatcher
  * @returns {object} The new state for this store
  */
 export function reducer(
-    state: SearchStateType = initialState,
+    state: SearchStateType = INITIAL_STATE,
     action: SearchActionTypes
 ): SearchStateType {
     switch (action.type) {

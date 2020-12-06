@@ -1,4 +1,4 @@
-import { PAGE_INCREASE_VIEWS } from './duck';
+import { PAGE_INCREASE_VIEWS } from './constants';
 
 export interface AddPageViewActionType {
     type: typeof PAGE_INCREASE_VIEWS;

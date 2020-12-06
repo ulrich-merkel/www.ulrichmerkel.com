@@ -1,11 +1,9 @@
 import {
-    changeSearchTerm,
-    initialState,
+    INITIAL_STATE,
     SEARCH_CHANGE_TERM,
-    SEARCH_RESOURCE_NAME,
-    reducerSearch,
-    reducer
-} from '../duck';
+    SEARCH_RESOURCE_NAME
+} from '../constants';
+import { changeSearchTerm, reducerSearch, reducer } from '../duck';
 
 describe('changeSearchTerm', function fnDescribe() {
     it(`should have a type of ${SEARCH_CHANGE_TERM}`, function fnIt() {
@@ -19,7 +17,7 @@ describe('changeSearchTerm', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${SEARCH_CHANGE_TERM}`, function fnIt() {
         expect(

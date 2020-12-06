@@ -1,11 +1,9 @@
 import {
-    changeContactForm,
-    initialState,
+    INITIAL_STATE,
     CHANGE_CONTACT_FORM,
-    CONTACT_RESOURCE_NAME,
-    reducerContact,
-    reducer
-} from '../duck';
+    CONTACT_RESOURCE_NAME
+} from '../constants';
+import { changeContactForm, reducerContact, reducer } from '../duck';
 
 describe('changeContactForm', function fnDescribe() {
     it(`should have a type of ${CHANGE_CONTACT_FORM}`, function fnIt() {
@@ -19,7 +17,7 @@ describe('changeContactForm', function fnDescribe() {
 
 describe('reducer', function fnDescribe() {
     it('should return the initial state', function fnIt() {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
     it(`should react to an action with the type ${CHANGE_CONTACT_FORM}`, function fnIt() {
         expect(

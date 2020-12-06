@@ -10,21 +10,17 @@ import { default as React, Component, Fragment, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 
-import {
-    PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE,
-    COLOR_SCHEME_LIGHT
-} from '../../state/color-scheme/duck';
+import { PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE } from '../../state/color-scheme/constants';
 import { selectStateColorSchemeSelected } from '../../state/color-scheme/selector';
 import { selectStateReducedMotionSelected } from '../../state/reduced-motion/selector';
-import {
-    MOTION_PREFERENCES_NO_PREFERENCE,
-    PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE
-} from '../../state/reduced-motion/duck';
+import { PUBSUB_REDUCED_MOTION_CHANGE_MESSAGE } from '../../state/reduced-motion/constants';
+import { AvailableColorSchemesType } from '../../state/color-scheme/types';
+import { AvailableReducedMotionsType } from '../../state/reduced-motion/types';
 
 type Props = {
     children?: ReactNode;
-    colorSchemeSelected: string;
-    reducedMotionSelected: string;
+    colorSchemeSelected: AvailableColorSchemesType;
+    reducedMotionSelected: AvailableReducedMotionsType;
 };
 
 /**
@@ -43,10 +39,7 @@ export class LayoutSettings extends Component<Props> {
      * @returns {void}
      */
     componentDidMount(): void {
-        const {
-            colorSchemeSelected = COLOR_SCHEME_LIGHT,
-            reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
-        } = this.props;
+        const { colorSchemeSelected, reducedMotionSelected } = this.props;
 
         PubSub.publish(PUBSUB_COLOR_SCHEME_CHANGE_MESSAGE, colorSchemeSelected);
         PubSub.publish(
@@ -63,10 +56,7 @@ export class LayoutSettings extends Component<Props> {
      * @returns {void}
      */
     componentDidUpdate(prevProps: Props): void {
-        const {
-            colorSchemeSelected = COLOR_SCHEME_LIGHT,
-            reducedMotionSelected = MOTION_PREFERENCES_NO_PREFERENCE
-        } = this.props;
+        const { colorSchemeSelected, reducedMotionSelected } = this.props;
 
         if (colorSchemeSelected !== prevProps.colorSchemeSelected) {
             PubSub.publish(

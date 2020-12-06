@@ -11,8 +11,8 @@
 import { createSelector } from 'reselect';
 import { get, isEmpty } from 'lodash';
 
-import { RootState } from '../configure-store';
-import { initialState, PAGE_RESOURCE_NAME } from './duck';
+import { RootState } from '../root-reducer';
+import { INITIAL_STATE, PAGE_RESOURCE_NAME } from './constants';
 import { PageStateType } from './types';
 
 /**
@@ -25,7 +25,7 @@ import { PageStateType } from './types';
 export const selectStatePage = createSelector(
     [(state: RootState) => state?.[PAGE_RESOURCE_NAME]],
     function resultFunc(page: PageStateType): PageStateType {
-        return isEmpty(page) ? initialState : page;
+        return isEmpty(page) ? INITIAL_STATE : page;
     }
 );
 
@@ -42,7 +42,7 @@ export const selectStatePageViewsAfterReload = createSelector(
         return get(
             page,
             'payload.viewsAfterReload',
-            initialState.payload.viewsAfterReload
+            INITIAL_STATE.payload.viewsAfterReload
         );
     }
 );

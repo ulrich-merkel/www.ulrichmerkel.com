@@ -1,4 +1,4 @@
-import { configureStore, rootReducer } from '../configure-store';
+import { configureStore } from '../configure-store';
 
 describe('configureStore', function fnDescribe() {
     it('should create a store', function fnIt() {
@@ -14,11 +14,5 @@ describe('configureStore', function fnDescribe() {
         const state = store.getState();
         expect(state.csrf.token).toBeDefined();
         expect(state.csrf.token).toEqual('foo');
-    });
-});
-
-describe('rootReducer', function fnDescribe() {
-    it('should create the correct store keys', function fnIt() {
-        expect(rootReducer).toMatchSnapshot();
     });
 });

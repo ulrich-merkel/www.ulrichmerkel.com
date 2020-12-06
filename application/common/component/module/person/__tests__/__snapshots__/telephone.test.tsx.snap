@@ -12,6 +12,17 @@ exports[`ModulePersonTelephone should render correctly 1`] = `
       P.
     </abbr>
      
+    <a
+      class="c-link"
+      href="tel:01231238119283"
+      itemprop="telephone"
+      rel="noopener noreferrer"
+      tabindex="0"
+      target="_blank"
+      title=""
+    >
+      0123 12381 19283
+    </a>
   </p>
 </DocumentFragment>
 `;
