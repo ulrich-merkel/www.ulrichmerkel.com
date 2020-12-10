@@ -6,7 +6,7 @@
  *
  * @author hello@ulrichmerkel.com (Ulrich Merkel), 2021
  */
-import { default as React, Component, ReactNode } from 'react';
+import { default as React, Component, ReactNode, ErrorInfo } from 'react';
 import { logger } from '../utils/logger';
 
 type Props = {
@@ -33,21 +33,31 @@ export class ErrorBoundary extends Component<Props, State> {
     };
 
     // Update state so the next render will show the fallback UI.
-    static getDerivedStateFromError() {
+    static getDerivedStateFromError(): State {
         return { hasError: true };
     }
 
-    // Simlpy logging the error
-    componentDidCatch(error, errorInfo) {
+    /**
+     * Simlpy logging the error.
+     *
+     * @param {object} error - The error that was thrown
+     * @param {object} errorInfo - An object with a componentStack key containing information about which component threw the error
+     * @returns {void}
+     */
+    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
         logger.warn(error, errorInfo);
     }
 
-    render() {
-        if (this.state.hasError) {
-            // Render a custom ui hint
+    /**
+     * @returns {ReactElement} The current children
+     */
+    render(): ReactNode {
+        const { hasError } = this.state;
+        if (hasError) {
             return <h1>Something went wrong.</h1>;
         }
 
-        return this.props.children;
+        const { children } = this.props;
+        return children;
     }
 }

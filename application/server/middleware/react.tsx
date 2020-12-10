@@ -159,9 +159,15 @@ export function middlewareReact(
     assert.object(res, 'res');
     assert.optionalFunc(next, 'next');
 
+    // Just render get requests
+    if (req.method !== 'GET') {
+        return next();
+    }
+
     const store = configureStore();
     const acceptedLocale = getLocale(req, store);
 
+    // Load required data a generate according html string
     return loadData(req, store, acceptedLocale)
         .then(function fnResolve(result) {
             const rendered = render(req.url, store, result[0], result[1]);
