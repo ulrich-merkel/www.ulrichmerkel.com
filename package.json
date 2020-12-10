@@ -24,7 +24,7 @@
     "config": "./config",
     "doc": "./doc",
     "report": "./report",
-    "scripts": "./scripss"
+    "scripts": "./scripts"
   },
   "description": "Playground for React and all the corresponding technologies.",
   "homepage": "https://www.ulrichmerkel.com",
@@ -104,7 +104,7 @@
     "test:npm-version": "node $npm_package_directories_bin/version --npm --version=$(npm --version) --silent",
     "test:package": "npmPkgJsonLint -c $npm_package_directories_config/.npmpackagejsonlintrc.json .",
     "test:types": "tsc --noEmit; exit 0;",
-    "test:unit": "cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/jest.config.js --maxWorkers=4",
+    "test:unit": "cross-env NODE_ENV=test PORT=3001 jest --config $npm_package_directories_config/jest/jest.config.js --runInBand",
     "test:retire": "retire --ignorefile $npm_package_directories_config/retireignore.json; exit 0;",
     "test": "npm-run-all test:*",
     "transpile:client": "webpack --config $npm_package_directories_config/webpack.config.js",
@@ -200,7 +200,7 @@
     "reselect": "4.0.0",
     "serialize-javascript": "5.0.1",
     "shortid": "2.2.16",
-    "snyk": "1.435.0",
+    "snyk": "1.435.1",
     "url": "0.11.0",
     "winston": "3.3.3"
   },

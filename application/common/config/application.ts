@@ -47,8 +47,8 @@ const configEnvironment = {
     production: {},
     test: {
         aboveTheFold: {
-            cssBase: '/css/base.css',
-            scriptBootstrap: '/js/bootstrap.bundle.js'
+            cssBase: '../../../public/css/base.css',
+            scriptBootstrap: '../../../public/js/bootstrap.bundle.js'
         }
     }
 }[process.env.NODE_ENV || 'development'];

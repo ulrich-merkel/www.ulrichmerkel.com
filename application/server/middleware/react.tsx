@@ -163,7 +163,7 @@ export function middlewareReact(
     const acceptedLocale = getLocale(req, store);
 
     return loadData(req, store, acceptedLocale)
-        .then((result) => {
+        .then(function fnResolve(result) {
             const rendered = render(req.url, store, result[0], result[1]);
             const redirectUrl = rendered?.context?.url;
 
@@ -172,7 +172,7 @@ export function middlewareReact(
             }
             return res.status(200).send(`<!doctype html>${rendered.html}`);
         })
-        .catch((reason) => {
+        .catch(function fnReject(reason) {
             logger.warn(reason);
             const rendered = render(req.url, store);
             return res.status(404).send(`<!doctype html>${rendered.html}`);

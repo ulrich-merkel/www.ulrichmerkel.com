@@ -146,9 +146,11 @@ function createServer(config?: Config, callback?: Callback): Application {
     app.use(bodyParser.json());
 
     // Secure server by setting various HTTP headers
-    app.use(helmet({
-        contentSecurityPolicy: false
-    }));
+    app.use(
+        helmet({
+            contentSecurityPolicy: false
+        })
+    );
 
     // Add a X-Clacks-Overhead header for GNU John Dearheart
     // @see {@link https://xclacksoverhead.org/}
