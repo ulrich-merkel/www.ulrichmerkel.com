@@ -9,7 +9,8 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { isString } from 'lodash';
+import produce, { Draft } from 'immer';
+import { isValidString } from '../../utils/string';
 import {
     CSRF_RESOURCE_NAME,
     CHANGE_CSRF_TOKEN,
@@ -42,24 +43,18 @@ export function reducer(
     state: CsrfStateType = INITIAL_STATE,
     action: CsrfActionTypes
 ): CsrfStateType {
-    switch (action.type) {
-        case CHANGE_CSRF_TOKEN: {
-            const token = isString(action.token) ? action.token : '';
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    token
-                }
-            };
+    return produce(state, function (draft: Draft<CsrfStateType>) {
+        // eslint-disable-next-line default-case
+        switch (action.type) {
+            case CHANGE_CSRF_TOKEN: {
+                const token = isValidString(action.token) ? action.token : '';
+
+                draft.meta.isInitial = false;
+                draft.payload.token = token;
+                break;
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    });
 }
 
 /**
