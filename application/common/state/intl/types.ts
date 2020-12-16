@@ -6,8 +6,8 @@ import {
 
 export interface ChangeIntlActionType {
     type: typeof INTL_CHANGE_LOCALE;
-    locale: string;
-    fallback: string;
+    locale?: string;
+    fallback?: string;
 }
 
 export type IntlActionTypes = ChangeIntlActionType;

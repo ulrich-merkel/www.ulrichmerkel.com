@@ -138,8 +138,12 @@ module.exports = {
         'lodash/prefer-constant': 'off',
         'lodash/prefer-lodash-method': 'off',
         'no-mixed-operators': ['error', { allowSamePrecedence: true }],
-        'no-void': 'warn',
+        'no-param-reassign': [
+            'error',
+            { props: true, ignorePropertyModificationsFor: ['draft'] }
+        ],
         'no-use-before-define': 'off',
+        'no-void': 'warn',
         'one-var': [
             'error',
             {

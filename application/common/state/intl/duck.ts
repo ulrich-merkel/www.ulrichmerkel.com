@@ -9,6 +9,8 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
+import { isValidString } from '../../utils/string';
 import {
     INTL_RESOURCE_NAME,
     INTL_CHANGE_LOCALE,
@@ -18,14 +20,28 @@ import {
 import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
 
 /**
- * Handle locale string state change.
+ * Small helper to get a valid locale from action input.
  *
  * @param {string} locale - The new locale
+ * @returns {string} The validated locale
+ */
+export function getValidatedLocale(locale: string): string {
+    if (!isValidString(locale)) {
+        return '';
+    }
+    const trimmedLocale = locale.trim();
+    return AVAILABLE_LOCALES.includes(trimmedLocale) ? trimmedLocale : '';
+}
+
+/**
+ * Handle locale string state change.
+ *
+ * @param {string} [locale] - The new locale
  * @param {string} [fallback] - The fallback locale if new locale is not available
  * @returns {object} The redux action playload
  */
 export function changeIntlLocale(
-    locale: string,
+    locale?: string,
     fallback?: string
 ): ChangeIntlActionType {
     return {
@@ -47,42 +63,24 @@ export function reducer(
     state: IntlStateType = INITIAL_STATE,
     action: IntlActionTypes
 ): IntlStateType {
-    switch (action.type) {
-        case INTL_CHANGE_LOCALE: {
-            const locale = action.locale && action.locale.trim();
-            if (locale && AVAILABLE_LOCALES.includes(locale)) {
-                return {
-                    meta: {
-                        ...state.meta,
-                        isInitial: false
-                    },
-                    payload: {
-                        ...state.payload,
-                        locale
-                    }
-                };
-            }
+    return produce(state, function handleProduce(draft: Draft<IntlStateType>) {
+        // eslint-disable-next-line default-case
+        switch (action.type) {
+            case INTL_CHANGE_LOCALE: {
+                const actionLocale = getValidatedLocale(action.locale);
+                const actionFallback = getValidatedLocale(action.fallback);
+                const locale = actionLocale || actionFallback;
 
-            const fallback = action.fallback && action.fallback.trim();
-            if (fallback && AVAILABLE_LOCALES.includes(fallback)) {
-                return {
-                    meta: {
-                        ...state.meta,
-                        isInitial: false
-                    },
-                    payload: {
-                        ...state.payload,
-                        locale: fallback
-                    }
-                };
-            }
+                if (!isValidString(locale)) {
+                    break;
+                }
 
-            return state;
+                draft.meta.isInitial = false;
+                draft.payload.locale = locale;
+                break;
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    });
 }
 
 /**

@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
 import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 import {
     AVAILABLE_MOTION_PREFERENCES,
@@ -60,32 +61,29 @@ export function reducer(
     state: ReducedMotionStateType = INITIAL_STATE,
     action: ReducedMotionActionTypes
 ): ReducedMotionStateType {
-    switch (action.type) {
-        case REDUCED_MOTION_TOGGLE_SELECTED: {
-            const currentSelected = state.payload.selected;
-            const systemSetting = hasReducedMotionEnabled()
-                ? AVAILABLE_MOTION_PREFERENCES.REDUCE
-                : AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE;
-            const selected =
-                currentSelected === INITIAL_STATE.payload.selected
-                    ? toggleSelected(systemSetting)
-                    : toggleSelected(currentSelected);
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ReducedMotionStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case REDUCED_MOTION_TOGGLE_SELECTED: {
+                    // @TODO: Reducer must be pure, use redux-sagas here!
+                    const currentSelected = state.payload.selected;
+                    const systemSetting = hasReducedMotionEnabled()
+                        ? AVAILABLE_MOTION_PREFERENCES.REDUCE
+                        : AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE;
+                    const selected =
+                        currentSelected === INITIAL_STATE.payload.selected
+                            ? toggleSelected(systemSetting)
+                            : toggleSelected(currentSelected);
 
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    selected
+                    draft.meta.isInitial = false;
+                    draft.payload.selected = selected;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**
