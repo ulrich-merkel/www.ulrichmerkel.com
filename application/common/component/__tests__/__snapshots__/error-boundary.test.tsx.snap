@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary should handle errors 1`] = `
+<DocumentFragment>
+  <h1>
+    Something went wrong.
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`ErrorBoundary should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="test-child"
+  />
+</DocumentFragment>
+`;

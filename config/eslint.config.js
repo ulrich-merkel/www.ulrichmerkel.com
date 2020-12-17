@@ -69,7 +69,7 @@ module.exports = {
         'jsdoc/check-tag-names': [
             'warn',
             {
-                definedTags: ['changelog', 'TODO']
+                definedTags: ['changelog', 'jest-environment', 'TODO']
             }
         ],
         'jsdoc/check-types': 'warn',
@@ -175,6 +175,7 @@ module.exports = {
         'react/jsx-one-expression-per-line': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/no-danger': 'off',
+        'react/state-in-constructor': 'off',
         'security/detect-buffer-noassert': 'error',
         'security/detect-child-process': 'error',
         'security/detect-eval-with-expression': 'error',

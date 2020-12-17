@@ -132,6 +132,7 @@ $ npm run doc
 * [NPM vs Yarn Cheat Sheet](https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc#.ay5ro7jpv)
 * [Unit testing CLI programs](https://glebbahmutov.com/blog/unit-testing-cli-programs/)
 * [Awesome Node.js](https://github.com/sindresorhus/awesome-nodejs)
+* [Awesome npm scripts](https://project-awesome.org/RyanZim/awesome-npm-scripts)
 
 ### Babel
 
