@@ -62,26 +62,29 @@ export function reducer(
     state: ColorSchemeStateType = INITIAL_STATE,
     action: ColorSchemeActionTypes
 ): ColorSchemeStateType {
-    return produce(state, function (draft: Draft<ColorSchemeStateType>) {
-        // eslint-disable-next-line default-case
-        switch (action.type) {
-            case COLOR_SCHEME_TOGGLE_SELECTED: {
-                // @TODO: Reducer must be pure, use redux-sagas here!
-                const currentSelected = state.payload.selected;
-                const systemSetting = hasDarkModeEnabled()
-                    ? AVAILABLE_COLOR_SCHEMES.DARK
-                    : AVAILABLE_COLOR_SCHEMES.LIGHT;
-                const selected =
-                    currentSelected === INITIAL_STATE.payload.selected
-                        ? toggleSelected(systemSetting)
-                        : toggleSelected(currentSelected);
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ColorSchemeStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case COLOR_SCHEME_TOGGLE_SELECTED: {
+                    // @TODO: Reducer must be pure, use redux-sagas here!
+                    const currentSelected = state.payload.selected;
+                    const systemSetting = hasDarkModeEnabled()
+                        ? AVAILABLE_COLOR_SCHEMES.DARK
+                        : AVAILABLE_COLOR_SCHEMES.LIGHT;
+                    const selected =
+                        currentSelected === INITIAL_STATE.payload.selected
+                            ? toggleSelected(systemSetting)
+                            : toggleSelected(currentSelected);
 
-                draft.meta.isInitial = false;
-                draft.payload.selected = selected;
-                break;
+                    draft.meta.isInitial = false;
+                    draft.payload.selected = selected;
+                    break;
+                }
             }
         }
-    });
+    );
 }
 
 /**

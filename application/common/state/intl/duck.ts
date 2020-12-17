@@ -17,7 +17,12 @@ import {
     AVAILABLE_LOCALES,
     INITIAL_STATE
 } from './constants';
-import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
+import {
+    ChangeIntlActionType,
+    IntlActionTypes,
+    IntlStateType,
+    Locale
+} from './types';
 
 /**
  * Small helper to get a valid locale from action input.
@@ -25,7 +30,7 @@ import { ChangeIntlActionType, IntlActionTypes, IntlStateType } from './types';
  * @param {string} locale - The new locale
  * @returns {string} The validated locale
  */
-export function getValidatedLocale(locale: string): string {
+export function getValidatedLocale(locale: Locale): Locale {
     if (!isValidString(locale)) {
         return '';
     }

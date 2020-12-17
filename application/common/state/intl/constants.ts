@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import { IntlStateType, Locale } from './types';
 
 /**
  * @type {string}

@@ -43,21 +43,24 @@ export function reducer(
     state: ContactStateType = INITIAL_STATE,
     action: ContactActionTypes
 ): ContactStateType {
-    return produce(state, function (draft: Draft<ContactStateType>) {
-        // eslint-disable-next-line default-case
-        switch (action.type) {
-            case CHANGE_CONTACT_FORM: {
-                const { form } = action;
-                if (isEmpty(form)) {
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ContactStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case CHANGE_CONTACT_FORM: {
+                    const { form } = action;
+                    if (isEmpty(form)) {
+                        break;
+                    }
+
+                    draft.meta.isInitial = false;
+                    draft.payload.form = form;
                     break;
                 }
-
-                draft.meta.isInitial = false;
-                draft.payload.form = form;
-                break;
             }
         }
-    });
+    );
 }
 
 /**

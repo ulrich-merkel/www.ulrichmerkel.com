@@ -43,7 +43,7 @@ export function reducer(
     state: CsrfStateType = INITIAL_STATE,
     action: CsrfActionTypes
 ): CsrfStateType {
-    return produce(state, function (draft: Draft<CsrfStateType>) {
+    return produce(state, function handleProduce(draft: Draft<CsrfStateType>) {
         // eslint-disable-next-line default-case
         switch (action.type) {
             case CHANGE_CSRF_TOKEN: {

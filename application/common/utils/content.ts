@@ -8,7 +8,7 @@
  */
 import { get, isArray, isObject, isString } from 'lodash';
 
-import { AVAILABLE_LOCALES } from '../state/intl/duck';
+import { AVAILABLE_LOCALES } from '../state/intl/constants';
 import { Locale } from '../state/intl/types';
 
 /**
