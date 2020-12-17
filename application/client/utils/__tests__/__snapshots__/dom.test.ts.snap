@@ -29,17 +29,6 @@ Document {
     "search": "",
     "toString": [Function],
   },
-  Symbol(DOM SymbolTree): SymbolTreeNode {
-    "cachedIndex": -1,
-    "cachedIndexVersion": NaN,
-    "childIndexCachedUpTo": null,
-    "childrenVersion": 0,
-    "firstChild": null,
-    "lastChild": null,
-    "nextSibling": null,
-    "parent": null,
-    "previousSibling": null,
-  },
 }
 `;
 
