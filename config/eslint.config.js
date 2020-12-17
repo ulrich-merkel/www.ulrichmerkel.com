@@ -57,6 +57,7 @@ module.exports = {
                 tsx: 'never'
             }
         ],
+        'import/no-extraneous-dependencies': 'off',
         'immutable/no-mutation': 'off',
         'import/no-named-default': 'off',
         'import/prefer-default-export': 'off',
