@@ -10,12 +10,12 @@
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
 import produce, { Draft } from 'immer';
-import { hasReducedMotionEnabled } from '../../../client/feature-detect/has-reduced-motion-enabled';
 import {
     AVAILABLE_MOTION_PREFERENCES,
     INITIAL_STATE,
     REDUCED_MOTION_RESOURCE_NAME,
-    REDUCED_MOTION_TOGGLE_SELECTED
+    REDUCED_MOTION_TOGGLE_SELECTED,
+    REDUCED_MOTION_TOGGLE_SELECTED_SAGA
 } from './constants';
 import {
     ChangeReducedMotionSelectedActionType,
@@ -24,6 +24,8 @@ import {
     AvailableReducedMotionsType
 } from './types';
 
+const { NO_PREFERENCE, REDUCE } = AVAILABLE_MOTION_PREFERENCES;
+
 /**
  * Handle theme switch state change.
  *
@@ -31,7 +33,7 @@ import {
  */
 export function toggleReducedMotionSelected(): ChangeReducedMotionSelectedActionType {
     return {
-        type: REDUCED_MOTION_TOGGLE_SELECTED
+        type: REDUCED_MOTION_TOGGLE_SELECTED_SAGA
     };
 }
 
@@ -44,9 +46,7 @@ export function toggleReducedMotionSelected(): ChangeReducedMotionSelectedAction
 export function toggleSelected(
     currentSelected: AvailableReducedMotionsType
 ): AvailableReducedMotionsType {
-    return currentSelected === AVAILABLE_MOTION_PREFERENCES.REDUCE
-        ? AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE
-        : AVAILABLE_MOTION_PREFERENCES.REDUCE;
+    return currentSelected === REDUCE ? NO_PREFERENCE : REDUCE;
 }
 
 /**
@@ -67,15 +67,7 @@ export function reducer(
             // eslint-disable-next-line default-case
             switch (action.type) {
                 case REDUCED_MOTION_TOGGLE_SELECTED: {
-                    // @TODO: Reducer must be pure, use redux-sagas here!
-                    const currentSelected = state.payload.selected;
-                    const systemSetting = hasReducedMotionEnabled()
-                        ? AVAILABLE_MOTION_PREFERENCES.REDUCE
-                        : AVAILABLE_MOTION_PREFERENCES.NO_PREFERENCE;
-                    const selected =
-                        currentSelected === INITIAL_STATE.payload.selected
-                            ? toggleSelected(systemSetting)
-                            : toggleSelected(currentSelected);
+                    const selected = toggleSelected(action.selected);
 
                     draft.meta.isInitial = false;
                     draft.payload.selected = selected;

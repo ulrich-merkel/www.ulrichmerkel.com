@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toggleReducedMotionSelectedSaga should add the correct selected value for initial state 1`] = `
+Array [
+  Object {
+    "selected": "no-preference",
+    "type": "reducedMotion/REDUCED_MOTION_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`toggleReducedMotionSelectedSaga should add the correct selected value for no-preference 1`] = `
+Array [
+  Object {
+    "selected": "no-preference",
+    "type": "reducedMotion/REDUCED_MOTION_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`toggleReducedMotionSelectedSaga should add the correct selected value for reduce 1`] = `
+Array [
+  Object {
+    "selected": "reduce",
+    "type": "reducedMotion/REDUCED_MOTION_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`watchReducedMotion should watch correctly 1`] = `Array []`;

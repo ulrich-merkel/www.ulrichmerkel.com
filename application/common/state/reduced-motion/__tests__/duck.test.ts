@@ -2,7 +2,8 @@ import {
     AVAILABLE_MOTION_PREFERENCES,
     INITIAL_STATE,
     REDUCED_MOTION_RESOURCE_NAME,
-    REDUCED_MOTION_TOGGLE_SELECTED
+    REDUCED_MOTION_TOGGLE_SELECTED,
+    REDUCED_MOTION_TOGGLE_SELECTED_SAGA
 } from '../constants';
 import {
     reducer,
@@ -21,9 +22,9 @@ describe('toggleSelected', function fnDescribe() {
 });
 
 describe('toggleReducedMotionSelected', function fnDescribe() {
-    it(`should have a type of ${REDUCED_MOTION_TOGGLE_SELECTED}`, function fnIt() {
+    it(`should have a type of ${REDUCED_MOTION_TOGGLE_SELECTED_SAGA}`, function fnIt() {
         expect(toggleReducedMotionSelected().type).toEqual(
-            REDUCED_MOTION_TOGGLE_SELECTED
+            REDUCED_MOTION_TOGGLE_SELECTED_SAGA
         );
     });
 });
@@ -53,7 +54,8 @@ describe('reducer', function fnDescribe() {
                     }
                 },
                 {
-                    type: REDUCED_MOTION_TOGGLE_SELECTED
+                    type: REDUCED_MOTION_TOGGLE_SELECTED,
+                    selected: NO_PREFERENCE
                 }
             )
         ).toMatchSnapshot();
@@ -68,7 +70,8 @@ describe('reducer', function fnDescribe() {
                     }
                 },
                 {
-                    type: REDUCED_MOTION_TOGGLE_SELECTED
+                    type: REDUCED_MOTION_TOGGLE_SELECTED,
+                    selected: REDUCE
                 }
             )
         ).toMatchSnapshot();

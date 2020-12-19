@@ -3,13 +3,14 @@ import {
     AVAILABLE_MOTION_PREFERENCES
 } from './constants';
 
+export type AvailableReducedMotionsType = typeof AVAILABLE_MOTION_PREFERENCES[keyof typeof AVAILABLE_MOTION_PREFERENCES];
+
 export interface ChangeReducedMotionSelectedActionType {
+    selected?: AvailableReducedMotionsType;
     type: typeof REDUCED_MOTION_TOGGLE_SELECTED;
 }
 
 export type ReducedMotionActionTypes = ChangeReducedMotionSelectedActionType;
-
-export type AvailableReducedMotionsType = typeof AVAILABLE_MOTION_PREFERENCES[keyof typeof AVAILABLE_MOTION_PREFERENCES];
 
 export interface ReducedMotionStateType {
     meta: {

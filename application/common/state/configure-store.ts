@@ -13,6 +13,7 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { omit } from 'lodash';
+import createSagaMiddleware from 'redux-saga';
 
 import { debug } from '../config/application';
 import { isBrowser } from '../utils/environment';
@@ -23,9 +24,13 @@ import {
 } from './config/duck';
 import { selectStateIntlLocale } from './intl/selector';
 import { rootReducer, RootState } from './root-reducer';
+import { rootSaga } from './root-saga';
 
 // Neat middleware that logs actions
 const loggerMiddleware = createLogger();
+
+// Create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
 /**
  * Creates a Redux store that holds the complete state tree of your app.
@@ -37,7 +42,8 @@ const loggerMiddleware = createLogger();
 export function configureStore(preloadedState?: RootState): Store {
     const middlewares = [
         thunkMiddleware,
-        debug && isBrowser() && loggerMiddleware
+        debug && isBrowser() && loggerMiddleware,
+        sagaMiddleware
     ].filter(Boolean);
 
     // Create store with preloaded/cached data
@@ -49,6 +55,9 @@ export function configureStore(preloadedState?: RootState): Store {
         },
         applyMiddleware(...middlewares)
     );
+
+    // Adding all sagas to middleware
+    sagaMiddleware.run(rootSaga);
 
     const { dispatch, getState, subscribe } = store;
 
