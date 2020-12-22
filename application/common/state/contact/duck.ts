@@ -9,12 +9,14 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
+import { isEmpty } from 'lodash';
 import {
     CONTACT_RESOURCE_NAME,
     CHANGE_CONTACT_FORM,
     INITIAL_STATE
 } from './constants';
-import { ContactStateType, ContactActionTypes } from './types';
+import { ContactStateType, ContactActionTypes, ContactFormType } from './types';
 
 /**
  * Handle contact form values changes.
@@ -22,9 +24,7 @@ import { ContactStateType, ContactActionTypes } from './types';
  * @param {object} form - The contact form values
  * @returns {object} The redux action playload
  */
-export function changeContactForm(
-    form: Record<string, unknown>
-): ContactActionTypes {
+export function changeContactForm(form: ContactFormType): ContactActionTypes {
     return {
         type: CHANGE_CONTACT_FORM,
         form
@@ -43,24 +43,24 @@ export function reducer(
     state: ContactStateType = INITIAL_STATE,
     action: ContactActionTypes
 ): ContactStateType {
-    switch (action.type) {
-        case CHANGE_CONTACT_FORM: {
-            const form = action.form || {};
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    form
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ContactStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case CHANGE_CONTACT_FORM: {
+                    const { form } = action;
+                    if (isEmpty(form)) {
+                        break;
+                    }
+
+                    draft.meta.isInitial = false;
+                    draft.payload.form = form;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**

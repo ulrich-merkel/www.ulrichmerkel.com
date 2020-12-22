@@ -37,7 +37,7 @@
                     color: $theme-layout-print-text-visited-color !important;
                     // stylelint-enable declaration-no-important
                     text-decoration: underline;
-                    text-decoration-skip: ink;
+                    text-decoration-skip-ink: auto;
                 }
             }
         }

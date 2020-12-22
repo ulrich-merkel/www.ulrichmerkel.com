@@ -57,6 +57,7 @@ module.exports = {
                 tsx: 'never'
             }
         ],
+        'import/no-extraneous-dependencies': 'off',
         'immutable/no-mutation': 'off',
         'import/no-named-default': 'off',
         'import/prefer-default-export': 'off',
@@ -138,8 +139,12 @@ module.exports = {
         'lodash/prefer-constant': 'off',
         'lodash/prefer-lodash-method': 'off',
         'no-mixed-operators': ['error', { allowSamePrecedence: true }],
-        'no-void': 'warn',
+        'no-param-reassign': [
+            'error',
+            { props: true, ignorePropertyModificationsFor: ['draft'] }
+        ],
         'no-use-before-define': 'off',
+        'no-void': 'warn',
         'one-var': [
             'error',
             {

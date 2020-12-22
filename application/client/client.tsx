@@ -24,6 +24,7 @@ import * as React from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import { enableES5 } from 'immer';
 import PubSub from 'pubsub-js';
 import attachFastClick from 'fastclick';
 import 'picturefill';
@@ -54,7 +55,17 @@ if (debug) {
     window.React = React; // eslint-disable-line immutable/no-mutation
 }
 
+/**
+ * Adding manual feature detection instead of modernizr, because we get
+ * CSP conflicts otherwise.
+ */
 featureDetect();
+
+/**
+ * Enabling ES5 support for immer.js (because proxies are used which are
+ * not supported in every browser).
+ */
+enableES5();
 
 /**
  * Add fastclick mobile helper. The implementation is a bit
