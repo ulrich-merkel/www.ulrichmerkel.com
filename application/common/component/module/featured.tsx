@@ -49,7 +49,7 @@ export const ModuleFeatured: FunctionComponent<Props> = (props) => {
         <List className={componentClassName} {...{ itemType, role }}>
             {content.list.map(function fnMap(value) {
                 const { headline, img, lead, path } = value;
-                console.log({ value });
+
                 return (
                     <ModuleFeaturedItem
                         key={shortid.generate()}
