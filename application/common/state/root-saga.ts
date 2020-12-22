@@ -1,4 +1,5 @@
 import { all, fork, StrictEffect } from 'redux-saga/effects';
+import { watchColorScheme } from './color-scheme/sagas';
 import { watchReducedMotion } from './reduced-motion/sagas';
 
 /**
@@ -8,5 +9,5 @@ import { watchReducedMotion } from './reduced-motion/sagas';
  * @see {@link https://redux-saga.js.org/docs/advanced/RootSaga.html}
  */
 export function* rootSaga(): Generator<StrictEffect> {
-    yield all([fork(watchReducedMotion)]);
+    yield all([fork(watchColorScheme), fork(watchReducedMotion)]);
 }

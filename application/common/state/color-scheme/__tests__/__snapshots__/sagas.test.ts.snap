@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toggleColorSchemeSelectedSaga should add the correct selected value for dark 1`] = `
+Array [
+  Object {
+    "selected": "dark",
+    "type": "colorScheme/COLOR_SCHEME_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`toggleColorSchemeSelectedSaga should add the correct selected value for initial state 1`] = `
+Array [
+  Object {
+    "selected": "light",
+    "type": "colorScheme/COLOR_SCHEME_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`toggleColorSchemeSelectedSaga should add the correct selected value for light 1`] = `
+Array [
+  Object {
+    "selected": "light",
+    "type": "colorScheme/COLOR_SCHEME_TOGGLE_SELECTED",
+  },
+]
+`;
+
+exports[`watchColorScheme should watch correctly 1`] = `Array []`;

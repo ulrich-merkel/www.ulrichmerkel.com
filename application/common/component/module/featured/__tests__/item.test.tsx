@@ -4,7 +4,7 @@ import { ModuleFeaturedItem } from '../item';
 
 describe('ModuleFeaturedItem', function fnDescribe() {
     const props = {
-        path: '/work/test',
+        path: '/like-architecture',
         headline: 'Featured item work headline',
         img: {}
     };
@@ -20,6 +20,14 @@ describe('ModuleFeaturedItem', function fnDescribe() {
     it('should render correctly with defaults', function fnIt() {
         const { asFragment } = render(
             <ModuleFeaturedItem>
+                Module featured item children
+            </ModuleFeaturedItem>
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
+    it('should render null without valid path', function fnIt() {
+        const { asFragment } = render(
+            <ModuleFeaturedItem path="">
                 Module featured item children
             </ModuleFeaturedItem>
         );
