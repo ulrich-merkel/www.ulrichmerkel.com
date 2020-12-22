@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`server should handle react routing 1`] = `Object {}`;
+
 exports[`server should handle unknown post requests 1`] = `Object {}`;

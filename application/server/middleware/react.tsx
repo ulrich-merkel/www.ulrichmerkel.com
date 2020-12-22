@@ -160,7 +160,7 @@ export function middlewareReact(
     assert.optionalFunc(next, 'next');
 
     // Just render get requests
-    if (req.method !== 'GET') {
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
         return next();
     }
 

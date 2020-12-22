@@ -35,6 +35,7 @@ import ip from 'ip';
 import assert from 'assert-plus';
 import hostValidation from 'host-validation';
 import gnuTP from 'gnu-terry-pratchett';
+import serveStatic from 'serve-static';
 
 import { url, port, sessionSecret, debug } from '../common/config/application';
 import { logger } from '../common/utils/logger';
@@ -109,7 +110,7 @@ function createServer(config?: Config, callback?: Callback): Application {
     // Log all request in the Apache combined format to STDOUT,
     // create a write stream (in append mode)
     if (debug) {
-        // TODO: Check if morganLogPath file and dir exists otherwise create it
+        // @TODO: Check if morganLogPath file and dir exists otherwise create it
         const morganLogPath = path.resolve(__dirname, options.morganLogPath);
         app.use(
             morgan('combined', {
@@ -181,10 +182,15 @@ function createServer(config?: Config, callback?: Callback): Application {
     // @TODO app.use(shrinkRay()); can't be used until now because the target system is not supported
     app.use(compression());
 
-    // Serve static files
+    // Serve static files. Create a new middleware function to serve files from within a given root directory.
+    // The file to serve will be determined by combining req.url with the provided root directory. When a file
+    // is not found, instead of sending a 404 response, this module will instead call next() to move on to the
+    // next middleware, allowing for stacking and fall-backs.
+    // @see {@link https://github.com/expressjs/serve-static}
     app.use(
-        express.static(path.resolve(__dirname, options.staticPath), {
-            index: false
+        serveStatic(path.resolve(__dirname, options.staticPath), {
+            index: false,
+            fallthrough: true
         })
     );
 
