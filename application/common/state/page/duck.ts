@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
 import {
     INITIAL_STATE,
     PAGE_RESOURCE_NAME,
@@ -39,25 +40,17 @@ export function reducer(
     state: PageStateType = INITIAL_STATE,
     action: PageActionTypes
 ): PageStateType {
-    switch (action.type) {
-        case PAGE_INCREASE_VIEWS: {
-            const viewsAfterReload = state.payload.viewsAfterReload + 1;
+    return produce(state, function handleProduce(draft: Draft<PageStateType>) {
+        // eslint-disable-next-line default-case
+        switch (action.type) {
+            case PAGE_INCREASE_VIEWS: {
+                const viewsAfterReload = state.payload.viewsAfterReload + 1;
 
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    viewsAfterReload
-                }
-            };
+                draft.meta.isInitial = false;
+                draft.payload.viewsAfterReload = viewsAfterReload;
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    });
 }
 
 /**

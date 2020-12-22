@@ -9,6 +9,7 @@
 import { default as React, FunctionComponent, ReactNode } from 'react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
+import { ErrorBoundary } from './error-boundary';
 
 type RootProps = {
     children: ReactNode;
@@ -27,5 +28,9 @@ type RootProps = {
 export const Root: FunctionComponent<RootProps> = (props) => {
     const { children, store } = props;
 
-    return <Provider {...{ store }}>{children}</Provider>;
+    return (
+        <Provider {...{ store }}>
+            <ErrorBoundary>{children}</ErrorBoundary>
+        </Provider>
+    );
 };

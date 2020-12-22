@@ -57,6 +57,7 @@ module.exports = {
                 tsx: 'never'
             }
         ],
+        'import/no-extraneous-dependencies': 'off',
         'immutable/no-mutation': 'off',
         'import/no-named-default': 'off',
         'import/prefer-default-export': 'off',
@@ -69,7 +70,7 @@ module.exports = {
         'jsdoc/check-tag-names': [
             'warn',
             {
-                definedTags: ['changelog', 'TODO']
+                definedTags: ['changelog', 'jest-environment', 'TODO']
             }
         ],
         'jsdoc/check-types': 'warn',
@@ -138,8 +139,12 @@ module.exports = {
         'lodash/prefer-constant': 'off',
         'lodash/prefer-lodash-method': 'off',
         'no-mixed-operators': ['error', { allowSamePrecedence: true }],
-        'no-void': 'warn',
+        'no-param-reassign': [
+            'error',
+            { props: true, ignorePropertyModificationsFor: ['draft'] }
+        ],
         'no-use-before-define': 'off',
+        'no-void': 'warn',
         'one-var': [
             'error',
             {
@@ -171,6 +176,7 @@ module.exports = {
         'react/jsx-one-expression-per-line': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/no-danger': 'off',
+        'react/state-in-constructor': 'off',
         'security/detect-buffer-noassert': 'error',
         'security/detect-child-process': 'error',
         'security/detect-eval-with-expression': 'error',

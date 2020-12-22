@@ -11,7 +11,7 @@ import { default as React, ChangeEvent, FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 import { noop } from 'lodash';
 
-import { toggleThemeSelected } from '../../../state/color-scheme/duck';
+import { toggleColorSchemeSelected } from '../../../state/color-scheme/duck';
 import { selectStateCsrfToken } from '../../../state/csrf/selector';
 import { selectStateColorSchemeSelectedDarkMode } from '../../../state/color-scheme/selector';
 import { toggleReducedMotionSelected } from '../../../state/reduced-motion/duck';
@@ -122,7 +122,7 @@ function mapStateToProps(state) {
  * @type {object<string, Function>}
  */
 const mapDispatchToProps = {
-    onToggleThemeSelected: toggleThemeSelected,
+    onToggleThemeSelected: toggleColorSchemeSelected,
     onToggleReducedMotionSelected: toggleReducedMotionSelected
 };
 

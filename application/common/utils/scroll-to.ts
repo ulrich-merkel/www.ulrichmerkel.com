@@ -147,7 +147,7 @@ export function scrollTo(opts: ScrollToOptions = {}): void {
 
     if (!duration) {
         if (hasWindowScrollTo) {
-            window.scrollTo(0, top);
+            window?.scrollTo?.(0, top);
         }
         callFn(callback);
         return;
@@ -164,7 +164,7 @@ export function scrollTo(opts: ScrollToOptions = {}): void {
                 scrollTopCurrent + (top - scrollTopCurrent) * progress
             );
             if (hasWindowScrollTo) {
-                window.scrollTo(0, target);
+                window?.scrollTo?.(0, target);
             }
         }
     });

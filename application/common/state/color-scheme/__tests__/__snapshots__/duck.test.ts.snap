@@ -6,7 +6,7 @@ Object {
     "isInitial": false,
   },
   "payload": Object {
-    "selected": "dark",
+    "selected": "light",
   },
 }
 `;
@@ -17,7 +17,7 @@ Object {
     "isInitial": false,
   },
   "payload": Object {
-    "selected": "dark",
+    "selected": "light",
   },
 }
 `;
@@ -28,7 +28,7 @@ Object {
     "isInitial": false,
   },
   "payload": Object {
-    "selected": "dark",
+    "selected": "light",
   },
 }
 `;

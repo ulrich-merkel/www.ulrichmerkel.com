@@ -14,10 +14,23 @@ Object {
 exports[`reducer should return the current state if contact/CHANGE_CONTACT_FORM payload is empty 1`] = `
 Object {
   "meta": Object {
-    "isInitial": false,
+    "isInitial": true,
   },
   "payload": Object {
-    "form": Object {},
+    "form": Object {
+      "email": "",
+      "emailPristine": false,
+      "error": false,
+      "message": "",
+      "messagePristine": false,
+      "name": "",
+      "namePristine": false,
+      "pending": false,
+      "pristine": false,
+      "subject": "",
+      "subjectPristine": false,
+      "success": false,
+    },
   },
 }
 `;

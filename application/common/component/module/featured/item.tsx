@@ -19,6 +19,7 @@ import { Icon } from '../../element/icon';
 import { ListItem } from '../../element/list-item';
 import { Picture } from '../../element/picture';
 import { Meta } from '../../element/meta';
+import { isValidString } from '../../../utils/string';
 
 type Props = {
     path?: string;
@@ -44,7 +45,12 @@ type Props = {
 export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
     const { path = '', headline, img, children } = props;
 
+    if (!isValidString(path)) {
+        return null;
+    }
+
     const componentListItemClassName = classnames('m-featured__item');
+    const to = path.startsWith('/') ? `/work${path}` : `/work/${path}`;
 
     return (
         <ListItem
@@ -52,11 +58,7 @@ export const ModuleFeaturedItem: FunctionComponent<Props> = (props) => {
             itemProp="itemListElement"
             itemType="https://schema.org/SiteNavigationElement"
         >
-            <A
-                to={`/work/${path}`}
-                className={componentListItemClassName}
-                title={headline}
-            >
+            <A className={componentListItemClassName} title={headline} to={to}>
                 <span className="m-featured__hover">
                     <span className="m-featured__text">
                         <span

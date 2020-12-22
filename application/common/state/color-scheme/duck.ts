@@ -10,11 +10,12 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
-import { hasDarkModeEnabled } from '../../../client/feature-detect/has-dark-mode-enabled';
+import produce, { Draft } from 'immer';
 import {
     AVAILABLE_COLOR_SCHEMES,
     COLOR_SCHEME_RESOURCE_NAME,
     COLOR_SCHEME_TOGGLE_SELECTED,
+    COLOR_SCHEME_TOGGLE_SELECTED_SAGA,
     INITIAL_STATE
 } from './constants';
 import {
@@ -24,14 +25,16 @@ import {
     ColorSchemeStateType
 } from './types';
 
+const { DARK, LIGHT } = AVAILABLE_COLOR_SCHEMES;
+
 /**
  * Handle theme switch state change.
  *
  * @returns {object} The redux action playload
  */
-export function toggleThemeSelected(): ChangeThemeSelectedActionType {
+export function toggleColorSchemeSelected(): ChangeThemeSelectedActionType {
     return {
-        type: COLOR_SCHEME_TOGGLE_SELECTED
+        type: COLOR_SCHEME_TOGGLE_SELECTED_SAGA
     };
 }
 
@@ -44,9 +47,7 @@ export function toggleThemeSelected(): ChangeThemeSelectedActionType {
 export function toggleSelected(
     currentSelected: AvailableColorSchemesType
 ): AvailableColorSchemesType {
-    return currentSelected === AVAILABLE_COLOR_SCHEMES.LIGHT
-        ? AVAILABLE_COLOR_SCHEMES.DARK
-        : AVAILABLE_COLOR_SCHEMES.LIGHT;
+    return currentSelected === LIGHT ? DARK : LIGHT;
 }
 
 /**
@@ -61,32 +62,21 @@ export function reducer(
     state: ColorSchemeStateType = INITIAL_STATE,
     action: ColorSchemeActionTypes
 ): ColorSchemeStateType {
-    switch (action.type) {
-        case COLOR_SCHEME_TOGGLE_SELECTED: {
-            const currentSelected = state.payload.selected;
-            const systemSetting = hasDarkModeEnabled()
-                ? AVAILABLE_COLOR_SCHEMES.DARK
-                : AVAILABLE_COLOR_SCHEMES.LIGHT;
-            const selected =
-                currentSelected === INITIAL_STATE.payload.selected
-                    ? toggleSelected(systemSetting)
-                    : toggleSelected(currentSelected);
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ColorSchemeStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case COLOR_SCHEME_TOGGLE_SELECTED: {
+                    const selected = toggleSelected(action.selected);
 
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    selected
+                    draft.meta.isInitial = false;
+                    draft.payload.selected = selected;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**

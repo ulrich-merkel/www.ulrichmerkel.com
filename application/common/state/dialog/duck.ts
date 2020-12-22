@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
 import { isBoolean } from 'lodash';
 import {
     DIALOG_RESOURCE_NAME,
@@ -90,30 +91,26 @@ export function reducer(
     state: DialogStateType = INITIAL_STATE,
     action: DialogActionTypes
 ): DialogStateType {
-    switch (action.type) {
-        case DIALOG_VISIBLE_CHANGE: {
-            const { content, visible } = action;
+    return produce(
+        state,
+        function handleProduce(draft: Draft<DialogStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case DIALOG_VISIBLE_CHANGE: {
+                    const { content, visible } = action;
 
-            if (!isBoolean(visible)) {
-                return state;
-            }
+                    if (!isBoolean(visible)) {
+                        break;
+                    }
 
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    content,
-                    visible
+                    draft.meta.isInitial = false;
+                    draft.payload.content = content;
+                    draft.payload.visible = visible;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**

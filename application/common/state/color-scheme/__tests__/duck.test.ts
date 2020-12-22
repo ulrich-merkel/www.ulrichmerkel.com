@@ -2,10 +2,11 @@ import {
     AVAILABLE_COLOR_SCHEMES,
     INITIAL_STATE,
     COLOR_SCHEME_RESOURCE_NAME,
-    COLOR_SCHEME_TOGGLE_SELECTED
+    COLOR_SCHEME_TOGGLE_SELECTED,
+    COLOR_SCHEME_TOGGLE_SELECTED_SAGA
 } from '../constants';
 import {
-    toggleThemeSelected,
+    toggleColorSchemeSelected,
     reducer,
     reducerColorScheme,
     toggleSelected
@@ -20,10 +21,10 @@ describe('toggleSelected', function fnDescribe() {
     });
 });
 
-describe('toggleThemeSelected', function fnDescribe() {
-    it(`should have a type of ${COLOR_SCHEME_TOGGLE_SELECTED}`, function fnIt() {
-        expect(toggleThemeSelected().type).toEqual(
-            COLOR_SCHEME_TOGGLE_SELECTED
+describe('toggleColorSchemeSelected', function fnDescribe() {
+    it(`should have a type of ${COLOR_SCHEME_TOGGLE_SELECTED_SAGA}`, function fnIt() {
+        expect(toggleColorSchemeSelected().type).toEqual(
+            COLOR_SCHEME_TOGGLE_SELECTED_SAGA
         );
     });
 });

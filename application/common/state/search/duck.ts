@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
 import { isString } from 'lodash';
 import {
     SEARCH_RESOURCE_NAME,
@@ -42,24 +43,21 @@ export function reducer(
     state: SearchStateType = INITIAL_STATE,
     action: SearchActionTypes
 ): SearchStateType {
-    switch (action.type) {
-        case SEARCH_CHANGE_TERM: {
-            const term = isString(action.term) ? action.term : '';
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    term
+    return produce(
+        state,
+        function handleProduce(draft: Draft<SearchStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case SEARCH_CHANGE_TERM: {
+                    const term = isString(action.term) ? action.term : '';
+
+                    draft.meta.isInitial = false;
+                    draft.payload.term = term;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**

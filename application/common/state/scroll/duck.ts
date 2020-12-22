@@ -9,6 +9,7 @@
  * @see {@link https://github.com/erikras/ducks-modular-redux}
  * @see {@link http://redux.js.org/docs/recipes/reducers/ImmutableUpdatePatterns.html}
  */
+import produce, { Draft } from 'immer';
 import { isBoolean } from 'lodash';
 import {
     INITIAL_STATE,
@@ -65,41 +66,32 @@ export function reducer(
     state: ScrollStateType = INITIAL_STATE,
     action: ScrollActionTypes
 ): ScrollStateType {
-    switch (action.type) {
-        case SCROLL_HEADER_FIXED: {
-            const isHeaderFixed = isBoolean(action.isHeaderFixed)
-                ? !!action.isHeaderFixed
-                : INITIAL_STATE.payload.isHeaderFixed;
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    isHeaderFixed
+    return produce(
+        state,
+        function handleProduce(draft: Draft<ScrollStateType>) {
+            // eslint-disable-next-line default-case
+            switch (action.type) {
+                case SCROLL_HEADER_FIXED: {
+                    const isHeaderFixed = isBoolean(action.isHeaderFixed)
+                        ? !!action.isHeaderFixed
+                        : INITIAL_STATE.payload.isHeaderFixed;
+
+                    draft.meta.isInitial = false;
+                    draft.payload.isHeaderFixed = isHeaderFixed;
+                    break;
                 }
-            };
-        }
-        case SCROLL_HEADER_VISIBLE: {
-            const isHeaderVisible = isBoolean(action.isHeaderVisible)
-                ? !!action.isHeaderVisible
-                : INITIAL_STATE.payload.isHeaderVisible;
-            return {
-                meta: {
-                    ...state.meta,
-                    isInitial: false
-                },
-                payload: {
-                    ...state.payload,
-                    isHeaderVisible
+                case SCROLL_HEADER_VISIBLE: {
+                    const isHeaderVisible = isBoolean(action.isHeaderVisible)
+                        ? !!action.isHeaderVisible
+                        : INITIAL_STATE.payload.isHeaderVisible;
+
+                    draft.meta.isInitial = false;
+                    draft.payload.isHeaderVisible = isHeaderVisible;
+                    break;
                 }
-            };
+            }
         }
-        default: {
-            return state;
-        }
-    }
+    );
 }
 
 /**
