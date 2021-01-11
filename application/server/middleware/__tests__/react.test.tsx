@@ -3,7 +3,10 @@
  */
 /* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle, immutable/no-let */
 import httpMocks from 'node-mocks-http';
+import { REQUEST_METHODS } from '../../../common/constants/request';
 import { middlewareReact } from '../react';
+
+const { GET } = REQUEST_METHODS;
 
 describe('middlewareReact', function fnDescribe() {
     let req, res;
@@ -14,7 +17,7 @@ describe('middlewareReact', function fnDescribe() {
 
     it('should handle basic request', function fnIt() {
         req = httpMocks.createRequest({
-            method: 'GET',
+            method: GET,
             url: '/disclaimer/'
         });
         middlewareReact(req, res, jest.fn());
