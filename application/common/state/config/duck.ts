@@ -14,6 +14,7 @@ import { get } from 'lodash';
 import { Action } from 'redux';
 
 import { url } from '../../config/application';
+import { REQUEST_METHODS } from '../../constants/request';
 import { xhr } from '../../utils/xhr';
 import { getDateNow } from '../../utils/date';
 import { logger } from '../../utils/logger';
@@ -37,6 +38,8 @@ import {
     INITIAL_STATE,
     CONFIG_CONTENT_ADD
 } from './constants';
+
+const { GET } = REQUEST_METHODS;
 
 /**
  * Check if async data needs to be loaded from server.
@@ -192,7 +195,7 @@ export function fetchConfigContent() {
     return function reduxThunk(dispatch) {
         dispatch(requestConfigContent());
 
-        return xhr(`${url.api}${url.apiConfigContent}`, { method: 'GET' })
+        return xhr(`${url.api}${url.apiConfigContent}`, { method: GET })
             .then((response) => {
                 return response.json();
             })
@@ -217,7 +220,7 @@ export function fetchConfigTranslation(locale: Locale) {
     return function reduxThunk(dispatch) {
         dispatch(requestConfigTranslation(locale));
 
-        return xhr(`${url.api}${url.apiConfig}/${locale}`, { method: 'GET' })
+        return xhr(`${url.api}${url.apiConfig}/${locale}`, { method: GET })
             .then((response) => {
                 return response.json();
             })

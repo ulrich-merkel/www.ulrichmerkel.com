@@ -22,6 +22,7 @@ import { get } from 'lodash';
 import assert from 'assert-plus';
 
 import { configApplication } from '../../common/config/application';
+import { REQUEST_METHODS } from '../../common/constants/request';
 import { logger } from '../../common/utils/logger';
 import { readFile } from '../utils/read-file';
 import { Root } from '../../common/component/root';
@@ -38,6 +39,7 @@ import {
 import { changeCsrfToken } from '../../common/state/csrf/duck';
 
 const { aboveTheFold } = configApplication;
+const { GET, HEAD } = REQUEST_METHODS;
 
 type Rendered = {
     html: string;
@@ -160,7 +162,7 @@ export function middlewareReact(
     assert.optionalFunc(next, 'next');
 
     // Just render get requests
-    if (req.method !== 'GET') {
+    if (req.method !== GET && req.method !== HEAD) {
         return next();
     }
 
